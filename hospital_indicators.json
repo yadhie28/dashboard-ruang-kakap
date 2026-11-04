@@ -2,12 +2,12 @@
   "capacity": 41,
   "availableBeds": 41,
   "totalDays": 32,
-  "totalHP": 1099,
+  "totalHP": 1098,
   "totalDischarges": 6,
   "overall": {
-    "bor": 83.8,
-    "avlos": 183.2,
-    "toi": 35.5,
+    "bor": 83.7,
+    "avlos": 183.0,
+    "toi": 35.7,
     "bto": 0.1,
     "gdr": 500.0,
     "ndr": 300.0
@@ -15,11 +15,11 @@
   "monthly": {
     "2026-11": {
       "days": 32,
-      "hp": 1099,
+      "hp": 1098,
       "discharges": 6,
-      "bor": 83.8,
-      "avlos": 183.2,
-      "toi": 35.5,
+      "bor": 83.7,
+      "avlos": 183.0,
+      "toi": 35.7,
       "bto": 0.1,
       "gdr": 500.0,
       "ndr": 300.0
