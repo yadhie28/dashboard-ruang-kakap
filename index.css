@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DASHBOARD RUANG ENGGANG GADING 2 (EG2A & EG2B) - FRESH CLINICAL THEME
+   DASHBOARD RUANG RAWAT INAP KAKAP (TIM 1 & TIM 2) - FRESH CLINICAL THEME
    RSUD Dr. Soedarso Pontianak
    Modern, Bright, Crisp & Fresh Medical UI
    ========================================================================== */
@@ -43,6 +43,14 @@
   --accent-amber-light: #fffbeb;
 
   /* Wing Branding */
+  --kakapa-primary: #0284c7;
+  --kakapa-bg: #e0f2fe;
+  --kakapb-primary: #7c3aed;
+  --kakapb-bg: #f5f3ff;
+  --tim1-primary: #0284c7;
+  --tim1-bg: #e0f2fe;
+  --tim2-primary: #7c3aed;
+  --tim2-bg: #f5f3ff;
   --eg2a-primary: #0284c7;
   --eg2a-bg: #e0f2fe;
   --eg2b-primary: #7c3aed;
@@ -107,6 +115,14 @@
   --accent-amber: #f59e0b;
   --accent-amber-light: rgba(245, 158, 11, 0.15);
 
+  --kakapa-primary: #38bdf8;
+  --kakapa-bg: rgba(56, 189, 248, 0.18);
+  --kakapb-primary: #c084fc;
+  --kakapb-bg: rgba(192, 132, 252, 0.18);
+  --tim1-primary: #38bdf8;
+  --tim1-bg: rgba(56, 189, 248, 0.18);
+  --tim2-primary: #c084fc;
+  --tim2-bg: rgba(192, 132, 252, 0.18);
   --eg2a-primary: #38bdf8;
   --eg2a-bg: rgba(56, 189, 248, 0.18);
   --eg2b-primary: #c084fc;
@@ -223,6 +239,7 @@ body::before {
   border-color: rgba(245, 158, 11, 0.75);
 }
 
+.kakap-logo-img,
 .enggang-logo-img {
   width: 100%;
   height: 100%;
@@ -231,6 +248,7 @@ body::before {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.brand-logo:hover .kakap-logo-img,
 .brand-logo:hover .enggang-logo-img {
   transform: scale(1.1) rotate(-3deg);
 }
@@ -477,12 +495,16 @@ body::before {
   color: var(--text-secondary);
 }
 
+.badge-kakapa,
+.badge-tim1,
 .badge-eg2a {
   background: var(--eg2a-bg);
   color: #0284c7;
   border: 1px solid rgba(2, 132, 199, 0.3);
 }
 
+.badge-kakapb,
+.badge-tim2,
 .badge-eg2b {
   background: var(--eg2b-bg);
   color: #7c3aed;
@@ -637,12 +659,16 @@ body::before {
   border-radius: var(--radius-sm);
 }
 
+.kakapa-tag,
+.tim1-tag,
 .eg2a-tag {
   background: var(--eg2a-bg);
   color: #0284c7;
   border: 1px solid rgba(2, 132, 199, 0.25);
 }
 
+.kakapb-tag,
+.tim2-tag,
 .eg2b-tag {
   background: var(--eg2b-bg);
   color: #7c3aed;

@@ -13,7 +13,7 @@
       "Tim I (Kakap 1-5 & Isolasi - 21 Bed)",
       "Tim II (Kakap 6-10 - 20 Bed)"
     ],
-    "lastUpdated": "04-11-2026 06:12:05",
+    "lastUpdated": "04-11-2026 19:20:20",
     "latestDate": "2026-11-04",
     "totalDatesRecorded": 2,
     "dateRange": "2026-11-03 s/d 2026-11-04",
@@ -24,246 +24,6 @@
     "2026-11-04"
   ],
   "history": [
-    {
-      "date": "2026-10-04",
-      "occTim1": 17,
-      "occTim2": 14,
-      "totalOcc": 31,
-      "totalBeds": 41,
-      "bor": 75.6
-    },
-    {
-      "date": "2026-10-05",
-      "occTim1": 19,
-      "occTim2": 15,
-      "totalOcc": 34,
-      "totalBeds": 41,
-      "bor": 82.9
-    },
-    {
-      "date": "2026-10-06",
-      "occTim1": 18,
-      "occTim2": 15,
-      "totalOcc": 33,
-      "totalBeds": 41,
-      "bor": 80.5
-    },
-    {
-      "date": "2026-10-07",
-      "occTim1": 17,
-      "occTim2": 18,
-      "totalOcc": 35,
-      "totalBeds": 41,
-      "bor": 85.4
-    },
-    {
-      "date": "2026-10-08",
-      "occTim1": 17,
-      "occTim2": 18,
-      "totalOcc": 35,
-      "totalBeds": 41,
-      "bor": 85.4
-    },
-    {
-      "date": "2026-10-09",
-      "occTim1": 20,
-      "occTim2": 14,
-      "totalOcc": 34,
-      "totalBeds": 41,
-      "bor": 82.9
-    },
-    {
-      "date": "2026-10-10",
-      "occTim1": 17,
-      "occTim2": 14,
-      "totalOcc": 31,
-      "totalBeds": 41,
-      "bor": 75.6
-    },
-    {
-      "date": "2026-10-11",
-      "occTim1": 18,
-      "occTim2": 15,
-      "totalOcc": 33,
-      "totalBeds": 41,
-      "bor": 80.5
-    },
-    {
-      "date": "2026-10-12",
-      "occTim1": 17,
-      "occTim2": 18,
-      "totalOcc": 35,
-      "totalBeds": 41,
-      "bor": 85.4
-    },
-    {
-      "date": "2026-10-13",
-      "occTim1": 18,
-      "occTim2": 18,
-      "totalOcc": 36,
-      "totalBeds": 41,
-      "bor": 87.8
-    },
-    {
-      "date": "2026-10-14",
-      "occTim1": 20,
-      "occTim2": 15,
-      "totalOcc": 35,
-      "totalBeds": 41,
-      "bor": 85.4
-    },
-    {
-      "date": "2026-10-15",
-      "occTim1": 20,
-      "occTim2": 18,
-      "totalOcc": 38,
-      "totalBeds": 41,
-      "bor": 92.7
-    },
-    {
-      "date": "2026-10-16",
-      "occTim1": 19,
-      "occTim2": 14,
-      "totalOcc": 33,
-      "totalBeds": 41,
-      "bor": 80.5
-    },
-    {
-      "date": "2026-10-17",
-      "occTim1": 18,
-      "occTim2": 17,
-      "totalOcc": 35,
-      "totalBeds": 41,
-      "bor": 85.4
-    },
-    {
-      "date": "2026-10-18",
-      "occTim1": 19,
-      "occTim2": 16,
-      "totalOcc": 35,
-      "totalBeds": 41,
-      "bor": 85.4
-    },
-    {
-      "date": "2026-10-19",
-      "occTim1": 18,
-      "occTim2": 15,
-      "totalOcc": 33,
-      "totalBeds": 41,
-      "bor": 80.5
-    },
-    {
-      "date": "2026-10-20",
-      "occTim1": 19,
-      "occTim2": 14,
-      "totalOcc": 33,
-      "totalBeds": 41,
-      "bor": 80.5
-    },
-    {
-      "date": "2026-10-21",
-      "occTim1": 17,
-      "occTim2": 17,
-      "totalOcc": 34,
-      "totalBeds": 41,
-      "bor": 82.9
-    },
-    {
-      "date": "2026-10-22",
-      "occTim1": 17,
-      "occTim2": 16,
-      "totalOcc": 33,
-      "totalBeds": 41,
-      "bor": 80.5
-    },
-    {
-      "date": "2026-10-23",
-      "occTim1": 19,
-      "occTim2": 18,
-      "totalOcc": 37,
-      "totalBeds": 41,
-      "bor": 90.2
-    },
-    {
-      "date": "2026-10-24",
-      "occTim1": 19,
-      "occTim2": 14,
-      "totalOcc": 33,
-      "totalBeds": 41,
-      "bor": 80.5
-    },
-    {
-      "date": "2026-10-25",
-      "occTim1": 20,
-      "occTim2": 18,
-      "totalOcc": 38,
-      "totalBeds": 41,
-      "bor": 92.7
-    },
-    {
-      "date": "2026-10-26",
-      "occTim1": 17,
-      "occTim2": 17,
-      "totalOcc": 34,
-      "totalBeds": 41,
-      "bor": 82.9
-    },
-    {
-      "date": "2026-10-27",
-      "occTim1": 17,
-      "occTim2": 18,
-      "totalOcc": 35,
-      "totalBeds": 41,
-      "bor": 85.4
-    },
-    {
-      "date": "2026-10-28",
-      "occTim1": 19,
-      "occTim2": 18,
-      "totalOcc": 37,
-      "totalBeds": 41,
-      "bor": 90.2
-    },
-    {
-      "date": "2026-10-29",
-      "occTim1": 19,
-      "occTim2": 18,
-      "totalOcc": 37,
-      "totalBeds": 41,
-      "bor": 90.2
-    },
-    {
-      "date": "2026-10-30",
-      "occTim1": 18,
-      "occTim2": 14,
-      "totalOcc": 32,
-      "totalBeds": 41,
-      "bor": 78.0
-    },
-    {
-      "date": "2026-10-31",
-      "occTim1": 17,
-      "occTim2": 15,
-      "totalOcc": 32,
-      "totalBeds": 41,
-      "bor": 78.0
-    },
-    {
-      "date": "2026-11-01",
-      "occTim1": 19,
-      "occTim2": 14,
-      "totalOcc": 33,
-      "totalBeds": 41,
-      "bor": 80.5
-    },
-    {
-      "date": "2026-11-02",
-      "occTim1": 18,
-      "occTim2": 14,
-      "totalOcc": 32,
-      "totalBeds": 41,
-      "bor": 78.0
-    },
     {
       "date": "2026-11-03",
       "occTim1": 21,
@@ -364,32 +124,41 @@
     "totalPatients": 35
   },
   "hospitalIndicators": {
-    "capacity": 41,
+    "capacity": {
+      "tim1": 21,
+      "tim2": 20,
+      "total": 41
+    },
     "availableBeds": 41,
-    "totalDays": 32,
-    "totalHP": 1098,
+    "totalDays": 2,
+    "totalHP": 72,
     "totalDischarges": 6,
     "overall": {
-      "bor": 83.7,
-      "avlos": 183.0,
-      "toi": 35.7,
-      "bto": 0.1,
+      "bor": 87.8,
+      "avlos": 12.0,
+      "toi": 1.7,
+      "bto": 26.7,
       "gdr": 500.0,
-      "ndr": 300.0
+      "ndr": 166.7
     },
-    "monthly": {
-      "2026-11": {
-        "days": 32,
-        "hp": 1098,
+    "monthly": [
+      {
+        "month": "2026-11",
+        "days": 2,
+        "hp": 72,
+        "hpTim1": 40,
+        "hpTim2": 32,
         "discharges": 6,
-        "bor": 83.7,
-        "avlos": 183.0,
-        "toi": 35.7,
-        "bto": 0.1,
+        "deaths": 3,
+        "deathsGt48": 1,
+        "bor": 87.8,
+        "avlos": 12.0,
+        "toi": 1.7,
+        "bto": 26.7,
         "gdr": 500.0,
-        "ndr": 300.0
+        "ndr": 166.7
       }
-    }
+    ]
   },
   "recentDays": {
     "2026-11-03": {
@@ -7010,8 +6779,8 @@
           "mrNo": "00186499",
           "gender": "L",
           "age": "",
-          "admissionDate": "11/01/2026",
-          "los": 298,
+          "admissionDate": "01/11/2026",
+          "los": 4,
           "insurance": "BPJS Kelas 3",
           "doctor": "dr. Sony",
           "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -7744,8 +7513,8 @@
           "mrNo": "00306243",
           "gender": "P",
           "age": "",
-          "admissionDate": "11/01/2026",
-          "los": 298,
+          "admissionDate": "01/11/2026",
+          "los": 4,
           "insurance": "BPJS Kelas 3",
           "doctor": "dr. Sony",
           "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -7840,8 +7609,8 @@
           "mrNo": "00162461",
           "gender": "P",
           "age": "",
-          "admissionDate": "11/01/2026",
-          "los": 298,
+          "admissionDate": "01/11/2026",
+          "los": 4,
           "insurance": "BPJS Kelas 3",
           "doctor": "dr. Decky Andrea\n\nCo dr.Dini,Sp.N",
           "doctorPrimary": "dr. Decky Andrea, Sp.PD",
@@ -8897,8 +8666,8 @@
           "mrNo": "00186499",
           "gender": "L",
           "age": "",
-          "admissionDate": "11/01/2026",
-          "los": 298,
+          "admissionDate": "01/11/2026",
+          "los": 4,
           "insurance": "BPJS Kelas 3",
           "doctor": "dr. Sony",
           "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -9631,8 +9400,8 @@
           "mrNo": "00306243",
           "gender": "P",
           "age": "",
-          "admissionDate": "11/01/2026",
-          "los": 298,
+          "admissionDate": "01/11/2026",
+          "los": 4,
           "insurance": "BPJS Kelas 3",
           "doctor": "dr. Sony",
           "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -9727,8 +9496,8 @@
           "mrNo": "00162461",
           "gender": "P",
           "age": "",
-          "admissionDate": "11/01/2026",
-          "los": 298,
+          "admissionDate": "01/11/2026",
+          "los": 4,
           "insurance": "BPJS Kelas 3",
           "doctor": "dr. Decky Andrea\n\nCo dr.Dini,Sp.N",
           "doctorPrimary": "dr. Decky Andrea, Sp.PD",
@@ -10740,8 +10509,8 @@
           "mrNo": "00186499",
           "gender": "L",
           "age": "",
-          "admissionDate": "11/01/2026",
-          "los": 298,
+          "admissionDate": "01/11/2026",
+          "los": 4,
           "insurance": "BPJS Kelas 3",
           "doctor": "dr. Sony",
           "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -11474,8 +11243,8 @@
           "mrNo": "00306243",
           "gender": "P",
           "age": "",
-          "admissionDate": "11/01/2026",
-          "los": 298,
+          "admissionDate": "01/11/2026",
+          "los": 4,
           "insurance": "BPJS Kelas 3",
           "doctor": "dr. Sony",
           "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -11570,8 +11339,8 @@
           "mrNo": "00162461",
           "gender": "P",
           "age": "",
-          "admissionDate": "11/01/2026",
-          "los": 298,
+          "admissionDate": "01/11/2026",
+          "los": 4,
           "insurance": "BPJS Kelas 3",
           "doctor": "dr. Decky Andrea\n\nCo dr.Dini,Sp.N",
           "doctorPrimary": "dr. Decky Andrea, Sp.PD",
@@ -12644,8 +12413,8 @@
         "mrNo": "00186499",
         "gender": "L",
         "age": "",
-        "admissionDate": "11/01/2026",
-        "los": 298,
+        "admissionDate": "01/11/2026",
+        "los": 4,
         "insurance": "BPJS Kelas 3",
         "doctor": "dr. Sony",
         "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -13378,8 +13147,8 @@
         "mrNo": "00306243",
         "gender": "P",
         "age": "",
-        "admissionDate": "11/01/2026",
-        "los": 298,
+        "admissionDate": "01/11/2026",
+        "los": 4,
         "insurance": "BPJS Kelas 3",
         "doctor": "dr. Sony",
         "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -13474,8 +13243,8 @@
         "mrNo": "00162461",
         "gender": "P",
         "age": "",
-        "admissionDate": "11/01/2026",
-        "los": 298,
+        "admissionDate": "01/11/2026",
+        "los": 4,
         "insurance": "BPJS Kelas 3",
         "doctor": "dr. Decky Andrea\n\nCo dr.Dini,Sp.N",
         "doctorPrimary": "dr. Decky Andrea, Sp.PD",
@@ -14531,8 +14300,8 @@
         "mrNo": "00186499",
         "gender": "L",
         "age": "",
-        "admissionDate": "11/01/2026",
-        "los": 298,
+        "admissionDate": "01/11/2026",
+        "los": 4,
         "insurance": "BPJS Kelas 3",
         "doctor": "dr. Sony",
         "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -15265,8 +15034,8 @@
         "mrNo": "00306243",
         "gender": "P",
         "age": "",
-        "admissionDate": "11/01/2026",
-        "los": 298,
+        "admissionDate": "01/11/2026",
+        "los": 4,
         "insurance": "BPJS Kelas 3",
         "doctor": "dr. Sony",
         "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -15361,8 +15130,8 @@
         "mrNo": "00162461",
         "gender": "P",
         "age": "",
-        "admissionDate": "11/01/2026",
-        "los": 298,
+        "admissionDate": "01/11/2026",
+        "los": 4,
         "insurance": "BPJS Kelas 3",
         "doctor": "dr. Decky Andrea\n\nCo dr.Dini,Sp.N",
         "doctorPrimary": "dr. Decky Andrea, Sp.PD",
@@ -16374,8 +16143,8 @@
         "mrNo": "00186499",
         "gender": "L",
         "age": "",
-        "admissionDate": "11/01/2026",
-        "los": 298,
+        "admissionDate": "01/11/2026",
+        "los": 4,
         "insurance": "BPJS Kelas 3",
         "doctor": "dr. Sony",
         "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -17108,8 +16877,8 @@
         "mrNo": "00306243",
         "gender": "P",
         "age": "",
-        "admissionDate": "11/01/2026",
-        "los": 298,
+        "admissionDate": "01/11/2026",
+        "los": 4,
         "insurance": "BPJS Kelas 3",
         "doctor": "dr. Sony",
         "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
@@ -17204,8 +16973,8 @@
         "mrNo": "00162461",
         "gender": "P",
         "age": "",
-        "admissionDate": "11/01/2026",
-        "los": 298,
+        "admissionDate": "01/11/2026",
+        "los": 4,
         "insurance": "BPJS Kelas 3",
         "doctor": "dr. Decky Andrea\n\nCo dr.Dini,Sp.N",
         "doctorPrimary": "dr. Decky Andrea, Sp.PD",

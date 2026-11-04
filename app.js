@@ -633,17 +633,32 @@ function updateDashboard() {
   renderDirectoryTable(dayData);
 }
 
+// Helper functions for accessing patients
+function getDayPatients(day) {
+  if (!day) return [];
+  if (Array.isArray(day.patients) && day.patients.length > 0) return day.patients;
+  return [...(day.tim1 || day.eg2a || []), ...(day.tim2 || day.eg2b || [])];
+}
+function getTim1Patients(day) {
+  return (day && (day.tim1 || day.eg2a)) || [];
+}
+function getTim2Patients(day) {
+  return (day && (day.tim2 || day.eg2b)) || [];
+}
+
 // Update KPI Cards
 function updateKpiMetrics(dayData) {
   const sum = dayData.summary;
+  const ptsA = getTim1Patients(dayData);
+  const ptsB = getTim2Patients(dayData);
   const occTotal = sum.occupied || (sum.occA + sum.occB);
-  const bedsTotal = sum.totalBeds || (dayData.eg2a.length + dayData.eg2b.length);
+  const bedsTotal = sum.totalBeds || (ptsA.length + ptsB.length);
   const bor = sum.bor || ((occTotal / Math.max(1, bedsTotal)) * 100).toFixed(1);
 
   document.getElementById('kpiTotalOcc').textContent = occTotal;
   document.getElementById('kpiBedsTotal').textContent = `/ ${bedsTotal} Bed`;
-  document.getElementById('kpiOccA').textContent = `${sum.occA || 0} Pasien`;
-  document.getElementById('kpiOccB').textContent = `${sum.occB || 0} Pasien`;
+  document.getElementById('kpiOccA').textContent = `${sum.occA || sum.occTim1 || 0} Pasien`;
+  document.getElementById('kpiOccB').textContent = `${sum.occB || sum.occTim2 || 0} Pasien`;
 
   document.getElementById('kpiBor').textContent = `${bor}%`;
   const borBar = document.getElementById('kpiBorBar');
@@ -675,10 +690,14 @@ function updateKpiMetrics(dayData) {
   document.getElementById('kpiDischargeCount').textContent = `Operasi | ${dischargeCount} KRS`;
 
   // Update wing meta
-  document.getElementById('metaWingA').textContent = `${sum.occA || 0} Pasien Terisi • ${dayData.eg2a.length} Bed`;
-  document.getElementById('metaWingB').textContent = `${sum.occB || 0} Pasien Terisi • ${dayData.eg2b.length} Bed`;
-  document.getElementById('countWingA').textContent = dayData.eg2a.length;
-  document.getElementById('countWingB').textContent = dayData.eg2b.length;
+  const metaA = document.getElementById('metaWingA');
+  if (metaA) metaA.textContent = `${sum.occA || sum.occTim1 || 0} Pasien Terisi • ${ptsA.length} Bed`;
+  const metaB = document.getElementById('metaWingB');
+  if (metaB) metaB.textContent = `${sum.occB || sum.occTim2 || 0} Pasien Terisi • ${ptsB.length} Bed`;
+  const countA = document.getElementById('countWingA');
+  if (countA) countA.textContent = ptsA.length;
+  const countB = document.getElementById('countWingB');
+  if (countB) countB.textContent = ptsB.length;
 }
 
 // Render Bed Grids
@@ -686,8 +705,8 @@ function renderBedGrids(dataToUse) {
   const dayData = dataToUse || state.data.recentDays[state.currentDate] || state.data.today;
   if (!dayData) return;
 
-  const containerA = document.getElementById('bedGridKakapA');
-  const containerB = document.getElementById('bedGridKakapB');
+  const containerA = document.getElementById('bedGridKakapA') || document.getElementById('bedGridEG2A') || document.getElementById('bedGridTim1');
+  const containerB = document.getElementById('bedGridKakapB') || document.getElementById('bedGridEG2B') || document.getElementById('bedGridTim2');
   if (!containerA || !containerB) return;
 
   containerA.innerHTML = '';
@@ -717,8 +736,10 @@ function renderBedGrids(dataToUse) {
     return true;
   };
 
-  const filteredA = dayData.eg2a.filter(filterPatient);
-  const filteredB = dayData.eg2b.filter(filterPatient);
+  const ptsA = getTim1Patients(dayData);
+  const ptsB = getTim2Patients(dayData);
+  const filteredA = ptsA.filter(filterPatient);
+  const filteredB = ptsB.filter(filterPatient);
 
   if (filteredA.length === 0) {
     containerA.innerHTML = '<div class="empty-bed-content"><p>Tidak ada pasien yang sesuai filter di Tim I</p></div>';
@@ -837,19 +858,20 @@ function createBedCard(pt) {
   return card;
 }
 
-// Apply Wing Filter (Hide/Show KakapA or KakapB)
+// Apply Wing Filter (Hide/Show Tim I or Tim II)
 function applyWingFilter() {
-  const blockA = document.getElementById('wardBlockKakapA');
-  const blockB = document.getElementById('wardBlockKakapB');
+  const blockA = document.getElementById('wardBlockKakapA') || document.getElementById('wardBlockEG2A') || document.getElementById('wardBlockTim1');
+  const blockB = document.getElementById('wardBlockKakapB') || document.getElementById('wardBlockEG2B') || document.getElementById('wardBlockTim2');
   if (!blockA || !blockB) return;
 
-  if (state.activeWing === 'all') {
+  const w = (state.activeWing || 'all').toLowerCase();
+  if (w === 'all') {
     blockA.style.display = 'flex';
     blockB.style.display = 'flex';
-  } else if (state.activeWing === 'KakapA') {
+  } else if (w.includes('a') || w.includes('tim1') || w.includes('tim 1') || w === 'eg2a') {
     blockA.style.display = 'flex';
     blockB.style.display = 'none';
-  } else if (state.activeWing === 'KakapB') {
+  } else if (w.includes('b') || w.includes('tim2') || w.includes('tim 2') || w === 'eg2b') {
     blockA.style.display = 'none';
     blockB.style.display = 'flex';
   }
@@ -870,7 +892,7 @@ function renderHandoverBoard(dataToUse) {
   if (dateText) dateText.textContent = formatIndonesianDate(state.currentDate);
 
   container.innerHTML = '';
-  const allPatients = [...dayData.eg2a, ...dayData.eg2b].filter(pt => !pt.isEmpty);
+  const allPatients = getDayPatients(dayData).filter(pt => !pt.isEmpty);
 
   // Filter patients by active filter / search
   const filtered = allPatients.filter(pt => {
@@ -958,7 +980,7 @@ function renderAnalyticsTab() {
     docContainer.innerHTML = '';
     const top10 = state.data.analytics.topDoctors.slice(0, 10);
     const maxVal = Math.max(...top10.map(d => d.count));
-    const totalPatients = state.data.analytics.totalPatients || 2521;
+    const totalPatients = state.data.analytics.totalPatients || state.data.today?.summary?.occupied || 35;
 
     const listWrapper = document.createElement('div');
     listWrapper.className = 'leaderboard-list';
@@ -1004,7 +1026,7 @@ function renderAnalyticsTab() {
   if (catContainer && diagnoses) {
     catContainer.innerHTML = '';
     const top10 = diagnoses.slice(0, 10);
-    const totalPatients = state.data.analytics.totalPatients || 2521;
+    const totalPatients = state.data.analytics.totalPatients || state.data.today?.summary?.occupied || 35;
     const maxVal = Math.max(...top10.map(c => c.count));
     
     const diagThemes = [
@@ -1254,12 +1276,15 @@ function renderBorChart() {
   const chartW = width - padding.left - padding.right;
   const chartH = height - padding.top - padding.bottom;
 
+  const totalDaysBadge = document.getElementById('totalDaysBadge');
+  if (totalDaysBadge) totalDaysBadge.textContent = `${history.length} Hari Tercatat (Nov 2026)`;
+
   // Compute points
   const maxBor = 100;
   const minBor = 0;
 
   const points = history.map((item, i) => {
-    const x = padding.left + (i / (history.length - 1)) * chartW;
+    const x = history.length === 1 ? padding.left + chartW / 2 : padding.left + (i / (history.length - 1)) * chartW;
     const y = padding.top + chartH - ((item.bor - minBor) / (maxBor - minBor)) * chartH;
     return { x, y, ...item };
   });
@@ -1275,7 +1300,7 @@ function renderBorChart() {
   const y85 = padding.top + chartH - (85 / 100) * chartH;
 
   // Label ticks
-  const tickStep = Math.floor(history.length / 8);
+  const tickStep = Math.max(1, Math.floor(history.length / 8));
   const xLabels = [];
   for (let i = 0; i < history.length; i += tickStep) {
     const p = points[i];
@@ -1349,7 +1374,7 @@ function renderDirectoryTable(dataToUse) {
   if (!tbody) return;
 
   tbody.innerHTML = '';
-  const allPatients = [...dayData.eg2a, ...dayData.eg2b].filter(pt => !pt.isEmpty);
+  const allPatients = getDayPatients(dayData).filter(pt => !pt.isEmpty);
 
   allPatients.forEach(pt => {
     const displayName = maskPatientName(pt.name);
@@ -1412,7 +1437,7 @@ function filterDirectoryTable() {
   if (!tbody) return;
 
   tbody.innerHTML = '';
-  const allPatients = [...dayData.eg2a, ...dayData.eg2b].filter(pt => !pt.isEmpty);
+  const allPatients = getDayPatients(dayData).filter(pt => !pt.isEmpty);
 
   const filtered = allPatients.filter(pt => {
     if (wing && pt.room !== wing) return false;
@@ -1573,11 +1598,11 @@ function copyShiftHandoverSummary() {
   const dayData = state.data.recentDays[state.currentDate] || state.data.today;
   if (!dayData) return;
 
-  const patients = [...dayData.eg2a, ...dayData.eg2b].filter(pt => !pt.isEmpty);
+  const patients = getDayPatients(dayData).filter(pt => !pt.isEmpty);
   const shiftName = state.activeShift.toUpperCase();
 
   let text = `=====================================================
-RINGKASAN OPERAN JAGA RUANG ENGGANG GADING 2
+RINGKASAN OPERAN JAGA RUANG RAWAT INAP KAKAP
 RSUD Dr. Soedarso Pontianak
 TANGGAL: ${formatIndonesianDate(state.currentDate)}
 SHIFT: ${shiftName}
@@ -1832,7 +1857,7 @@ function exportDirectoryToCsv() {
   const dayData = state.data.recentDays[state.currentDate] || state.data.today;
   if (!dayData) return;
 
-  const allPatients = [...dayData.eg2a, ...dayData.eg2b].filter(pt => !pt.isEmpty);
+  const allPatients = getDayPatients(dayData).filter(pt => !pt.isEmpty);
   const headers = ['Ruang', 'Bed', 'Nama Pasien', 'No MR', 'Usia', 'Gender', 'Tgl Masuk', 'LOS (Hari)', 'Jaminan', 'DPJP', 'Diagnosa', 'Kategori', 'Catatan Pagi', 'Catatan Sore', 'Catatan Malam'];
 
   const rows = allPatients.map(p => [
@@ -2323,7 +2348,7 @@ function renderBorGaugeChart(hosp, isDark) {
 
       <!-- Center Digital Readout -->
       <text x="${cx}" y="112" fill="var(--text-primary)" font-family="var(--font-heading)" font-size="22" font-weight="800" text-anchor="middle">${bor}%</text>
-      <text x="${cx}" y="127" fill="#f43f5e" font-family="var(--font-mono)" font-size="8.5" font-weight="700" text-anchor="middle">▲ Over-Capacity (+2.8%)</text>
+      <text x="${cx}" y="127" fill="${bor > 85 ? '#f43f5e' : (bor < 60 ? '#f59e0b' : '#10b981')}" font-family="var(--font-mono)" font-size="8.5" font-weight="700" text-anchor="middle">${bor > 85 ? `▲ Over-Capacity (+${(bor - 85).toFixed(1)}%)` : (bor < 60 ? `▼ Under-Capacity (-${(60 - bor).toFixed(1)}%)` : '★ Optimal (60% - 85%)')}</text>
 
       <!-- Mini Benchmark Comparison Bar -->
       <line x1="${bLeft}" y1="${bY}" x2="${bRight}" y2="${bY}" stroke="${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(148,163,184,0.3)'}" stroke-width="5" stroke-linecap="round" />
@@ -2344,19 +2369,19 @@ function renderAvlosRangeChart(hosp, isDark) {
   const container = document.getElementById('chartAvlosRange');
   if (!container) return;
 
-  const avlos = hosp.overall.avlos; // 5.69h
-  const monthly = hosp.monthly || [];
+  const avlos = hosp.overall.avlos;
+  const monthly = Array.isArray(hosp.monthly) ? hosp.monthly : (hosp.monthly ? Object.values(hosp.monthly) : []);
   const width = 320;
   const height = 185;
 
   const leftPad = 35;
   const plotW = 250;
-  const scale = (val) => leftPad + (Math.min(Math.max(val, 0), 12) / 12) * plotW;
+  const scale = (val) => leftPad + (Math.min(Math.max(val, 0), 16) / 16) * plotW;
 
   const x0 = scale(0);
   const x6 = scale(6);
   const x9 = scale(9);
-  const x12 = scale(12);
+  const x12 = scale(16);
   const xAct = scale(avlos);
 
   // Monthly points
@@ -2367,6 +2392,9 @@ function renderAvlosRangeChart(hosp, isDark) {
       <circle cx="${mx.toFixed(1)}" cy="132" r="3.2" fill="#0ea5e9" opacity="0.8" stroke="#ffffff" stroke-width="1" />
     `;
   });
+
+  const avlosDiff = avlos > 9 ? `▲ +${(avlos - 9).toFixed(1)} hari di atas batas max` : (avlos < 6 ? `◄ -${(6 - avlos).toFixed(1)} hari di bawah batas min` : '★ Optimal (Standar 6 – 9 Hari)');
+  const avlosColor = avlos > 9 ? '#f59e0b' : '#10b981';
 
   container.innerHTML = `
     <svg viewBox="0 0 ${width} ${height}" style="width:100%; max-width:${width}px; height:auto; display:block;">
@@ -2380,7 +2408,7 @@ function renderAvlosRangeChart(hosp, isDark) {
       <!-- Target Window Highlight (6 - 9 days) -->
       <rect x="${x6.toFixed(1)}" y="50" width="${(x9 - x6).toFixed(1)}" height="26" rx="5" fill="rgba(16, 185, 129, 0.22)" stroke="#10b981" stroke-dasharray="4,2.5" stroke-width="1.6" />
 
-      <!-- Actual Progress Bar up to 5.7h -->
+      <!-- Actual Progress Bar up to actual avlos -->
       <rect x="${x0.toFixed(1)}" y="54" width="${(xAct - x0).toFixed(1)}" height="18" rx="4.5" fill="url(#avlosBarGrad)" />
 
       <!-- Actual Value Marker Pin -->
@@ -2395,15 +2423,15 @@ function renderAvlosRangeChart(hosp, isDark) {
       <text x="${x6.toFixed(1)}" y="86" fill="#10b981" font-family="var(--font-mono)" font-size="8.5" font-weight="700" text-anchor="middle">6h</text>
       <text x="${x9.toFixed(1)}" y="86" fill="#10b981" font-family="var(--font-mono)" font-size="8.5" font-weight="700" text-anchor="middle">9h</text>
       <text x="${x0.toFixed(1)}" y="86" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="8">0h</text>
-      <text x="${x12.toFixed(1)}" y="86" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="8" text-anchor="end">12h</text>
+      <text x="${x12.toFixed(1)}" y="86" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="8" text-anchor="end">16h</text>
 
       <!-- Delta Flag -->
-      <text x="${xAct.toFixed(1)}" y="102" fill="#10b981" font-family="var(--font-heading)" font-size="8.5" font-weight="700">◄ -0.3 hari di bawah batas min (Alur Cepat)</text>
+      <text x="${xAct.toFixed(1)}" y="102" fill="${avlosColor}" font-family="var(--font-heading)" font-size="8.5" font-weight="700">${avlosDiff}</text>
 
       <!-- Monthly Distribution Strip -->
       <line x1="${x0.toFixed(1)}" y1="132" x2="${x12.toFixed(1)}" y2="132" stroke="${isDark ? 'rgba(255,255,255,0.08)' : 'rgba(148,163,184,0.3)'}" stroke-width="2" />
       ${monthlyDotsSvg}
-      <text x="${x0.toFixed(1)}" y="152" fill="var(--text-secondary)" font-family="var(--font-mono)" font-size="8">Titik Bulanan Jan-Okt 2026: Terkendali stabil (4.2h – 6.7h)</text>
+      <text x="${x0.toFixed(1)}" y="152" fill="var(--text-secondary)" font-family="var(--font-mono)" font-size="8">Sensus Ruang Kakap: Rata-rata lama rawat inap ${avlos} hari</text>
 
       <defs>
         <linearGradient id="avlosBarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -2468,10 +2496,10 @@ function renderToiDialChart(hosp, isDark) {
       <g transform="translate(142, 22)">
         <rect x="0" y="0" width="144" height="88" rx="6" fill="${isDark ? 'rgba(255,255,255,0.04)' : 'rgba(241,245,249,0.7)'}" stroke="${isDark ? 'rgba(255,255,255,0.08)' : 'rgba(203,213,225,0.6)'}" />
         <text x="10" y="16" fill="var(--text-secondary)" font-family="var(--font-mono)" font-size="8">Tenggang Kosong Ranjang</text>
-        <text x="10" y="34" fill="#ea580c" font-family="var(--font-heading)" font-size="15" font-weight="800">${toiHours} Jam <tspan font-size="10" fill="var(--text-muted)">(${toi}h)</tspan></text>
+        <text x="10" y="34" fill="#10b981" font-family="var(--font-heading)" font-size="15" font-weight="800">${toiHours} Jam <tspan font-size="10" fill="var(--text-muted)">(${toi}h)</tspan></text>
         <text x="10" y="52" fill="#10b981" font-family="var(--font-mono)" font-size="8.5" font-weight="700">Std Depkes: 24 – 72 Jam</text>
         <text x="10" y="65" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="7.5">(Rentang 1 – 3 Hari)</text>
-        <text x="10" y="79" fill="#ea580c" font-family="var(--font-mono)" font-size="8" font-weight="700">⚡ Selisih: -5.1 Jam (Padat)</text>
+        <text x="10" y="79" fill="${toi >= 1 && toi <= 3 ? '#10b981' : '#ea580c'}" font-family="var(--font-mono)" font-size="8" font-weight="700">${toi >= 1 && toi <= 3 ? '★ Masuk Target Standar' : (toi < 1 ? `⚡ -${(24 - toi*24).toFixed(0)}j Cepat` : `▲ +${(toi*24 - 72).toFixed(0)}j Longgar`)}</text>
       </g>
 
       <!-- Bottom Benchmark Interval Scale Bar -->
@@ -2556,8 +2584,8 @@ function renderBtoMilestoneChart(hosp, isDark) {
       <!-- Central Achievement Summary Card -->
       <g transform="translate(${leftPad}, 104)">
         <rect x="0" y="0" width="${plotW}" height="42" rx="6" fill="${isDark ? 'rgba(255,255,255,0.04)' : 'rgba(248,250,252,0.85)'}" stroke="${isDark ? 'rgba(255,255,255,0.08)' : 'rgba(226,232,240,0.8)'}" />
-        <text x="${plotW / 2}" y="17" fill="#10b981" font-family="var(--font-heading)" font-size="9.5" font-weight="800" text-anchor="middle">★ CAPAIAN IDEAL NASIONAL TERCAPAI</text>
-        <text x="${plotW / 2}" y="31" fill="var(--text-secondary)" font-family="var(--font-mono)" font-size="8" text-anchor="middle">44.4x berada tepat di zona standar Depkes (40 - 50 kali/tahun)</text>
+        <text x="${plotW / 2}" y="17" fill="#10b981" font-family="var(--font-heading)" font-size="9.5" font-weight="800" text-anchor="middle">★ PEMANFAATAN TEMPAT TIDUR RUANG KAKAP</text>
+        <text x="${plotW / 2}" y="31" fill="var(--text-secondary)" font-family="var(--font-mono)" font-size="8" text-anchor="middle">Proyeksi perputaran ~${projectedBto}x per tahun untuk 41 ranjang</text>
       </g>
     </svg>
   `;
@@ -2603,7 +2631,7 @@ function renderQualityTrendsChart() {
   const ch = height - pad.top - pad.bottom;
   const numPts = monthly.length;
 
-  const getX = (i) => pad.left + (i / (numPts - 1)) * cw;
+  const getX = (i) => numPts === 1 ? pad.left + cw / 2 : pad.left + (i / (numPts - 1)) * cw;
   const gridLineColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(148,163,184,0.3)';
 
   let chartContentSvg = '';
@@ -2616,15 +2644,15 @@ function renderQualityTrendsChart() {
     const minBor = 50, maxBor = 105;
     const syBor = (val) => pad.top + ch - ((val - minBor) / (maxBor - minBor)) * ch;
 
-    // Right Axis: Days / Multiplier (0 - 10) for AVLOS, TOI, BTO
-    const minR = 0, maxR = 10;
+    // Right Axis: Days / Multiplier (0 - maxR) for AVLOS, TOI, BTO
+    const minR = 0, maxR = Math.max(16, Math.ceil((hosp.overall.avlos || 10) * 1.3));
     const syRight = (val) => pad.top + ch - ((val - minR) / (maxR - minR)) * ch;
 
     // Grid lines & Axis ticks (5 ticks)
     let gridSvg = '';
     for (let pct = 50; pct <= 100; pct += 10) {
       const y = syBor(pct);
-      const rightVal = ((pct - 50) / 50) * 10;
+      const rightVal = ((pct - 50) / 50) * maxR;
       gridSvg += `
         <line x1="${pad.left}" y1="${y.toFixed(1)}" x2="${(pad.left + cw).toFixed(1)}" y2="${y.toFixed(1)}" stroke="${gridLineColor}" stroke-dasharray="2,2" />
         <text x="${(pad.left - 10).toFixed(1)}" y="${(y + 4).toFixed(1)}" fill="#0284c7" font-family="var(--font-mono)" font-size="10" font-weight="700" text-anchor="end">${pct}%</text>
@@ -2670,19 +2698,19 @@ function renderQualityTrendsChart() {
       let dotsSvg = '';
       pts.forEach(p => {
         dotsSvg += `
-          <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4.5" fill="${sc.color}" stroke="#ffffff" stroke-width="1.8" filter="drop-shadow(0 0 3px ${sc.color})" />
+          <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5.5" fill="${sc.color}" stroke="#ffffff" stroke-width="2" filter="drop-shadow(0 0 4px ${sc.color})" />
         `;
       });
 
       linesSvg += `
-        <path d="${pathD}" fill="none" stroke="${sc.color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        ${pts.length > 1 ? `<path d="${pathD}" fill="none" stroke="${sc.color}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />` : ''}
         ${dotsSvg}
       `;
     });
 
     // Hover Columns for interactive exploration
     let hoverColsSvg = '';
-    const colW = cw / (numPts - 1);
+    const colW = numPts === 1 ? cw : (cw / (numPts - 1));
     monthly.forEach((m, i) => {
       const xCenter = getX(i);
       const xLeft = xCenter - colW / 2;
@@ -2919,7 +2947,7 @@ function renderHospitalIndicatorsTable() {
     <td><strong>${ov.bto}x</strong></td>
     <td><strong>${ov.gdr}‰</strong></td>
     <td><strong>${ov.ndr}‰</strong></td>
-    <td><span class="status-chip chip-danger">Over-Capacity</span></td>
+    <td><span class="status-chip ${ov.bor <= 85 && ov.toi >= 1 && ov.toi <= 3 ? 'chip-success' : 'chip-warning'}">${ov.bor <= 85 && ov.toi >= 1 && ov.toi <= 3 ? 'Efisiensi Tercapai' : 'Optimal Tinggi'}</span></td>
   `;
   tbody.appendChild(trTotal);
 }
@@ -3007,7 +3035,7 @@ function extractAllPatientsList() {
   dates.forEach(dt => {
     const day = recentDays[dt];
     const isLatest = (dt === latestDate);
-    const allPts = [...(day.eg2a || []), ...(day.eg2b || [])].filter(p => !p.isEmpty);
+    const allPts = getDayPatients(day).filter(p => !p.isEmpty);
 
     allPts.forEach(p => {
       const key = getPatientKey(p);
@@ -3293,7 +3321,7 @@ function getPatientChronologyData(patientKey) {
 
   sortedDates.forEach(dt => {
     const day = recentDays[dt];
-    const match = [...(day.eg2a || []), ...(day.eg2b || [])].find(p => !p.isEmpty && getPatientKey(p) === patientKey);
+    const match = getDayPatients(day).find(p => !p.isEmpty && getPatientKey(p) === patientKey);
     if (match) {
       const prev = historyDays[historyDays.length - 1];
       const bedChanged = prev && (prev.patient.room !== match.room || prev.patient.bed !== match.bed);
@@ -3966,7 +3994,7 @@ function copyChronologySummary(patientKey) {
   let text = `======================================================================\n`;
   text += `KRONOLOGIS PERJALANAN RAWAT INAP PASIEN\n`;
   text += `PEMERINTAH PROVINSI KALIMANTAN BARAT\n`;
-  text += `RSUD DR. SOEDARSO PONTIANAK - RUANG ENGGANG GADING 2\n`;
+  text += `RSUD DR. SOEDARSO PONTIANAK - RUANG RAWAT INAP KAKAP\n`;
   text += `======================================================================\n`;
   text += `Nama Pasien       : ${displayName}\n`;
   text += `No. Rekam Medis   : ${displayMr}\n`;

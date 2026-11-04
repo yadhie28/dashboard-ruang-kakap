@@ -17,7 +17,7 @@
     <div class="nav-container">
       <div class="brand-section">
         <div class="brand-logo" title="Ruang Kakap RSUD Dr. Soedarso">
-          <img src="logo_kakap.svg" alt="Logo Ruang Kakap" class="enggang-logo-img" />
+          <img src="logo_kakap.svg" alt="Logo Ruang Kakap" class="kakap-logo-img enggang-logo-img" />
         </div>
         <div class="brand-text">
           <div class="brand-title-row">
@@ -231,8 +231,8 @@
       <div class="wing-selection-bar">
         <div class="wing-toggle-group">
           <button class="wing-btn active" data-wing="all">Semua Tim (Tim I + II)</button>
-          <button class="wing-btn" data-wing="EG2A">Tim I (<span id="countWingA">21</span> Bed)</button>
-          <button class="wing-btn" data-wing="EG2B">Tim II (<span id="countWingB">20</span> Bed)</button>
+          <button class="wing-btn" data-wing="KakapA">Tim I (<span id="countWingA">21</span> Bed)</button>
+          <button class="wing-btn" data-wing="KakapB">Tim II (<span id="countWingB">20</span> Bed)</button>
         </div>
 
         <div class="bed-legend">
@@ -248,7 +248,7 @@
       <!-- Wing Sections Container -->
       <div class="wards-container">
         <!-- Tim I Section -->
-        <div class="ward-block" id="wardBlockEG2A">
+        <div class="ward-block" id="wardBlockKakapA">
           <div class="ward-header">
             <div class="ward-title-group">
               <span class="wing-badge badge-eg2a">TIM I</span>
@@ -256,13 +256,13 @@
               <span class="ward-meta-text" id="metaWingA">-- Pasien Terisi &bull; 21 Bed</span>
             </div>
           </div>
-          <div class="bed-grid" id="bedGridEG2A">
+          <div class="bed-grid" id="bedGridKakapA">
             <!-- Bed Cards dynamically injected -->
           </div>
         </div>
 
         <!-- Tim II Section -->
-        <div class="ward-block" id="wardBlockEG2B">
+        <div class="ward-block" id="wardBlockKakapB">
           <div class="ward-header">
             <div class="ward-title-group">
               <span class="wing-badge badge-eg2b">TIM II</span>
@@ -270,7 +270,7 @@
               <span class="ward-meta-text" id="metaWingB">-- Pasien Terisi &bull; 20 Bed</span>
             </div>
           </div>
-          <div class="bed-grid" id="bedGridEG2B">
+          <div class="bed-grid" id="bedGridKakapB">
             <!-- Bed Cards dynamically injected -->
           </div>
         </div>
@@ -386,10 +386,10 @@
             <div class="param-canvas-container" id="chartBorGauge"></div>
             <div class="param-card-footer">
               <div class="param-eval-row">
-                <span class="eval-pill pill-danger">Over-Capacity (87.8%)</span>
-                <span class="eval-diff">+2.8% di atas batas atas 85%</span>
+                <span class="eval-pill pill-danger" id="evalPillBor">Tinggi (87.8%)</span>
+                <span class="eval-diff" id="evalDiffBor">+2.8% di atas batas atas 85%</span>
               </div>
-              <p class="param-desc">Tingkat hunian tempat tidur rata-rata 87.8% (di atas rentang aman 60-85%). Menandakan utilitas prima namun perlu kewaspadaan beban kerja perawat.</p>
+              <p class="param-desc" id="evalDescBor">Tingkat hunian tempat tidur rata-rata 87.8% (di atas rentang aman 60-85%). Menandakan utilitas prima kapasitas 41 bed Ruang Kakap namun perlu kewaspadaan beban kerja perawat.</p>
             </div>
           </div>
 
@@ -405,10 +405,10 @@
             <div class="param-canvas-container" id="chartAvlosRange"></div>
             <div class="param-card-footer">
               <div class="param-eval-row">
-                <span class="eval-pill pill-success">Efisien (5.7 Hari)</span>
-                <span class="eval-diff">-0.3 hari di bawah batas min</span>
+                <span class="eval-pill pill-success" id="evalPillAvlos">Terkendali (12.0 Hari)</span>
+                <span class="eval-diff" id="evalDiffAvlos">Rata-rata Lama Rawat</span>
               </div>
-              <p class="param-desc">Rata-rata lama perawatan 5.7 hari, terkendali dengan baik di bawah batas atas 9 hari (alur pemulangan efisien, tidak ada prolonged stay).</p>
+              <p class="param-desc" id="evalDescAvlos">Rata-rata lama perawatan pasien rawat inap Ruang Kakap terkendali sesuai kompleksitas klinis spesialis penyakit dalam dan nefrologi.</p>
             </div>
           </div>
 
@@ -424,10 +424,10 @@
             <div class="param-canvas-container" id="chartToiDial"></div>
             <div class="param-card-footer">
               <div class="param-eval-row">
-                <span class="eval-pill pill-warning">Sangat Cepat (~19 Jam)</span>
-                <span class="eval-diff">-5.1 jam dari batas min 24h</span>
+                <span class="eval-pill pill-success" id="evalPillToi">Ideal (1.7 Hari / ~40 Jam)</span>
+                <span class="eval-diff" id="evalDiffToi">★ Masuk Target Kemenkes (1–3 Hari)</span>
               </div>
-              <p class="param-desc">Ranjang kosong hanya 18.9 jam (0.79 hari) sebelum terisi kembali. Alur sterilisasi dan perputaran tempat tidur berjalan sangat padat.</p>
+              <p class="param-desc" id="evalDescToi">Ranjang kosong rata-rata 1.7 hari (~40 jam) sebelum terisi kembali pasien baru. Alur sterilisasi dan perputaran tempat tidur Ruang Kakap berada tepat dalam zona efisiensi Depkes/Kemenkes RI.</p>
             </div>
           </div>
 
@@ -443,10 +443,10 @@
             <div class="param-canvas-container" id="chartBtoMilestone"></div>
             <div class="param-card-footer">
               <div class="param-eval-row">
-                <span class="eval-pill pill-success">Optimal (44.4 Kali)</span>
-                <span class="eval-diff">★ Masuk Target Depkes</span>
+                <span class="eval-pill pill-success" id="evalPillBto">Stabil (~26.7 Kali/Tahun)</span>
+                <span class="eval-diff" id="evalDiffBto">★ Kapasitas 41 Bed</span>
               </div>
-              <p class="param-desc">Setiap ranjang digunakan 44.4 pasien bergantian s/d 19 Oktober (proyeksi 1 tahun ~56x), produktivitas penggunaan ranjang sangat tinggi.</p>
+              <p class="param-desc" id="evalDescBto">Perputaran tempat tidur Ruang Kakap terproyeksi ~26.7 kali per tahun, utilisasi pemakaian ranjang berjalan stabil dan dinamis.</p>
             </div>
           </div>
         </div>
@@ -458,13 +458,13 @@
         <div class="analytics-card bj-diagram-card">
           <div class="chart-header">
             <div>
-              <h3>Grafik Barber Johnson (Tahun 2026)</h3>
-              <p class="chart-subtitle">Memadukan garis BOR, garis BTO, dan Daerah Efisiensi Barber Johnson dengan titik koordinat bulanan.</p>
+              <h3>Grafik Barber Johnson (Ruang Kakap 2026)</h3>
+              <p class="chart-subtitle">Memadukan garis BOR, garis BTO, dan Daerah Efisiensi Barber Johnson dengan titik koordinat sensus riil.</p>
             </div>
             <div class="bj-legend-badges">
               <span class="bj-legend-badge"><span class="legend-swatch swatch-green"></span> Daerah Efisiensi (Kemenkes)</span>
-              <span class="bj-legend-badge"><span class="legend-swatch swatch-cyan"></span> Titik Bulanan 2026</span>
-              <span class="bj-legend-badge"><span class="legend-swatch swatch-gold"></span> Rata-rata 2026</span>
+              <span class="bj-legend-badge"><span class="legend-swatch swatch-cyan"></span> Titik Sensus Nov 2026</span>
+              <span class="bj-legend-badge"><span class="legend-swatch swatch-gold"></span> Rata-rata Ruang Kakap</span>
             </div>
           </div>
 
@@ -489,7 +489,7 @@
         <div class="analytics-card bj-analysis-card">
           <div class="chart-header">
             <div>
-              <h3>Analisis &amp; Interpretasi Manajerial</h3>
+              <h3>Analisis &amp; Interpretasi Manajerial Ruang Kakap</h3>
               <p class="chart-subtitle">Interpretasi posisi titik pada Grafik Barber Johnson</p>
             </div>
           </div>
@@ -498,16 +498,16 @@
             <div class="insight-box insight-success">
               <div class="insight-icon">🎯</div>
               <div class="insight-body">
-                <h4>Deteksi Warna Cell: Titik Masuk Daerah Efisiensi Barber Johnson</h4>
-                <p>Melalui deteksi penandaan warna cell (filler warna pasien pulang), terdata <strong>2.485 pasien keluar/pulang</strong> dengan <strong>AVLOS 5,7 Hari</strong> dan <strong>BTO 44,4 Kali/Tahun</strong> (tepat di target Kemenkes 40–50x). Titik koordinat bulan <strong>Maret 2026 (BOR 75,8%, TOI 1,8h)</strong> dan <strong>Februari 2026 (BOR 83,0%, TOI 1,1h)</strong> berhasil masuk tepat di dalam <strong>Daerah Efisiensi Depkes/Kemenkes RI</strong>!</p>
+                <h4>Deteksi Sensus Ruang Kakap: Masuk Daerah Efisiensi Barber Johnson</h4>
+                <p>Berdasarkan data sensus harian Ruang Kakap (Kapasitas 41 Bed: Tim I 21 Bed &amp; Tim II 20 Bed), tercatat tingkat pemanfaatan tempat tidur (BOR) sebesar <strong>87,8%</strong> dengan Turn Over Interval (TOI) <strong>1,7 Hari (~40 Jam)</strong> yang <strong>berhasil masuk tepat di dalam Daerah Efisiensi Depkes/Kemenkes RI (Standar TOI 1–3 Hari)</strong>.</p>
               </div>
             </div>
 
             <div class="insight-box insight-info">
               <div class="insight-icon">⚡</div>
               <div class="insight-body">
-                <h4>TOI Cepat &amp; Responsif (0,79 Hari / ~19 Jam)</h4>
-                <p>Rata-rata tenggang perputaran tempat tidur kosong berkisar 19 jam sebelum terisi pasien baru dari IGD atau rawat jalan. Hal ini membuktikan kecepatan respons alur penerimaan dan sterilisasi ruangan yang sangat produktif.</p>
+                <h4>TOI Cepat &amp; Responsif (1,7 Hari / ~40 Jam)</h4>
+                <p>Rata-rata tenggang perputaran tempat tidur kosong berkisar 40 jam sebelum terisi pasien baru dari IGD atau rawat jalan. Hal ini membuktikan kecepatan respons alur penerimaan dan sterilisasi ruangan Ruang Kakap yang sangat produktif.</p>
               </div>
             </div>
 
@@ -515,18 +515,18 @@
               <div class="insight-icon">📊</div>
               <div class="insight-body">
                 <h4>BOR Kumulatif 87,8% (Kapasitas Maksimal 41 Bed)</h4>
-                <p>Tingkat keterisian tahun 2026 stabil di kisaran 87,8% (Tim I 21 bed, Tim II 20 bed). Utilisasi ini menunjukkan tingginya kepercayaan masyarakat dan produktivitas tinggi bangsal rawat inap Ruang Kakap RSUD Dr. Soedarso.</p>
+                <p>Tingkat keterisian stabil di kisaran 87,8% (Tim I 21 bed, Tim II 20 bed). Utilisasi ini menunjukkan tingginya kepercayaan masyarakat dan produktivitas prima bangsal rawat inap Ruang Kakap RSUD Dr. Soedarso.</p>
               </div>
             </div>
 
             <div class="insight-box insight-recommendation">
               <div class="insight-icon">💡</div>
               <div class="insight-body">
-                <h4>Rekomendasi Manajerial</h4>
+                <h4>Rekomendasi Manajerial Ruang Kakap</h4>
                 <ul class="recommendation-list">
-                  <li>Pertahankan kepatuhan penandaan warna cell bagi perawat jaga karena terbukti menghasilkan akurasi indikator mutu sensus yang presisi.</li>
-                  <li>Pertahankan rotasi sterilisasi bed 19 jam (TOI) agar tidak terjadi penumpukan pasien antre di IGD pada jam-jam sibuk.</li>
-                  <li>Monitoring berkala rasio perawat terhadap pasien terutama pada bulan-bulan puncak hunian guna menjaga keselamatan pasien (*patient safety*).</li>
+                  <li>Pertahankan pengisian sensus rutin setiap pergantian shift (Pagi 07.00, Sore 14.00, Malam 20.00 WIB) guna menjamin akurasi indikator mutu sensus yang presisi.</li>
+                  <li>Pertahankan rotasi sterilisasi bed 1,7 hari (TOI) agar tidak terjadi penumpukan pasien antrean rawat inap di IGD.</li>
+                  <li>Monitoring berkala rasio perawat terhadap pasien terutama saat BOR &gt; 85% guna menjaga keselamatan pasien (*patient safety*) dan kepatuhan EWS/NEWS2.</li>
                 </ul>
               </div>
             </div>
@@ -539,11 +539,11 @@
         <div class="chart-header">
           <div class="trend-title-col">
             <div class="chart-tag-row">
-              <span class="badge badge-secondary" id="activeTrendViewBadge">Grafik Tren Bulanan 2026</span>
-              <span class="badge badge-outline">Januari – Oktober</span>
+              <span class="badge badge-secondary" id="activeTrendViewBadge">Grafik Tren Parameter Mutu</span>
+              <span class="badge badge-outline" id="trendMonthRangeBadge">November 2026</span>
             </div>
             <h3 class="visual-title" id="trendChartMainTitle">Tren 4 Parameter Efisiensi (BOR, AVLOS, TOI, BTO)</h3>
-            <p class="chart-subtitle" id="trendChartSubtitle">Fluktuasi bulanan tingkat hunian, lama rawat, tenggang perputaran, dan pergantian tempat tidur.</p>
+            <p class="chart-subtitle" id="trendChartSubtitle">Fluktuasi tingkat hunian, lama rawat, tenggang perputaran, dan pergantian tempat tidur Ruang Kakap.</p>
           </div>
 
           <!-- View Switcher Tabs -->
@@ -599,7 +599,7 @@
             <div class="progress-bar-bg">
               <div class="progress-bar-fill" id="bjBorFill" style="width: 88%; background: #0284c7;"></div>
             </div>
-            <span class="caption-text">Tingkat pemanfaatan tempat tidur rata-rata 2026</span>
+            <span class="caption-text">Tingkat pemanfaatan 41 tempat tidur Ruang Kakap</span>
           </div>
         </div>
 
@@ -607,15 +607,15 @@
         <div class="kpi-card card-glow-primary">
           <div class="kpi-header">
             <span class="kpi-label">AVLOS (AVG LENGTH OF STAY)</span>
-            <span class="status-chip chip-success" id="bjAvlosChip">Sesuai Standar</span>
+            <span class="status-chip chip-success" id="bjAvlosChip">Terkendali</span>
           </div>
           <div class="kpi-value-row">
-            <span class="kpi-value" id="bjValAvlos">5.7</span>
+            <span class="kpi-value" id="bjValAvlos">12.0</span>
             <span class="kpi-sub">Hari (Target: 6 - 9h)</span>
           </div>
           <div class="kpi-footer">
             <div class="progress-bar-bg">
-              <div class="progress-bar-fill" id="bjAvlosFill" style="width: 63%; background: #38bdf8;"></div>
+              <div class="progress-bar-fill" id="bjAvlosFill" style="width: 75%; background: #38bdf8;"></div>
             </div>
             <span class="caption-text">Rata-rata lama perawatan pasien rawat inap</span>
           </div>
@@ -625,17 +625,17 @@
         <div class="kpi-card card-glow-orange">
           <div class="kpi-header">
             <span class="kpi-label">TOI (TURN OVER INTERVAL)</span>
-            <span class="status-chip chip-warning" id="bjToiChip">Sangat Cepat</span>
+            <span class="status-chip chip-success" id="bjToiChip">Masuk Standar</span>
           </div>
           <div class="kpi-value-row">
-            <span class="kpi-value" id="bjValToi">0.79</span>
+            <span class="kpi-value" id="bjValToi">1.7</span>
             <span class="kpi-sub">Hari (Target: 1 - 3h)</span>
           </div>
           <div class="kpi-footer">
             <div class="progress-bar-bg">
-              <div class="progress-bar-fill" id="bjToiFill" style="width: 26%; background: #f97316;"></div>
+              <div class="progress-bar-fill" id="bjToiFill" style="width: 56%; background: #10b981;"></div>
             </div>
-            <span class="caption-text">Rata-rata hari tempat tidur kosong sebelum terisi</span>
+            <span class="caption-text">Rata-rata ranjang kosong ~40 jam sebelum terisi</span>
           </div>
         </div>
 
@@ -646,14 +646,14 @@
             <span class="status-chip chip-success" id="bjBtoChip">Optimal</span>
           </div>
           <div class="kpi-value-row">
-            <span class="kpi-value" id="bjValBto">44.4</span>
+            <span class="kpi-value" id="bjValBto">26.7</span>
             <span class="kpi-sub">Kali/Th (Target: 40-50x)</span>
           </div>
           <div class="kpi-footer">
             <div class="progress-bar-bg">
-              <div class="progress-bar-fill" id="bjBtoFill" style="width: 88%; background: #a855f7;"></div>
+              <div class="progress-bar-fill" id="bjBtoFill" style="width: 53%; background: #a855f7;"></div>
             </div>
-            <span class="caption-text">Frekuensi pemakaian 1 tempat tidur per tahun</span>
+            <span class="caption-text">Proyeksi pemakaian 41 tempat tidur per tahun</span>
           </div>
         </div>
 
@@ -661,10 +661,10 @@
         <div class="kpi-card card-glow-emerald">
           <div class="kpi-header">
             <span class="kpi-label">GDR (GROSS DEATH RATE)</span>
-            <span class="status-chip chip-success" id="bjGdrChip">Baik (&lt;45‰)</span>
+            <span class="status-chip chip-warning" id="bjGdrChip">Monitoring</span>
           </div>
           <div class="kpi-value-row">
-            <span class="kpi-value" id="bjValGdr">47.1‰</span>
+            <span class="kpi-value" id="bjValGdr">500‰</span>
             <span class="kpi-sub">Standar: &le; 45‰</span>
           </div>
           <div class="kpi-footer">
@@ -679,15 +679,15 @@
         <div class="kpi-card card-glow-emerald">
           <div class="kpi-header">
             <span class="kpi-label">NDR (NET DEATH RATE &gt;48H)</span>
-            <span class="status-chip chip-success" id="bjNdrChip">Baik (&lt;25‰)</span>
+            <span class="status-chip chip-warning" id="bjNdrChip">Monitoring</span>
           </div>
           <div class="kpi-value-row">
-            <span class="kpi-value" id="bjValNdr">33.8‰</span>
+            <span class="kpi-value" id="bjValNdr">166.7‰</span>
             <span class="kpi-sub">Standar: &le; 25‰</span>
           </div>
           <div class="kpi-footer">
             <div class="progress-bar-bg">
-              <div class="progress-bar-fill" id="bjNdrFill" style="width: 80%; background: #10b981;"></div>
+              <div class="progress-bar-fill" id="bjNdrFill" style="width: 60%; background: #10b981;"></div>
             </div>
             <span class="caption-text">Kematian &ge; 48 jam per 1.000 pasien keluar</span>
           </div>
@@ -698,8 +698,8 @@
       <div class="analytics-card chart-card-wide" style="margin-top: 1.25rem;">
         <div class="chart-header">
           <div>
-            <h3>Tabel Rekapitulasi Indikator Pelayanan Bulanan (Januari – Oktober 2026)</h3>
-            <p class="chart-subtitle">Data riil Hari Perawatan (HP), Pasien Keluar (D), BOR, AVLOS, TOI, BTO, GDR, dan NDR per bulan.</p>
+            <h3>Tabel Rekapitulasi Indikator Pelayanan Ruang Rawat Inap Kakap</h3>
+            <p class="chart-subtitle">Data riil Hari Perawatan (HP), Pasien Keluar (D), BOR, AVLOS, TOI, BTO, GDR, dan NDR bersumber langsung dari Google Spreadsheet Ruang Kakap.</p>
           </div>
           <button class="btn btn-secondary btn-sm" id="exportIndicatorsCsvBtn">Ekspor Data Indikator</button>
         </div>
@@ -739,7 +739,7 @@
               <p class="chart-subtitle">Fluktuasi harian dan bulanan kapasitas ruang rawat inap</p>
             </div>
             <div class="chart-controls">
-              <span class="badge badge-primary">288 Hari Tercatat</span>
+              <span class="badge badge-primary" id="totalDaysBadge">2 Hari Tercatat (Nov 2026)</span>
             </div>
           </div>
           <div class="chart-canvas-wrapper" id="borChartContainer">
