@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Ruang Kakap | RSUD Dr. Soedarso</title>
+  <meta name="description" content="Dashboard Sensus Pasien, Denah Bed, dan Operan Jaga Rawat Inap Ruang Kakap (Tim I &amp; Tim II • 41 Bed) RSUD Dr. Soedarso Pontianak">
+  <link rel="icon" type="image/svg+xml" href="logo_kakap.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="brand-section">
+        <div class="brand-logo" title="Ruang Kakap RSUD Dr. Soedarso">
+          <img src="logo_kakap.svg" alt="Logo Ruang Kakap" class="enggang-logo-img" />
+        </div>
+        <div class="brand-text">
+          <div class="brand-title-row">
+            <h1 class="brand-title">Ruang Kakap</h1>
+            <span class="badge live-badge" id="liveIndicator">
+              <span class="pulsing-dot"></span> LIVE SENSUS
+            </span>
+          </div>
+          <p class="brand-subtitle">RSUD Dr. Soedarso &bull; Rawat Inap Tim I &amp; Tim II (41 Bed)</p>
+        </div>
+      </div>
+
+      <!-- Center Date & Ward Quick Selector -->
+      <div class="date-navigator">
+        <button class="btn btn-icon" id="prevDayBtn" title="Hari Sebelumnya">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="date-picker-box">
+          <svg class="calendar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <select id="dateSelect" class="date-dropdown" aria-label="Pilih Tanggal Sensus"></select>
+        </div>
+        <button class="btn btn-icon" id="nextDayBtn" title="Hari Berikutnya">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="btn btn-secondary btn-sm" id="todayBtn">Hari Ini</button>
+      </div>
+
+      <!-- Action Tools -->
+      <div class="nav-actions">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="globalSearchInput" placeholder="Cari pasien, MR, DPJP, diagnosa..." aria-label="Pencarian Pasien">
+          <button id="clearSearchBtn" class="clear-search-btn" style="display:none;">&times;</button>
+        </div>
+
+        <!-- Role Mode Switcher (Role Separation) -->
+        <div class="role-selector-box">
+          <button class="btn-role-badge role-badge-management" id="roleToggleBtn" title="Mode Klinis (Dilindungi PIN) - Klik untuk Buka Akses">
+            <span class="role-icon-pill" id="roleIconPill">🔒</span>
+            <div class="role-text-col">
+              <span class="role-main-label" id="roleMainLabel">Mode Klinis</span>
+              <span class="role-sub-label" id="roleSubLabel">Terkunci (Buka PIN 🔓)</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Shift Auto-Sync Widget (07.00, 14.00, 21.00) -->
+        <div class="sync-widget" id="syncWidget">
+          <button class="btn btn-primary btn-sm btn-sync-action" id="syncSheetsBtn" title="Tarik data terbaru dari Google Spreadsheet sekarang (Sinkron Manual)">
+            <svg class="sync-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span id="syncBtnText">Sinkron Data</span>
+          </button>
+          <button class="btn-sync-schedule-pill" id="openSyncModalBtn" title="Jadwal Tarik Otomatis Tiap Shift: 07:00, 14:00, 21:00 WIB. Klik untuk info detail &amp; riwayat.">
+            <span class="sync-schedule-icon">⏱️</span>
+            <div class="sync-schedule-text-col">
+              <span class="sync-schedule-tag">Auto-Sync Shift</span>
+              <span class="sync-schedule-next" id="syncScheduleNextBadge">Berikutnya: 14:00</span>
+            </div>
+            <span class="sync-live-dot pulse-emerald" title="Scheduler Aktif"></span>
+          </button>
+        </div>
+
+        <button class="btn btn-secondary btn-icon" id="themeToggleBtn" title="Ganti Mode Gelap / Terang">
+          <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="btn btn-secondary btn-icon" id="printHandoverBtn" title="Cetak Laporan Operan Jaga Shift (SBAR)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-content">
+    <!-- Navigation Tabs & Filter Bar -->
+    <section class="navigation-controls">
+      <div class="tab-pills" role="tablist">
+        <button class="tab-btn active" data-tab="tabBarberJohnson" id="btnTabBarberJohnson">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/><circle cx="18.7" cy="8" r="2"/></svg>
+          <span>Grafik Barber Johnson & Mutu</span>
+        </button>
+        <button class="tab-btn" data-tab="tabBedMap" id="btnTabBedMap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Denah Bed & Sensus Pasien</span>
+        </button>
+        <button class="tab-btn" data-tab="tabHandover" id="btnTabHandover">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+          <span>Papan Operan Jaga Shift</span>
+        </button>
+        <button class="tab-btn" data-tab="tabAnalytics" id="btnTabAnalytics">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Tren Hunian & Analitik BOR</span>
+        </button>
+        <button class="tab-btn" data-tab="tabDirectory" id="btnTabDirectory">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          <span>Direktori Master Pasien</span>
+        </button>
+        <button class="tab-btn" data-tab="tabChronology" id="btnTabChronology">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span>Kronologi Rawat Pasien</span>
+        </button>
+      </div>
+
+      <!-- Quick Filter Chips (Shown when Bed Map or Directory is active) -->
+      <div class="quick-filter-bar" style="display:none;">
+        <span class="filter-label">Filter Klinis:</span>
+        <button class="filter-chip active" data-filter="all">Semua Pasien</button>
+        <button class="filter-chip" data-filter="HD">Hemodialisa</button>
+        <button class="filter-chip" data-filter="Transfusi Darah">Transfusi Darah</button>
+        <button class="filter-chip" data-filter="Tindakan Bedah">Tindakan Bedah</button>
+        <button class="filter-chip" data-filter="Onkologi">Onkologi / Kanker</button>
+        <button class="filter-chip" data-filter="Rencana Pulang">Rencana Pulang</button>
+        <button class="filter-chip" data-filter="Monitoring DM">Monitoring DM</button>
+        <button class="filter-chip" data-filter="empty">Bed Kosong / BAU</button>
+      </div>
+    </section>
+
+    <!-- TAB 1: DENAH BED & SENSUS PASIEN -->
+    <section id="tabBedMap" class="tab-content">
+      <!-- KPI Summary Grid (Daily Census) -->
+      <section class="kpi-grid daily-census-kpi-grid">
+        <div class="kpi-card card-glow-primary">
+          <div class="kpi-header">
+            <span class="kpi-label">TOTAL PASIEN RAWAT</span>
+            <div class="kpi-icon-badge bg-primary-soft">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="kpiTotalOcc">--</span>
+            <span class="kpi-sub" id="kpiBedsTotal">/ -- Bed</span>
+          </div>
+          <div class="kpi-footer">
+            <div class="wing-split">
+              <span class="wing-tag eg2a-tag">Tim I: <strong id="kpiOccA">--</strong></span>
+              <span class="wing-tag eg2b-tag">Tim II: <strong id="kpiOccB">--</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-card card-glow-accent">
+          <div class="kpi-header">
+            <span class="kpi-label">BOR (BED OCCUPANCY RATE)</span>
+            <div class="kpi-icon-badge bg-accent-soft">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M7 15h.01"/><path d="M11 15h2"/></svg>
+            </div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="kpiBor">--%</span>
+            <span class="status-chip chip-success" id="kpiBorStatus">Optimal</span>
+          </div>
+          <div class="kpi-footer">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="kpiBorBar" style="width: 0%"></div>
+            </div>
+            <span class="caption-text">Standar Kemenkes RI: 60 - 85%</span>
+          </div>
+        </div>
+
+        <div class="kpi-card card-glow-emerald">
+          <div class="kpi-header">
+            <span class="kpi-label">BED KOSONG & PERBAIKAN</span>
+            <div class="kpi-icon-badge bg-emerald-soft">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20v-8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8M9 4h6M12 4v6"/></svg>
+            </div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="kpiEmptyBeds">--</span>
+            <span class="kpi-sub" id="kpiRepairBeds">(-- BAU)</span>
+          </div>
+          <div class="kpi-footer">
+            <span class="caption-text" id="kpiBedReadyText">Kesiapan Tempat Tidur Baru</span>
+          </div>
+        </div>
+
+        <div class="kpi-card card-glow-purple">
+          <div class="kpi-header">
+            <span class="kpi-label">HEMODIALISA & TRANSFUSI</span>
+            <div class="kpi-icon-badge bg-purple-soft">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="kpiHdCount">--</span>
+            <span class="kpi-sub" id="kpiTransfusionCount">HD | -- TF</span>
+          </div>
+          <div class="kpi-footer">
+            <span class="caption-text">Pasien aktif program HD & PRC/WB</span>
+          </div>
+        </div>
+
+        <div class="kpi-card card-glow-orange">
+          <div class="kpi-header">
+            <span class="kpi-label">TINDAKAN BEDAH & PULANG</span>
+            <div class="kpi-icon-badge bg-orange-soft">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="kpiSurgeryCount">--</span>
+            <span class="kpi-sub" id="kpiDischargeCount">Operasi | -- KRS</span>
+          </div>
+          <div class="kpi-footer">
+            <span class="caption-text">Jadwal OK IBS & ACC Rencana Rajal</span>
+          </div>
+        </div>
+      </section>
+      <!-- Wing Selector Subtabs -->
+      <div class="wing-selection-bar">
+        <div class="wing-toggle-group">
+          <button class="wing-btn active" data-wing="all">Semua Tim (Tim I + II)</button>
+          <button class="wing-btn" data-wing="EG2A">Tim I (<span id="countWingA">21</span> Bed)</button>
+          <button class="wing-btn" data-wing="EG2B">Tim II (<span id="countWingB">20</span> Bed)</button>
+        </div>
+
+        <div class="bed-legend">
+          <span class="legend-item"><span class="legend-dot status-occupied"></span> Terisi</span>
+          <span class="legend-item"><span class="legend-dot status-hd"></span> Hemodialisa</span>
+          <span class="legend-item"><span class="legend-dot status-surgery"></span> Bedah / Post-Op</span>
+          <span class="legend-item"><span class="legend-dot status-transfusion"></span> Transfusi</span>
+          <span class="legend-item"><span class="legend-dot status-discharge"></span> Rencana Pulang</span>
+          <span class="legend-item"><span class="legend-dot status-empty"></span> Kosong / BAU</span>
+        </div>
+      </div>
+
+      <!-- Wing Sections Container -->
+      <div class="wards-container">
+        <!-- Tim I Section -->
+        <div class="ward-block" id="wardBlockEG2A">
+          <div class="ward-header">
+            <div class="ward-title-group">
+              <span class="wing-badge badge-eg2a">TIM I</span>
+              <h2>Tim I — Kakap 1 s.d. 5 &amp; Bed Isolasi</h2>
+              <span class="ward-meta-text" id="metaWingA">-- Pasien Terisi &bull; 21 Bed</span>
+            </div>
+          </div>
+          <div class="bed-grid" id="bedGridEG2A">
+            <!-- Bed Cards dynamically injected -->
+          </div>
+        </div>
+
+        <!-- Tim II Section -->
+        <div class="ward-block" id="wardBlockEG2B">
+          <div class="ward-header">
+            <div class="ward-title-group">
+              <span class="wing-badge badge-eg2b">TIM II</span>
+              <h2>Tim II — Kakap 6 s.d. 10</h2>
+              <span class="ward-meta-text" id="metaWingB">-- Pasien Terisi &bull; 20 Bed</span>
+            </div>
+          </div>
+          <div class="bed-grid" id="bedGridEG2B">
+            <!-- Bed Cards dynamically injected -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: PAPAN OPERAN JAGA SHIFT (SBAR) -->
+    <section id="tabHandover" class="tab-content">
+      <!-- Locked State for Management/Public Role -->
+      <div class="handover-locked-container" id="handoverLockedState" style="display:none;">
+        <div class="locked-card">
+          <div class="locked-icon-shield">🔒</div>
+          <h3>Akses Rekam Medis Klinis Terkunci</h3>
+          <p class="locked-desc">
+            Sesuai <strong>UU Pelindungan Data Pribadi (UU PDP No. 27/2022)</strong> dan <strong>Permenkes No. 24/2022</strong>, 
+            rincian catatan operan jaga shift perawat/dokter (SBAR), hasil laboratorium, dan instruksi terapi dilindungi 
+            dan hanya dapat diakses oleh petugas medis yang berwenang.
+          </p>
+          <div class="locked-pin-box">
+            <input type="password" id="tabPinInput" class="pin-input-field" maxlength="6" inputmode="numeric" placeholder="Masukkan PIN Klinis" autocomplete="off">
+            <button class="btn btn-primary" id="tabPinSubmitBtn">Buka Akses Klinis</button>
+          </div>
+          <span class="pin-error-inline" id="tabPinError" style="display:none;">PIN keliru. Silakan coba kembali.</span>
+          <p class="pin-hint-text">Khusus Petugas Ruang Kakap</p>
+        </div>
+      </div>
+
+      <!-- Unlocked Content for Clinical Role -->
+      <div id="handoverUnlockedContent">
+        <div class="handover-controls-card">
+          <div class="shift-selector-row">
+            <div class="shift-buttons">
+              <button class="shift-btn active" data-shift="pagi">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <span>Shift Pagi (07:00 - 14:00)</span>
+              </button>
+              <button class="shift-btn" data-shift="sore">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/></svg>
+                <span>Shift Sore (14:00 - 21:00)</span>
+              </button>
+              <button class="shift-btn" data-shift="malam">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <span>Shift Malam (21:00 - 07:00)</span>
+              </button>
+            </div>
+
+            <div class="handover-actions">
+              <button class="btn btn-secondary btn-sm" id="copyHandoverSummaryBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Salin Ringkasan Shift</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="handover-filter-info">
+            <span id="handoverActiveShiftTitle">Operan Jaga: Shift Pagi</span>
+            <span class="text-muted" id="handoverActiveDateText">Minggu, 18 Oktober 2026</span>
+          </div>
+        </div>
+
+        <!-- Handover Cards List -->
+        <div class="handover-list-container" id="handoverListContainer">
+          <!-- Injected via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: GRAFIK BARBER JOHNSON & INDIKATOR PELAYANAN -->
+    <section id="tabBarberJohnson" class="tab-content active">
+      <!-- Section Header -->
+      <div class="bj-header-card">
+        <div class="bj-header-content">
+          <div class="bj-title-group">
+            <span class="badge badge-primary">Sistem Informasi Manajemen Rumah Sakit (SIMRS)</span>
+            <h2>Statistik Mutu Pelayanan &amp; Grafik Barber Johnson</h2>
+            <p class="text-secondary">Evaluasi 4 parameter efisiensi ruang rawat inap (BOR, AVLOS, TOI, BTO) dan indikator mortalitas (GDR, NDR) sesuai standar Kemenkes RI.</p>
+          </div>
+          <div class="bj-header-meta">
+            <div class="meta-pill-large">
+              <span class="meta-label">Kapasitas Tempat Tidur</span>
+              <span class="meta-val">41 Bed (Tim I &amp; Tim II)</span>
+            </div>
+            <div class="meta-pill-large">
+              <span class="meta-label">Total Hari Perawatan (HP)</span>
+              <span class="meta-val" id="bjTotalHp">16.280 Hari</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 4 PARAMETER EFISIENSI: 4 DIAGRAM TERPISAH & VARIATIF DIBANDINGKAN STANDAR DEPKES (POSISI ATAS) -->
+      <div class="param-benchmark-suite">
+        <div class="section-header-banner">
+          <div class="chart-tag-row">
+            <span class="badge badge-primary">Komparasi 4 Parameter Efisiensi</span>
+            <span class="badge badge-outline">Benchmark Standar Depkes / Kemenkes RI</span>
+          </div>
+          <h3 class="visual-title">Evaluasi Kinerja 4 Parameter Utama Pelayanan Rawat Inap 2026</h3>
+          <p class="chart-subtitle">Diagram terpisah dan variatif untuk BOR (Speedometer Radial Gauge), AVLOS (Range Slider &amp; Sebaran), TOI (Turnover Clock &amp; Interval), dan BTO (Milestone Progress Ring) dibandingkan langsung terhadap nilai standarnya.</p>
+        </div>
+
+        <div class="param-charts-grid">
+          <!-- Card 1: BOR Radial Speedometer Gauge -->
+          <div class="analytics-card param-chart-card" id="cardBor">
+            <div class="param-card-header">
+              <div class="param-badge-row">
+                <span class="param-code-badge badge-bor">BOR</span>
+                <span class="param-std-badge">Standar: 60% – 85%</span>
+              </div>
+              <h4 class="param-card-title">Bed Occupancy Rate (Tingkat Hunian)</h4>
+            </div>
+            <div class="param-canvas-container" id="chartBorGauge"></div>
+            <div class="param-card-footer">
+              <div class="param-eval-row">
+                <span class="eval-pill pill-danger">Over-Capacity (87.8%)</span>
+                <span class="eval-diff">+2.8% di atas batas atas 85%</span>
+              </div>
+              <p class="param-desc">Tingkat hunian tempat tidur rata-rata 87.8% (di atas rentang aman 60-85%). Menandakan utilitas prima namun perlu kewaspadaan beban kerja perawat.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: AVLOS Horizontal Range Bullet -->
+          <div class="analytics-card param-chart-card" id="cardAvlos">
+            <div class="param-card-header">
+              <div class="param-badge-row">
+                <span class="param-code-badge badge-avlos">AVLOS</span>
+                <span class="param-std-badge">Standar: 6 – 9 Hari</span>
+              </div>
+              <h4 class="param-card-title">Average Length of Stay (Lama Rawat)</h4>
+            </div>
+            <div class="param-canvas-container" id="chartAvlosRange"></div>
+            <div class="param-card-footer">
+              <div class="param-eval-row">
+                <span class="eval-pill pill-success">Efisien (5.7 Hari)</span>
+                <span class="eval-diff">-0.3 hari di bawah batas min</span>
+              </div>
+              <p class="param-desc">Rata-rata lama perawatan 5.7 hari, terkendali dengan baik di bawah batas atas 9 hari (alur pemulangan efisien, tidak ada prolonged stay).</p>
+            </div>
+          </div>
+
+          <!-- Card 3: TOI Bed Turnover Interval Dial -->
+          <div class="analytics-card param-chart-card" id="cardToi">
+            <div class="param-card-header">
+              <div class="param-badge-row">
+                <span class="param-code-badge badge-toi">TOI</span>
+                <span class="param-std-badge">Standar: 1 – 3 Hari (24–72 Jam)</span>
+              </div>
+              <h4 class="param-card-title">Turn Over Interval (Tenggang Kosong)</h4>
+            </div>
+            <div class="param-canvas-container" id="chartToiDial"></div>
+            <div class="param-card-footer">
+              <div class="param-eval-row">
+                <span class="eval-pill pill-warning">Sangat Cepat (~19 Jam)</span>
+                <span class="eval-diff">-5.1 jam dari batas min 24h</span>
+              </div>
+              <p class="param-desc">Ranjang kosong hanya 18.9 jam (0.79 hari) sebelum terisi kembali. Alur sterilisasi dan perputaran tempat tidur berjalan sangat padat.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: BTO Annual Target Milestone -->
+          <div class="analytics-card param-chart-card" id="cardBto">
+            <div class="param-card-header">
+              <div class="param-badge-row">
+                <span class="param-code-badge badge-bto">BTO</span>
+                <span class="param-std-badge">Standar: 40 – 50 Kali</span>
+              </div>
+              <h4 class="param-card-title">Bed Turn Over (Perputaran Bed)</h4>
+            </div>
+            <div class="param-canvas-container" id="chartBtoMilestone"></div>
+            <div class="param-card-footer">
+              <div class="param-eval-row">
+                <span class="eval-pill pill-success">Optimal (44.4 Kali)</span>
+                <span class="eval-diff">★ Masuk Target Depkes</span>
+              </div>
+              <p class="param-desc">Setiap ranjang digunakan 44.4 pasien bergantian s/d 19 Oktober (proyeksi 1 tahun ~56x), produktivitas penggunaan ranjang sangat tinggi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barber Johnson Diagram & Interpretative Panel (POSISI TENGAH) -->
+      <div class="bj-main-grid">
+        <!-- Diagram Canvas Box -->
+        <div class="analytics-card bj-diagram-card">
+          <div class="chart-header">
+            <div>
+              <h3>Grafik Barber Johnson (Tahun 2026)</h3>
+              <p class="chart-subtitle">Memadukan garis BOR, garis BTO, dan Daerah Efisiensi Barber Johnson dengan titik koordinat bulanan.</p>
+            </div>
+            <div class="bj-legend-badges">
+              <span class="bj-legend-badge"><span class="legend-swatch swatch-green"></span> Daerah Efisiensi (Kemenkes)</span>
+              <span class="bj-legend-badge"><span class="legend-swatch swatch-cyan"></span> Titik Bulanan 2026</span>
+              <span class="bj-legend-badge"><span class="legend-swatch swatch-gold"></span> Rata-rata 2026</span>
+            </div>
+          </div>
+
+          <!-- Mobile Chart Swipe Hint -->
+          <div class="mobile-chart-hint">
+            <span class="hint-icon">📱</span>
+            <span>Geser grafik horizontal &amp; ketuk titik bulan untuk rincian</span>
+          </div>
+
+          <!-- SVG Canvas Wrapper -->
+          <div class="bj-canvas-container" id="barberJohnsonCanvas">
+            <!-- Rendered dynamically via app.js -->
+          </div>
+
+          <!-- Detail Card on Click/Hover -->
+          <div class="bj-detail-popover" id="bjPointDetailBox" style="display:none;">
+            <!-- Injected via app.js -->
+          </div>
+        </div>
+
+        <!-- Analysis & Hospital Management Insights Panel -->
+        <div class="analytics-card bj-analysis-card">
+          <div class="chart-header">
+            <div>
+              <h3>Analisis &amp; Interpretasi Manajerial</h3>
+              <p class="chart-subtitle">Interpretasi posisi titik pada Grafik Barber Johnson</p>
+            </div>
+          </div>
+
+          <div class="bj-insights-list">
+            <div class="insight-box insight-success">
+              <div class="insight-icon">🎯</div>
+              <div class="insight-body">
+                <h4>Deteksi Warna Cell: Titik Masuk Daerah Efisiensi Barber Johnson</h4>
+                <p>Melalui deteksi penandaan warna cell (filler warna pasien pulang), terdata <strong>2.485 pasien keluar/pulang</strong> dengan <strong>AVLOS 5,7 Hari</strong> dan <strong>BTO 44,4 Kali/Tahun</strong> (tepat di target Kemenkes 40–50x). Titik koordinat bulan <strong>Maret 2026 (BOR 75,8%, TOI 1,8h)</strong> dan <strong>Februari 2026 (BOR 83,0%, TOI 1,1h)</strong> berhasil masuk tepat di dalam <strong>Daerah Efisiensi Depkes/Kemenkes RI</strong>!</p>
+              </div>
+            </div>
+
+            <div class="insight-box insight-info">
+              <div class="insight-icon">⚡</div>
+              <div class="insight-body">
+                <h4>TOI Cepat &amp; Responsif (0,79 Hari / ~19 Jam)</h4>
+                <p>Rata-rata tenggang perputaran tempat tidur kosong berkisar 19 jam sebelum terisi pasien baru dari IGD atau rawat jalan. Hal ini membuktikan kecepatan respons alur penerimaan dan sterilisasi ruangan yang sangat produktif.</p>
+              </div>
+            </div>
+
+            <div class="insight-box insight-alert">
+              <div class="insight-icon">📊</div>
+              <div class="insight-body">
+                <h4>BOR Kumulatif 87,8% (Kapasitas Maksimal 41 Bed)</h4>
+                <p>Tingkat keterisian tahun 2026 stabil di kisaran 87,8% (Tim I 21 bed, Tim II 20 bed). Utilisasi ini menunjukkan tingginya kepercayaan masyarakat dan produktivitas tinggi bangsal rawat inap Ruang Kakap RSUD Dr. Soedarso.</p>
+              </div>
+            </div>
+
+            <div class="insight-box insight-recommendation">
+              <div class="insight-icon">💡</div>
+              <div class="insight-body">
+                <h4>Rekomendasi Manajerial</h4>
+                <ul class="recommendation-list">
+                  <li>Pertahankan kepatuhan penandaan warna cell bagi perawat jaga karena terbukti menghasilkan akurasi indikator mutu sensus yang presisi.</li>
+                  <li>Pertahankan rotasi sterilisasi bed 19 jam (TOI) agar tidak terjadi penumpukan pasien antre di IGD pada jam-jam sibuk.</li>
+                  <li>Monitoring berkala rasio perawat terhadap pasien terutama pada bulan-bulan puncak hunian guna menjaga keselamatan pasien (*patient safety*).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Tren Multivariat & Mortalitas (Switcher Tab) -->
+      <div class="analytics-card visual-card-trends" style="margin-bottom: 1.35rem;">
+        <div class="chart-header">
+          <div class="trend-title-col">
+            <div class="chart-tag-row">
+              <span class="badge badge-secondary" id="activeTrendViewBadge">Grafik Tren Bulanan 2026</span>
+              <span class="badge badge-outline">Januari – Oktober</span>
+            </div>
+            <h3 class="visual-title" id="trendChartMainTitle">Tren 4 Parameter Efisiensi (BOR, AVLOS, TOI, BTO)</h3>
+            <p class="chart-subtitle" id="trendChartSubtitle">Fluktuasi bulanan tingkat hunian, lama rawat, tenggang perputaran, dan pergantian tempat tidur.</p>
+          </div>
+
+          <!-- View Switcher Tabs -->
+          <div class="trend-view-switcher">
+            <button class="trend-switch-btn active" id="btnViewEfficiency" data-trend="efficiency">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span>4 Parameter Efisiensi</span>
+            </button>
+            <button class="trend-switch-btn" id="btnViewMortality" data-trend="mortality">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span>GDR &amp; NDR (Mortalitas)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Parameter Toggle Chips (Visible on Efficiency View) -->
+        <div class="trend-param-chips" id="trendParamChips">
+          <span class="chips-label">Pilihan Indikator:</span>
+          <button class="param-chip active chip-bor" data-param="bor"><span class="chip-color"></span> BOR (%)</button>
+          <button class="param-chip active chip-avlos" data-param="avlos"><span class="chip-color"></span> AVLOS (Hari)</button>
+          <button class="param-chip active chip-toi" data-param="toi"><span class="chip-color"></span> TOI (Hari)</button>
+          <button class="param-chip active chip-bto" data-param="bto"><span class="chip-color"></span> BTO (Kali)</button>
+        </div>
+
+        <!-- Mobile Swipe Hint for Trends -->
+        <div class="mobile-chart-hint" id="trendChartHint">
+          <span class="hint-icon">📱</span>
+          <span>Geser grafik horizontal &amp; ketuk titik / batang bulan untuk rincian</span>
+        </div>
+
+        <!-- Canvas Container for Trend Chart -->
+        <div class="trend-canvas-container" id="qualityTrendContainer">
+          <!-- Rendered dynamically via app.js -->
+        </div>
+
+        <!-- Interactive Tooltip Box -->
+        <div class="trend-tooltip-box" id="trendTooltipBox" style="display:none;"></div>
+      </div>
+
+      <!-- 6 Detailed Key Indicators Cards Grid -->
+      <div class="kpi-grid indicator-kpi-grid">
+        <!-- BOR Card -->
+        <div class="kpi-card card-glow-accent">
+          <div class="kpi-header">
+            <span class="kpi-label">BOR (BED OCCUPANCY RATE)</span>
+            <span class="status-chip chip-success" id="bjBorChip">Optimal</span>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="bjValBor">87.8%</span>
+            <span class="kpi-sub">Target: 60 - 85%</span>
+          </div>
+          <div class="kpi-footer">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="bjBorFill" style="width: 88%; background: #0284c7;"></div>
+            </div>
+            <span class="caption-text">Tingkat pemanfaatan tempat tidur rata-rata 2026</span>
+          </div>
+        </div>
+
+        <!-- AVLOS Card -->
+        <div class="kpi-card card-glow-primary">
+          <div class="kpi-header">
+            <span class="kpi-label">AVLOS (AVG LENGTH OF STAY)</span>
+            <span class="status-chip chip-success" id="bjAvlosChip">Sesuai Standar</span>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="bjValAvlos">5.7</span>
+            <span class="kpi-sub">Hari (Target: 6 - 9h)</span>
+          </div>
+          <div class="kpi-footer">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="bjAvlosFill" style="width: 63%; background: #38bdf8;"></div>
+            </div>
+            <span class="caption-text">Rata-rata lama perawatan pasien rawat inap</span>
+          </div>
+        </div>
+
+        <!-- TOI Card -->
+        <div class="kpi-card card-glow-orange">
+          <div class="kpi-header">
+            <span class="kpi-label">TOI (TURN OVER INTERVAL)</span>
+            <span class="status-chip chip-warning" id="bjToiChip">Sangat Cepat</span>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="bjValToi">0.79</span>
+            <span class="kpi-sub">Hari (Target: 1 - 3h)</span>
+          </div>
+          <div class="kpi-footer">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="bjToiFill" style="width: 26%; background: #f97316;"></div>
+            </div>
+            <span class="caption-text">Rata-rata hari tempat tidur kosong sebelum terisi</span>
+          </div>
+        </div>
+
+        <!-- BTO Card -->
+        <div class="kpi-card card-glow-purple">
+          <div class="kpi-header">
+            <span class="kpi-label">BTO (BED TURN OVER)</span>
+            <span class="status-chip chip-success" id="bjBtoChip">Optimal</span>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="bjValBto">44.4</span>
+            <span class="kpi-sub">Kali/Th (Target: 40-50x)</span>
+          </div>
+          <div class="kpi-footer">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="bjBtoFill" style="width: 88%; background: #a855f7;"></div>
+            </div>
+            <span class="caption-text">Frekuensi pemakaian 1 tempat tidur per tahun</span>
+          </div>
+        </div>
+
+        <!-- GDR Card -->
+        <div class="kpi-card card-glow-emerald">
+          <div class="kpi-header">
+            <span class="kpi-label">GDR (GROSS DEATH RATE)</span>
+            <span class="status-chip chip-success" id="bjGdrChip">Baik (&lt;45‰)</span>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="bjValGdr">47.1‰</span>
+            <span class="kpi-sub">Standar: &le; 45‰</span>
+          </div>
+          <div class="kpi-footer">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="bjGdrFill" style="width: 78%; background: #10b981;"></div>
+            </div>
+            <span class="caption-text">Angka kematian kasar per 1.000 pasien keluar</span>
+          </div>
+        </div>
+
+        <!-- NDR Card -->
+        <div class="kpi-card card-glow-emerald">
+          <div class="kpi-header">
+            <span class="kpi-label">NDR (NET DEATH RATE &gt;48H)</span>
+            <span class="status-chip chip-success" id="bjNdrChip">Baik (&lt;25‰)</span>
+          </div>
+          <div class="kpi-value-row">
+            <span class="kpi-value" id="bjValNdr">33.8‰</span>
+            <span class="kpi-sub">Standar: &le; 25‰</span>
+          </div>
+          <div class="kpi-footer">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="bjNdrFill" style="width: 80%; background: #10b981;"></div>
+            </div>
+            <span class="caption-text">Kematian &ge; 48 jam per 1.000 pasien keluar</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Monthly Indicators Full Table -->
+      <div class="analytics-card chart-card-wide" style="margin-top: 1.25rem;">
+        <div class="chart-header">
+          <div>
+            <h3>Tabel Rekapitulasi Indikator Pelayanan Bulanan (Januari – Oktober 2026)</h3>
+            <p class="chart-subtitle">Data riil Hari Perawatan (HP), Pasien Keluar (D), BOR, AVLOS, TOI, BTO, GDR, dan NDR per bulan.</p>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="exportIndicatorsCsvBtn">Ekspor Data Indikator</button>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table" id="hospitalIndicatorsTable">
+            <thead>
+              <tr>
+                <th>Bulan</th>
+                <th>Hari</th>
+                <th>Hari Perawatan (HP)</th>
+                <th>Pasien Keluar (D)</th>
+                <th>BOR (%)</th>
+                <th>AVLOS</th>
+                <th>TOI</th>
+                <th>BTO</th>
+                <th>GDR (‰)</th>
+                <th>NDR (‰)</th>
+                <th>Status Barber Johnson</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Injected via app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: TREN & ANALITIK BOR -->
+    <section id="tabAnalytics" class="tab-content">
+      <div class="analytics-grid">
+        <!-- Monthly Occupancy & BOR Trend -->
+        <div class="analytics-card chart-card-wide">
+          <div class="chart-header">
+            <div>
+              <h3>Tren Tingkat Hunian Tempat Tidur (BOR %) Tahun 2026</h3>
+              <p class="chart-subtitle">Fluktuasi harian dan bulanan kapasitas ruang rawat inap</p>
+            </div>
+            <div class="chart-controls">
+              <span class="badge badge-primary">288 Hari Tercatat</span>
+            </div>
+          </div>
+          <div class="chart-canvas-wrapper" id="borChartContainer">
+            <!-- SVG / Canvas Line Chart -->
+          </div>
+        </div>
+
+        <!-- Top DPJP / Dokter Spesialis -->
+        <div class="analytics-card">
+          <div class="chart-header">
+            <div>
+              <h3>Top 10 DPJP / Dokter Spesialis</h3>
+              <p class="chart-subtitle">Berdasarkan jumlah pasien (1 MR = 1 pasien)</p>
+            </div>
+          </div>
+          <div class="ranking-list" id="topDoctorsList">
+            <!-- Injected via app.js -->
+          </div>
+        </div>
+
+        <!-- Top 10 Diagnosa Medis -->
+        <div class="analytics-card">
+          <div class="chart-header">
+            <div>
+              <h3>Top 10 Diagnosa Medis</h3>
+              <p class="chart-subtitle">Frekuensi kasus klinis (1 pasien dapat memiliki &gt;1 diagnosa)</p>
+            </div>
+          </div>
+          <div class="category-distribution-list" id="categoryDistList">
+            <!-- Injected via app.js -->
+          </div>
+        </div>
+
+        <!-- Insurance Breakdown -->
+        <div class="analytics-card">
+          <div class="chart-header">
+            <div>
+              <h3>Distribusi Jaminan / Asuransi Pasien</h3>
+              <p class="chart-subtitle">Proporsi BPJS Kelas 1/2/3, Jasa Raharja, dan Umum</p>
+            </div>
+          </div>
+          <div class="insurance-distribution-list" id="insuranceDistList">
+            <!-- Injected via app.js -->
+          </div>
+        </div>
+
+        <!-- Monthly Metrics Table -->
+        <div class="analytics-card chart-card-wide">
+          <div class="chart-header">
+            <div>
+              <h3>Rekapitulasi Bulanan Ruang Kakap (2026)</h3>
+              <p class="chart-subtitle">Rata-rata BOR, pasien harian, dan pembagian Tim I vs Tim II</p>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table" id="monthlySummaryTable">
+              <thead>
+                <tr>
+                  <th>Bulan</th>
+                  <th>Hari Terdata</th>
+                  <th>Rata-rata Pasien</th>
+                  <th>Rata-rata Tim I</th>
+                  <th>Rata-rata Tim II</th>
+                  <th>Rata-rata BOR (%)</th>
+                  <th>Status Kapasitas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Injected via app.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: DIREKTORI & PENCARIAN MASTER PASIEN -->
+    <section id="tabDirectory" class="tab-content">
+      <div class="directory-card">
+        <div class="directory-toolbar">
+          <div class="directory-search-row">
+            <div class="input-with-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" id="dirSearchInput" placeholder="Saring tabel berdasarkan nama, nomor rekam medis, dokter..." aria-label="Cari di direktori">
+            </div>
+
+            <div class="filter-selects">
+              <select id="dirFilterWing" aria-label="Pilih Tim">
+                <option value="">Semua Tim</option>
+                <option value="Tim I">Tim I</option>
+                <option value="Tim II">Tim II</option>
+              </select>
+
+              <select id="dirFilterCategory" aria-label="Pilih Kategori Diagnosa">
+                <option value="">Semua Kategori</option>
+              </select>
+
+              <select id="dirFilterInsurance" aria-label="Pilih Jaminan">
+                <option value="">Semua Jaminan</option>
+              </select>
+            </div>
+
+            <button class="btn btn-secondary btn-sm" id="exportCsvBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Ekspor CSV</span>
+            </button>
+          </div>
+          <div class="results-count" id="dirResultsCount">Menampilkan -- pasien</div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table master-table" id="directoryTable">
+            <thead>
+              <tr>
+                <th>Bed / Ruang</th>
+                <th>Nama Pasien</th>
+                <th>No. MR</th>
+                <th>Tgl Masuk (LOS)</th>
+                <th>Jaminan</th>
+                <th>DPJP / Dokter</th>
+                <th>Diagnosa</th>
+                <th>Kategori</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Injected via app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: PEMBUATAN RIWAYAT KRONOLOGI RAWAT PASIEN -->
+    <section id="tabChronology" class="tab-content">
+      <div class="chronology-wrapper">
+        <!-- Top Toolbar & Patient Selector -->
+        <div class="chronology-header-card">
+          <div class="chronology-title-group">
+            <div class="chronology-icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 8v4l3 3"/>
+                <circle cx="12" cy="12" r="9"/>
+              </svg>
+            </div>
+            <div>
+              <div class="chronology-title-row">
+                <h2>Pembuatan Riwayat Kronologi Rawat Pasien</h2>
+                <span class="badge badge-primary">CPPT &amp; Rekam Klinis</span>
+              </div>
+              <p class="chart-subtitle">Rekonstruksi &amp; Dokumentasi Perjalanan Rawat Inap Harian (Sensus, SBAR, Shift, DPJP &amp; Prosedur) Ruang Kakap</p>
+            </div>
+          </div>
+
+          <div class="chronology-actions-toolbar">
+            <button class="btn btn-primary" id="btnNewChronologyEntry" title="Tambah Catatan Perkembangan / Observasi Baru">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Tambah Catatan Klinis</span>
+            </button>
+            <button class="btn btn-secondary" id="btnPrintChronology" title="Cetak Format Dokumen Resmi RSUD Dr. Soedarso (Cetak Langsung / PDF)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              <span>Cetak Resume (PDF)</span>
+            </button>
+            <button class="btn btn-secondary btn-export-word" id="btnExportWordChronology" title="Unduh dan Cetak Kronologis dalam Format Microsoft Word (.doc)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span>Cetak Format Word (.doc)</span>
+            </button>
+            <button class="btn btn-secondary" id="btnCopyChronologySummary" title="Salin Ringkasan Kronologis ke Clipboard (SIMRS / Handover)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Salin Teks Kronologi</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Patient Selection Control Panel -->
+        <div class="chronology-patient-picker">
+          <div class="picker-search-col">
+            <label for="chronologySearchInput" class="picker-label">Pencarian Pasien (No. RM / Nama):</label>
+            <div class="input-with-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" id="chronologySearchInput" placeholder="Ketik No. RM atau Nama Pasien..." autocomplete="off">
+            </div>
+            <div id="chronologySearchResults" class="search-dropdown-menu" style="display:none;"></div>
+          </div>
+
+          <div class="picker-dropdown-col">
+            <label for="chronologyPatientSelect" class="picker-label">Atau Pilih Pasien Dari Master / Sensus:</label>
+            <select id="chronologyPatientSelect">
+              <option value="">-- Pilih Pasien Ruang Kakap --</option>
+            </select>
+          </div>
+
+          <div class="picker-sort-col">
+            <label class="picker-label">Urutan Kronologi:</label>
+            <div class="btn-group-toggle">
+              <button class="btn-toggle active" id="sortChronologyAsc" title="Dari Hari Pertama Rawat ke Terakhir">Hari 1 &rarr; Akhir</button>
+              <button class="btn-toggle" id="sortChronologyDesc" title="Dari Hari Terbaru ke Hari Pertama">Terbaru &rarr; Hari 1</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Patient Pills: Currently Active Patients in Ward -->
+        <div class="chronology-quick-chips">
+          <span class="quick-chip-label">Pasien Sedang Dirawat:</span>
+          <div class="quick-chips-scroll" id="chronologyActivePillsContainer">
+            <!-- Dynamically injected pills for quick click -->
+          </div>
+        </div>
+
+        <!-- Patient Detail Header Card (Visible once patient is selected) -->
+        <div class="chronology-patient-card" id="chronologyPatientCard" style="display:none;">
+          <!-- Dynamically populated patient header -->
+        </div>
+
+        <!-- Main Timeline & CPPT Flow -->
+        <div class="chronology-timeline-container" id="chronologyTimelineContainer">
+          <div class="chronology-empty-state" id="chronologyEmptyState">
+            <div class="empty-state-icon">📋</div>
+            <h3>Pilih Pasien untuk Menampilkan / Membuat Kronologi Rawat</h3>
+            <p>Pilih salah satu pasien di atas, cari berdasarkan Nomor RM / Nama, atau klik tombol "Kronologi" pada tabel Direktori Pasien / Detail Bed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PATIENT DETAIL & SBAR MODAL -->
+  <div class="modal-overlay" id="patientModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="modalPatientName">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-patient-info">
+          <div class="modal-badge-row">
+            <span class="badge" id="modalBedBadge">BED --</span>
+            <span class="badge badge-secondary" id="modalWingBadge">Tim I</span>
+            <span class="badge" id="modalInsuranceBadge">BPJS 3</span>
+            <span class="badge badge-outline" id="modalLosBadge">LOS: 1 Hari</span>
+          </div>
+          <h2 id="modalPatientName" class="modal-title">Nama Pasien</h2>
+          <div class="modal-sub-row">
+            <span id="modalMrNo">MR: 00000000</span> &bull;
+            <span id="modalAgeGender">L / -- th</span> &bull;
+            <span id="modalAdmissionDate">Masuk: --/--/----</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Doctor & Diagnosis Box -->
+        <div class="modal-clinical-box">
+          <div class="clinical-field">
+            <span class="field-title">DPJP (Dokter Penanggung Jawab Pelayanan):</span>
+            <p class="field-value text-accent" id="modalDoctor">--</p>
+          </div>
+          <div class="clinical-field">
+            <span class="field-title">Diagnosa Klinis:</span>
+            <p class="field-value" id="modalDiagnosis">--</p>
+          </div>
+          <div class="clinical-tags-row" id="modalTagsContainer">
+            <!-- Injected via app.js -->
+          </div>
+        </div>
+
+        <!-- Shift Handover Notes (Tabs: Pagi, Sore, Malam) -->
+        <div class="modal-shifts-section">
+          <h3 class="section-title">Catatan Operan Jaga Shift Harian</h3>
+          
+          <div class="shift-note-card shift-note-pagi">
+            <div class="shift-note-header">
+              <span class="shift-badge badge-pagi">SHIFT PAGI (07:00 - 14:00)</span>
+            </div>
+            <div class="shift-note-content" id="modalNotePagi">Tidak ada catatan shift pagi.</div>
+          </div>
+
+          <div class="shift-note-card shift-note-sore">
+            <div class="shift-note-header">
+              <span class="shift-badge badge-sore">SHIFT SORE (14:00 - 21:00)</span>
+            </div>
+            <div class="shift-note-content" id="modalNoteSore">Tidak ada catatan shift sore.</div>
+          </div>
+
+          <div class="shift-note-card shift-note-malam">
+            <div class="shift-note-header">
+              <span class="shift-badge badge-malam">SHIFT MALAM (21:00 - 07:00)</span>
+            </div>
+            <div class="shift-note-content" id="modalNoteMalam">Tidak ada catatan shift malam.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-accent" id="modalOpenChronologyBtn" title="Buka riwayat perjalanan dan pembuatan kronologi rawat pasien">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
+          <span>Kronologi Rawat</span>
+        </button>
+        <button class="btn btn-secondary" id="modalCopySbarBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span>Salin Format SBAR</span>
+        </button>
+        <button class="btn btn-primary" id="modalPrintPatientBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Cetak Lembar Pasien</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIN AUTHENTICATION MODAL (ROLE SEPARATION) -->
+  <div class="modal-overlay" id="pinModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="pinModalTitle">
+    <div class="modal-dialog modal-dialog-sm">
+      <div class="modal-header">
+        <div class="pin-modal-header-text">
+          <div class="pin-shield-badge">🔒</div>
+          <h2 id="pinModalTitle" class="modal-title" style="font-size:1.15rem;">Autentikasi Mode Klinis</h2>
+          <p class="caption-text">Khusus Petugas Ruang Kakap</p>
+        </div>
+        <button class="modal-close-btn" id="pinModalCloseBtn" aria-label="Tutup Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="pin-security-notice">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <p>
+            Sesuai <strong>UU PDP No. 27/2022</strong> &amp; <strong>Permenkes 24/2022</strong>, 
+            identitas rekam medis (Nama Pasien, No. MR, &amp; SBAR) dilindungi dan wajib diakses melalui otentikasi.
+          </p>
+        </div>
+
+        <form id="pinAuthForm" onsubmit="return false;">
+          <div class="pin-input-group">
+            <label for="pinCodeInput" class="pin-label">Masukkan PIN Klinis Petugas:</label>
+            <div class="pin-input-wrapper">
+              <input type="password" id="pinCodeInput" class="pin-box-input" maxlength="6" inputmode="numeric" placeholder="••••" autocomplete="off">
+              <button type="button" class="btn btn-icon btn-toggle-pin" id="togglePinVisibilityBtn" title="Lihat PIN">
+                <svg id="pinEyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="pin-error-msg" id="pinErrorMsg" style="display:none;">PIN keliru. Silakan coba kembali.</span>
+          </div>
+
+          <div class="pin-quick-keypad">
+            <button type="button" class="keypad-btn" data-key="1">1</button>
+            <button type="button" class="keypad-btn" data-key="2">2</button>
+            <button type="button" class="keypad-btn" data-key="3">3</button>
+            <button type="button" class="keypad-btn" data-key="4">4</button>
+            <button type="button" class="keypad-btn" data-key="5">5</button>
+            <button type="button" class="keypad-btn" data-key="6">6</button>
+            <button type="button" class="keypad-btn" data-key="7">7</button>
+            <button type="button" class="keypad-btn" data-key="8">8</button>
+            <button type="button" class="keypad-btn" data-key="9">9</button>
+            <button type="button" class="keypad-btn keypad-clear" id="keypadClearBtn">C</button>
+            <button type="button" class="keypad-btn" data-key="0">0</button>
+            <button type="button" class="keypad-btn keypad-del" id="keypadDelBtn">⌫</button>
+          </div>
+
+          <div class="pin-modal-actions">
+            <button type="submit" class="btn btn-primary btn-block" id="pinSubmitBtn">
+              <span>Buka Akses Mode Klinis</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Jadwal Sinkronisasi Shift (07.00, 14.00, 21.00) -->
+  <div class="modal-backdrop" id="syncModalBackdrop" style="display:none;">
+    <div class="modal-card sync-modal-card" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="badge-role-icon">⏱️</div>
+          <div>
+            <h3 class="modal-title">Jadwal Penarikan Otomatis Spreadsheet</h3>
+            <p class="modal-subtitle">Sinkronisasi otomatis Ruang Kakap (Tim I &amp; Tim II)</p>
+          </div>
+        </div>
+        <button class="btn btn-icon btn-close-modal" id="closeSyncModalBtn" aria-label="Tutup">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="sync-info-banner">
+          <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p>
+            Sistem secara <strong>otomatis menarik data dari Google Spreadsheet</strong> pada jam operan jaga shift keperawatan &amp; dokter:
+          </p>
+        </div>
+
+        <div class="sync-shift-grid">
+          <!-- Shift Pagi -->
+          <div class="shift-card" id="shiftCardPagi">
+            <div class="shift-card-header">
+              <span class="shift-badge badge-morning">🌅 Shift Pagi</span>
+              <span class="shift-time">07.00 WIB</span>
+            </div>
+            <p class="shift-desc">Operan Jaga Malam ➔ Pagi. Penarikan data sensus malam, bed kosong, &amp; persiapan visite DPJP.</p>
+            <div class="shift-card-status" id="shiftStatusPagi">Terjadwal Harian</div>
+          </div>
+
+          <!-- Shift Sore -->
+          <div class="shift-card" id="shiftCardSore">
+            <div class="shift-card-header">
+              <span class="shift-badge badge-afternoon">☀️ Shift Sore</span>
+              <span class="shift-time">14.00 WIB</span>
+            </div>
+            <p class="shift-desc">Operan Jaga Pagi ➔ Sore. Pembaruan data pasien pulang hari ini, rotasi tempat tidur, &amp; program tindakan.</p>
+            <div class="shift-card-status" id="shiftStatusSore">Berikutnya</div>
+          </div>
+
+          <!-- Shift Malam -->
+          <div class="shift-card" id="shiftCardMalam">
+            <div class="shift-card-header">
+              <span class="shift-badge badge-night">🌙 Shift Malam</span>
+              <span class="shift-time">21.00 WIB</span>
+            </div>
+            <p class="shift-desc">Operan Jaga Sore ➔ Malam. Rekapitulasi sensus harian lengkap &amp; handover perawat malam.</p>
+            <div class="shift-card-status" id="shiftStatusMalam">Terjadwal Harian</div>
+          </div>
+        </div>
+
+        <div class="sync-meta-box">
+          <div class="sync-meta-row">
+            <span class="meta-label">Status Background Scheduler:</span>
+            <span class="meta-val val-green">🟢 Aktif (Server Daemon Siaga)</span>
+          </div>
+          <div class="sync-meta-row">
+            <span class="meta-label">Penarikan Terakhir:</span>
+            <span class="meta-val" id="metaLastSyncVal">Sedang memeriksa...</span>
+          </div>
+          <div class="sync-meta-row">
+            <span class="meta-label">Jadwal Penarikan Berikutnya:</span>
+            <span class="meta-val val-blue" id="metaNextSyncVal">Sedang memeriksa...</span>
+          </div>
+          <div class="sync-meta-row">
+            <span class="meta-label">Hitung Mundur:</span>
+            <span class="meta-val val-countdown" id="metaCountdownVal">-</span>
+          </div>
+        </div>
+
+        <div class="sync-modal-actions">
+          <button class="btn btn-primary" id="modalSyncNowBtn">
+            <svg class="sync-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>Tarik Data Spreadsheet Sekarang</span>
+          </button>
+          <button class="btn btn-secondary" id="modalCloseBtn">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL TAMBAH CATATAN KRONOLOGI RAWAT -->
+  <div class="modal-overlay" id="chronologyEntryModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="chronologyModalTitle">
+    <div class="modal-dialog modal-dialog-md">
+      <div class="modal-header">
+        <div class="modal-patient-info">
+          <h2 id="chronologyModalTitle" class="modal-title" style="font-size:1.2rem;">Tambah Catatan Kronologi Rawat</h2>
+          <p class="caption-text" id="chronologyModalPatientLabel">Pasien: -</p>
+        </div>
+        <button class="modal-close-btn" id="chronologyModalCloseBtn" aria-label="Tutup Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="chronologyEntryForm" onsubmit="return false;">
+          <div class="form-row form-row-2">
+            <div class="form-group">
+              <label for="entryDateInput" class="form-label">Tanggal Observasi / Catatan</label>
+              <input type="date" id="entryDateInput" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="entryTimeInput" class="form-label">Jam (WIB)</label>
+              <input type="time" id="entryTimeInput" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row form-row-2">
+            <div class="form-group">
+              <label for="entryShiftSelect" class="form-label">Shift / Jenis Catatan</label>
+              <select id="entryShiftSelect" class="form-control" required>
+                <option value="pagi">Shift Pagi (07:00 - 14:00)</option>
+                <option value="sore">Shift Sore (14:00 - 21:00)</option>
+                <option value="malam">Shift Malam (21:00 - 07:00)</option>
+                <option value="visite_dpjp">Visite Dokter Spesialis (DPJP)</option>
+                <option value="visite_jaga">Visite Dokter Jaga Ruangan</option>
+                <option value="tindakan">Tindakan / Prosedur Khusus</option>
+                <option value="krs">Ringkasan Kepulangan / KRS</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="entryPpaInput" class="form-label">Nama Petugas / PPA</label>
+              <input type="text" id="entryPpaInput" class="form-control" placeholder="Contoh: dr. Ivan, Sp.PD / Ns. Fatimah" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Catatan Perkembangan Pasien Terintegrasi (CPPT / SOAP)</label>
+            <div class="soap-inputs-grid">
+              <div class="soap-col">
+                <span class="soap-badge soap-s">S</span>
+                <textarea id="entrySubjective" class="form-control form-textarea-sm" placeholder="Subjektif (Keluhan utama pasien, respon nyeri, mual, sesak, dll)..."></textarea>
+              </div>
+              <div class="soap-col">
+                <span class="soap-badge soap-o">O</span>
+                <textarea id="entryObjective" class="form-control form-textarea-sm" placeholder="Objektif (TTV: TD, Nadi, RR, Suhu, SpO2, GDS, KU, hasil lab/foto)..."></textarea>
+              </div>
+              <div class="soap-col">
+                <span class="soap-badge soap-a">A</span>
+                <textarea id="entryAssessment" class="form-control form-textarea-sm" placeholder="Asesmen (Diagnosis klinis, perbaikan / perburukan, evaluasi)..."></textarea>
+              </div>
+              <div class="soap-col">
+                <span class="soap-badge soap-p">P</span>
+                <textarea id="entryPlanning" class="form-control form-textarea-sm" placeholder="Planning (Instruksi DPJP, terapi obat, infus, program HD/TF/OK)..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Prosedur / Tag Klinis Terkait Hari Ini</label>
+            <div class="procedure-checkbox-row">
+              <label class="proc-check"><input type="checkbox" value="HD" id="chkProcHd"> Hemodialisa (HD)</label>
+              <label class="proc-check"><input type="checkbox" value="Transfusi" id="chkProcTf"> Transfusi Darah (PRC/WB)</label>
+              <label class="proc-check"><input type="checkbox" value="Bedah" id="chkProcSurgery"> Tindakan Bedah / Operasi</label>
+              <label class="proc-check"><input type="checkbox" value="DM" id="chkProcDm"> Monitoring GDS / Insulin</label>
+              <label class="proc-check"><input type="checkbox" value="KRS" id="chkProcKrs"> Rencana / ACC KRS Pulang</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btnCancelChronologyEntry">Batal</button>
+        <button class="btn btn-primary" id="btnSaveChronologyEntry">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          <span>Simpan ke Kronologi</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Print Container (hidden on screen, visible during printing) -->
+  <div id="printContainer" class="print-only"></div>
+
+  <script src="logo_asset.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

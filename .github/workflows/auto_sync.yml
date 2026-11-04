@@ -1,0 +1,61 @@
+name: Auto Sync Spreadsheet & Deploy to GitHub Pages
+
+on:
+  schedule:
+    # 07:00 WIB (00:00 UTC) - Sensus Shift Pagi
+    # 14:00 WIB (07:00 UTC) - Sensus Shift Sore
+    # 20:00 WIB (13:00 UTC) - Sensus Shift Malam
+    - cron: '0 0,7,13 * * *'
+  workflow_dispatch: # Tombol pemicu manual di tab Actions GitHub
+  push:
+    branches:
+      - main
+
+# Izin untuk menulis ke GitHub Pages dan commit pembaruan data
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  sync-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Download Spreadsheet Kakap & Build Data
+        run: |
+          python run_build_data.py --download
+
+      - name: Commit Updated Data to Repository
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Auto-Sync"
+          git add dashboard_data.json hospital_indicators.json kakap_data.xlsx
+          git commit -m "chore(auto-sync): update daily census from Google Sheets [skip ci]" || echo "No changes to commit"
+          git push || echo "Push skipped"
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
