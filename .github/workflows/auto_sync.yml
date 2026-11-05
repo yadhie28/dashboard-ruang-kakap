@@ -7,7 +7,13 @@ on:
   # 13:00 UTC = 20:00 WIB (Shift Malam)
   schedule:
     - cron: '0 0,7,13 * * *'
-  workflow_dispatch: # Tombol pemicu manual di tab Actions GitHub
+  workflow_dispatch:
+    inputs:
+      force_send:
+        description: 'Paksa kirim WhatsApp mengabaikan jam jadwal (Uji Coba)'
+        required: false
+        type: boolean
+        default: true
   push:
     branches:
       - main
@@ -42,11 +48,18 @@ jobs:
           python run_build_data.py --download
 
       - name: Kirim Laporan Sensus WhatsApp ke Kepala Ruang Kakap
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[test-wa]')
         env:
           FONNTE_TOKEN: ${{ secrets.FONNTE_TOKEN || 'Ayfow2x1hFiscQZSphzq' }}
+          IS_TEST_TRIGGER: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[test-wa]') }}
         run: |
-          python send_whatsapp.py --sensus --scheduled-only --gateway fonnte || echo "WhatsApp dispatch finished with warning"
+          if [ "$IS_TEST_TRIGGER" = "true" ]; then
+            echo "[TEST MODE] Uji coba pengiriman Cloud GitHub Actions dengan flag --force..."
+            python send_whatsapp.py --sensus --force --gateway fonnte
+          else
+            echo "[SCHEDULED MODE] Pengiriman sensus terjadwal resmi..."
+            python send_whatsapp.py --sensus --scheduled-only --gateway fonnte || echo "WhatsApp dispatch finished with warning"
+          fi
 
       - name: Commit Updated Data to Repository
         run: |
