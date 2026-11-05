@@ -13,7 +13,7 @@
       "Tim I (Kakap 1-5 & Isolasi - 21 Bed)",
       "Tim II (Kakap 6-10 - 20 Bed)"
     ],
-    "lastUpdated": "05-11-2026 14:54:36",
+    "lastUpdated": "05-11-2026 08:02:13",
     "latestDate": "2026-11-05",
     "totalDatesRecorded": 3,
     "dateRange": "2026-11-03 s/d 2026-11-05",
@@ -12264,7 +12264,7 @@
         },
         {
           "bed": "3.1",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Pulang Hari Ini",
           "isEmpty": true,
@@ -12316,7 +12316,7 @@
         },
         {
           "bed": "3.2",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Antrian / Transit",
           "isEmpty": false,
@@ -12355,7 +12355,7 @@
         },
         {
           "bed": "3.3",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -12407,7 +12407,7 @@
         },
         {
           "bed": "3.4",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -12935,12 +12935,12 @@
           "bed": "6.3",
           "room": "KAKAP 6 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
+          "status": "Kosong",
           "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFEAD1DC",
-          "name": "Sdr. Rohan",
-          "mrNo": "00295878",
+          "isDischargedToday": false,
+          "dischargeColor": null,
+          "name": "Bed Kosong",
+          "mrNo": "",
           "gender": "-",
           "age": "",
           "admissionDate": "-",
@@ -12949,34 +12949,17 @@
           "doctor": "-",
           "doctorPrimary": "-",
           "diagnosis": "-",
-          "category": "Hematologi & Onkologi",
+          "category": "-",
           "notes": {
-            "pagi": "BLPL JAM 10:00\n\n- Kel: Nyeri dada kiri tembus ke belakang hilang timbul, timbul saat beraktivitas. \n- Riw: Hari Rabu 28/10/2026 sudah ke Poli IPD (dr.Muhardani Iqbal) dan dirujuk ke Sp.PD-KHOM\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi CML: Ceftriaxone 2x1 gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, HU 2x500mg PO (FORM HU DI STATUS)\n- Terapi PJK: ISDN 3x5mg PO, Bisoprolol 1x1,25mg PO, CPG 1x75mg PO, Allupurinol 1x300 PO, Clobazam 2x10mg PO\n- Ro Thorax (01/11/2026) \"Foto Thorak tidak tampak kelainan\"\n- Hasil USG Whole Abdomen (Rabu 04/11/2026) \"Spleenomegali\"\n- EKG (+) \" Sinus Bradikardi, Curiga PJK\"\n- Hasil Lab Tanggal 02/11/2026 (HB:  15.5 PLT: 596 WBC: 61.40, Elektrolit \"DBN\", Serologi \"NR\")\n- Hasil cek GDT \"Hiperleukositosis dan trombositosis ec. suspek keganasan hematologi kronik seri mieloid (chronic myelocytic leukemia) DD:/ AML; ALL; CLL. Saran : Pemeriksaan BCR-ABL kualitatif.  3% sel blas suspek seri mieloid (mieloblas)\n- Hasil Cek Urinalisa di SIMRS (+)\n- Hasil cek Troponin (Selasa 03/11/2026):  < 0.006 ng/mL\n- SSH Cek BCR ABL kualitatif (Tanggal 02/11/2026)\n- BLPL Post ECHO sambil menunggu hasil BCR ABL =>> Resume Pulang (-), Obat Pulang (HU 2x500, Allupurinol 1x300, Cefixime 2x200, CPG 1x75, Lansoprazole 1x30) di SIMRS, Kontrol Poli HO Selasa 17/11/2026, Terapi jantung sesuai Sp.JP\n\ndr.Infan,Sp.JP:\n- Co Sp.JP/dr.Infan,Sp.JP pada px dengam Curiga CML dan Curiga PJK (+) \n- Hasil ECHO (Rabu 04/11/2026 jam 12:00 siang) di Status (+)",
+            "pagi": "",
             "sore": "",
             "malam": ""
           },
-          "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
-            {
-              "label": "Transfusi Darah",
-              "color": "red"
-            }
-          ],
+          "tags": [],
           "ews": {
             "score": 0,
             "level": "normal",
-            "parameters": {
-              "rr": 18,
-              "spo2": 98,
-              "o2_therapy": false,
-              "sys_bp": 120,
-              "hr": 80,
-              "temp": 36.8,
-              "consciousness": "Alert"
-            }
+            "parameters": {}
           }
         },
         {
@@ -14183,7 +14166,7 @@
         },
         {
           "bed": "3.1",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Pulang Hari Ini",
           "isEmpty": true,
@@ -14235,7 +14218,7 @@
         },
         {
           "bed": "3.2",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Antrian / Transit",
           "isEmpty": false,
@@ -14274,7 +14257,7 @@
         },
         {
           "bed": "3.3",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -14326,7 +14309,7 @@
         },
         {
           "bed": "3.4",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -14904,12 +14887,12 @@
           "bed": "6.3",
           "room": "KAKAP 6 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
+          "status": "Kosong",
           "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFEAD1DC",
-          "name": "Sdr. Rohan",
-          "mrNo": "00295878",
+          "isDischargedToday": false,
+          "dischargeColor": null,
+          "name": "Bed Kosong",
+          "mrNo": "",
           "gender": "-",
           "age": "",
           "admissionDate": "-",
@@ -14918,34 +14901,17 @@
           "doctor": "-",
           "doctorPrimary": "-",
           "diagnosis": "-",
-          "category": "Hematologi & Onkologi",
+          "category": "-",
           "notes": {
-            "pagi": "BLPL JAM 10:00\n\n- Kel: Nyeri dada kiri tembus ke belakang hilang timbul, timbul saat beraktivitas. \n- Riw: Hari Rabu 28/10/2026 sudah ke Poli IPD (dr.Muhardani Iqbal) dan dirujuk ke Sp.PD-KHOM\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi CML: Ceftriaxone 2x1 gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, HU 2x500mg PO (FORM HU DI STATUS)\n- Terapi PJK: ISDN 3x5mg PO, Bisoprolol 1x1,25mg PO, CPG 1x75mg PO, Allupurinol 1x300 PO, Clobazam 2x10mg PO\n- Ro Thorax (01/11/2026) \"Foto Thorak tidak tampak kelainan\"\n- Hasil USG Whole Abdomen (Rabu 04/11/2026) \"Spleenomegali\"\n- EKG (+) \" Sinus Bradikardi, Curiga PJK\"\n- Hasil Lab Tanggal 02/11/2026 (HB:  15.5 PLT: 596 WBC: 61.40, Elektrolit \"DBN\", Serologi \"NR\")\n- Hasil cek GDT \"Hiperleukositosis dan trombositosis ec. suspek keganasan hematologi kronik seri mieloid (chronic myelocytic leukemia) DD:/ AML; ALL; CLL. Saran : Pemeriksaan BCR-ABL kualitatif.  3% sel blas suspek seri mieloid (mieloblas)\n- Hasil Cek Urinalisa di SIMRS (+)\n- Hasil cek Troponin (Selasa 03/11/2026):  < 0.006 ng/mL\n- SSH Cek BCR ABL kualitatif (Tanggal 02/11/2026)\n- BLPL Post ECHO sambil menunggu hasil BCR ABL =>> Resume Pulang (-), Obat Pulang (HU 2x500, Allupurinol 1x300, Cefixime 2x200, CPG 1x75, Lansoprazole 1x30) di SIMRS, Kontrol Poli HO Selasa 17/11/2026, Terapi jantung sesuai Sp.JP\n\ndr.Infan,Sp.JP:\n- Co Sp.JP/dr.Infan,Sp.JP pada px dengam Curiga CML dan Curiga PJK (+) \n- Hasil ECHO (Rabu 04/11/2026 jam 12:00 siang) di Status (+)",
+            "pagi": "",
             "sore": "",
             "malam": ""
           },
-          "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
-            {
-              "label": "Transfusi Darah",
-              "color": "red"
-            }
-          ],
+          "tags": [],
           "ews": {
             "score": 0,
             "level": "normal",
-            "parameters": {
-              "rr": 18,
-              "spo2": 98,
-              "o2_therapy": false,
-              "sys_bp": 120,
-              "hr": 80,
-              "temp": 36.8,
-              "consciousness": "Alert"
-            }
+            "parameters": {}
           }
         },
         {
@@ -16104,7 +16070,7 @@
         },
         {
           "bed": "3.1",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Pulang Hari Ini",
           "isEmpty": true,
@@ -16156,7 +16122,7 @@
         },
         {
           "bed": "3.2",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Antrian / Transit",
           "isEmpty": false,
@@ -16195,7 +16161,7 @@
         },
         {
           "bed": "3.3",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -16247,7 +16213,7 @@
         },
         {
           "bed": "3.4",
-          "room": "KAKAP 2 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -16825,12 +16791,12 @@
           "bed": "6.3",
           "room": "KAKAP 6 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
+          "status": "Kosong",
           "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFEAD1DC",
-          "name": "Sdr. Rohan",
-          "mrNo": "00295878",
+          "isDischargedToday": false,
+          "dischargeColor": null,
+          "name": "Bed Kosong",
+          "mrNo": "",
           "gender": "-",
           "age": "",
           "admissionDate": "-",
@@ -16839,34 +16805,17 @@
           "doctor": "-",
           "doctorPrimary": "-",
           "diagnosis": "-",
-          "category": "Hematologi & Onkologi",
+          "category": "-",
           "notes": {
-            "pagi": "BLPL JAM 10:00\n\n- Kel: Nyeri dada kiri tembus ke belakang hilang timbul, timbul saat beraktivitas. \n- Riw: Hari Rabu 28/10/2026 sudah ke Poli IPD (dr.Muhardani Iqbal) dan dirujuk ke Sp.PD-KHOM\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi CML: Ceftriaxone 2x1 gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, HU 2x500mg PO (FORM HU DI STATUS)\n- Terapi PJK: ISDN 3x5mg PO, Bisoprolol 1x1,25mg PO, CPG 1x75mg PO, Allupurinol 1x300 PO, Clobazam 2x10mg PO\n- Ro Thorax (01/11/2026) \"Foto Thorak tidak tampak kelainan\"\n- Hasil USG Whole Abdomen (Rabu 04/11/2026) \"Spleenomegali\"\n- EKG (+) \" Sinus Bradikardi, Curiga PJK\"\n- Hasil Lab Tanggal 02/11/2026 (HB:  15.5 PLT: 596 WBC: 61.40, Elektrolit \"DBN\", Serologi \"NR\")\n- Hasil cek GDT \"Hiperleukositosis dan trombositosis ec. suspek keganasan hematologi kronik seri mieloid (chronic myelocytic leukemia) DD:/ AML; ALL; CLL. Saran : Pemeriksaan BCR-ABL kualitatif.  3% sel blas suspek seri mieloid (mieloblas)\n- Hasil Cek Urinalisa di SIMRS (+)\n- Hasil cek Troponin (Selasa 03/11/2026):  < 0.006 ng/mL\n- SSH Cek BCR ABL kualitatif (Tanggal 02/11/2026)\n- BLPL Post ECHO sambil menunggu hasil BCR ABL =>> Resume Pulang (-), Obat Pulang (HU 2x500, Allupurinol 1x300, Cefixime 2x200, CPG 1x75, Lansoprazole 1x30) di SIMRS, Kontrol Poli HO Selasa 17/11/2026, Terapi jantung sesuai Sp.JP\n\ndr.Infan,Sp.JP:\n- Co Sp.JP/dr.Infan,Sp.JP pada px dengam Curiga CML dan Curiga PJK (+) \n- Hasil ECHO (Rabu 04/11/2026 jam 12:00 siang) di Status (+)",
+            "pagi": "",
             "sore": "",
             "malam": ""
           },
-          "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
-            {
-              "label": "Transfusi Darah",
-              "color": "red"
-            }
-          ],
+          "tags": [],
           "ews": {
             "score": 0,
             "level": "normal",
-            "parameters": {
-              "rr": 18,
-              "spo2": 98,
-              "o2_therapy": false,
-              "sys_bp": 120,
-              "hr": 80,
-              "temp": 36.8,
-              "consciousness": "Alert"
-            }
+            "parameters": {}
           }
         },
         {
@@ -17659,11 +17608,11 @@
         "emptyTim2": 9,
         "emptyA": 9,
         "emptyB": 9,
-        "dischargedToday": 14,
+        "dischargedToday": 13,
         "tagCounts": {
-          "Pulang Hari Ini": 14,
+          "Pulang Hari Ini": 13,
           "Rencana Pulang": 6,
-          "Transfusi Darah": 25,
+          "Transfusi Darah": 24,
           "Onkologi": 12,
           "Hemodialisa (HD)": 16,
           "Puasa Pre-Op": 2,
@@ -18164,7 +18113,7 @@
       },
       {
         "bed": "3.1",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Pulang Hari Ini",
         "isEmpty": true,
@@ -18216,7 +18165,7 @@
       },
       {
         "bed": "3.2",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Antrian / Transit",
         "isEmpty": false,
@@ -18255,7 +18204,7 @@
       },
       {
         "bed": "3.3",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -18307,7 +18256,7 @@
       },
       {
         "bed": "3.4",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -18835,12 +18784,12 @@
         "bed": "6.3",
         "room": "KAKAP 6 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
+        "status": "Kosong",
         "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFEAD1DC",
-        "name": "Sdr. Rohan",
-        "mrNo": "00295878",
+        "isDischargedToday": false,
+        "dischargeColor": null,
+        "name": "Bed Kosong",
+        "mrNo": "",
         "gender": "-",
         "age": "",
         "admissionDate": "-",
@@ -18849,34 +18798,17 @@
         "doctor": "-",
         "doctorPrimary": "-",
         "diagnosis": "-",
-        "category": "Hematologi & Onkologi",
+        "category": "-",
         "notes": {
-          "pagi": "BLPL JAM 10:00\n\n- Kel: Nyeri dada kiri tembus ke belakang hilang timbul, timbul saat beraktivitas. \n- Riw: Hari Rabu 28/10/2026 sudah ke Poli IPD (dr.Muhardani Iqbal) dan dirujuk ke Sp.PD-KHOM\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi CML: Ceftriaxone 2x1 gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, HU 2x500mg PO (FORM HU DI STATUS)\n- Terapi PJK: ISDN 3x5mg PO, Bisoprolol 1x1,25mg PO, CPG 1x75mg PO, Allupurinol 1x300 PO, Clobazam 2x10mg PO\n- Ro Thorax (01/11/2026) \"Foto Thorak tidak tampak kelainan\"\n- Hasil USG Whole Abdomen (Rabu 04/11/2026) \"Spleenomegali\"\n- EKG (+) \" Sinus Bradikardi, Curiga PJK\"\n- Hasil Lab Tanggal 02/11/2026 (HB:  15.5 PLT: 596 WBC: 61.40, Elektrolit \"DBN\", Serologi \"NR\")\n- Hasil cek GDT \"Hiperleukositosis dan trombositosis ec. suspek keganasan hematologi kronik seri mieloid (chronic myelocytic leukemia) DD:/ AML; ALL; CLL. Saran : Pemeriksaan BCR-ABL kualitatif.  3% sel blas suspek seri mieloid (mieloblas)\n- Hasil Cek Urinalisa di SIMRS (+)\n- Hasil cek Troponin (Selasa 03/11/2026):  < 0.006 ng/mL\n- SSH Cek BCR ABL kualitatif (Tanggal 02/11/2026)\n- BLPL Post ECHO sambil menunggu hasil BCR ABL =>> Resume Pulang (-), Obat Pulang (HU 2x500, Allupurinol 1x300, Cefixime 2x200, CPG 1x75, Lansoprazole 1x30) di SIMRS, Kontrol Poli HO Selasa 17/11/2026, Terapi jantung sesuai Sp.JP\n\ndr.Infan,Sp.JP:\n- Co Sp.JP/dr.Infan,Sp.JP pada px dengam Curiga CML dan Curiga PJK (+) \n- Hasil ECHO (Rabu 04/11/2026 jam 12:00 siang) di Status (+)",
+          "pagi": "",
           "sore": "",
           "malam": ""
         },
-        "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
-          {
-            "label": "Transfusi Darah",
-            "color": "red"
-          }
-        ],
+        "tags": [],
         "ews": {
           "score": 0,
           "level": "normal",
-          "parameters": {
-            "rr": 18,
-            "spo2": 98,
-            "o2_therapy": false,
-            "sys_bp": 120,
-            "hr": 80,
-            "temp": 36.8,
-            "consciousness": "Alert"
-          }
+          "parameters": {}
         }
       },
       {
@@ -20083,7 +20015,7 @@
       },
       {
         "bed": "3.1",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Pulang Hari Ini",
         "isEmpty": true,
@@ -20135,7 +20067,7 @@
       },
       {
         "bed": "3.2",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Antrian / Transit",
         "isEmpty": false,
@@ -20174,7 +20106,7 @@
       },
       {
         "bed": "3.3",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -20226,7 +20158,7 @@
       },
       {
         "bed": "3.4",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -20804,12 +20736,12 @@
         "bed": "6.3",
         "room": "KAKAP 6 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
+        "status": "Kosong",
         "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFEAD1DC",
-        "name": "Sdr. Rohan",
-        "mrNo": "00295878",
+        "isDischargedToday": false,
+        "dischargeColor": null,
+        "name": "Bed Kosong",
+        "mrNo": "",
         "gender": "-",
         "age": "",
         "admissionDate": "-",
@@ -20818,34 +20750,17 @@
         "doctor": "-",
         "doctorPrimary": "-",
         "diagnosis": "-",
-        "category": "Hematologi & Onkologi",
+        "category": "-",
         "notes": {
-          "pagi": "BLPL JAM 10:00\n\n- Kel: Nyeri dada kiri tembus ke belakang hilang timbul, timbul saat beraktivitas. \n- Riw: Hari Rabu 28/10/2026 sudah ke Poli IPD (dr.Muhardani Iqbal) dan dirujuk ke Sp.PD-KHOM\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi CML: Ceftriaxone 2x1 gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, HU 2x500mg PO (FORM HU DI STATUS)\n- Terapi PJK: ISDN 3x5mg PO, Bisoprolol 1x1,25mg PO, CPG 1x75mg PO, Allupurinol 1x300 PO, Clobazam 2x10mg PO\n- Ro Thorax (01/11/2026) \"Foto Thorak tidak tampak kelainan\"\n- Hasil USG Whole Abdomen (Rabu 04/11/2026) \"Spleenomegali\"\n- EKG (+) \" Sinus Bradikardi, Curiga PJK\"\n- Hasil Lab Tanggal 02/11/2026 (HB:  15.5 PLT: 596 WBC: 61.40, Elektrolit \"DBN\", Serologi \"NR\")\n- Hasil cek GDT \"Hiperleukositosis dan trombositosis ec. suspek keganasan hematologi kronik seri mieloid (chronic myelocytic leukemia) DD:/ AML; ALL; CLL. Saran : Pemeriksaan BCR-ABL kualitatif.  3% sel blas suspek seri mieloid (mieloblas)\n- Hasil Cek Urinalisa di SIMRS (+)\n- Hasil cek Troponin (Selasa 03/11/2026):  < 0.006 ng/mL\n- SSH Cek BCR ABL kualitatif (Tanggal 02/11/2026)\n- BLPL Post ECHO sambil menunggu hasil BCR ABL =>> Resume Pulang (-), Obat Pulang (HU 2x500, Allupurinol 1x300, Cefixime 2x200, CPG 1x75, Lansoprazole 1x30) di SIMRS, Kontrol Poli HO Selasa 17/11/2026, Terapi jantung sesuai Sp.JP\n\ndr.Infan,Sp.JP:\n- Co Sp.JP/dr.Infan,Sp.JP pada px dengam Curiga CML dan Curiga PJK (+) \n- Hasil ECHO (Rabu 04/11/2026 jam 12:00 siang) di Status (+)",
+          "pagi": "",
           "sore": "",
           "malam": ""
         },
-        "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
-          {
-            "label": "Transfusi Darah",
-            "color": "red"
-          }
-        ],
+        "tags": [],
         "ews": {
           "score": 0,
           "level": "normal",
-          "parameters": {
-            "rr": 18,
-            "spo2": 98,
-            "o2_therapy": false,
-            "sys_bp": 120,
-            "hr": 80,
-            "temp": 36.8,
-            "consciousness": "Alert"
-          }
+          "parameters": {}
         }
       },
       {
@@ -22004,7 +21919,7 @@
       },
       {
         "bed": "3.1",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Pulang Hari Ini",
         "isEmpty": true,
@@ -22056,7 +21971,7 @@
       },
       {
         "bed": "3.2",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Antrian / Transit",
         "isEmpty": false,
@@ -22095,7 +22010,7 @@
       },
       {
         "bed": "3.3",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -22147,7 +22062,7 @@
       },
       {
         "bed": "3.4",
-        "room": "KAKAP 2 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -22725,12 +22640,12 @@
         "bed": "6.3",
         "room": "KAKAP 6 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
+        "status": "Kosong",
         "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFEAD1DC",
-        "name": "Sdr. Rohan",
-        "mrNo": "00295878",
+        "isDischargedToday": false,
+        "dischargeColor": null,
+        "name": "Bed Kosong",
+        "mrNo": "",
         "gender": "-",
         "age": "",
         "admissionDate": "-",
@@ -22739,34 +22654,17 @@
         "doctor": "-",
         "doctorPrimary": "-",
         "diagnosis": "-",
-        "category": "Hematologi & Onkologi",
+        "category": "-",
         "notes": {
-          "pagi": "BLPL JAM 10:00\n\n- Kel: Nyeri dada kiri tembus ke belakang hilang timbul, timbul saat beraktivitas. \n- Riw: Hari Rabu 28/10/2026 sudah ke Poli IPD (dr.Muhardani Iqbal) dan dirujuk ke Sp.PD-KHOM\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi CML: Ceftriaxone 2x1 gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, HU 2x500mg PO (FORM HU DI STATUS)\n- Terapi PJK: ISDN 3x5mg PO, Bisoprolol 1x1,25mg PO, CPG 1x75mg PO, Allupurinol 1x300 PO, Clobazam 2x10mg PO\n- Ro Thorax (01/11/2026) \"Foto Thorak tidak tampak kelainan\"\n- Hasil USG Whole Abdomen (Rabu 04/11/2026) \"Spleenomegali\"\n- EKG (+) \" Sinus Bradikardi, Curiga PJK\"\n- Hasil Lab Tanggal 02/11/2026 (HB:  15.5 PLT: 596 WBC: 61.40, Elektrolit \"DBN\", Serologi \"NR\")\n- Hasil cek GDT \"Hiperleukositosis dan trombositosis ec. suspek keganasan hematologi kronik seri mieloid (chronic myelocytic leukemia) DD:/ AML; ALL; CLL. Saran : Pemeriksaan BCR-ABL kualitatif.  3% sel blas suspek seri mieloid (mieloblas)\n- Hasil Cek Urinalisa di SIMRS (+)\n- Hasil cek Troponin (Selasa 03/11/2026):  < 0.006 ng/mL\n- SSH Cek BCR ABL kualitatif (Tanggal 02/11/2026)\n- BLPL Post ECHO sambil menunggu hasil BCR ABL =>> Resume Pulang (-), Obat Pulang (HU 2x500, Allupurinol 1x300, Cefixime 2x200, CPG 1x75, Lansoprazole 1x30) di SIMRS, Kontrol Poli HO Selasa 17/11/2026, Terapi jantung sesuai Sp.JP\n\ndr.Infan,Sp.JP:\n- Co Sp.JP/dr.Infan,Sp.JP pada px dengam Curiga CML dan Curiga PJK (+) \n- Hasil ECHO (Rabu 04/11/2026 jam 12:00 siang) di Status (+)",
+          "pagi": "",
           "sore": "",
           "malam": ""
         },
-        "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
-          {
-            "label": "Transfusi Darah",
-            "color": "red"
-          }
-        ],
+        "tags": [],
         "ews": {
           "score": 0,
           "level": "normal",
-          "parameters": {
-            "rr": 18,
-            "spo2": 98,
-            "o2_therapy": false,
-            "sys_bp": 120,
-            "hr": 80,
-            "temp": 36.8,
-            "consciousness": "Alert"
-          }
+          "parameters": {}
         }
       },
       {
@@ -23559,11 +23457,11 @@
       "emptyTim2": 9,
       "emptyA": 9,
       "emptyB": 9,
-      "dischargedToday": 14,
+      "dischargedToday": 13,
       "tagCounts": {
-        "Pulang Hari Ini": 14,
+        "Pulang Hari Ini": 13,
         "Rencana Pulang": 6,
-        "Transfusi Darah": 25,
+        "Transfusi Darah": 24,
         "Onkologi": 12,
         "Hemodialisa (HD)": 16,
         "Puasa Pre-Op": 2,
