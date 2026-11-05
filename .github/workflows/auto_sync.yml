@@ -42,6 +42,7 @@ jobs:
           python run_build_data.py --download
 
       - name: Kirim Laporan Sensus WhatsApp ke Kepala Ruang Kakap
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           FONNTE_TOKEN: ${{ secrets.FONNTE_TOKEN || 'Ayfow2x1hFiscQZSphzq' }}
         run: |

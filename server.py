@@ -32,7 +32,7 @@ sync_state = {
     "is_syncing": False,
     "last_sync": None,
     "last_status": "idle",
-    "last_message": "Server aktif. Jadwal auto-sync shift aktif (07:00, 14:00, 20:00 WIB).",
+    "last_message": "Server lokal aktif. Sinkronisasi & pengiriman sensus WA resmi ditangani tunggal oleh Cloud GitHub Actions (07.00, 14.00, 20.00 WIB).",
     "sync_count": 0,
     "history": []
 }
@@ -272,39 +272,10 @@ class DashboardRequestHandler(http.server.SimpleHTTPRequestHandler):
         self.send_response(404)
         self.end_headers()
 
-def background_scheduler_worker():
-    print(f"[SCHEDULER] Background worker aktif untuk shift 07:00, 14:00, dan 20:00 WIB.")
-    last_triggered_date_hour = None
-    while True:
-        now = datetime.now()
-        cur_h = now.hour
-        cur_m = now.minute
-        cur_tag = f"{now.strftime('%Y-%m-%d')}_{cur_h}"
-        for s in SCHEDULE_HOURS:
-            if cur_h == s["hour"] and cur_m in [0, 1] and cur_tag != last_triggered_date_hour:
-                last_triggered_date_hour = cur_tag
-                print(f"[SCHEDULER] Memicu auto-sync untuk {s['name']} ({s['desc']})...")
-                sync_res = execute_sync(trigger_type=f"auto_{s['name'].lower().replace(' ', '_')}")
-                if sync_res.get("success"):
-                    try:
-                        print(f"[SCHEDULER] Mengirim laporan sensus WhatsApp ke Kepala Ruang (+6281284070082)...")
-                        wa_script = os.path.join(DIRECTORY, "send_whatsapp.py")
-                        wa_proc = subprocess.run(
-                            [sys.executable, wa_script, "--sensus", "--scheduled-only", "--gateway", "fonnte"],
-                            cwd=DIRECTORY,
-                            capture_output=True,
-                            text=True,
-                            timeout=60
-                        )
-                        print(f"[SCHEDULER WA] Output: {wa_proc.stdout.strip()}")
-                    except Exception as we:
-                        print(f"[SCHEDULER WA ERROR] {we}")
-        time.sleep(30)
-
 def run_server():
     load_sync_info()
-    sched_thread = threading.Thread(target=background_scheduler_worker, daemon=True)
-    sched_thread.start()
+    # Pengiriman WA otomatis dan auto-sync terjadwal ditangani 100% oleh Otomatisasi Cloud GitHub Actions
+    # Background scheduler lokal dinonaktifkan agar tidak terjadi pengiriman WA berulang/duplikat.
 
     port = DEFAULT_PORT
     server = None
