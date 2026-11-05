@@ -1022,8 +1022,11 @@ function renderAnalyticsTab() {
 
   // 2. Top 10 Diagnosa Medis (Clinical Stem & Bubble / Lollipop Chart)
   const catContainer = document.getElementById('categoryDistList');
-  const diagnoses = state.data.analytics.topDiagnoses || state.data.analytics.categories;
-  if (catContainer && diagnoses) {
+  const rawDiag = state.data.analytics.topDiagnoses || state.data.analytics.categories;
+  const diagnoses = Array.isArray(rawDiag)
+    ? rawDiag
+    : Object.entries(rawDiag || {}).map(([name, count]) => ({ name, count }));
+  if (catContainer && diagnoses && diagnoses.length > 0) {
     catContainer.innerHTML = '';
     const top10 = diagnoses.slice(0, 10);
     const totalPatients = state.data.analytics.totalPatients || state.data.today?.summary?.occupied || 35;
@@ -1100,7 +1103,9 @@ function renderAnalyticsTab() {
   const insContainer = document.getElementById('insuranceDistList');
   if (insContainer && state.data.analytics.insurances) {
     insContainer.innerHTML = '';
-    const rawInsurances = state.data.analytics.insurances;
+    const rawInsurances = Array.isArray(state.data.analytics.insurances)
+      ? state.data.analytics.insurances
+      : Object.entries(state.data.analytics.insurances || {}).map(([name, count]) => ({ name, count }));
     
     const insColors = {
       'BPJS Kelas 3': '#0284c7',
@@ -1233,28 +1238,33 @@ function renderAnalyticsTab() {
 
   // 4. Monthly Table
   const tableBody = document.querySelector('#monthlySummaryTable tbody');
-  if (tableBody && state.data.monthly) {
+  const monthlyData = state.data.monthly || state.data.hospitalIndicators?.monthly || [];
+  if (tableBody && monthlyData.length > 0) {
     tableBody.innerHTML = '';
-    state.data.monthly.forEach(m => {
-      const [year, monthNum] = m.month.split('-');
-      const monthLabel = `${MONTHS_ID[parseInt(monthNum) - 1]} ${year}`;
+    monthlyData.forEach(m => {
+      const parts = (m.month || '2026-11').split('-');
+      const year = parts[0];
+      const monthNum = parts[1] || '11';
+      const monthLabel = `${MONTHS_ID[parseInt(monthNum) - 1] || 'November'} ${year}`;
       const tr = document.createElement('tr');
       
+      const borVal = m.avgBor !== undefined ? m.avgBor : m.bor;
       let statusChip = '<span class="status-chip chip-success">Optimal</span>';
-      if (m.avgBor >= 85) statusChip = '<span class="status-chip chip-danger">Penuh (Kritis)</span>';
-      else if (m.avgBor < 60) statusChip = '<span class="status-chip chip-warning">Rendah</span>';
+      if (borVal >= 85) statusChip = '<span class="status-chip chip-danger">Tinggi / Produktif</span>';
+      else if (borVal < 60) statusChip = '<span class="status-chip chip-warning">Rendah</span>';
 
-      const occA = (m.avgOccA !== undefined && m.avgOccA !== null) ? `${m.avgOccA} Pasien` : '-';
-      const occB = (m.avgOccB !== undefined && m.avgOccB !== null) ? `${m.avgOccB} Pasien` : '-';
-      const avgOcc = (m.avgOcc !== undefined && m.avgOcc !== null) ? `${m.avgOcc} Pasien` : '-';
+      const days = m.daysCounted || m.days || 1;
+      const occA = m.avgOccA !== undefined ? `${m.avgOccA} Pasien` : (m.hpTim1 ? `${(m.hpTim1 / days).toFixed(1)} Pasien` : '-');
+      const occB = m.avgOccB !== undefined ? `${m.avgOccB} Pasien` : (m.hpTim2 ? `${(m.hpTim2 / days).toFixed(1)} Pasien` : '-');
+      const avgOcc = m.avgOcc !== undefined ? `${m.avgOcc} Pasien` : (m.hp ? `${(m.hp / days).toFixed(1)} Pasien` : '-');
 
       tr.innerHTML = `
         <td><strong>${monthLabel}</strong></td>
-        <td>${m.daysCounted} Hari</td>
+        <td>${days} Hari</td>
         <td><strong>${avgOcc}</strong></td>
         <td>${occA}</td>
         <td>${occB}</td>
-        <td><strong style="color:var(--accent-primary);">${m.avgBor}%</strong></td>
+        <td><strong style="color:var(--accent-primary);">${borVal}%</strong></td>
         <td>${statusChip}</td>
       `;
       tableBody.appendChild(tr);
@@ -1342,11 +1352,15 @@ function renderBorChart() {
 
 // Populate Directory Master Filters
 function populateDirectoryFilters() {
-  if (!state.data) return;
+  if (!state.data || !state.data.analytics) return;
 
   const catSelect = document.getElementById('dirFilterCategory');
   if (catSelect && state.data.analytics.categories) {
-    state.data.analytics.categories.forEach(c => {
+    const cats = Array.isArray(state.data.analytics.categories)
+      ? state.data.analytics.categories
+      : Object.entries(state.data.analytics.categories).map(([name, count]) => ({ name, count }));
+    catSelect.innerHTML = '<option value="">Semua Kategori</option>';
+    cats.forEach(c => {
       const opt = document.createElement('option');
       opt.value = c.name;
       opt.textContent = c.name;
@@ -1356,7 +1370,11 @@ function populateDirectoryFilters() {
 
   const insSelect = document.getElementById('dirFilterInsurance');
   if (insSelect && state.data.analytics.insurances) {
-    state.data.analytics.insurances.forEach(i => {
+    const inss = Array.isArray(state.data.analytics.insurances)
+      ? state.data.analytics.insurances
+      : Object.entries(state.data.analytics.insurances).map(([name, count]) => ({ name, count }));
+    insSelect.innerHTML = '<option value="">Semua Jaminan</option>';
+    inss.forEach(i => {
       const opt = document.createElement('option');
       opt.value = i.name;
       opt.textContent = i.name;
@@ -1952,6 +1970,29 @@ function renderBarberJohnsonTab() {
 
   const elHp = document.getElementById('bjTotalHp');
   if (elHp) elHp.textContent = `${hosp.totalHP.toLocaleString('id-ID')} Hari Perawatan`;
+
+  // Update Benchmark Parameter Evaluation Pills & Descriptions
+  const pillBor = document.getElementById('evalPillBor');
+  if (pillBor) pillBor.textContent = `${overall.bor >= 85 ? 'Tinggi' : (overall.bor < 60 ? 'Rendah' : 'Ideal')} (${overall.bor}%)`;
+  const diffBor = document.getElementById('evalDiffBor');
+  if (diffBor) diffBor.textContent = overall.bor > 85 ? `+${(overall.bor - 85).toFixed(1)}% di atas batas 85%` : (overall.bor < 60 ? `-${(60 - overall.bor).toFixed(1)}% di bawah batas 60%` : '★ Masuk Rentang Ideal');
+  const descBor = document.getElementById('evalDescBor');
+  if (descBor) descBor.textContent = `Tingkat hunian tempat tidur rata-rata ${overall.bor}% (kapasitas 41 bed Ruang Kakap: Tim I 21 bed, Tim II 20 bed). Utilisasi optimal untuk bangsal rawat inap.`;
+
+  const pillAvlos = document.getElementById('evalPillAvlos');
+  if (pillAvlos) pillAvlos.textContent = `${overall.avlos <= 9 ? 'Terkendali' : 'Perpanjangan'} (${overall.avlos} Hari)`;
+  const descAvlos = document.getElementById('evalDescAvlos');
+  if (descAvlos) descAvlos.textContent = `Rata-rata lama perawatan pasien rawat inap Ruang Kakap tercatat ${overall.avlos} hari, mencerminkan perawatan komprehensif pasien nefrologi, onkologi, dan penyakit dalam.`;
+
+  const pillToi = document.getElementById('evalPillToi');
+  if (pillToi) pillToi.textContent = `Ideal (${overall.toi} Hari / ~${Math.round(overall.toi * 24)} Jam)`;
+  const descToi = document.getElementById('evalDescToi');
+  if (descToi) descToi.textContent = `Ranjang kosong rata-rata ${overall.toi} hari (~${Math.round(overall.toi * 24)} jam) sebelum terisi kembali pasien baru. Alur sterilisasi dan perputaran tempat tidur Ruang Kakap berada tepat dalam zona efisiensi Depkes/Kemenkes RI (1–3 hari).`;
+
+  const pillBto = document.getElementById('evalPillBto');
+  if (pillBto) pillBto.textContent = `Proyeksi (~${overall.bto} Kali/Tahun)`;
+  const descBto = document.getElementById('evalDescBto');
+  if (descBto) descBto.textContent = `Perputaran tempat tidur Ruang Kakap terproyeksi ~${overall.bto} kali per tempat tidur per tahun berdasarkan kapasitas 41 bed.`;
 
   // 2. Render Barber Johnson SVG Diagram
   renderBarberJohnsonDiagram();

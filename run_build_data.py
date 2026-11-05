@@ -792,8 +792,10 @@ def build_data(download=False):
             ins = p.get('insurance', '-')
             if ins != '-': ins_counts[ins] += 1
 
-    top_doctors = [{"name": k, "count": v} for k, v in sorted(doctor_counts.items(), key=lambda x: x[1], reverse=True)[:8]]
-    top_diagnoses = [{"name": k, "count": v} for k, v in sorted(diag_counts.items(), key=lambda x: x[1], reverse=True)[:8]]
+    top_doctors = [{"name": k, "count": v} for k, v in sorted(doctor_counts.items(), key=lambda x: x[1], reverse=True)[:10]]
+    top_diagnoses = [{"name": k, "count": v} for k, v in sorted(diag_counts.items(), key=lambda x: x[1], reverse=True)[:10]]
+    category_list = [{"name": k, "count": v} for k, v in sorted(cat_counts.items(), key=lambda x: x[1], reverse=True)]
+    insurance_list = [{"name": k, "count": v} for k, v in sorted(ins_counts.items(), key=lambda x: x[1], reverse=True)]
 
     # Hospital Indicators Calculation for Ruang Kakap
     # Derived strictly from authentic spreadsheet census data
@@ -885,10 +887,18 @@ def build_data(download=False):
         "analytics": {
             "topDoctors": top_doctors,
             "topDiagnoses": top_diagnoses,
-            "categories": dict(cat_counts),
-            "insurances": dict(ins_counts),
+            "categories": category_list,
+            "insurances": insurance_list,
             "totalPatients": today_data["summary"]["occupied"]
         },
+        "monthly": [{
+            "month": month_key,
+            "daysCounted": total_days,
+            "avgOcc": round(total_hp / total_days, 1),
+            "avgOccA": round(sum(h.get("occTim1", 0) for h in history) / total_days, 1),
+            "avgOccB": round(sum(h.get("occTim2", 0) for h in history) / total_days, 1),
+            "avgBor": bor_overall
+        }],
         "hospitalIndicators": hospital_indicators,
         "recentDays": recent_days,
         "today": today_data

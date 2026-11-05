@@ -13,7 +13,7 @@
       "Tim I (Kakap 1-5 & Isolasi - 21 Bed)",
       "Tim II (Kakap 6-10 - 20 Bed)"
     ],
-    "lastUpdated": "05-11-2026 04:10:00",
+    "lastUpdated": "05-11-2026 11:26:49",
     "latestDate": "2026-11-05",
     "totalDatesRecorded": 3,
     "dateRange": "2026-11-03 s/d 2026-11-05",
@@ -83,6 +83,10 @@
       {
         "name": "dr. Retno Mustikaningsih, M.Kes., Sp.K",
         "count": 1
+      },
+      {
+        "name": "dr. Lindayani Halim, Sp.KK",
+        "count": 1
       }
     ],
     "topDiagnoses": [
@@ -117,21 +121,60 @@
       {
         "name": "RTA tipe -1",
         "count": 1
+      },
+      {
+        "name": "ht uregensi GEA CKD st 5 anemia hiponatremia",
+        "count": 1
+      },
+      {
+        "name": "CKD on HD",
+        "count": 1
       }
     ],
-    "categories": {
-      "Nefrologi & Urologi": 23,
-      "Hematologi & Onkologi": 3,
-      "Penyakit Dalam (Metabolik)": 5,
-      "Penyakit Dalam (Umum)": 4,
-      "Gastroenterologi & Digestif": 1
-    },
-    "insurances": {
-      "BPJS Kelas 3": 32,
-      "BPJS Kelas 2": 4
-    },
+    "categories": [
+      {
+        "name": "Nefrologi & Urologi",
+        "count": 23
+      },
+      {
+        "name": "Penyakit Dalam (Metabolik)",
+        "count": 5
+      },
+      {
+        "name": "Penyakit Dalam (Umum)",
+        "count": 4
+      },
+      {
+        "name": "Hematologi & Onkologi",
+        "count": 3
+      },
+      {
+        "name": "Gastroenterologi & Digestif",
+        "count": 1
+      }
+    ],
+    "insurances": [
+      {
+        "name": "BPJS Kelas 3",
+        "count": 32
+      },
+      {
+        "name": "BPJS Kelas 2",
+        "count": 4
+      }
+    ],
     "totalPatients": 36
   },
+  "monthly": [
+    {
+      "month": "2026-11",
+      "daysCounted": 3,
+      "avgOcc": 36.7,
+      "avgOccA": 21.0,
+      "avgOccB": 15.7,
+      "avgBor": 89.4
+    }
+  ],
   "hospitalIndicators": {
     "capacity": {
       "tim1": 21,
