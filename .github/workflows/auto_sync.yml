@@ -1,12 +1,14 @@
 name: Auto Sync Spreadsheet & Sensus WhatsApp Kakap
 
 on:
-  # Jadwal Pengiriman Laporan Sensus WA Ruang Kakap 3x Sehari:
-  # 00:00 UTC = 07:00 WIB (Shift Pagi)
-  # 07:00 UTC = 14:00 WIB (Shift Sore)
-  # 13:00 UTC = 20:00 WIB (Shift Malam)
+  # Jadwal Pengiriman Laporan Sensus WA Ruang Kakap 3x Sehari (WIB = UTC+7):
+  # - Shift Pagi  : Target 07.00 WIB (00:00 UTC) -> Cadangan cron: 23:45, 00:00, 00:15, 00:30 UTC
+  # - Shift Sore  : Target 14.00 WIB (07:00 UTC) -> Cadangan cron: 06:45, 07:00, 07:15, 07:30 UTC
+  # - Shift Malam : Target 20.00 WIB (13:00 UTC) -> Cadangan cron: 12:45, 13:00, 13:15, 13:30 UTC
+  # Multi-slot cron mencegah keterlambatan antrean GitHub Actions pada jam bulat.
   schedule:
-    - cron: '0 0,7,13 * * *'
+    - cron: '45 23,6,12 * * *'
+    - cron: '0,15,30 0,7,13 * * *'
   workflow_dispatch:
     inputs:
       force_send:
@@ -48,7 +50,6 @@ jobs:
           python run_build_data.py --download
 
       - name: Kirim Laporan Sensus WhatsApp ke Kepala Ruang Kakap
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[test-wa]')
         env:
           FONNTE_TOKEN: ${{ secrets.FONNTE_TOKEN || 'Ayfow2x1hFiscQZSphzq' }}
           IS_TEST_TRIGGER: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[test-wa]') }}
@@ -57,7 +58,7 @@ jobs:
             echo "[TEST MODE] Uji coba pengiriman Cloud GitHub Actions dengan flag --force..."
             python send_whatsapp.py --sensus --force --gateway fonnte
           else
-            echo "[SCHEDULED MODE] Pengiriman sensus terjadwal resmi..."
+            echo "[SCHEDULED MODE] Pengiriman sensus terjadwal resmi (dengan filter jadwal shift & dedup guard)..."
             python send_whatsapp.py --sensus --scheduled-only --gateway fonnte || echo "WhatsApp dispatch finished with warning"
           fi
 
