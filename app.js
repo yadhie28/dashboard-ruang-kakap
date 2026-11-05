@@ -5020,8 +5020,20 @@ function switchCpSubView(viewName) {
   renderCpFilteredData();
 }
 
+function getActiveClinicalPathwayData() {
+  if (!state.data) return null;
+  const currentDay = (state.data.recentDays && state.data.recentDays[state.currentDate]) || state.data.today || {};
+  if (currentDay.clinicalPathways && currentDay.clinicalPathways.patients) {
+    return currentDay.clinicalPathways;
+  }
+  if (state.data.clinicalPathways && state.data.clinicalPathways.patients) {
+    return state.data.clinicalPathways;
+  }
+  return null;
+}
+
 function renderClinicalPathwayTab() {
-  const cpData = state.data && state.data.clinicalPathways;
+  const cpData = getActiveClinicalPathwayData();
   if (!cpData) return;
 
   const summary = cpData.summary || {};
@@ -5064,7 +5076,7 @@ function renderClinicalPathwayTab() {
 }
 
 function renderCpFilteredData() {
-  const cpData = state.data && state.data.clinicalPathways;
+  const cpData = getActiveClinicalPathwayData();
   if (!cpData) return;
 
   const allPatients = cpData.patients || [];
@@ -5406,7 +5418,7 @@ function renderCpMasterGuidelinesView(masterPathways) {
 
 // Global modal trigger from table
 window.openClinicalPathwayVerificationModal = function(bedNumber) {
-  const cpData = state.data && state.data.clinicalPathways;
+  const cpData = getActiveClinicalPathwayData();
   if (!cpData || !cpData.patients) return;
 
   const patient = cpData.patients.find(p => p.bed === bedNumber);
@@ -5771,7 +5783,7 @@ function printClinicalPathwayAuditSheet(patient) {
 }
 
 function printClinicalPathwayAggregateReport() {
-  const cpData = state.data && state.data.clinicalPathways;
+  const cpData = getActiveClinicalPathwayData();
   if (!cpData) return;
 
   const s = cpData.summary || {};
@@ -5877,7 +5889,7 @@ function printClinicalPathwayAggregateReport() {
 }
 
 function exportClinicalPathwayExcel() {
-  const cpData = state.data && state.data.clinicalPathways;
+  const cpData = getActiveClinicalPathwayData();
   if (!cpData || !cpData.patients) {
     showToast('Data audit Clinical Pathway tidak tersedia.', 'warning');
     return;
