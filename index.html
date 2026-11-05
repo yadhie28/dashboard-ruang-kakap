@@ -122,6 +122,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           <span>Kronologi Rawat Pasien</span>
         </button>
+        <button class="tab-btn" data-tab="tabClinicalPathway" id="btnTabClinicalPathway">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/><circle cx="12" cy="12" r="2"/></svg>
+          <span>Kepatuhan Clinical Pathway</span>
+        </button>
       </div>
 
       <!-- Quick Filter Chips (Shown when Bed Map or Directory is active) -->
@@ -969,6 +973,322 @@
         </div>
       </div>
     </section>
+
+    <!-- TAB 7: SISTEM PELAPORAN KEPATUHAN CLINICAL PATHWAY RSUD DR. SOEDARSO -->
+    <section id="tabClinicalPathway" class="tab-content" style="display:none;">
+      <div class="cp-dashboard-container">
+        <!-- Header Card -->
+        <div class="chronology-header-card cp-header-card">
+          <div class="chronology-title-group">
+            <div class="chronology-icon-badge cp-icon-badge" style="background:linear-gradient(135deg, #10b981 0%, #059669 100%);color:#fff;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div>
+              <div class="chronology-title-row">
+                <h2>Sistem Pelaporan Kepatuhan Clinical Pathway</h2>
+                <span class="badge badge-success">Standar Mutu RSUD Dr. Soedarso</span>
+                <span class="badge badge-outline">KMKB &amp; Akreditasi STARKES</span>
+              </div>
+              <p class="chart-subtitle">Audit Klinis Berbasis Bukti: Diagnosis Baku Emas, Terapi/Obat, Kontrol Lama Rawat (LOS), 4 Kategori Variasi, &amp; Financial Auditing INA-CBGs</p>
+            </div>
+          </div>
+
+          <div class="chronology-actions-toolbar">
+            <button class="btn btn-primary" id="btnOpenCpMasterModal" title="Lihat Dokumen Resmi Clinical Pathway RSUD Dr. Soedarso">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>Dokumen Panduan CP</span>
+            </button>
+            <button class="btn btn-secondary" id="btnPrintCpReport" title="Cetak Rekapitulasi Laporan Kepatuhan Clinical Pathway (Komite Medik / Mutu)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              <span>Cetak Laporan Mutu</span>
+            </button>
+            <button class="btn btn-secondary" id="btnExportCpExcel" title="Unduh Data Audit Kepatuhan Format Excel/CSV">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Ekspor Audit Data</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- KPI Summary Cards (5 Parameter Utama Sesuai Arahan User) -->
+        <div class="kpi-grid cp-kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); margin-bottom: 1.5rem;">
+          <!-- KPI 1: Cakupan Pasien CP -->
+          <div class="kpi-card card-glow-primary">
+            <div class="kpi-header">
+              <span class="kpi-label">CAKUPAN PASIEN CP</span>
+              <div class="kpi-icon-badge bg-primary-soft">📋</div>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="cpKpiPatientCount">--</span>
+              <span class="kpi-sub" id="cpKpiPatientPct">/ -- Pasien</span>
+            </div>
+            <div class="kpi-footer">
+              <span class="kpi-trend trend-neutral">Target Akreditasi &ge; 80%</span>
+            </div>
+          </div>
+
+          <!-- KPI 2: Kepatuhan Diagnosis -->
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">KEPATUHAN DIAGNOSIS</span>
+              <div class="kpi-icon-badge" style="background:#e0f2fe;color:#0284c7;">🔬</div>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="cpKpiDiagPct" style="color:#0284c7;">--%</span>
+            </div>
+            <div class="kpi-footer">
+              <span class="kpi-sub">Baku Emas Lab &amp; Radiologi</span>
+            </div>
+          </div>
+
+          <!-- KPI 3: Kepatuhan Terapi & Obat -->
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">KEPATUHAN TERAPI &amp; OBAT</span>
+              <div class="kpi-icon-badge" style="background:#fef3c7;color:#d97706;">💊</div>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="cpKpiMedPct" style="color:#d97706;">--%</span>
+            </div>
+            <div class="kpi-footer">
+              <span class="kpi-sub">Insulin, Profilaksis, Terapi Utama</span>
+            </div>
+          </div>
+
+          <!-- KPI 4: Kepatuhan Lama Rawat (LOS) -->
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">KEPATUHAN LAMA RAWAT</span>
+              <div class="kpi-icon-badge" style="background:#dcfce7;color:#16a34a;">⏱️</div>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="cpKpiLosPct" style="color:#16a34a;">--%</span>
+              <span class="kpi-sub" id="cpKpiOverLosCount" style="color:#dc2626;font-size:0.8rem;margin-left:4px;">(-- Over-LOS)</span>
+            </div>
+            <div class="kpi-footer">
+              <span class="kpi-sub">Target &Delta;LOS &le; 0 hari</span>
+            </div>
+          </div>
+
+          <!-- KPI 5: Financial Auditing / Cost Containment -->
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-label">AUDIT FINANSIAL (INA-CBGs)</span>
+              <div class="kpi-icon-badge" style="background:#f3e8ff;color:#7c3aed;">💰</div>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="cpKpiMargin" style="color:#16a34a;font-size:1.35rem;">Rp --</span>
+            </div>
+            <div class="kpi-footer">
+              <span class="kpi-sub" id="cpKpiCostEfficiency">Utilisasi: --%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter & Navigation Bar Sub-Views -->
+        <div class="cp-subnav-bar" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:1.25rem;background:var(--bg-card);padding:10px 16px;border-radius:10px;border:1px solid var(--border-color);">
+          <!-- Sub-Tab Buttons -->
+          <div class="cp-view-pills" style="display:flex;gap:6px;flex-wrap:wrap;">
+            <button class="btn btn-sm btn-outline-primary active" id="btnCpViewPatients" data-view="patients">
+              👥 Daftar Pasien &amp; Lembar Audit CP
+            </button>
+            <button class="btn btn-sm btn-outline-primary" id="btnCpViewVariances" data-view="variances">
+              🔍 Analisis 4 Kategori Variasi
+            </button>
+            <button class="btn btn-sm btn-outline-primary" id="btnCpViewFinance" data-view="finance">
+              💵 Audit Finansial &amp; Cost Containment
+            </button>
+            <button class="btn btn-sm btn-outline-primary" id="btnCpViewGuidelines" data-view="guidelines">
+              📖 Standar Baku Clinical Pathway RS
+            </button>
+          </div>
+
+          <!-- Quick Filters -->
+          <div class="cp-filter-controls" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+            <select id="cpSelectPathwayFilter" class="form-select form-select-sm" style="padding:5px 10px;border-radius:6px;font-size:0.85rem;border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-main);">
+              <option value="ALL">Semua Clinical Pathway</option>
+              <option value="CP-PD-01">DM Tipe 2 + CKD</option>
+              <option value="CP-PD-05">CKD Stage V on HD</option>
+              <option value="CP-SR-01">Stroke Non Perdarahan (Iskemik)</option>
+              <option value="CP-SR-02">Stroke Perdarahan (ICH/SAH)</option>
+              <option value="CP-BD-01">Ca Mammae / Onkologi</option>
+              <option value="CP-PD-04">Anemia Gravis &amp; Hematologi</option>
+            </select>
+
+            <select id="cpSelectComplianceFilter" class="form-select form-select-sm" style="padding:5px 10px;border-radius:6px;font-size:0.85rem;border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-main);">
+              <option value="ALL">Semua Tingkat Kepatuhan</option>
+              <option value="COMPLIANT">Patuh (Gold Standard &ge; 80%)</option>
+              <option value="VARIANCE">Ada Variasi Pelayanan</option>
+              <option value="OVER_LOS">Melebihi Target Rawat (Over-LOS)</option>
+              <option value="DEFICIT">Defisit Biaya INA-CBG</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- VIEW 1: DAFTAR PASIEN & AUDIT LEMBAR CP -->
+        <div id="cpViewPatientsContainer" class="cp-subview-panel">
+          <div class="table-responsive" style="background:var(--bg-card);border-radius:10px;border:1px solid var(--border-color);overflow:hidden;">
+            <table class="table data-table cp-table" style="width:100%;margin-bottom:0;font-size:0.88rem;">
+              <thead style="background:var(--bg-muted);border-bottom:2px solid var(--border-color);">
+                <tr>
+                  <th style="width:65px;text-align:center;">Bed</th>
+                  <th>Pasien &amp; DPJP</th>
+                  <th>Clinical Pathway</th>
+                  <th style="text-align:center;">Lama Rawat (LOS)</th>
+                  <th style="text-align:center;">Diagnosis</th>
+                  <th style="text-align:center;">Terapi</th>
+                  <th style="text-align:center;">Skor Kepatuhan</th>
+                  <th>Variasi Terdeteksi</th>
+                  <th style="text-align:right;">Finansial (INA-CBG)</th>
+                  <th style="width:110px;text-align:center;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="cpPatientTableBody">
+                <!-- Populated dynamically via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- VIEW 2: ANALISIS 4 KATEGORI VARIASI -->
+        <div id="cpViewVariancesContainer" class="cp-subview-panel" style="display:none;">
+          <!-- 4 Category Cards Grid -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:1rem;margin-bottom:1.5rem;">
+            <!-- Category A: Pasien -->
+            <div class="cp-variance-card" style="background:var(--bg-card);padding:1rem;border-radius:10px;border-left:5px solid #ef4444;border-top:1px solid var(--border-color);border-right:1px solid var(--border-color);border-bottom:1px solid var(--border-color);">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span class="badge" style="background:#fee2e2;color:#b91c1c;font-weight:700;">KATEGORI A</span>
+                <span class="badge badge-danger" id="varCountPatient">0 Kasus</span>
+              </div>
+              <h3 style="font-size:1rem;font-weight:700;margin-bottom:4px;color:var(--text-main);">Faktor Pasien (Kondisi Klinis)</h3>
+              <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:10px;">Perburukan klinis, komplikasi akut, uremic syndrome, asidosis, hiperkalemia, anemia berat, atau penolakan keluarga.</p>
+              <div id="varListPatient" style="font-size:0.82rem;max-height:160px;overflow-y:auto;"></div>
+            </div>
+
+            <!-- Category B: Sistem RS -->
+            <div class="cp-variance-card" style="background:var(--bg-card);padding:1rem;border-radius:10px;border-left:5px solid #f59e0b;border-top:1px solid var(--border-color);border-right:1px solid var(--border-color);border-bottom:1px solid var(--border-color);">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span class="badge" style="background:#fef3c7;color:#b45309;font-weight:700;">KATEGORI B</span>
+                <span class="badge badge-warning" id="varCountSystem">0 Kasus</span>
+              </div>
+              <h3 style="font-size:1rem;font-weight:700;margin-bottom:4px;color:var(--text-main);">Faktor Sistem RS (Sarana &amp; Logistik)</h3>
+              <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:10px;">Stok kantong darah BDRS/PMI kosong, alat rusak (AC/Lift/Radiologi), reagen lab khusus, atau antrean ruang transit.</p>
+              <div id="varListSystem" style="font-size:0.82rem;max-height:160px;overflow-y:auto;"></div>
+            </div>
+
+            <!-- Category C: Tenaga Medis -->
+            <div class="cp-variance-card" style="background:var(--bg-card);padding:1rem;border-radius:10px;border-left:5px solid #8b5cf6;border-top:1px solid var(--border-color);border-right:1px solid var(--border-color);border-bottom:1px solid var(--border-color);">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span class="badge" style="background:#f3e8ff;color:#6d28d9;font-weight:700;">KATEGORI C</span>
+                <span class="badge" style="background:#8b5cf6;color:#fff;" id="varCountStaff">0 Kasus</span>
+              </div>
+              <h3 style="font-size:1rem;font-weight:700;margin-bottom:4px;color:var(--text-main);">Faktor Tenaga Medis (DPJP &amp; Klinisi)</h3>
+              <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:10px;">Penundaan tindakan/visite khusus, menunggu jawaban konsultasi antar divisi, atau penyesuaian instruksi terapi.</p>
+              <div id="varListStaff" style="font-size:0.82rem;max-height:160px;overflow-y:auto;"></div>
+            </div>
+
+            <!-- Category D: Eksternal -->
+            <div class="cp-variance-card" style="background:var(--bg-card);padding:1rem;border-radius:10px;border-left:5px solid #06b6d4;border-top:1px solid var(--border-color);border-right:1px solid var(--border-color);border-bottom:1px solid var(--border-color);">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span class="badge" style="background:#cffafe;color:#0e7490;font-weight:700;">KATEGORI D</span>
+                <span class="badge" style="background:#06b6d4;color:#fff;" id="varCountExternal">0 Kasus</span>
+              </div>
+              <h3 style="font-size:1rem;font-weight:700;margin-bottom:4px;color:var(--text-main);">Faktor Eksternal (Administrasi &amp; Sosial)</h3>
+              <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:10px;">Verifikasi kepesertaan/rujukan BPJS berjenjang daerah, penjemputan keluarga terlambat, atau kendala transportasi.</p>
+              <div id="varListExternal" style="font-size:0.82rem;max-height:160px;overflow-y:auto;"></div>
+            </div>
+          </div>
+
+          <!-- Comprehensive Variance Audit Trail Table -->
+          <div style="background:var(--bg-card);padding:1.25rem;border-radius:10px;border:1px solid var(--border-color);">
+            <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:10px;color:var(--text-main);">Matriks Rekomendasi Rencana Tindak Lanjut (RTL) Variasi Ruang Kakap</h3>
+            <div class="table-responsive">
+              <table class="table" style="font-size:0.86rem;margin-bottom:0;">
+                <thead>
+                  <tr style="background:var(--bg-muted);">
+                    <th style="width:100px;">Kategori</th>
+                    <th>Penyebab Penyimpangan Teridentifikasi</th>
+                    <th style="width:140px;text-align:center;">Frekuensi Kasus</th>
+                    <th>Dampak Klinis &amp; Finansial</th>
+                    <th>Rencana Tindak Lanjut (RTL) Rekomendasi Mutu</th>
+                  </tr>
+                </thead>
+                <tbody id="cpVarianceRtlTableBody">
+                  <!-- Generated dynamically via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIEW 3: AUDIT FINANSIAL & COST CONTAINMENT -->
+        <div id="cpViewFinanceContainer" class="cp-subview-panel" style="display:none;">
+          <!-- Financial KPI Row -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:1rem;margin-bottom:1.5rem;">
+            <div style="background:var(--bg-card);padding:1rem;border-radius:10px;border:1px solid var(--border-color);">
+              <span style="font-size:0.8rem;color:var(--text-muted);font-weight:600;">TOTAL ESTIMASI PLAFON INA-CBGs</span>
+              <div style="font-size:1.55rem;font-weight:800;color:var(--text-main);margin:4px 0;" id="finTotalInaCbg">Rp 0</div>
+              <span style="font-size:0.8rem;color:#0284c7;">Potensi klaim BPJS Kesehatan</span>
+            </div>
+            <div style="background:var(--bg-card);padding:1rem;border-radius:10px;border:1px solid var(--border-color);">
+              <span style="font-size:0.8rem;color:var(--text-muted);font-weight:600;">TOTAL ESTIMASI BIAYA RIIL (HOSPITAL COST)</span>
+              <div style="font-size:1.55rem;font-weight:800;color:#d97706;margin:4px 0;" id="finTotalRealCost">Rp 0</div>
+              <span style="font-size:0.8rem;color:var(--text-muted);">Akomodasi + visite + obat + penunjang</span>
+            </div>
+            <div style="background:var(--bg-card);padding:1rem;border-radius:10px;border:1px solid var(--border-color);">
+              <span style="font-size:0.8rem;color:var(--text-muted);font-weight:600;">NET MARGIN RAWAT INAP</span>
+              <div style="font-size:1.55rem;font-weight:800;color:#16a34a;margin:4px 0;" id="finNetMargin">Rp 0</div>
+              <span style="font-size:0.8rem;color:#16a34a;" id="finSurplusDeficitSummary">Surplus Terkendali</span>
+            </div>
+            <div style="background:var(--bg-card);padding:1rem;border-radius:10px;border:1px solid var(--border-color);">
+              <span style="font-size:0.8rem;color:var(--text-muted);font-weight:600;">DISTRIBUSI PASIEN BIAYA</span>
+              <div style="font-size:1.15rem;font-weight:700;margin:6px 0;">
+                <span style="color:#16a34a;" id="finSurplusCount">0 Surplus</span> &bull; 
+                <span style="color:#dc2626;" id="finDeficitCount">0 Defisit</span>
+              </div>
+              <span style="font-size:0.8rem;color:var(--text-muted);">Monitoring kendali mutu &amp; kendali biaya</span>
+            </div>
+          </div>
+
+          <!-- Financial Comparison Table -->
+          <div style="background:var(--bg-card);padding:1.25rem;border-radius:10px;border:1px solid var(--border-color);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+              <h3 style="font-size:1.05rem;font-weight:700;margin:0;color:var(--text-main);">Audit Finansial Per Pasien Ruang Kakap (Cost Containment Matrix)</h3>
+              <span style="font-size:0.82rem;color:var(--text-muted);">Plafon INA-CBGs dihitung berdasarkan Kelas Rawat BPJS &amp; Kode Tarif Resmi</span>
+            </div>
+            <div class="table-responsive">
+              <table class="table" style="font-size:0.86rem;margin-bottom:0;">
+                <thead>
+                  <tr style="background:var(--bg-muted);">
+                    <th style="width:60px;text-align:center;">Bed</th>
+                    <th>Nama Pasien</th>
+                    <th>Jaminan / Kelas</th>
+                    <th>Clinical Pathway</th>
+                    <th style="text-align:center;">LOS</th>
+                    <th style="text-align:right;">Plafon INA-CBGs</th>
+                    <th style="text-align:right;">Estimasi Biaya Riil</th>
+                    <th style="text-align:right;">Margin RS</th>
+                    <th style="text-align:center;">Utilisasi</th>
+                    <th style="text-align:center;">Status Finansial</th>
+                  </tr>
+                </thead>
+                <tbody id="cpFinanceTableBody">
+                  <!-- Populated dynamically via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIEW 4: MASTER DOKUMEN CLINICAL PATHWAY RS -->
+        <div id="cpViewGuidelinesContainer" class="cp-subview-panel" style="display:none;">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:1rem;" id="cpMasterGuidelinesGrid">
+            <!-- Populated dynamically with official CP master cards -->
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- PATIENT DETAIL & SBAR MODAL -->
@@ -1036,6 +1356,10 @@
       </div>
 
       <div class="modal-footer">
+        <button class="btn btn-secondary" id="modalOpenCpBtn" title="Buka lembar audit &amp; verifikasi kepatuhan Clinical Pathway">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <span>Clinical Pathway</span>
+        </button>
         <button class="btn btn-accent" id="modalOpenChronologyBtn" title="Buka riwayat perjalanan dan pembuatan kronologi rawat pasien">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
           <span>Kronologi Rawat</span>
@@ -1340,6 +1664,40 @@
           <button class="btn btn-success btn-sm" id="btnWaSendGateway" style="background:#16a34a;color:#fff;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:4px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             <span id="btnWaSendGatewayText">Kirim Otomatis (Fonnte API)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLINICAL PATHWAY VERIFICATION & AUDIT MODAL -->
+  <div class="modal-overlay" id="clinicalPathwayModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="cpModalTitle">
+    <div class="modal-dialog" style="max-width:960px;max-height:92vh;display:flex;flex-direction:column;overflow:hidden;">
+      <div class="modal-header" style="background:#0f172a;color:#fff;border-bottom:1px solid #334155;padding:12px 20px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <img src="logo_kakap.png" alt="Logo" style="width:38px;height:38px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,0.2);">
+          <div>
+            <h3 id="cpModalTitle" style="margin:0;font-size:1.08rem;font-weight:800;letter-spacing:0.3px;color:#fff;">LEMBAR VERIFIKASI &amp; AUDIT KEPATUHAN CLINICAL PATHWAY</h3>
+            <span style="font-size:0.75rem;color:#94a3b8;">RSUD Dr. Soedarso Pontianak &bull; Ruang Rawat Inap Kakap (Penyakit Dalam)</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="btnCpCloseModal" style="color:#fff;" aria-label="Tutup">&times;</button>
+      </div>
+
+      <div class="modal-body" id="cpModalBodyContent" style="padding:18px 24px;overflow-y:auto;flex:1;background:var(--bg-surface);">
+        <!-- Populated dynamically with official Soedarso Pathway checklist format -->
+      </div>
+
+      <div class="modal-footer" style="padding:12px 20px;border-top:1px solid var(--border-color);background:var(--bg-card);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+        <button class="btn btn-secondary btn-sm" id="btnCpCloseModalBottom">Tutup</button>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-secondary btn-sm" id="btnCpCopyAuditText">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:4px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Salin Ringkasan CP</span>
+          </button>
+          <button class="btn btn-primary btn-sm" id="btnCpPrintAuditSheet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:4px;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <span>Cetak Lembar Verifikasi CP (PDF)</span>
           </button>
         </div>
       </div>

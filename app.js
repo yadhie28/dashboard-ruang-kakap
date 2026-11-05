@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupEventListeners();
   initSyncSchedule();
   initWhatsAppCensus();
+  initClinicalPathwayModule();
   loadData();
 });
 
@@ -339,6 +340,7 @@ async function loadData() {
     renderAnalyticsTab();
     renderBarberJohnsonTab();
     initChronologyModule();
+    renderClinicalPathwayTab();
     showToast('Data berhasil dimuat! Sensus terkini: ' + formatIndonesianDate(state.currentDate), 'success');
   } catch (err) {
     console.error('Error loading data:', err);
@@ -394,6 +396,9 @@ function setupEventListeners() {
       }
       if (targetId === 'tabChronology') {
         renderChronologyTab();
+      }
+      if (targetId === 'tabClinicalPathway') {
+        renderClinicalPathwayTab();
       }
     });
   });
@@ -699,6 +704,12 @@ function updateKpiMetrics(dayData) {
   if (countA) countA.textContent = ptsA.length;
   const countB = document.getElementById('countWingB');
   if (countB) countB.textContent = ptsB.length;
+
+  // Refresh Clinical Pathway view if tab is active
+  const cpTab = document.getElementById('tabClinicalPathway');
+  if (cpTab && cpTab.classList.contains('active')) {
+    renderClinicalPathwayTab();
+  }
 }
 
 // Render Bed Grids
@@ -1561,6 +1572,17 @@ function openPatientModal(pt) {
       if (!patient) return;
       closeModal();
       switchToChronologyWithPatient(patient);
+    };
+  }
+
+  // Connect Clinical Pathway Button in Modal
+  const modalCpBtn = document.getElementById('modalOpenCpBtn');
+  if (modalCpBtn) {
+    modalCpBtn.onclick = () => {
+      const patient = state.selectedPatient;
+      if (!patient) return;
+      closeModal();
+      openClinicalPathwayVerificationModal(patient.bed);
     };
   }
 
@@ -4883,3 +4905,1029 @@ function initWhatsAppCensus() {
     sendBtn.addEventListener('click', sendWhatsAppToKaru);
   }
 }
+
+// ==========================================================================
+// MODUL PELAPORAN KEPATUHAN CLINICAL PATHWAY RESMI (RSUD DR. SOEDARSO)
+// Ruang Rawat Inap Kakap (Penyakit Dalam)
+// ==========================================================================
+
+const CP_STATE = {
+  activeView: 'patients',
+  activePatient: null,
+  pathwayFilter: 'ALL',
+  complianceFilter: 'ALL'
+};
+
+function initClinicalPathwayModule() {
+  // Sub-view navigation
+  const viewBtns = [
+    { id: 'btnCpViewPatients', view: 'patients' },
+    { id: 'btnCpViewVariances', view: 'variances' },
+    { id: 'btnCpViewFinance', view: 'finance' },
+    { id: 'btnCpViewGuidelines', view: 'guidelines' }
+  ];
+
+  viewBtns.forEach(item => {
+    const el = document.getElementById(item.id);
+    if (el) {
+      el.addEventListener('click', () => switchCpSubView(item.view));
+    }
+  });
+
+  // Filter dropdowns
+  const pathwaySelect = document.getElementById('cpSelectPathwayFilter');
+  if (pathwaySelect) {
+    pathwaySelect.addEventListener('change', (e) => {
+      CP_STATE.pathwayFilter = e.target.value;
+      renderCpFilteredData();
+    });
+  }
+
+  const complianceSelect = document.getElementById('cpSelectComplianceFilter');
+  if (complianceSelect) {
+    complianceSelect.addEventListener('change', (e) => {
+      CP_STATE.complianceFilter = e.target.value;
+      renderCpFilteredData();
+    });
+  }
+
+  // Action buttons
+  const masterDocBtn = document.getElementById('btnOpenCpMasterModal');
+  if (masterDocBtn) {
+    masterDocBtn.addEventListener('click', () => switchCpSubView('guidelines'));
+  }
+
+  const printBtn = document.getElementById('btnPrintCpReport');
+  if (printBtn) {
+    printBtn.addEventListener('click', printClinicalPathwayAggregateReport);
+  }
+
+  const exportBtn = document.getElementById('btnExportCpExcel');
+  if (exportBtn) {
+    exportBtn.addEventListener('click', exportClinicalPathwayExcel);
+  }
+
+  // Modal actions
+  const closeBtn = document.getElementById('btnCpCloseModal');
+  if (closeBtn) closeBtn.addEventListener('click', closeClinicalPathwayModal);
+
+  const closeBottomBtn = document.getElementById('btnCpCloseModalBottom');
+  if (closeBottomBtn) closeBottomBtn.addEventListener('click', closeClinicalPathwayModal);
+
+  const modalBackdrop = document.getElementById('clinicalPathwayModal');
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) closeClinicalPathwayModal();
+    });
+  }
+
+  const copyAuditBtn = document.getElementById('btnCpCopyAuditText');
+  if (copyAuditBtn) {
+    copyAuditBtn.addEventListener('click', copyCpAuditSummary);
+  }
+
+  const printModalBtn = document.getElementById('btnCpPrintAuditSheet');
+  if (printModalBtn) {
+    printModalBtn.addEventListener('click', () => {
+      if (CP_STATE.activePatient) {
+        printClinicalPathwayAuditSheet(CP_STATE.activePatient);
+      }
+    });
+  }
+}
+
+function switchCpSubView(viewName) {
+  CP_STATE.activeView = viewName;
+
+  const views = ['patients', 'variances', 'finance', 'guidelines'];
+  views.forEach(v => {
+    const btn = document.getElementById(`btnCpView${v.charAt(0).toUpperCase() + v.slice(1)}`);
+    const container = document.getElementById(`cpView${v.charAt(0).toUpperCase() + v.slice(1)}Container`);
+
+    if (btn) {
+      if (v === viewName) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    }
+
+    if (container) {
+      container.style.display = (v === viewName) ? 'block' : 'none';
+    }
+  });
+
+  renderCpFilteredData();
+}
+
+function renderClinicalPathwayTab() {
+  const cpData = state.data && state.data.clinicalPathways;
+  if (!cpData) return;
+
+  const summary = cpData.summary || {};
+  const finSummary = summary.financialAuditSummary || {};
+
+  // 1. Update KPI Summary Cards
+  const kpiPatientCount = document.getElementById('cpKpiPatientCount');
+  if (kpiPatientCount) kpiPatientCount.textContent = summary.totalCpInpatients || 0;
+
+  const kpiPatientPct = document.getElementById('cpKpiPatientPct');
+  if (kpiPatientPct) kpiPatientPct.textContent = `/ ${summary.totalInpatients || 0} Pasien (${summary.cpCoveragePct || 0}%)`;
+
+  const kpiDiagPct = document.getElementById('cpKpiDiagPct');
+  if (kpiDiagPct) kpiDiagPct.textContent = `${summary.avgDiagnosticCompliance || 0}%`;
+
+  const kpiMedPct = document.getElementById('cpKpiMedPct');
+  if (kpiMedPct) kpiMedPct.textContent = `${summary.avgMedicationCompliance || 0}%`;
+
+  const kpiLosPct = document.getElementById('cpKpiLosPct');
+  if (kpiLosPct) kpiLosPct.textContent = `${summary.avgLosCompliance || 0}%`;
+
+  const kpiOverLos = document.getElementById('cpKpiOverLosCount');
+  if (kpiOverLos) kpiOverLos.textContent = `(${summary.overLosPatientsCount || 0} Over-LOS)`;
+
+  const kpiMargin = document.getElementById('cpKpiMargin');
+  if (kpiMargin) {
+    const margin = finSummary.netFinancialMargin || 0;
+    const isPositive = margin >= 0;
+    kpiMargin.textContent = `${isPositive ? '+' : '-'}Rp ${Math.abs(margin).toLocaleString('id-ID')}`;
+    kpiMargin.style.color = isPositive ? '#16a34a' : '#dc2626';
+  }
+
+  const kpiEfficiency = document.getElementById('cpKpiCostEfficiency');
+  if (kpiEfficiency) {
+    kpiEfficiency.textContent = `Utilisasi: ${finSummary.costEfficiencyPct || 0}% (${finSummary.costContainmentStatus || 'Optimal'})`;
+  }
+
+  // 2. Render Active Sub-View
+  renderCpFilteredData();
+}
+
+function renderCpFilteredData() {
+  const cpData = state.data && state.data.clinicalPathways;
+  if (!cpData) return;
+
+  const allPatients = cpData.patients || [];
+
+  // Filter Patients
+  let filtered = allPatients.filter(p => {
+    const audit = p.audit || {};
+    // Pathway Filter
+    if (CP_STATE.pathwayFilter !== 'ALL') {
+      if (audit.pathwayId !== CP_STATE.pathwayFilter) return false;
+    }
+    // Compliance Filter
+    if (CP_STATE.complianceFilter === 'COMPLIANT') {
+      if ((audit.overallCompliancePct || 0) < 80.0) return false;
+    } else if (CP_STATE.complianceFilter === 'VARIANCE') {
+      if (!audit.hasVariance) return false;
+    } else if (CP_STATE.complianceFilter === 'OVER_LOS') {
+      if ((audit.deltaLos || 0) <= 0) return false;
+    } else if (CP_STATE.complianceFilter === 'DEFICIT') {
+      if ((audit.financialAudit?.costMargin || 0) >= 0) return false;
+    }
+    return true;
+  });
+
+  if (CP_STATE.activeView === 'patients') {
+    renderCpPatientsTable(filtered);
+  } else if (CP_STATE.activeView === 'variances') {
+    renderCpVariancesView(cpData.varianceAnalysis || {}, allPatients);
+  } else if (CP_STATE.activeView === 'finance') {
+    renderCpFinanceView(filtered, cpData.summary?.financialAuditSummary || {});
+  } else if (CP_STATE.activeView === 'guidelines') {
+    renderCpMasterGuidelinesView(cpData.masterPathways || []);
+  }
+}
+
+function renderCpPatientsTable(patients) {
+  const tbody = document.getElementById('cpPatientTableBody');
+  if (!tbody) return;
+
+  if (patients.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="10" style="text-align:center;padding:2.5rem;color:var(--text-muted);">
+          <div style="font-size:2rem;margin-bottom:8px;">🔍</div>
+          <strong>Tidak ada pasien yang sesuai dengan kriteria filter kepatuhan saat ini.</strong>
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tbody.innerHTML = patients.map((p, idx) => {
+    const a = p.audit || {};
+    const fin = a.financialAudit || {};
+    const isTim1 = p.room && p.room.includes('1') || (parseInt(p.bed) <= 5);
+    const bedBadgeClass = isTim1 ? 'badge-tim1' : 'badge-tim2';
+
+    // Delta LOS badge
+    let losBadgeHtml = '';
+    if (a.deltaLos <= 0) {
+      losBadgeHtml = `<span class="badge badge-success" style="font-size:0.75rem;">${a.actualLos} / ${a.targetLos} hr (Sesuai)</span>`;
+    } else if (a.deltaLos === 1) {
+      losBadgeHtml = `<span class="badge badge-warning" style="font-size:0.75rem;">${a.actualLos} / ${a.targetLos} hr (+1 hr)</span>`;
+    } else {
+      losBadgeHtml = `<span class="badge badge-danger" style="font-size:0.75rem;">${a.actualLos} / ${a.targetLos} hr (Over-LOS +${a.deltaLos})</span>`;
+    }
+
+    // Variasi utama badge
+    let varBadgeHtml = '<span style="color:var(--text-muted);font-size:0.78rem;">-</span>';
+    if (a.primaryVariance) {
+      varBadgeHtml = `
+        <span class="cp-variance-badge" style="background:${a.primaryVariance.badgeColor}20;color:${a.primaryVariance.badgeColor};border:1px solid ${a.primaryVariance.badgeColor}40;" title="${a.primaryVariance.reasons.join('; ')}">
+          <strong>[${a.primaryVariance.code}]</strong> ${a.primaryVariance.category.split(' ')[0]}
+        </span>
+      `;
+    }
+
+    // Finansial margin badge
+    const isMarginSurplus = (fin.costMargin || 0) >= 0;
+    const marginColor = isMarginSurplus ? '#16a34a' : '#dc2626';
+    const marginSign = isMarginSurplus ? '+' : '';
+    const marginHtml = `
+      <div style="font-weight:700;color:${marginColor};font-size:0.85rem;">
+        ${marginSign}Rp ${Math.abs(fin.costMargin || 0).toLocaleString('id-ID')}
+      </div>
+      <div style="font-size:0.72rem;color:var(--text-muted);">
+        Tarif: Rp ${(fin.cbgTariff || 0).toLocaleString('id-ID')}
+      </div>
+    `;
+
+    return `
+      <tr>
+        <td style="text-align:center;">
+          <span class="badge ${bedBadgeClass}" style="font-weight:700;">${p.bed || '-'}</span>
+        </td>
+        <td>
+          <div style="font-weight:700;color:var(--text-main);">${p.name || '-'}</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">
+            ${p.mrNo ? 'MR: ' + p.mrNo : ''} ${p.age ? '&bull; ' + p.age : ''} &bull; DPJP: <strong>${p.doctor || '-'}</strong>
+          </div>
+        </td>
+        <td>
+          <span class="badge badge-outline" style="font-weight:600;font-size:0.78rem;">
+            ${a.pathwayShortTitle || a.pathwayTitle || '-'}
+          </span>
+          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">
+            ${(p.diagnosis || '').length > 40 ? p.diagnosis.slice(0, 40) + '...' : p.diagnosis}
+          </div>
+        </td>
+        <td style="text-align:center;">${losBadgeHtml}</td>
+        <td style="text-align:center;">
+          <div class="cp-progress-wrapper">
+            <div class="cp-progress-bar-bg" style="width:50px;">
+              <div class="cp-progress-bar-fill" style="width:${a.diagnosticCompliancePct || 0}%;background:#0284c7;"></div>
+            </div>
+            <span style="font-weight:700;color:#0284c7;font-size:0.78rem;">${a.diagnosticCompliancePct || 0}%</span>
+          </div>
+        </td>
+        <td style="text-align:center;">
+          <div class="cp-progress-wrapper">
+            <div class="cp-progress-bar-bg" style="width:50px;">
+              <div class="cp-progress-bar-fill" style="width:${a.medicationCompliancePct || 0}%;background:#d97706;"></div>
+            </div>
+            <span style="font-weight:700;color:#d97706;font-size:0.78rem;">${a.medicationCompliancePct || 0}%</span>
+          </div>
+        </td>
+        <td style="text-align:center;">
+          <span class="badge ${a.tierBadge || 'badge-secondary'}" style="font-weight:700;font-size:0.8rem;">
+            ${a.overallCompliancePct || 0}%
+          </span>
+        </td>
+        <td>${varBadgeHtml}</td>
+        <td style="text-align:right;">${marginHtml}</td>
+        <td style="text-align:center;">
+          <button class="btn btn-sm btn-outline-primary" style="padding:4px 8px;font-size:0.78rem;" onclick="openClinicalPathwayVerificationModal('${p.bed}')" title="Lihat Lembar Audit &amp; Verifikasi CP">
+            📄 Audit CP
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function renderCpVariancesView(varianceData, allPatients) {
+  const cats = varianceData.categories || {};
+
+  // Counts
+  const pCount = document.getElementById('varCountPatient');
+  if (pCount) pCount.textContent = `${cats.VAR_PATIENT?.count || 0} Kasus`;
+
+  const sCount = document.getElementById('varCountSystem');
+  if (sCount) sCount.textContent = `${cats.VAR_SYSTEM?.count || 0} Kasus`;
+
+  const mCount = document.getElementById('varCountStaff');
+  if (mCount) mCount.textContent = `${cats.VAR_MEDICAL_STAFF?.count || 0} Kasus`;
+
+  const eCount = document.getElementById('varCountExternal');
+  if (eCount) eCount.textContent = `${cats.VAR_EXTERNAL?.count || 0} Kasus`;
+
+  // Render lists of patients in each card
+  function renderVarList(catKey, elementId) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    const cat = cats[catKey];
+    if (!cat || !cat.patients || cat.patients.length === 0) {
+      el.innerHTML = '<span style="color:var(--text-muted);font-style:italic;">Tidak ditemukan penyimpangan pada kategori ini.</span>';
+      return;
+    }
+    el.innerHTML = cat.patients.map(item => `
+      <div style="padding:3px 0;border-bottom:1px dashed var(--border-color);line-height:1.3;">
+        <strong>Bed ${item.bed} (${item.name.split(' ')[0]})</strong>:
+        <span style="color:var(--text-muted);">${item.reasons.join(', ')}</span>
+      </div>
+    `).join('');
+  }
+
+  renderVarList('VAR_PATIENT', 'varListPatient');
+  renderVarList('VAR_SYSTEM', 'varListSystem');
+  renderVarList('VAR_MEDICAL_STAFF', 'varListStaff');
+  renderVarList('VAR_EXTERNAL', 'varListExternal');
+
+  // Render RTL Recommendation Table
+  const rtlTableBody = document.getElementById('cpVarianceRtlTableBody');
+  if (rtlTableBody) {
+    rtlTableBody.innerHTML = `
+      <tr>
+        <td><span class="badge" style="background:#fee2e2;color:#b91c1c;font-weight:700;">KATEGORI A</span></td>
+        <td><strong>Kondisi Klinis Pasien Berat / Komorbiditas</strong><br><span style="color:var(--text-muted);font-size:0.78rem;">Uremic syndrome, hiperkalemia K 6.27 pro HD, anemia gravis refrakter, asidosis metabolik, sirosis hati asites.</span></td>
+        <td style="text-align:center;"><span class="badge badge-danger">${cats.VAR_PATIENT?.count || 0} Pasien</span></td>
+        <td>Perpanjangan hari rawat (+2 s/d +5 hari) dan peningkatan pemakaian obat injeksi &amp; transfusi.</td>
+        <td><strong>Protokol Early Warning Sepsis / HD Cito:</strong> Akselerasi tindakan hemodialisis di hari ke-1 dan penjadwalan transfusi PRC lebih terencana.</td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#fef3c7;color:#b45309;font-weight:700;">KATEGORI B</span></td>
+        <td><strong>Sistem Rumah Sakit (Sarana &amp; Logistik)</strong><br><span style="color:var(--text-muted);font-size:0.78rem;">Kekosongan stok kantong darah BDRS/PMI ("sisa 2 kolf masih dicari"), AC kamar 8 &amp; 9 panas, antrean HD.</span></td>
+        <td style="text-align:center;"><span class="badge badge-warning">${cats.VAR_SYSTEM?.count || 0} Pasien</span></td>
+        <td>Penundaan jadwal pemulangan pasien menunggu darah, kenyamanan dan mutu rawat terganggu.</td>
+        <td><strong>SOP Logistik Darah H-1 &amp; Maintenance IPSRS:</strong> Kerjasama BDRS dengan keluarga donor pengganti sedini mungkin dan perbaikan AC/Lift prioritas.</td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#f3e8ff;color:#6d28d9;font-weight:700;">KATEGORI C</span></td>
+        <td><strong>Tenaga Medis (DPJP &amp; Klinisi)</strong><br><span style="color:var(--text-muted);font-size:0.78rem;">Penundaan jadwal tindakan evaluasi, respon konsul multidisiplin (Penyakit Dalam, Bedah, Kulit).</span></td>
+        <td style="text-align:center;"><span class="badge" style="background:#8b5cf6;color:#fff;">${cats.VAR_MEDICAL_STAFF?.count || 0} Pasien</span></td>
+        <td>Waktu tunggu jawaban konsul memperpanjang LOS tanpa tindakan aktif.</td>
+        <td><strong>Sistem Konsul Digital Terintegrasi RME:</strong> Batas waktu respon konsul 1x24 jam untuk kasus elektif dan ronde besar bersama tiap Rabu.</td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#cffafe;color:#0e7490;font-weight:700;">KATEGORI D</span></td>
+        <td><strong>Faktor Eksternal (Administrasi &amp; Sosial)</strong><br><span style="color:var(--text-muted);font-size:0.78rem;">Verifikasi kepesertaan rujukan BPJS berjenjang dari luar kota Pontianak &amp; kendala penjemputan keluarga.</span></td>
+        <td style="text-align:center;"><span class="badge" style="background:#06b6d4;color:#fff;">${cats.VAR_EXTERNAL?.count || 0} Pasien</span></td>
+        <td>Pasien siap pulang tertahan di bed (Bed Occupancy tidak efektif).</td>
+        <td><strong>Discharge Planning Terpadu H-2:</strong> Konfirmasi penjemputan keluarga sejak 48 jam sebelum rencana pulang dan koordinasi loket BPJS Center.</td>
+      </tr>
+    `;
+  }
+}
+
+function renderCpFinanceView(patients, finSummary) {
+  const fCbg = document.getElementById('finTotalInaCbg');
+  if (fCbg) fCbg.textContent = `Rp ${(finSummary.totalInaCbgTariff || 0).toLocaleString('id-ID')}`;
+
+  const fReal = document.getElementById('finTotalRealCost');
+  if (fReal) fReal.textContent = `Rp ${(finSummary.totalEstimatedRealCost || 0).toLocaleString('id-ID')}`;
+
+  const fMargin = document.getElementById('finNetMargin');
+  if (fMargin) {
+    const margin = finSummary.netFinancialMargin || 0;
+    const isPositive = margin >= 0;
+    fMargin.textContent = `${isPositive ? '+' : '-'}Rp ${Math.abs(margin).toLocaleString('id-ID')}`;
+    fMargin.style.color = isPositive ? '#16a34a' : '#dc2626';
+  }
+
+  const fSurplusDeficit = document.getElementById('finSurplusDeficitSummary');
+  if (fSurplusDeficit) {
+    fSurplusDeficit.textContent = `Utilisasi Biaya: ${finSummary.costEfficiencyPct || 0}% (${finSummary.costContainmentStatus || 'Terkendali'})`;
+  }
+
+  const fSurplusCount = document.getElementById('finSurplusCount');
+  if (fSurplusCount) fSurplusCount.textContent = `${finSummary.surplusPatientsCount || 0} Surplus`;
+
+  const fDeficitCount = document.getElementById('finDeficitCount');
+  if (fDeficitCount) fDeficitCount.textContent = `${finSummary.deficitPatientsCount || 0} Defisit`;
+
+  // Render Table
+  const tbody = document.getElementById('cpFinanceTableBody');
+  if (!tbody) return;
+
+  if (patients.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:2rem;">Tidak ada data pasien untuk audit finansial.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = patients.map(p => {
+    const a = p.audit || {};
+    const fin = a.financialAudit || {};
+    const isSurplus = (fin.costMargin || 0) >= 0;
+    const marginColor = isSurplus ? '#16a34a' : '#dc2626';
+    const marginSign = isSurplus ? '+' : '';
+
+    return `
+      <tr>
+        <td style="text-align:center;"><strong>${p.bed || '-'}</strong></td>
+        <td>
+          <div style="font-weight:700;">${p.name || '-'}</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">${p.mrNo ? 'MR: ' + p.mrNo : ''}</div>
+        </td>
+        <td>
+          <span class="badge badge-outline" style="font-size:0.75rem;">${fin.insuranceClass || p.insurance || '-'}</span>
+          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px;">CBG: <strong>${fin.cbgCode || '-'}</strong></div>
+        </td>
+        <td><span style="font-size:0.82rem;">${a.pathwayShortTitle || a.pathwayTitle || '-'}</span></td>
+        <td style="text-align:center;"><strong>${a.actualLos || 1}</strong> hr</td>
+        <td style="text-align:right;font-weight:600;">Rp ${(fin.cbgTariff || 0).toLocaleString('id-ID')}</td>
+        <td style="text-align:right;color:#d97706;font-weight:600;">Rp ${(fin.estimatedRealCost || 0).toLocaleString('id-ID')}</td>
+        <td style="text-align:right;font-weight:800;color:${marginColor};">
+          ${marginSign}Rp ${Math.abs(fin.costMargin || 0).toLocaleString('id-ID')}
+        </td>
+        <td style="text-align:center;">
+          <span style="font-size:0.82rem;font-weight:700;color:${(fin.costUtilizationPct || 0) > 100 ? '#dc2626' : '#16a34a'};">
+            ${fin.costUtilizationPct || 0}%
+          </span>
+        </td>
+        <td style="text-align:center;">
+          <span class="badge ${fin.costBadge || 'badge-secondary'}" style="font-size:0.75rem;">
+            ${fin.costStatus ? fin.costStatus.split(' ')[0] : '-'}
+          </span>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function renderCpMasterGuidelinesView(masterPathways) {
+  const container = document.getElementById('cpMasterGuidelinesGrid');
+  if (!container) return;
+
+  if (masterPathways.length === 0) {
+    container.innerHTML = '<p style="color:var(--text-muted);">Belum ada master Clinical Pathway yang terdaftar.</p>';
+    return;
+  }
+
+  container.innerHTML = masterPathways.map(cp => {
+    return `
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:10px;padding:1.25rem;display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+            <span class="badge badge-primary" style="font-weight:700;">${cp.id}</span>
+            <span class="badge badge-outline" style="font-size:0.75rem;">${cp.version || 'Rev. 2026'}</span>
+          </div>
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:6px;color:var(--text-main);">${cp.title}</h3>
+          <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:12px;">
+            Pengampu: <strong>${cp.department || 'KSM Penyakit Dalam'}</strong> &bull; Target LOS: <strong style="color:#16a34a;">&le; ${cp.targetLos} Hari</strong>
+          </div>
+
+          <div style="font-size:0.82rem;margin-bottom:10px;">
+            <strong>Standar Baku Emas Diagnostik:</strong>
+            <ul style="margin:4px 0 8px 18px;padding:0;color:var(--text-muted);">
+              ${(cp.diagnosticStandards || []).slice(0, 4).map(s => `<li>${s.name}</li>`).join('')}
+              ${(cp.diagnosticStandards || []).length > 4 ? `<li>+ ${(cp.diagnosticStandards || []).length - 4} pemeriksaan lainnya...</li>` : ''}
+            </ul>
+          </div>
+
+          <div style="font-size:0.82rem;margin-bottom:10px;">
+            <strong>Medikasi &amp; Terapi Kunci:</strong>
+            <ul style="margin:4px 0 8px 18px;padding:0;color:var(--text-muted);">
+              ${(cp.medicationStandards || []).slice(0, 3).map(m => `<li>${m.name} (${m.timing})</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--border-color);padding-top:10px;margin-top:8px;font-size:0.8rem;display:flex;justify-content:space-between;align-items:center;">
+          <span style="color:var(--text-muted);">Estimasi Plafon INA-CBG:</span>
+          <strong style="color:#0284c7;">Rp ${(cp.inaCbgBenchmark?.tariffs?.['BPJS Kelas 3'] || 0).toLocaleString('id-ID')} (Kls 3)</strong>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Global modal trigger from table
+window.openClinicalPathwayVerificationModal = function(bedNumber) {
+  const cpData = state.data && state.data.clinicalPathways;
+  if (!cpData || !cpData.patients) return;
+
+  const patient = cpData.patients.find(p => p.bed === bedNumber);
+  if (!patient) {
+    showToast(`Data Clinical Pathway untuk Bed ${bedNumber} tidak ditemukan.`, 'warning');
+    return;
+  }
+
+  CP_STATE.activePatient = patient;
+  const audit = patient.audit || {};
+  const fin = audit.financialAudit || {};
+
+  const modal = document.getElementById('clinicalPathwayModal');
+  const body = document.getElementById('cpModalBodyContent');
+  if (!modal || !body) return;
+
+  body.innerHTML = `
+    <!-- Letterhead RSUD Dr. Soedarso -->
+    <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:3px double #334155;padding-bottom:12px;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <img src="logo_kakap.png" alt="Logo RSUD" style="width:52px;height:52px;border-radius:50%;object-fit:cover;">
+        <div>
+          <h2 style="font-size:1.15rem;font-weight:900;margin:0;letter-spacing:0.5px;color:var(--text-main);">RUMAH SAKIT UMUM DAERAH DOKTER SOEDARSO</h2>
+          <div style="font-size:0.8rem;color:var(--text-muted);font-weight:600;">PROVINSI KALIMANTAN BARAT &bull; KOMITE MEDIK &amp; SUB KOMITE MUTU PROFESI</div>
+          <div style="font-size:0.75rem;color:var(--text-muted);">Jl. Dr. Soedarso No. 1, Pontianak &bull; Ruang Rawat Inap Penyakit Dalam (Kakap)</div>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <span class="badge badge-success" style="font-weight:700;font-size:0.82rem;padding:4px 10px;">${audit.pathwayId || 'CP-SOEDARSO'}</span>
+        <div style="font-size:0.72rem;color:var(--text-muted);margin-top:3px;">Tgl Berlaku: 01-09-2026</div>
+      </div>
+    </div>
+
+    <!-- Title Form -->
+    <div style="text-align:center;margin-bottom:16px;">
+      <h3 style="font-size:1.1rem;font-weight:800;margin:0 0 4px 0;text-transform:uppercase;color:var(--text-main);">
+        ${audit.pathwayTitle || 'LEMBAR ALUR KLINIS (CLINICAL PATHWAYS)'}
+      </h3>
+      <span style="font-size:0.82rem;color:var(--text-muted);">Departemen / KSM: <strong>${audit.department || 'KSM Penyakit Dalam'}</strong> &bull; Target LOS: <strong>${audit.targetLos || 7} Hari</strong></span>
+    </div>
+
+    <!-- Patient Demographics Table -->
+    <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:0.85rem;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:8px 16px;">
+        <div><strong>Nama Pasien:</strong> ${patient.name || '-'}</div>
+        <div><strong>No. Rekam Medik:</strong> ${patient.mrNo || '-'}</div>
+        <div><strong>Umur / Gender:</strong> ${patient.age || '-'} / ${patient.gender || '-'}</div>
+        <div><strong>Bed / Ruangan:</strong> Kakap ${patient.bed || '-'} (${patient.room || '-'})</div>
+        <div><strong>Tanggal Masuk:</strong> ${patient.admissionDate || '-'}</div>
+        <div><strong>Lama Rawat (LOS):</strong> <strong style="color:${audit.deltaLos > 0 ? '#dc2626' : '#16a34a'};">${audit.actualLos} Hari</strong> (Target: ${audit.targetLos} Hari)</div>
+        <div><strong>DPJP Pelayanan:</strong> ${patient.doctor || '-'}</div>
+        <div><strong>Jaminan Pasien:</strong> ${patient.insurance || '-'}</div>
+      </div>
+      <div style="margin-top:8px;padding-top:6px;border-top:1px dashed var(--border-color);">
+        <strong>Diagnosa Utama &amp; Komplikasi:</strong> ${patient.diagnosis || '-'}
+      </div>
+    </div>
+
+    <!-- 1. STANDAR PENEGAKAN DIAGNOSIS (LAB & RADIOLOGI BAKU EMAS) -->
+    <div style="margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <h4 style="font-size:0.95rem;font-weight:700;margin:0;color:var(--text-main);">
+          1. Kepatuhan Penegakan Diagnosis (Standar Baku Emas)
+        </h4>
+        <span class="badge badge-primary" style="font-size:0.8rem;">Skor: ${audit.diagnosticCompliancePct}%</span>
+      </div>
+      <table class="cp-modal-checklist-table">
+        <thead>
+          <tr>
+            <th style="width:35px;text-align:center;">No</th>
+            <th>Pemeriksaan Penunjang (Laboratorium / Radiologi / Patologi)</th>
+            <th style="width:120px;text-align:center;">Kategori</th>
+            <th style="width:110px;text-align:center;">Sifat</th>
+            <th style="width:120px;text-align:center;">Status Realisasi</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${(audit.diagnosticDetails || []).map((d, i) => `
+            <tr style="background:${d.isDone ? 'transparent' : 'rgba(239, 68, 68, 0.04)'};">
+              <td style="text-align:center;">${i + 1}</td>
+              <td><strong>${d.name}</strong></td>
+              <td style="text-align:center;">${d.category}</td>
+              <td style="text-align:center;">
+                <span class="badge ${d.mandatory ? 'badge-primary' : 'badge-outline'}" style="font-size:0.72rem;">
+                  ${d.mandatory ? 'Baku Emas' : 'Atas Indikasi'}
+                </span>
+              </td>
+              <td style="text-align:center;">
+                <span style="font-weight:700;color:${d.isDone ? '#16a34a' : '#dc2626'};">
+                  ${d.isDone ? '✔ Terpenuhi' : '✘ Belum'}
+                </span>
+              </td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 2. STANDAR TERAPI & MEDIKASI OBAT -->
+    <div style="margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <h4 style="font-size:0.95rem;font-weight:700;margin:0;color:var(--text-main);">
+          2. Kepatuhan Terapi &amp; Pemberian Obat (Medication Compliance)
+        </h4>
+        <span class="badge badge-warning" style="font-size:0.8rem;">Skor: ${audit.medicationCompliancePct}%</span>
+      </div>
+      <table class="cp-modal-checklist-table">
+        <thead>
+          <tr>
+            <th style="width:35px;text-align:center;">No</th>
+            <th>Instruksi Terapi / Medikasi Utama / Profilaksis</th>
+            <th style="width:140px;text-align:center;">Jadwal Hari Rawat</th>
+            <th style="width:110px;text-align:center;">Prioritas</th>
+            <th style="width:140px;text-align:center;">Status Verifikasi</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${(audit.medicationDetails || []).map((m, i) => `
+            <tr style="background:${m.isGiven ? 'transparent' : 'rgba(239, 68, 68, 0.04)'};">
+              <td style="text-align:center;">${i + 1}</td>
+              <td><strong>${m.name}</strong></td>
+              <td style="text-align:center;font-size:0.78rem;">${m.timing}</td>
+              <td style="text-align:center;">
+                <span class="badge ${m.mandatory ? 'badge-primary' : 'badge-outline'}" style="font-size:0.72rem;">
+                  ${m.mandatory ? 'Wajib' : 'Sesuai Kondisi'}
+                </span>
+              </td>
+              <td style="text-align:center;">
+                <span style="font-weight:700;color:${m.isGiven ? '#16a34a' : '#d97706'};">
+                  ${m.isGiven ? '✔ Diberikan Tepat' : '⚠ Belum Tercatat'}
+                </span>
+              </td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3. ANALISIS VARIASI PELAYANAN (4 KATEGORI BAKU) -->
+    <div style="margin-bottom:16px;">
+      <h4 style="font-size:0.95rem;font-weight:700;margin:0 0 6px 0;color:var(--text-main);">
+        3. Analisis Variasi Pelayanan yang Diberikan (Variance Audit)
+      </h4>
+      ${audit.hasVariance ? `
+        <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;padding:12px;font-size:0.85rem;">
+          ${(audit.variances || []).map(v => `
+            <div style="margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border-color);">
+              <span class="badge" style="background:${v.badgeColor}20;color:${v.badgeColor};font-weight:700;font-size:0.75rem;">
+                KATEGORI ${v.code}: ${v.category}
+              </span>
+              <ul style="margin:6px 0 0 18px;padding:0;color:var(--text-main);">
+                ${v.reasons.map(r => `<li>${r}</li>`).join('')}
+              </ul>
+            </div>
+          `).join('')}
+        </div>
+      ` : `
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;border-radius:8px;padding:10px 14px;font-size:0.85rem;">
+          ✔ <strong>Alur Sesuai Clinical Pathway:</strong> Tidak ditemukan deviasi klinis, variasi negatif, maupun over-LOS pada pasien ini.
+        </div>
+      `}
+    </div>
+
+    <!-- 4. INTEGRASI AUDIT FINANSIAL (INA-CBGs COST CONTAINMENT) -->
+    <div style="margin-bottom:16px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;padding:12px 16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <h4 style="font-size:0.95rem;font-weight:700;margin:0;color:var(--text-main);">
+          4. Integrasi Biaya (Financial Auditing &amp; Cost Containment)
+        </h4>
+        <span class="badge ${fin.costBadge || 'badge-secondary'}" style="font-size:0.78rem;">${fin.costStatus || 'Optimal'}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:8px 14px;font-size:0.85rem;">
+        <div>Paket INA-CBG: <strong>${fin.cbgCode || '-'}</strong></div>
+        <div>Plafon Tarif: <strong>Rp ${(fin.cbgTariff || 0).toLocaleString('id-ID')}</strong></div>
+        <div>Estimasi Biaya Riil: <strong style="color:#d97706;">Rp ${(fin.estimatedRealCost || 0).toLocaleString('id-ID')}</strong></div>
+        <div>Margin Rumah Sakit: <strong style="color:${(fin.costMargin || 0) >= 0 ? '#16a34a' : '#dc2626'};">
+          ${(fin.costMargin || 0) >= 0 ? '+' : '-'}Rp ${Math.abs(fin.costMargin || 0).toLocaleString('id-ID')}
+        </strong></div>
+      </div>
+    </div>
+
+    <!-- 5. TANDA TANGAN VERIFIKASI RESMI -->
+    <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;margin-top:20px;font-size:0.82rem;">
+      <div class="cp-sig-box">
+        <strong>Dokter Penanggung Jawab Pelayanan (DPJP)</strong>
+        <div class="cp-sig-space"></div>
+        <strong>(${patient.doctor || 'dr. ............................, Sp.PD'})</strong><br>
+        <span style="font-size:0.75rem;color:var(--text-muted);">SIP. ........................................</span>
+      </div>
+
+      <div class="cp-sig-box">
+        <strong>Perawat Penanggung Jawab Asuhan (PPJA)</strong>
+        <div class="cp-sig-space"></div>
+        <strong>(Ns. Rusmulyadi, S.Kep.,M.A.R.S)</strong><br>
+        <span style="font-size:0.75rem;color:var(--text-muted);">NIP. 198004282006041012</span>
+      </div>
+
+      <div class="cp-sig-box">
+        <strong>Pelaksana Verifikasi / Komite Mutu RS</strong>
+        <div class="cp-sig-space"></div>
+        <strong>(Tim Verifikator Clinical Pathway)</strong><br>
+        <span style="font-size:0.75rem;color:var(--text-muted);">RSUD Dr. Soedarso Pontianak</span>
+      </div>
+    </div>
+  `;
+
+  modal.style.display = 'flex';
+};
+
+function closeClinicalPathwayModal() {
+  const modal = document.getElementById('clinicalPathwayModal');
+  if (modal) modal.style.display = 'none';
+  CP_STATE.activePatient = null;
+}
+
+function copyCpAuditSummary() {
+  const p = CP_STATE.activePatient;
+  if (!p) return;
+  const a = p.audit || {};
+  const fin = a.financialAudit || {};
+
+  const text = `AUDIT KEPATUHAN CLINICAL PATHWAY - RSUD DR. SOEDARSO
+Ruang Rawat Inap: Kakap (Penyakit Dalam)
+Nama Pasien: ${p.name} (Bed ${p.bed}) | MR: ${p.mrNo || '-'}
+DPJP: ${p.doctor}
+Clinical Pathway: ${a.pathwayTitle}
+Lama Rawat: ${a.actualLos} Hari (Target: ${a.targetLos} Hari | Status: ${a.losStatus})
+Kepatuhan Diagnosis: ${a.diagnosticCompliancePct}%
+Kepatuhan Terapi: ${a.medicationCompliancePct}%
+Skor Keseluruhan: ${a.overallCompliancePct}% (${a.complianceTier})
+Variasi Pelayanan: ${a.hasVariance ? a.variances.map(v => `[${v.code}] ${v.category}`).join('; ') : 'Nihil / Sesuai Alur'}
+Audit Finansial: Plafon INA-CBGs Rp ${(fin.cbgTariff || 0).toLocaleString('id-ID')} | Biaya Riil Rp ${(fin.estimatedRealCost || 0).toLocaleString('id-ID')} | Margin: ${(fin.costMargin || 0) >= 0 ? '+' : '-'}Rp ${Math.abs(fin.costMargin || 0).toLocaleString('id-ID')}`;
+
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('📋 Ringkasan audit Clinical Pathway berhasil disalin ke clipboard!', 'success');
+  }).catch(() => {
+    showToast('📋 Gagal menyalin secara otomatis.', 'warning');
+  });
+}
+
+function printClinicalPathwayAuditSheet(patient) {
+  const p = patient || CP_STATE.activePatient;
+  if (!p) return;
+
+  const a = p.audit || {};
+  const fin = a.financialAudit || {};
+  const printContainer = document.getElementById('printContainer');
+  if (!printContainer) return;
+
+  printContainer.innerHTML = `
+    <div style="border-bottom:2.5px solid #000;padding-bottom:6px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <h3 style="font-size:11pt;font-weight:bold;margin:0;">RUMAH SAKIT UMUM DAERAH DOKTER SOEDARSO</h3>
+        <div style="font-size:8.5pt;">PROVINSI KALIMANTAN BARAT &bull; KOMITE MEDIK &amp; SUB KOMITE MUTU</div>
+        <div style="font-size:8pt;color:#333;">Ruang Rawat Inap Penyakit Dalam (Kakap) &bull; Formulir Verifikasi Kepatuhan Clinical Pathway</div>
+      </div>
+      <div style="text-align:right;font-size:8pt;">
+        <strong>${a.pathwayId || 'CP-SOEDARSO'}</strong><br>
+        Tgl Berlaku: 01-09-2026
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-bottom:10px;">
+      <h4 style="font-size:10.5pt;font-weight:bold;margin:0;text-transform:uppercase;">${a.pathwayTitle || 'LEMBAR VERIFIKASI CLINICAL PATHWAY'}</h4>
+      <div style="font-size:8.5pt;">Departemen: ${a.department || 'KSM Penyakit Dalam'} &bull; Target LOS: ${a.targetLos || 7} Hari</div>
+    </div>
+
+    <table style="width:100%;font-size:8.5pt;margin-bottom:10px;border-collapse:collapse;">
+      <tr>
+        <td style="width:20%;"><strong>Nama Pasien</strong></td><td style="width:30%;">: ${p.name || '-'}</td>
+        <td style="width:20%;"><strong>No. RM / Bed</strong></td><td style="width:30%;">: ${p.mrNo || '-'} / Kakap ${p.bed || '-'}</td>
+      </tr>
+      <tr>
+        <td><strong>Tanggal Masuk</strong></td><td>: ${p.admissionDate || '-'}</td>
+        <td><strong>Lama Rawat (LOS)</strong></td><td>: ${a.actualLos} Hari (Target: ${a.targetLos} Hari)</td>
+      </tr>
+      <tr>
+        <td><strong>DPJP Pelayanan</strong></td><td>: ${p.doctor || '-'}</td>
+        <td><strong>Jaminan</strong></td><td>: ${p.insurance || '-'}</td>
+      </tr>
+      <tr>
+        <td><strong>Diagnosa Utama</strong></td><td colspan="3">: ${p.diagnosis || '-'}</td>
+      </tr>
+    </table>
+
+    <table class="cp-print-table">
+      <thead>
+        <tr>
+          <th style="width:5%;">No</th>
+          <th style="width:40%;">Pemeriksaan Penunjang Baku Emas</th>
+          <th style="width:15%;">Kategori</th>
+          <th style="width:20%;">Standar CP</th>
+          <th style="width:20%;">Realisasi Rekam Medis</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${(a.diagnosticDetails || []).map((d, i) => `
+          <tr>
+            <td style="text-align:center;">${i + 1}</td>
+            <td><strong>${d.name}</strong></td>
+            <td>${d.category}</td>
+            <td>${d.mandatory ? 'Baku Emas Wajib' : 'Sesuai Indikasi'}</td>
+            <td><strong>${d.isDone ? '[ √ ] Terpenuhi' : '[ - ] Belum'}</strong></td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+
+    <table class="cp-print-table">
+      <thead>
+        <tr>
+          <th style="width:5%;">No</th>
+          <th style="width:40%;">Terapi Medikamentosa / Obat Utama</th>
+          <th style="width:20%;">Jadwal Alur CP</th>
+          <th style="width:15%;">Prioritas</th>
+          <th style="width:20%;">Status Pemberian</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${(a.medicationDetails || []).map((m, i) => `
+          <tr>
+            <td style="text-align:center;">${i + 1}</td>
+            <td><strong>${m.name}</strong></td>
+            <td>${m.timing}</td>
+            <td>${m.mandatory ? 'Wajib' : 'Sesuai Kondisi'}</td>
+            <td><strong>${m.isGiven ? '[ √ ] Diberikan' : '[ - ] Belum'}</strong></td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+
+    <div style="font-size:8.5pt;margin-bottom:8px;border:1px solid #333;padding:6px;">
+      <strong>Variasi Pelayanan Terdeteksi:</strong><br>
+      ${a.hasVariance ? (a.variances || []).map(v => `• [Kategori ${v.code} - ${v.category}]: ${v.reasons.join('; ')}`).join('<br>') : 'Nihil / Sesuai dengan seluruh ketentuan Clinical Pathway.'}
+    </div>
+
+    <div style="font-size:8pt;margin-bottom:12px;border:1px solid #333;padding:6px;">
+      <strong>Audit Finansial INA-CBGs:</strong> Tarif Plafon Rp ${(fin.cbgTariff || 0).toLocaleString('id-ID')} | Estimasi Real Cost Rp ${(fin.estimatedRealCost || 0).toLocaleString('id-ID')} | Margin: ${(fin.costMargin || 0) >= 0 ? '+' : '-'}Rp ${Math.abs(fin.costMargin || 0).toLocaleString('id-ID')} (${fin.costStatus || 'Optimal'})
+    </div>
+
+    <table style="width:100%;font-size:8pt;text-align:center;margin-top:15px;border-collapse:collapse;">
+      <tr>
+        <td style="width:33%;">
+          Dokter Penanggung Jawab Pelayanan<br><br><br><br>
+          <strong>(${p.doctor || 'dr. ............................, Sp.PD'})</strong>
+        </td>
+        <td style="width:34%;">
+          Perawat Penanggung Jawab Asuhan<br><br><br><br>
+          <strong>(Ns. Rusmulyadi, S.Kep.,M.A.R.S)</strong>
+        </td>
+        <td style="width:33%;">
+          Pelaksana Verifikasi / Komite Mutu<br><br><br><br>
+          <strong>(Tim Verifikator RSUD Dr. Soedarso)</strong>
+        </td>
+      </tr>
+    </table>
+  `;
+
+  document.body.classList.add('printing-cp');
+  window.print();
+  document.body.classList.remove('printing-cp');
+}
+
+function printClinicalPathwayAggregateReport() {
+  const cpData = state.data && state.data.clinicalPathways;
+  if (!cpData) return;
+
+  const s = cpData.summary || {};
+  const fin = s.financialAuditSummary || {};
+  const printContainer = document.getElementById('printContainer');
+  if (!printContainer) return;
+
+  printContainer.innerHTML = `
+    <div style="border-bottom:2.5px solid #000;padding-bottom:6px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <h3 style="font-size:11pt;font-weight:bold;margin:0;">RUMAH SAKIT UMUM DAERAH DOKTER SOEDARSO PONTIANAK</h3>
+        <div style="font-size:8.5pt;">LAPORAN EKSEKUTIF AUDIT KEPATUHAN CLINICAL PATHWAY (MUTU &amp; KENDALI BIAYA)</div>
+        <div style="font-size:8pt;color:#333;">Ruang Rawat Inap Penyakit Dalam (Kakap) &bull; Periode Sensus: ${formatIndonesianDate(state.currentDate)}</div>
+      </div>
+      <div style="text-align:right;font-size:8pt;">
+        Dicetak: ${new Date().toLocaleDateString('id-ID')}<br>
+        Dokumen Resmi Komite Medik
+      </div>
+    </div>
+
+    <table style="width:100%;font-size:8.5pt;margin-bottom:12px;border:1px solid #333;border-collapse:collapse;">
+      <tr style="background:#f1f5f9;">
+        <th style="padding:6px;border:1px solid #333;">Total Pasien Rawat</th>
+        <th style="padding:6px;border:1px solid #333;">Cakupan Pasien CP</th>
+        <th style="padding:6px;border:1px solid #333;">Kepatuhan Diagnosis</th>
+        <th style="padding:6px;border:1px solid #333;">Kepatuhan Terapi</th>
+        <th style="padding:6px;border:1px solid #333;">Kepatuhan LOS</th>
+        <th style="padding:6px;border:1px solid #333;">Skor Mutu Agregat</th>
+      </tr>
+      <tr style="text-align:center;">
+        <td style="padding:6px;border:1px solid #333;"><strong>${s.totalInpatients || 0} Pasien</strong></td>
+        <td style="padding:6px;border:1px solid #333;"><strong>${s.totalCpInpatients || 0} (${s.cpCoveragePct || 0}%)</strong></td>
+        <td style="padding:6px;border:1px solid #333;"><strong>${s.avgDiagnosticCompliance || 0}%</strong></td>
+        <td style="padding:6px;border:1px solid #333;"><strong>${s.avgMedicationCompliance || 0}%</strong></td>
+        <td style="padding:6px;border:1px solid #333;"><strong>${s.avgLosCompliance || 0}%</strong></td>
+        <td style="padding:6px;border:1px solid #333;"><strong style="color:#16a34a;font-size:9pt;">${s.overallCpCompliance || 0}%</strong></td>
+      </tr>
+    </table>
+
+    <h4 style="font-size:9.5pt;font-weight:bold;margin:10px 0 4px 0;">Ringkasan Audit Finansial &amp; Cost Containment INA-CBGs</h4>
+    <div style="font-size:8.5pt;margin-bottom:12px;border:1px solid #333;padding:8px;">
+      Total Plafon Tarif INA-CBGs: <strong>Rp ${(fin.totalInaCbgTariff || 0).toLocaleString('id-ID')}</strong><br>
+      Total Estimasi Biaya Riil (Hospital Cost): <strong>Rp ${(fin.totalEstimatedRealCost || 0).toLocaleString('id-ID')}</strong><br>
+      Net Margin Rumah Sakit: <strong style="color:#16a34a;">+Rp ${(fin.netFinancialMargin || 0).toLocaleString('id-ID')}</strong> (Utilisasi: ${fin.costEfficiencyPct || 0}%)<br>
+      Status Finansial: <strong>${fin.costContainmentStatus || 'Optimal'}</strong> (${fin.surplusPatientsCount || 0} Pasien Surplus, ${fin.deficitPatientsCount || 0} Pasien Defisit)
+    </div>
+
+    <h4 style="font-size:9.5pt;font-weight:bold;margin:10px 0 4px 0;">Daftar Pasien Ter-Clinical Pathway Ruang Kakap</h4>
+    <table class="cp-print-table">
+      <thead>
+        <tr>
+          <th>Bed</th>
+          <th>Nama Pasien</th>
+          <th>DPJP</th>
+          <th>Clinical Pathway</th>
+          <th>LOS / Target</th>
+          <th>Skor Mutu</th>
+          <th>Variasi</th>
+          <th>Margin Finansial</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${(cpData.patients || []).map(p => {
+          const a = p.audit || {};
+          const f = a.financialAudit || {};
+          return `
+            <tr>
+              <td style="text-align:center;"><strong>${p.bed}</strong></td>
+              <td>${p.name}</td>
+              <td>${p.doctor}</td>
+              <td>${a.pathwayShortTitle || a.pathwayTitle}</td>
+              <td style="text-align:center;">${a.actualLos} / ${a.targetLos} hr</td>
+              <td style="text-align:center;"><strong>${a.overallCompliancePct}%</strong></td>
+              <td>${a.primaryVariance ? `[${a.primaryVariance.code}]` : '-'}</td>
+              <td style="text-align:right;">${(f.costMargin || 0) >= 0 ? '+' : '-'}Rp ${Math.abs(f.costMargin || 0).toLocaleString('id-ID')}</td>
+            </tr>
+          `;
+        }).join('')}
+      </tbody>
+    </table>
+
+    <table style="width:100%;font-size:8pt;text-align:center;margin-top:20px;border-collapse:collapse;">
+      <tr>
+        <td style="width:50%;">
+          Mengetahui,<br>
+          Kepala Ruang Rawat Inap Kakap<br><br><br><br>
+          <strong>Ns. Rusmulyadi, S.Kep.,M.A.R.S</strong><br>
+          NIP. 198004282006041012
+        </td>
+        <td style="width:50%;">
+          Pontianak, ${new Date().toLocaleDateString('id-ID')}<br>
+          Sub Komite Mutu Profesi Medis RSUD Dr. Soedarso<br><br><br><br>
+          <strong>(Ketua Tim Audit Clinical Pathway)</strong><br>
+          Komite Medik RSUD Dr. Soedarso
+        </td>
+      </tr>
+    </table>
+  `;
+
+  document.body.classList.add('printing-cp');
+  window.print();
+  document.body.classList.remove('printing-cp');
+}
+
+function exportClinicalPathwayExcel() {
+  const cpData = state.data && state.data.clinicalPathways;
+  if (!cpData || !cpData.patients) {
+    showToast('Data audit Clinical Pathway tidak tersedia.', 'warning');
+    return;
+  }
+
+  const rows = [
+    ['Bed', 'Nama Pasien', 'No RM', 'Gender', 'Umur', 'DPJP', 'Diagnosa', 'Clinical Pathway', 'Target LOS', 'LOS Aktual', 'Delta LOS', 'Kepatuhan Diagnosis (%)', 'Kepatuhan Terapi (%)', 'Kepatuhan LOS (%)', 'Skor Mutu CP (%)', 'Kategori Variasi', 'Alasan Variasi', 'Jaminan', 'Kode INA-CBG', 'Plafon Tarif (Rp)', 'Biaya Riil (Rp)', 'Margin RS (Rp)', 'Status Biaya']
+  ];
+
+  cpData.patients.forEach(p => {
+    const a = p.audit || {};
+    const fin = a.financialAudit || {};
+    const varCat = a.primaryVariance ? `${a.primaryVariance.code} - ${a.primaryVariance.category}` : '-';
+    const varReason = a.primaryVariance ? a.primaryVariance.reasons.join('; ') : '-';
+
+    rows.push([
+      p.bed || '-',
+      p.name || '-',
+      p.mrNo || '-',
+      p.gender || '-',
+      p.age || '-',
+      p.doctor || '-',
+      p.diagnosis || '-',
+      a.pathwayTitle || '-',
+      a.targetLos || 7,
+      a.actualLos || 1,
+      a.deltaLos || 0,
+      a.diagnosticCompliancePct || 0,
+      a.medicationCompliancePct || 0,
+      a.losCompliancePct || 0,
+      a.overallCompliancePct || 0,
+      varCat,
+      varReason,
+      fin.insuranceClass || p.insurance || '-',
+      fin.cbgCode || '-',
+      fin.cbgTariff || 0,
+      fin.estimatedRealCost || 0,
+      fin.costMargin || 0,
+      fin.costStatus || '-'
+    ]);
+  });
+
+  const csvContent = 'data:text/csv;charset=utf-8,\uFEFF' + rows.map(e => e.map(x => `"${String(x).replace(/"/g, '""')}"`).join(',')).join('\n');
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement('a');
+  link.setAttribute('href', encodedUri);
+  link.setAttribute('download', `Audit_Clinical_Pathway_Kakap_${state.currentDate || '2026-11-05'}.csv`);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  showToast('📥 Data audit Clinical Pathway berhasil diunduh (Format CSV/Excel)!', 'success');
+}
+

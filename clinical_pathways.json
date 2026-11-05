@@ -1,0 +1,396 @@
+{
+  "hospital": {
+    "name": "RSUD Dr. Soedarso",
+    "province": "Kalimantan Barat",
+    "unit": "Ruang Rawat Inap Kakap (Penyakit Dalam)",
+    "committee": "Komite Medik & Sub Komite Mutu Profesi",
+    "effectiveDate": "2026-09-01"
+  },
+  "varianceCategories": [
+    {
+      "id": "VAR_PATIENT",
+      "code": "A",
+      "name": "Faktor Pasien (Kondisi Klinis)",
+      "description": "Penyimpangan akibat respon klinis pasien, perburukan penyakit, komplikasi akut, komorbiditas ganda, syok, asidosis, atau penolakan tindakan oleh keluarga/pasien.",
+      "color": "#ef4444",
+      "badgeClass": "badge-danger"
+    },
+    {
+      "id": "VAR_SYSTEM",
+      "code": "B",
+      "name": "Faktor Sistem Rumah Sakit (Sarana & Logistik)",
+      "description": "Penyimpangan akibat kendala fasilitas rumah sakit, alat medis rusak (CT Scan/USG/AC), reagen laboratorium kosong, stok darah PMI/BDRS kosong, atau kamar operasi/HD penuh.",
+      "color": "#f59e0b",
+      "badgeClass": "badge-warning"
+    },
+    {
+      "id": "VAR_MEDICAL_STAFF",
+      "code": "C",
+      "name": "Faktor Tenaga Medis (DPJP & Klinisi)",
+      "description": "Penyimpangan akibat DPJP menunda tindakan/visite, perbedaan opini klinis antar spesialis, keterlambatan jawaban konsul, atau instruksi tertunda.",
+      "color": "#8b5cf6",
+      "badgeClass": "badge-purple"
+    },
+    {
+      "id": "VAR_EXTERNAL",
+      "code": "D",
+      "name": "Faktor Eksternal (Administrasi & Sosial)",
+      "description": "Penyimpangan akibat kendala verifikasi kepesertaan BPJS, administrasi rujukan antar faskes, penjemputan keluarga terlambat, atau kendala transportasi daerah asal.",
+      "color": "#06b6d4",
+      "badgeClass": "badge-info"
+    }
+  ],
+  "pathways": [
+    {
+      "id": "CP-PD-01",
+      "title": "Clinical Pathway DM Tipe II dengan Komplikasi CKD",
+      "shortTitle": "DM Tipe 2 + CKD",
+      "department": "KSM Penyakit Dalam",
+      "version": "Rev. 02 / 2026",
+      "effectiveDate": "2026-09-01",
+      "targetLos": 7,
+      "targetLosRange": "5 - 7 hari",
+      "icd10": ["E11.2", "N18.5", "N18.9", "E11.9"],
+      "icd9": ["39.95", "99.04"],
+      "criteria": ["DM tipe 2", "DM", "CKD", "DKD", "Nefropati", "Uremic"],
+      "diagnosticStandards": [
+        { "code": "LAB_GDS", "name": "Pemeriksaan GDS (>200 mg/dL)", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_GDP", "name": "Pemeriksaan GDP (>126 mg/dL)", "category": "Laboratorium", "mandatory": true, "day": 2 },
+        { "code": "LAB_CREAT", "name": "Kreatinin Serum & Ureum", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_LIPID", "name": "Profil Lipid / Kolesterol Total", "category": "Laboratorium", "mandatory": true, "day": 2 },
+        { "code": "LAB_HBA1C", "name": "HbA1c / G2JPP", "category": "Laboratorium", "mandatory": false, "day": 2 },
+        { "code": "RAD_EKG", "name": "Rekam EKG", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "RAD_THORAX", "name": "Rontgen Thorax / Foto Dada", "category": "Radiologi & Penunjang", "mandatory": false, "day": 1 }
+      ],
+      "medicationStandards": [
+        { "code": "MED_INSULIN", "name": "Injeksi Insulin Basal / Bolus Terkoreksi", "timing": "Hari 1 - 7", "mandatory": true },
+        { "code": "MED_INFUS", "name": "Cairan Infus Terukur (RL/Asering, pembatasan volume overload)", "timing": "Hari 1 - 7", "mandatory": true },
+        { "code": "MED_ORAL", "name": "Obat Oral DM Rasional (Metformin jika CrCl aman, Acarbose/Pioglitazon)", "timing": "Hari 3 - 7", "mandatory": false },
+        { "code": "MED_HYPO_GUARD", "name": "Monitoring Hipoglikemia & Terapi Dextrose 40% Cito bila perlu", "timing": "Tiap Shift", "mandatory": true }
+      ],
+      "nursingCare": [
+        "Monitoring Tanda Vital & GCS (3 shift)",
+        "Monitoring Gula Darah Rutin (Pre/Post Prandial)",
+        "Monitoring Status Cairan (Intake / Output / Balans Cairan Ketat)",
+        "Edukasi Diet Rendah Gula & Rendah Protein Terukur Ginjal"
+      ],
+      "dischargeCriteria": [
+        "Tanda vital stabil, afebris > 24 jam",
+        "Kadar glukosa darah terkendali stabil (GDS < 200 mg/dl)",
+        "Gejala uremik terkontrol, elektrolit & keseimbangan asam basa aman",
+        "Edukasi mandiri insulin & diet DM-CKD dipahami keluarga",
+        "Resume rawat & surat kontrol poli Penyakit Dalam"
+      ],
+      "inaCbgBenchmark": {
+        "cbgCode": "N-4-10-I",
+        "description": "Penyakit Ginjal Kronik & Diabetes Mellitus Tanpa Prosedur Bedah",
+        "tariffs": {
+          "BPJS Kelas 1": 7850000,
+          "BPJS Kelas 2": 6670000,
+          "BPJS Kelas 3": 5510000,
+          "Umum / Asuransi Lain": 8500000
+        },
+        "estimatedCostPerDay": 850000
+      }
+    },
+    {
+      "id": "CP-PD-02",
+      "title": "Clinical Pathway HIV / AIDS & Infeksi Oportunistik",
+      "shortTitle": "HIV / AIDS",
+      "department": "KSM Penyakit Dalam",
+      "version": "Rev. 01 / 2026",
+      "effectiveDate": "2026-09-01",
+      "targetLos": 7,
+      "targetLosRange": "6 - 7 hari",
+      "icd10": ["B20", "B24", "B20.0", "B20.7"],
+      "icd9": ["99.04", "89.52"],
+      "criteria": ["HIV", "AIDS", "Infeksi Oportunistik", "Koinfeksi TB"],
+      "diagnosticStandards": [
+        { "code": "LAB_HIV_AB", "name": "Immunoassay Antibodi HIV-1 & HIV-2 (3 Tes Rapid)", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_HIV_AG", "name": "Immunoassay Antigen HIV-1 p24 / Uji Asam Nukleat", "category": "Laboratorium", "mandatory": false, "day": 1 },
+        { "code": "LAB_CD4", "name": "Hitung Jumlah Sel T CD4 / Viral Load", "category": "Laboratorium", "mandatory": true, "day": 2 },
+        { "code": "LAB_COINFECT", "name": "Skrining Ko-infeksi (HBsAg, Anti-HCV, Sputum TCM TB)", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "RAD_THORAX_PA", "name": "Rontgen Dada PA (Penapisan TB / Pneumonia PCP)", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "RAD_EKG", "name": "Rekam EKG", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 }
+      ],
+      "medicationStandards": [
+        { "code": "MED_ARV", "name": "Regimen ARV Lini 1 (TDF + 3TC + EFV / DTG atau AZT + 3TC + NVP)", "timing": "Hari 1 - 7", "mandatory": true },
+        { "code": "MED_COTRIMOX", "name": "Profilaksis Kotrimoksazol (PCP & Toksoplasmosis)", "timing": "Hari 1 - 7", "mandatory": true },
+        { "code": "MED_OAT", "name": "Obat Anti Tuberkulosis (OAT) jika terkonfirmasi TB", "timing": "Hari 2 - 7", "mandatory": false }
+      ],
+      "nursingCare": [
+        "Pemeriksaan TTV & evaluasi infeksi oportunistik dalam 3 shift",
+        "Pencegahan dekubitus & pemenuhan nutrisi adekuat",
+        "Konseling VCT terintegrasi & kepatuhan minum obat (Adherence)",
+        "Pencegahan penularan standar universal kewaspadaan isolasi"
+      ],
+      "dischargeCriteria": [
+        "Keluhan infeksi oportunistik akut teratasi/membaik",
+        "Kepatuhan minum ARV dipahami pasien & pendamping minum obat (PMO)",
+        "Tanda vital normal, mobilisasi adekuat",
+        "Resume perawatan & jadwal kontrol Poli VCT / Rawat Jalan"
+      ],
+      "inaCbgBenchmark": {
+        "cbgCode": "A-4-11-I",
+        "description": "Infeksi HIV Dengan Manifestasi Infeksi Oportunistik",
+        "tariffs": {
+          "BPJS Kelas 1": 9200000,
+          "BPJS Kelas 2": 7820000,
+          "BPJS Kelas 3": 6440000,
+          "Umum / Asuransi Lain": 9800000
+        },
+        "estimatedCostPerDay": 1050000
+      }
+    },
+    {
+      "id": "CP-SR-01",
+      "title": "Clinical Pathway Stroke Non Perdarahan (Stroke Iskemik / Infark)",
+      "shortTitle": "Stroke Iskemik",
+      "department": "KSM Neurologi / Penyakit Dalam",
+      "version": "Rev. 03 / 2026",
+      "effectiveDate": "2026-09-01",
+      "targetLos": 6,
+      "targetLosRange": "5 - 6 hari",
+      "icd10": ["I63.9", "I63.5", "I63.3", "I69.3"],
+      "icd9": ["87.03", "88.71", "93.01"],
+      "criteria": ["Stroke Iskemik", "Stroke Infark", "Stroke Non Perdarahan", "Defisit Neurologis", "Hemiparese", "stroke sequele"],
+      "diagnosticStandards": [
+        { "code": "RAD_HCTS", "name": "Head CT-Scan (HCTS) Non-Kontras Cito", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "RAD_THORAX", "name": "Rontgen Thorax PA", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "RAD_EKG", "name": "Rekam Jantung (EKG)", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "LAB_DARAH_RUTIN", "name": "Darah Rutin (Hb, AL, AT, Diff, Hematokrit)", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_KOAGULASI", "name": "Hemostasis Lengkap (PT, APTT, INR)", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_METABOLIK", "name": "Elektrolit, Ureum, Kreatinin, GDP, HbA1c, Profil Lipid", "category": "Laboratorium", "mandatory": true, "day": 1 }
+      ],
+      "medicationStandards": [
+        { "code": "MED_ANTIPLATELET", "name": "Antiplatelet (Aspilet 80-160mg / Clopidogrel 75mg / DAPT)", "timing": "Hari 1 (Golden Period)", "mandatory": true },
+        { "code": "MED_INFUS_ISOTONIK", "name": "Cairan Isotonik (NaCl 0.9% 1500-2000 ml/24 jam)", "timing": "Hari 1 - 6", "mandatory": true },
+        { "code": "MED_NEUROPROTECTOR", "name": "Citicoline / Piracetam atas indikasi", "timing": "Hari 1 - 6", "mandatory": false },
+        { "code": "MED_STATIN", "name": "Statin Dosis Tinggi (Atorvastatin 20-40mg)", "timing": "Hari 1 - 6", "mandatory": true }
+      ],
+      "nursingCare": [
+        "Asesmen Stroke: Skala NIHSS, Barthel Index, Risiko Jatuh, Risiko Aspirasi",
+        "Elevasi kepala 30 derajat & pemeliharaan jalan napas bebas",
+        "Monitoring defisit neurologis & tanda vital ketat tiap shift",
+        "Latihan mobilisasi bertahap pasca stroke bersama Fisioterapis"
+      ],
+      "dischargeCriteria": [
+        "Defisit neurologis stabil/membaik (NIHSS membaik)",
+        "Tanda vital normal, hemodinamik stabil",
+        "Kemampuan menelan dan mobilisasi aman (Risiko aspirasi terkendali)",
+        "Resume medis & jadwal kontrol Poli Neurologi / Fisioterapi"
+      ],
+      "inaCbgBenchmark": {
+        "cbgCode": "G-4-14-I",
+        "description": "Stroke Iskemik Tanpa Komplikasi Berat",
+        "tariffs": {
+          "BPJS Kelas 1": 8400000,
+          "BPJS Kelas 2": 7140000,
+          "BPJS Kelas 3": 5880000,
+          "Umum / Asuransi Lain": 9000000
+        },
+        "estimatedCostPerDay": 1100000
+      }
+    },
+    {
+      "id": "CP-SR-02",
+      "title": "Clinical Pathway Stroke Perdarahan (ICH / IVH / SAH)",
+      "shortTitle": "Stroke Perdarahan",
+      "department": "KSM Neurologi / Bedah Saraf / Penyakit Dalam",
+      "version": "Rev. 02 / 2026",
+      "effectiveDate": "2026-09-01",
+      "targetLos": 14,
+      "targetLosRange": "10 - 14 hari",
+      "icd10": ["I61.9", "I61.0", "I60.9", "I62.9"],
+      "icd9": ["87.03", "01.24", "02.2"],
+      "criteria": ["Stroke Perdarahan", "ICH", "IVH", "SAH", "Pendarahan Otak"],
+      "diagnosticStandards": [
+        { "code": "RAD_HCTS", "name": "Head CT-Scan (HCTS) Non-Kontras Cito", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "RAD_THORAX", "name": "Rontgen Thorax PA", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "RAD_EKG", "name": "Rekam EKG Lengkap", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "LAB_HEMOSTASIS", "name": "Koagulasi Lengkap (PT, APTT, INR, Fibrinogen)", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_METABOLIK", "name": "Elektrolit Lengkap (Na, K, Cl), Ureum, Kreatinin, AGD, GDS", "category": "Laboratorium", "mandatory": true, "day": 1 }
+      ],
+      "medicationStandards": [
+        { "code": "MED_ANTI_EDEMA", "name": "Anti-edema Serebral (Manitol 20% 0.5-1 g/kgBB jika TIK meningkat)", "timing": "Hari 1 - 5", "mandatory": true },
+        { "code": "MED_NIMODIPINE", "name": "Nimodipine (khusus kasus SAH pencegahan vasospasme)", "timing": "Hari 1 - 14", "mandatory": false },
+        { "code": "MED_ANTIHT_IV", "name": "Kendali Tensi Cito (Nicardipine / Diltiazem IV bila MAP > 130 mmHg)", "timing": "Hari 1 - 3", "mandatory": true },
+        { "code": "MED_SURGERY_EVAL", "name": "Evaluasi Kraniotomi Dekompresi / External Ventricular Drainage (EVD)", "timing": "Hari 1 - 3", "mandatory": false }
+      ],
+      "nursingCare": [
+        "Manajemen peningkatan Tekanan Intrakranial (TIK)",
+        "Tirah baring total (Bedrest) posisi kepala 30 derajat",
+        "Monitoring kesadaran (GCS), pupil, refleks batang otak tiap shift",
+        "Pencegahan luka tekan (decubitus), aspirasi pneumonia, dan kontraktur"
+      ],
+      "dischargeCriteria": [
+        "Perdarahan intrakranial teresorbsi stabil, edema serebral teratasi",
+        "Tanda vital stabil, tensi terkendali (TDS < 140 mmHg)",
+        "Kesadaran membaik, intake nutrisi adekuat (oral/NGT stabil)",
+        "Resume medis terintegrasi & rencana kontrol rawat jalan"
+      ],
+      "inaCbgBenchmark": {
+        "cbgCode": "G-4-13-II",
+        "description": "Stroke Perdarahan / Penatalaksanaan Kasus Intrakranial Berat",
+        "tariffs": {
+          "BPJS Kelas 1": 18500000,
+          "BPJS Kelas 2": 15725000,
+          "BPJS Kelas 3": 12950000,
+          "Umum / Asuransi Lain": 21000000
+        },
+        "estimatedCostPerDay": 1250000
+      }
+    },
+    {
+      "id": "CP-BD-01",
+      "title": "Clinical Pathway Kanker Payudara (Ca Mammae) - Mastektomi / BCS",
+      "shortTitle": "Ca Mammae / Onkologi",
+      "department": "KSM Bedah Onkologi / Bedah Umum",
+      "version": "Rev. 01 / 2026",
+      "effectiveDate": "2026-09-01",
+      "targetLos": 5,
+      "targetLosRange": "4 - 5 hari",
+      "icd10": ["C50.9", "C50.1", "C50.4", "D05.9"],
+      "icd9": ["85.44", "85.21", "40.11", "40.3"],
+      "criteria": ["Ca Mammae", "Kanker Payudara", "Tumor Mammae", "Mastektomi", "BCS", "Onkologi"],
+      "diagnosticStandards": [
+        { "code": "RAD_USG_MAMMO", "name": "USG Mammae / Mamografi (Klasifikasi BIRADS)", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "RAD_THORAX", "name": "Foto Thoraks (Penapisan Metastasis Pulmonal)", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "LAB_BIOPSI", "name": "Biopsi Pra-Rawat (FNAC / Core Needle Biopsy)", "category": "Patologi & Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_PRA_OP", "name": "Lab Pra-Op Lengkap (Hb, Ht, Leuko, Trombo, Ureum, Kreatinin, SGOT, SGPT, GDS, Urinalisis)", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "RAD_EKG", "name": "EKG Pra-Anestesi", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "LAB_PA_IHK", "name": "Pemeriksaan PA Spesimen Operasi + IHK (ER, PR, HER2, Ki-67)", "category": "Patologi & Laboratorium", "mandatory": true, "day": 2 }
+      ],
+      "medicationStandards": [
+        { "code": "MED_AB_PROFILAKSIS", "name": "Antibiotik Profilaksis (Cefazolin 1-2g IV 30-60m Pra-Insisi)", "timing": "Hari 2 (Pra-Op)", "mandatory": true },
+        { "code": "MED_ANALGETIK", "name": "Analgetik Multimodal (Paracetamol IV / NSAID / Tramadol)", "timing": "Hari 2 - 5", "mandatory": true },
+        { "code": "MED_VTE_PREVENT", "name": "Profilaksis VTE (LMWH) jika berisiko", "timing": "Hari 2 - 4", "mandatory": false },
+        { "code": "MED_ANTIEMETIK", "name": "Antiemetik Pasca Anestesi (Ondansetron 4-8mg IV)", "timing": "Hari 2 - 3", "mandatory": true }
+      ],
+      "nursingCare": [
+        "Pemantauan tanda vital, skala nyeri, dan risiko jatuh tiap shift",
+        "Perawatan luka operasi dan pemantauan volume drain (WSD/Redon)",
+        "Latihan gerak dan elevasi lengan pasca operasi (Pencegahan limfedema)",
+        "Edukasi perawatan luka di rumah, nutrisi TKTP, dan jadwal kontrol"
+      ],
+      "dischargeCriteria": [
+        "Luka operasi baik, kering, drain siap dilepas (< 30-50 cc/24 jam)",
+        "Nyeri terkontrol dengan analgetik oral, fungsi gerak lengan memadai",
+        "LOS <= 5 hari (tanpa komplikasi flap/infeksi)",
+        "Edukasi patologi anatomi & jadwal kontrol poli bedah onkologi"
+      ],
+      "inaCbgBenchmark": {
+        "cbgCode": "L-1-10-I",
+        "description": "Prosedur Mastektomi / Bedah Payudara Tanpa Komplikasi Berat",
+        "tariffs": {
+          "BPJS Kelas 1": 14800000,
+          "BPJS Kelas 2": 12580000,
+          "BPJS Kelas 3": 10360000,
+          "Umum / Asuransi Lain": 16500000
+        },
+        "estimatedCostPerDay": 2200000
+      }
+    },
+    {
+      "id": "CP-PD-04",
+      "title": "Clinical Pathway Anemia Gravis & Gangguan Hematologi Kronis",
+      "shortTitle": "Anemia Gravis & Hematologi",
+      "department": "KSM Penyakit Dalam (Divisi Hematologi & Onkologi Medik)",
+      "version": "Rev. 01 / 2026",
+      "effectiveDate": "2026-09-01",
+      "targetLos": 6,
+      "targetLosRange": "5 - 7 hari",
+      "icd10": ["D56.1", "D58.9", "D61.9", "D64.9", "D69.6"],
+      "icd9": ["99.04", "99.05", "90.59"],
+      "criteria": ["Anemia", "anemia gravis", "thalasemia", "aplastik", "ITP", "Hematologi"],
+      "diagnosticStandards": [
+        { "code": "LAB_DR_RETIC", "name": "Darah Rutin Lengkap & Hitung Retikulosit", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_GDT", "name": "Gambaran Darah Tepi (GDT) / Evaluasi Morfologi Eritrosit", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_FERRITIN", "name": "Serum Iron, TIBC, dan Serum Feritin", "category": "Laboratorium", "mandatory": true, "day": 2 },
+        { "code": "LAB_HEPATIC_RENAL", "name": "Fungsi Hati (Bilirubin, SGOT, SGPT) & Fungsi Ginjal", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "RAD_USG_ABDOMEN", "name": "USG Abdomen (Evaluasi Hepatosplenomegali)", "category": "Radiologi & Penunjang", "mandatory": false, "day": 2 }
+      ],
+      "medicationStandards": [
+        { "code": "MED_TRANSFUSI_PRC", "name": "Transfusi Darah PRC Target Hb >= 10-11 g/dL", "timing": "Hari 1 - 4", "mandatory": true },
+        { "code": "MED_PREMEDIKASI", "name": "Premedikasi Transfusi (Antihistamin / Ca Glukonas / Antipiretik)", "timing": "Hari 1 - 4", "mandatory": true },
+        { "code": "MED_CHELATION", "name": "Terapi Kelasi Besi (Deferipron / Deferasirox) bila Feritin Tinggi", "timing": "Hari 2 - 6", "mandatory": false },
+        { "code": "MED_SUPPLEMENT", "name": "Asam Folat 1x5mg PO & Vitamin E 2x100 IU PO", "timing": "Hari 1 - 6", "mandatory": true }
+      ],
+      "nursingCare": [
+        "Monitoring tanda vital & reaksi alergi/febris selama dan pasca transfusi",
+        "Monitoring balans cairan ketat mencegah overload sirkulasi (TACO)",
+        "Edukasi pembatasan aktivitas fisik selama Hb belum mencapai target",
+        "Edukasi kepatuhan terapi kelasi besi & diet kaya nutrisi"
+      ],
+      "dischargeCriteria": [
+        "Hb mencapai target terapeutik (>= 10 g/dL)",
+        "Tidak ada tanda reaksi transfusi lanjutan",
+        "Hemodinamik stabil, perfusi perifer hangat",
+        "Resep obat pulang (Kelasi besi, Asam folat, Vitamin E) & kontrol Poli Hematologi"
+      ],
+      "inaCbgBenchmark": {
+        "cbgCode": "D-4-13-I",
+        "description": "Anemia Aplastik & Defisiensi Berat Tanpa Komplikasi",
+        "tariffs": {
+          "BPJS Kelas 1": 6900000,
+          "BPJS Kelas 2": 5865000,
+          "BPJS Kelas 3": 4830000,
+          "Umum / Asuransi Lain": 7200000
+        },
+        "estimatedCostPerDay": 900000
+      }
+    },
+    {
+      "id": "CP-PD-05",
+      "title": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+      "shortTitle": "CKD Stage V on HD",
+      "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+      "version": "Rev. 02 / 2026",
+      "effectiveDate": "2026-09-01",
+      "targetLos": 7,
+      "targetLosRange": "5 - 7 hari",
+      "icd10": ["N18.5", "N18.9", "I12.0", "N19"],
+      "icd9": ["39.95", "38.95", "88.72"],
+      "criteria": ["CKD", "CKD5", "CKD 5", "CKD ST V", "Gagal Ginjal", "Hemodialisa", "pro HD", "on HD", "Uremic"],
+      "diagnosticStandards": [
+        { "code": "LAB_CREAT_UREUM", "name": "Kreatinin Serum, Ureum, eGFR", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_ELEKTROLIT", "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "LAB_DARAH_LENGKAP", "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)", "category": "Laboratorium", "mandatory": true, "day": 1 },
+        { "code": "RAD_EKG", "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "RAD_THORAX", "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)", "category": "Radiologi & Penunjang", "mandatory": true, "day": 1 },
+        { "code": "RAD_USG_RENAL", "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)", "category": "Radiologi & Penunjang", "mandatory": false, "day": 2 }
+      ],
+      "medicationStandards": [
+        { "code": "MED_HD_HEPARIN", "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur", "timing": "Jadwal HD (2x Seminggu)", "mandatory": true },
+        { "code": "MED_ANTI_HIPERKALEMIA", "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)", "timing": "Hari 1 - 3", "mandatory": true },
+        { "code": "MED_EPO", "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV", "timing": "Pasca HD", "mandatory": false },
+        { "code": "MED_BINDER_PHOS", "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D", "timing": "Hari 1 - 7", "mandatory": true },
+        { "code": "MED_RESTRIKSI_CAIRAN", "name": "Restriksi Asupan Cairan & Garam Ketat", "timing": "Hari 1 - 7", "mandatory": true }
+      ],
+      "nursingCare": [
+        "Monitoring Balans Cairan Ketat (Intake vs Output urin/insensible loss)",
+        "Perawatan Akses Vaskular (Kateter CDL / Double Lumen & AV-Shunt)",
+        "Penimbangan Berat Badan Kering & Evaluasi Ultrafiltrasi (UF)",
+        "Edukasi Pembatasan Cairan (Maksimal 500-600 cc + Jumlah Urin 24 Jam)"
+      ],
+      "dischargeCriteria": [
+        "Hemodialisis toleransi baik, target UF tercapai",
+        "Edema berkurang, ronki basah paru menghilang, tidak sesak",
+        "Kadar Kalium terkontrol (< 5.5 mEq/L), asidosis teratasi",
+        "Akses vaskular terawat bersih, tidak ada tanda infeksi",
+        "Jadwal HD reguler unit rawat jalan ditetapkan & surat kontrol"
+      ],
+      "inaCbgBenchmark": {
+        "cbgCode": "N-4-10-I",
+        "description": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+        "tariffs": {
+          "BPJS Kelas 1": 7650000,
+          "BPJS Kelas 2": 6500000,
+          "BPJS Kelas 3": 5350000,
+          "Umum / Asuransi Lain": 8200000
+        },
+        "estimatedCostPerDay": 800000
+      }
+    }
+  ]
+}

@@ -1007,6 +1007,23 @@ def build_data(download=False):
         "today": today_data
     }
 
+    # Jalankan Engine Pelaporan Kepatuhan Clinical Pathway RSUD Dr. Soedarso
+    try:
+        import clinical_pathway_engine
+        today_patients = today_data.get("patients", [])
+        cp_master = clinical_pathway_engine.load_cp_master()
+        for p in today_patients:
+            if not p.get("isEmpty"):
+                matched_cp = clinical_pathway_engine.match_patient_to_pathway(p, cp_master.get("pathways", []))
+                if matched_cp:
+                    p["clinicalPathway"] = clinical_pathway_engine.audit_patient_compliance(p, matched_cp)
+
+        cp_analytics = clinical_pathway_engine.process_clinical_pathway_analytics(today_patients)
+        full_output["clinicalPathways"] = cp_analytics
+        print(f"[INFO] Clinical Pathway Engine berhasil memproses {cp_analytics['summary']['totalCpInpatients']} pasien ter-CP ({cp_analytics['summary']['cpCoveragePct']}% cakupan).")
+    except Exception as e:
+        print(f"[WARN] Error running clinical_pathway_engine: {e}")
+
     with open(DASHBOARD_DATA_JSON, "w", encoding="utf-8") as f:
         json.dump(full_output, f, indent=2, ensure_ascii=False)
     print(f"[SUCCESS] Wrote {DASHBOARD_DATA_JSON} ({os.path.getsize(DASHBOARD_DATA_JSON)} bytes)")
