@@ -257,7 +257,7 @@ def extract_tags(notes_dict, diag_str, is_empty=False, is_colored=False):
     tags = []
     combined = f"{diag_str}\n{notes_dict.get('pagi', '')}\n{notes_dict.get('sore', '')}\n{notes_dict.get('malam', '')}".upper()
 
-    if is_colored or any(k in combined for k in ["PULANG HARI INI", "ACC BLPL", "ACC PULANG", "ACC RAWAT JALAN", "KRS HARI INI"]):
+    if is_colored or any(k in combined for k in ["PULANG HARI INI", "ACC BLPL", "ACC PULANG", "ACC RAWAT JALAN", "KRS HARI INI"]) or re.search(r'\b(?:BLPL\s+JAM|PULANG\s*$|PULANG\s*\n)\b', combined):
         tags.append({"label": "Pulang Hari Ini", "color": "emerald"})
     elif any(k in combined for k in ["PULANG", "BLPL", "KRS", "RAJAL", "RENCANA PULANG"]):
         tags.append({"label": "Rencana Pulang", "color": "green"})
@@ -413,6 +413,7 @@ def parse_patient_block(row_cells, current_room, current_iso_date, xf_to_color):
     is_discharged = any(t['label'] == 'Pulang Hari Ini' for t in tags)
     if is_discharged:
         status = "Pulang Hari Ini"
+        is_empty = True
 
     return {
         "bed": bed_id,
@@ -422,7 +423,7 @@ def parse_patient_block(row_cells, current_room, current_iso_date, xf_to_color):
         "isEmpty": is_empty,
         "isDischargedToday": is_discharged,
         "dischargeColor": color_hex,
-        "name": clean_name if not is_empty else "Bed Kosong",
+        "name": clean_name if (not is_empty or is_discharged) else "Bed Kosong",
         "mrNo": mr_no,
         "gender": gender if not is_empty else "-",
         "age": age,

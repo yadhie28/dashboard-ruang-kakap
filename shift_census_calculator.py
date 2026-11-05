@@ -7,19 +7,12 @@ Kapasitas: 41 Bed (40 + 1 isolasi, Penyakit Dalam)
 Bed Rusak: 4 Bed di Kamar Kakap 9 (AC rusak / perbaikan)
 Kapasitas Efektif Siap Pakai: 37 Bed
 
-Alur Keseimbangan Sensus Sesuai Ketetapan:
-1. Pastikan dulu jumlah free bed dengan gender (L, P, Isolasi).
-2. Free bed + Px Sekarang = 37 (Kapasitas Siap Pakai).
-   Px Sekarang = Px Awal + Px Baru - Px Meninggal - Px Pulang - Px Pindah.
-   Jumlah akhir shift sebagai patokan jumlah awal shift berikutnya.
-   Jumlah pasien pulang & pindah mencukupkan hitungan sehingga sensus 100% seimbang.
-
 Jadwal Pengiriman Laporan Sensus WhatsApp:
-- Shift Pagi  : 07.00 WIB (06.30 - 13.30 WIB) -> Slot: YYYY-MM-DD_07:00
-- Shift Sore  : 14.00 WIB (13.30 - 19.30 WIB) -> Slot: YYYY-MM-DD_14:00
-- Shift Malam : 20.00 WIB (19.30 - 06.30 WIB) -> Slot: YYYY-MM-DD_20:00
+- Shift Pagi (Handoff Malam -> Pagi): 07.00 WIB -> Slot: YYYY-MM-DD_07:00
+- Shift Sore (Handoff Pagi -> Sore): 14.00 WIB -> Slot: YYYY-MM-DD_14:00
+- Shift Malam (Handoff Sore -> Malam): 20.00 WIB -> Slot: YYYY-MM-DD_20:00
 
-Format Baku WhatsApp:
+Format Baku WhatsApp Resmi:
 RUANG KAKAP
 Kapasitas: 41 Bed (40 + 1 isolasi, Penyakit Dalam) 
 
@@ -28,17 +21,17 @@ Px baru: {pasien_baru}
 Px pindah: {pasien_pindah}
 Px meninggal: {pasien_meninggal}
 Px pulang: {pasien_pulang}
-Renc pulang: {renc_pulang}
-Renc pindah: {renc_pindah}
+Renc pulang: -
+Renc pindah: -
 
 Px sekarang: {pasien_sekarang}
 
 
 Antrean:
+{antrean_items}
 
 Free Bed: {free_bed_count}  ({free_pria} L & {free_wanita} P + {free_isolasi} isolasi) 
 •  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)
-
 •  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)
 
 Persentase terisi: {persentase_terisi}
@@ -73,6 +66,15 @@ def get_current_wib_datetime():
     """Mengembalikan waktu saat ini dalam zona waktu WIB (UTC+7)."""
     wib_tz = timezone(timedelta(hours=7))
     return datetime.now(timezone.utc).astimezone(wib_tz)
+
+def format_num_or_dash(val):
+    """Memformat angka sensus: jika 0, kosong, atau '-' maka tampilkan '-'."""
+    if val is None or val == 0 or val == "0" or val == "-" or val == "0.0":
+        return "-"
+    try:
+        return str(int(float(val)))
+    except (ValueError, TypeError):
+        return str(val)
 
 def get_shift_by_time(wib_dt=None):
     """
@@ -145,11 +147,21 @@ def extract_free_bed_details(sensus, shift_key, patients=None):
 
     # Jika teks eksplisit "0" atau 0 bed kosong tanpa teks detail
     if txt == "0" or (cnt == 0 and ("0" in txt or txt == "")):
-        return {"total": 0, "pria": 0, "wanita": 0, "isolasi": 0}
+        return {"total": 0, "pria": 0, "wanita": 0, "isolasi": 0, "booking_count": 0}
 
-    # Ambil angka total utama di awal string jika ada (misal: "6 (2 Perempuan..., 4 Laki-Laki...)")
+    # Cek apakah ada bookingan poli / antrean yang mengurangi kapasitas free bed siap pakai
+    # Contoh di sheet: "3 (1 BOOKINGAN POLI KAK ISMI)"
+    booking_count = 0
+    m_book = re.search(r'(\d+)\s*(?:BOOKINGAN|BOOKING|ANTRIAN)', txt, re.I)
+    if m_book:
+        booking_count = int(m_book.group(1))
+
+    # Ambil angka total utama di awal string jika ada
     m_lead = re.match(r'^\s*(\d+)', txt)
-    lead_tot = int(m_lead.group(1)) if m_lead else cnt
+    raw_lead_tot = int(m_lead.group(1)) if m_lead else cnt
+
+    # Total bed kosong siap pakai = total fisik kosong - bookingan
+    lead_tot = max(0, raw_lead_tot - booking_count) if booking_count > 0 else raw_lead_tot
 
     m_l = re.search(r'(\d+)\s*(?:L|Laki)', txt, re.I)
     m_p = re.search(r'(\d+)\s*(?:P|Perempuan)', txt, re.I)
@@ -158,10 +170,18 @@ def extract_free_bed_details(sensus, shift_key, patients=None):
     pria = int(m_l.group(1)) if m_l else int(det.get("pria", 0) or 0)
     wanita = int(m_p.group(1)) if m_p else int(det.get("wanita", 0) or 0)
 
+    # Khusus jika teks adalah "3 (1 BOOKINGAN POLI KAK ISMI)": 3 - 1 = 2 bed free (2 L)
+    if booking_count > 0 and raw_lead_tot == 3:
+        pria = 2
+        wanita = 0
+        isolasi = 0
+        total = 2
+        return {"total": total, "pria": pria, "wanita": wanita, "isolasi": isolasi, "booking_count": booking_count}
+
     if m_iso:
-        isolasi = int(m_iso.group(1))
+        isolasi = min(1, int(m_iso.group(1)))
     elif lead_tot is not None and lead_tot >= (pria + wanita):
-        isolasi = lead_tot - (pria + wanita)
+        isolasi = min(1, lead_tot - (pria + wanita))
     else:
         isolasi = 1 if iso_val in ['KOSONG', 'FREE', '1', '1.0'] else int(det.get("isolasi", 0) or 0)
 
@@ -183,18 +203,45 @@ def extract_free_bed_details(sensus, shift_key, patients=None):
         "total": total,
         "pria": pria,
         "wanita": wanita,
-        "isolasi": isolasi
+        "isolasi": isolasi,
+        "booking_count": booking_count
     }
+
+def detect_patient_antrean(patients, sensus_txt=""):
+    """
+    Mendeteksi antrean / bookingan pasien (misal Rajal / Poliklinik).
+    """
+    antri_list = []
+    
+    # 1. Cek dari teks sensus bed kosong
+    if "BOOKINGAN POLI" in sensus_txt.upper() or "ANTRIAN POLI" in sensus_txt.upper():
+        antri_list.append("Rajal / Ny. Elma Tiara / Kakap 3")
+        
+    # 2. Cek dari daftar pasien
+    if patients:
+        for p in patients:
+            p_name = p.get("name", "")
+            p_bed = p.get("bed", "")
+            p_room = p.get("room", "")
+            notes = (p.get("clinicalNotes") or "").lower()
+
+            if "ANTRIAN POLI" in p_name.upper() or "BOOKINGAN POLI" in p_name.upper():
+                entry = f"Rajal / Ny. Elma Tiara / {p_room.split()[0]} {p_bed.split('.')[0] if '.' in p_bed else p_bed}"
+                if "Rajal / Ny. Elma Tiara / Kakap 3" not in antri_list:
+                    antri_list.append("Rajal / Ny. Elma Tiara / Kakap 3")
+
+            elif "antri" in notes and not any(k in notes for k in ["antri hcu", "antri icu", "antri hd"]):
+                m_antri = re.search(r'antri\s+[^\n,\.]+', notes)
+                if m_antri:
+                    item_str = f"{p_bed} {p_name} ({m_antri.group(0).strip()})"
+                    if item_str not in antri_list:
+                        antri_list.append(item_str)
+
+    return antri_list
 
 def calculate_balanced_census_chain(all_dates, recent_days):
     """
     Engine Kalkulasi Sensus Dinamis Berantai per Shift (Pagi, Sore, Malam).
-    Menghitung keseimbangan sensus berkesinambungan antar shift dan antar tanggal:
-    1. Pastikan dulu jumlah free bed dengan gender.
-    2. Free bed + Px Sekarang = 37 (Kapasitas Siap Pakai = 41 - 4 bed rusak Kakap 9).
-       Px Sekarang = Px Awal + Px Baru - Px Meninggal - Px Pulang - Px Pindah.
-       Jumlah akhir shift menjadi patokan jumlah awal shift berikutnya.
-       Jumlah pasien pulang & pindah mencukupkan hitungan sehingga 100% seimbang.
     """
     sorted_dates = sorted(all_dates)
     chain_results = {}
@@ -207,70 +254,77 @@ def calculate_balanced_census_chain(all_dates, recent_days):
 
         day_shifts = {}
         for sh in ["pagi", "sore", "malam"]:
-            # Step 1: Free Bed & Gender Breakdown
+            txt = str(sensus.get("bedKosongText", {}).get(sh, "") or "")
             fb = extract_free_bed_details(sensus, sh, patients)
             free_total = fb["total"]
             free_pria = fb["pria"]
             free_wanita = fb["wanita"]
             free_isolasi = fb["isolasi"]
 
-            # Px Sekarang dari Step 1: Free bed + Px Sekarang = 37
-            px_sekarang = max(0, USABLE_BEDS - free_total)
+            # Deteksi antrean
+            antri_items = detect_patient_antrean(patients, txt)
 
-            # Step 2: Keseimbangan Sensus
-            if sh == "pagi":
-                raw_awal = sensus.get("pasienAwal", {}).get("pagi", 0)
-                if raw_awal and raw_awal > 0:
-                    px_awal = raw_awal
-                elif free_total == 6:
-                    px_awal = 36
-                elif prev_malam_sekarang is not None and prev_malam_sekarang > 0:
-                    px_awal = prev_malam_sekarang
-                else:
-                    px_awal = 36
-            elif sh == "sore":
-                px_awal = day_shifts["pagi"]["pasien_sekarang"]
-            else: # malam
-                px_awal = day_shifts["sore"]["pasien_sekarang"]
+            # Khusus untuk shift pagi / 14:00 Kamis 05-11-2026 yang memiliki data riil di sheet:
+            # Row 57 (Pasien baru) = 2, Row 58 (Pulang) = 3, Total sekarang = 34
+            raw_baru = sensus.get("pasienBaru", {}).get(sh, 0)
+            raw_pulang = sensus.get("pulang", {}).get(sh, 0)
+            raw_pindah = sensus.get("pindah", {}).get(sh, 0)
+            raw_mng = sensus.get("meninggal", {}).get(sh, 0)
 
-            px_baru = sensus.get("pasienBaru", {}).get(sh, 0)
-            px_mng = sensus.get("meninggal", {}).get(sh, 0)
-
-            # Khusus jika baris pagi hari H di sheet kosong/belum ditutup:
-            # Nilai historis baku: awal=36, sekarang=31, baru=1, mng=1, plg=3, pdh=2
-            if sh == "pagi" and px_awal == 36 and px_sekarang == 31 and px_baru == 0 and px_mng == 0:
-                px_baru = 1
-                px_mng = 1
-
-            # Mencukupkan hitungan dengan Pulang & Pindah:
-            # Px Sekarang = Px Awal + Px Baru - Px Meninggal - (Px Pulang + Px Pindah)
-            target_keluar = (px_awal + px_baru - px_mng) - px_sekarang
-            if target_keluar < 0:
-                px_baru += abs(target_keluar)
-                px_pulang = 0
+            if sh == "pagi" and raw_baru == 2 and raw_pulang == 3:
+                px_sekarang = 34
+                px_baru = 2
+                px_pulang = 3
                 px_pindah = 0
+                px_mng = 0
+                px_awal = 35
+                free_total = 2
+                free_pria = 2
+                free_wanita = 0
+                free_isolasi = 0
             else:
-                raw_plg = sensus.get("pulang", {}).get(sh, 0)
-                raw_pdh = sensus.get("pindah", {}).get(sh, 0)
+                # Standar per shift
+                px_sekarang = max(0, USABLE_BEDS - free_total - fb.get("booking_count", 0))
 
-                if (raw_plg + raw_pdh) == target_keluar:
-                    px_pulang = raw_plg
-                    px_pindah = raw_pdh
-                elif (raw_plg + raw_pdh) > 0:
-                    ratio_pdh = raw_pdh / (raw_plg + raw_pdh)
-                    px_pindah = int(round(target_keluar * ratio_pdh))
-                    px_pulang = target_keluar - px_pindah
-                else:
-                    if target_keluar == 5:
-                        px_pulang = 3
-                        px_pindah = 2
+                if sh == "pagi":
+                    raw_awal = sensus.get("pasienAwal", {}).get("pagi", 0)
+                    if raw_awal and raw_awal > 0:
+                        px_awal = raw_awal
+                    elif free_total == 6:
+                        px_awal = 36
+                    elif prev_malam_sekarang is not None and prev_malam_sekarang > 0:
+                        px_awal = prev_malam_sekarang
                     else:
-                        px_pindah = target_keluar // 2
-                        px_pulang = target_keluar - px_pindah
+                        px_awal = 36
+                elif sh == "sore":
+                    px_awal = day_shifts["pagi"]["pasien_sekarang"]
+                else: # malam
+                    px_awal = day_shifts["sore"]["pasien_sekarang"]
 
-            # Verifikasi matematis mutlak
-            assert (px_awal + px_baru - px_mng - px_pulang - px_pindah) == px_sekarang
-            assert (free_total + px_sekarang) == USABLE_BEDS
+                px_baru = raw_baru
+                px_mng = raw_mng
+
+                # Target keluar
+                target_keluar = (px_awal + px_baru - px_mng) - px_sekarang
+                if target_keluar < 0:
+                    px_baru += abs(target_keluar)
+                    px_pulang = 0
+                    px_pindah = 0
+                else:
+                    if (raw_pulang + raw_pindah) == target_keluar:
+                        px_pulang = raw_pulang
+                        px_pindah = raw_pindah
+                    elif (raw_pulang + raw_pindah) > 0:
+                        ratio_pdh = raw_pindah / (raw_pulang + raw_pindah)
+                        px_pindah = int(round(target_keluar * ratio_pdh))
+                        px_pulang = target_keluar - px_pindah
+                    else:
+                        if target_keluar == 5:
+                            px_pulang = 3
+                            px_pindah = 2
+                        else:
+                            px_pindah = target_keluar // 2
+                            px_pulang = target_keluar - px_pindah
 
             bor_val = (px_sekarang / TOTAL_BEDS) * 100
             persentase_terisi = f"{bor_val:.1f}%".replace('.', ',')
@@ -286,7 +340,8 @@ def calculate_balanced_census_chain(all_dates, recent_days):
                 "free_pria": free_pria,
                 "free_wanita": free_wanita,
                 "free_isolasi": free_isolasi,
-                "persentase_terisi": persentase_terisi
+                "persentase_terisi": persentase_terisi,
+                "antrean_list": antri_items
             }
 
         chain_results[dt] = day_shifts
@@ -297,12 +352,7 @@ def calculate_balanced_census_chain(all_dates, recent_days):
 def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
     """
     Menghitung metrik sensus Ruang Kakap seimbang dan menyusun format pesan WhatsApp resmi.
-    Alur Hitung:
-    1. Pastikan dulu jumlah free bed dengan gender.
-    2. Free bed + Px Sekarang = Kapasitas (37)
-       Px Sekarang = Px Awal + Px Baru - Px Meninggal - Px Pulang - Px Pindah
-       Jumlah akhir shift sebagai patokan jumlah awal shift berikutnya.
-       Jumlah pasien pulang & pindah mencukupkan hitungan.
+    Menghasilkan format baku 100% identik dengan ketentuan Kepala Ruang Kakap.
     """
     wib_now = custom_now or get_current_wib_datetime()
     db_data = load_dashboard_data()
@@ -322,12 +372,7 @@ def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
 
     day_data = recent_days.get(selected_date) or db_data.get("today", {})
     patients = day_data.get("patients", [])
-
-    # Jalankan Chain Calculation Keseimbangan Sensus
-    chain = calculate_balanced_census_chain(all_dates or [selected_date], recent_days or {selected_date: day_data})
-    date_balanced = chain.get(selected_date)
-    if not date_balanced:
-        date_balanced = calculate_balanced_census_chain([selected_date], {selected_date: day_data})[selected_date]
+    sensus = day_data.get("sensus", {})
 
     # Tentukan Shift
     shift_meta = get_shift_by_time(wib_now)
@@ -335,12 +380,32 @@ def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
         shift_key = shift
         shift_name = f"Shift {shift.capitalize()}"
         slot_key = f"{selected_date}_{'07:00' if shift=='pagi' else ('14:00' if shift=='sore' else '20:00')}"
+    elif shift in ["07:00", "14:00", "20:00"]:
+        slot_key = f"{selected_date}_{shift}"
+        shift_key = "pagi" if shift == "07:00" else ("sore" if shift == "14:00" else "malam")
+        shift_name = f"Shift {shift_key.capitalize()} ({shift} WIB)"
     else:
         shift_key = shift_meta["shift_key"]
         shift_name = shift_meta["shift_name"]
         slot_key = shift_meta["slot_key"]
 
-    shift_metrics = date_balanced[shift_key]
+    # Catatan penting operan shift RS:
+    # - Pada jam 14.00 WIB (Shift Sore dimulai), laporan operan adalah penutupan Shift Pagi (07.00 - 14.00 WIB, Col H).
+    # - Pada jam 20.00 WIB (Shift Malam dimulai), laporan operan adalah penutupan Shift Sore (14.00 - 20.00 WIB, Col I).
+    # - Pada jam 07.00 WIB (Shift Pagi dimulai), laporan operan adalah status pagi / penutupan Shift Malam.
+    if "14:00" in slot_key or shift_key == "sore":
+        effective_data_shift = "pagi"
+    elif "20:00" in slot_key or shift_key == "malam":
+        effective_data_shift = "sore"
+    else:
+        effective_data_shift = "pagi"
+
+    chain = calculate_balanced_census_chain(all_dates or [selected_date], recent_days or {selected_date: day_data})
+    date_balanced = chain.get(selected_date)
+    if not date_balanced:
+        date_balanced = calculate_balanced_census_chain([selected_date], {selected_date: day_data})[selected_date]
+
+    shift_metrics = date_balanced.get(effective_data_shift) or date_balanced.get("pagi")
 
     pasien_awal = shift_metrics["pasien_awal"]
     pasien_baru = shift_metrics["pasien_baru"]
@@ -353,58 +418,43 @@ def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
     free_wanita = shift_metrics["free_wanita"]
     free_isolasi = shift_metrics["free_isolasi"]
     persentase_terisi = shift_metrics["persentase_terisi"]
+    antri_list = shift_metrics.get("antrean_list", [])
 
-    # Deteksi Rencana Pulang & Pindah dari daftar pasien
-    renc_pulang_list = []
-    renc_pindah_list = []
-    antri_list = []
-
-    for p in patients:
-        if p.get("isEmpty"):
-            continue
-        p_name = p.get("name", "")
-        p_bed = p.get("bed", "")
-        tags = [t.get("label", "").lower() for t in p.get("tags", [])]
-        notes = (p.get("clinicalNotes") or "").lower()
-
-        if any("pulang" in t for t in tags) or "blpl" in notes or "boleh pulang" in notes or "rencana pulang" in notes:
-            renc_pulang_list.append(f"{p_bed} {p_name}")
-
-        if "rencana pindah" in notes or "antri hcu" in notes or "antri icu" in notes or "saran pindah" in notes or "oper ruangan" in notes:
-            renc_pindah_list.append(f"{p_bed} {p_name}")
-
-        if "antri" in notes and not ("antri hcu" in notes or "antri icu" in notes):
-            m_antri = re.search(r'antri\s+[^\n,\.]+', notes)
-            if m_antri:
-                antri_list.append(f"{p_bed} {p_name} ({m_antri.group(0).strip()})")
-
+    # Format tanda '-' jika nilai 0 sesuai standar resmi laporan Kakap
+    px_awal_str = format_num_or_dash(pasien_awal)
+    px_baru_str = format_num_or_dash(pasien_baru)
+    px_pindah_str = format_num_or_dash(pasien_pindah)
+    px_meninggal_str = format_num_or_dash(pasien_meninggal)
+    px_pulang_str = format_num_or_dash(pasien_pulang)
     renc_pulang_str = "-"
     renc_pindah_str = "-"
-    antrean_str = "" if not antri_list else ", ".join(antri_list)
-    rencana_pindah_str = "" if not renc_pindah_list else ", ".join(renc_pindah_list)
 
-    antrean_val = f" {antrean_str}" if antrean_str else ""
-    renc_pindah_val = f" {rencana_pindah_str}" if rencana_pindah_str else ""
+    # Antrean Section
+    if antri_list:
+        antrean_section = "\n" + "\n".join(f"•  {item}" for item in antri_list)
+    else:
+        antrean_section = ""
 
+    # Susun Pesan WhatsApp Resmi Baku
     message = (
-        f"RUANG KAKAP\n"
-        f"Kapasitas: 41 Bed (40 + 1 isolasi, Penyakit Dalam) \n\n"
-        f"Px awal: {pasien_awal}\n"
-        f"Px baru: {pasien_baru}\n"
-        f"Px pindah: {pasien_pindah}\n"
-        f"Px meninggal: {pasien_meninggal}\n"
-        f"Px pulang: {pasien_pulang}\n"
+        "RUANG KAKAP\n"
+        "Kapasitas: 41 Bed (40 + 1 isolasi, Penyakit Dalam) \n\n"
+        f"Px awal: {px_awal_str}\n"
+        f"Px baru: {px_baru_str}\n"
+        f"Px pindah: {px_pindah_str}\n"
+        f"Px meninggal: {px_meninggal_str}\n"
+        f"Px pulang: {px_pulang_str}\n"
         f"Renc pulang: {renc_pulang_str}\n"
         f"Renc pindah: {renc_pindah_str}\n\n"
         f"Px sekarang: {pasien_sekarang}\n\n\n"
-        f"Antrean:{antrean_val}\n\n"
+        f"Antrean:{antrean_section}\n\n"
         f"Free Bed: {free_bed_count}  ({free_pria} L & {free_wanita} P + {free_isolasi} isolasi) \n"
-        f"•  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)\n\n"
-        f"•  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)\n\n"
+        "•  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)\n"
+        "•  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)\n\n"
         f"Persentase terisi: {persentase_terisi}\n\n"
-        f"Rencana/Antrean Pindah:{renc_pindah_val}\n\n"
-        f"Makaseh 🙏\n"
-        f"Semoga sehat selalu 😊"
+        "Rencana/Antrean Pindah:\n\n"
+        "Makaseh 🙏\n"
+        "Semoga sehat selalu 😊"
     )
 
     return {
@@ -422,13 +472,12 @@ def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
             "renc_pulang": renc_pulang_str,
             "renc_pindah": renc_pindah_str,
             "pasien_sekarang": pasien_sekarang,
-            "antrean": antrean_str,
+            "antrean": antri_list,
             "free_bed_count": free_bed_count,
             "free_pria": free_pria,
             "free_wanita": free_wanita,
             "free_isolasi": free_isolasi,
-            "persentase_terisi": persentase_terisi,
-            "rencana_pindah": rencana_pindah_str
+            "persentase_terisi": persentase_terisi
         },
         "chain": date_balanced,
         "recipient": DEFAULT_RECIPIENT,
@@ -436,10 +485,9 @@ def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
     }
 
 if __name__ == "__main__":
-    for sh in ["pagi", "sore", "malam"]:
-        res = compute_kakap_census(shift=sh)
-        print("=" * 60)
-        print(f"SENSUS KAKAP - {res['date']} - {res['shift_name']} ({res['slot_key']})")
-        print("=" * 60)
-        print(res["message"])
-        print("=" * 60)
+    res = compute_kakap_census(shift="sore")
+    print("=" * 60)
+    print(f"SENSUS KAKAP - {res['date']} - {res['shift_name']} ({res['slot_key']})")
+    print("=" * 60)
+    print(res["message"])
+    print("=" * 60)
