@@ -13,7 +13,7 @@
       "Tim I (Kakap 1-5 & Isolasi - 21 Bed)",
       "Tim II (Kakap 6-10 - 20 Bed)"
     ],
-    "lastUpdated": "05-11-2026 05:57:55",
+    "lastUpdated": "05-11-2026 13:55:49",
     "latestDate": "2026-11-05",
     "totalDatesRecorded": 3,
     "dateRange": "2026-11-03 s/d 2026-11-05",
@@ -29,9 +29,9 @@
       "date": "2026-11-03",
       "occTim1": 21,
       "occTim2": 16,
-      "totalOcc": 37,
+      "totalOcc": 34,
       "totalBeds": 41,
-      "bor": 90.2
+      "bor": 82.9
     },
     {
       "date": "2026-11-04",
@@ -45,9 +45,9 @@
       "date": "2026-11-05",
       "occTim1": 21,
       "occTim2": 15,
-      "totalOcc": 36,
+      "totalOcc": 37,
       "totalBeds": 41,
-      "bor": 87.8
+      "bor": 90.2
     }
   ],
   "analytics": {
@@ -163,16 +163,16 @@
         "count": 4
       }
     ],
-    "totalPatients": 36
+    "totalPatients": 37
   },
   "monthly": [
     {
       "month": "2026-11",
       "daysCounted": 3,
-      "avgOcc": 36.7,
+      "avgOcc": 36.0,
       "avgOccA": 21.0,
       "avgOccB": 15.7,
-      "avgBor": 89.4
+      "avgBor": 87.8
     }
   ],
   "hospitalIndicators": {
@@ -183,32 +183,32 @@
     },
     "availableBeds": 41,
     "totalDays": 3,
-    "totalHP": 110,
-    "totalDischarges": 7,
+    "totalHP": 108,
+    "totalDischarges": 15,
     "overall": {
-      "bor": 89.4,
-      "avlos": 15.7,
-      "toi": 1.9,
-      "bto": 20.8,
-      "gdr": 285.7,
-      "ndr": 142.9
+      "bor": 87.8,
+      "avlos": 7.2,
+      "toi": 1.0,
+      "bto": 44.5,
+      "gdr": 200.0,
+      "ndr": 66.7
     },
     "monthly": [
       {
         "month": "2026-11",
         "days": 3,
-        "hp": 110,
+        "hp": 108,
         "hpTim1": 63,
         "hpTim2": 47,
-        "discharges": 7,
-        "deaths": 2,
+        "discharges": 15,
+        "deaths": 3,
         "deathsGt48": 1,
-        "bor": 89.4,
-        "avlos": 15.7,
-        "toi": 1.9,
-        "bto": 20.8,
-        "gdr": 285.7,
-        "ndr": 142.9
+        "bor": 87.8,
+        "avlos": 7.2,
+        "toi": 1.0,
+        "bto": 44.5,
+        "gdr": 200.0,
+        "ndr": 66.7
       }
     ]
   },
@@ -5883,9 +5883,9 @@
         "capacityTim2": 20,
         "capacityA": 21,
         "capacityB": 20,
-        "occupied": 37,
-        "empty": 4,
-        "bor": 90.2,
+        "occupied": 34,
+        "empty": 7,
+        "bor": 82.9,
         "borTim1": 100.0,
         "borTim2": 80.0,
         "borA": 100.0,
@@ -5938,8 +5938,8 @@
         },
         "pasienAwal": {
           "pagi": 34,
-          "sore": 32,
-          "malam": 38
+          "sore": 28,
+          "malam": 34
         },
         "pasienBaru": {
           "pagi": 0,
@@ -5947,7 +5947,7 @@
           "malam": 1
         },
         "pulang": {
-          "pagi": 2,
+          "pagi": 6,
           "sore": 0,
           "malam": 0
         },
@@ -5962,9 +5962,9 @@
           "malam": 1
         },
         "total": {
-          "pagi": 32,
-          "sore": 38,
-          "malam": 38
+          "pagi": 28,
+          "sore": 34,
+          "malam": 34
         },
         "bedKosong": {
           "pagi": 9,
@@ -5981,19 +5981,19 @@
             "total": 9,
             "pria": 0,
             "wanita": 0,
-            "isolasi": 0
+            "isolasi": 9
           },
           "sore": {
             "total": 3,
             "pria": 0,
             "wanita": 0,
-            "isolasi": 0
+            "isolasi": 3
           },
           "malam": {
             "total": 3,
             "pria": 0,
             "wanita": 0,
-            "isolasi": 0
+            "isolasi": 3
           }
         },
         "bedRusak": {
@@ -17620,9 +17620,9 @@
         "capacityTim2": 20,
         "capacityA": 21,
         "capacityB": 20,
-        "occupied": 36,
-        "empty": 5,
-        "bor": 87.8,
+        "occupied": 37,
+        "empty": 4,
+        "bor": 90.2,
         "borTim1": 100.0,
         "borTim2": 75.0,
         "borA": 100.0,
@@ -17678,34 +17678,34 @@
           "malam": 37
         },
         "pasienBaru": {
-          "pagi": 0,
+          "pagi": 1,
           "sore": 6,
           "malam": 0
         },
         "pulang": {
-          "pagi": 0,
+          "pagi": 3,
           "sore": 0,
           "malam": 0
         },
         "pindah": {
-          "pagi": 0,
+          "pagi": 2,
           "sore": 0,
           "malam": 0
         },
         "meninggal": {
-          "pagi": 0,
+          "pagi": 1,
           "sore": 0,
           "malam": 0
         },
         "total": {
-          "pagi": 36,
+          "pagi": 31,
           "sore": 37,
           "malam": 37
         },
         "bedKosong": {
           "pagi": 6,
-          "sore": 1,
-          "malam": 1
+          "sore": 0,
+          "malam": 0
         },
         "bedKosongText": {
           "pagi": "6 (2 Perempuan (BOOKINGAN TRANSIT), 4 Laki-Laki (FREE))",
@@ -17720,15 +17720,15 @@
             "isolasi": 0
           },
           "sore": {
-            "total": 1,
+            "total": 0,
             "pria": 0,
-            "wanita": 1,
+            "wanita": 0,
             "isolasi": 0
           },
           "malam": {
-            "total": 1,
+            "total": 0,
             "pria": 0,
-            "wanita": 1,
+            "wanita": 0,
             "isolasi": 0
           }
         },
@@ -23483,9 +23483,9 @@
       "capacityTim2": 20,
       "capacityA": 21,
       "capacityB": 20,
-      "occupied": 36,
-      "empty": 5,
-      "bor": 87.8,
+      "occupied": 37,
+      "empty": 4,
+      "bor": 90.2,
       "borTim1": 100.0,
       "borTim2": 75.0,
       "borA": 100.0,
@@ -23541,34 +23541,34 @@
         "malam": 37
       },
       "pasienBaru": {
-        "pagi": 0,
+        "pagi": 1,
         "sore": 6,
         "malam": 0
       },
       "pulang": {
-        "pagi": 0,
+        "pagi": 3,
         "sore": 0,
         "malam": 0
       },
       "pindah": {
-        "pagi": 0,
+        "pagi": 2,
         "sore": 0,
         "malam": 0
       },
       "meninggal": {
-        "pagi": 0,
+        "pagi": 1,
         "sore": 0,
         "malam": 0
       },
       "total": {
-        "pagi": 36,
+        "pagi": 31,
         "sore": 37,
         "malam": 37
       },
       "bedKosong": {
         "pagi": 6,
-        "sore": 1,
-        "malam": 1
+        "sore": 0,
+        "malam": 0
       },
       "bedKosongText": {
         "pagi": "6 (2 Perempuan (BOOKINGAN TRANSIT), 4 Laki-Laki (FREE))",
@@ -23583,15 +23583,15 @@
           "isolasi": 0
         },
         "sore": {
-          "total": 1,
+          "total": 0,
           "pria": 0,
-          "wanita": 1,
+          "wanita": 0,
           "isolasi": 0
         },
         "malam": {
-          "total": 1,
+          "total": 0,
           "pria": 0,
-          "wanita": 1,
+          "wanita": 0,
           "isolasi": 0
         }
       },

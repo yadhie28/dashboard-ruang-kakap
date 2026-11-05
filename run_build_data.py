@@ -683,15 +683,22 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
     iso_empty = 1 if (iso_patient and iso_patient.get('isEmpty')) else 0
 
     for sh in ["pagi", "sore", "malam"]:
-        iso_val = sensus["isolasi"][sh].upper()
-        sh_iso_free = 1 if (iso_val == 'KOSONG' or iso_val == '0') else 0
-        sensus["bedKosongDetail"][sh]["isolasi"] = sh_iso_free
-        if sensus["bedKosongDetail"][sh]["pria"] == 0 and sensus["bedKosongDetail"][sh]["wanita"] == 0:
-            sensus["bedKosongDetail"][sh]["pria"] = male_empty
-            sensus["bedKosongDetail"][sh]["wanita"] = female_empty
-            if sensus["bedKosong"][sh] == 0:
-                sensus["bedKosong"][sh] = male_empty + female_empty + sh_iso_free
-                sensus["bedKosongDetail"][sh]["total"] = sensus["bedKosong"][sh]
+        raw_sh_txt = sensus["bedKosongText"][sh]
+        if raw_sh_txt == "0" or (sensus["bedKosong"][sh] == 0 and "0" in raw_sh_txt):
+            sensus["bedKosongDetail"][sh]["total"] = 0
+            sensus["bedKosongDetail"][sh]["pria"] = 0
+            sensus["bedKosongDetail"][sh]["wanita"] = 0
+            sensus["bedKosongDetail"][sh]["isolasi"] = 0
+        else:
+            iso_val = sensus["isolasi"][sh].upper()
+            sh_iso_free = 1 if (iso_val == 'KOSONG' or iso_val == '0') else 0
+            sensus["bedKosongDetail"][sh]["isolasi"] = sh_iso_free
+            if sensus["bedKosongDetail"][sh]["pria"] == 0 and sensus["bedKosongDetail"][sh]["wanita"] == 0:
+                sensus["bedKosongDetail"][sh]["pria"] = male_empty
+                sensus["bedKosongDetail"][sh]["wanita"] = female_empty
+                if sensus["bedKosong"][sh] == 0:
+                    sensus["bedKosong"][sh] = male_empty + female_empty + sh_iso_free
+                    sensus["bedKosongDetail"][sh]["total"] = sensus["bedKosong"][sh]
 
     # Calculate summary
     empty_total = TOTAL_BEDS - occ_total
@@ -823,6 +830,49 @@ def build_data(download=False):
                 "totalBeds": TOTAL_BEDS,
                 "bor": day_data["summary"]["bor"]
             })
+
+    # Jalankan Shift Census Balance Engine terpadu
+    try:
+        import shift_census_calculator
+        balanced_chain = shift_census_calculator.calculate_balanced_census_chain(all_dates, recent_days)
+        for iso_d, b_shifts in balanced_chain.items():
+            if iso_d in recent_days:
+                s = recent_days[iso_d]["sensus"]
+                for sh in ["pagi", "sore", "malam"]:
+                    m = b_shifts[sh]
+                    s["pasienAwal"][sh] = m["pasien_awal"]
+                    s["pasienBaru"][sh] = m["pasien_baru"]
+                    s["pindah"][sh] = m["pasien_pindah"]
+                    s["meninggal"][sh] = m["pasien_meninggal"]
+                    s["pulang"][sh] = m["pasien_pulang"]
+                    s["total"][sh] = m["pasien_sekarang"]
+                    s["bedKosongDetail"][sh]["total"] = m["free_bed_count"]
+                    s["bedKosongDetail"][sh]["pria"] = m["free_pria"]
+                    s["bedKosongDetail"][sh]["wanita"] = m["free_wanita"]
+                    s["bedKosongDetail"][sh]["isolasi"] = m["free_isolasi"]
+                    s["bedKosong"][sh] = m["free_bed_count"]
+
+                # Update summary untuk hari tersebut berdasarkan shift malam / shift aktif terakhir
+                fin_occ = s["total"]["malam"] or s["total"]["sore"] or s["total"]["pagi"]
+                recent_days[iso_d]["summary"]["occupied"] = fin_occ
+                recent_days[iso_d]["summary"]["empty"] = TOTAL_BEDS - fin_occ
+                recent_days[iso_d]["summary"]["bor"] = round((fin_occ / TOTAL_BEDS) * 100, 1)
+
+        # Refresh history
+        history = []
+        for iso_d in all_dates:
+            day_data = recent_days[iso_d]
+            history.append({
+                "date": iso_d,
+                "occTim1": day_data["summary"]["occTim1"],
+                "occTim2": day_data["summary"]["occTim2"],
+                "totalOcc": day_data["summary"]["occupied"],
+                "totalBeds": TOTAL_BEDS,
+                "bor": day_data["summary"]["bor"]
+            })
+        print(f"[INFO] Shift Census Balance Engine berhasil menyeimbangkan {len(all_dates)} tanggal sensus.")
+    except Exception as e:
+        print(f"[WARN] Error applying balanced census chain: {e}")
 
     latest_date = all_dates[-1] if all_dates else datetime.now().strftime("%Y-%m-%d")
     today_data = recent_days.get(latest_date)

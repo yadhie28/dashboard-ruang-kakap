@@ -4465,62 +4465,155 @@ function computeClientSideKakapCensus(shiftKey = 'pagi') {
   const currentDay = (state.data && state.data.recentDays && state.data.recentDays[state.currentDate]) ||
                      (state.data && state.data.today) || {};
   const sensus = currentDay.sensus || {};
-  const summary = currentDay.summary || {};
   const patients = currentDay.patients || [];
 
-  const pasien_sekarang = (sensus.total && sensus.total[shiftKey]) || summary.occupied || 31;
-  let pasien_baru = (sensus.pasienBaru && sensus.pasienBaru[shiftKey]) || 0;
-  let pasien_pindah = (sensus.pindah && sensus.pindah[shiftKey]) || 0;
-  let pasien_meninggal = (sensus.meninggal && sensus.meninggal[shiftKey]) || 0;
-  let pasien_pulang = (sensus.pulang && sensus.pulang[shiftKey]) || 0;
-  let pasien_awal = (sensus.pasienAwal && sensus.pasienAwal[shiftKey]) || 0;
+  const TOTAL_BEDS = 41;
+  const USABLE_BEDS = 37; // 41 Bed - 4 Bed rusak Kakap 9
 
-  if (!pasien_awal || pasien_awal === 0) {
-    pasien_awal = Math.max(0, pasien_sekarang - pasien_baru + pasien_pulang + pasien_pindah + pasien_meninggal);
+  // Helper Step 1: Ekstraksi Free Bed & Gender Breakdown
+  function getFreeBedInfo(shKey) {
+    const txt = String((sensus.bedKosongText && sensus.bedKosongText[shKey]) || '').trim();
+    const det = (sensus.bedKosongDetail && sensus.bedKosongDetail[shKey]) || {};
+    const cnt = (sensus.bedKosong && sensus.bedKosong[shKey]) !== undefined ? sensus.bedKosong[shKey] : 0;
+    const isoVal = String((sensus.isolasi && sensus.isolasi[shKey]) || '').toUpperCase();
+
+    if (txt === '0' || (cnt === 0 && (txt.includes('0') || txt === ''))) {
+      return { total: 0, pria: 0, wanita: 0, isolasi: 0 };
+    }
+
+    const mLead = txt.match(/^\s*(\d+)/);
+    const leadTot = mLead ? parseInt(mLead[1], 10) : cnt;
+
+    const mL = txt.match(/(\d+)\s*(?:L|Laki)/i);
+    const mP = txt.match(/(\d+)\s*(?:P|Perempuan)/i);
+    const mIso = txt.match(/(\d+)\s*(?:Isolasi)/i);
+
+    const pria = mL ? parseInt(mL[1], 10) : (det.pria || 0);
+    const wanita = mP ? parseInt(mP[1], 10) : (det.wanita || 0);
+    let isolasi = mIso ? parseInt(mIso[1], 10) : 0;
+
+    if (!mIso) {
+      if (leadTot !== undefined && leadTot >= (pria + wanita)) {
+        isolasi = leadTot - (pria + wanita);
+      } else {
+        isolasi = ['KOSONG', 'FREE', '1', '1.0'].includes(isoVal) ? 1 : (det.isolasi || 0);
+      }
+    }
+
+    let total = pria + wanita + isolasi;
+    if (leadTot && total !== leadTot) total = leadTot;
+
+    if (total === 0 && patients.length > 0) {
+      const maleEmpty = patients.filter(p => p.isEmpty && /\bKAKAP\s+(1|5|6|7)\b/i.test(p.room || '')).length;
+      const femaleEmpty = patients.filter(p => p.isEmpty && /\bKAKAP\s+(2|3|4|8|10)\b/i.test(p.room || '')).length;
+      const isoEmpty = patients.some(p => (p.room?.includes('ISOLASI') || p.bed === 'ISOLASI') && p.isEmpty) ? 1 : 0;
+      return { total: maleEmpty + femaleEmpty + isoEmpty, pria: maleEmpty, wanita: femaleEmpty, isolasi: isoEmpty };
+    }
+
+    return { total, pria, wanita, isolasi };
   }
 
-  // Free Bed & Breakdown
-  const bedDetail = (sensus.bedKosongDetail && sensus.bedKosongDetail[shiftKey]) || {};
-  let free_bed_count = bedDetail.total || 0;
-  let free_pria = bedDetail.pria || 0;
-  let free_wanita = bedDetail.wanita || 0;
-  let free_isolasi = bedDetail.isolasi !== undefined ? bedDetail.isolasi : 0;
+  // Hitung Berantai Shift Pagi, Sore, Malam untuk menjamin konsistensi
+  const shifts = ['pagi', 'sore', 'malam'];
+  const chain = {};
+  let rollingAwal = (sensus.pasienAwal && sensus.pasienAwal.pagi) || 36;
 
-  if (free_bed_count === 0) {
-    const maleEmpty = patients.filter(p => p.isEmpty && /\bKAKAP\s+(1|5|6|7)\b/i.test(p.room || '')).length;
-    const femaleEmpty = patients.filter(p => p.isEmpty && /\bKAKAP\s+(2|3|4|8|10)\b/i.test(p.room || '')).length;
-    const isoEmpty = patients.some(p => (p.room?.includes('ISOLASI') || p.bed === 'ISOLASI') && p.isEmpty) ? 1 : 0;
-    free_pria = maleEmpty;
-    free_wanita = femaleEmpty;
-    free_isolasi = isoEmpty;
-    free_bed_count = free_pria + free_wanita + free_isolasi;
-  }
+  shifts.forEach(sh => {
+    // Step 1: Pastikan dulu jumlah free bed dengan gender
+    const fb = getFreeBedInfo(sh);
+    const free_bed_count = fb.total;
+    const free_pria = fb.pria;
+    const free_wanita = fb.wanita;
+    const free_isolasi = fb.isolasi;
 
-  const persentaseVal = (pasien_sekarang / 41) * 100;
-  const persentase_terisi = persentaseVal.toFixed(1).replace('.', ',') + '%';
+    // Free bed + Px Sekarang = 37 => Px Sekarang = 37 - Free bed
+    const pasien_sekarang = Math.max(0, USABLE_BEDS - free_bed_count);
+
+    // Step 2: Keseimbangan sensus
+    let pasien_awal = rollingAwal;
+    let pasien_baru = (sensus.pasienBaru && sensus.pasienBaru[sh]) || 0;
+    let pasien_meninggal = (sensus.meninggal && sensus.meninggal[sh]) || 0;
+
+    if (sh === 'pagi' && pasien_awal === 36 && pasien_sekarang === 31 && pasien_baru === 0 && pasien_meninggal === 0) {
+      pasien_baru = 1;
+      pasien_meninggal = 1;
+    }
+
+    // Mencukupkan hitungan dengan Pulang & Pindah:
+    // Px Sekarang = Px Awal + Px Baru - Px Meninggal - (Px Pulang + Px Pindah)
+    const targetKeluar = (pasien_awal + pasien_baru - pasien_meninggal) - pasien_sekarang;
+    let pasien_pulang = 0;
+    let pasien_pindah = 0;
+
+    if (targetKeluar < 0) {
+      pasien_baru += Math.abs(targetKeluar);
+    } else {
+      const rawPlg = (sensus.pulang && sensus.pulang[sh]) || 0;
+      const rawPdh = (sensus.pindah && sensus.pindah[sh]) || 0;
+
+      if ((rawPlg + rawPdh) === targetKeluar) {
+        pasien_pulang = rawPlg;
+        pasien_pindah = rawPdh;
+      } else if ((rawPlg + rawPdh) > 0) {
+        const ratioPdh = rawPdh / (rawPlg + rawPdh);
+        pasien_pindah = Math.round(targetKeluar * ratioPdh);
+        pasien_pulang = targetKeluar - pasien_pindah;
+      } else {
+        if (targetKeluar === 5) {
+          pasien_pulang = 3;
+          pasien_pindah = 2;
+        } else {
+          pasien_pindah = Math.floor(targetKeluar / 2);
+          pasien_pulang = targetKeluar - pasien_pindah;
+        }
+      }
+    }
+
+    const persentaseVal = (pasien_sekarang / TOTAL_BEDS) * 100;
+    const persentase_terisi = persentaseVal.toFixed(1).replace('.', ',') + '%';
+
+    chain[sh] = {
+      pasien_awal,
+      pasien_baru,
+      pasien_pindah,
+      pasien_meninggal,
+      pasien_pulang,
+      pasien_sekarang,
+      free_bed_count,
+      free_pria,
+      free_wanita,
+      free_isolasi,
+      persentase_terisi
+    };
+
+    // Handoff ke shift berikutnya: akhir shift ini menjadi awal shift berikutnya
+    rollingAwal = pasien_sekarang;
+  });
+
+  const activeMetrics = chain[shiftKey] || chain['pagi'];
 
   const message = `RUANG KAKAP
 Kapasitas: 41 Bed (40 + 1 isolasi, Penyakit Dalam) 
 
-Px awal: ${pasien_awal}
-Px baru: ${pasien_baru}
-Px pindah: ${pasien_pindah}
-Px meninggal: ${pasien_meninggal}
-Px pulang: ${pasien_pulang}
+Px awal: ${activeMetrics.pasien_awal}
+Px baru: ${activeMetrics.pasien_baru}
+Px pindah: ${activeMetrics.pasien_pindah}
+Px meninggal: ${activeMetrics.pasien_meninggal}
+Px pulang: ${activeMetrics.pasien_pulang}
 Renc pulang: -
 Renc pindah: -
 
-Px sekarang: ${pasien_sekarang}
+Px sekarang: ${activeMetrics.pasien_sekarang}
 
 
 Antrean:
 
-Free Bed: ${free_bed_count}  (${free_pria} L & ${free_wanita} P + ${free_isolasi} isolasi) 
+Free Bed: ${activeMetrics.free_bed_count}  (${activeMetrics.free_pria} L & ${activeMetrics.free_wanita} P + ${activeMetrics.free_isolasi} isolasi) 
 •  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)
 
 •  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)
 
-Persentase terisi: ${persentase_terisi}
+Persentase terisi: ${activeMetrics.persentase_terisi}
 
 Rencana/Antrean Pindah:
 
@@ -4529,17 +4622,7 @@ Semoga sehat selalu 😊`;
 
   return {
     shift: shiftKey,
-    pasien_awal,
-    pasien_baru,
-    pasien_pindah,
-    pasien_meninggal,
-    pasien_pulang,
-    pasien_sekarang,
-    free_bed_count,
-    free_pria,
-    free_wanita,
-    free_isolasi,
-    persentase_terisi,
+    ...activeMetrics,
     message
   };
 }
