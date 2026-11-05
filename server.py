@@ -181,6 +181,24 @@ class DashboardRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps(payload, ensure_ascii=False).encode("utf-8"))
             return
 
+        if self.path.startswith("/api/census-whatsapp"):
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Cache-Control", "no-cache")
+            self.end_headers()
+            parsed_url = urllib.parse.urlparse(self.path)
+            q = urllib.parse.parse_qs(parsed_url.query)
+            sh = q.get("shift", ["auto"])[0]
+            dt = q.get("date", [None])[0]
+            try:
+                import shift_census_calculator
+                res = shift_census_calculator.compute_kakap_census(target_date=dt, shift=sh)
+                self.wfile.write(json.dumps(res, ensure_ascii=False).encode("utf-8"))
+            except Exception as e:
+                err_res = {"status": "error", "error": str(e)}
+                self.wfile.write(json.dumps(err_res, ensure_ascii=False).encode("utf-8"))
+            return
+
         super().do_GET()
 
     def do_POST(self):
@@ -203,6 +221,54 @@ class DashboardRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps(result, ensure_ascii=False).encode("utf-8"))
             return
 
+        if self.path == "/api/send-whatsapp":
+            content_length = int(self.headers.get("Content-Length", 0))
+            post_data = self.rfile.read(content_length) if content_length > 0 else b"{}"
+            body = {}
+            try:
+                body = json.loads(post_data.decode("utf-8"))
+            except:
+                pass
+
+            sh = body.get("shift", "auto")
+            dt = body.get("date", None)
+            custom_msg = body.get("message", None)
+            token = body.get("token", None)
+            phone = body.get("phone", "6281284070082")
+
+            try:
+                import send_whatsapp
+                import shift_census_calculator
+                if not custom_msg:
+                    census_res = shift_census_calculator.compute_kakap_census(target_date=dt, shift=sh)
+                    custom_msg = census_res["message"]
+                    slot_key = census_res.get("slot_key")
+                else:
+                    slot_key = None
+
+                res = send_whatsapp.send_via_gateway(
+                    phone=phone,
+                    message=custom_msg,
+                    token=token,
+                    provider="fonnte"
+                )
+                if res.get("status") == "success" and slot_key:
+                    wib_now = send_whatsapp.get_current_wib_datetime().strftime("%Y-%m-%d %H:%M:%S")
+                    send_whatsapp.record_sent_slot(slot_key, wib_now)
+
+                status_code = 200 if res.get("status") == "success" else 500
+                self.send_response(status_code)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.send_header("Cache-Control", "no-cache")
+                self.end_headers()
+                self.wfile.write(json.dumps(res, ensure_ascii=False).encode("utf-8"))
+            except Exception as e:
+                self.send_response(500)
+                self.send_header("Content-Type", "application/json; charset=utf-8")
+                self.end_headers()
+                self.wfile.write(json.dumps({"status": "error", "error": str(e)}).encode("utf-8"))
+            return
+
         self.send_response(404)
         self.end_headers()
 
@@ -218,7 +284,21 @@ def background_scheduler_worker():
             if cur_h == s["hour"] and cur_m in [0, 1] and cur_tag != last_triggered_date_hour:
                 last_triggered_date_hour = cur_tag
                 print(f"[SCHEDULER] Memicu auto-sync untuk {s['name']} ({s['desc']})...")
-                execute_sync(trigger_type=f"auto_{s['name'].lower().replace(' ', '_')}")
+                sync_res = execute_sync(trigger_type=f"auto_{s['name'].lower().replace(' ', '_')}")
+                if sync_res.get("success"):
+                    try:
+                        print(f"[SCHEDULER] Mengirim laporan sensus WhatsApp ke Kepala Ruang (+6281284070082)...")
+                        wa_script = os.path.join(DIRECTORY, "send_whatsapp.py")
+                        wa_proc = subprocess.run(
+                            [sys.executable, wa_script, "--sensus", "--scheduled-only", "--gateway", "fonnte"],
+                            cwd=DIRECTORY,
+                            capture_output=True,
+                            text=True,
+                            timeout=60
+                        )
+                        print(f"[SCHEDULER WA] Output: {wa_proc.stdout.strip()}")
+                    except Exception as we:
+                        print(f"[SCHEDULER WA ERROR] {we}")
         time.sleep(30)
 
 def run_server():

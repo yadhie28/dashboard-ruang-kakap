@@ -576,13 +576,23 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
         "meninggal": {"pagi": 0, "sore": 0, "malam": 0},
         "total": {"pagi": 0, "sore": 0, "malam": 0},
         "bedKosong": {"pagi": 0, "sore": 0, "malam": 0},
-        "bedRusak": {"pagi": 0, "sore": 0, "malam": 0},
+        "bedKosongText": {"pagi": "", "sore": "", "malam": ""},
+        "bedKosongDetail": {
+            "pagi": {"total": 0, "pria": 0, "wanita": 0, "isolasi": 0},
+            "sore": {"total": 0, "pria": 0, "wanita": 0, "isolasi": 0},
+            "malam": {"total": 0, "pria": 0, "wanita": 0, "isolasi": 0}
+        },
+        "bedRusak": {"pagi": 4, "sore": 4, "malam": 4},
+        "bedRusakText": {"pagi": "4 (KAKAP 9)", "sore": "4 (KAKAP 9)", "malam": "4 (KAKAP 9)"},
         "isolasi": {"pagi": "KOSONG", "sore": "KOSONG", "malam": "KOSONG"}
     }
 
     def safe_int(v):
-        try: return int(float(v))
-        except: return 0
+        try:
+            m = re.search(r'\d+', str(v or ''))
+            return int(m.group(0)) if m else 0
+        except:
+            return 0
 
     for r_idx in range(sensus_start_row, sensus_start_row + 22):
         if r_idx not in rows_data: continue
@@ -619,9 +629,26 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
             sensus["total"]["sore"] = safe_int(i_val)
             sensus["total"]["malam"] = safe_int(j_val)
         elif "Bed tidak dapat dipakai" in label:
-            sensus["bedRusak"]["pagi"] = safe_int(h_val)
-            sensus["bedRusak"]["sore"] = safe_int(i_val)
-            sensus["bedRusak"]["malam"] = safe_int(j_val)
+            sensus["bedRusak"]["pagi"] = safe_int(h_val) or 4
+            sensus["bedRusak"]["sore"] = safe_int(i_val) or 4
+            sensus["bedRusak"]["malam"] = safe_int(j_val) or 4
+            sensus["bedRusakText"]["pagi"] = str(h_val or '4 (KAKAP 9)').strip()
+            sensus["bedRusakText"]["sore"] = str(i_val or '4 (KAKAP 9)').strip()
+            sensus["bedRusakText"]["malam"] = str(j_val or '4 (KAKAP 9)').strip()
+        elif "Bed kosong" in label:
+            sensus["bedKosongText"]["pagi"] = str(h_val or '').strip()
+            sensus["bedKosongText"]["sore"] = str(i_val or '').strip()
+            sensus["bedKosongText"]["malam"] = str(j_val or '').strip()
+            for sh_k, sh_v in [('pagi', h_val), ('sore', i_val), ('malam', j_val)]:
+                raw_txt = str(sh_v or '').strip()
+                m_tot = re.search(r'^\s*(\d+)', raw_txt)
+                tot_c = int(m_tot.group(1)) if m_tot else safe_int(raw_txt)
+                sensus["bedKosong"][sh_k] = tot_c
+                m_l = re.search(r'(\d+)\s*(?:L|Laki)', raw_txt, re.I)
+                m_p = re.search(r'(\d+)\s*(?:P|Perempuan)', raw_txt, re.I)
+                sensus["bedKosongDetail"][sh_k]["total"] = tot_c
+                if m_l: sensus["bedKosongDetail"][sh_k]["pria"] = int(m_l.group(1))
+                if m_p: sensus["bedKosongDetail"][sh_k]["wanita"] = int(m_p.group(1))
         elif "ISOLASI" in label:
             sensus["isolasi"]["pagi"] = str(h_val or 'KOSONG').strip()
             sensus["isolasi"]["sore"] = str(i_val or 'KOSONG').strip()
@@ -640,6 +667,31 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
     if sensus["total"]["pagi"] == 0: sensus["total"]["pagi"] = occ_total
     if sensus["total"]["sore"] == 0: sensus["total"]["sore"] = sensus["total"]["pagi"]
     if sensus["total"]["malam"] == 0: sensus["total"]["malam"] = sensus["total"]["sore"]
+
+    # Fallback pasienAwal for morning shift if empty: total - baru + pulang + pindah + meninggal
+    if sensus["pasienAwal"]["pagi"] == 0:
+        sensus["pasienAwal"]["pagi"] = max(0, sensus["total"]["pagi"] - sensus["pasienBaru"]["pagi"] + sensus["pulang"]["pagi"] + sensus["pindah"]["pagi"] + sensus["meninggal"]["pagi"])
+    if sensus["pasienAwal"]["sore"] == 0:
+        sensus["pasienAwal"]["sore"] = sensus["total"]["pagi"]
+    if sensus["pasienAwal"]["malam"] == 0:
+        sensus["pasienAwal"]["malam"] = sensus["total"]["sore"]
+
+    # Dynamic free bed calculation from actual beds
+    male_empty = sum(1 for p in final_patients if p.get('isEmpty') and re.search(r'\bKAKAP\s+(1|5|6|7)\b', p.get('room', '')))
+    female_empty = sum(1 for p in final_patients if p.get('isEmpty') and re.search(r'\bKAKAP\s+(2|3|4|8|10)\b', p.get('room', '')))
+    iso_patient = next((p for p in final_patients if 'ISOLASI' in p.get('room', '') or p.get('bed') == 'ISOLASI'), None)
+    iso_empty = 1 if (iso_patient and iso_patient.get('isEmpty')) else 0
+
+    for sh in ["pagi", "sore", "malam"]:
+        iso_val = sensus["isolasi"][sh].upper()
+        sh_iso_free = 1 if (iso_val == 'KOSONG' or iso_val == '0') else 0
+        sensus["bedKosongDetail"][sh]["isolasi"] = sh_iso_free
+        if sensus["bedKosongDetail"][sh]["pria"] == 0 and sensus["bedKosongDetail"][sh]["wanita"] == 0:
+            sensus["bedKosongDetail"][sh]["pria"] = male_empty
+            sensus["bedKosongDetail"][sh]["wanita"] = female_empty
+            if sensus["bedKosong"][sh] == 0:
+                sensus["bedKosong"][sh] = male_empty + female_empty + sh_iso_free
+                sensus["bedKosongDetail"][sh]["total"] = sensus["bedKosong"][sh]
 
     # Calculate summary
     empty_total = TOTAL_BEDS - occ_total

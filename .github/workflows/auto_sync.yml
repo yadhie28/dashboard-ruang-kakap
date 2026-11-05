@@ -1,9 +1,12 @@
-name: Auto Sync Spreadsheet & Deploy to GitHub Pages
+name: Auto Sync Spreadsheet & Sensus WhatsApp Kakap
 
 on:
-  # Penarikan data otomatis 3x sehari dinonaktifkan atas permintaan pengguna
-  # schedule:
-  #   - cron: '0 0,7,13 * * *'
+  # Jadwal Pengiriman Laporan Sensus WA Ruang Kakap 3x Sehari:
+  # 00:00 UTC = 07:00 WIB (Shift Pagi)
+  # 07:00 UTC = 14:00 WIB (Shift Sore)
+  # 13:00 UTC = 20:00 WIB (Shift Malam)
+  schedule:
+    - cron: '0 0,7,13 * * *'
   workflow_dispatch: # Tombol pemicu manual di tab Actions GitHub
   push:
     branches:
@@ -38,12 +41,18 @@ jobs:
         run: |
           python run_build_data.py --download
 
+      - name: Kirim Laporan Sensus WhatsApp ke Kepala Ruang Kakap
+        env:
+          FONNTE_TOKEN: ${{ secrets.FONNTE_TOKEN || 'Ayfow2x1hFiscQZSphzq' }}
+        run: |
+          python send_whatsapp.py --sensus --scheduled-only --gateway fonnte || echo "WhatsApp dispatch finished with warning"
+
       - name: Commit Updated Data to Repository
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Auto-Sync"
-          git add dashboard_data.json hospital_indicators.json kakap_data.xlsx
-          git commit -m "chore(auto-sync): update daily census from Google Sheets [skip ci]" || echo "No changes to commit"
+          git add dashboard_data.json hospital_indicators.json kakap_data.xlsx shift_sent_wa.json
+          git commit -m "chore(auto-sync): update daily census & WA dispatch Ruang Kakap [skip ci]" || echo "No changes to commit"
           git push || echo "Push skipped"
 
       - name: Setup GitHub Pages

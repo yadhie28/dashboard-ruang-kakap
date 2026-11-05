@@ -81,6 +81,12 @@
           </button>
         </div>
 
+        <!-- WhatsApp Sensus Action Button -->
+        <button class="btn btn-whatsapp-action btn-sm" id="openWhatsAppModalBtn" title="Kirim Laporan Sensus via WhatsApp ke Kepala Ruang Kakap (+6281284070082)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="wa-icon" style="width:16px;height:16px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>Sensus WA Karu</span>
+        </button>
+
         <button class="btn btn-secondary btn-icon" id="themeToggleBtn" title="Ganti Mode Gelap / Terang">
           <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -310,15 +316,19 @@
               </button>
               <button class="shift-btn" data-shift="sore">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/></svg>
-                <span>Shift Sore (14:00 - 21:00)</span>
+                <span>Shift Sore (14:00 - 20:00)</span>
               </button>
               <button class="shift-btn" data-shift="malam">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                <span>Shift Malam (21:00 - 07:00)</span>
+                <span>Shift Malam (20:00 - 07:00)</span>
               </button>
             </div>
 
             <div class="handover-actions">
+              <button class="btn btn-whatsapp-action btn-sm" id="btnHandoverSendWa" title="Format &amp; Kirim Sensus WhatsApp ke Karu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:4px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <span>Format WA Karu</span>
+              </button>
               <button class="btn btn-secondary btn-sm" id="copyHandoverSummaryBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                 <span>Salin Ringkasan Shift</span>
@@ -1153,7 +1163,7 @@
           <div class="shift-card" id="shiftCardMalam">
             <div class="shift-card-header">
               <span class="shift-badge badge-night">🌙 Shift Malam</span>
-              <span class="shift-time">21.00 WIB</span>
+              <span class="shift-time">20.00 WIB</span>
             </div>
             <p class="shift-desc">Operan Jaga Sore ➔ Malam. Rekapitulasi sensus harian lengkap &amp; handover perawat malam.</p>
             <div class="shift-card-status" id="shiftStatusMalam">Terjadwal Harian</div>
@@ -1274,6 +1284,70 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
           <span>Simpan ke Kronologi</span>
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Kirim Laporan Sensus WhatsApp ke Kepala Ruang Kakap -->
+  <div class="modal-backdrop" id="whatsappModalBackdrop" style="display:none;">
+    <div class="modal-card whatsapp-modal-card" role="dialog" aria-modal="true" style="max-width:680px;">
+      <div class="modal-header" style="background:linear-gradient(135deg, #107c41 0%, #0d5f32 100%);color:#fff;">
+        <div class="modal-title-group">
+          <div class="badge-role-icon" style="background:rgba(255,255,255,0.2);color:#fff;">📱</div>
+          <div>
+            <h3 class="modal-title" style="color:#fff;">Laporan Sensus WhatsApp - Ruang Kakap</h3>
+            <p class="modal-subtitle" style="color:rgba(255,255,255,0.85);">Kepala Ruang: Ns. Rusmulyadi, S.Kep.,M.A.R.S (+6281284070082)</p>
+          </div>
+        </div>
+        <button class="btn btn-icon btn-close-modal" id="closeWhatsAppModalBtn" aria-label="Tutup" style="color:#fff;">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Target Info Banner -->
+        <div class="sync-info-banner" style="background:#f0fdf4;border-color:#bbf7d0;color:#166534;margin-bottom:1rem;">
+          <svg class="banner-icon" style="color:#16a34a;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div>
+            <strong>Laporan Sensus Terjadwal Otomatis:</strong> 07.00 WIB, 14.00 WIB, dan 20.00 WIB.<br>
+            <span style="font-size:0.85rem;opacity:0.9;">Tujuan: <strong>+6281284070082</strong> (Ns. Rusmulyadi, S.Kep.,M.A.R.S - Kepala Ruang Kakap)</span>
+          </div>
+        </div>
+
+        <!-- Shift Picker Tabs -->
+        <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+          <button class="btn btn-sm btn-outline-primary active" id="waShiftBtnPagi" data-shift="pagi">🌅 Shift Pagi (07.00 WIB)</button>
+          <button class="btn btn-sm btn-outline-primary" id="waShiftBtnSore" data-shift="sore">☀️ Shift Sore (14.00 WIB)</button>
+          <button class="btn btn-sm btn-outline-primary" id="waShiftBtnMalam" data-shift="malam">🌙 Shift Malam (20.00 WIB)</button>
+        </div>
+
+        <!-- Live Message Textarea Preview -->
+        <div class="form-group" style="margin-bottom:1rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <label class="form-label" style="font-weight:600;margin-bottom:0;">Format Pesan WhatsApp (Sesuai Ketetapan Baku Ruang Kakap):</label>
+            <span class="badge" id="waCurrentDateBadge" style="background:#e0f2fe;color:#0369a1;font-size:0.75rem;padding:3px 8px;border-radius:4px;">-</span>
+          </div>
+          <textarea id="waMessagePreview" class="form-control" rows="18" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:0.88rem;line-height:1.45;background:#f8fafc;color:#0f172a;border:1px solid #cbd5e1;border-radius:8px;padding:12px;white-space:pre-wrap;"></textarea>
+        </div>
+
+        <!-- Dispatch Feedback Banner -->
+        <div id="waDispatchResult" style="display:none;padding:10px 14px;border-radius:6px;font-size:0.88rem;margin-bottom:12px;"></div>
+      </div>
+
+      <div class="modal-footer" style="display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-top:1px solid #e2e8f0;background:#f8fafc;flex-wrap:wrap;gap:8px;">
+        <button class="btn btn-secondary btn-sm" id="btnWaCloseModal">Tutup</button>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-secondary btn-sm" id="btnWaCopyText">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:4px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Salin Format</span>
+          </button>
+          <a class="btn btn-secondary btn-sm" id="btnWaOpenDirect" href="#" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:4px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Buka WhatsApp Web</span>
+          </a>
+          <button class="btn btn-success btn-sm" id="btnWaSendGateway" style="background:#16a34a;color:#fff;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:4px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span id="btnWaSendGatewayText">Kirim Otomatis (Fonnte API)</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>

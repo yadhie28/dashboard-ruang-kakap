@@ -432,6 +432,52 @@ body::before {
   box-shadow: 0 5px 14px rgba(2, 132, 199, 0.4);
 }
 
+.btn-success {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(22, 163, 74, 0.3);
+}
+
+.btn-success:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(22, 163, 74, 0.4);
+}
+
+.btn-whatsapp-action {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(37, 211, 102, 0.45);
+}
+
+.btn-outline-primary {
+  background: transparent;
+  color: var(--accent-primary);
+  border: 1px solid var(--border-medium);
+  cursor: pointer;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-primary.active,
+.btn-outline-primary:hover {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #ffffff;
+}
+
 .btn-secondary {
   background: var(--bg-surface);
   color: var(--text-secondary);

@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initRoleManagement();
   setupEventListeners();
   initSyncSchedule();
+  initWhatsAppCensus();
   loadData();
 });
 
@@ -4442,5 +4443,307 @@ function exportChronologyWord(patientKey) {
   } catch (err) {
     console.error('Error exporting to Word:', err);
     showToast('Gagal mengunduh dokumen Word: ' + err.message, 'error');
+  }
+}
+
+// ==========================================================================
+// MODUL SENSUS WHATSAPP RESMI RUANG KAKAP (RSUD DR. SOEDARSO)
+// Target: Ns. Rusmulyadi, S.Kep.,M.A.R.S (+6281284070082)
+// Jadwal Resmi: 07.00 WIB, 14.00 WIB, dan 20.00 WIB
+// ==========================================================================
+
+const KAKAP_WA_CONFIG = {
+  recipientName: "Ns. Rusmulyadi, S.Kep.,M.A.R.S",
+  recipientRole: "Kepala Ruang Rawat Inap Kakap",
+  phone: "6281284070082",
+  phoneDisplay: "+6281284070082",
+  fonnteToken: "Ayfow2x1hFiscQZSphzq",
+  activeShift: "pagi"
+};
+
+function computeClientSideKakapCensus(shiftKey = 'pagi') {
+  const currentDay = (state.data && state.data.recentDays && state.data.recentDays[state.currentDate]) ||
+                     (state.data && state.data.today) || {};
+  const sensus = currentDay.sensus || {};
+  const summary = currentDay.summary || {};
+  const patients = currentDay.patients || [];
+
+  const pasien_sekarang = (sensus.total && sensus.total[shiftKey]) || summary.occupied || 31;
+  let pasien_baru = (sensus.pasienBaru && sensus.pasienBaru[shiftKey]) || 0;
+  let pasien_pindah = (sensus.pindah && sensus.pindah[shiftKey]) || 0;
+  let pasien_meninggal = (sensus.meninggal && sensus.meninggal[shiftKey]) || 0;
+  let pasien_pulang = (sensus.pulang && sensus.pulang[shiftKey]) || 0;
+  let pasien_awal = (sensus.pasienAwal && sensus.pasienAwal[shiftKey]) || 0;
+
+  if (!pasien_awal || pasien_awal === 0) {
+    pasien_awal = Math.max(0, pasien_sekarang - pasien_baru + pasien_pulang + pasien_pindah + pasien_meninggal);
+  }
+
+  // Free Bed & Breakdown
+  const bedDetail = (sensus.bedKosongDetail && sensus.bedKosongDetail[shiftKey]) || {};
+  let free_bed_count = bedDetail.total || 0;
+  let free_pria = bedDetail.pria || 0;
+  let free_wanita = bedDetail.wanita || 0;
+  let free_isolasi = bedDetail.isolasi !== undefined ? bedDetail.isolasi : 0;
+
+  if (free_bed_count === 0) {
+    const maleEmpty = patients.filter(p => p.isEmpty && /\bKAKAP\s+(1|5|6|7)\b/i.test(p.room || '')).length;
+    const femaleEmpty = patients.filter(p => p.isEmpty && /\bKAKAP\s+(2|3|4|8|10)\b/i.test(p.room || '')).length;
+    const isoEmpty = patients.some(p => (p.room?.includes('ISOLASI') || p.bed === 'ISOLASI') && p.isEmpty) ? 1 : 0;
+    free_pria = maleEmpty;
+    free_wanita = femaleEmpty;
+    free_isolasi = isoEmpty;
+    free_bed_count = free_pria + free_wanita + free_isolasi;
+  }
+
+  const persentaseVal = (pasien_sekarang / 41) * 100;
+  const persentase_terisi = persentaseVal.toFixed(1).replace('.', ',') + '%';
+
+  const message = `RUANG KAKAP
+Kapasitas: 41 Bed (40 + 1 isolasi, Penyakit Dalam) 
+
+Px awal: ${pasien_awal}
+Px baru: ${pasien_baru}
+Px pindah: ${pasien_pindah}
+Px meninggal: ${pasien_meninggal}
+Px pulang: ${pasien_pulang}
+Renc pulang: -
+Renc pindah: -
+
+Px sekarang: ${pasien_sekarang}
+
+
+Antrean:
+
+Free Bed: ${free_bed_count}  (${free_pria} L & ${free_wanita} P + ${free_isolasi} isolasi) 
+•  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)
+
+•  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)
+
+Persentase terisi: ${persentase_terisi}
+
+Rencana/Antrean Pindah:
+
+Makaseh 🙏
+Semoga sehat selalu 😊`;
+
+  return {
+    shift: shiftKey,
+    pasien_awal,
+    pasien_baru,
+    pasien_pindah,
+    pasien_meninggal,
+    pasien_pulang,
+    pasien_sekarang,
+    free_bed_count,
+    free_pria,
+    free_wanita,
+    free_isolasi,
+    persentase_terisi,
+    message
+  };
+}
+
+function updateWhatsAppPreview(shiftKey) {
+  KAKAP_WA_CONFIG.activeShift = shiftKey;
+  const data = computeClientSideKakapCensus(shiftKey);
+  const preview = document.getElementById('waMessagePreview');
+  if (preview) {
+    preview.value = data.message;
+  }
+
+  const dateBadge = document.getElementById('waCurrentDateBadge');
+  if (dateBadge) {
+    dateBadge.textContent = state.currentDate || 'Hari Ini';
+  }
+
+  const directLink = document.getElementById('btnWaOpenDirect');
+  if (directLink) {
+    directLink.href = `https://web.whatsapp.com/send?phone=${KAKAP_WA_CONFIG.phone}&text=${encodeURIComponent(data.message)}`;
+  }
+
+  // Update button active state
+  ['pagi', 'sore', 'malam'].forEach(sh => {
+    const btn = document.getElementById(`waShiftBtn${sh.charAt(0).toUpperCase() + sh.slice(1)}`);
+    if (btn) {
+      if (sh === shiftKey) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    }
+  });
+
+  const banner = document.getElementById('waDispatchResult');
+  if (banner) banner.style.display = 'none';
+}
+
+function openWhatsAppCensusModal(initialShift = null) {
+  let targetShift = initialShift;
+  if (!targetShift) {
+    const now = new Date();
+    const h = now.getHours();
+    const m = now.getMinutes();
+    const tot = h * 60 + m;
+    if (tot >= 360 && tot < 810) targetShift = 'pagi';
+    else if (tot >= 810 && tot < 1170) targetShift = 'sore';
+    else targetShift = 'malam';
+  }
+
+  updateWhatsAppPreview(targetShift);
+
+  const backdrop = document.getElementById('whatsappModalBackdrop');
+  if (backdrop) {
+    backdrop.style.display = 'flex';
+  }
+}
+
+function closeWhatsAppCensusModal() {
+  const backdrop = document.getElementById('whatsappModalBackdrop');
+  if (backdrop) {
+    backdrop.style.display = 'none';
+  }
+}
+
+async function sendWhatsAppToKaru() {
+  const preview = document.getElementById('waMessagePreview');
+  const message = preview ? preview.value : computeClientSideKakapCensus(KAKAP_WA_CONFIG.activeShift).message;
+  const btn = document.getElementById('btnWaSendGateway');
+  const btnText = document.getElementById('btnWaSendGatewayText');
+  const banner = document.getElementById('waDispatchResult');
+
+  if (btn) btn.disabled = true;
+  if (btnText) btnText.textContent = 'Mengirim...';
+
+  let success = false;
+  let feedback = '';
+
+  // 1. Try local server endpoint if available
+  try {
+    const srvRes = await fetch('/api/send-whatsapp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        phone: KAKAP_WA_CONFIG.phone,
+        message: message,
+        shift: KAKAP_WA_CONFIG.activeShift,
+        date: state.currentDate
+      })
+    });
+    if (srvRes.ok) {
+      const srvJson = await srvRes.json();
+      if (srvJson.status === 'success') {
+        success = true;
+        feedback = 'Terkirim via Server Background Gateway!';
+      }
+    }
+  } catch (err) {
+    // Local server not available, fall back to direct Fonnte API call
+  }
+
+  // 2. Direct Fonnte Gateway Call (GitHub Pages / client-side)
+  if (!success) {
+    try {
+      const fonnteRes = await fetch('https://api.fonnte.com/send', {
+        method: 'POST',
+        headers: {
+          'Authorization': KAKAP_WA_CONFIG.fonnteToken,
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({
+          target: KAKAP_WA_CONFIG.phone,
+          message: message,
+          countryCode: '62'
+        })
+      });
+      if (fonnteRes.ok) {
+        const resJson = await fonnteRes.json();
+        if (resJson.status === true || resJson.status === 'true' || resJson.status === 'success') {
+          success = true;
+          feedback = 'Terkirim langsung via Fonnte Gateway API!';
+        } else {
+          feedback = resJson.reason || resJson.message || 'Respons Fonnte gagal.';
+        }
+      } else {
+        feedback = `HTTP error: ${fonnteRes.status}`;
+      }
+    } catch (err) {
+      feedback = err.message;
+    }
+  }
+
+  if (btn) btn.disabled = false;
+  if (btnText) btnText.textContent = 'Kirim Otomatis (Fonnte API)';
+
+  if (banner) {
+    banner.style.display = 'block';
+    if (success) {
+      banner.style.background = '#dcfce7';
+      banner.style.color = '#15803d';
+      banner.style.border = '1px solid #86efac';
+      banner.innerHTML = `<strong>Berhasil Terkirim!</strong> Pesan laporan sensus masuk ke WhatsApp Kepala Ruang (+6281284070082).`;
+      showToast('🎉 Laporan Sensus BERHASIL terkirim ke WhatsApp Kepala Ruang (+6281284070082)!', 'success');
+    } else {
+      banner.style.background = '#fef2f2';
+      banner.style.color = '#b91c1c';
+      banner.style.border = '1px solid #fca5a5';
+      banner.innerHTML = `<strong>Pengiriman Gateway Terkendala:</strong> ${feedback}.<br>Silakan klik tombol <strong>"Buka WhatsApp Web"</strong> untuk mengirim secara manual.`;
+      showToast('Gagal mengirim via API. Gunakan tombol Buka WhatsApp Web.', 'error');
+    }
+  }
+}
+
+function initWhatsAppCensus() {
+  const openModalBtn = document.getElementById('openWhatsAppModalBtn');
+  if (openModalBtn) {
+    openModalBtn.addEventListener('click', () => openWhatsAppCensusModal());
+  }
+
+  const handoverWaBtn = document.getElementById('btnHandoverSendWa');
+  if (handoverWaBtn) {
+    handoverWaBtn.addEventListener('click', () => {
+      openWhatsAppCensusModal(state.activeShift || 'pagi');
+    });
+  }
+
+  const closeModalBtn = document.getElementById('closeWhatsAppModalBtn');
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeWhatsAppCensusModal);
+
+  const btnClose = document.getElementById('btnWaCloseModal');
+  if (btnClose) btnClose.addEventListener('click', closeWhatsAppCensusModal);
+
+  const backdrop = document.getElementById('whatsappModalBackdrop');
+  if (backdrop) {
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeWhatsAppCensusModal();
+    });
+  }
+
+  ['pagi', 'sore', 'malam'].forEach(sh => {
+    const btn = document.getElementById(`waShiftBtn${sh.charAt(0).toUpperCase() + sh.slice(1)}`);
+    if (btn) {
+      btn.addEventListener('click', () => updateWhatsAppPreview(sh));
+    }
+  });
+
+  const copyBtn = document.getElementById('btnWaCopyText');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      const preview = document.getElementById('waMessagePreview');
+      if (preview && preview.value) {
+        navigator.clipboard.writeText(preview.value).then(() => {
+          showToast('📋 Format pesan WhatsApp berhasil disalin ke clipboard!', 'success');
+        }).catch(() => {
+          preview.select();
+          document.execCommand('copy');
+          showToast('📋 Format pesan disalin ke clipboard!', 'success');
+        });
+      }
+    });
+  }
+
+  const sendBtn = document.getElementById('btnWaSendGateway');
+  if (sendBtn) {
+    sendBtn.addEventListener('click', sendWhatsAppToKaru);
   }
 }
