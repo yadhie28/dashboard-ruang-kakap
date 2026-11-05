@@ -1,11 +1,9 @@
 name: Auto Sync Spreadsheet & Deploy to GitHub Pages
 
 on:
-  schedule:
-    # 07:00 WIB (00:00 UTC) - Sensus Shift Pagi
-    # 14:00 WIB (07:00 UTC) - Sensus Shift Sore
-    # 20:00 WIB (13:00 UTC) - Sensus Shift Malam
-    - cron: '0 0,7,13 * * *'
+  # Penarikan data otomatis 3x sehari dinonaktifkan atas permintaan pengguna
+  # schedule:
+  #   - cron: '0 0,7,13 * * *'
   workflow_dispatch: # Tombol pemicu manual di tab Actions GitHub
   push:
     branches:
