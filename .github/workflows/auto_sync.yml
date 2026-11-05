@@ -66,7 +66,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Auto-Sync"
-          git add dashboard_data.json hospital_indicators.json kakap_data.xlsx shift_sent_wa.json clinical_pathways.json
+          git add dashboard_data.json hospital_indicators.json kakap_data.xlsx shift_sent_wa.json
           git commit -m "chore(auto-sync): update daily census & WA dispatch Ruang Kakap [skip ci]" || echo "No changes to commit"
           git push || echo "Push skipped"
 
