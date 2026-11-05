@@ -13,7 +13,7 @@
       "Tim I (Kakap 1-5 & Isolasi - 21 Bed)",
       "Tim II (Kakap 6-10 - 20 Bed)"
     ],
-    "lastUpdated": "05-11-2026 15:24:53",
+    "lastUpdated": "05-11-2026 08:25:30",
     "latestDate": "2026-11-05",
     "totalDatesRecorded": 3,
     "dateRange": "2026-11-03 s/d 2026-11-05",
@@ -44,7 +44,7 @@
     {
       "date": "2026-11-05",
       "occTim1": 12,
-      "occTim2": 11,
+      "occTim2": 12,
       "totalOcc": 37,
       "totalBeds": 41,
       "bor": 90.2
@@ -61,12 +61,12 @@
         "count": 5
       },
       {
-        "name": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+        "name": "dr. Decky Andrea, Sp.PD",
         "count": 2
       },
       {
-        "name": "dr. Decky Andrea, Sp.PD",
-        "count": 2
+        "name": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+        "count": 1
       },
       {
         "name": "dr. Retno Mustikaningsih, M.Kes., Sp.K",
@@ -82,6 +82,10 @@
       }
     ],
     "topDiagnoses": [
+      {
+        "name": "",
+        "count": 3
+      },
       {
         "name": "anemia ec thalasemia minor, hiperbilirubinemia",
         "count": 1
@@ -107,10 +111,6 @@
         "count": 1
       },
       {
-        "name": "",
-        "count": 1
-      },
-      {
         "name": "CKD stg 5 pro HD Ht stg 2 Hiperkalemia ( K 6.27 )",
         "count": 1
       },
@@ -129,26 +129,26 @@
         "count": 14
       },
       {
-        "name": "Hematologi & Onkologi",
-        "count": 3
+        "name": "Penyakit Dalam (Umum)",
+        "count": 5
       },
       {
         "name": "Penyakit Dalam (Metabolik)",
         "count": 3
       },
       {
-        "name": "Penyakit Dalam (Umum)",
-        "count": 3
+        "name": "Hematologi & Onkologi",
+        "count": 2
       }
     ],
     "insurances": [
       {
         "name": "BPJS Kelas 3",
-        "count": 20
+        "count": 22
       },
       {
         "name": "BPJS Kelas 2",
-        "count": 3
+        "count": 2
       }
     ],
     "totalPatients": 37
@@ -159,7 +159,7 @@
       "daysCounted": 3,
       "avgOcc": 36.0,
       "avgOccA": 13.0,
-      "avgOccB": 10.7,
+      "avgOccB": 11.0,
       "avgBor": 87.8
     }
   ],
@@ -187,7 +187,7 @@
         "days": 3,
         "hp": 108,
         "hpTim1": 39,
-        "hpTim2": 32,
+        "hpTim2": 33,
         "discharges": 16,
         "deaths": 2,
         "deathsGt48": 1,
@@ -11942,7 +11942,7 @@
           "diagnosis": "anemia ec thalasemia minor, hiperbilirubinemia",
           "category": "Hematologi & Onkologi",
           "notes": {
-            "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- SSH USG Abdomen (Rabu 04/11/2026)\n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Besok Kamis 05/11/2026 cek DR ulang jika stok darah sudah tidak ada (+) SSH\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- R/ BLPL Jika HB Sudah Mencapai Target =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg), Kontrol Poli HO",
+            "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- Hasil USG Abdomen (Rabu 04/11/2026) \"Spleenomegali\" \n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Hasil cek DR ulang jika stok darah sudah tidak ada (+) (HB: 9.2 PLT: 247 WBC: 9.08)\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- BLPL =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg) (+) di SIMRS, Kontrol Poli HO",
             "sore": "",
             "malam": ""
           },
@@ -13880,32 +13880,23 @@
           "isEmpty": false,
           "isDischargedToday": false,
           "dischargeColor": null,
-          "name": "Ny. Putri Aulia Alfitri",
-          "mrNo": "00115198",
+          "name": "BOOKINGAN IGD a/n Ny.Juraida (dr.Retno,Sp.KK)",
+          "mrNo": "",
           "gender": "P",
           "age": "",
-          "admissionDate": "02/11/2026",
-          "los": 4,
-          "insurance": "BPJS Kelas 2",
-          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-          "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-          "diagnosis": "Dyspepsia Acute, ITP",
-          "category": "Hematologi & Onkologi",
+          "admissionDate": "",
+          "los": 1,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "",
+          "doctorPrimary": "-",
+          "diagnosis": "",
+          "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "- Kel: Mual (+), muntah (-)\n- RPD: autoimun \n- RPO: minum obat rutin dari dr. Ivan SpPD (Micophen 2x360mg, hc 1x200mg, as folat 1x1mg, prednisolone 1x5mg 2-2-0, lanso 1x30mg, sukralfat syr 3x15ml)\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi ITP: Micophen 2x360 PO, HC 1X200 PO, Prednisolone 5 mg 2-2-0 PO\n- Terapi Dyspepsia Acute: Ondan 3x8mg IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, Sucralfat Syr 4x10cc PO\n- Hasil Lab Tanggal 01/11/2026 (HB: 11,2 PLT: 34 WBC: 2,76) \n- Hasil cek ana if \"Negatif\"\n- Hasil cek CRP \"Negatif\"\n- Hasil cek GDT (Tanggal 01/11/2026) \"Pansitopenia ec. susp. penyakit kronik dd/ bone marrow disorder\"\n- DIET BUBUR BIASA =>> LAPOR KAK DIAH GIZI (+)\n- Hasil Cek Urinalisa di SIMRS (+)\n- PLT: 34. R/ Tranfusi TC 6 unit (KELUARGA URUS 14 UNIT) =>> 8 UNIT (+) Selesai jam 09.40 WIB, Sisa 6 unit diCari\n- Keluhan Gatal-Gatal post TF TC \n- Rabu 04/11/2026 sore cek DR Post Tranfusi TC 8 unit (+) Hasil (+) Tr 57\n- R/ BLPL =>> Resume Pulang (-), Obat pulang (Ondan 3x8mg, Lanso 1x1, Mychopen 2x360, Prednisolon 5 mg 2-2-0, Sucralfat Syr 4x10 cc, Mecobalamin 3x500), Kontrol Poli HO\n\nInfus di UFF, pasien minta dipasang ulang saat TC sudah ada",
+            "pagi": "",
             "sore": "",
             "malam": ""
           },
-          "tags": [
-            {
-              "label": "Rencana Pulang",
-              "color": "green"
-            },
-            {
-              "label": "Transfusi Darah",
-              "color": "red"
-            }
-          ],
+          "tags": [],
           "ews": {
             "score": 0,
             "level": "normal",
@@ -13920,95 +13911,111 @@
             }
           },
           "clinicalPathway": {
-            "pathwayId": "CP-PD-04",
-            "pathwayTitle": "Clinical Pathway Anemia Gravis & Gangguan Hematologi Kronis",
-            "pathwayShortTitle": "Anemia Gravis & Hematologi",
-            "department": "KSM Penyakit Dalam (Divisi Hematologi & Onkologi Medik)",
-            "targetLos": 6,
-            "actualLos": 4,
-            "deltaLos": -2,
+            "pathwayId": "CP-PD-05",
+            "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+            "pathwayShortTitle": "CKD Stage V on HD",
+            "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+            "targetLos": 7,
+            "actualLos": 1,
+            "deltaLos": -6,
             "losStatus": "Compliant (On-Track)",
             "losBadge": "badge-success",
             "losCompliancePct": 100.0,
-            "diagnosticCompliancePct": 40.0,
+            "diagnosticCompliancePct": 0.0,
             "diagnosticDetails": [
               {
-                "code": "LAB_DR_RETIC",
-                "name": "Darah Rutin Lengkap & Hitung Retikulosit",
-                "category": "Laboratorium",
-                "mandatory": true,
-                "isDone": true,
-                "status": "Terpenuhi"
-              },
-              {
-                "code": "LAB_GDT",
-                "name": "Gambaran Darah Tepi (GDT) / Evaluasi Morfologi Eritrosit",
-                "category": "Laboratorium",
-                "mandatory": true,
-                "isDone": true,
-                "status": "Terpenuhi"
-              },
-              {
-                "code": "LAB_FERRITIN",
-                "name": "Serum Iron, TIBC, dan Serum Feritin",
+                "code": "LAB_CREAT_UREUM",
+                "name": "Kreatinin Serum, Ureum, eGFR",
                 "category": "Laboratorium",
                 "mandatory": true,
                 "isDone": false,
                 "status": "Belum Dilakukan (Wajib)"
               },
               {
-                "code": "LAB_HEPATIC_RENAL",
-                "name": "Fungsi Hati (Bilirubin, SGOT, SGPT) & Fungsi Ginjal",
+                "code": "LAB_ELEKTROLIT",
+                "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
                 "category": "Laboratorium",
                 "mandatory": true,
                 "isDone": false,
                 "status": "Belum Dilakukan (Wajib)"
               },
               {
-                "code": "RAD_USG_ABDOMEN",
-                "name": "USG Abdomen (Evaluasi Hepatosplenomegali)",
+                "code": "LAB_DARAH_LENGKAP",
+                "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_EKG",
+                "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_THORAX",
+                "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_USG_RENAL",
+                "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
                 "category": "Radiologi & Penunjang",
                 "mandatory": false,
                 "isDone": false,
                 "status": "Opsional"
               }
             ],
-            "medicationCompliancePct": 50.0,
+            "medicationCompliancePct": 0.0,
             "medicationDetails": [
               {
-                "code": "MED_TRANSFUSI_PRC",
-                "name": "Transfusi Darah PRC Target Hb >= 10-11 g/dL",
-                "timing": "Hari 1 - 4",
-                "mandatory": true,
-                "isGiven": true,
-                "status": "Diberikan Tepat Alur"
-              },
-              {
-                "code": "MED_PREMEDIKASI",
-                "name": "Premedikasi Transfusi (Antihistamin / Ca Glukonas / Antipiretik)",
-                "timing": "Hari 1 - 4",
+                "code": "MED_HD_HEPARIN",
+                "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+                "timing": "Jadwal HD (2x Seminggu)",
                 "mandatory": true,
                 "isGiven": false,
                 "status": "Belum Tercatat (Wajib)"
               },
               {
-                "code": "MED_CHELATION",
-                "name": "Terapi Kelasi Besi (Deferipron / Deferasirox) bila Feritin Tinggi",
-                "timing": "Hari 2 - 6",
+                "code": "MED_ANTI_HIPERKALEMIA",
+                "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+                "timing": "Hari 1 - 3",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_EPO",
+                "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+                "timing": "Pasca HD",
                 "mandatory": false,
                 "isGiven": false,
                 "status": "Sesuai Indikasi"
               },
               {
-                "code": "MED_SUPPLEMENT",
-                "name": "Asam Folat 1x5mg PO & Vitamin E 2x100 IU PO",
-                "timing": "Hari 1 - 6",
+                "code": "MED_BINDER_PHOS",
+                "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+                "timing": "Hari 1 - 7",
                 "mandatory": true,
-                "isGiven": true,
-                "status": "Diberikan Tepat Alur"
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_RESTRIKSI_CAIRAN",
+                "name": "Restriksi Asupan Cairan & Garam Ketat",
+                "timing": "Hari 1 - 7",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
               }
             ],
-            "overallCompliancePct": 61.5,
+            "overallCompliancePct": 30.0,
             "complianceTier": "Perlu Evaluasi (High Variance)",
             "tierColor": "#ef4444",
             "tierBadge": "badge-danger",
@@ -14016,13 +14023,13 @@
             "variances": [],
             "primaryVariance": null,
             "financialAudit": {
-              "insuranceClass": "BPJS Kelas 2",
-              "cbgCode": "D-4-13-I",
-              "cbgDescription": "Anemia Aplastik & Defisiensi Berat Tanpa Komplikasi",
-              "cbgTariff": 5865000,
-              "estimatedRealCost": 3830000,
-              "costMargin": 2035000,
-              "costUtilizationPct": 65.3,
+              "insuranceClass": "BPJS Kelas 3",
+              "cbgCode": "N-4-10-I",
+              "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+              "cbgTariff": 5350000,
+              "estimatedRealCost": 595000,
+              "costMargin": 4755000,
+              "costUtilizationPct": 11.1,
               "costStatus": "Surplus Finansial (Aman)",
               "costBadge": "badge-success",
               "alertLevel": "low"
@@ -14345,9 +14352,9 @@
           "status": "Pulang Hari Ini",
           "isEmpty": true,
           "isDischargedToday": true,
-          "dischargeColor": "FFFF9900",
-          "name": "Tn. Herry",
-          "mrNo": "00270093",
+          "dischargeColor": "FFDBE8F7",
+          "name": "BOOKINGAN IGD a/n Tn. Ilham (dr.Apriani,Sp.PD)",
+          "mrNo": "",
           "gender": "-",
           "age": "",
           "admissionDate": "-",
@@ -14356,9 +14363,9 @@
           "doctor": "-",
           "doctorPrimary": "-",
           "diagnosis": "-",
-          "category": "Nefrologi & Urologi",
+          "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "- Kel: Tidak ada keluhan \n- RPD: pasien ca nasofaring on radiotherapy  \n\ndr.Darmawan,Sp.PD-KGH tanggal 04/11/2026:\n- K:  2.95. Koreksi Ns 0.9 500 + KCl 25 meq per 8 jam =>>  KOLF KE-3 (+)\n- Rabu 04/11/Cek elektrolit ulang post koreksi KCL Kolf ke-3 (K: 3.32) =>> Lapor (+) Blsn (-)\n* Ganti KSR Tablet, Inf Ganti RL 20 tpm\n- Rencana BLPL. Resume (-) resep (+) di sttus \nPULANG",
+            "pagi": "",
             "sore": "",
             "malam": ""
           },
@@ -14366,14 +14373,6 @@
             {
               "label": "Pulang Hari Ini",
               "color": "emerald"
-            },
-            {
-              "label": "Transfusi Darah",
-              "color": "red"
-            },
-            {
-              "label": "Onkologi",
-              "color": "pink"
             }
           ],
           "ews": {
@@ -14410,7 +14409,7 @@
           "diagnosis": "-",
           "category": "Gastroenterologi & Digestif",
           "notes": {
-            "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Antri (+) Balasan (-)\n- Lapor P/B (+)",
+            "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Besok Jumat 06/11/2026 =>> MALAM PUASAKAN (-)\n- Lapor P/B (+)",
             "sore": "",
             "malam": ""
           },
@@ -14422,6 +14421,10 @@
             {
               "label": "Transfusi Darah",
               "color": "red"
+            },
+            {
+              "label": "Puasa Pre-Op",
+              "color": "amber"
             }
           ],
           "ews": {
@@ -14654,21 +14657,21 @@
           "bed": "6.3",
           "room": "KAKAP 6 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Kosong",
-          "isEmpty": true,
+          "status": "Terisi",
+          "isEmpty": false,
           "isDischargedToday": false,
           "dischargeColor": null,
-          "name": "Bed Kosong",
+          "name": "BOOKINGAN ENGGANG GADING TRANSIT a/n Tn. Andri (dr.Darmawan)",
           "mrNo": "",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
+          "admissionDate": "",
+          "los": 1,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "",
           "doctorPrimary": "-",
-          "diagnosis": "-",
-          "category": "-",
+          "diagnosis": "",
+          "category": "Penyakit Dalam (Umum)",
           "notes": {
             "pagi": "",
             "sore": "",
@@ -14678,7 +14681,140 @@
           "ews": {
             "score": 0,
             "level": "normal",
-            "parameters": {}
+            "parameters": {
+              "rr": 18,
+              "spo2": 98,
+              "o2_therapy": false,
+              "sys_bp": 120,
+              "hr": 80,
+              "temp": 36.8,
+              "consciousness": "Alert"
+            }
+          },
+          "clinicalPathway": {
+            "pathwayId": "CP-PD-05",
+            "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+            "pathwayShortTitle": "CKD Stage V on HD",
+            "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+            "targetLos": 7,
+            "actualLos": 1,
+            "deltaLos": -6,
+            "losStatus": "Compliant (On-Track)",
+            "losBadge": "badge-success",
+            "losCompliancePct": 100.0,
+            "diagnosticCompliancePct": 0.0,
+            "diagnosticDetails": [
+              {
+                "code": "LAB_CREAT_UREUM",
+                "name": "Kreatinin Serum, Ureum, eGFR",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "LAB_ELEKTROLIT",
+                "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "LAB_DARAH_LENGKAP",
+                "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_EKG",
+                "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_THORAX",
+                "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_USG_RENAL",
+                "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": false,
+                "isDone": false,
+                "status": "Opsional"
+              }
+            ],
+            "medicationCompliancePct": 0.0,
+            "medicationDetails": [
+              {
+                "code": "MED_HD_HEPARIN",
+                "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+                "timing": "Jadwal HD (2x Seminggu)",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_ANTI_HIPERKALEMIA",
+                "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+                "timing": "Hari 1 - 3",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_EPO",
+                "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+                "timing": "Pasca HD",
+                "mandatory": false,
+                "isGiven": false,
+                "status": "Sesuai Indikasi"
+              },
+              {
+                "code": "MED_BINDER_PHOS",
+                "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+                "timing": "Hari 1 - 7",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_RESTRIKSI_CAIRAN",
+                "name": "Restriksi Asupan Cairan & Garam Ketat",
+                "timing": "Hari 1 - 7",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              }
+            ],
+            "overallCompliancePct": 30.0,
+            "complianceTier": "Perlu Evaluasi (High Variance)",
+            "tierColor": "#ef4444",
+            "tierBadge": "badge-danger",
+            "hasVariance": true,
+            "variances": [],
+            "primaryVariance": null,
+            "financialAudit": {
+              "insuranceClass": "BPJS Kelas 3",
+              "cbgCode": "N-4-10-I",
+              "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+              "cbgTariff": 5350000,
+              "estimatedRealCost": 595000,
+              "costMargin": 4755000,
+              "costUtilizationPct": 11.1,
+              "costStatus": "Surplus Finansial (Aman)",
+              "costBadge": "badge-success",
+              "alertLevel": "low"
+            }
           }
         },
         {
@@ -16910,7 +17046,7 @@
           "diagnosis": "anemia ec thalasemia minor, hiperbilirubinemia",
           "category": "Hematologi & Onkologi",
           "notes": {
-            "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- SSH USG Abdomen (Rabu 04/11/2026)\n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Besok Kamis 05/11/2026 cek DR ulang jika stok darah sudah tidak ada (+) SSH\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- R/ BLPL Jika HB Sudah Mencapai Target =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg), Kontrol Poli HO",
+            "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- Hasil USG Abdomen (Rabu 04/11/2026) \"Spleenomegali\" \n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Hasil cek DR ulang jika stok darah sudah tidak ada (+) (HB: 9.2 PLT: 247 WBC: 9.08)\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- BLPL =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg) (+) di SIMRS, Kontrol Poli HO",
             "sore": "",
             "malam": ""
           },
@@ -18848,32 +18984,23 @@
           "isEmpty": false,
           "isDischargedToday": false,
           "dischargeColor": null,
-          "name": "Ny. Putri Aulia Alfitri",
-          "mrNo": "00115198",
+          "name": "BOOKINGAN IGD a/n Ny.Juraida (dr.Retno,Sp.KK)",
+          "mrNo": "",
           "gender": "P",
           "age": "",
-          "admissionDate": "02/11/2026",
-          "los": 4,
-          "insurance": "BPJS Kelas 2",
-          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-          "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-          "diagnosis": "Dyspepsia Acute, ITP",
-          "category": "Hematologi & Onkologi",
+          "admissionDate": "",
+          "los": 1,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "",
+          "doctorPrimary": "-",
+          "diagnosis": "",
+          "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "- Kel: Mual (+), muntah (-)\n- RPD: autoimun \n- RPO: minum obat rutin dari dr. Ivan SpPD (Micophen 2x360mg, hc 1x200mg, as folat 1x1mg, prednisolone 1x5mg 2-2-0, lanso 1x30mg, sukralfat syr 3x15ml)\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi ITP: Micophen 2x360 PO, HC 1X200 PO, Prednisolone 5 mg 2-2-0 PO\n- Terapi Dyspepsia Acute: Ondan 3x8mg IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, Sucralfat Syr 4x10cc PO\n- Hasil Lab Tanggal 01/11/2026 (HB: 11,2 PLT: 34 WBC: 2,76) \n- Hasil cek ana if \"Negatif\"\n- Hasil cek CRP \"Negatif\"\n- Hasil cek GDT (Tanggal 01/11/2026) \"Pansitopenia ec. susp. penyakit kronik dd/ bone marrow disorder\"\n- DIET BUBUR BIASA =>> LAPOR KAK DIAH GIZI (+)\n- Hasil Cek Urinalisa di SIMRS (+)\n- PLT: 34. R/ Tranfusi TC 6 unit (KELUARGA URUS 14 UNIT) =>> 8 UNIT (+) Selesai jam 09.40 WIB, Sisa 6 unit diCari\n- Keluhan Gatal-Gatal post TF TC \n- Rabu 04/11/2026 sore cek DR Post Tranfusi TC 8 unit (+) Hasil (+) Tr 57\n- R/ BLPL =>> Resume Pulang (-), Obat pulang (Ondan 3x8mg, Lanso 1x1, Mychopen 2x360, Prednisolon 5 mg 2-2-0, Sucralfat Syr 4x10 cc, Mecobalamin 3x500), Kontrol Poli HO\n\nInfus di UFF, pasien minta dipasang ulang saat TC sudah ada",
+            "pagi": "",
             "sore": "",
             "malam": ""
           },
-          "tags": [
-            {
-              "label": "Rencana Pulang",
-              "color": "green"
-            },
-            {
-              "label": "Transfusi Darah",
-              "color": "red"
-            }
-          ],
+          "tags": [],
           "ews": {
             "score": 0,
             "level": "normal",
@@ -18888,95 +19015,111 @@
             }
           },
           "clinicalPathway": {
-            "pathwayId": "CP-PD-04",
-            "pathwayTitle": "Clinical Pathway Anemia Gravis & Gangguan Hematologi Kronis",
-            "pathwayShortTitle": "Anemia Gravis & Hematologi",
-            "department": "KSM Penyakit Dalam (Divisi Hematologi & Onkologi Medik)",
-            "targetLos": 6,
-            "actualLos": 4,
-            "deltaLos": -2,
+            "pathwayId": "CP-PD-05",
+            "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+            "pathwayShortTitle": "CKD Stage V on HD",
+            "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+            "targetLos": 7,
+            "actualLos": 1,
+            "deltaLos": -6,
             "losStatus": "Compliant (On-Track)",
             "losBadge": "badge-success",
             "losCompliancePct": 100.0,
-            "diagnosticCompliancePct": 40.0,
+            "diagnosticCompliancePct": 0.0,
             "diagnosticDetails": [
               {
-                "code": "LAB_DR_RETIC",
-                "name": "Darah Rutin Lengkap & Hitung Retikulosit",
-                "category": "Laboratorium",
-                "mandatory": true,
-                "isDone": true,
-                "status": "Terpenuhi"
-              },
-              {
-                "code": "LAB_GDT",
-                "name": "Gambaran Darah Tepi (GDT) / Evaluasi Morfologi Eritrosit",
-                "category": "Laboratorium",
-                "mandatory": true,
-                "isDone": true,
-                "status": "Terpenuhi"
-              },
-              {
-                "code": "LAB_FERRITIN",
-                "name": "Serum Iron, TIBC, dan Serum Feritin",
+                "code": "LAB_CREAT_UREUM",
+                "name": "Kreatinin Serum, Ureum, eGFR",
                 "category": "Laboratorium",
                 "mandatory": true,
                 "isDone": false,
                 "status": "Belum Dilakukan (Wajib)"
               },
               {
-                "code": "LAB_HEPATIC_RENAL",
-                "name": "Fungsi Hati (Bilirubin, SGOT, SGPT) & Fungsi Ginjal",
+                "code": "LAB_ELEKTROLIT",
+                "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
                 "category": "Laboratorium",
                 "mandatory": true,
                 "isDone": false,
                 "status": "Belum Dilakukan (Wajib)"
               },
               {
-                "code": "RAD_USG_ABDOMEN",
-                "name": "USG Abdomen (Evaluasi Hepatosplenomegali)",
+                "code": "LAB_DARAH_LENGKAP",
+                "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_EKG",
+                "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_THORAX",
+                "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_USG_RENAL",
+                "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
                 "category": "Radiologi & Penunjang",
                 "mandatory": false,
                 "isDone": false,
                 "status": "Opsional"
               }
             ],
-            "medicationCompliancePct": 50.0,
+            "medicationCompliancePct": 0.0,
             "medicationDetails": [
               {
-                "code": "MED_TRANSFUSI_PRC",
-                "name": "Transfusi Darah PRC Target Hb >= 10-11 g/dL",
-                "timing": "Hari 1 - 4",
-                "mandatory": true,
-                "isGiven": true,
-                "status": "Diberikan Tepat Alur"
-              },
-              {
-                "code": "MED_PREMEDIKASI",
-                "name": "Premedikasi Transfusi (Antihistamin / Ca Glukonas / Antipiretik)",
-                "timing": "Hari 1 - 4",
+                "code": "MED_HD_HEPARIN",
+                "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+                "timing": "Jadwal HD (2x Seminggu)",
                 "mandatory": true,
                 "isGiven": false,
                 "status": "Belum Tercatat (Wajib)"
               },
               {
-                "code": "MED_CHELATION",
-                "name": "Terapi Kelasi Besi (Deferipron / Deferasirox) bila Feritin Tinggi",
-                "timing": "Hari 2 - 6",
+                "code": "MED_ANTI_HIPERKALEMIA",
+                "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+                "timing": "Hari 1 - 3",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_EPO",
+                "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+                "timing": "Pasca HD",
                 "mandatory": false,
                 "isGiven": false,
                 "status": "Sesuai Indikasi"
               },
               {
-                "code": "MED_SUPPLEMENT",
-                "name": "Asam Folat 1x5mg PO & Vitamin E 2x100 IU PO",
-                "timing": "Hari 1 - 6",
+                "code": "MED_BINDER_PHOS",
+                "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+                "timing": "Hari 1 - 7",
                 "mandatory": true,
-                "isGiven": true,
-                "status": "Diberikan Tepat Alur"
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_RESTRIKSI_CAIRAN",
+                "name": "Restriksi Asupan Cairan & Garam Ketat",
+                "timing": "Hari 1 - 7",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
               }
             ],
-            "overallCompliancePct": 61.5,
+            "overallCompliancePct": 30.0,
             "complianceTier": "Perlu Evaluasi (High Variance)",
             "tierColor": "#ef4444",
             "tierBadge": "badge-danger",
@@ -18984,13 +19127,13 @@
             "variances": [],
             "primaryVariance": null,
             "financialAudit": {
-              "insuranceClass": "BPJS Kelas 2",
-              "cbgCode": "D-4-13-I",
-              "cbgDescription": "Anemia Aplastik & Defisiensi Berat Tanpa Komplikasi",
-              "cbgTariff": 5865000,
-              "estimatedRealCost": 3830000,
-              "costMargin": 2035000,
-              "costUtilizationPct": 65.3,
+              "insuranceClass": "BPJS Kelas 3",
+              "cbgCode": "N-4-10-I",
+              "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+              "cbgTariff": 5350000,
+              "estimatedRealCost": 595000,
+              "costMargin": 4755000,
+              "costUtilizationPct": 11.1,
               "costStatus": "Surplus Finansial (Aman)",
               "costBadge": "badge-success",
               "alertLevel": "low"
@@ -19313,9 +19456,9 @@
           "status": "Pulang Hari Ini",
           "isEmpty": true,
           "isDischargedToday": true,
-          "dischargeColor": "FFFF9900",
-          "name": "Tn. Herry",
-          "mrNo": "00270093",
+          "dischargeColor": "FFDBE8F7",
+          "name": "BOOKINGAN IGD a/n Tn. Ilham (dr.Apriani,Sp.PD)",
+          "mrNo": "",
           "gender": "-",
           "age": "",
           "admissionDate": "-",
@@ -19324,9 +19467,9 @@
           "doctor": "-",
           "doctorPrimary": "-",
           "diagnosis": "-",
-          "category": "Nefrologi & Urologi",
+          "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "- Kel: Tidak ada keluhan \n- RPD: pasien ca nasofaring on radiotherapy  \n\ndr.Darmawan,Sp.PD-KGH tanggal 04/11/2026:\n- K:  2.95. Koreksi Ns 0.9 500 + KCl 25 meq per 8 jam =>>  KOLF KE-3 (+)\n- Rabu 04/11/Cek elektrolit ulang post koreksi KCL Kolf ke-3 (K: 3.32) =>> Lapor (+) Blsn (-)\n* Ganti KSR Tablet, Inf Ganti RL 20 tpm\n- Rencana BLPL. Resume (-) resep (+) di sttus \nPULANG",
+            "pagi": "",
             "sore": "",
             "malam": ""
           },
@@ -19334,14 +19477,6 @@
             {
               "label": "Pulang Hari Ini",
               "color": "emerald"
-            },
-            {
-              "label": "Transfusi Darah",
-              "color": "red"
-            },
-            {
-              "label": "Onkologi",
-              "color": "pink"
             }
           ],
           "ews": {
@@ -19378,7 +19513,7 @@
           "diagnosis": "-",
           "category": "Gastroenterologi & Digestif",
           "notes": {
-            "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Antri (+) Balasan (-)\n- Lapor P/B (+)",
+            "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Besok Jumat 06/11/2026 =>> MALAM PUASAKAN (-)\n- Lapor P/B (+)",
             "sore": "",
             "malam": ""
           },
@@ -19390,6 +19525,10 @@
             {
               "label": "Transfusi Darah",
               "color": "red"
+            },
+            {
+              "label": "Puasa Pre-Op",
+              "color": "amber"
             }
           ],
           "ews": {
@@ -19672,21 +19811,21 @@
           "bed": "6.3",
           "room": "KAKAP 6 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Kosong",
-          "isEmpty": true,
+          "status": "Terisi",
+          "isEmpty": false,
           "isDischargedToday": false,
           "dischargeColor": null,
-          "name": "Bed Kosong",
+          "name": "BOOKINGAN ENGGANG GADING TRANSIT a/n Tn. Andri (dr.Darmawan)",
           "mrNo": "",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
+          "admissionDate": "",
+          "los": 1,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "",
           "doctorPrimary": "-",
-          "diagnosis": "-",
-          "category": "-",
+          "diagnosis": "",
+          "category": "Penyakit Dalam (Umum)",
           "notes": {
             "pagi": "",
             "sore": "",
@@ -19696,7 +19835,140 @@
           "ews": {
             "score": 0,
             "level": "normal",
-            "parameters": {}
+            "parameters": {
+              "rr": 18,
+              "spo2": 98,
+              "o2_therapy": false,
+              "sys_bp": 120,
+              "hr": 80,
+              "temp": 36.8,
+              "consciousness": "Alert"
+            }
+          },
+          "clinicalPathway": {
+            "pathwayId": "CP-PD-05",
+            "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+            "pathwayShortTitle": "CKD Stage V on HD",
+            "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+            "targetLos": 7,
+            "actualLos": 1,
+            "deltaLos": -6,
+            "losStatus": "Compliant (On-Track)",
+            "losBadge": "badge-success",
+            "losCompliancePct": 100.0,
+            "diagnosticCompliancePct": 0.0,
+            "diagnosticDetails": [
+              {
+                "code": "LAB_CREAT_UREUM",
+                "name": "Kreatinin Serum, Ureum, eGFR",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "LAB_ELEKTROLIT",
+                "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "LAB_DARAH_LENGKAP",
+                "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_EKG",
+                "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_THORAX",
+                "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_USG_RENAL",
+                "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": false,
+                "isDone": false,
+                "status": "Opsional"
+              }
+            ],
+            "medicationCompliancePct": 0.0,
+            "medicationDetails": [
+              {
+                "code": "MED_HD_HEPARIN",
+                "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+                "timing": "Jadwal HD (2x Seminggu)",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_ANTI_HIPERKALEMIA",
+                "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+                "timing": "Hari 1 - 3",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_EPO",
+                "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+                "timing": "Pasca HD",
+                "mandatory": false,
+                "isGiven": false,
+                "status": "Sesuai Indikasi"
+              },
+              {
+                "code": "MED_BINDER_PHOS",
+                "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+                "timing": "Hari 1 - 7",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_RESTRIKSI_CAIRAN",
+                "name": "Restriksi Asupan Cairan & Garam Ketat",
+                "timing": "Hari 1 - 7",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              }
+            ],
+            "overallCompliancePct": 30.0,
+            "complianceTier": "Perlu Evaluasi (High Variance)",
+            "tierColor": "#ef4444",
+            "tierBadge": "badge-danger",
+            "hasVariance": true,
+            "variances": [],
+            "primaryVariance": null,
+            "financialAudit": {
+              "insuranceClass": "BPJS Kelas 3",
+              "cbgCode": "N-4-10-I",
+              "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+              "cbgTariff": 5350000,
+              "estimatedRealCost": 595000,
+              "costMargin": 4755000,
+              "costUtilizationPct": 11.1,
+              "costStatus": "Surplus Finansial (Aman)",
+              "costBadge": "badge-success",
+              "alertLevel": "low"
+            }
           }
         },
         {
@@ -21880,7 +22152,7 @@
           "diagnosis": "anemia ec thalasemia minor, hiperbilirubinemia",
           "category": "Hematologi & Onkologi",
           "notes": {
-            "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- SSH USG Abdomen (Rabu 04/11/2026)\n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Besok Kamis 05/11/2026 cek DR ulang jika stok darah sudah tidak ada (+) SSH\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- R/ BLPL Jika HB Sudah Mencapai Target =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg), Kontrol Poli HO",
+            "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- Hasil USG Abdomen (Rabu 04/11/2026) \"Spleenomegali\" \n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Hasil cek DR ulang jika stok darah sudah tidak ada (+) (HB: 9.2 PLT: 247 WBC: 9.08)\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- BLPL =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg) (+) di SIMRS, Kontrol Poli HO",
             "sore": "",
             "malam": ""
           },
@@ -23818,32 +24090,23 @@
           "isEmpty": false,
           "isDischargedToday": false,
           "dischargeColor": null,
-          "name": "Ny. Putri Aulia Alfitri",
-          "mrNo": "00115198",
+          "name": "BOOKINGAN IGD a/n Ny.Juraida (dr.Retno,Sp.KK)",
+          "mrNo": "",
           "gender": "P",
           "age": "",
-          "admissionDate": "02/11/2026",
-          "los": 4,
-          "insurance": "BPJS Kelas 2",
-          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-          "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-          "diagnosis": "Dyspepsia Acute, ITP",
-          "category": "Hematologi & Onkologi",
+          "admissionDate": "",
+          "los": 1,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "",
+          "doctorPrimary": "-",
+          "diagnosis": "",
+          "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "- Kel: Mual (+), muntah (-)\n- RPD: autoimun \n- RPO: minum obat rutin dari dr. Ivan SpPD (Micophen 2x360mg, hc 1x200mg, as folat 1x1mg, prednisolone 1x5mg 2-2-0, lanso 1x30mg, sukralfat syr 3x15ml)\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi ITP: Micophen 2x360 PO, HC 1X200 PO, Prednisolone 5 mg 2-2-0 PO\n- Terapi Dyspepsia Acute: Ondan 3x8mg IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, Sucralfat Syr 4x10cc PO\n- Hasil Lab Tanggal 01/11/2026 (HB: 11,2 PLT: 34 WBC: 2,76) \n- Hasil cek ana if \"Negatif\"\n- Hasil cek CRP \"Negatif\"\n- Hasil cek GDT (Tanggal 01/11/2026) \"Pansitopenia ec. susp. penyakit kronik dd/ bone marrow disorder\"\n- DIET BUBUR BIASA =>> LAPOR KAK DIAH GIZI (+)\n- Hasil Cek Urinalisa di SIMRS (+)\n- PLT: 34. R/ Tranfusi TC 6 unit (KELUARGA URUS 14 UNIT) =>> 8 UNIT (+) Selesai jam 09.40 WIB, Sisa 6 unit diCari\n- Keluhan Gatal-Gatal post TF TC \n- Rabu 04/11/2026 sore cek DR Post Tranfusi TC 8 unit (+) Hasil (+) Tr 57\n- R/ BLPL =>> Resume Pulang (-), Obat pulang (Ondan 3x8mg, Lanso 1x1, Mychopen 2x360, Prednisolon 5 mg 2-2-0, Sucralfat Syr 4x10 cc, Mecobalamin 3x500), Kontrol Poli HO\n\nInfus di UFF, pasien minta dipasang ulang saat TC sudah ada",
+            "pagi": "",
             "sore": "",
             "malam": ""
           },
-          "tags": [
-            {
-              "label": "Rencana Pulang",
-              "color": "green"
-            },
-            {
-              "label": "Transfusi Darah",
-              "color": "red"
-            }
-          ],
+          "tags": [],
           "ews": {
             "score": 0,
             "level": "normal",
@@ -23858,95 +24121,111 @@
             }
           },
           "clinicalPathway": {
-            "pathwayId": "CP-PD-04",
-            "pathwayTitle": "Clinical Pathway Anemia Gravis & Gangguan Hematologi Kronis",
-            "pathwayShortTitle": "Anemia Gravis & Hematologi",
-            "department": "KSM Penyakit Dalam (Divisi Hematologi & Onkologi Medik)",
-            "targetLos": 6,
-            "actualLos": 4,
-            "deltaLos": -2,
+            "pathwayId": "CP-PD-05",
+            "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+            "pathwayShortTitle": "CKD Stage V on HD",
+            "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+            "targetLos": 7,
+            "actualLos": 1,
+            "deltaLos": -6,
             "losStatus": "Compliant (On-Track)",
             "losBadge": "badge-success",
             "losCompliancePct": 100.0,
-            "diagnosticCompliancePct": 40.0,
+            "diagnosticCompliancePct": 0.0,
             "diagnosticDetails": [
               {
-                "code": "LAB_DR_RETIC",
-                "name": "Darah Rutin Lengkap & Hitung Retikulosit",
-                "category": "Laboratorium",
-                "mandatory": true,
-                "isDone": true,
-                "status": "Terpenuhi"
-              },
-              {
-                "code": "LAB_GDT",
-                "name": "Gambaran Darah Tepi (GDT) / Evaluasi Morfologi Eritrosit",
-                "category": "Laboratorium",
-                "mandatory": true,
-                "isDone": true,
-                "status": "Terpenuhi"
-              },
-              {
-                "code": "LAB_FERRITIN",
-                "name": "Serum Iron, TIBC, dan Serum Feritin",
+                "code": "LAB_CREAT_UREUM",
+                "name": "Kreatinin Serum, Ureum, eGFR",
                 "category": "Laboratorium",
                 "mandatory": true,
                 "isDone": false,
                 "status": "Belum Dilakukan (Wajib)"
               },
               {
-                "code": "LAB_HEPATIC_RENAL",
-                "name": "Fungsi Hati (Bilirubin, SGOT, SGPT) & Fungsi Ginjal",
+                "code": "LAB_ELEKTROLIT",
+                "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
                 "category": "Laboratorium",
                 "mandatory": true,
                 "isDone": false,
                 "status": "Belum Dilakukan (Wajib)"
               },
               {
-                "code": "RAD_USG_ABDOMEN",
-                "name": "USG Abdomen (Evaluasi Hepatosplenomegali)",
+                "code": "LAB_DARAH_LENGKAP",
+                "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_EKG",
+                "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_THORAX",
+                "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_USG_RENAL",
+                "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
                 "category": "Radiologi & Penunjang",
                 "mandatory": false,
                 "isDone": false,
                 "status": "Opsional"
               }
             ],
-            "medicationCompliancePct": 50.0,
+            "medicationCompliancePct": 0.0,
             "medicationDetails": [
               {
-                "code": "MED_TRANSFUSI_PRC",
-                "name": "Transfusi Darah PRC Target Hb >= 10-11 g/dL",
-                "timing": "Hari 1 - 4",
-                "mandatory": true,
-                "isGiven": true,
-                "status": "Diberikan Tepat Alur"
-              },
-              {
-                "code": "MED_PREMEDIKASI",
-                "name": "Premedikasi Transfusi (Antihistamin / Ca Glukonas / Antipiretik)",
-                "timing": "Hari 1 - 4",
+                "code": "MED_HD_HEPARIN",
+                "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+                "timing": "Jadwal HD (2x Seminggu)",
                 "mandatory": true,
                 "isGiven": false,
                 "status": "Belum Tercatat (Wajib)"
               },
               {
-                "code": "MED_CHELATION",
-                "name": "Terapi Kelasi Besi (Deferipron / Deferasirox) bila Feritin Tinggi",
-                "timing": "Hari 2 - 6",
+                "code": "MED_ANTI_HIPERKALEMIA",
+                "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+                "timing": "Hari 1 - 3",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_EPO",
+                "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+                "timing": "Pasca HD",
                 "mandatory": false,
                 "isGiven": false,
                 "status": "Sesuai Indikasi"
               },
               {
-                "code": "MED_SUPPLEMENT",
-                "name": "Asam Folat 1x5mg PO & Vitamin E 2x100 IU PO",
-                "timing": "Hari 1 - 6",
+                "code": "MED_BINDER_PHOS",
+                "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+                "timing": "Hari 1 - 7",
                 "mandatory": true,
-                "isGiven": true,
-                "status": "Diberikan Tepat Alur"
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_RESTRIKSI_CAIRAN",
+                "name": "Restriksi Asupan Cairan & Garam Ketat",
+                "timing": "Hari 1 - 7",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
               }
             ],
-            "overallCompliancePct": 61.5,
+            "overallCompliancePct": 30.0,
             "complianceTier": "Perlu Evaluasi (High Variance)",
             "tierColor": "#ef4444",
             "tierBadge": "badge-danger",
@@ -23954,13 +24233,13 @@
             "variances": [],
             "primaryVariance": null,
             "financialAudit": {
-              "insuranceClass": "BPJS Kelas 2",
-              "cbgCode": "D-4-13-I",
-              "cbgDescription": "Anemia Aplastik & Defisiensi Berat Tanpa Komplikasi",
-              "cbgTariff": 5865000,
-              "estimatedRealCost": 3830000,
-              "costMargin": 2035000,
-              "costUtilizationPct": 65.3,
+              "insuranceClass": "BPJS Kelas 3",
+              "cbgCode": "N-4-10-I",
+              "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+              "cbgTariff": 5350000,
+              "estimatedRealCost": 595000,
+              "costMargin": 4755000,
+              "costUtilizationPct": 11.1,
               "costStatus": "Surplus Finansial (Aman)",
               "costBadge": "badge-success",
               "alertLevel": "low"
@@ -24283,9 +24562,9 @@
           "status": "Pulang Hari Ini",
           "isEmpty": true,
           "isDischargedToday": true,
-          "dischargeColor": "FFFF9900",
-          "name": "Tn. Herry",
-          "mrNo": "00270093",
+          "dischargeColor": "FFDBE8F7",
+          "name": "BOOKINGAN IGD a/n Tn. Ilham (dr.Apriani,Sp.PD)",
+          "mrNo": "",
           "gender": "-",
           "age": "",
           "admissionDate": "-",
@@ -24294,9 +24573,9 @@
           "doctor": "-",
           "doctorPrimary": "-",
           "diagnosis": "-",
-          "category": "Nefrologi & Urologi",
+          "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "- Kel: Tidak ada keluhan \n- RPD: pasien ca nasofaring on radiotherapy  \n\ndr.Darmawan,Sp.PD-KGH tanggal 04/11/2026:\n- K:  2.95. Koreksi Ns 0.9 500 + KCl 25 meq per 8 jam =>>  KOLF KE-3 (+)\n- Rabu 04/11/Cek elektrolit ulang post koreksi KCL Kolf ke-3 (K: 3.32) =>> Lapor (+) Blsn (-)\n* Ganti KSR Tablet, Inf Ganti RL 20 tpm\n- Rencana BLPL. Resume (-) resep (+) di sttus \nPULANG",
+            "pagi": "",
             "sore": "",
             "malam": ""
           },
@@ -24304,14 +24583,6 @@
             {
               "label": "Pulang Hari Ini",
               "color": "emerald"
-            },
-            {
-              "label": "Transfusi Darah",
-              "color": "red"
-            },
-            {
-              "label": "Onkologi",
-              "color": "pink"
             }
           ],
           "ews": {
@@ -24348,7 +24619,7 @@
           "diagnosis": "-",
           "category": "Gastroenterologi & Digestif",
           "notes": {
-            "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Antri (+) Balasan (-)\n- Lapor P/B (+)",
+            "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Besok Jumat 06/11/2026 =>> MALAM PUASAKAN (-)\n- Lapor P/B (+)",
             "sore": "",
             "malam": ""
           },
@@ -24360,6 +24631,10 @@
             {
               "label": "Transfusi Darah",
               "color": "red"
+            },
+            {
+              "label": "Puasa Pre-Op",
+              "color": "amber"
             }
           ],
           "ews": {
@@ -24642,21 +24917,21 @@
           "bed": "6.3",
           "room": "KAKAP 6 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Kosong",
-          "isEmpty": true,
+          "status": "Terisi",
+          "isEmpty": false,
           "isDischargedToday": false,
           "dischargeColor": null,
-          "name": "Bed Kosong",
+          "name": "BOOKINGAN ENGGANG GADING TRANSIT a/n Tn. Andri (dr.Darmawan)",
           "mrNo": "",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
+          "admissionDate": "",
+          "los": 1,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "",
           "doctorPrimary": "-",
-          "diagnosis": "-",
-          "category": "-",
+          "diagnosis": "",
+          "category": "Penyakit Dalam (Umum)",
           "notes": {
             "pagi": "",
             "sore": "",
@@ -24666,7 +24941,140 @@
           "ews": {
             "score": 0,
             "level": "normal",
-            "parameters": {}
+            "parameters": {
+              "rr": 18,
+              "spo2": 98,
+              "o2_therapy": false,
+              "sys_bp": 120,
+              "hr": 80,
+              "temp": 36.8,
+              "consciousness": "Alert"
+            }
+          },
+          "clinicalPathway": {
+            "pathwayId": "CP-PD-05",
+            "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+            "pathwayShortTitle": "CKD Stage V on HD",
+            "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+            "targetLos": 7,
+            "actualLos": 1,
+            "deltaLos": -6,
+            "losStatus": "Compliant (On-Track)",
+            "losBadge": "badge-success",
+            "losCompliancePct": 100.0,
+            "diagnosticCompliancePct": 0.0,
+            "diagnosticDetails": [
+              {
+                "code": "LAB_CREAT_UREUM",
+                "name": "Kreatinin Serum, Ureum, eGFR",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "LAB_ELEKTROLIT",
+                "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "LAB_DARAH_LENGKAP",
+                "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+                "category": "Laboratorium",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_EKG",
+                "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_THORAX",
+                "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": true,
+                "isDone": false,
+                "status": "Belum Dilakukan (Wajib)"
+              },
+              {
+                "code": "RAD_USG_RENAL",
+                "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
+                "category": "Radiologi & Penunjang",
+                "mandatory": false,
+                "isDone": false,
+                "status": "Opsional"
+              }
+            ],
+            "medicationCompliancePct": 0.0,
+            "medicationDetails": [
+              {
+                "code": "MED_HD_HEPARIN",
+                "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+                "timing": "Jadwal HD (2x Seminggu)",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_ANTI_HIPERKALEMIA",
+                "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+                "timing": "Hari 1 - 3",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_EPO",
+                "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+                "timing": "Pasca HD",
+                "mandatory": false,
+                "isGiven": false,
+                "status": "Sesuai Indikasi"
+              },
+              {
+                "code": "MED_BINDER_PHOS",
+                "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+                "timing": "Hari 1 - 7",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              },
+              {
+                "code": "MED_RESTRIKSI_CAIRAN",
+                "name": "Restriksi Asupan Cairan & Garam Ketat",
+                "timing": "Hari 1 - 7",
+                "mandatory": true,
+                "isGiven": false,
+                "status": "Belum Tercatat (Wajib)"
+              }
+            ],
+            "overallCompliancePct": 30.0,
+            "complianceTier": "Perlu Evaluasi (High Variance)",
+            "tierColor": "#ef4444",
+            "tierBadge": "badge-danger",
+            "hasVariance": true,
+            "variances": [],
+            "primaryVariance": null,
+            "financialAudit": {
+              "insuranceClass": "BPJS Kelas 3",
+              "cbgCode": "N-4-10-I",
+              "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+              "cbgTariff": 5350000,
+              "estimatedRealCost": 595000,
+              "costMargin": 4755000,
+              "costUtilizationPct": 11.1,
+              "costStatus": "Surplus Finansial (Aman)",
+              "costBadge": "badge-success",
+              "alertLevel": "low"
+            }
           }
         },
         {
@@ -26795,25 +27203,25 @@
         "empty": 4,
         "bor": 90.2,
         "borTim1": 57.1,
-        "borTim2": 55.0,
+        "borTim2": 60.0,
         "borA": 57.1,
-        "borB": 55.0,
+        "borB": 60.0,
         "occTim1": 12,
-        "occTim2": 11,
+        "occTim2": 12,
         "occA": 12,
-        "occB": 11,
+        "occB": 12,
         "emptyTim1": 9,
-        "emptyTim2": 9,
+        "emptyTim2": 8,
         "emptyA": 9,
-        "emptyB": 9,
+        "emptyB": 8,
         "dischargedToday": 13,
         "tagCounts": {
           "Pulang Hari Ini": 13,
-          "Rencana Pulang": 6,
-          "Transfusi Darah": 24,
-          "Onkologi": 12,
+          "Rencana Pulang": 5,
+          "Transfusi Darah": 22,
+          "Onkologi": 11,
           "Hemodialisa (HD)": 16,
-          "Puasa Pre-Op": 2,
+          "Puasa Pre-Op": 3,
           "Bedah / Operasi": 3,
           "Bed Isolasi": 1
         },
@@ -26989,7 +27397,7 @@
         "diagnosis": "anemia ec thalasemia minor, hiperbilirubinemia",
         "category": "Hematologi & Onkologi",
         "notes": {
-          "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- SSH USG Abdomen (Rabu 04/11/2026)\n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Besok Kamis 05/11/2026 cek DR ulang jika stok darah sudah tidak ada (+) SSH\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- R/ BLPL Jika HB Sudah Mencapai Target =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg), Kontrol Poli HO",
+          "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- Hasil USG Abdomen (Rabu 04/11/2026) \"Spleenomegali\" \n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Hasil cek DR ulang jika stok darah sudah tidak ada (+) (HB: 9.2 PLT: 247 WBC: 9.08)\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- BLPL =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg) (+) di SIMRS, Kontrol Poli HO",
           "sore": "",
           "malam": ""
         },
@@ -28927,32 +29335,23 @@
         "isEmpty": false,
         "isDischargedToday": false,
         "dischargeColor": null,
-        "name": "Ny. Putri Aulia Alfitri",
-        "mrNo": "00115198",
+        "name": "BOOKINGAN IGD a/n Ny.Juraida (dr.Retno,Sp.KK)",
+        "mrNo": "",
         "gender": "P",
         "age": "",
-        "admissionDate": "02/11/2026",
-        "los": 4,
-        "insurance": "BPJS Kelas 2",
-        "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-        "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-        "diagnosis": "Dyspepsia Acute, ITP",
-        "category": "Hematologi & Onkologi",
+        "admissionDate": "",
+        "los": 1,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "",
+        "doctorPrimary": "-",
+        "diagnosis": "",
+        "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "- Kel: Mual (+), muntah (-)\n- RPD: autoimun \n- RPO: minum obat rutin dari dr. Ivan SpPD (Micophen 2x360mg, hc 1x200mg, as folat 1x1mg, prednisolone 1x5mg 2-2-0, lanso 1x30mg, sukralfat syr 3x15ml)\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi ITP: Micophen 2x360 PO, HC 1X200 PO, Prednisolone 5 mg 2-2-0 PO\n- Terapi Dyspepsia Acute: Ondan 3x8mg IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, Sucralfat Syr 4x10cc PO\n- Hasil Lab Tanggal 01/11/2026 (HB: 11,2 PLT: 34 WBC: 2,76) \n- Hasil cek ana if \"Negatif\"\n- Hasil cek CRP \"Negatif\"\n- Hasil cek GDT (Tanggal 01/11/2026) \"Pansitopenia ec. susp. penyakit kronik dd/ bone marrow disorder\"\n- DIET BUBUR BIASA =>> LAPOR KAK DIAH GIZI (+)\n- Hasil Cek Urinalisa di SIMRS (+)\n- PLT: 34. R/ Tranfusi TC 6 unit (KELUARGA URUS 14 UNIT) =>> 8 UNIT (+) Selesai jam 09.40 WIB, Sisa 6 unit diCari\n- Keluhan Gatal-Gatal post TF TC \n- Rabu 04/11/2026 sore cek DR Post Tranfusi TC 8 unit (+) Hasil (+) Tr 57\n- R/ BLPL =>> Resume Pulang (-), Obat pulang (Ondan 3x8mg, Lanso 1x1, Mychopen 2x360, Prednisolon 5 mg 2-2-0, Sucralfat Syr 4x10 cc, Mecobalamin 3x500), Kontrol Poli HO\n\nInfus di UFF, pasien minta dipasang ulang saat TC sudah ada",
+          "pagi": "",
           "sore": "",
           "malam": ""
         },
-        "tags": [
-          {
-            "label": "Rencana Pulang",
-            "color": "green"
-          },
-          {
-            "label": "Transfusi Darah",
-            "color": "red"
-          }
-        ],
+        "tags": [],
         "ews": {
           "score": 0,
           "level": "normal",
@@ -28967,95 +29366,111 @@
           }
         },
         "clinicalPathway": {
-          "pathwayId": "CP-PD-04",
-          "pathwayTitle": "Clinical Pathway Anemia Gravis & Gangguan Hematologi Kronis",
-          "pathwayShortTitle": "Anemia Gravis & Hematologi",
-          "department": "KSM Penyakit Dalam (Divisi Hematologi & Onkologi Medik)",
-          "targetLos": 6,
-          "actualLos": 4,
-          "deltaLos": -2,
+          "pathwayId": "CP-PD-05",
+          "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+          "pathwayShortTitle": "CKD Stage V on HD",
+          "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+          "targetLos": 7,
+          "actualLos": 1,
+          "deltaLos": -6,
           "losStatus": "Compliant (On-Track)",
           "losBadge": "badge-success",
           "losCompliancePct": 100.0,
-          "diagnosticCompliancePct": 40.0,
+          "diagnosticCompliancePct": 0.0,
           "diagnosticDetails": [
             {
-              "code": "LAB_DR_RETIC",
-              "name": "Darah Rutin Lengkap & Hitung Retikulosit",
-              "category": "Laboratorium",
-              "mandatory": true,
-              "isDone": true,
-              "status": "Terpenuhi"
-            },
-            {
-              "code": "LAB_GDT",
-              "name": "Gambaran Darah Tepi (GDT) / Evaluasi Morfologi Eritrosit",
-              "category": "Laboratorium",
-              "mandatory": true,
-              "isDone": true,
-              "status": "Terpenuhi"
-            },
-            {
-              "code": "LAB_FERRITIN",
-              "name": "Serum Iron, TIBC, dan Serum Feritin",
+              "code": "LAB_CREAT_UREUM",
+              "name": "Kreatinin Serum, Ureum, eGFR",
               "category": "Laboratorium",
               "mandatory": true,
               "isDone": false,
               "status": "Belum Dilakukan (Wajib)"
             },
             {
-              "code": "LAB_HEPATIC_RENAL",
-              "name": "Fungsi Hati (Bilirubin, SGOT, SGPT) & Fungsi Ginjal",
+              "code": "LAB_ELEKTROLIT",
+              "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
               "category": "Laboratorium",
               "mandatory": true,
               "isDone": false,
               "status": "Belum Dilakukan (Wajib)"
             },
             {
-              "code": "RAD_USG_ABDOMEN",
-              "name": "USG Abdomen (Evaluasi Hepatosplenomegali)",
+              "code": "LAB_DARAH_LENGKAP",
+              "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_EKG",
+              "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_THORAX",
+              "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_USG_RENAL",
+              "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
               "category": "Radiologi & Penunjang",
               "mandatory": false,
               "isDone": false,
               "status": "Opsional"
             }
           ],
-          "medicationCompliancePct": 50.0,
+          "medicationCompliancePct": 0.0,
           "medicationDetails": [
             {
-              "code": "MED_TRANSFUSI_PRC",
-              "name": "Transfusi Darah PRC Target Hb >= 10-11 g/dL",
-              "timing": "Hari 1 - 4",
-              "mandatory": true,
-              "isGiven": true,
-              "status": "Diberikan Tepat Alur"
-            },
-            {
-              "code": "MED_PREMEDIKASI",
-              "name": "Premedikasi Transfusi (Antihistamin / Ca Glukonas / Antipiretik)",
-              "timing": "Hari 1 - 4",
+              "code": "MED_HD_HEPARIN",
+              "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+              "timing": "Jadwal HD (2x Seminggu)",
               "mandatory": true,
               "isGiven": false,
               "status": "Belum Tercatat (Wajib)"
             },
             {
-              "code": "MED_CHELATION",
-              "name": "Terapi Kelasi Besi (Deferipron / Deferasirox) bila Feritin Tinggi",
-              "timing": "Hari 2 - 6",
+              "code": "MED_ANTI_HIPERKALEMIA",
+              "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+              "timing": "Hari 1 - 3",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_EPO",
+              "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+              "timing": "Pasca HD",
               "mandatory": false,
               "isGiven": false,
               "status": "Sesuai Indikasi"
             },
             {
-              "code": "MED_SUPPLEMENT",
-              "name": "Asam Folat 1x5mg PO & Vitamin E 2x100 IU PO",
-              "timing": "Hari 1 - 6",
+              "code": "MED_BINDER_PHOS",
+              "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+              "timing": "Hari 1 - 7",
               "mandatory": true,
-              "isGiven": true,
-              "status": "Diberikan Tepat Alur"
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_RESTRIKSI_CAIRAN",
+              "name": "Restriksi Asupan Cairan & Garam Ketat",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
             }
           ],
-          "overallCompliancePct": 61.5,
+          "overallCompliancePct": 30.0,
           "complianceTier": "Perlu Evaluasi (High Variance)",
           "tierColor": "#ef4444",
           "tierBadge": "badge-danger",
@@ -29063,13 +29478,13 @@
           "variances": [],
           "primaryVariance": null,
           "financialAudit": {
-            "insuranceClass": "BPJS Kelas 2",
-            "cbgCode": "D-4-13-I",
-            "cbgDescription": "Anemia Aplastik & Defisiensi Berat Tanpa Komplikasi",
-            "cbgTariff": 5865000,
-            "estimatedRealCost": 3830000,
-            "costMargin": 2035000,
-            "costUtilizationPct": 65.3,
+            "insuranceClass": "BPJS Kelas 3",
+            "cbgCode": "N-4-10-I",
+            "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+            "cbgTariff": 5350000,
+            "estimatedRealCost": 595000,
+            "costMargin": 4755000,
+            "costUtilizationPct": 11.1,
             "costStatus": "Surplus Finansial (Aman)",
             "costBadge": "badge-success",
             "alertLevel": "low"
@@ -29392,9 +29807,9 @@
         "status": "Pulang Hari Ini",
         "isEmpty": true,
         "isDischargedToday": true,
-        "dischargeColor": "FFFF9900",
-        "name": "Tn. Herry",
-        "mrNo": "00270093",
+        "dischargeColor": "FFDBE8F7",
+        "name": "BOOKINGAN IGD a/n Tn. Ilham (dr.Apriani,Sp.PD)",
+        "mrNo": "",
         "gender": "-",
         "age": "",
         "admissionDate": "-",
@@ -29403,9 +29818,9 @@
         "doctor": "-",
         "doctorPrimary": "-",
         "diagnosis": "-",
-        "category": "Nefrologi & Urologi",
+        "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "- Kel: Tidak ada keluhan \n- RPD: pasien ca nasofaring on radiotherapy  \n\ndr.Darmawan,Sp.PD-KGH tanggal 04/11/2026:\n- K:  2.95. Koreksi Ns 0.9 500 + KCl 25 meq per 8 jam =>>  KOLF KE-3 (+)\n- Rabu 04/11/Cek elektrolit ulang post koreksi KCL Kolf ke-3 (K: 3.32) =>> Lapor (+) Blsn (-)\n* Ganti KSR Tablet, Inf Ganti RL 20 tpm\n- Rencana BLPL. Resume (-) resep (+) di sttus \nPULANG",
+          "pagi": "",
           "sore": "",
           "malam": ""
         },
@@ -29413,14 +29828,6 @@
           {
             "label": "Pulang Hari Ini",
             "color": "emerald"
-          },
-          {
-            "label": "Transfusi Darah",
-            "color": "red"
-          },
-          {
-            "label": "Onkologi",
-            "color": "pink"
           }
         ],
         "ews": {
@@ -29457,7 +29864,7 @@
         "diagnosis": "-",
         "category": "Gastroenterologi & Digestif",
         "notes": {
-          "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Antri (+) Balasan (-)\n- Lapor P/B (+)",
+          "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Besok Jumat 06/11/2026 =>> MALAM PUASAKAN (-)\n- Lapor P/B (+)",
           "sore": "",
           "malam": ""
         },
@@ -29469,6 +29876,10 @@
           {
             "label": "Transfusi Darah",
             "color": "red"
+          },
+          {
+            "label": "Puasa Pre-Op",
+            "color": "amber"
           }
         ],
         "ews": {
@@ -29701,21 +30112,21 @@
         "bed": "6.3",
         "room": "KAKAP 6 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Kosong",
-        "isEmpty": true,
+        "status": "Terisi",
+        "isEmpty": false,
         "isDischargedToday": false,
         "dischargeColor": null,
-        "name": "Bed Kosong",
+        "name": "BOOKINGAN ENGGANG GADING TRANSIT a/n Tn. Andri (dr.Darmawan)",
         "mrNo": "",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
+        "admissionDate": "",
+        "los": 1,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "",
         "doctorPrimary": "-",
-        "diagnosis": "-",
-        "category": "-",
+        "diagnosis": "",
+        "category": "Penyakit Dalam (Umum)",
         "notes": {
           "pagi": "",
           "sore": "",
@@ -29725,7 +30136,140 @@
         "ews": {
           "score": 0,
           "level": "normal",
-          "parameters": {}
+          "parameters": {
+            "rr": 18,
+            "spo2": 98,
+            "o2_therapy": false,
+            "sys_bp": 120,
+            "hr": 80,
+            "temp": 36.8,
+            "consciousness": "Alert"
+          }
+        },
+        "clinicalPathway": {
+          "pathwayId": "CP-PD-05",
+          "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+          "pathwayShortTitle": "CKD Stage V on HD",
+          "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+          "targetLos": 7,
+          "actualLos": 1,
+          "deltaLos": -6,
+          "losStatus": "Compliant (On-Track)",
+          "losBadge": "badge-success",
+          "losCompliancePct": 100.0,
+          "diagnosticCompliancePct": 0.0,
+          "diagnosticDetails": [
+            {
+              "code": "LAB_CREAT_UREUM",
+              "name": "Kreatinin Serum, Ureum, eGFR",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "LAB_ELEKTROLIT",
+              "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "LAB_DARAH_LENGKAP",
+              "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_EKG",
+              "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_THORAX",
+              "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_USG_RENAL",
+              "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": false,
+              "isDone": false,
+              "status": "Opsional"
+            }
+          ],
+          "medicationCompliancePct": 0.0,
+          "medicationDetails": [
+            {
+              "code": "MED_HD_HEPARIN",
+              "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+              "timing": "Jadwal HD (2x Seminggu)",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_ANTI_HIPERKALEMIA",
+              "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+              "timing": "Hari 1 - 3",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_EPO",
+              "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+              "timing": "Pasca HD",
+              "mandatory": false,
+              "isGiven": false,
+              "status": "Sesuai Indikasi"
+            },
+            {
+              "code": "MED_BINDER_PHOS",
+              "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_RESTRIKSI_CAIRAN",
+              "name": "Restriksi Asupan Cairan & Garam Ketat",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            }
+          ],
+          "overallCompliancePct": 30.0,
+          "complianceTier": "Perlu Evaluasi (High Variance)",
+          "tierColor": "#ef4444",
+          "tierBadge": "badge-danger",
+          "hasVariance": true,
+          "variances": [],
+          "primaryVariance": null,
+          "financialAudit": {
+            "insuranceClass": "BPJS Kelas 3",
+            "cbgCode": "N-4-10-I",
+            "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+            "cbgTariff": 5350000,
+            "estimatedRealCost": 595000,
+            "costMargin": 4755000,
+            "costUtilizationPct": 11.1,
+            "costStatus": "Surplus Finansial (Aman)",
+            "costBadge": "badge-success",
+            "alertLevel": "low"
+          }
         }
       },
       {
@@ -31957,7 +32501,7 @@
         "diagnosis": "anemia ec thalasemia minor, hiperbilirubinemia",
         "category": "Hematologi & Onkologi",
         "notes": {
-          "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- SSH USG Abdomen (Rabu 04/11/2026)\n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Besok Kamis 05/11/2026 cek DR ulang jika stok darah sudah tidak ada (+) SSH\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- R/ BLPL Jika HB Sudah Mencapai Target =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg), Kontrol Poli HO",
+          "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- Hasil USG Abdomen (Rabu 04/11/2026) \"Spleenomegali\" \n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Hasil cek DR ulang jika stok darah sudah tidak ada (+) (HB: 9.2 PLT: 247 WBC: 9.08)\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- BLPL =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg) (+) di SIMRS, Kontrol Poli HO",
           "sore": "",
           "malam": ""
         },
@@ -33895,32 +34439,23 @@
         "isEmpty": false,
         "isDischargedToday": false,
         "dischargeColor": null,
-        "name": "Ny. Putri Aulia Alfitri",
-        "mrNo": "00115198",
+        "name": "BOOKINGAN IGD a/n Ny.Juraida (dr.Retno,Sp.KK)",
+        "mrNo": "",
         "gender": "P",
         "age": "",
-        "admissionDate": "02/11/2026",
-        "los": 4,
-        "insurance": "BPJS Kelas 2",
-        "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-        "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-        "diagnosis": "Dyspepsia Acute, ITP",
-        "category": "Hematologi & Onkologi",
+        "admissionDate": "",
+        "los": 1,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "",
+        "doctorPrimary": "-",
+        "diagnosis": "",
+        "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "- Kel: Mual (+), muntah (-)\n- RPD: autoimun \n- RPO: minum obat rutin dari dr. Ivan SpPD (Micophen 2x360mg, hc 1x200mg, as folat 1x1mg, prednisolone 1x5mg 2-2-0, lanso 1x30mg, sukralfat syr 3x15ml)\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi ITP: Micophen 2x360 PO, HC 1X200 PO, Prednisolone 5 mg 2-2-0 PO\n- Terapi Dyspepsia Acute: Ondan 3x8mg IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, Sucralfat Syr 4x10cc PO\n- Hasil Lab Tanggal 01/11/2026 (HB: 11,2 PLT: 34 WBC: 2,76) \n- Hasil cek ana if \"Negatif\"\n- Hasil cek CRP \"Negatif\"\n- Hasil cek GDT (Tanggal 01/11/2026) \"Pansitopenia ec. susp. penyakit kronik dd/ bone marrow disorder\"\n- DIET BUBUR BIASA =>> LAPOR KAK DIAH GIZI (+)\n- Hasil Cek Urinalisa di SIMRS (+)\n- PLT: 34. R/ Tranfusi TC 6 unit (KELUARGA URUS 14 UNIT) =>> 8 UNIT (+) Selesai jam 09.40 WIB, Sisa 6 unit diCari\n- Keluhan Gatal-Gatal post TF TC \n- Rabu 04/11/2026 sore cek DR Post Tranfusi TC 8 unit (+) Hasil (+) Tr 57\n- R/ BLPL =>> Resume Pulang (-), Obat pulang (Ondan 3x8mg, Lanso 1x1, Mychopen 2x360, Prednisolon 5 mg 2-2-0, Sucralfat Syr 4x10 cc, Mecobalamin 3x500), Kontrol Poli HO\n\nInfus di UFF, pasien minta dipasang ulang saat TC sudah ada",
+          "pagi": "",
           "sore": "",
           "malam": ""
         },
-        "tags": [
-          {
-            "label": "Rencana Pulang",
-            "color": "green"
-          },
-          {
-            "label": "Transfusi Darah",
-            "color": "red"
-          }
-        ],
+        "tags": [],
         "ews": {
           "score": 0,
           "level": "normal",
@@ -33935,95 +34470,111 @@
           }
         },
         "clinicalPathway": {
-          "pathwayId": "CP-PD-04",
-          "pathwayTitle": "Clinical Pathway Anemia Gravis & Gangguan Hematologi Kronis",
-          "pathwayShortTitle": "Anemia Gravis & Hematologi",
-          "department": "KSM Penyakit Dalam (Divisi Hematologi & Onkologi Medik)",
-          "targetLos": 6,
-          "actualLos": 4,
-          "deltaLos": -2,
+          "pathwayId": "CP-PD-05",
+          "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+          "pathwayShortTitle": "CKD Stage V on HD",
+          "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+          "targetLos": 7,
+          "actualLos": 1,
+          "deltaLos": -6,
           "losStatus": "Compliant (On-Track)",
           "losBadge": "badge-success",
           "losCompliancePct": 100.0,
-          "diagnosticCompliancePct": 40.0,
+          "diagnosticCompliancePct": 0.0,
           "diagnosticDetails": [
             {
-              "code": "LAB_DR_RETIC",
-              "name": "Darah Rutin Lengkap & Hitung Retikulosit",
-              "category": "Laboratorium",
-              "mandatory": true,
-              "isDone": true,
-              "status": "Terpenuhi"
-            },
-            {
-              "code": "LAB_GDT",
-              "name": "Gambaran Darah Tepi (GDT) / Evaluasi Morfologi Eritrosit",
-              "category": "Laboratorium",
-              "mandatory": true,
-              "isDone": true,
-              "status": "Terpenuhi"
-            },
-            {
-              "code": "LAB_FERRITIN",
-              "name": "Serum Iron, TIBC, dan Serum Feritin",
+              "code": "LAB_CREAT_UREUM",
+              "name": "Kreatinin Serum, Ureum, eGFR",
               "category": "Laboratorium",
               "mandatory": true,
               "isDone": false,
               "status": "Belum Dilakukan (Wajib)"
             },
             {
-              "code": "LAB_HEPATIC_RENAL",
-              "name": "Fungsi Hati (Bilirubin, SGOT, SGPT) & Fungsi Ginjal",
+              "code": "LAB_ELEKTROLIT",
+              "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
               "category": "Laboratorium",
               "mandatory": true,
               "isDone": false,
               "status": "Belum Dilakukan (Wajib)"
             },
             {
-              "code": "RAD_USG_ABDOMEN",
-              "name": "USG Abdomen (Evaluasi Hepatosplenomegali)",
+              "code": "LAB_DARAH_LENGKAP",
+              "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_EKG",
+              "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_THORAX",
+              "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_USG_RENAL",
+              "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
               "category": "Radiologi & Penunjang",
               "mandatory": false,
               "isDone": false,
               "status": "Opsional"
             }
           ],
-          "medicationCompliancePct": 50.0,
+          "medicationCompliancePct": 0.0,
           "medicationDetails": [
             {
-              "code": "MED_TRANSFUSI_PRC",
-              "name": "Transfusi Darah PRC Target Hb >= 10-11 g/dL",
-              "timing": "Hari 1 - 4",
-              "mandatory": true,
-              "isGiven": true,
-              "status": "Diberikan Tepat Alur"
-            },
-            {
-              "code": "MED_PREMEDIKASI",
-              "name": "Premedikasi Transfusi (Antihistamin / Ca Glukonas / Antipiretik)",
-              "timing": "Hari 1 - 4",
+              "code": "MED_HD_HEPARIN",
+              "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+              "timing": "Jadwal HD (2x Seminggu)",
               "mandatory": true,
               "isGiven": false,
               "status": "Belum Tercatat (Wajib)"
             },
             {
-              "code": "MED_CHELATION",
-              "name": "Terapi Kelasi Besi (Deferipron / Deferasirox) bila Feritin Tinggi",
-              "timing": "Hari 2 - 6",
+              "code": "MED_ANTI_HIPERKALEMIA",
+              "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+              "timing": "Hari 1 - 3",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_EPO",
+              "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+              "timing": "Pasca HD",
               "mandatory": false,
               "isGiven": false,
               "status": "Sesuai Indikasi"
             },
             {
-              "code": "MED_SUPPLEMENT",
-              "name": "Asam Folat 1x5mg PO & Vitamin E 2x100 IU PO",
-              "timing": "Hari 1 - 6",
+              "code": "MED_BINDER_PHOS",
+              "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+              "timing": "Hari 1 - 7",
               "mandatory": true,
-              "isGiven": true,
-              "status": "Diberikan Tepat Alur"
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_RESTRIKSI_CAIRAN",
+              "name": "Restriksi Asupan Cairan & Garam Ketat",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
             }
           ],
-          "overallCompliancePct": 61.5,
+          "overallCompliancePct": 30.0,
           "complianceTier": "Perlu Evaluasi (High Variance)",
           "tierColor": "#ef4444",
           "tierBadge": "badge-danger",
@@ -34031,13 +34582,13 @@
           "variances": [],
           "primaryVariance": null,
           "financialAudit": {
-            "insuranceClass": "BPJS Kelas 2",
-            "cbgCode": "D-4-13-I",
-            "cbgDescription": "Anemia Aplastik & Defisiensi Berat Tanpa Komplikasi",
-            "cbgTariff": 5865000,
-            "estimatedRealCost": 3830000,
-            "costMargin": 2035000,
-            "costUtilizationPct": 65.3,
+            "insuranceClass": "BPJS Kelas 3",
+            "cbgCode": "N-4-10-I",
+            "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+            "cbgTariff": 5350000,
+            "estimatedRealCost": 595000,
+            "costMargin": 4755000,
+            "costUtilizationPct": 11.1,
             "costStatus": "Surplus Finansial (Aman)",
             "costBadge": "badge-success",
             "alertLevel": "low"
@@ -34360,9 +34911,9 @@
         "status": "Pulang Hari Ini",
         "isEmpty": true,
         "isDischargedToday": true,
-        "dischargeColor": "FFFF9900",
-        "name": "Tn. Herry",
-        "mrNo": "00270093",
+        "dischargeColor": "FFDBE8F7",
+        "name": "BOOKINGAN IGD a/n Tn. Ilham (dr.Apriani,Sp.PD)",
+        "mrNo": "",
         "gender": "-",
         "age": "",
         "admissionDate": "-",
@@ -34371,9 +34922,9 @@
         "doctor": "-",
         "doctorPrimary": "-",
         "diagnosis": "-",
-        "category": "Nefrologi & Urologi",
+        "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "- Kel: Tidak ada keluhan \n- RPD: pasien ca nasofaring on radiotherapy  \n\ndr.Darmawan,Sp.PD-KGH tanggal 04/11/2026:\n- K:  2.95. Koreksi Ns 0.9 500 + KCl 25 meq per 8 jam =>>  KOLF KE-3 (+)\n- Rabu 04/11/Cek elektrolit ulang post koreksi KCL Kolf ke-3 (K: 3.32) =>> Lapor (+) Blsn (-)\n* Ganti KSR Tablet, Inf Ganti RL 20 tpm\n- Rencana BLPL. Resume (-) resep (+) di sttus \nPULANG",
+          "pagi": "",
           "sore": "",
           "malam": ""
         },
@@ -34381,14 +34932,6 @@
           {
             "label": "Pulang Hari Ini",
             "color": "emerald"
-          },
-          {
-            "label": "Transfusi Darah",
-            "color": "red"
-          },
-          {
-            "label": "Onkologi",
-            "color": "pink"
           }
         ],
         "ews": {
@@ -34425,7 +34968,7 @@
         "diagnosis": "-",
         "category": "Gastroenterologi & Digestif",
         "notes": {
-          "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Antri (+) Balasan (-)\n- Lapor P/B (+)",
+          "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Besok Jumat 06/11/2026 =>> MALAM PUASAKAN (-)\n- Lapor P/B (+)",
           "sore": "",
           "malam": ""
         },
@@ -34437,6 +34980,10 @@
           {
             "label": "Transfusi Darah",
             "color": "red"
+          },
+          {
+            "label": "Puasa Pre-Op",
+            "color": "amber"
           }
         ],
         "ews": {
@@ -34719,21 +35266,21 @@
         "bed": "6.3",
         "room": "KAKAP 6 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Kosong",
-        "isEmpty": true,
+        "status": "Terisi",
+        "isEmpty": false,
         "isDischargedToday": false,
         "dischargeColor": null,
-        "name": "Bed Kosong",
+        "name": "BOOKINGAN ENGGANG GADING TRANSIT a/n Tn. Andri (dr.Darmawan)",
         "mrNo": "",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
+        "admissionDate": "",
+        "los": 1,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "",
         "doctorPrimary": "-",
-        "diagnosis": "-",
-        "category": "-",
+        "diagnosis": "",
+        "category": "Penyakit Dalam (Umum)",
         "notes": {
           "pagi": "",
           "sore": "",
@@ -34743,7 +35290,140 @@
         "ews": {
           "score": 0,
           "level": "normal",
-          "parameters": {}
+          "parameters": {
+            "rr": 18,
+            "spo2": 98,
+            "o2_therapy": false,
+            "sys_bp": 120,
+            "hr": 80,
+            "temp": 36.8,
+            "consciousness": "Alert"
+          }
+        },
+        "clinicalPathway": {
+          "pathwayId": "CP-PD-05",
+          "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+          "pathwayShortTitle": "CKD Stage V on HD",
+          "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+          "targetLos": 7,
+          "actualLos": 1,
+          "deltaLos": -6,
+          "losStatus": "Compliant (On-Track)",
+          "losBadge": "badge-success",
+          "losCompliancePct": 100.0,
+          "diagnosticCompliancePct": 0.0,
+          "diagnosticDetails": [
+            {
+              "code": "LAB_CREAT_UREUM",
+              "name": "Kreatinin Serum, Ureum, eGFR",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "LAB_ELEKTROLIT",
+              "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "LAB_DARAH_LENGKAP",
+              "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_EKG",
+              "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_THORAX",
+              "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_USG_RENAL",
+              "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": false,
+              "isDone": false,
+              "status": "Opsional"
+            }
+          ],
+          "medicationCompliancePct": 0.0,
+          "medicationDetails": [
+            {
+              "code": "MED_HD_HEPARIN",
+              "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+              "timing": "Jadwal HD (2x Seminggu)",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_ANTI_HIPERKALEMIA",
+              "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+              "timing": "Hari 1 - 3",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_EPO",
+              "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+              "timing": "Pasca HD",
+              "mandatory": false,
+              "isGiven": false,
+              "status": "Sesuai Indikasi"
+            },
+            {
+              "code": "MED_BINDER_PHOS",
+              "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_RESTRIKSI_CAIRAN",
+              "name": "Restriksi Asupan Cairan & Garam Ketat",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            }
+          ],
+          "overallCompliancePct": 30.0,
+          "complianceTier": "Perlu Evaluasi (High Variance)",
+          "tierColor": "#ef4444",
+          "tierBadge": "badge-danger",
+          "hasVariance": true,
+          "variances": [],
+          "primaryVariance": null,
+          "financialAudit": {
+            "insuranceClass": "BPJS Kelas 3",
+            "cbgCode": "N-4-10-I",
+            "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+            "cbgTariff": 5350000,
+            "estimatedRealCost": 595000,
+            "costMargin": 4755000,
+            "costUtilizationPct": 11.1,
+            "costStatus": "Surplus Finansial (Aman)",
+            "costBadge": "badge-success",
+            "alertLevel": "low"
+          }
         }
       },
       {
@@ -36927,7 +37607,7 @@
         "diagnosis": "anemia ec thalasemia minor, hiperbilirubinemia",
         "category": "Hematologi & Onkologi",
         "notes": {
-          "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- SSH USG Abdomen (Rabu 04/11/2026)\n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Besok Kamis 05/11/2026 cek DR ulang jika stok darah sudah tidak ada (+) SSH\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- R/ BLPL Jika HB Sudah Mencapai Target =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg), Kontrol Poli HO",
+          "pagi": "- Kel: Lemah \n- RPD : thalasemia (+), riw. terakhir transfusi 4 bulan yang lalu. Terakhir konsul ke dr.Ivan,Sp.PD-KHOM 1 tahun yll & tidak rutin konsul, Rutin Tranfusi di RS UNTAN\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi Thalesemia: Ceftriaxone 2x1gr IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, As. Folat 1x5mg PO, Vit E 2x100 PO, Deferipron 3x3 tab (1500mg) PO\n- Hasil cek GDT (Tanggal 28/10/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. thalassemia dd/ proses hemolitik lainnya; paska perdarahan. blast (-)\"\n- Hasil cek feritin (Tanggal 12/08/2025): 666.92\n- SSH cek TIBC, Serum Irone (Selasa 03/11/1016)\n- Hasil USG Abdomen (Rabu 04/11/2026) \"Spleenomegali\" \n- R/ Cek Panel Thalasemia (Lab Luar) =>> TIDAK BISA DILAKUKAN KARENA HARUS MINIMAL, 2 BULAN TERAKHIR TRANFUSI\n- HB: 6.9. R/ Tranfusi PRC 4 kolf (TARGET S/D HB > 10 / 11) =>> 2 Kolf (+), sisa 2 kolf MASIH DICARI\n- Hasil cek DR ulang jika stok darah sudah tidak ada (+) (HB: 9.2 PLT: 247 WBC: 9.08)\n- Inj. Ca Glukonas 1 amp + NS 100 cc Post Tranfusi PRC 3 kolf (-)\n- BLPL =>>Resume Pulang (-), Obat pulang (Deferipron 3x1500, Vit. E 2x100, As. Folat 1x5mg) (+) di SIMRS, Kontrol Poli HO",
           "sore": "",
           "malam": ""
         },
@@ -38865,32 +39545,23 @@
         "isEmpty": false,
         "isDischargedToday": false,
         "dischargeColor": null,
-        "name": "Ny. Putri Aulia Alfitri",
-        "mrNo": "00115198",
+        "name": "BOOKINGAN IGD a/n Ny.Juraida (dr.Retno,Sp.KK)",
+        "mrNo": "",
         "gender": "P",
         "age": "",
-        "admissionDate": "02/11/2026",
-        "los": 4,
-        "insurance": "BPJS Kelas 2",
-        "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-        "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-        "diagnosis": "Dyspepsia Acute, ITP",
-        "category": "Hematologi & Onkologi",
+        "admissionDate": "",
+        "los": 1,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "",
+        "doctorPrimary": "-",
+        "diagnosis": "",
+        "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "- Kel: Mual (+), muntah (-)\n- RPD: autoimun \n- RPO: minum obat rutin dari dr. Ivan SpPD (Micophen 2x360mg, hc 1x200mg, as folat 1x1mg, prednisolone 1x5mg 2-2-0, lanso 1x30mg, sukralfat syr 3x15ml)\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFLuid : Asering (1:2 kolf/hari)\n- Terapi ITP: Micophen 2x360 PO, HC 1X200 PO, Prednisolone 5 mg 2-2-0 PO\n- Terapi Dyspepsia Acute: Ondan 3x8mg IV, Lanso 1x30mg IV, Mecobalamin 2x500mg IV, Sucralfat Syr 4x10cc PO\n- Hasil Lab Tanggal 01/11/2026 (HB: 11,2 PLT: 34 WBC: 2,76) \n- Hasil cek ana if \"Negatif\"\n- Hasil cek CRP \"Negatif\"\n- Hasil cek GDT (Tanggal 01/11/2026) \"Pansitopenia ec. susp. penyakit kronik dd/ bone marrow disorder\"\n- DIET BUBUR BIASA =>> LAPOR KAK DIAH GIZI (+)\n- Hasil Cek Urinalisa di SIMRS (+)\n- PLT: 34. R/ Tranfusi TC 6 unit (KELUARGA URUS 14 UNIT) =>> 8 UNIT (+) Selesai jam 09.40 WIB, Sisa 6 unit diCari\n- Keluhan Gatal-Gatal post TF TC \n- Rabu 04/11/2026 sore cek DR Post Tranfusi TC 8 unit (+) Hasil (+) Tr 57\n- R/ BLPL =>> Resume Pulang (-), Obat pulang (Ondan 3x8mg, Lanso 1x1, Mychopen 2x360, Prednisolon 5 mg 2-2-0, Sucralfat Syr 4x10 cc, Mecobalamin 3x500), Kontrol Poli HO\n\nInfus di UFF, pasien minta dipasang ulang saat TC sudah ada",
+          "pagi": "",
           "sore": "",
           "malam": ""
         },
-        "tags": [
-          {
-            "label": "Rencana Pulang",
-            "color": "green"
-          },
-          {
-            "label": "Transfusi Darah",
-            "color": "red"
-          }
-        ],
+        "tags": [],
         "ews": {
           "score": 0,
           "level": "normal",
@@ -38905,95 +39576,111 @@
           }
         },
         "clinicalPathway": {
-          "pathwayId": "CP-PD-04",
-          "pathwayTitle": "Clinical Pathway Anemia Gravis & Gangguan Hematologi Kronis",
-          "pathwayShortTitle": "Anemia Gravis & Hematologi",
-          "department": "KSM Penyakit Dalam (Divisi Hematologi & Onkologi Medik)",
-          "targetLos": 6,
-          "actualLos": 4,
-          "deltaLos": -2,
+          "pathwayId": "CP-PD-05",
+          "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+          "pathwayShortTitle": "CKD Stage V on HD",
+          "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+          "targetLos": 7,
+          "actualLos": 1,
+          "deltaLos": -6,
           "losStatus": "Compliant (On-Track)",
           "losBadge": "badge-success",
           "losCompliancePct": 100.0,
-          "diagnosticCompliancePct": 40.0,
+          "diagnosticCompliancePct": 0.0,
           "diagnosticDetails": [
             {
-              "code": "LAB_DR_RETIC",
-              "name": "Darah Rutin Lengkap & Hitung Retikulosit",
-              "category": "Laboratorium",
-              "mandatory": true,
-              "isDone": true,
-              "status": "Terpenuhi"
-            },
-            {
-              "code": "LAB_GDT",
-              "name": "Gambaran Darah Tepi (GDT) / Evaluasi Morfologi Eritrosit",
-              "category": "Laboratorium",
-              "mandatory": true,
-              "isDone": true,
-              "status": "Terpenuhi"
-            },
-            {
-              "code": "LAB_FERRITIN",
-              "name": "Serum Iron, TIBC, dan Serum Feritin",
+              "code": "LAB_CREAT_UREUM",
+              "name": "Kreatinin Serum, Ureum, eGFR",
               "category": "Laboratorium",
               "mandatory": true,
               "isDone": false,
               "status": "Belum Dilakukan (Wajib)"
             },
             {
-              "code": "LAB_HEPATIC_RENAL",
-              "name": "Fungsi Hati (Bilirubin, SGOT, SGPT) & Fungsi Ginjal",
+              "code": "LAB_ELEKTROLIT",
+              "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
               "category": "Laboratorium",
               "mandatory": true,
               "isDone": false,
               "status": "Belum Dilakukan (Wajib)"
             },
             {
-              "code": "RAD_USG_ABDOMEN",
-              "name": "USG Abdomen (Evaluasi Hepatosplenomegali)",
+              "code": "LAB_DARAH_LENGKAP",
+              "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_EKG",
+              "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_THORAX",
+              "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_USG_RENAL",
+              "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
               "category": "Radiologi & Penunjang",
               "mandatory": false,
               "isDone": false,
               "status": "Opsional"
             }
           ],
-          "medicationCompliancePct": 50.0,
+          "medicationCompliancePct": 0.0,
           "medicationDetails": [
             {
-              "code": "MED_TRANSFUSI_PRC",
-              "name": "Transfusi Darah PRC Target Hb >= 10-11 g/dL",
-              "timing": "Hari 1 - 4",
-              "mandatory": true,
-              "isGiven": true,
-              "status": "Diberikan Tepat Alur"
-            },
-            {
-              "code": "MED_PREMEDIKASI",
-              "name": "Premedikasi Transfusi (Antihistamin / Ca Glukonas / Antipiretik)",
-              "timing": "Hari 1 - 4",
+              "code": "MED_HD_HEPARIN",
+              "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+              "timing": "Jadwal HD (2x Seminggu)",
               "mandatory": true,
               "isGiven": false,
               "status": "Belum Tercatat (Wajib)"
             },
             {
-              "code": "MED_CHELATION",
-              "name": "Terapi Kelasi Besi (Deferipron / Deferasirox) bila Feritin Tinggi",
-              "timing": "Hari 2 - 6",
+              "code": "MED_ANTI_HIPERKALEMIA",
+              "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+              "timing": "Hari 1 - 3",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_EPO",
+              "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+              "timing": "Pasca HD",
               "mandatory": false,
               "isGiven": false,
               "status": "Sesuai Indikasi"
             },
             {
-              "code": "MED_SUPPLEMENT",
-              "name": "Asam Folat 1x5mg PO & Vitamin E 2x100 IU PO",
-              "timing": "Hari 1 - 6",
+              "code": "MED_BINDER_PHOS",
+              "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+              "timing": "Hari 1 - 7",
               "mandatory": true,
-              "isGiven": true,
-              "status": "Diberikan Tepat Alur"
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_RESTRIKSI_CAIRAN",
+              "name": "Restriksi Asupan Cairan & Garam Ketat",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
             }
           ],
-          "overallCompliancePct": 61.5,
+          "overallCompliancePct": 30.0,
           "complianceTier": "Perlu Evaluasi (High Variance)",
           "tierColor": "#ef4444",
           "tierBadge": "badge-danger",
@@ -39001,13 +39688,13 @@
           "variances": [],
           "primaryVariance": null,
           "financialAudit": {
-            "insuranceClass": "BPJS Kelas 2",
-            "cbgCode": "D-4-13-I",
-            "cbgDescription": "Anemia Aplastik & Defisiensi Berat Tanpa Komplikasi",
-            "cbgTariff": 5865000,
-            "estimatedRealCost": 3830000,
-            "costMargin": 2035000,
-            "costUtilizationPct": 65.3,
+            "insuranceClass": "BPJS Kelas 3",
+            "cbgCode": "N-4-10-I",
+            "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+            "cbgTariff": 5350000,
+            "estimatedRealCost": 595000,
+            "costMargin": 4755000,
+            "costUtilizationPct": 11.1,
             "costStatus": "Surplus Finansial (Aman)",
             "costBadge": "badge-success",
             "alertLevel": "low"
@@ -39330,9 +40017,9 @@
         "status": "Pulang Hari Ini",
         "isEmpty": true,
         "isDischargedToday": true,
-        "dischargeColor": "FFFF9900",
-        "name": "Tn. Herry",
-        "mrNo": "00270093",
+        "dischargeColor": "FFDBE8F7",
+        "name": "BOOKINGAN IGD a/n Tn. Ilham (dr.Apriani,Sp.PD)",
+        "mrNo": "",
         "gender": "-",
         "age": "",
         "admissionDate": "-",
@@ -39341,9 +40028,9 @@
         "doctor": "-",
         "doctorPrimary": "-",
         "diagnosis": "-",
-        "category": "Nefrologi & Urologi",
+        "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "- Kel: Tidak ada keluhan \n- RPD: pasien ca nasofaring on radiotherapy  \n\ndr.Darmawan,Sp.PD-KGH tanggal 04/11/2026:\n- K:  2.95. Koreksi Ns 0.9 500 + KCl 25 meq per 8 jam =>>  KOLF KE-3 (+)\n- Rabu 04/11/Cek elektrolit ulang post koreksi KCL Kolf ke-3 (K: 3.32) =>> Lapor (+) Blsn (-)\n* Ganti KSR Tablet, Inf Ganti RL 20 tpm\n- Rencana BLPL. Resume (-) resep (+) di sttus \nPULANG",
+          "pagi": "",
           "sore": "",
           "malam": ""
         },
@@ -39351,14 +40038,6 @@
           {
             "label": "Pulang Hari Ini",
             "color": "emerald"
-          },
-          {
-            "label": "Transfusi Darah",
-            "color": "red"
-          },
-          {
-            "label": "Onkologi",
-            "color": "pink"
           }
         ],
         "ews": {
@@ -39395,7 +40074,7 @@
         "diagnosis": "-",
         "category": "Gastroenterologi & Digestif",
         "notes": {
-          "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Antri (+) Balasan (-)\n- Lapor P/B (+)",
+          "pagi": "P/B IGD jam 09.30\n- Kel: Nyeri ulu hati, muntah hitam dan bab hitam sejak 3 hari ini, kedua kaki bengkak,\n\ndr. Apriani via IGD \n- NS 20 tpm mak \n- Inj Omperazle 80mg sslanjutnya 2 x 40 mg iv \n- Inj Ondansnetron 3 x 8 mg iv \n- Inj Asam Traneksamat 3 x 500 mg iv \n- Sukralfat syr 4 x 10 mL \n- Tranfusi PRC 4 kolf (sedang Urus)\n- Drip cifrofloksasin 2x200mg st\n- besok 06/11/2026 cek GDT, cek feses\nDR ulang 6 jam post tranfusi\n- R/ Usg Abd Besok Jumat 06/11/2026 =>> MALAM PUASAKAN (-)\n- Lapor P/B (+)",
           "sore": "",
           "malam": ""
         },
@@ -39407,6 +40086,10 @@
           {
             "label": "Transfusi Darah",
             "color": "red"
+          },
+          {
+            "label": "Puasa Pre-Op",
+            "color": "amber"
           }
         ],
         "ews": {
@@ -39689,21 +40372,21 @@
         "bed": "6.3",
         "room": "KAKAP 6 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Kosong",
-        "isEmpty": true,
+        "status": "Terisi",
+        "isEmpty": false,
         "isDischargedToday": false,
         "dischargeColor": null,
-        "name": "Bed Kosong",
+        "name": "BOOKINGAN ENGGANG GADING TRANSIT a/n Tn. Andri (dr.Darmawan)",
         "mrNo": "",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
+        "admissionDate": "",
+        "los": 1,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "",
         "doctorPrimary": "-",
-        "diagnosis": "-",
-        "category": "-",
+        "diagnosis": "",
+        "category": "Penyakit Dalam (Umum)",
         "notes": {
           "pagi": "",
           "sore": "",
@@ -39713,7 +40396,140 @@
         "ews": {
           "score": 0,
           "level": "normal",
-          "parameters": {}
+          "parameters": {
+            "rr": 18,
+            "spo2": 98,
+            "o2_therapy": false,
+            "sys_bp": 120,
+            "hr": 80,
+            "temp": 36.8,
+            "consciousness": "Alert"
+          }
+        },
+        "clinicalPathway": {
+          "pathwayId": "CP-PD-05",
+          "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+          "pathwayShortTitle": "CKD Stage V on HD",
+          "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+          "targetLos": 7,
+          "actualLos": 1,
+          "deltaLos": -6,
+          "losStatus": "Compliant (On-Track)",
+          "losBadge": "badge-success",
+          "losCompliancePct": 100.0,
+          "diagnosticCompliancePct": 0.0,
+          "diagnosticDetails": [
+            {
+              "code": "LAB_CREAT_UREUM",
+              "name": "Kreatinin Serum, Ureum, eGFR",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "LAB_ELEKTROLIT",
+              "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "LAB_DARAH_LENGKAP",
+              "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_EKG",
+              "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_THORAX",
+              "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_USG_RENAL",
+              "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": false,
+              "isDone": false,
+              "status": "Opsional"
+            }
+          ],
+          "medicationCompliancePct": 0.0,
+          "medicationDetails": [
+            {
+              "code": "MED_HD_HEPARIN",
+              "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+              "timing": "Jadwal HD (2x Seminggu)",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_ANTI_HIPERKALEMIA",
+              "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+              "timing": "Hari 1 - 3",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_EPO",
+              "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+              "timing": "Pasca HD",
+              "mandatory": false,
+              "isGiven": false,
+              "status": "Sesuai Indikasi"
+            },
+            {
+              "code": "MED_BINDER_PHOS",
+              "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_RESTRIKSI_CAIRAN",
+              "name": "Restriksi Asupan Cairan & Garam Ketat",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            }
+          ],
+          "overallCompliancePct": 30.0,
+          "complianceTier": "Perlu Evaluasi (High Variance)",
+          "tierColor": "#ef4444",
+          "tierBadge": "badge-danger",
+          "hasVariance": true,
+          "variances": [],
+          "primaryVariance": null,
+          "financialAudit": {
+            "insuranceClass": "BPJS Kelas 3",
+            "cbgCode": "N-4-10-I",
+            "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+            "cbgTariff": 5350000,
+            "estimatedRealCost": 595000,
+            "costMargin": 4755000,
+            "costUtilizationPct": 11.1,
+            "costStatus": "Surplus Finansial (Aman)",
+            "costBadge": "badge-success",
+            "alertLevel": "low"
+          }
         }
       },
       {
@@ -41842,25 +42658,25 @@
       "empty": 4,
       "bor": 90.2,
       "borTim1": 57.1,
-      "borTim2": 55.0,
+      "borTim2": 60.0,
       "borA": 57.1,
-      "borB": 55.0,
+      "borB": 60.0,
       "occTim1": 12,
-      "occTim2": 11,
+      "occTim2": 12,
       "occA": 12,
-      "occB": 11,
+      "occB": 12,
       "emptyTim1": 9,
-      "emptyTim2": 9,
+      "emptyTim2": 8,
       "emptyA": 9,
-      "emptyB": 9,
+      "emptyB": 8,
       "dischargedToday": 13,
       "tagCounts": {
         "Pulang Hari Ini": 13,
-        "Rencana Pulang": 6,
-        "Transfusi Darah": 24,
-        "Onkologi": 12,
+        "Rencana Pulang": 5,
+        "Transfusi Darah": 22,
+        "Onkologi": 11,
         "Hemodialisa (HD)": 16,
-        "Puasa Pre-Op": 2,
+        "Puasa Pre-Op": 3,
         "Bedah / Operasi": 3,
         "Bed Isolasi": 1
       },
@@ -41970,22 +42786,22 @@
   },
   "clinicalPathways": {
     "summary": {
-      "totalInpatients": 23,
-      "totalCpInpatients": 23,
+      "totalInpatients": 24,
+      "totalCpInpatients": 24,
       "cpCoveragePct": 100.0,
-      "avgDiagnosticCompliance": 49.9,
-      "avgMedicationCompliance": 39.3,
-      "avgLosCompliance": 87.9,
-      "overallCpCompliance": 57.6,
+      "avgDiagnosticCompliance": 46.2,
+      "avgMedicationCompliance": 35.6,
+      "avgLosCompliance": 88.4,
+      "overallCpCompliance": 55.1,
       "compliantPatientsCount": 1,
-      "variancePatientsCount": 23,
+      "variancePatientsCount": 24,
       "overLosPatientsCount": 5,
       "financialAuditSummary": {
-        "totalInaCbgTariff": 124160000,
-        "totalEstimatedRealCost": 108230000,
-        "netFinancialMargin": 15930000,
-        "costEfficiencyPct": 87.2,
-        "surplusPatientsCount": 18,
+        "totalInaCbgTariff": 128995000,
+        "totalEstimatedRealCost": 105590000,
+        "netFinancialMargin": 23405000,
+        "costEfficiencyPct": 81.9,
+        "surplusPatientsCount": 19,
         "deficitPatientsCount": 5,
         "costContainmentStatus": "Optimal (Surplus Finansial Terkendali)"
       }
@@ -42173,9 +42989,9 @@
         "title": "Clinical Pathway Anemia Gravis & Gangguan Hematologi Kronis",
         "shortTitle": "Anemia Gravis & Hematologi",
         "targetLos": 6,
-        "patientCount": 6,
-        "avgOverallCompliance": 61.4,
-        "sumOverall": 368.20000000000005,
+        "patientCount": 5,
+        "avgOverallCompliance": 61.3,
+        "sumOverall": 306.70000000000005,
         "overLosCount": 1
       },
       {
@@ -42183,9 +42999,9 @@
         "title": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
         "shortTitle": "CKD Stage V on HD",
         "targetLos": 7,
-        "patientCount": 13,
-        "avgOverallCompliance": 53.5,
-        "sumOverall": 695.0,
+        "patientCount": 15,
+        "avgOverallCompliance": 50.3,
+        "sumOverall": 755.0,
         "overLosCount": 3
       },
       {
@@ -43657,104 +44473,120 @@
       {
         "bed": "4.3",
         "room": "KAKAP 4 ♀ PEREMPUAN",
-        "name": "Ny. Putri Aulia Alfitri",
-        "mrNo": "00115198",
+        "name": "BOOKINGAN IGD a/n Ny.Juraida (dr.Retno,Sp.KK)",
+        "mrNo": "",
         "age": "",
         "gender": "P",
-        "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-        "admissionDate": "02/11/2026",
-        "diagnosis": "Dyspepsia Acute, ITP",
-        "insurance": "BPJS Kelas 2",
+        "doctor": "-",
+        "admissionDate": "",
+        "diagnosis": "",
+        "insurance": "BPJS Kelas 3",
         "audit": {
-          "pathwayId": "CP-PD-04",
-          "pathwayTitle": "Clinical Pathway Anemia Gravis & Gangguan Hematologi Kronis",
-          "pathwayShortTitle": "Anemia Gravis & Hematologi",
-          "department": "KSM Penyakit Dalam (Divisi Hematologi & Onkologi Medik)",
-          "targetLos": 6,
-          "actualLos": 4,
-          "deltaLos": -2,
+          "pathwayId": "CP-PD-05",
+          "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+          "pathwayShortTitle": "CKD Stage V on HD",
+          "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+          "targetLos": 7,
+          "actualLos": 1,
+          "deltaLos": -6,
           "losStatus": "Compliant (On-Track)",
           "losBadge": "badge-success",
           "losCompliancePct": 100.0,
-          "diagnosticCompliancePct": 40.0,
+          "diagnosticCompliancePct": 0.0,
           "diagnosticDetails": [
             {
-              "code": "LAB_DR_RETIC",
-              "name": "Darah Rutin Lengkap & Hitung Retikulosit",
-              "category": "Laboratorium",
-              "mandatory": true,
-              "isDone": true,
-              "status": "Terpenuhi"
-            },
-            {
-              "code": "LAB_GDT",
-              "name": "Gambaran Darah Tepi (GDT) / Evaluasi Morfologi Eritrosit",
-              "category": "Laboratorium",
-              "mandatory": true,
-              "isDone": true,
-              "status": "Terpenuhi"
-            },
-            {
-              "code": "LAB_FERRITIN",
-              "name": "Serum Iron, TIBC, dan Serum Feritin",
+              "code": "LAB_CREAT_UREUM",
+              "name": "Kreatinin Serum, Ureum, eGFR",
               "category": "Laboratorium",
               "mandatory": true,
               "isDone": false,
               "status": "Belum Dilakukan (Wajib)"
             },
             {
-              "code": "LAB_HEPATIC_RENAL",
-              "name": "Fungsi Hati (Bilirubin, SGOT, SGPT) & Fungsi Ginjal",
+              "code": "LAB_ELEKTROLIT",
+              "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
               "category": "Laboratorium",
               "mandatory": true,
               "isDone": false,
               "status": "Belum Dilakukan (Wajib)"
             },
             {
-              "code": "RAD_USG_ABDOMEN",
-              "name": "USG Abdomen (Evaluasi Hepatosplenomegali)",
+              "code": "LAB_DARAH_LENGKAP",
+              "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_EKG",
+              "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_THORAX",
+              "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_USG_RENAL",
+              "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
               "category": "Radiologi & Penunjang",
               "mandatory": false,
               "isDone": false,
               "status": "Opsional"
             }
           ],
-          "medicationCompliancePct": 50.0,
+          "medicationCompliancePct": 0.0,
           "medicationDetails": [
             {
-              "code": "MED_TRANSFUSI_PRC",
-              "name": "Transfusi Darah PRC Target Hb >= 10-11 g/dL",
-              "timing": "Hari 1 - 4",
-              "mandatory": true,
-              "isGiven": true,
-              "status": "Diberikan Tepat Alur"
-            },
-            {
-              "code": "MED_PREMEDIKASI",
-              "name": "Premedikasi Transfusi (Antihistamin / Ca Glukonas / Antipiretik)",
-              "timing": "Hari 1 - 4",
+              "code": "MED_HD_HEPARIN",
+              "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+              "timing": "Jadwal HD (2x Seminggu)",
               "mandatory": true,
               "isGiven": false,
               "status": "Belum Tercatat (Wajib)"
             },
             {
-              "code": "MED_CHELATION",
-              "name": "Terapi Kelasi Besi (Deferipron / Deferasirox) bila Feritin Tinggi",
-              "timing": "Hari 2 - 6",
+              "code": "MED_ANTI_HIPERKALEMIA",
+              "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+              "timing": "Hari 1 - 3",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_EPO",
+              "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+              "timing": "Pasca HD",
               "mandatory": false,
               "isGiven": false,
               "status": "Sesuai Indikasi"
             },
             {
-              "code": "MED_SUPPLEMENT",
-              "name": "Asam Folat 1x5mg PO & Vitamin E 2x100 IU PO",
-              "timing": "Hari 1 - 6",
+              "code": "MED_BINDER_PHOS",
+              "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+              "timing": "Hari 1 - 7",
               "mandatory": true,
-              "isGiven": true,
-              "status": "Diberikan Tepat Alur"
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_RESTRIKSI_CAIRAN",
+              "name": "Restriksi Asupan Cairan & Garam Ketat",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
             }
           ],
-          "overallCompliancePct": 61.5,
+          "overallCompliancePct": 30.0,
           "complianceTier": "Perlu Evaluasi (High Variance)",
           "tierColor": "#ef4444",
           "tierBadge": "badge-danger",
@@ -43762,13 +44594,13 @@
           "variances": [],
           "primaryVariance": null,
           "financialAudit": {
-            "insuranceClass": "BPJS Kelas 2",
-            "cbgCode": "D-4-13-I",
-            "cbgDescription": "Anemia Aplastik & Defisiensi Berat Tanpa Komplikasi",
-            "cbgTariff": 5865000,
-            "estimatedRealCost": 3830000,
-            "costMargin": 2035000,
-            "costUtilizationPct": 65.3,
+            "insuranceClass": "BPJS Kelas 3",
+            "cbgCode": "N-4-10-I",
+            "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+            "cbgTariff": 5350000,
+            "estimatedRealCost": 595000,
+            "costMargin": 4755000,
+            "costUtilizationPct": 11.1,
             "costStatus": "Surplus Finansial (Aman)",
             "costBadge": "badge-success",
             "alertLevel": "low"
@@ -44079,6 +44911,143 @@
             "estimatedRealCost": 4065000,
             "costMargin": 1285000,
             "costUtilizationPct": 76.0,
+            "costStatus": "Surplus Finansial (Aman)",
+            "costBadge": "badge-success",
+            "alertLevel": "low"
+          }
+        }
+      },
+      {
+        "bed": "6.3",
+        "room": "KAKAP 6 ♂ LAKI-LAKI",
+        "name": "BOOKINGAN ENGGANG GADING TRANSIT a/n Tn. Andri (dr.Darmawan)",
+        "mrNo": "",
+        "age": "",
+        "gender": "P",
+        "doctor": "-",
+        "admissionDate": "",
+        "diagnosis": "",
+        "insurance": "BPJS Kelas 3",
+        "audit": {
+          "pathwayId": "CP-PD-05",
+          "pathwayTitle": "Clinical Pathway Penyakit Ginjal Kronik (CKD Stage V on HD)",
+          "pathwayShortTitle": "CKD Stage V on HD",
+          "department": "KSM Penyakit Dalam (Divisi Nefrologi & Hipertensi)",
+          "targetLos": 7,
+          "actualLos": 1,
+          "deltaLos": -6,
+          "losStatus": "Compliant (On-Track)",
+          "losBadge": "badge-success",
+          "losCompliancePct": 100.0,
+          "diagnosticCompliancePct": 0.0,
+          "diagnosticDetails": [
+            {
+              "code": "LAB_CREAT_UREUM",
+              "name": "Kreatinin Serum, Ureum, eGFR",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "LAB_ELEKTROLIT",
+              "name": "Elektrolit Lengkap (K, Na, Cl, Ca, P) - Evaluasi Hiperkalemia",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "LAB_DARAH_LENGKAP",
+              "name": "Darah Lengkap & Evaluasi Anemia Renalis (Hb, Ht)",
+              "category": "Laboratorium",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_EKG",
+              "name": "Rekam EKG (Tanda Hiperkalemia / T-Tall)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_THORAX",
+              "name": "Foto Thoraks (Penapisan Edema Paru / Kardiomegali)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": true,
+              "isDone": false,
+              "status": "Belum Dilakukan (Wajib)"
+            },
+            {
+              "code": "RAD_USG_RENAL",
+              "name": "USG Ginjal / Traktus Urinarius (Ukuran Korteks & Obstruksi)",
+              "category": "Radiologi & Penunjang",
+              "mandatory": false,
+              "isDone": false,
+              "status": "Opsional"
+            }
+          ],
+          "medicationCompliancePct": 0.0,
+          "medicationDetails": [
+            {
+              "code": "MED_HD_HEPARIN",
+              "name": "Hemodialisis Reguler / Cito dengan Antikoagulan Terukur",
+              "timing": "Jadwal HD (2x Seminggu)",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_ANTI_HIPERKALEMIA",
+              "name": "Koreksi Hiperkalemia (Ca Glukonas, Insulin + D40, Kalitake)",
+              "timing": "Hari 1 - 3",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_EPO",
+              "name": "Erythropoietin Stimulating Agent (EPO) & Zat Besi IV",
+              "timing": "Pasca HD",
+              "mandatory": false,
+              "isGiven": false,
+              "status": "Sesuai Indikasi"
+            },
+            {
+              "code": "MED_BINDER_PHOS",
+              "name": "Phosphate Binder (Kalsium Karbonat) & Vitamin D",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            },
+            {
+              "code": "MED_RESTRIKSI_CAIRAN",
+              "name": "Restriksi Asupan Cairan & Garam Ketat",
+              "timing": "Hari 1 - 7",
+              "mandatory": true,
+              "isGiven": false,
+              "status": "Belum Tercatat (Wajib)"
+            }
+          ],
+          "overallCompliancePct": 30.0,
+          "complianceTier": "Perlu Evaluasi (High Variance)",
+          "tierColor": "#ef4444",
+          "tierBadge": "badge-danger",
+          "hasVariance": true,
+          "variances": [],
+          "primaryVariance": null,
+          "financialAudit": {
+            "insuranceClass": "BPJS Kelas 3",
+            "cbgCode": "N-4-10-I",
+            "cbgDescription": "Gagal Ginjal Kronik Tahap Akhir / Gangguan Ginjal Berat",
+            "cbgTariff": 5350000,
+            "estimatedRealCost": 595000,
+            "costMargin": 4755000,
+            "costUtilizationPct": 11.1,
             "costStatus": "Surplus Finansial (Aman)",
             "costBadge": "badge-success",
             "alertLevel": "low"
