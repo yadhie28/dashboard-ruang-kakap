@@ -4723,3 +4723,245 @@ body::before {
   }
 }
 
+
+
+/* ==========================================================================
+   CLINICAL PATHWAY (CP) COMPLIANCE MODULE STYLES (RSUD DR. SOEDARSO)
+   ========================================================================== */
+
+.cp-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.cp-header-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cp-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cp-header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cp-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  flex-shrink: 0;
+}
+
+.cp-icon-badge svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cp-header-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cp-subnav-bar {
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.85rem;
+  overflow-x: auto;
+}
+
+.cp-subnav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cp-subnav-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.cp-subnav-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-main);
+}
+
+.cp-subnav-btn.active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
+}
+
+.cp-subview-panel {
+  display: none;
+}
+
+.cp-subview-panel.active {
+  display: block;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* Status Pills */
+.cp-status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  user-select: none;
+}
+
+.cp-status-pill:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.cp-status-terlaksana {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.cp-status-tidak {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.cp-status-na {
+  background: #e2e8f0;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.cp-status-disabled {
+  background: transparent;
+  color: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.cp-status-disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Matrix Table Styling */
+.cp-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+.cp-matrix-table th {
+  padding: 10px 12px;
+  background: var(--bg-muted);
+  border-bottom: 2px solid var(--border-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.3px;
+  color: var(--text-muted);
+}
+
+.cp-matrix-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.cp-matrix-table tbody tr:hover {
+  background: var(--bg-hover);
+}
+
+.cp-matrix-domain-header {
+  background: var(--bg-surface) !important;
+  font-weight: 800;
+  color: var(--accent-color);
+  font-size: 0.85rem;
+  padding: 10px 12px !important;
+  border-top: 2px solid var(--border-color);
+}
+
+/* Print Styles */
+body.printing-cp > *:not(#printContainer) {
+  display: none !important;
+}
+
+body.printing-cp #printContainer {
+  display: block !important;
+  visibility: visible !important;
+  position: relative !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 10mm 15mm !important;
+  background: #fff !important;
+  color: #000 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8.5pt;
+  line-height: 1.3;
+}
+
+body.printing-cp #printContainer * {
+  visibility: visible !important;
+  box-sizing: border-box !important;
+}
+
+.cp-print-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-size: 8pt;
+}
+
+.cp-print-table th,
+.cp-print-table td {
+  border: 1px solid #333;
+  padding: 4px 6px;
+  vertical-align: top;
+}
+
+.cp-print-table th {
+  background-color: #f1f5f9;
+  font-weight: bold;
+}
+

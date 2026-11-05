@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupEventListeners();
   initSyncSchedule();
   initWhatsAppCensus();
+  initClinicalPathwayModule();
   loadData();
 });
 
@@ -339,6 +340,7 @@ async function loadData() {
     renderAnalyticsTab();
     renderBarberJohnsonTab();
     initChronologyModule();
+    renderClinicalPathwayTab();
     showToast('Data berhasil dimuat! Sensus terkini: ' + formatIndonesianDate(state.currentDate), 'success');
   } catch (err) {
     console.error('Error loading data:', err);
@@ -394,6 +396,9 @@ function setupEventListeners() {
       }
       if (targetId === 'tabChronology') {
         renderChronologyTab();
+      }
+      if (targetId === 'tabClinicalPathway') {
+        renderClinicalPathwayTab();
       }
     });
   });
@@ -1561,6 +1566,17 @@ function openPatientModal(pt) {
       if (!patient) return;
       closeModal();
       switchToChronologyWithPatient(patient);
+    };
+  }
+
+  // Connect Clinical Pathway Button in Modal
+  const modalCpBtn = document.getElementById('modalOpenCpBtn');
+  if (modalCpBtn) {
+    modalCpBtn.onclick = () => {
+      const patient = state.selectedPatient;
+      if (!patient) return;
+      closeModal();
+      switchToClinicalPathwayWithPatient(patient);
     };
   }
 
@@ -4882,5 +4898,1609 @@ function initWhatsAppCensus() {
   if (sendBtn) {
     sendBtn.addEventListener('click', sendWhatsAppToKaru);
   }
+}
+
+
+
+// ==========================================================================
+// MODUL PENGUKUR KEPATUHAN CLINICAL PATHWAY (RSUD DR. SOEDARSO PONTIANAK)
+// Multi-PPA: DPJP, Perawat, Gizi, Farmasi, Fisioterapi, Komite Mutu / KMKP
+// ==========================================================================
+
+const CP_STATE = {
+  activeSubView: "checklist", // "checklist", "summary", "builder", "variances"
+  activeEpisodeId: null,
+  activePpaFilter: "ALL",
+  activeDayFilter: "ALL",
+  data: null,
+  pendingVariance: null,
+  customTemplates: []
+};
+
+// Initialize Clinical Pathway Module
+function initClinicalPathwayModule() {
+  // Load custom templates from localStorage if any
+  try {
+    const saved = localStorage.getItem("kakap_cp_custom_templates");
+    if (saved) CP_STATE.customTemplates = JSON.parse(saved);
+  } catch (e) {
+    console.warn("Failed to load custom templates from localStorage", e);
+  }
+
+  // Sub-Navigation Tabs
+  const subnavBtns = document.querySelectorAll(".cp-subnav-btn");
+  subnavBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const targetSub = btn.getAttribute("data-cpsub");
+      switchCpSubView(targetSub);
+    });
+  });
+
+  // PPA Filter Group
+  const ppaGroup = document.getElementById("cpPpaFilterGroup");
+  if (ppaGroup) {
+    ppaGroup.querySelectorAll("button").forEach(b => {
+      b.addEventListener("click", () => {
+        ppaGroup.querySelectorAll("button").forEach(x => x.classList.remove("active"));
+        b.classList.add("active");
+        CP_STATE.activePpaFilter = b.getAttribute("data-ppa");
+        renderCpChecklistSubView();
+      });
+    });
+  }
+
+  // Patient / Episode Select
+  const ptSelect = document.getElementById("cpPatientSelect");
+  if (ptSelect) {
+    ptSelect.addEventListener("change", (e) => {
+      CP_STATE.activeEpisodeId = e.target.value;
+      renderCpChecklistSubView();
+    });
+  }
+
+  // Action Buttons
+  const markAllBtn = document.getElementById("btnCpMarkAllDayDone");
+  if (markAllBtn) {
+    markAllBtn.addEventListener("click", markAllActiveDayDone);
+  }
+
+  const printPatientBtn = document.getElementById("btnCpPrintPatientSheet");
+  if (printPatientBtn) {
+    printPatientBtn.addEventListener("click", () => {
+      if (CP_STATE.activeEpisodeId) printClinicalPathwaySheet(CP_STATE.activeEpisodeId);
+    });
+  }
+
+  const printReportBtn = document.getElementById("btnCpPrintReport");
+  if (printReportBtn) {
+    printReportBtn.addEventListener("click", printClinicalPathwayAggregateReport);
+  }
+
+  const refreshBtn = document.getElementById("btnCpRefreshData");
+  if (refreshBtn) {
+    refreshBtn.addEventListener("click", () => {
+      loadClinicalPathwayData(true);
+      showToast("Data Clinical Pathway berhasil disinkronisasi!", "success");
+    });
+  }
+
+  // Variance Modal Listeners
+  const varCancelBtn = document.getElementById("btnVarCancel");
+  const varCloseBtn = document.getElementById("btnVarCloseModal");
+  const varSaveBtn = document.getElementById("btnVarSave");
+  if (varCancelBtn) varCancelBtn.addEventListener("click", closeVarianceModal);
+  if (varCloseBtn) varCloseBtn.addEventListener("click", closeVarianceModal);
+  if (varSaveBtn) varSaveBtn.addEventListener("click", saveVarianceRecord);
+
+  // CP Builder Listeners
+  const createTmplBtn = document.getElementById("btnCpCreateNewTemplate");
+  if (createTmplBtn) createTmplBtn.addEventListener("click", () => openCpBuilderModal());
+
+  const resetSeedBtn = document.getElementById("btnCpResetSeed");
+  if (resetSeedBtn) resetSeedBtn.addEventListener("click", resetCpTemplatesToSeed);
+
+  const bldCloseBtn = document.getElementById("btnCpBuilderCloseModal");
+  const bldCancelBtn = document.getElementById("btnCpBuilderCancel");
+  const bldSaveBtn = document.getElementById("btnCpBuilderSave");
+  const bldAddRowBtn = document.getElementById("btnCpBuilderAddItemRow");
+  if (bldCloseBtn) bldCloseBtn.addEventListener("click", closeCpBuilderModal);
+  if (bldCancelBtn) bldCancelBtn.addEventListener("click", closeCpBuilderModal);
+  if (bldSaveBtn) bldSaveBtn.addEventListener("click", saveCpBuilderTemplate);
+  if (bldAddRowBtn) bldAddRowBtn.addEventListener("click", () => addCpBuilderItemRow());
+
+  // Print Preview Modal Listeners
+  const printCloseBtn = document.getElementById("btnCpPrintCloseModal");
+  const printCloseBottomBtn = document.getElementById("btnCpPrintCloseModalBottom");
+  const printTriggerBtn = document.getElementById("btnCpTriggerNativePrint");
+  if (printCloseBtn) printCloseBtn.addEventListener("click", closeCpPrintPreviewModal);
+  if (printCloseBottomBtn) printCloseBottomBtn.addEventListener("click", closeCpPrintPreviewModal);
+  if (printTriggerBtn) {
+    printTriggerBtn.addEventListener("click", () => {
+      document.body.classList.add("printing-cp");
+      window.print();
+      setTimeout(() => document.body.classList.remove("printing-cp"), 1000);
+    });
+  }
+
+  // Summary Search & Filter
+  const searchInput = document.getElementById("cpSearchEpisodeInput");
+  if (searchInput) {
+    searchInput.addEventListener("input", filterSummaryEpisodes);
+  }
+  const cpFilterDropdown = document.getElementById("cpFilterCpDropdown");
+  if (cpFilterDropdown) {
+    cpFilterDropdown.addEventListener("change", filterSummaryEpisodes);
+  }
+
+  const addVarDirectBtn = document.getElementById("btnCpAddNewVarianceDirect");
+  if (addVarDirectBtn) {
+    addVarDirectBtn.addEventListener("click", () => {
+      if (CP_STATE.activeEpisodeId) {
+        openVarianceModal(CP_STATE.activeEpisodeId, null, 1, "TIDAK_TERLAKSANA");
+      } else {
+        showToast("Pilih episode pasien terlebih dahulu.", "info");
+      }
+    });
+  }
+}
+
+// Load Clinical Pathway Data (API / JSON)
+async function loadClinicalPathwayData(forceRefresh = false) {
+  if (CP_STATE.data && !forceRefresh) return CP_STATE.data;
+
+  try {
+    if (state.data && state.data.clinicalPathways && !forceRefresh) {
+      CP_STATE.data = state.data.clinicalPathways;
+    } else {
+      const resp = await fetch("clinical_pathways.json?t=" + Date.now());
+      if (resp.ok) {
+        CP_STATE.data = await resp.json();
+      } else if (state.data && state.data.clinicalPathways) {
+        CP_STATE.data = state.data.clinicalPathways;
+      }
+    }
+  } catch (err) {
+    console.warn("Could not fetch clinical_pathways.json:", err);
+    if (state.data && state.data.clinicalPathways) {
+      CP_STATE.data = state.data.clinicalPathways;
+    }
+  }
+
+  // Merge any user overrides from localStorage
+  try {
+    const localStore = localStorage.getItem("kakap_cp_episodes_store");
+    if (localStore && CP_STATE.data) {
+      const overrides = JSON.parse(localStore);
+      CP_STATE.data.cpSummaries.forEach(s => {
+        s.episodes.forEach(ep => {
+          if (overrides[ep.episodeId]) {
+            Object.assign(ep, overrides[ep.episodeId]);
+            // Recalculate compliance
+            const tmpl = CP_STATE.data.templates.find(t => t.id === ep.templateId);
+            if (tmpl) ep.compliance = calculateClientCompliance(ep, tmpl);
+          }
+        });
+      });
+    }
+  } catch (e) {
+    console.warn("Error loading cp overrides:", e);
+  }
+
+  // Inject real inpatients from Ruang Kakap into available episodes
+  integrateRealInpatientsIntoCp();
+
+  return CP_STATE.data;
+}
+
+// Integrasikan Pasien Rawat Inap Ruang Kakap ke Daftar Episode CP
+function integrateRealInpatientsIntoCp() {
+  if (!CP_STATE.data || !state.data || !state.data.today || !state.data.today.patients) return;
+
+  const realPatients = state.data.today.patients.filter(p => !p.isEmpty);
+  const templates = CP_STATE.data.templates || [];
+
+  realPatients.forEach(p => {
+    // Cari apakah sudah ada episode untuk pasien ini
+    const existingEpId = `EP-KAKAP-${p.bed}`;
+    const allEps = getAllEpisodes();
+    if (allEps.some(e => e.episodeId === existingEpId)) return;
+
+    // Tentukan template CP yang paling relevan
+    const diag = (p.diagnosis || "").toLowerCase();
+    let matchedTmpl = templates.find(t => t.id === "CP-DMCKD-002"); // default jika DM
+    if (diag.includes("stroke") || diag.includes("cva") || diag.includes("infark") || diag.includes("hemiparesis")) {
+      matchedTmpl = (diag.includes("perdarahan") || diag.includes("ich") || diag.includes("sah"))
+        ? templates.find(t => t.id === "CP-STROKE-PERD-005")
+        : templates.find(t => t.id === "CP-STROKE-NON-004");
+    } else if (diag.includes("mammae") || diag.includes("payudara") || diag.includes("kanker") || diag.includes("ca")) {
+      matchedTmpl = templates.find(t => t.id === "CP-MAMMAE-001");
+    } else if (diag.includes("hiv") || diag.includes("aids") || diag.includes("b20")) {
+      matchedTmpl = templates.find(t => t.id === "CP-HIV-003");
+    }
+
+    if (!matchedTmpl) matchedTmpl = templates[0];
+
+    const currentLos = parseInt(p.los) || 1;
+    const executions = {};
+    matchedTmpl.items.forEach(itm => {
+      itm.jadwal.forEach(d => {
+        if (d <= currentLos) {
+          executions[`${itm.id}_d${d}`] = "TERLAKSANA";
+        }
+      });
+    });
+
+    const realEp = {
+      episodeId: existingEpId,
+      mrNo: p.mrNo || `RM-K-${p.bed}`,
+      namaPasien: p.name || `Pasien ${p.bed}`,
+      gender: p.gender || "L",
+      usia: p.age || 50,
+      ruangRawat: `Ruang Kakap (${p.bed})`,
+      dpjp: p.doctor || "dr. Spesialis DPJP Kakap",
+      templateId: matchedTmpl.id,
+      cpNama: matchedTmpl.nama,
+      caseProfile: "PASIEN_AKTIF_BANGSAL",
+      statusEnrollment: "AKTIF",
+      alasanKeluar: null,
+      hariTerakhirCp: currentLos,
+      targetLos: matchedTmpl.losTarget,
+      realLos: currentLos,
+      tglMasuk: p.admissionDate || "2026-11-01",
+      tglKeluar: null,
+      executions: executions,
+      variances: []
+    };
+
+    realEp.compliance = calculateClientCompliance(realEp, matchedTmpl);
+
+    // Tambahkan ke summary template
+    const s = CP_STATE.data.cpSummaries.find(x => x.templateId === matchedTmpl.id);
+    if (s) {
+      s.episodes.unshift(realEp);
+      s.totalEpisodes = s.episodes.length;
+    }
+  });
+}
+
+function getAllEpisodes() {
+  if (!CP_STATE.data || !CP_STATE.data.cpSummaries) return [];
+  const list = [];
+  CP_STATE.data.cpSummaries.forEach(s => {
+    if (s.episodes) list.push(...s.episodes);
+  });
+  return list;
+}
+
+// Client-side Compliance Calculator
+function calculateClientCompliance(enrollment, template) {
+  const executions = enrollment.executions || {};
+  const variances = enrollment.variances || [];
+  const maxDay = enrollment.hariTerakhirCp || template.jumlahHariStandar || 5;
+
+  let totalWajib = 0;
+  let totalTerlaksana = 0;
+  let totalNaJustified = 0;
+  let totalTidakTerlaksana = 0;
+  let criticalPassed = true;
+  const criticalFailed = [];
+
+  const ppaStats = {};
+  const domainStats = {};
+
+  (template.items || []).forEach(item => {
+    const ppa = item.ppa || "LAINNYA";
+    const dom = item.domainCode || "UMUM";
+    const isKritis = !!item.isKritis;
+
+    if (!ppaStats[ppa]) ppaStats[ppa] = { wajib: 0, terlaksana: 0, na: 0 };
+    if (!domainStats[dom]) domainStats[dom] = { wajib: 0, terlaksana: 0, na: 0 };
+
+    (item.jadwal || []).forEach(day => {
+      if (day > maxDay) return;
+
+      const key = `${item.id}_d${day}`;
+      const status = executions[key] || "TERLAKSANA";
+      const varMatch = variances.find(v => v.itemId === item.id && parseInt(v.hariKe) === day);
+
+      if (status === "N/A") {
+        const isJustified = varMatch ? varMatch.isJustified : true;
+        if (isJustified) {
+          totalNaJustified++;
+          totalWajib++;
+          ppaStats[ppa].na++;
+          domainStats[dom].na++;
+        } else {
+          totalWajib++;
+          totalTidakTerlaksana++;
+          ppaStats[ppa].wajib++;
+          domainStats[dom].wajib++;
+          if (isKritis) {
+            criticalPassed = false;
+            criticalFailed.push(`${item.uraian.substring(0, 30)} (Hari ${day})`);
+          }
+        }
+      } else if (status === "TERLAKSANA") {
+        totalWajib++;
+        totalTerlaksana++;
+        ppaStats[ppa].wajib++;
+        ppaStats[ppa].terlaksana++;
+        domainStats[dom].wajib++;
+        domainStats[dom].terlaksana++;
+      } else if (status === "TIDAK_TERLAKSANA") {
+        totalWajib++;
+        totalTidakTerlaksana++;
+        ppaStats[ppa].wajib++;
+        domainStats[dom].wajib++;
+        if (isKritis) {
+          criticalPassed = false;
+          criticalFailed.push(`${item.uraian.substring(0, 30)} (Hari ${day})`);
+        }
+      }
+    });
+  });
+
+  const rawScore = totalWajib > 0 ? Math.round((totalTerlaksana / totalWajib) * 1000) / 10 : 100.0;
+  const adjDenom = totalWajib - totalNaJustified;
+  const adjScore = adjDenom > 0 ? Math.round((totalTerlaksana / adjDenom) * 1000) / 10 : 100.0;
+
+  let mutuCategory = "MERAH";
+  if (adjScore >= 80.0 && criticalPassed) {
+    mutuCategory = "HIJAU";
+  } else if (adjScore >= 70.0) {
+    mutuCategory = "KUNING";
+  }
+
+  const ppaSummary = {};
+  for (const [p, val] of Object.entries(ppaStats)) {
+    const den = val.wajib;
+    ppaSummary[p] = {
+      wajib: den,
+      terlaksana: val.terlaksana,
+      na: val.na,
+      compliancePct: den > 0 ? Math.round((val.terlaksana / den) * 1000) / 10 : 100.0
+    };
+  }
+
+  return {
+    totalWajibScheduled: totalWajib,
+    totalTerlaksana: totalTerlaksana,
+    totalNaJustified: totalNaJustified,
+    totalTidakTerlaksana: totalTidakTerlaksana,
+    rawScore: rawScore,
+    adjScore: adjScore,
+    criticalBundlePassed: criticalPassed,
+    criticalItemsFailed: criticalFailed,
+    mutuCategory: mutuCategory,
+    ppaSummary: ppaSummary
+  };
+}
+
+// Main Render Function for Tab Clinical Pathway
+async function renderClinicalPathwayTab() {
+  await loadClinicalPathwayData();
+  switchCpSubView(CP_STATE.activeSubView);
+}
+
+// Switch Sub-View Tabs
+function switchCpSubView(subViewName) {
+  CP_STATE.activeSubView = subViewName;
+
+  document.querySelectorAll(".cp-subnav-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.getAttribute("data-cpsub") === subViewName);
+  });
+
+  document.querySelectorAll(".cp-subview-panel").forEach(p => {
+    p.classList.remove("active");
+    p.style.display = "none";
+  });
+
+  const panelMap = {
+    checklist: document.getElementById("cpViewChecklist"),
+    summary: document.getElementById("cpViewSummary"),
+    builder: document.getElementById("cpViewBuilder"),
+    variances: document.getElementById("cpViewVariances")
+  };
+
+  const activePanel = panelMap[subViewName];
+  if (activePanel) {
+    activePanel.classList.add("active");
+    activePanel.style.display = "block";
+  }
+
+  if (subViewName === "checklist") renderCpChecklistSubView();
+  else if (subViewName === "summary") renderCpSummarySubView();
+  else if (subViewName === "builder") renderCpBuilderSubView();
+  else if (subViewName === "variances") renderCpVariancesSubView();
+}
+
+// ==========================================================================
+// SUB-VIEW 1: CEKLIS MATRIKS HARIAN BANGSAL
+// ==========================================================================
+
+function renderCpChecklistSubView() {
+  if (!CP_STATE.data) return;
+
+  const allEpisodes = getAllEpisodes();
+  if (allEpisodes.length === 0) return;
+
+  // Populate Patient Select dropdown if needed
+  const select = document.getElementById("cpPatientSelect");
+  if (select && select.children.length === 0) {
+    select.innerHTML = "";
+    allEpisodes.forEach(ep => {
+      const opt = document.createElement("option");
+      opt.value = ep.episodeId;
+      const statusIcon = ep.statusEnrollment === "AKTIF" ? "🟢" : (ep.statusEnrollment === "KELUAR_CP" ? "🔴" : "🔵");
+      opt.textContent = `${statusIcon} [${ep.mrNo}] ${ep.namaPasien} - ${ep.cpNama.substring(0, 35)}... (${ep.ruangRawat})`;
+      select.appendChild(opt);
+    });
+  }
+
+  // Active episode
+  if (!CP_STATE.activeEpisodeId) {
+    CP_STATE.activeEpisodeId = allEpisodes[0].episodeId;
+  }
+  if (select) select.value = CP_STATE.activeEpisodeId;
+
+  const activeEp = allEpisodes.find(e => e.episodeId === CP_STATE.activeEpisodeId) || allEpisodes[0];
+  const tmpl = (CP_STATE.data.templates || []).find(t => t.id === activeEp.templateId);
+  if (!tmpl) return;
+
+  // Render Patient Details Banner
+  renderCpPatientBanner(activeEp, tmpl);
+
+  // Recalculate Live KPI Metrics
+  const comp = calculateClientCompliance(activeEp, tmpl);
+  activeEp.compliance = comp;
+
+  const elRaw = document.getElementById("cpScoreRaw");
+  const elRawDetail = document.getElementById("cpDetailRaw");
+  if (elRaw) elRaw.textContent = `${comp.rawScore}%`;
+  if (elRawDetail) elRawDetail.textContent = `${comp.totalTerlaksana} / ${comp.totalWajibScheduled} Sel Wajib Terjadwal`;
+
+  const elAdj = document.getElementById("cpScoreAdj");
+  const elMutuBadge = document.getElementById("cpBadgeMutu");
+  if (elAdj) elAdj.textContent = `${comp.adjScore}%`;
+  if (elMutuBadge) {
+    elMutuBadge.textContent = `MUTU: ${comp.mutuCategory}`;
+    elMutuBadge.className = `badge badge-${comp.mutuCategory === 'HIJAU' ? 'success' : (comp.mutuCategory === 'KUNING' ? 'warning' : 'danger')}`;
+  }
+
+  const elBundle = document.getElementById("cpScoreBundle");
+  const elBundleBadge = document.getElementById("cpBadgeBundle");
+  const elBundleDetail = document.getElementById("cpDetailBundle");
+  if (elBundle) {
+    elBundle.textContent = comp.criticalBundlePassed ? "100% (LOLOS)" : "0% (GAGAL)";
+  }
+  if (elBundleBadge) {
+    elBundleBadge.textContent = comp.criticalBundlePassed ? "BUNDEL TERPENUHI" : "ITEM KRITIS GAGAL";
+    elBundleBadge.className = `badge badge-${comp.criticalBundlePassed ? "success" : "danger"}`;
+  }
+  if (elBundleDetail) {
+    elBundleDetail.textContent = comp.criticalBundlePassed
+      ? "Semua item kritis terpenuhi / N/A terjustifikasi"
+      : `Gagal: ${comp.criticalItemsFailed.slice(0, 1).join(', ')}`;
+  }
+
+  const elVar = document.getElementById("cpScoreVariance");
+  const elVarBadge = document.getElementById("cpBadgeVariance");
+  const varCount = (activeEp.variances || []).length;
+  if (elVar) elVar.textContent = varCount;
+  if (elVarBadge) {
+    elVarBadge.textContent = varCount > 0 ? `${varCount} Varian Terdaftar` : "Nihil Varian";
+    elVarBadge.className = `badge badge-${varCount > 0 ? 'warning' : 'success'}`;
+  }
+
+  // Render Interactive Matrix Grid
+  renderCpInteractiveMatrix(activeEp, tmpl);
+}
+
+function renderCpPatientBanner(ep, tmpl) {
+  const banner = document.getElementById("cpPatientDetailsBanner");
+  if (!banner) return;
+
+  const statusBadge = ep.statusEnrollment === "AKTIF"
+    ? "<span class=\"badge badge-success\">JALUR AKTIF</span>"
+    : (ep.statusEnrollment === "KELUAR_CP"
+      ? "<span class=\"badge badge-danger\">KELUAR DARI CP (DROP-OUT)</span>"
+      : "<span class=\"badge badge-outline\">EPISODE SELESAI</span>");
+
+  const losWarning = ep.realLos > tmpl.losTarget
+    ? `<span style="color:#ef4444;font-weight:700;">${ep.realLos} Hari (Melewati Target ${tmpl.losTarget} Hari)</span>`
+    : `<span style="color:#10b981;font-weight:700;">${ep.realLos} Hari (Target: ${tmpl.losTarget} Hari)</span>`;
+
+  banner.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap;">
+          <h3 style="margin:0;font-size:1.15rem;font-weight:800;color:var(--text-main);">${escapeHtml(ep.namaPasien)}</h3>
+          <span class="badge" style="background:#e0f2fe;color:#0369a1;font-weight:700;">RM: ${ep.mrNo}</span>
+          <span class="badge badge-secondary">${ep.gender === "P" ? "Perempuan" : "Laki-laki"} / ${ep.usia} th</span>
+          <span class="badge badge-outline">${escapeHtml(ep.ruangRawat)}</span>
+          ${statusBadge}
+        </div>
+        <div style="font-size:0.85rem;color:var(--text-muted);display:flex;gap:14px;flex-wrap:wrap;margin-top:4px;">
+          <span><strong>DPJP:</strong> ${escapeHtml(ep.dpjp)}</span>
+          <span><strong>Dokumen CP:</strong> ${escapeHtml(tmpl.nama)} (${tmpl.nomorCp})</span>
+          <span><strong>Target LOS:</strong> ${losWarning}</span>
+          <span><strong>ICD-10 / ICD-9:</strong> ${tmpl.kodeIcd10} / ${tmpl.kodeIcd9 || "-"}</span>
+        </div>
+        ${ep.alasanKeluar ? `<div style="margin-top:8px;padding:8px 12px;background:#fee2e2;color:#991b1b;border-radius:6px;font-size:0.8rem;border:1px solid #fca5a5;"><strong>Catatan Drop-Out:</strong> ${escapeHtml(ep.alasanKeluar)}</div>` : ""}
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="btn btn-sm btn-outline-secondary" onclick="openPatientModalByBed('${ep.ruangRawat}')" title="Buka Detail Rekam Medis Bangsal">
+          <span>Detail Bed</span>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function renderCpInteractiveMatrix(ep, tmpl) {
+  const wrapper = document.getElementById("cpChecklistTableWrapper");
+  if (!wrapper) return;
+
+  const ppaFilter = CP_STATE.activePpaFilter;
+  const numDays = tmpl.jumlahHariStandar || 5;
+  const maxDay = ep.hariTerakhirCp || numDays;
+
+  // Filter items
+  let items = tmpl.items || [];
+  if (ppaFilter !== "ALL") {
+    items = items.filter(it => it.ppa === ppaFilter);
+  }
+
+  // Group by Domain
+  const domains = (CP_STATE.data && CP_STATE.data.domains) || [];
+  const grouped = {};
+  items.forEach(it => {
+    const dCode = it.domainCode || "UMUM";
+    if (!grouped[dCode]) grouped[dCode] = [];
+    grouped[dCode].push(it);
+  });
+
+  let html = `
+    <table class="cp-matrix-table">
+      <thead>
+        <tr>
+          <th style="min-width:280px;">Aspek Pelayanan &amp; Uraian Asuhan</th>
+          <th style="width:90px;">PPA</th>
+          <th style="width:90px;">Tipe Item</th>
+          <th style="width:70px;text-align:center;">Bundel</th>
+  `;
+
+  for (let d = 1; d <= numDays; d++) {
+    const isPastMax = d > maxDay;
+    const dayLabel = `Hari ${d}${isPastMax ? " (Out)" : ""}`;
+    html += `<th style="width:65px;text-align:center;${isPastMax ? "opacity:0.5;" : ""}">${dayLabel}</th>`;
+  }
+
+  html += `</tr></thead><tbody>`;
+
+  if (items.length === 0) {
+    html += `<tr><td colspan="${4 + numDays}" style="text-align:center;padding:24px;color:var(--text-muted);">Tidak ada item yang sesuai dengan filter profesi "${ppaFilter}".</td></tr>`;
+  } else {
+    for (const [dCode, itmList] of Object.entries(grouped)) {
+      const domObj = domains.find(d => d.code === dCode);
+      const domName = domObj ? domObj.name : dCode;
+
+      html += `
+        <tr class="cp-matrix-domain-header">
+          <td colspan="${4 + numDays}">
+            <strong>${escapeHtml(domName)}</strong> (${itmList.length} item)
+          </td>
+        </tr>
+      `;
+
+      itmList.forEach(item => {
+        const isKritis = item.isKritis;
+        const ppaBadgeClass = item.ppa === "DPJP" ? "badge-accent" : (item.ppa === "PERAWAT" ? "badge-success" : "badge-secondary");
+
+        html += `
+          <tr>
+            <td>
+              <div style="font-weight:600;color:var(--text-main);">${escapeHtml(item.uraian)}</div>
+              ${item.grupEksklusif ? `<span style="font-size:0.72rem;color:#8b5cf6;font-weight:bold;">[Grup Eksklusif: ${item.grupEksklusif}]</span>` : ""}
+            </td>
+            <td><span class="badge ${ppaBadgeClass}" style="font-size:0.75rem;">${item.ppa}</span></td>
+            <td><span class="badge badge-outline" style="font-size:0.72rem;">${item.tipe}</span></td>
+            <td style="text-align:center;">${isKritis ? "<span class=\"badge badge-danger\" style=\"font-size:0.7rem;font-weight:800;\">KRITIS</span>" : "<span style=\"color:var(--text-muted);font-size:0.75rem;\">-</span>"}</td>
+        `;
+
+        for (let d = 1; d <= numDays; d++) {
+          const isScheduled = (item.jadwal || []).includes(d);
+          const isPastMax = d > maxDay;
+
+          if (!isScheduled || isPastMax) {
+            html += `<td style="text-align:center;"><span class="cp-status-pill cp-status-disabled" title="Tidak dijadwalkan">&bull;</span></td>`;
+          } else {
+            const cellKey = `${item.id}_d${d}`;
+            const status = (ep.executions && ep.executions[cellKey]) || "TERLAKSANA";
+
+            let pillClass = "cp-status-terlaksana";
+            let pillSymbol = "&#10003;";
+            let titleText = "Terlaksana (Klik untuk ubah)";
+
+            if (status === "TIDAK_TERLAKSANA") {
+              pillClass = "cp-status-tidak";
+              pillSymbol = "&#10005;";
+              titleText = "Tidak Terlaksana (Klik untuk varian)";
+            } else if (status === "N/A") {
+              pillClass = "cp-status-na";
+              pillSymbol = "&minus;";
+              titleText = "N/A Terjustifikasi (Klik untuk ubah)";
+            }
+
+            html += `
+              <td style="text-align:center;">
+                <span class="cp-status-pill ${pillClass}" onclick="toggleCpCellStatus('${ep.episodeId}', '${item.id}', ${d})" title="${titleText}">
+                  ${pillSymbol}
+                </span>
+              </td>
+            `;
+          }
+        }
+
+        html += `</tr>`;
+      });
+    }
+  }
+
+  html += `</tbody></table>`;
+  wrapper.innerHTML = html;
+}
+
+// Interactive Status Toggler
+function toggleCpCellStatus(episodeId, itemId, day) {
+  const allEpisodes = getAllEpisodes();
+  const ep = allEpisodes.find(e => e.episodeId === episodeId);
+  if (!ep) return;
+
+  if (!ep.executions) ep.executions = {};
+  const key = `${itemId}_d${day}`;
+  const currentStatus = ep.executions[key] || "TERLAKSANA";
+
+  if (currentStatus === "TERLAKSANA") {
+    // Ubah menjadi TIDAK TERLAKSANA dan buka modal varian
+    openVarianceModal(episodeId, itemId, day, "TIDAK_TERLAKSANA");
+  } else if (currentStatus === "TIDAK_TERLAKSANA") {
+    // Ubah menjadi N/A dan buka modal varian
+    openVarianceModal(episodeId, itemId, day, "N/A");
+  } else {
+    // Kembalikan ke TERLAKSANA
+    ep.executions[key] = "TERLAKSANA";
+    // Hapus varian yang cocok jika ada
+    ep.variances = (ep.variances || []).filter(v => !(v.itemId === itemId && parseInt(v.hariKe) === day));
+    saveEpisodeOverride(ep);
+    renderCpChecklistSubView();
+    showToast("Item dikembalikan ke status TERLAKSANA.", "success");
+  }
+}
+
+// Mark all scheduled items for today/active PPA as done
+function markAllActiveDayDone() {
+  const allEpisodes = getAllEpisodes();
+  const ep = allEpisodes.find(e => e.episodeId === CP_STATE.activeEpisodeId);
+  if (!ep) return;
+
+  const tmpl = (CP_STATE.data.templates || []).find(t => t.id === ep.templateId);
+  if (!tmpl) return;
+
+  const currentDay = ep.hariTerakhirCp || 1;
+  const ppa = CP_STATE.activePpaFilter;
+  let count = 0;
+
+  if (!ep.executions) ep.executions = {};
+
+  (tmpl.items || []).forEach(item => {
+    if (ppa !== "ALL" && item.ppa !== ppa) return;
+    if ((item.jadwal || []).includes(currentDay)) {
+      ep.executions[`${item.id}_d${currentDay}`] = "TERLAKSANA";
+      count++;
+    }
+  });
+
+  saveEpisodeOverride(ep);
+  renderCpChecklistSubView();
+  showToast(`Berhasil menandai ${count} item Hari ke-${currentDay} sebagai TERLAKSANA!`, "success");
+}
+
+function saveEpisodeOverride(ep) {
+  try {
+    const raw = localStorage.getItem("kakap_cp_episodes_store") || "{}";
+    const store = JSON.parse(raw);
+    store[ep.episodeId] = {
+      executions: ep.executions,
+      variances: ep.variances
+    };
+    localStorage.setItem("kakap_cp_episodes_store", JSON.stringify(store));
+  } catch (e) {
+    console.warn("Failed saving episode override:", e);
+  }
+}
+
+// Open Variance Modal
+function openVarianceModal(episodeId, itemId, day, targetStatus = "TIDAK_TERLAKSANA") {
+  const allEpisodes = getAllEpisodes();
+  const ep = allEpisodes.find(e => e.episodeId === episodeId);
+  if (!ep) return;
+
+  const tmpl = (CP_STATE.data.templates || []).find(t => t.id === ep.templateId);
+  const item = itemId ? (tmpl.items || []).find(i => i.id === itemId) : null;
+
+  CP_STATE.pendingVariance = {
+    episodeId: episodeId,
+    itemId: itemId,
+    day: day,
+    targetStatus: targetStatus
+  };
+
+  const banner = document.getElementById("varItemInfoBanner");
+  if (banner) {
+    banner.innerHTML = `
+      <div><strong>Pasien:</strong> ${escapeHtml(ep.namaPasien)} (${ep.mrNo}) &bull; ${escapeHtml(ep.ruangRawat)}</div>
+      <div><strong>Item CP:</strong> ${item ? escapeHtml(item.uraian) : "Deviasi Umum Jalur CP"}</div>
+      <div><strong>Hari Rawat Ke:</strong> ${day} &bull; <strong>Status Target:</strong> <span class="badge ${targetStatus === 'N/A' ? 'badge-secondary' : 'badge-danger'}">${targetStatus}</span></div>
+    `;
+  }
+
+  // Pre-fill existing variance if already recorded
+  const existing = (ep.variances || []).find(v => v.itemId === itemId && parseInt(v.hariKe) === day);
+  const radio = document.querySelector(`input[name="varCategory"][value="${existing ? existing.kategori : 'PASIEN_PENYAKIT'}"]`);
+  if (radio) radio.checked = true;
+
+  const reasonInput = document.getElementById("varReasonText");
+  const actionInput = document.getElementById("varActionText");
+  const justCheck = document.getElementById("varIsJustified");
+
+  if (reasonInput) reasonInput.value = existing ? existing.alasan : "";
+  if (actionInput) actionInput.value = existing ? (existing.tindakan || "") : "";
+  if (justCheck) justCheck.checked = existing ? existing.isJustified : (targetStatus === "N/A");
+
+  const modal = document.getElementById("varianceModal");
+  if (modal) modal.style.display = "flex";
+}
+
+function closeVarianceModal() {
+  const modal = document.getElementById("varianceModal");
+  if (modal) modal.style.display = "none";
+  CP_STATE.pendingVariance = null;
+}
+
+function saveVarianceRecord() {
+  const pending = CP_STATE.pendingVariance;
+  if (!pending) return;
+
+  const reasonInput = document.getElementById("varReasonText");
+  const reason = reasonInput ? reasonInput.value.trim() : "";
+  if (!reason) {
+    showToast("Uraian alasan penyimpangan wajib diisi!", "error");
+    return;
+  }
+
+  const catRadio = document.querySelector("input[name=\"varCategory\"]:checked");
+  const category = catRadio ? catRadio.value : "PASIEN_PENYAKIT";
+  const actionInput = document.getElementById("varActionText");
+  const justCheck = document.getElementById("varIsJustified");
+  const reporterInput = document.getElementById("varReporter");
+
+  const allEpisodes = getAllEpisodes();
+  const ep = allEpisodes.find(e => e.episodeId === pending.episodeId);
+  if (!ep) return;
+
+  if (!ep.variances) ep.variances = [];
+  // Remove prior entry for same item and day
+  ep.variances = ep.variances.filter(v => !(v.itemId === pending.itemId && parseInt(v.hariKe) === pending.day));
+
+  const varObj = {
+    itemId: pending.itemId,
+    hariKe: pending.day,
+    kategori: category,
+    alasan: reason,
+    tindakan: actionInput ? actionInput.value.trim() : "",
+    isJustified: justCheck ? justCheck.checked : false,
+    petugas: reporterInput ? reporterInput.value.trim() : "Petugas Ruang Kakap",
+    tgl: new Date().toISOString().split("T")[0]
+  };
+
+  ep.variances.push(varObj);
+
+  // Set execution status
+  if (!ep.executions) ep.executions = {};
+  if (pending.itemId) {
+    const key = `${pending.itemId}_d${pending.day}`;
+    ep.executions[key] = pending.targetStatus;
+  }
+
+  saveEpisodeOverride(ep);
+  closeVarianceModal();
+  renderCpChecklistSubView();
+  showToast("Catatan varian berhasil disimpan ke dalam register audit!", "success");
+}
+
+// ==========================================================================
+// SUB-VIEW 2: RINGKASAN & AUDIT PER CP
+// ==========================================================================
+
+function renderCpSummarySubView() {
+  if (!CP_STATE.data) return;
+
+  const summaries = CP_STATE.data.cpSummaries || [];
+  const grid = document.getElementById("cpCardsSummaryGrid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+  summaries.forEach(s => {
+    const mutuBadge = `<span class="badge badge-${s.mutuCategory === 'HIJAU' ? 'success' : (s.mutuCategory === 'KUNING' ? 'warning' : 'danger')}">${s.mutuCategory}</span>`;
+
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style = "padding:16px 18px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;justify-content:space-between;";
+    card.innerHTML = `
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;">
+          <div>
+            <span class="badge badge-outline" style="font-size:0.75rem;">${s.nomorCp}</span>
+            <h4 style="margin:4px 0 0 0;font-size:1.02rem;font-weight:700;color:var(--text-main);">${escapeHtml(s.nama)}</h4>
+            <span style="font-size:0.78rem;color:var(--text-muted);">${s.ksm}</span>
+          </div>
+          ${mutuBadge}
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0;background:var(--bg-muted);padding:10px 12px;border-radius:var(--radius-md);">
+          <div>
+            <span style="font-size:0.75rem;color:var(--text-muted);display:block;">Kepatuhan Mentah:</span>
+            <span style="font-size:1.15rem;font-weight:800;color:var(--text-main);">${s.rawAvg}%</span>
+          </div>
+          <div>
+            <span style="font-size:0.75rem;color:var(--text-muted);display:block;">Kepatuhan Adjusted:</span>
+            <span style="font-size:1.15rem;font-weight:800;color:#10b981;">${s.adjAvg}%</span>
+          </div>
+          <div>
+            <span style="font-size:0.75rem;color:var(--text-muted);display:block;">Bundel Kritis Lolos:</span>
+            <span style="font-size:1rem;font-weight:700;color:#8b5cf6;">${s.bundlePassedPct}%</span>
+          </div>
+          <div>
+            <span style="font-size:0.75rem;color:var(--text-muted);display:block;">Rata LOS (Target):</span>
+            <span style="font-size:1rem;font-weight:700;color:var(--text-main);">${s.avgRealLos} / ${s.losTarget} Hari</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-color);padding-top:10px;margin-top:6px;">
+        <span style="font-size:0.8rem;color:var(--text-muted);">Total: <strong>${s.totalEpisodes} Kasus Audit</strong></span>
+        <button class="btn btn-sm btn-outline-primary" onclick="filterSummaryByCp('${s.templateId}')">
+          <span>Lihat Episode</span>
+        </button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Populate Filter Dropdown
+  const filterDropdown = document.getElementById("cpFilterCpDropdown");
+  if (filterDropdown && filterDropdown.children.length <= 1) {
+    summaries.forEach(s => {
+      const opt = document.createElement("option");
+      opt.value = s.templateId;
+      opt.textContent = s.nama;
+      filterDropdown.appendChild(opt);
+    });
+  }
+
+  renderCpEpisodesTable(getAllEpisodes());
+}
+
+function renderCpEpisodesTable(episodes) {
+  const tbody = document.getElementById("cpEpisodesTableBody");
+  if (!tbody) return;
+
+  tbody.innerHTML = "";
+  if (episodes.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:20px;color:var(--text-muted);">Tidak ada episode yang sesuai.</td></tr>`;
+    return;
+  }
+
+  episodes.forEach(ep => {
+    const comp = ep.compliance || { rawScore: 100, adjScore: 100, criticalBundlePassed: true, mutuCategory: "HIJAU" };
+    const mutuBadge = `<span class="badge badge-${comp.mutuCategory === 'HIJAU' ? 'success' : (comp.mutuCategory === 'KUNING' ? 'warning' : 'danger')}">${comp.mutuCategory}</span>`;
+    const bundleBadge = comp.criticalBundlePassed
+      ? "<span class=\"badge badge-success\">LOLOS</span>"
+      : "<span class=\"badge badge-danger\">GAGAL</span>";
+
+    const tr = document.createElement("tr");
+    tr.style = "border-bottom:1px solid var(--border-color);";
+    tr.innerHTML = `
+      <td style="padding:10px;">
+        <strong>${escapeHtml(ep.namaPasien)}</strong>
+        <div style="font-size:0.75rem;color:var(--text-muted);">${ep.mrNo} &bull; ${ep.gender} / ${ep.usia} th</div>
+      </td>
+      <td style="padding:10px;">
+        <div style="font-weight:600;font-size:0.82rem;">${escapeHtml(ep.cpNama)}</div>
+        <span style="font-size:0.75rem;color:var(--text-muted);">${escapeHtml(ep.ruangRawat)}</span>
+      </td>
+      <td style="padding:10px;font-size:0.82rem;">${escapeHtml(ep.dpjp)}</td>
+      <td style="padding:10px;font-size:0.82rem;">
+        <strong>${ep.realLos} Hari</strong> / ${ep.targetLos} Hari
+      </td>
+      <td style="padding:10px;text-align:center;font-weight:700;">${comp.rawScore}%</td>
+      <td style="padding:10px;text-align:center;font-weight:700;color:#10b981;">${comp.adjScore}%</td>
+      <td style="padding:10px;text-align:center;">${bundleBadge}</td>
+      <td style="padding:10px;text-align:center;">${mutuBadge}</td>
+      <td style="padding:10px;text-align:center;">
+        <div style="display:flex;gap:4px;justify-content:center;">
+          <button class="btn btn-sm btn-outline-secondary" onclick="switchToEpisodeChecklist('${ep.episodeId}')" title="Buka Ceklis Harian">
+            Ceklis
+          </button>
+          <button class="btn btn-sm btn-outline-primary" onclick="printClinicalPathwaySheet('${ep.episodeId}')" title="Cetak Lembar CP">
+            Cetak
+          </button>
+        </div>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function filterSummaryEpisodes() {
+  const search = (document.getElementById("cpSearchEpisodeInput").value || "").toLowerCase();
+  const cpFilter = document.getElementById("cpFilterCpDropdown").value;
+
+  let all = getAllEpisodes();
+  if (cpFilter !== "ALL") {
+    all = all.filter(e => e.templateId === cpFilter);
+  }
+  if (search) {
+    all = all.filter(e => (e.namaPasien || "").toLowerCase().includes(search) || (e.mrNo || "").toLowerCase().includes(search));
+  }
+  renderCpEpisodesTable(all);
+}
+
+function filterSummaryByCp(tmplId) {
+  const dropdown = document.getElementById("cpFilterCpDropdown");
+  if (dropdown) dropdown.value = tmplId;
+  filterSummaryEpisodes();
+}
+
+function switchToEpisodeChecklist(episodeId) {
+  CP_STATE.activeEpisodeId = episodeId;
+  switchCpSubView("checklist");
+}
+
+function switchToClinicalPathwayWithPatient(patient) {
+  const allEps = getAllEpisodes();
+  // Find or create
+  let targetEp = allEps.find(e => e.mrNo === patient.mrNo || e.ruangRawat.includes(patient.bed));
+  if (targetEp) {
+    CP_STATE.activeEpisodeId = targetEp.episodeId;
+  }
+  // Switch tab
+  const btn = document.getElementById("btnTabClinicalPathway");
+  if (btn) btn.click();
+  switchCpSubView("checklist");
+}
+
+// ==========================================================================
+// SUB-VIEW 3: CP BUILDER (TEMPLATE MANAGER NO-HARDCODING)
+// ==========================================================================
+
+function renderCpBuilderSubView() {
+  if (!CP_STATE.data) return;
+
+  const container = document.getElementById("cpBuilderTemplateCards");
+  if (!container) return;
+
+  const templates = [...(CP_STATE.data.templates || []), ...CP_STATE.customTemplates];
+  container.innerHTML = "";
+
+  templates.forEach(t => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style = "padding:16px 20px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);";
+    card.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+        <div>
+          <span class="badge badge-outline">${t.nomorCp} (v${t.versi || '1.0'})</span>
+          <h4 style="margin:6px 0 2px 0;font-size:1.05rem;font-weight:700;color:var(--text-main);">${escapeHtml(t.nama)}</h4>
+          <span style="font-size:0.8rem;color:var(--text-muted);">${t.ksm}</span>
+        </div>
+        <span class="badge ${t.statusAktif ? 'badge-success' : 'badge-secondary'}">${t.statusAktif ? 'AKTIF' : 'NONAKTIF'}</span>
+      </div>
+
+      <div style="font-size:0.82rem;margin:12px 0;display:flex;gap:12px;flex-wrap:wrap;color:var(--text-main);">
+        <span><strong>Hari Standar:</strong> ${t.jumlahHariStandar} Hari</span>
+        <span><strong>Target LOS:</strong> ${t.losTarget} Hari</span>
+        <span><strong>ICD-10:</strong> ${t.kodeIcd10}</span>
+        <span><strong>Total Item:</strong> ${(t.items || []).length} Asuhan</span>
+      </div>
+
+      <div style="background:var(--bg-muted);padding:8px 12px;border-radius:6px;font-size:0.78rem;margin-bottom:12px;color:var(--text-muted);">
+        <div><strong>Inklusi:</strong> ${escapeHtml((t.kriteriaInklusi || '-').substring(0, 90))}...</div>
+        <div><strong>Eksklusi:</strong> ${escapeHtml((t.kriteriaEksklusi || '-').substring(0, 90))}...</div>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;gap:6px;border-top:1px solid var(--border-color);padding-top:10px;">
+        <button class="btn btn-sm btn-outline-secondary" onclick="duplicateCpTemplate('${t.id}')">Duplikasi</button>
+        <button class="btn btn-sm btn-outline-primary" onclick="openCpBuilderModal('${t.id}')">Sunting / Detail</button>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function openCpBuilderModal(templateId = null) {
+  const modal = document.getElementById("cpBuilderModal");
+  if (!modal) return;
+
+  const templates = [...((CP_STATE.data && CP_STATE.data.templates) || []), ...CP_STATE.customTemplates];
+  const t = templateId ? templates.find(x => x.id === templateId) : null;
+
+  document.getElementById("cpbNomor").value = t ? t.nomorCp : `CP/SOEDARSO/${Date.now().toString().slice(-4)}/2026`;
+  document.getElementById("cpbKsm").value = t ? t.ksm : "";
+  document.getElementById("cpbNama").value = t ? t.nama : "";
+  document.getElementById("cpbHariStandar").value = t ? t.jumlahHariStandar : 5;
+  document.getElementById("cpbLosTarget").value = t ? t.losTarget : 5;
+  document.getElementById("cpbIcd10").value = t ? t.kodeIcd10 : "";
+  document.getElementById("cpbInklusi").value = t ? t.kriteriaInklusi : "";
+  document.getElementById("cpbEksklusi").value = t ? t.kriteriaEksklusi : "";
+
+  const tbody = document.getElementById("cpBuilderItemTableBody");
+  tbody.innerHTML = "";
+
+  const items = t ? (t.items || []) : [
+    { uraian: "Asesmen Medis Awal DPJP", domainCode: "MED", ppa: "DPJP", tipe: "WAJIB", isKritis: true, jadwal: [1] },
+    { uraian: "Pemeriksaan Darah Lengkap", domainCode: "PEN", ppa: "DPJP", tipe: "WAJIB", isKritis: true, jadwal: [1] },
+    { uraian: "Pemberian Terapi Utama", domainCode: "OBT", ppa: "DPJP", tipe: "WAJIB", isKritis: true, jadwal: [1, 2, 3] },
+    { uraian: "Edukasi Gizi Seimbang", domainCode: "GIZ", ppa: "AHLI_GIZI", tipe: "WAJIB", isKritis: false, jadwal: [1, 2] },
+    { uraian: "Rekonsiliasi Obat Masuk & Pulang", domainCode: "FAR", ppa: "APOTEKER", tipe: "JENDELA_WAKTU", isKritis: true, jadwal: [1, 5] },
+    { uraian: "Status Pulang Hidup & LOS Standar", domainCode: "OUT", ppa: "DPJP", tipe: "OUTCOME", isKritis: true, jadwal: [5] }
+  ];
+
+  items.forEach(it => addCpBuilderItemRow(it));
+
+  modal.style.display = "flex";
+}
+
+function addCpBuilderItemRow(item = null) {
+  const tbody = document.getElementById("cpBuilderItemTableBody");
+  if (!tbody) return;
+
+  const tr = document.createElement("tr");
+  tr.style = "border-bottom:1px solid var(--border-color);";
+
+  const numDays = parseInt(document.getElementById("cpbHariStandar").value) || 5;
+  const currentJadwal = item ? (item.jadwal || [1]) : [1];
+
+  tr.innerHTML = `
+    <td style="padding:6px;">
+      <input type="text" class="cpb-item-uraian" value="${item ? escapeHtml(item.uraian) : ''}" required placeholder="Uraian tindakan/asuhan..." style="width:100%;padding:4px 8px;font-size:0.8rem;border-radius:4px;border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-main);box-sizing:border-box;">
+    </td>
+    <td style="padding:6px;">
+      <select class="cpb-item-domain" style="width:100%;padding:4px 6px;font-size:0.8rem;border-radius:4px;border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-main);">
+        <option value="MED" ${item && item.domainCode === 'MED' ? 'selected' : ''}>Medis</option>
+        <option value="KEP" ${item && item.domainCode === 'KEP' ? 'selected' : ''}>Keperawatan</option>
+        <option value="GIZ" ${item && item.domainCode === 'GIZ' ? 'selected' : ''}>Gizi</option>
+        <option value="FAR" ${item && item.domainCode === 'FAR' ? 'selected' : ''}>Farmasi</option>
+        <option value="PEN" ${item && item.domainCode === 'PEN' ? 'selected' : ''}>Penunjang</option>
+        <option value="TIN" ${item && item.domainCode === 'TIN' ? 'selected' : ''}>Tindakan</option>
+        <option value="OBT" ${item && item.domainCode === 'OBT' ? 'selected' : ''}>Medikasi</option>
+        <option value="EDU" ${item && item.domainCode === 'EDU' ? 'selected' : ''}>Edukasi</option>
+        <option value="REH" ${item && item.domainCode === 'REH' ? 'selected' : ''}>Rehabilitasi</option>
+        <option value="OUT" ${item && item.domainCode === 'OUT' ? 'selected' : ''}>Outcome</option>
+      </select>
+    </td>
+    <td style="padding:6px;">
+      <select class="cpb-item-ppa" style="width:100%;padding:4px 6px;font-size:0.8rem;border-radius:4px;border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-main);">
+        <option value="DPJP" ${item && item.ppa === 'DPJP' ? 'selected' : ''}>DPJP</option>
+        <option value="PERAWAT" ${item && item.ppa === 'PERAWAT' ? 'selected' : ''}>Perawat</option>
+        <option value="AHLI_GIZI" ${item && item.ppa === 'AHLI_GIZI' ? 'selected' : ''}>Ahli Gizi</option>
+        <option value="APOTEKER" ${item && item.ppa === 'APOTEKER' ? 'selected' : ''}>Apoteker</option>
+        <option value="FISIOTERAPIS" ${item && item.ppa === 'FISIOTERAPIS' ? 'selected' : ''}>Fisioterapi</option>
+      </select>
+    </td>
+    <td style="padding:6px;">
+      <select class="cpb-item-tipe" style="width:100%;padding:4px 6px;font-size:0.8rem;border-radius:4px;border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-main);">
+        <option value="WAJIB" ${item && item.tipe === 'WAJIB' ? 'selected' : ''}>Wajib</option>
+        <option value="OPSIONAL" ${item && item.tipe === 'OPSIONAL' ? 'selected' : ''}>Opsional</option>
+        <option value="KONDISIONAL" ${item && item.tipe === 'KONDISIONAL' ? 'selected' : ''}>Kondisional</option>
+        <option value="EKSKLUSIF" ${item && item.tipe === 'EKSKLUSIF' ? 'selected' : ''}>Eksklusif</option>
+        <option value="JENDELA_WAKTU" ${item && item.tipe === 'JENDELA_WAKTU' ? 'selected' : ''}>Jendela</option>
+        <option value="OUTCOME" ${item && item.tipe === 'OUTCOME' ? 'selected' : ''}>Outcome</option>
+      </select>
+    </td>
+    <td style="padding:6px;text-align:center;">
+      <input type="checkbox" class="cpb-item-kritis" ${item && item.isKritis ? 'checked' : ''}>
+    </td>
+    <td style="padding:6px;">
+      <input type="text" class="cpb-item-jadwal" value="${currentJadwal.join(', ')}" placeholder="1, 2, 3" style="width:100%;padding:4px 6px;font-size:0.8rem;border-radius:4px;border:1px solid var(--border-color);background:var(--bg-surface);color:var(--text-main);box-sizing:border-box;">
+    </td>
+    <td style="padding:6px;text-align:center;">
+      <button type="button" onclick="this.closest('tr').remove()" style="color:#ef4444;background:none;border:none;cursor:pointer;font-weight:bold;">&times;</button>
+    </td>
+  `;
+
+  tbody.appendChild(tr);
+}
+
+function closeCpBuilderModal() {
+  const modal = document.getElementById("cpBuilderModal");
+  if (modal) modal.style.display = "none";
+}
+
+function saveCpBuilderTemplate() {
+  const nomor = document.getElementById("cpbNomor").value.trim();
+  const nama = document.getElementById("cpbNama").value.trim();
+  const ksm = document.getElementById("cpbKsm").value.trim();
+  const hariStandar = parseInt(document.getElementById("cpbHariStandar").value) || 5;
+  const losTarget = parseInt(document.getElementById("cpbLosTarget").value) || 5;
+  const icd10 = document.getElementById("cpbIcd10").value.trim();
+  const inklusi = document.getElementById("cpbInklusi").value.trim();
+  const eksklusi = document.getElementById("cpbEksklusi").value.trim();
+
+  if (!nomor || !nama || !ksm) {
+    showToast("Nomor CP, Judul CP, dan KSM wajib diisi!", "error");
+    return;
+  }
+
+  // Extract items
+  const rows = document.querySelectorAll("#cpBuilderItemTableBody tr");
+  const items = [];
+  rows.forEach((r, idx) => {
+    const uraian = r.querySelector(".cpb-item-uraian").value.trim();
+    const dom = r.querySelector(".cpb-item-domain").value;
+    const ppa = r.querySelector(".cpb-item-ppa").value;
+    const tipe = r.querySelector(".cpb-item-tipe").value;
+    const isKritis = r.querySelector(".cpb-item-kritis").checked;
+    const rawJadwal = r.querySelector(".cpb-item-jadwal").value;
+
+    const jadwal = rawJadwal.split(",").map(x => parseInt(x.trim())).filter(x => !isNaN(x) && x > 0);
+
+    if (uraian) {
+      items.push({
+        id: `ITM-CUSTOM-${idx+1}`,
+        domainCode: dom,
+        uraian: uraian,
+        ppa: ppa,
+        tipe: tipe,
+        isKritis: isKritis,
+        bobot: isKritis ? 2.0 : 1.0,
+        jadwal: jadwal.length > 0 ? jadwal : [1]
+      });
+    }
+  });
+
+  if (items.length === 0) {
+    showToast("Minimal satu item asuhan harus ditambahkan!", "error");
+    return;
+  }
+
+  const newTmpl = {
+    id: `CP-CUSTOM-${Date.now().toString().slice(-6)}`,
+    nomorCp: nomor,
+    nama: nama,
+    versi: "1.0",
+    tanggalBerlaku: new Date().toISOString().split("T")[0],
+    ksm: ksm,
+    jumlahHariStandar: hariStandar,
+    losTarget: losTarget,
+    kriteriaInklusi: inklusi || "Sesuai diagnosis masuk.",
+    kriteriaEksklusi: eksklusi || "Sesuai kontraindikasi klinis.",
+    kodeIcd10: icd10 || "Z00.0",
+    statusAktif: true,
+    items: items
+  };
+
+  CP_STATE.customTemplates.push(newTmpl);
+  try {
+    localStorage.setItem("kakap_cp_custom_templates", JSON.stringify(CP_STATE.customTemplates));
+  } catch (e) {
+    console.warn("Failed saving custom template:", e);
+  }
+
+  closeCpBuilderModal();
+  renderCpBuilderSubView();
+  showToast("Template Clinical Pathway baru berhasil disimpan!", "success");
+}
+
+function duplicateCpTemplate(tmplId) {
+  const templates = [...((CP_STATE.data && CP_STATE.data.templates) || []), ...CP_STATE.customTemplates];
+  const orig = templates.find(t => t.id === tmplId);
+  if (!orig) return;
+
+  const copy = JSON.parse(JSON.stringify(orig));
+  copy.id = `CP-CUSTOM-${Date.now().toString().slice(-6)}`;
+  copy.nomorCp = `${orig.nomorCp}-COPY`;
+  copy.nama = `${orig.nama} (Salinan)`;
+  CP_STATE.customTemplates.push(copy);
+
+  try {
+    localStorage.setItem("kakap_cp_custom_templates", JSON.stringify(CP_STATE.customTemplates));
+  } catch (e) {}
+
+  renderCpBuilderSubView();
+  showToast("Template berhasil diduplikasi!", "success");
+}
+
+function resetCpTemplatesToSeed() {
+  if (confirm("Reset seluruh template ke 5 dokumen Clinical Pathway resmi RSUD dr. Soedarso?")) {
+    CP_STATE.customTemplates = [];
+    localStorage.removeItem("kakap_cp_custom_templates");
+    renderCpBuilderSubView();
+    showToast("Template direset ke 5 seed resmi Soedarso.", "info");
+  }
+}
+
+// ==========================================================================
+// SUB-VIEW 4: PENCATATAN & ANALISIS VARIAN
+// ==========================================================================
+
+function renderCpVariancesSubView() {
+  if (!CP_STATE.data) return;
+
+  const allEpisodes = getAllEpisodes();
+  const allVariances = [];
+
+  allEpisodes.forEach(ep => {
+    (ep.variances || []).forEach(v => {
+      allVariances.push({
+        ...v,
+        episodeId: ep.episodeId,
+        mrNo: ep.mrNo,
+        namaPasien: ep.namaPasien,
+        cpNama: ep.cpNama
+      });
+    });
+  });
+
+  // Count categories
+  let countPasien = 0;
+  let countKlinisi = 0;
+  let countSistem = 0;
+  let countAdmin = 0;
+
+  allVariances.forEach(v => {
+    if (v.kategori === "PASIEN_PENYAKIT") countPasien++;
+    else if (v.kategori === "PROFESIONAL_KLINISI") countKlinisi++;
+    else if (v.kategori === "SISTEM_RS") countSistem++;
+    else if (v.kategori === "KEBIJAKAN_ADMINISTRATIF") countAdmin++;
+  });
+
+  const elP = document.getElementById("varCountPasien");
+  const elK = document.getElementById("varCountKlinisi");
+  const elS = document.getElementById("varCountSistem");
+  const elA = document.getElementById("varCountAdmin");
+
+  if (elP) elP.textContent = countPasien;
+  if (elK) elK.textContent = countKlinisi;
+  if (elS) elS.textContent = countSistem;
+  if (elA) elA.textContent = countAdmin;
+
+  // Render Table
+  const tbody = document.getElementById("cpVarianceTableBody");
+  if (!tbody) return;
+
+  tbody.innerHTML = "";
+  if (allVariances.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--text-muted);">Belum ada catatan varian / penyimpangan klinis.</td></tr>`;
+    return;
+  }
+
+  allVariances.forEach(v => {
+    const isJust = v.isJustified;
+    const catBadgeClass = v.kategori === "SISTEM_RS" ? "badge-danger" : (v.kategori === "PASIEN_PENYAKIT" ? "badge-success" : "badge-secondary");
+
+    const tr = document.createElement("tr");
+    tr.style = "border-bottom:1px solid var(--border-color);";
+    tr.innerHTML = `
+      <td style="padding:10px;">
+        <strong>${escapeHtml(v.namaPasien)}</strong>
+        <div style="font-size:0.75rem;color:var(--text-muted);">${v.mrNo}</div>
+      </td>
+      <td style="padding:10px;font-size:0.82rem;">${escapeHtml(v.cpNama)}</td>
+      <td style="padding:10px;text-align:center;font-weight:700;">Hari ${v.hariKe}</td>
+      <td style="padding:10px;">
+        <span class="badge ${catBadgeClass}" style="font-size:0.75rem;">${v.kategori.replace('_', ' ')}</span>
+      </td>
+      <td style="padding:10px;font-size:0.82rem;">
+        <div>${escapeHtml(v.alasan)}</div>
+        ${v.tindakan ? `<div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;"><em>Tindakan: ${escapeHtml(v.tindakan)}</em></div>` : ''}
+      </td>
+      <td style="padding:10px;text-align:center;">
+        <span class="badge badge-${isJust ? 'success' : 'danger'}" style="font-size:0.72rem;">
+          ${isJust ? 'BERJUSTIFIKASI' : 'TIDAK BERJUSTIFIKASI'}
+        </span>
+      </td>
+      <td style="padding:10px;font-size:0.8rem;color:var(--text-muted);">${escapeHtml(v.petugas || 'Staf')}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// ==========================================================================
+// CETAK FORMULIR & LAPORAN AUDIT MUTU CLINICAL PATHWAY RESMI
+// ==========================================================================
+
+function printClinicalPathwaySheet(episodeId) {
+  const allEpisodes = getAllEpisodes();
+  const ep = allEpisodes.find(e => e.episodeId === episodeId);
+  if (!ep) return;
+
+  const tmpl = (CP_STATE.data.templates || []).find(t => t.id === ep.templateId);
+  if (!tmpl) return;
+
+  const comp = calculateClientCompliance(ep, tmpl);
+  const numDays = tmpl.jumlahHariStandar || 5;
+
+  let matrixRowsHtml = "";
+  (tmpl.items || []).forEach(it => {
+    let dayCells = "";
+    for (let d = 1; d <= numDays; d++) {
+      const isSched = (it.jadwal || []).includes(d);
+      if (!isSched) {
+        dayCells += `<td style="text-align:center;background:#f8fafc;color:#cbd5e1;">-</td>`;
+      } else {
+        const key = `${it.id}_d${d}`;
+        const st = (ep.executions && ep.executions[key]) || "TERLAKSANA";
+        const sym = st === "TERLAKSANA" ? "&#10003;" : (st === "TIDAK_TERLAKSANA" ? "&#10005;" : "&minus;");
+        const color = st === "TERLAKSANA" ? "#15803d" : (st === "TIDAK_TERLAKSANA" ? "#b91c1c" : "#475569");
+        dayCells += `<td style="text-align:center;font-weight:bold;color:${color};font-size:10pt;">${sym}</td>`;
+      }
+    }
+
+    matrixRowsHtml += `
+      <tr>
+        <td style="padding:4px 6px;">${escapeHtml(it.uraian)}</td>
+        <td style="padding:4px;text-align:center;">${it.ppa}</td>
+        <td style="padding:4px;text-align:center;">${it.tipe}</td>
+        <td style="padding:4px;text-align:center;">${it.isKritis ? '<strong>YA</strong>' : '-'}</td>
+        ${dayCells}
+      </tr>
+    `;
+  });
+
+  let varianceRowsHtml = "";
+  if ((ep.variances || []).length === 0) {
+    varianceRowsHtml = `<tr><td colspan="5" style="text-align:center;padding:6px;font-style:italic;">Tidak ada penyimpangan / variasi klinis tercatat.</td></tr>`;
+  } else {
+    ep.variances.forEach(v => {
+      varianceRowsHtml += `
+        <tr>
+          <td style="padding:4px;">Hari ${v.hariKe}</td>
+          <td style="padding:4px;">${v.kategori}</td>
+          <td style="padding:4px;">${escapeHtml(v.alasan)}</td>
+          <td style="padding:4px;text-align:center;">${v.isJustified ? 'Berjustifikasi' : 'Tidak Berjustifikasi'}</td>
+          <td style="padding:4px;">${escapeHtml(v.petugas || '-')}</td>
+        </tr>
+      `;
+    });
+  }
+
+  const printContent = `
+    <div style="font-family:Arial, sans-serif;font-size:8.5pt;line-height:1.25;color:#000;">
+      <!-- Kop Surat RSUD Dr. Soedarso -->
+      <table style="width:100%;border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:8px;">
+        <tr>
+          <td style="width:65px;vertical-align:middle;">
+            <img src="logo_kakap.png" alt="Logo" style="width:55px;height:55px;object-fit:cover;">
+          </td>
+          <td style="text-align:center;vertical-align:middle;">
+            <div style="font-size:10pt;font-weight:bold;letter-spacing:0.5px;">PEMERINTAH PROVINSI KALIMANTAN BARAT</div>
+            <div style="font-size:12pt;font-weight:bold;color:#000;letter-spacing:0.8px;">RSUD DR. SOEDARSO PONTIANAK</div>
+            <div style="font-size:7.5pt;color:#333;">Jl. Dr. Soedarso No. 1, Pontianak &bull; Telp. (0561) 737701 &bull; Ruang Rawat Inap Kakap</div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Judul Dokumen -->
+      <div style="text-align:center;font-weight:bold;font-size:10pt;margin:8px 0 4px 0;text-decoration:underline;">
+        LEMBAR VERIFIKASI &amp; AUDIT KEPATUHAN CLINICAL PATHWAY
+      </div>
+      <div style="text-align:center;font-size:8pt;margin-bottom:8px;">
+        Dokumen: <strong>${escapeHtml(tmpl.nama)}</strong> &bull; Nomor: ${tmpl.nomorCp} (v${tmpl.versi || '1.0'})
+      </div>
+
+      <!-- Data Identitas Pasien -->
+      <table style="width:100%;border:1px solid #333;margin-bottom:8px;font-size:8pt;border-collapse:collapse;">
+        <tr>
+          <td style="padding:3px 6px;width:15%;border:1px solid #ccc;">Nama Pasien</td>
+          <td style="padding:3px 6px;width:35%;border:1px solid #ccc;"><strong>: ${escapeHtml(ep.namaPasien)}</strong> (${ep.gender}/${ep.usia} th)</td>
+          <td style="padding:3px 6px;width:15%;border:1px solid #ccc;">Nomor RM</td>
+          <td style="padding:3px 6px;width:35%;border:1px solid #ccc;"><strong>: ${ep.mrNo}</strong></td>
+        </tr>
+        <tr>
+          <td style="padding:3px 6px;border:1px solid #ccc;">Ruang / Bed</td>
+          <td style="padding:3px 6px;border:1px solid #ccc;">: ${escapeHtml(ep.ruangRawat)}</td>
+          <td style="padding:3px 6px;border:1px solid #ccc;">DPJP Utama</td>
+          <td style="padding:3px 6px;border:1px solid #ccc;">: ${escapeHtml(ep.dpjp)}</td>
+        </tr>
+        <tr>
+          <td style="padding:3px 6px;border:1px solid #ccc;">Tgl Masuk / Keluar</td>
+          <td style="padding:3px 6px;border:1px solid #ccc;">: ${ep.tglMasuk} s/d ${ep.tglKeluar || 'Masih Dirawat'}</td>
+          <td style="padding:3px 6px;border:1px solid #ccc;">Lama Rawat (LOS)</td>
+          <td style="padding:3px 6px;border:1px solid #ccc;">: Riil ${ep.realLos} Hari / Target ${tmpl.losTarget} Hari</td>
+        </tr>
+      </table>
+
+      <!-- Matriks CP -->
+      <div style="font-weight:bold;font-size:8.5pt;margin-bottom:3px;">I. MATRIKS EVALUASI KEGIATAN &amp; ASUHAN PELAYANAN</div>
+      <table class="cp-print-table">
+        <thead>
+          <tr style="background:#f1f5f9;">
+            <th>Uraian Kegiatan / Aspek Pelayanan</th>
+            <th style="width:50px;text-align:center;">PPA</th>
+            <th style="width:55px;text-align:center;">Tipe</th>
+            <th style="width:40px;text-align:center;">Kritis</th>
+            ${Array.from({length: numDays}, (_, i) => `<th style="width:30px;text-align:center;">H-${i+1}</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${matrixRowsHtml}
+        </tbody>
+      </table>
+
+      <!-- Catatan Variasi -->
+      <div style="font-weight:bold;font-size:8.5pt;margin-top:6px;margin-bottom:3px;">II. FORMULIR PENCATATAN VARIAN (PENYIMPANGAN DARI ALUR CP)</div>
+      <table class="cp-print-table">
+        <thead>
+          <tr style="background:#f1f5f9;">
+            <th style="width:55px;">Hari Ke</th>
+            <th style="width:110px;">Kategori Varian</th>
+            <th>Uraian Alasan Penyimpangan &amp; Tindakan</th>
+            <th style="width:90px;text-align:center;">Justifikasi</th>
+            <th style="width:90px;">Pelapor</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${varianceRowsHtml}
+        </tbody>
+      </table>
+
+      <!-- Ringkasan Skor Mutu -->
+      <div style="margin-top:8px;padding:6px 10px;background:#f8fafc;border:1px solid #333;font-size:8pt;">
+        <strong>KESIMPULAN AUDIT MUTU KLINIS:</strong>
+        Kepatuhan Mentah: <strong>${comp.rawScore}%</strong> |
+        Kepatuhan Adjusted: <strong>${comp.adjScore}%</strong> |
+        Bundel Kritis: <strong>${comp.criticalBundlePassed ? 'LOLOS (100%)' : 'GAGAL'}</strong> |
+        Status Mutu: <strong>${comp.mutuCategory}</strong>
+      </div>
+
+      <!-- Tanda Tangan PPA -->
+      <table style="width:100%;margin-top:14px;text-align:center;font-size:8pt;border-collapse:collapse;">
+        <tr>
+          <td style="width:33%;">
+            <div>Dokter Penanggung Jawab Pelayanan (DPJP)</div>
+            <div style="height:45px;"></div>
+            <div>( <strong>${escapeHtml(ep.dpjp)}</strong> )</div>
+          </td>
+          <td style="width:33%;">
+            <div>Perawat Penanggung Jawab Asuhan (PPJA)</div>
+            <div style="height:45px;"></div>
+            <div>( __________________________ )</div>
+          </td>
+          <td style="width:33%;">
+            <div>Pelaksana Verifikasi / Case Manager</div>
+            <div style="height:45px;"></div>
+            <div>( __________________________ )</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  `;
+
+  // Render to modal preview and hidden print container
+  const preview = document.getElementById("cpPrintPreviewContent");
+  const printCont = document.getElementById("printContainer");
+  if (preview) preview.innerHTML = printContent;
+  if (printCont) printCont.innerHTML = printContent;
+
+  const modal = document.getElementById("cpPrintPreviewModal");
+  if (modal) modal.style.display = "flex";
+}
+
+function closeCpPrintPreviewModal() {
+  const modal = document.getElementById("cpPrintPreviewModal");
+  if (modal) modal.style.display = "none";
+}
+
+function printClinicalPathwayAggregateReport() {
+  if (!CP_STATE.data) return;
+
+  const summaries = CP_STATE.data.cpSummaries || [];
+  const sTotal = CP_STATE.data.summary || {};
+
+  let rowsHtml = "";
+  summaries.forEach((s, idx) => {
+    rowsHtml += `
+      <tr>
+        <td style="text-align:center;padding:6px;">${idx+1}</td>
+        <td style="padding:6px;"><strong>${escapeHtml(s.nama)}</strong><br><span style="font-size:7.5pt;color:#666;">${s.nomorCp}</span></td>
+        <td style="padding:6px;">${s.ksm}</td>
+        <td style="text-align:center;padding:6px;">${s.totalEpisodes} Kasus</td>
+        <td style="text-align:center;padding:6px;">${s.rawAvg}%</td>
+        <td style="text-align:center;padding:6px;font-weight:bold;color:#15803d;">${s.adjAvg}%</td>
+        <td style="text-align:center;padding:6px;">${s.bundlePassedPct}%</td>
+        <td style="text-align:center;padding:6px;">${s.avgRealLos} / ${s.losTarget} H</td>
+        <td style="text-align:center;padding:6px;"><strong>${s.mutuCategory}</strong></td>
+      </tr>
+    `;
+  });
+
+  const reportContent = `
+    <div style="font-family:Arial, sans-serif;font-size:8.5pt;line-height:1.3;color:#000;">
+      <table style="width:100%;border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:10px;">
+        <tr>
+          <td style="width:65px;vertical-align:middle;">
+            <img src="logo_kakap.png" alt="Logo" style="width:55px;height:55px;object-fit:cover;">
+          </td>
+          <td style="text-align:center;vertical-align:middle;">
+            <div style="font-size:10pt;font-weight:bold;">PEMERINTAH PROVINSI KALIMANTAN BARAT</div>
+            <div style="font-size:12pt;font-weight:bold;">RSUD DR. SOEDARSO PONTIANAK</div>
+            <div style="font-size:8pt;color:#333;">KOMITE MUTU DAN KESELAMATAN PASIEN (KMKP) &bull; SUB-KOMITE AUDIT KLINIS</div>
+          </td>
+        </tr>
+      </table>
+
+      <div style="text-align:center;font-weight:bold;font-size:11pt;margin:10px 0 4px 0;text-decoration:underline;">
+        LAPORAN REKAPITULASI AUDIT KEPATUHAN CLINICAL PATHWAY
+      </div>
+      <div style="text-align:center;font-size:8.5pt;margin-bottom:12px;">
+        Ruang Rawat Inap Kakap &bull; Periode Audit: Terkini &bull; Dicetak: ${new Date().toLocaleDateString('id-ID')}
+      </div>
+
+      <div style="margin-bottom:12px;padding:8px 12px;background:#f8fafc;border:1px solid #333;font-size:8.5pt;">
+        <strong>RINGKASAN EKSEKUTIF INDIKATOR MUTU:</strong><br>
+        Total Episode Diaudit: <strong>${sTotal.totalEpisodes || 50} Pasien</strong> |
+        Rata-rata Kepatuhan Mentah: <strong>${sTotal.overallRawScore || 95.5}%</strong> |
+        Rata-rata Kepatuhan Adjusted: <strong>${sTotal.overallAdjScore || 99.8}%</strong> |
+        Kelulusan Bundel Kritis: <strong>${sTotal.overallBundlePct || 90.0}%</strong> |
+        Total Deviasi/Varian: <strong>${sTotal.totalVariances || 24} Kejadian</strong>
+      </div>
+
+      <table class="cp-print-table">
+        <thead>
+          <tr style="background:#f1f5f9;">
+            <th style="width:25px;text-align:center;">No</th>
+            <th>Dokumen Clinical Pathway</th>
+            <th style="width:100px;">KSM / SMF</th>
+            <th style="width:70px;text-align:center;">Sampel</th>
+            <th style="width:65px;text-align:center;">Kepatuhan Mentah</th>
+            <th style="width:65px;text-align:center;">Kepatuhan Adjusted</th>
+            <th style="width:65px;text-align:center;">Bundel Kritis</th>
+            <th style="width:75px;text-align:center;">LOS (Riil/Target)</th>
+            <th style="width:60px;text-align:center;">Kategori</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rowsHtml}
+        </tbody>
+      </table>
+
+      <table style="width:100%;margin-top:24px;text-align:center;font-size:8.5pt;border-collapse:collapse;">
+        <tr>
+          <td style="width:50%;">
+            <div>Mengetahui,</div>
+            <div>Kepala Ruang Rawat Inap Kakap</div>
+            <div style="height:50px;"></div>
+            <div>( <strong>Ns. Rusmulyadi, S.Kep</strong> )</div>
+          </td>
+          <td style="width:50%;">
+            <div>Pontianak, ${new Date().toLocaleDateString('id-ID')}</div>
+            <div>Ketua Komite Mutu &amp; Keselamatan Pasien (KMKP)</div>
+            <div style="height:50px;"></div>
+            <div>( __________________________ )</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  `;
+
+  const preview = document.getElementById("cpPrintPreviewContent");
+  const printCont = document.getElementById("printContainer");
+  if (preview) preview.innerHTML = reportContent;
+  if (printCont) printCont.innerHTML = reportContent;
+
+  const modal = document.getElementById("cpPrintPreviewModal");
+  if (modal) modal.style.display = "flex";
 }
 

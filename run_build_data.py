@@ -1007,6 +1007,15 @@ def build_data(download=False):
         "today": today_data
     }
 
+    # Integrasi Clinical Pathway MVP RSUD dr. Soedarso
+    try:
+        import cp_mvp_engine
+        cp_analytics = cp_mvp_engine.run_engine()
+        full_output["clinicalPathways"] = cp_analytics
+        print("[INFO] cp_mvp_engine berhasil memproses analitik kepatuhan CP.")
+    except Exception as e:
+        print(f"[WARN] cp_mvp_engine error: {e}")
+
     with open(DASHBOARD_DATA_JSON, "w", encoding="utf-8") as f:
         json.dump(full_output, f, indent=2, ensure_ascii=False)
     print(f"[SUCCESS] Wrote {DASHBOARD_DATA_JSON} ({os.path.getsize(DASHBOARD_DATA_JSON)} bytes)")
