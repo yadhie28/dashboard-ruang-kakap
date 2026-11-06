@@ -1010,7 +1010,7 @@ def build_data(download=False):
     # Integrasi Clinical Pathway MVP RSUD dr. Soedarso
     try:
         import cp_mvp_engine
-        cp_analytics = cp_mvp_engine.run_engine()
+        cp_analytics = cp_mvp_engine.run_engine(recent_days=recent_days, today_data=today_data)
         full_output["clinicalPathways"] = cp_analytics
         print("[INFO] cp_mvp_engine berhasil memproses analitik kepatuhan CP.")
     except Exception as e:

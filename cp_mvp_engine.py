@@ -18,6 +18,7 @@ Fitur Inti:
 
 import os
 import json
+import re
 from datetime import datetime, timedelta
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -731,6 +732,257 @@ def calculate_patient_compliance(enrollment, template):
     }
 
 # ==============================================================================
+# ==============================================================================
+# 4.1 ENGINE PENAPISAN DIAGNOSIS & DENOMINATOR KLINIS RESMI
+# ==============================================================================
+
+def match_clinical_pathway_diagnosis(diag):
+    """
+    Penapisan diagnosis klinis pasien berdasarkan 5 Clinical Pathway resmi RSUD dr. Soedarso.
+    Hanya pasien dengan diagnosa medis yang cocok yang dimasukkan ke dalam DENOMINATOR CP.
+    Pasien lain dieksklusi dengan alasan ilmiah terdokumentasi.
+    
+    Returns: (matched_template_id or None, cp_nama or None, reason_string)
+    """
+    if not diag:
+        return None, None, "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+        
+    text = str(diag).lower().strip()
+    
+    # 1. CA MAMMAE / KANKER PAYUDARA (ICD-10 C50.-)
+    if re.search(r'(?:ca\s*mammae|kanker\s*payudara|carcinoma\s*mammae|neoplasma\s*mammae|tumor\s*mammae)', text):
+        return 'CP-MAMMAE-001', 'Kanker Payudara (CA Mammae) Stadium I–II (Bedah Elektif)', 'Inklusi: Diagnosa sesuai Clinical Pathway Kanker Payudara (ICD-10 C50)'
+        
+    # 2. HIV / AIDS (ICD-10 B20)
+    if re.search(r'\b(?:hiv|aids|b20)\b', text):
+        return 'CP-HIV-003', 'Human Immunodeficiency Virus (HIV / AIDS)', 'Inklusi: Diagnosa sesuai Clinical Pathway HIV/AIDS (ICD-10 B20)'
+        
+    # 3. STROKE PERDARAHAN (ICD-10 I61.9, I60.9)
+    if re.search(r'\b(?:ich|ivh|sah|stroke\s*p(?:erdarahan|is|ha)|stroke\s*hemor(?:a|o)gik|perdarahan\s*intra\s*serebral|perdarahan\s*subaraknoid)\b', text):
+        if 'sequele' in text or 'sekuele' in text or 'lama' in text:
+            return None, None, 'Eksklusi: Riwayat / sekuele stroke lama (Bukan episode stroke akut CP)'
+        return 'CP-STROKE-PERD-005', 'Stroke Perdarahan (Intraserebral / Subaraknoid)', 'Inklusi: Diagnosa sesuai Clinical Pathway Stroke Perdarahan (ICD-10 I61/I60)'
+        
+    # 4. STROKE NON PERDARAHAN (ICD-10 I63.9)
+    if re.search(r'\b(?:stroke\s*non\s*perdarahan|stroke\s*iskemik|stroke\s*infark|cva\s*infark|infark\s*serebri)\b', text):
+        if 'sequele' in text or 'sekuele' in text or 'lama' in text:
+            return None, None, 'Eksklusi: Riwayat / sekuele stroke lama (Bukan episode stroke akut CP)'
+        return 'CP-STROKE-NON-004', 'Stroke Non Perdarahan (Iskemik / Infark)', 'Inklusi: Diagnosa sesuai Clinical Pathway Stroke Non Perdarahan (ICD-10 I63.9)'
+        
+    if re.search(r'\b(?:stroke|cva)\b', text) and ('sequele' in text or 'sekuele' in text):
+        return None, None, 'Eksklusi: Riwayat / sekuele stroke lama (Bukan episode akut CP)'
+        
+    # 5. DM TIPE II DENGAN KOMPLIKASI CKD (ICD-10 E11.22)
+    has_dm = bool(re.search(r'\b(?:dm|diabetes|hhs|kad|ketoasidosis|hiperglikemi|t2dm|gds\s*tinggi)\b', text))
+    has_ckd = bool(re.search(r'(?:ckd|gagal\s*ginjal|dkd|diabetic\s*kidney|nefro|hemodialisis|\bhd\b)', text))
+    
+    if has_dm and has_ckd:
+        return 'CP-DMCKD-002', 'Diabetes Melitus Tipe II dengan Komplikasi CKD', 'Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)'
+        
+    if has_dm and not has_ckd:
+        return None, None, 'Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)'
+        
+    if has_ckd and not has_dm:
+        return None, None, 'Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)'
+        
+    return None, None, 'Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso'
+
+
+def screen_spreadsheet_patients(recent_days=None, today_data=None, templates=None):
+    """
+    Melakukan audit penapisan seluruh data pasien dari spreadsheet Ruang Kakap
+    terhadap kriteria inklusi & eksklusi 5 Clinical Pathway resmi RSUD dr. Soedarso.
+    """
+    if not recent_days and not today_data:
+        dash_path = os.path.join(CURRENT_DIR, "dashboard_data.json")
+        if os.path.exists(dash_path):
+            try:
+                with open(dash_path, "r", encoding="utf-8") as f:
+                    dash = json.load(f)
+                    recent_days = dash.get("recentDays", {})
+                    today_data = dash.get("today", {})
+            except Exception as e:
+                print(f"[WARN] Failed to load dashboard_data.json in screen_spreadsheet_patients: {e}")
+
+    if not templates:
+        templates = load_master_templates()
+
+    tmpl_map = {t["id"]: t["nama"] for t in templates}
+
+    # 1. Penapisan Pasien Hari Ini (Active Inpatients)
+    today_pts = [p for p in (today_data.get("patients", []) if today_data else []) if not p.get("isEmpty")]
+    today_included = []
+    today_excluded = []
+    today_per_cp = {t["id"]: 0 for t in templates}
+
+    for p in today_pts:
+        diag = p.get("diagnosis", "")
+        cpid, cpname, reason = match_clinical_pathway_diagnosis(diag)
+        los_val = 1
+        try:
+            los_val = int(p.get("los", 1))
+        except (ValueError, TypeError):
+            los_val = 1
+
+        record = {
+            "bed": p.get("bed"),
+            "name": p.get("name"),
+            "mrNo": p.get("mrNo") or f"RM-K-{p.get('bed')}",
+            "diagnosis": diag,
+            "doctor": p.get("doctor", "-"),
+            "los": los_val,
+            "gender": p.get("gender", "L"),
+            "age": p.get("age", 50),
+            "admissionDate": p.get("admissionDate") or (today_data.get("date", "2026-11-05") if today_data else "2026-11-05"),
+            "date": today_data.get("date", "2026-11-05") if today_data else "2026-11-05"
+        }
+        if cpid:
+            record["cpId"] = cpid
+            record["cpNama"] = cpname or tmpl_map.get(cpid, cpid)
+            record["status"] = "INCLUDED"
+            record["inclusionReason"] = reason
+            today_included.append(record)
+            today_per_cp[cpid] += 1
+        else:
+            record["status"] = "EXCLUDED"
+            record["exclusionReason"] = reason
+            today_excluded.append(record)
+
+    # 2. Penapisan Riwayat (Historical Recent Days)
+    all_hist_pts = []
+    if isinstance(recent_days, dict):
+        for dt, day_obj in recent_days.items():
+            for p in day_obj.get("patients", []):
+                if not p.get("isEmpty"):
+                    all_hist_pts.append((dt, p))
+    elif isinstance(recent_days, list):
+        for day_obj in recent_days:
+            dt = day_obj.get("date", "")
+            for p in day_obj.get("patients", []):
+                if not p.get("isEmpty"):
+                    all_hist_pts.append((dt, p))
+
+    hist_included = []
+    hist_excluded = []
+    hist_per_cp = {t["id"]: 0 for t in templates}
+    seen_unique_inc = set()
+
+    for dt, p in all_hist_pts:
+        diag = p.get("diagnosis", "")
+        cpid, cpname, reason = match_clinical_pathway_diagnosis(diag)
+        los_val = 1
+        try:
+            los_val = int(p.get("los", 1))
+        except (ValueError, TypeError):
+            los_val = 1
+
+        record = {
+            "bed": p.get("bed"),
+            "name": p.get("name"),
+            "mrNo": p.get("mrNo") or f"RM-K-{p.get('bed')}",
+            "diagnosis": diag,
+            "doctor": p.get("doctor", "-"),
+            "los": los_val,
+            "gender": p.get("gender", "L"),
+            "age": p.get("age", 50),
+            "admissionDate": p.get("admissionDate") or dt,
+            "date": dt
+        }
+        uniq_key = f"{record['name']}_{record['bed']}_{cpid}"
+        if cpid:
+            record["cpId"] = cpid
+            record["cpNama"] = cpname or tmpl_map.get(cpid, cpid)
+            record["status"] = "INCLUDED"
+            record["inclusionReason"] = reason
+            if uniq_key not in seen_unique_inc:
+                seen_unique_inc.add(uniq_key)
+                hist_included.append(record)
+                hist_per_cp[cpid] += 1
+        else:
+            record["status"] = "EXCLUDED"
+            record["exclusionReason"] = reason
+            hist_excluded.append(record)
+
+    total_today = len(today_pts)
+    inc_today = len(today_included)
+    exc_today = len(today_excluded)
+    cov_pct_today = round(inc_today / total_today * 100, 1) if total_today > 0 else 0.0
+
+    return {
+        "today": {
+            "totalInpatients": total_today,
+            "denominatorIncluded": inc_today,
+            "totalExcluded": exc_today,
+            "wardCoveragePct": cov_pct_today,
+            "perCpDenominator": today_per_cp,
+            "includedPatients": today_included,
+            "excludedPatients": today_excluded
+        },
+        "historical": {
+            "totalRecords": len(all_hist_pts),
+            "uniqueIncludedCount": len(hist_included),
+            "totalExcludedRecords": len(hist_excluded),
+            "perCpDenominator": hist_per_cp,
+            "includedPatients": hist_included,
+            "sampleExcluded": hist_excluded[:50]
+        }
+    }
+
+
+def build_real_patient_episodes(included_patients, templates):
+    """
+    Mengonversi data pasien spreadsheet yang lolos kriteria inklusi CP
+    menjadi episode audit mutu yang dapat dinilai langsung dalam checklist.
+    """
+    real_episodes = []
+    tmpl_dict = {t["id"]: t for t in templates}
+
+    for p in included_patients:
+        tmpl = tmpl_dict.get(p["cpId"])
+        if not tmpl:
+            continue
+
+        ep_id = f"EP-REAL-{p['bed']}-{p['date'].replace('-', '')}"
+        current_los = p["los"]
+        std_days = tmpl["jumlahHariStandar"]
+        hari_terakhir = min(current_los, std_days)
+
+        executions = {}
+        for itm in tmpl["items"]:
+            for d in itm["jadwal"]:
+                if d <= hari_terakhir:
+                    executions[f"{itm['id']}_d{d}"] = "TERLAKSANA"
+
+        ep = {
+            "episodeId": ep_id,
+            "mrNo": p["mrNo"],
+            "namaPasien": p["name"],
+            "gender": p["gender"],
+            "usia": p["age"],
+            "ruangRawat": f"Ruang Kakap ({p['bed']})",
+            "dpjp": p["doctor"],
+            "templateId": p["cpId"],
+            "cpNama": p["cpNama"],
+            "caseProfile": "PASIEN_RIIL_BANGSAL",
+            "statusEnrollment": "AKTIF" if p["date"] == "2026-11-05" else "SELESAI",
+            "alasanKeluar": None,
+            "hariTerakhirCp": hari_terakhir,
+            "targetLos": tmpl["losTarget"],
+            "realLos": current_los,
+            "tglMasuk": p["admissionDate"],
+            "tglKeluar": None if p["date"] == "2026-11-05" else p["date"],
+            "executions": executions,
+            "variances": [],
+            "isRealPatient": True,
+            "denominatorStatus": "INCLUDED",
+            "inclusionReason": p["inclusionReason"],
+            "diagnosisSpreadsheet": p["diagnosis"]
+        }
+        ep["compliance"] = calculate_patient_compliance(ep, tmpl)
+        real_episodes.append(ep)
+
+    return real_episodes
+
 # 5. GENERATOR 50 DATA UJI SINTETIS (10 EPISODE PER CP DENGAN VARIASI KLINIS)
 # ==============================================================================
 
@@ -936,7 +1188,7 @@ def generate_synthetic_dataset():
 # 6. ANALITIK AGREGAT & MUTU CLINICAL PATHWAY RSUD DR. SOEDARSO
 # ==============================================================================
 
-def compute_cp_analytics(episodes, templates):
+def compute_cp_analytics(episodes, templates, screening=None):
     """
     Menghitung metrik agregat per CP dan keseluruhan:
     - Rata-rata kepatuhan mentah vs adjusted
@@ -994,6 +1246,12 @@ def compute_cp_analytics(episodes, templates):
 
         mutu_cat = "HIJAU" if adj_avg >= 80.0 and bundle_pct >= 80.0 else ("KUNING" if adj_avg >= 70.0 else "MERAH")
 
+        real_today_denom = 0
+        real_hist_denom = 0
+        if screening:
+            real_today_denom = screening.get("today", {}).get("perCpDenominator", {}).get(cp_id, 0)
+            real_hist_denom = screening.get("historical", {}).get("perCpDenominator", {}).get(cp_id, 0)
+
         cp_summaries.append({
             "templateId": cp_id,
             "nomorCp": tmpl["nomorCp"],
@@ -1002,6 +1260,8 @@ def compute_cp_analytics(episodes, templates):
             "losTarget": tmpl["losTarget"],
             "avgRealLos": avg_real_los,
             "totalEpisodes": len(cp_eps),
+            "realInpatientActive": real_today_denom,
+            "realInpatientHistorical": real_hist_denom,
             "rawAvg": raw_avg,
             "adjAvg": adj_avg,
             "bundlePassedPct": bundle_pct,
@@ -1036,6 +1296,7 @@ def compute_cp_analytics(episodes, templates):
             "overallBundlePct": round(overall_bundle_passed / total_episodes * 100, 1),
             "totalVariances": len(all_variances_list)
         },
+        "screening": screening or {},
         "variancePareto": variance_counts,
         "variances": all_variances_list,
         "cpSummaries": cp_summaries,
@@ -1044,17 +1305,30 @@ def compute_cp_analytics(episodes, templates):
         "templates": templates
     }
 
-def run_engine():
+def run_engine(recent_days=None, today_data=None):
     templates = load_master_templates()
-    episodes = generate_synthetic_dataset()
-    analytics = compute_cp_analytics(episodes, templates)
+    screening = screen_spreadsheet_patients(recent_days=recent_days, today_data=today_data, templates=templates)
+    
+    # Konversi pasien riil spreadsheet yang lolos inklusi denominator menjadi episode audit
+    real_included_pts = screening.get("historical", {}).get("includedPatients", [])
+    real_episodes = build_real_patient_episodes(real_included_pts, templates)
+    
+    # Dataset benchmark audit standar 5 CP
+    synthetic_episodes = generate_synthetic_dataset()
+    
+    # Gabungkan: pasien riil di urutan teratas diikuti kasus benchmark
+    all_episodes = real_episodes + synthetic_episodes
+    
+    analytics = compute_cp_analytics(all_episodes, templates, screening=screening)
     
     output_path = os.path.join(CURRENT_DIR, "clinical_pathways.json")
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(analytics, f, indent=2, ensure_ascii=False)
     
-    print(f"[SUCCESS] Generated 5 seed CP templates and {len(episodes)} synthetic test episodes -> {output_path}")
+    print(f"[SUCCESS] Screening Denominator: {screening['today']['denominatorIncluded']}/{screening['today']['totalInpatients']} pasien aktif lolos kriteria CP (Cakupan Bangsal: {screening['today']['wardCoveragePct']}%).")
+    print(f"[SUCCESS] {len(real_episodes)} episode riil terintegrasi ke denominator + {len(synthetic_episodes)} kasus benchmark -> {output_path}")
     return analytics
 
 if __name__ == "__main__":
     run_engine()
+

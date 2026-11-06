@@ -1037,6 +1037,39 @@
         <!-- SUB-VIEW 1: CEKLIS MATRIKS HARIAN BANGSAL -->
         <!-- ================================================================== -->
         <div id="cpViewChecklist" class="cp-subview-panel active">
+          <!-- PANEL AUDIT PENAPISAN DENOMINATOR PASIEN SPREADSHEET -->
+          <div id="cpDenominatorScreeningPanel" class="card" style="margin-bottom:1rem;padding:14px 18px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;border-bottom:1px solid var(--border-color);padding-bottom:10px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg, #0284c7, #0369a1);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;font-size:1.1rem;box-shadow:0 2px 4px rgba(2,132,199,0.25);">
+                  &#x2695;
+                </div>
+                <div>
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <h4 style="margin:0;font-size:0.98rem;font-weight:800;color:var(--text-main);letter-spacing:-0.01em;">
+                      Audit Penapisan Denominator Sensus Bangsal (Kriteria Inklusi &amp; Eksklusi CP)
+                    </h4>
+                    <span class="badge badge-success" style="font-size:0.7rem;padding:2px 8px;">PENAPISAN KETAT 100%</span>
+                  </div>
+                  <p style="margin:2px 0 0;font-size:0.78rem;color:var(--text-muted);">
+                    Hanya pasien dengan diagnosa medis spreadsheet yang cocok dengan 5 Clinical Pathway resmi RSUD dr. Soedarso yang diikutsertakan dalam Denominator Kepatuhan.
+                  </p>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <button type="button" class="btn btn-sm btn-outline-danger" id="btnToggleExcludedPatients" onclick="openCpExcludedModal()">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:4px;"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+                  <span>Audit Pasien Non-CP (Eksklusi)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 4 Screening KPI Cards -->
+            <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:10px;" id="cpScreeningStatsGrid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
           <!-- Selection Toolbar -->
           <div class="card" style="padding:14px 18px;margin-bottom:1rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);">
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
@@ -1882,6 +1915,52 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:4px;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
           <span>Cetak / Simpan PDF</span>
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: AUDIT PASIEN NON-CP (EKSKLUSI DENOMINATOR) -->
+  <div class="modal-overlay" id="cpExcludedModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="cpExcludedModalTitle">
+    <div class="modal-dialog" style="max-width:880px;width:95%;">
+      <div class="modal-header" style="background:#0f172a;color:#fff;border-bottom:1px solid #334155;padding:14px 20px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:34px;height:34px;border-radius:8px;background:#ef4444;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;font-size:1.1rem;">
+            &#x2715;
+          </div>
+          <div>
+            <h3 id="cpExcludedModalTitle" style="margin:0;font-size:1.05rem;font-weight:700;color:#fff;">Log Transparansi Pasien Non-CP (Eksklusi Denominator)</h3>
+            <span style="font-size:0.75rem;color:#94a3b8;">Komite Mutu &amp; Keselamatan Pasien (KMKP) &bull; RSUD dr. Soedarso Pontianak</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="btnCpExcludedCloseModal" onclick="closeCpExcludedModal()" style="color:#fff;" aria-label="Tutup">&times;</button>
+      </div>
+
+      <div class="modal-body" style="padding:16px 20px;background:var(--bg-card);max-height:75vh;overflow-y:auto;">
+        <div style="background:#f8fafc;padding:12px 16px;border-radius:8px;margin-bottom:16px;border:1px solid #e2e8f0;font-size:0.83rem;color:#334155;line-height:1.5;">
+          <strong>Dasar Metodologi Mutu:</strong> Sesuai instruksi Komite Mutu RSUD dr. Soedarso, pasien yang diikutsertakan dalam denominator kepatuhan Clinical Pathway <em>hanya</em> pasien dengan diagnosa medis yang sesuai dengan 5 dokumen Clinical Pathway resmi (CA Mammae stadium I-II, DM Tipe II + CKD, HIV/AIDS, Stroke Non Perdarahan, Stroke Perdarahan). Pasien di bawah ini dieksklusi secara objektif karena diagnosa medisnya belum tercakup dalam 5 CP atau berupa sekuele stroke non-akut.
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="table" style="width:100%;font-size:0.82rem;border-collapse:collapse;" id="cpExcludedTable">
+            <thead>
+              <tr style="background:var(--bg-muted);border-bottom:2px solid var(--border-color);text-align:left;">
+                <th style="padding:8px 10px;width:70px;">Bed</th>
+                <th style="padding:8px 10px;width:180px;">No. RM &amp; Nama Pasien</th>
+                <th style="padding:8px 10px;">Diagnosa Medis Spreadsheet</th>
+                <th style="padding:8px 10px;width:100px;text-align:center;">Status</th>
+                <th style="padding:8px 10px;">Alasan Ilmiah Eksklusi Denominator</th>
+              </tr>
+            </thead>
+            <tbody id="cpExcludedTableBody">
+              <!-- Populated dynamically via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="padding:12px 20px;background:var(--bg-muted);display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-color);">
+        <span style="font-size:0.8rem;color:var(--text-muted);" id="cpExcludedCountFooter">Total Pasien Terverifikasi Eksklusi: 0</span>
+        <button class="btn btn-secondary btn-sm" onclick="closeCpExcludedModal()">Tutup Log</button>
       </div>
     </div>
   </div>

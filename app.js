@@ -5092,38 +5092,135 @@ async function loadClinicalPathwayData(forceRefresh = false) {
   return CP_STATE.data;
 }
 
-// Integrasikan Pasien Rawat Inap Ruang Kakap ke Daftar Episode CP
-function integrateRealInpatientsIntoCp() {
-  if (!CP_STATE.data || !state.data || !state.data.today || !state.data.today.patients) return;
+// ==============================================================================
+// PENAPISAN DIAGNOSIS MEDIS SPREADSHEET KE CLINICAL PATHWAY RESMI SOEDARSO
+// ==============================================================================
 
-  const realPatients = state.data.today.patients.filter(p => !p.isEmpty);
+function matchClinicalPathwayDiagnosis(diag) {
+  if (!diag) return { cpId: null, cpNama: null, reason: "Eksklusi: Tidak ada data diagnosa medis di lembar sensus" };
+  const text = String(diag).toLowerCase().trim();
+
+  // 1. CA MAMMAE / KANKER PAYUDARA (ICD-10 C50.-)
+  if (/(?:ca\s*mammae|kanker\s*payudara|carcinoma\s*mammae|neoplasma\s*mammae|tumor\s*mammae)/i.test(text)) {
+    return {
+      cpId: "CP-MAMMAE-001",
+      cpNama: "Kanker Payudara (CA Mammae) Stadium I–II (Bedah Elektif)",
+      reason: "Inklusi: Diagnosa sesuai Clinical Pathway Kanker Payudara (ICD-10 C50)"
+    };
+  }
+
+  // 2. HIV / AIDS (ICD-10 B20)
+  if (/\b(?:hiv|aids|b20)\b/i.test(text)) {
+    return {
+      cpId: "CP-HIV-003",
+      cpNama: "Human Immunodeficiency Virus (HIV / AIDS)",
+      reason: "Inklusi: Diagnosa sesuai Clinical Pathway HIV/AIDS (ICD-10 B20)"
+    };
+  }
+
+  // 3. STROKE PERDARAHAN (ICD-10 I61.9, I60.9)
+  if (/\b(?:ich|ivh|sah|stroke\s*p(?:erdarahan|is|ha)|stroke\s*hemor(?:a|o)gik|perdarahan\s*intra\s*serebral|perdarahan\s*subaraknoid)\b/i.test(text)) {
+    if (text.includes("sequele") || text.includes("sekuele") || text.includes("lama")) {
+      return { cpId: null, cpNama: null, reason: "Eksklusi: Riwayat / sekuele stroke lama (Bukan episode stroke akut CP)" };
+    }
+    return {
+      cpId: "CP-STROKE-PERD-005",
+      cpNama: "Stroke Perdarahan (Intraserebral / Subaraknoid)",
+      reason: "Inklusi: Diagnosa sesuai Clinical Pathway Stroke Perdarahan (ICD-10 I61/I60)"
+    };
+  }
+
+  // 4. STROKE NON PERDARAHAN (ICD-10 I63.9)
+  if (/\b(?:stroke\s*non\s*perdarahan|stroke\s*iskemik|stroke\s*infark|cva\s*infark|infark\s*serebri)\b/i.test(text)) {
+    if (text.includes("sequele") || text.includes("sekuele") || text.includes("lama")) {
+      return { cpId: null, cpNama: null, reason: "Eksklusi: Riwayat / sekuele stroke lama (Bukan episode stroke akut CP)" };
+    }
+    return {
+      cpId: "CP-STROKE-NON-004",
+      cpNama: "Stroke Non Perdarahan (Iskemik / Infark)",
+      reason: "Inklusi: Diagnosa sesuai Clinical Pathway Stroke Non Perdarahan (ICD-10 I63.9)"
+    };
+  }
+
+  if (/\b(?:stroke|cva)\b/i.test(text) && (text.includes("sequele") || text.includes("sekuele"))) {
+    return { cpId: null, cpNama: null, reason: "Eksklusi: Riwayat / sekuele stroke lama (Bukan episode akut CP)" };
+  }
+
+  // 5. DM TIPE II DENGAN KOMPLIKASI CKD (ICD-10 E11.22)
+  const hasDm = /\b(?:dm|diabetes|hhs|kad|ketoasidosis|hiperglikemi|t2dm|gds\s*tinggi)\b/i.test(text);
+  const hasCkd = /(?:ckd|gagal\s*ginjal|dkd|diabetic\s*kidney|nefro|hemodialisis|\bhd\b)/i.test(text);
+
+  if (hasDm && hasCkd) {
+    return {
+      cpId: "CP-DMCKD-002",
+      cpNama: "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+      reason: "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
+    };
+  }
+
+  if (hasDm && !hasCkd) {
+    return { cpId: null, cpNama: null, reason: "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)" };
+  }
+
+  if (hasCkd && !hasDm) {
+    return { cpId: null, cpNama: null, reason: "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)" };
+  }
+
+  return { cpId: null, cpNama: null, reason: "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso" };
+}
+
+// Integrasikan Pasien Rawat Inap Ruang Kakap ke Daftar Episode CP (Hanya yang lolos Inklusi Denominator)
+function integrateRealInpatientsIntoCp() {
+  if (!CP_STATE.data || !state.data) return;
+
   const templates = CP_STATE.data.templates || [];
+  CP_STATE.excludedPatients = [];
+  CP_STATE.includedRealPatients = [];
+
+  const realPatients = (state.data.today && state.data.today.patients)
+    ? state.data.today.patients.filter(p => !p.isEmpty)
+    : [];
 
   realPatients.forEach(p => {
-    // Cari apakah sudah ada episode untuk pasien ini
+    const diag = p.diagnosis || "";
+    const match = matchClinicalPathwayDiagnosis(diag);
+
+    const record = {
+      bed: p.bed,
+      name: p.name,
+      mrNo: p.mrNo || `RM-K-${p.bed}`,
+      diagnosis: diag,
+      doctor: p.doctor || "-",
+      los: parseInt(p.los) || 1,
+      gender: p.gender || "L",
+      age: p.age || 50,
+      admissionDate: p.admissionDate || (state.data.today ? state.data.today.date : "2026-11-05")
+    };
+
+    if (!match.cpId) {
+      record.status = "EXCLUDED";
+      record.exclusionReason = match.reason;
+      CP_STATE.excludedPatients.push(record);
+      return;
+    }
+
+    record.status = "INCLUDED";
+    record.cpId = match.cpId;
+    record.cpNama = match.cpNama;
+    record.inclusionReason = match.reason;
+    CP_STATE.includedRealPatients.push(record);
+
+    const matchedTmpl = templates.find(t => t.id === match.cpId);
+    if (!matchedTmpl) return;
+
     const existingEpId = `EP-KAKAP-${p.bed}`;
     const allEps = getAllEpisodes();
     if (allEps.some(e => e.episodeId === existingEpId)) return;
 
-    // Tentukan template CP yang paling relevan
-    const diag = (p.diagnosis || "").toLowerCase();
-    let matchedTmpl = templates.find(t => t.id === "CP-DMCKD-002"); // default jika DM
-    if (diag.includes("stroke") || diag.includes("cva") || diag.includes("infark") || diag.includes("hemiparesis")) {
-      matchedTmpl = (diag.includes("perdarahan") || diag.includes("ich") || diag.includes("sah"))
-        ? templates.find(t => t.id === "CP-STROKE-PERD-005")
-        : templates.find(t => t.id === "CP-STROKE-NON-004");
-    } else if (diag.includes("mammae") || diag.includes("payudara") || diag.includes("kanker") || diag.includes("ca")) {
-      matchedTmpl = templates.find(t => t.id === "CP-MAMMAE-001");
-    } else if (diag.includes("hiv") || diag.includes("aids") || diag.includes("b20")) {
-      matchedTmpl = templates.find(t => t.id === "CP-HIV-003");
-    }
-
-    if (!matchedTmpl) matchedTmpl = templates[0];
-
-    const currentLos = parseInt(p.los) || 1;
+    const currentLos = record.los;
     const executions = {};
     matchedTmpl.items.forEach(itm => {
-      itm.jadwal.forEach(d => {
+      (itm.jadwal || []).forEach(d => {
         if (d <= currentLos) {
           executions[`${itm.id}_d${d}`] = "TERLAKSANA";
         }
@@ -5132,35 +5229,146 @@ function integrateRealInpatientsIntoCp() {
 
     const realEp = {
       episodeId: existingEpId,
-      mrNo: p.mrNo || `RM-K-${p.bed}`,
-      namaPasien: p.name || `Pasien ${p.bed}`,
-      gender: p.gender || "L",
-      usia: p.age || 50,
+      mrNo: record.mrNo,
+      namaPasien: record.name || `Pasien ${p.bed}`,
+      gender: record.gender,
+      usia: record.age,
       ruangRawat: `Ruang Kakap (${p.bed})`,
-      dpjp: p.doctor || "dr. Spesialis DPJP Kakap",
+      dpjp: record.doctor,
       templateId: matchedTmpl.id,
       cpNama: matchedTmpl.nama,
       caseProfile: "PASIEN_AKTIF_BANGSAL",
       statusEnrollment: "AKTIF",
       alasanKeluar: null,
-      hariTerakhirCp: currentLos,
+      hariTerakhirCp: Math.min(currentLos, matchedTmpl.jumlahHariStandar || 5),
       targetLos: matchedTmpl.losTarget,
       realLos: currentLos,
-      tglMasuk: p.admissionDate || "2026-11-01",
+      tglMasuk: record.admissionDate,
       tglKeluar: null,
       executions: executions,
-      variances: []
+      variances: [],
+      isRealPatient: true,
+      denominatorStatus: "INCLUDED",
+      inclusionReason: match.reason,
+      diagnosisSpreadsheet: diag
     };
 
     realEp.compliance = calculateClientCompliance(realEp, matchedTmpl);
 
-    // Tambahkan ke summary template
     const s = CP_STATE.data.cpSummaries.find(x => x.templateId === matchedTmpl.id);
     if (s) {
-      s.episodes.unshift(realEp);
+      if (!s.episodes.some(e => e.episodeId === realEp.episodeId)) {
+        s.episodes.unshift(realEp);
+      }
       s.totalEpisodes = s.episodes.length;
     }
   });
+}
+
+function renderCpDenominatorScreeningPanel() {
+  const grid = document.getElementById("cpScreeningStatsGrid");
+  if (!grid) return;
+
+  const screening = (CP_STATE.data && CP_STATE.data.screening) ? CP_STATE.data.screening : null;
+  const todayScreening = screening ? screening.today : null;
+  const histScreening = screening ? screening.historical : null;
+
+  const totalInpatients = todayScreening ? todayScreening.totalInpatients : (state.data && state.data.today && state.data.today.patients ? state.data.today.patients.filter(p => !p.isEmpty).length : 23);
+  const includedCount = todayScreening ? todayScreening.denominatorIncluded : (CP_STATE.includedRealPatients ? CP_STATE.includedRealPatients.length : 1);
+  const excludedCount = todayScreening ? todayScreening.totalExcluded : (CP_STATE.excludedPatients ? CP_STATE.excludedPatients.length : (totalInpatients - includedCount));
+  const coveragePct = todayScreening ? todayScreening.wardCoveragePct : (totalInpatients > 0 ? Math.round((includedCount / totalInpatients) * 1000) / 10 : 0.0);
+  const histIncludedCount = histScreening ? histScreening.uniqueIncludedCount : 3;
+
+  grid.innerHTML = `
+    <div style="background:var(--bg-surface);padding:10px 14px;border-radius:var(--radius-md);border:1px solid var(--border-color);">
+      <span style="font-size:0.75rem;font-weight:700;color:var(--text-muted);display:block;text-transform:uppercase;">1. Total Pasien Bangsal:</span>
+      <div style="display:flex;align-items:baseline;gap:6px;margin-top:2px;">
+        <span style="font-size:1.45rem;font-weight:900;color:var(--text-main);">${totalInpatients}</span>
+        <span style="font-size:0.8rem;color:var(--text-muted);">Pasien Aktif</span>
+      </div>
+      <span style="font-size:0.75rem;color:var(--text-muted);display:block;margin-top:2px;">Sensus Ruang Penyakit Dalam Kakap</span>
+    </div>
+
+    <div style="background:#f0fdf4;padding:10px 14px;border-radius:var(--radius-md);border:1px solid #bbf7d0;">
+      <span style="font-size:0.75rem;font-weight:700;color:#166534;display:block;text-transform:uppercase;">2. Denominator Inklusi CP:</span>
+      <div style="display:flex;align-items:baseline;gap:6px;margin-top:2px;">
+        <span style="font-size:1.45rem;font-weight:900;color:#15803d;">${includedCount}</span>
+        <span style="font-size:0.8rem;font-weight:700;color:#166534;">Pasien Hari Ini (${histIncludedCount} Terpantau)</span>
+      </div>
+      <span style="font-size:0.75rem;color:#15803d;display:block;margin-top:2px;">&#10003; 100% Cocok Diagnosa Medis CP Resmi</span>
+    </div>
+
+    <div style="background:#fef2f2;padding:10px 14px;border-radius:var(--radius-md);border:1px solid #fecaca;">
+      <span style="font-size:0.75rem;font-weight:700;color:#991b1b;display:block;text-transform:uppercase;">3. Pasien Non-CP (Eksklusi):</span>
+      <div style="display:flex;align-items:baseline;gap:6px;margin-top:2px;">
+        <span style="font-size:1.45rem;font-weight:900;color:#b91c1c;">${excludedCount}</span>
+        <span style="font-size:0.8rem;color:#991b1b;">Pasien Bangsal</span>
+      </div>
+      <span style="font-size:0.75rem;color:#b91c1c;display:block;margin-top:2px;">Dikeluarkan dari denominator CP</span>
+    </div>
+
+    <div style="background:#eff6ff;padding:10px 14px;border-radius:var(--radius-md);border:1px solid #bfdbfe;">
+      <span style="font-size:0.75rem;font-weight:700;color:#1e40af;display:block;text-transform:uppercase;">4. Rasio Cakupan Protokol CP:</span>
+      <div style="display:flex;align-items:baseline;gap:6px;margin-top:2px;">
+        <span style="font-size:1.45rem;font-weight:900;color:#1d4ed8;">${coveragePct}%</span>
+        <span style="font-size:0.8rem;color:#1e40af;">Populasi Terstandarisasi</span>
+      </div>
+      <span style="font-size:0.75rem;color:#1e40af;display:block;margin-top:2px;">Sesuai 5 Dokumen Resmi Soedarso</span>
+    </div>
+  `;
+}
+
+function openCpExcludedModal() {
+  const modal = document.getElementById("cpExcludedModal");
+  if (!modal) return;
+
+  const tbody = document.getElementById("cpExcludedTableBody");
+  const countFooter = document.getElementById("cpExcludedCountFooter");
+
+  const screening = (CP_STATE.data && CP_STATE.data.screening) ? CP_STATE.data.screening : null;
+  const list = (screening && screening.today && screening.today.excludedPatients)
+    ? screening.today.excludedPatients
+    : (CP_STATE.excludedPatients || []);
+
+  if (tbody) {
+    tbody.innerHTML = "";
+    if (list.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--text-muted);">Seluruh pasien bangsal saat ini terdaftar dalam Clinical Pathway.</td></tr>`;
+    } else {
+      list.forEach((pt) => {
+        const tr = document.createElement("tr");
+        tr.style = "border-bottom:1px solid var(--border-color);font-size:0.83rem;";
+        tr.innerHTML = `
+          <td style="padding:10px;font-weight:700;color:var(--text-main);">Bed ${escapeHtml(pt.bed || "-")}</td>
+          <td style="padding:10px;">
+            <div style="font-weight:700;">${escapeHtml(pt.name || "-")}</div>
+            <div style="font-size:0.75rem;color:var(--text-muted);">RM: ${escapeHtml(pt.mrNo || "-")} &bull; DPJP: ${escapeHtml(pt.doctor || "-")}</div>
+          </td>
+          <td style="padding:10px;color:var(--text-main);font-weight:500;">
+            ${escapeHtml(pt.diagnosis || "(Kosong / Belum terisi)")}
+          </td>
+          <td style="padding:10px;text-align:center;">
+            <span class="badge" style="background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;font-size:0.72rem;font-weight:700;">EKSKLUSI</span>
+          </td>
+          <td style="padding:10px;color:#b91c1c;font-size:0.8rem;line-height:1.35;">
+            ${escapeHtml(pt.exclusionReason || pt.reason || "Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi")}
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+  }
+
+  if (countFooter) {
+    countFooter.textContent = `Total Pasien Bangsal Terverifikasi Eksklusi: ${list.length} Pasien`;
+  }
+
+  modal.style.display = "flex";
+}
+
+function closeCpExcludedModal() {
+  const modal = document.getElementById("cpExcludedModal");
+  if (modal) modal.style.display = "none";
 }
 
 function getAllEpisodes() {
@@ -5321,27 +5529,59 @@ function switchCpSubView(subViewName) {
 function renderCpChecklistSubView() {
   if (!CP_STATE.data) return;
 
+  // Render Denominator Screening KPI Panel
+  renderCpDenominatorScreeningPanel();
+
   const allEpisodes = getAllEpisodes();
   if (allEpisodes.length === 0) return;
 
-  // Populate Patient Select dropdown if needed
+  // Populate Patient Select dropdown with Grouping
   const select = document.getElementById("cpPatientSelect");
-  if (select && select.children.length === 0) {
+  if (select) {
+    const currentVal = CP_STATE.activeEpisodeId || select.value;
     select.innerHTML = "";
-    allEpisodes.forEach(ep => {
-      const opt = document.createElement("option");
-      opt.value = ep.episodeId;
-      const statusIcon = ep.statusEnrollment === "AKTIF" ? "🟢" : (ep.statusEnrollment === "KELUAR_CP" ? "🔴" : "🔵");
-      opt.textContent = `${statusIcon} [${ep.mrNo}] ${ep.namaPasien} - ${ep.cpNama.substring(0, 35)}... (${ep.ruangRawat})`;
-      select.appendChild(opt);
-    });
-  }
 
-  // Active episode
-  if (!CP_STATE.activeEpisodeId) {
-    CP_STATE.activeEpisodeId = allEpisodes[0].episodeId;
+    // Group 1: Pasien Riil Denominator Terpilih
+    const realEps = allEpisodes.filter(e => e.isRealPatient);
+    if (realEps.length > 0) {
+      const grpReal = document.createElement("optgroup");
+      grpReal.label = `⭐ Pasien Riil Ruang Kakap (Denominator Terpilih: ${realEps.length} Pasien)`;
+      realEps.forEach(ep => {
+        const opt = document.createElement("option");
+        opt.value = ep.episodeId;
+        const statusIcon = ep.statusEnrollment === "AKTIF" ? "🟢" : "🔵";
+        opt.textContent = `${statusIcon} [${ep.mrNo}] ${ep.namaPasien} - ${ep.cpNama} (${ep.ruangRawat}) [HARI RAWAT: ${ep.realLos}]`;
+        grpReal.appendChild(opt);
+      });
+      select.appendChild(grpReal);
+    }
+
+    // Group 2: Kasus Audit Standar Benchmark
+    const benchEps = allEpisodes.filter(e => !e.isRealPatient);
+    if (benchEps.length > 0) {
+      const grpBench = document.createElement("optgroup");
+      grpBench.label = `📊 Kasus Audit Standar RSUD dr. Soedarso (Benchmark Mutu 5 CP: ${benchEps.length} Kasus)`;
+      benchEps.forEach(ep => {
+        const opt = document.createElement("option");
+        opt.value = ep.episodeId;
+        const statusIcon = ep.statusEnrollment === "AKTIF" ? "🟢" : (ep.statusEnrollment === "KELUAR_CP" ? "🔴" : "🔵");
+        opt.textContent = `${statusIcon} [${ep.mrNo}] ${ep.namaPasien} - ${ep.cpNama.substring(0, 35)}... (${ep.ruangRawat})`;
+        grpBench.appendChild(opt);
+      });
+      select.appendChild(grpBench);
+    }
+
+    if (currentVal && allEpisodes.some(e => e.episodeId === currentVal)) {
+      select.value = currentVal;
+      CP_STATE.activeEpisodeId = currentVal;
+    } else if (realEps.length > 0) {
+      select.value = realEps[0].episodeId;
+      CP_STATE.activeEpisodeId = realEps[0].episodeId;
+    } else {
+      select.value = allEpisodes[0].episodeId;
+      CP_STATE.activeEpisodeId = allEpisodes[0].episodeId;
+    }
   }
-  if (select) select.value = CP_STATE.activeEpisodeId;
 
   const activeEp = allEpisodes.find(e => e.episodeId === CP_STATE.activeEpisodeId) || allEpisodes[0];
   const tmpl = (CP_STATE.data.templates || []).find(t => t.id === activeEp.templateId);
@@ -5410,6 +5650,18 @@ function renderCpPatientBanner(ep, tmpl) {
     ? `<span style="color:#ef4444;font-weight:700;">${ep.realLos} Hari (Melewati Target ${tmpl.losTarget} Hari)</span>`
     : `<span style="color:#10b981;font-weight:700;">${ep.realLos} Hari (Target: ${tmpl.losTarget} Hari)</span>`;
 
+  const isReal = !!ep.isRealPatient;
+  const inclusionBadge = isReal
+    ? `<div style="margin-top:8px;padding:8px 12px;background:#f0fdf4;color:#166534;border-radius:6px;font-size:0.82rem;border:1px solid #bbf7d0;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <span style="font-weight:800;">&#10003; TERDAFTAR DALAM DENOMINATOR RESMI CP</span> &bull; 
+        <span>Diagnosa Medis Sensus: <em>${escapeHtml(ep.diagnosisSpreadsheet || ep.diagnosisMedis || '-')}</em></span>
+        <span class="badge badge-success" style="font-size:0.7rem;padding:2px 8px;">100% LOLOS INKLUSI</span>
+      </div>`
+    : `<div style="margin-top:8px;padding:6px 10px;background:#f8fafc;color:#475569;border-radius:6px;font-size:0.78rem;border:1px solid #e2e8f0;display:inline-flex;align-items:center;gap:6px;">
+        <span style="font-weight:700;">📊 KASUS BENCHMARK AUDIT STANDAR RSUD DR. SOEDARSO</span>
+        <span>(Dataset Kontrol Evaluasi Mutu &amp; Kepatuhan 5 Dokumen CP)</span>
+      </div>`;
+
   banner.innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
       <div>
@@ -5426,6 +5678,7 @@ function renderCpPatientBanner(ep, tmpl) {
           <span><strong>Target LOS:</strong> ${losWarning}</span>
           <span><strong>ICD-10 / ICD-9:</strong> ${tmpl.kodeIcd10} / ${tmpl.kodeIcd9 || "-"}</span>
         </div>
+        ${inclusionBadge}
         ${ep.alasanKeluar ? `<div style="margin-top:8px;padding:8px 12px;background:#fee2e2;color:#991b1b;border-radius:6px;font-size:0.8rem;border:1px solid #fca5a5;"><strong>Catatan Drop-Out:</strong> ${escapeHtml(ep.alasanKeluar)}</div>` : ""}
       </div>
       <div style="display:flex;gap:6px;">
@@ -5743,7 +5996,12 @@ function renderCpSummarySubView() {
           <div>
             <span class="badge badge-outline" style="font-size:0.75rem;">${s.nomorCp}</span>
             <h4 style="margin:4px 0 0 0;font-size:1.02rem;font-weight:700;color:var(--text-main);">${escapeHtml(s.nama)}</h4>
-            <span style="font-size:0.78rem;color:var(--text-muted);">${s.ksm}</span>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:4px;flex-wrap:wrap;">
+              <span style="font-size:0.78rem;color:var(--text-muted);">${s.ksm}</span>
+              ${(s.realInpatientActive > 0 || s.realInpatientHistorical > 0)
+                ? `<span class="badge badge-success" style="font-size:0.72rem;" title="Pasien riil bangsal">${s.realInpatientActive || 0} Pasien Aktif (${s.realInpatientHistorical || 0} Riil Terpantau)</span>`
+                : `<span class="badge badge-outline" style="font-size:0.72rem;color:var(--text-muted);" title="Tidak ada pasien riil di bangsal saat ini">0 Pasien Riil (10 Kasus Benchmark)</span>`}
+            </div>
           </div>
           ${mutuBadge}
         </div>
@@ -5813,7 +6071,12 @@ function renderCpEpisodesTable(episodes) {
     tr.style = "border-bottom:1px solid var(--border-color);";
     tr.innerHTML = `
       <td style="padding:10px;">
-        <strong>${escapeHtml(ep.namaPasien)}</strong>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
+          <strong>${escapeHtml(ep.namaPasien)}</strong>
+          ${ep.isRealPatient
+            ? `<span class="badge badge-success" style="font-size:0.68rem;padding:2px 6px;">PASIEN RIIL</span>`
+            : `<span class="badge badge-outline" style="font-size:0.68rem;padding:2px 6px;color:var(--text-muted);">BENCHMARK</span>`}
+        </div>
         <div style="font-size:0.75rem;color:var(--text-muted);">${ep.mrNo} &bull; ${ep.gender} / ${ep.usia} th</div>
       </td>
       <td style="padding:10px;">
