@@ -1,14 +1,20 @@
 # Dashboard Ruang Kakap
 **RSUD Dr. Soedarso Pontianak — Instalasi Rawat Inap (Tim I & Tim II • 41 Bed)**
 
-Sistem Informasi Manajemen Sensus Pasien Rawat Inap, Denah Keterisian Bed Dinamis (41 Bed), Surveilans Triase Fisiologis **EWS / NEWS2**, Format Operan Jaga Shift **SBAR**, Interoperabilitas Standar **HL7 FHIR Release 4 (SatuSehat Ready)**, Indikator Efisiensi Mutu RS (BOR, AVLOS, TOI, BTO, NDR, GDR), serta Grafik Barber-Johnson Interaktif.
+Sistem Informasi Manajemen Sensus Pasien Rawat Inap, Denah Keterisian Bed Dinamis (41 Bed), Surveilans Triase Fisiologis **EWS / NEWS2**, Format Operan Jaga Shift **SBAR**, Interoperabilitas Standar **HL7 FHIR Release 4 (SatuSehat Ready)**, Indikator Efisiensi Mutu RS (BOR, AVLOS, TOI, BTO, NDR, GDR), Grafik Barber-Johnson Interaktif, serta **Modul Pengukur Kepatuhan Clinical Pathway Harian Pagi (PMKP / Kemenkes)**.
 
 ---
 
-## 🚀 3 Cara Membuka Dashboard Sewaktu-Waktu
+## 🌐 Akses Live Cloud (Kapan Saja & Di Mana Saja)
+- **Live Dashboard (GitHub Pages):** [https://yadhie28.github.io/dashboard-ruang-kakap/](https://yadhie28.github.io/dashboard-ruang-kakap/)
+- **Repositori Kode (GitHub):** [https://github.com/yadhie28/dashboard-ruang-kakap](https://github.com/yadhie28/dashboard-ruang-kakap)
 
-### 🖱️ 1. Klik Ganda (Double-Click) dari Desktop Mac
-1. Temukan berkas **`Buka_Dashboard_Ruang_Kakap.command`** di **Desktop** Mac Anda.
+---
+
+## 🚀 3 Cara Membuka Dashboard Lokal Sewaktu-Waktu
+
+### 🖱️ 1. Klik Ganda (Double-Click) dari Mac
+1. Temukan berkas **`start_server.command`** di dalam folder ini (atau shortcut di Desktop Mac Anda).
 2. Klik ganda berkas tersebut.
 3. Server lokal Python akan otomatis aktif dan peramban (browser) langsung terbuka di `http://localhost:3000`.
 
@@ -32,6 +38,27 @@ Atur folder ini sebagai **Active Workspace**.
 
 ---
 
+## 📋 Fitur Utama & Modul Terpasang
+
+1. **Sensus Dinamis & Keseimbangan Shift (Pagi, Sore, Malam):**
+   - Formula keseimbangan bangsal: $\text{Free Bed} + \text{Px Sekarang} = \text{Px Awal} + \text{Px Baru} - \text{Px Meninggal} - \text{Px Pulang} - \text{Px Pindah}$.
+   - Format WhatsApp terstandarisasi untuk kepala ruangan dan grup jaga.
+2. **Denah Bed Interaktif (41 Bed) & SBAR Pasien:**
+   - Visualisasi kamar Tim I (21 Bed) & Tim II (20 Bed) dengan status keterisian real-time, triase EWS/NEWS2, dan identitas pasien.
+3. **Indikator Efisiensi Mutu Rawat Inap & Grafik Barber-Johnson:**
+   - Perhitungan otomatis BOR, AVLOS, TOI, BTO, NDR, GDR secara bulanan & tahunan.
+4. **Pengukur Kepatuhan Clinical Pathway Harian Pagi (PMKP / Akreditasi):**
+   - Pengukuran sekali sehari pada pagi hari (07:00 WIB) menggunakan total data seluruh tab spreadsheet.
+   - Rasio matematis: $\text{Kepatuhan CP} = \frac{\text{Nominator (Pasien Sesuai Seluruh Aspek)}}{\text{Denominator (Pasien Inklusi CP)}} \times 100\%$.
+   - Evaluasi 6 aspek pelayanan: Kontrol LOS ($\le 7$ hari), Diagnostik/Penunjang, Terapi Farmakoterapi, Asuhan Medis & Keperawatan, Nutrisi/Diet Gizi, serta Edukasi & Discharge Planning.
+   - Penapisan visual alur inklusi vs eksklusi terhadap 41 pasien unik bangsal.
+5. **Analitik Agregat Bangsal (All Tabs):**
+   - Top 10 DPJP / Dokter Spesialis (basis 41 pasien unik).
+   - Top 10 Diagnosa Medis terstandarisasi klinis.
+   - Distribusi Jaminan / Asuransi Pasien (BPJS Kelas 1/2/3).
+
+---
+
 ## 🛏️ Struktur Kamar & Kapasitas Bed (41 Bed)
 
 - **Tim I (21 Bed)**:
@@ -50,18 +77,19 @@ Atur folder ini sebagai **Active Workspace**.
 
 ---
 
-## 🔄 Sumber Data & Jadwal Penarikan Otomatis
+## 🔄 Pembaruan Data dari Google Sheets
 
-- **Google Spreadsheet Sumber**:  
-  [https://docs.google.com/spreadsheets/d/1-5y9GuHIFbHE0OwS5_tfvdC9j9DMLO55i7uQyKpAKhY/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1-5y9GuHIFbHE0OwS5_tfvdC9j9DMLO55i7uQyKpAKhY/edit?usp=sharing)
-- **Jadwal Auto-Sync Setiap Pergantian Shift**:
-  - **Shift Pagi**: Pukul **07.00 WIB** (Operan Jaga Malam ➔ Pagi)
-  - **Shift Sore**: Pukul **14.00 WIB** (Operan Jaga Pagi ➔ Sore)
-  - **Shift Malam**: Pukul **20.00 WIB** (Operan Jaga Sore ➔ Malam)
-- **Tarik Data Manual**:
-  Klik tombol **Sinkronisasi Data** di bilah atas aplikasi, atau jalankan:
+- **Tarik & Olah Data Manual:**
   ```bash
   python3 run_build_data.py --download
+  ```
+- **Kalkulasi Sensus Shift:**
+  ```bash
+  python3 shift_census_calculator.py
+  ```
+- **Audit Clinical Pathway:**
+  ```bash
+  python3 cp_mvp_engine.py
   ```
 
 ---
