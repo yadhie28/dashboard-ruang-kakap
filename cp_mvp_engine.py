@@ -788,10 +788,27 @@ def match_clinical_pathway_diagnosis(diag):
     return None, None, 'Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso'
 
 
+def classify_exclusion_category(reason):
+    """
+    Mengelompokkan alasan eksklusi pasien ke dalam 4 kategori ilmiah baku mutu RSUD dr. Soedarso.
+    """
+    if not reason:
+        return 'NON_CP_DIAGNOSA_LAIN', 'Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)', '#dc2626'
+    if 'CKD tanpa Diabetes' in reason:
+        return 'CKD_NON_DM', 'CKD / Gagal Ginjal tanpa Diabetes Mellitus', '#ef4444'
+    if 'DM Tipe II tanpa komplikasi CKD' in reason:
+        return 'DM_NON_CKD', 'DM Tipe II tanpa Komplikasi CKD/DKD', '#f59e0b'
+    if 'stroke lama' in reason or 'sekuele' in reason:
+        return 'STROKE_SEQUELE_LAMA', 'Sekuele / Riwayat Stroke Lama (Non-Akut)', '#64748b'
+    return 'NON_CP_DIAGNOSA_LAIN', 'Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)', '#dc2626'
+
+
 def screen_spreadsheet_patients(recent_days=None, today_data=None, templates=None):
     """
     Melakukan audit penapisan seluruh data pasien dari spreadsheet Ruang Kakap
-    terhadap kriteria inklusi & eksklusi 5 Clinical Pathway resmi RSUD dr. Soedarso.
+    dari tab awal (3 November 2026) hingga tab terakhir yang tersedia.
+    Menghitung agregasi populasi unik per Pasien / Nomor Rekam Medis (No. RM)
+    dan observasi harian rawat inap.
     """
     if not recent_days and not today_data:
         dash_path = os.path.join(CURRENT_DIR, "dashboard_data.json")
@@ -807,17 +824,184 @@ def screen_spreadsheet_patients(recent_days=None, today_data=None, templates=Non
     if not templates:
         templates = load_master_templates()
 
-    tmpl_map = {t["id"]: t["nama"] for t in templates}
+    tmpl_map = {t["id"]: t for t in templates}
 
-    # 1. Penapisan Pasien Hari Ini (Active Inpatients)
+    # --------------------------------------------------------------------------
+    # 1. PENAPISAN SELURUH TAB SPREADSHEET (3 NOV 2026 S/D TAB TERAKHIR)
+    # --------------------------------------------------------------------------
+    unique_map = {}
+    all_observations = []
+    daily_breakdown = []
+
+    rd_keys = sorted(recent_days.keys()) if isinstance(recent_days, dict) else []
+
+    for dt in rd_keys:
+        day_obj = recent_days[dt]
+        day_pts = [p for p in day_obj.get("patients", []) if not p.get("isEmpty")]
+        inc_day = 0
+        exc_day = 0
+
+        for p in day_pts:
+            raw_name = (p.get("name") or "").strip()
+            raw_mr = (p.get("mrNo") or "").strip()
+
+            # Normalisasi nomor RM dari string nama jika kosong (cth: "Ny. Vina 00171527")
+            m = re.search(r'00\d{5,6}', raw_name)
+            if m and not raw_mr:
+                raw_mr = m.group(0)
+
+            key = raw_mr if (raw_mr and len(raw_mr) >= 5) else raw_name.upper()
+            diag = (p.get("diagnosis") or "").strip()
+            cpid, cpname, reason = match_clinical_pathway_diagnosis(diag)
+
+            los_val = 1
+            try:
+                los_val = int(p.get("los", 1))
+            except (ValueError, TypeError):
+                los_val = 1
+
+            obs = {
+                "date": dt,
+                "bed": p.get("bed"),
+                "name": raw_name,
+                "mrNo": raw_mr or f"RM-K-{p.get('bed')}",
+                "diagnosis": diag,
+                "doctor": p.get("doctor", "-"),
+                "los": los_val,
+                "gender": p.get("gender", "L"),
+                "age": p.get("age", 50),
+                "status": "INCLUDED" if cpid else "EXCLUDED",
+                "cpId": cpid,
+                "cpNama": cpname or (tmpl_map[cpid]["nama"] if cpid in tmpl_map else None),
+                "reason": reason
+            }
+            all_observations.append(obs)
+
+            if cpid:
+                inc_day += 1
+            else:
+                exc_day += 1
+
+            if key not in unique_map:
+                unique_map[key] = {
+                    "key": key,
+                    "mrNo": raw_mr or f"RM-K-{p.get('bed')}",
+                    "name": raw_name,
+                    "bedLatest": p.get("bed"),
+                    "doctor": p.get("doctor", "-"),
+                    "admissionDate": p.get("admissionDate") or dt,
+                    "datesSeen": [dt],
+                    "daysInWard": 1,
+                    "diagnoses": [diag] if diag else [],
+                    "status": "INCLUDED" if cpid else "EXCLUDED",
+                    "cpId": cpid,
+                    "cpNama": cpname or (tmpl_map[cpid]["nama"] if cpid in tmpl_map else None),
+                    "reason": reason,
+                    "losLatest": los_val,
+                    "gender": p.get("gender", "L"),
+                    "age": p.get("age", 50)
+                }
+            else:
+                if dt not in unique_map[key]["datesSeen"]:
+                    unique_map[key]["datesSeen"].append(dt)
+                    unique_map[key]["daysInWard"] += 1
+                unique_map[key]["bedLatest"] = p.get("bed")
+                unique_map[key]["losLatest"] = los_val
+                if diag and diag not in unique_map[key]["diagnoses"]:
+                    unique_map[key]["diagnoses"].append(diag)
+                # Jika diagnosa terbaru lolos CP sedangkan sebelumnya belum
+                if not unique_map[key]["cpId"] and cpid:
+                    unique_map[key]["cpId"] = cpid
+                    unique_map[key]["cpNama"] = cpname or (tmpl_map[cpid]["nama"] if cpid in tmpl_map else None)
+                    unique_map[key]["reason"] = reason
+                    unique_map[key]["status"] = "INCLUDED"
+
+        cov_day = round(inc_day / len(day_pts) * 100, 1) if day_pts else 0.0
+        daily_breakdown.append({
+            "date": dt,
+            "total": len(day_pts),
+            "included": inc_day,
+            "excluded": exc_day,
+            "coveragePct": cov_day
+        })
+
+    # Klasifikasikan kategori eksklusi untuk seluruh pasien unik eksklusi
+    for pt in unique_map.values():
+        pt["diagnosisSpreadsheet"] = " | ".join(pt["diagnoses"]) if pt["diagnoses"] else "-"
+        if pt["status"] == "EXCLUDED":
+            cat_code, cat_label, cat_color = classify_exclusion_category(pt["reason"])
+            pt["exclusionCategory"] = cat_code
+            pt["exclusionCategoryLabel"] = cat_label
+            pt["exclusionCategoryColor"] = cat_color
+
+    unique_list = list(unique_map.values())
+    inc_unique = [p for p in unique_list if p["status"] == "INCLUDED"]
+    exc_unique = [p for p in unique_list if p["status"] == "EXCLUDED"]
+
+    # Ringkasan per Kategori Eksklusi
+    exc_summary = {}
+    for p in exc_unique:
+        cat = p["exclusionCategory"]
+        if cat not in exc_summary:
+            exc_summary[cat] = {
+                "category": cat,
+                "label": p["exclusionCategoryLabel"],
+                "color": p["exclusionCategoryColor"],
+                "count": 0,
+                "patients": []
+            }
+        exc_summary[cat]["count"] += 1
+        exc_summary[cat]["patients"].append({
+            "mrNo": p["mrNo"],
+            "name": p["name"],
+            "bed": p["bedLatest"],
+            "datesSeen": p["datesSeen"],
+            "diagnosis": p["diagnosisSpreadsheet"]
+        })
+
+    for cat, v in exc_summary.items():
+        v["pct"] = round(v["count"] / len(exc_unique) * 100, 1) if exc_unique else 0.0
+
+    # Ringkasan per Dokumen CP
+    per_cp_summary = {}
+    for tmpl in templates:
+        cid = tmpl["id"]
+        pts_in_cp = [p for p in inc_unique if p["cpId"] == cid]
+        per_cp_summary[cid] = {
+            "templateId": cid,
+            "nama": tmpl["nama"],
+            "kodeIcd10": tmpl.get("kodeIcd10", "-"),
+            "uniqueCount": len(pts_in_cp),
+            "pctOfIncluded": round(len(pts_in_cp) / len(inc_unique) * 100, 1) if inc_unique else 0.0,
+            "pctOfTotal": round(len(pts_in_cp) / len(unique_list) * 100, 1) if unique_list else 0.0,
+            "patients": [{
+                "mrNo": p["mrNo"],
+                "name": p["name"],
+                "bed": p["bedLatest"],
+                "datesSeen": p["datesSeen"],
+                "diagnosis": p["diagnosisSpreadsheet"],
+                "reason": p["reason"]
+            } for p in pts_in_cp]
+        }
+
+    # --------------------------------------------------------------------------
+    # 2. PENAPISAN PASIEN SENSUS HARI INI (AKTIF SAAT INI)
+    # --------------------------------------------------------------------------
     today_pts = [p for p in (today_data.get("patients", []) if today_data else []) if not p.get("isEmpty")]
     today_included = []
     today_excluded = []
     today_per_cp = {t["id"]: 0 for t in templates}
 
     for p in today_pts:
-        diag = p.get("diagnosis", "")
+        raw_name = (p.get("name") or "").strip()
+        raw_mr = (p.get("mrNo") or "").strip()
+        m = re.search(r'00\d{5,6}', raw_name)
+        if m and not raw_mr:
+            raw_mr = m.group(0)
+
+        diag = (p.get("diagnosis") or "").strip()
         cpid, cpname, reason = match_clinical_pathway_diagnosis(diag)
+
         los_val = 1
         try:
             los_val = int(p.get("los", 1))
@@ -826,19 +1010,19 @@ def screen_spreadsheet_patients(recent_days=None, today_data=None, templates=Non
 
         record = {
             "bed": p.get("bed"),
-            "name": p.get("name"),
-            "mrNo": p.get("mrNo") or f"RM-K-{p.get('bed')}",
+            "name": raw_name,
+            "mrNo": raw_mr or f"RM-K-{p.get('bed')}",
             "diagnosis": diag,
             "doctor": p.get("doctor", "-"),
             "los": los_val,
             "gender": p.get("gender", "L"),
             "age": p.get("age", 50),
-            "admissionDate": p.get("admissionDate") or (today_data.get("date", "2026-11-05") if today_data else "2026-11-05"),
-            "date": today_data.get("date", "2026-11-05") if today_data else "2026-11-05"
+            "admissionDate": p.get("admissionDate") or (today_data.get("date", "2026-11-06") if today_data else "2026-11-06"),
+            "date": today_data.get("date", "2026-11-06") if today_data else "2026-11-06"
         }
         if cpid:
             record["cpId"] = cpid
-            record["cpNama"] = cpname or tmpl_map.get(cpid, cpid)
+            record["cpNama"] = cpname or (tmpl_map[cpid]["nama"] if cpid in tmpl_map else None)
             record["status"] = "INCLUDED"
             record["inclusionReason"] = reason
             today_included.append(record)
@@ -848,67 +1032,31 @@ def screen_spreadsheet_patients(recent_days=None, today_data=None, templates=Non
             record["exclusionReason"] = reason
             today_excluded.append(record)
 
-    # 2. Penapisan Riwayat (Historical Recent Days)
-    all_hist_pts = []
-    if isinstance(recent_days, dict):
-        for dt, day_obj in recent_days.items():
-            for p in day_obj.get("patients", []):
-                if not p.get("isEmpty"):
-                    all_hist_pts.append((dt, p))
-    elif isinstance(recent_days, list):
-        for day_obj in recent_days:
-            dt = day_obj.get("date", "")
-            for p in day_obj.get("patients", []):
-                if not p.get("isEmpty"):
-                    all_hist_pts.append((dt, p))
-
-    hist_included = []
-    hist_excluded = []
-    hist_per_cp = {t["id"]: 0 for t in templates}
-    seen_unique_inc = set()
-
-    for dt, p in all_hist_pts:
-        diag = p.get("diagnosis", "")
-        cpid, cpname, reason = match_clinical_pathway_diagnosis(diag)
-        los_val = 1
-        try:
-            los_val = int(p.get("los", 1))
-        except (ValueError, TypeError):
-            los_val = 1
-
-        record = {
-            "bed": p.get("bed"),
-            "name": p.get("name"),
-            "mrNo": p.get("mrNo") or f"RM-K-{p.get('bed')}",
-            "diagnosis": diag,
-            "doctor": p.get("doctor", "-"),
-            "los": los_val,
-            "gender": p.get("gender", "L"),
-            "age": p.get("age", 50),
-            "admissionDate": p.get("admissionDate") or dt,
-            "date": dt
-        }
-        uniq_key = f"{record['name']}_{record['bed']}_{cpid}"
-        if cpid:
-            record["cpId"] = cpid
-            record["cpNama"] = cpname or tmpl_map.get(cpid, cpid)
-            record["status"] = "INCLUDED"
-            record["inclusionReason"] = reason
-            if uniq_key not in seen_unique_inc:
-                seen_unique_inc.add(uniq_key)
-                hist_included.append(record)
-                hist_per_cp[cpid] += 1
-        else:
-            record["status"] = "EXCLUDED"
-            record["exclusionReason"] = reason
-            hist_excluded.append(record)
-
     total_today = len(today_pts)
     inc_today = len(today_included)
     exc_today = len(today_excluded)
     cov_pct_today = round(inc_today / total_today * 100, 1) if total_today > 0 else 0.0
 
+    spreadsheet_range_str = f"{rd_keys[0]} s/d {rd_keys[-1]} ({len(rd_keys)} Tab Sensus Spreadsheet)" if rd_keys else "3 Nov - 6 Nov 2026"
+
     return {
+        "allTabs": {
+            "spreadsheetRange": spreadsheet_range_str,
+            "dates": rd_keys,
+            "totalObservations": len(all_observations),
+            "observationsIncludedCount": sum(d["included"] for d in daily_breakdown),
+            "observationsExcludedCount": sum(d["excluded"] for d in daily_breakdown),
+            "totalUniquePatients": len(unique_list),
+            "uniqueIncludedCount": len(inc_unique),
+            "uniqueExcludedCount": len(exc_unique),
+            "uniqueCoveragePct": round(len(inc_unique) / len(unique_list) * 100, 1) if unique_list else 0.0,
+            "perCpSummary": per_cp_summary,
+            "exclusionCategoriesSummary": exc_summary,
+            "dailyBreakdown": daily_breakdown,
+            "uniquePatientsList": unique_list,
+            "includedPatients": inc_unique,
+            "excludedPatients": exc_unique
+        },
         "today": {
             "totalInpatients": total_today,
             "denominatorIncluded": inc_today,
@@ -919,12 +1067,12 @@ def screen_spreadsheet_patients(recent_days=None, today_data=None, templates=Non
             "excludedPatients": today_excluded
         },
         "historical": {
-            "totalRecords": len(all_hist_pts),
-            "uniqueIncludedCount": len(hist_included),
-            "totalExcludedRecords": len(hist_excluded),
-            "perCpDenominator": hist_per_cp,
-            "includedPatients": hist_included,
-            "sampleExcluded": hist_excluded[:50]
+            "totalRecords": len(all_observations),
+            "uniqueIncludedCount": len(inc_unique),
+            "totalExcludedRecords": len(all_observations) - sum(d["included"] for d in daily_breakdown),
+            "perCpDenominator": {t["id"]: sum(1 for p in inc_unique if p.get("cpId") == t["id"]) for t in templates},
+            "includedPatients": inc_unique,
+            "sampleExcluded": exc_unique
         }
     }
 
@@ -938,12 +1086,14 @@ def build_real_patient_episodes(included_patients, templates):
     tmpl_dict = {t["id"]: t for t in templates}
 
     for p in included_patients:
-        tmpl = tmpl_dict.get(p["cpId"])
+        tmpl = tmpl_dict.get(p.get("cpId"))
         if not tmpl:
             continue
 
-        ep_id = f"EP-REAL-{p['bed']}-{p['date'].replace('-', '')}"
-        current_los = p["los"]
+        bed = p.get("bed") or p.get("bedLatest") or "1.0"
+        dt = p.get("date") or (p.get("datesSeen")[-1] if p.get("datesSeen") else "2026-11-06")
+        ep_id = f"EP-REAL-{bed}-{str(dt).replace('-', '')}"
+        current_los = int(p.get("los") or p.get("losLatest") or 1)
         std_days = tmpl["jumlahHariStandar"]
         hari_terakhir = min(current_los, std_days)
 
@@ -955,28 +1105,28 @@ def build_real_patient_episodes(included_patients, templates):
 
         ep = {
             "episodeId": ep_id,
-            "mrNo": p["mrNo"],
-            "namaPasien": p["name"],
-            "gender": p["gender"],
-            "usia": p["age"],
-            "ruangRawat": f"Ruang Kakap ({p['bed']})",
-            "dpjp": p["doctor"],
-            "templateId": p["cpId"],
-            "cpNama": p["cpNama"],
+            "mrNo": p.get("mrNo") or f"RM-K-{bed}",
+            "namaPasien": p.get("name") or f"Pasien {bed}",
+            "gender": p.get("gender", "L"),
+            "usia": p.get("age", 50),
+            "ruangRawat": f"Ruang Kakap ({bed})",
+            "dpjp": p.get("doctor", "-"),
+            "templateId": p.get("cpId"),
+            "cpNama": p.get("cpNama") or tmpl["nama"],
             "caseProfile": "PASIEN_RIIL_BANGSAL",
-            "statusEnrollment": "AKTIF" if p["date"] == "2026-11-05" else "SELESAI",
+            "statusEnrollment": "AKTIF" if str(dt) >= "2026-11-05" else "SELESAI",
             "alasanKeluar": None,
             "hariTerakhirCp": hari_terakhir,
             "targetLos": tmpl["losTarget"],
             "realLos": current_los,
-            "tglMasuk": p["admissionDate"],
-            "tglKeluar": None if p["date"] == "2026-11-05" else p["date"],
+            "tglMasuk": p.get("admissionDate") or str(dt),
+            "tglKeluar": None if str(dt) >= "2026-11-05" else str(dt),
             "executions": executions,
             "variances": [],
             "isRealPatient": True,
             "denominatorStatus": "INCLUDED",
-            "inclusionReason": p["inclusionReason"],
-            "diagnosisSpreadsheet": p["diagnosis"]
+            "inclusionReason": p.get("reason") or p.get("inclusionReason") or "Sesuai kriteria inklusi diagnosa CP",
+            "diagnosisSpreadsheet": p.get("diagnosisSpreadsheet") or p.get("diagnosis") or "-"
         }
         ep["compliance"] = calculate_patient_compliance(ep, tmpl)
         real_episodes.append(ep)

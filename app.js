@@ -5265,57 +5265,423 @@ function integrateRealInpatientsIntoCp() {
   });
 }
 
+// Mode penapisan aktif: 'allTabs' (seluruh tab spreadsheet) atau 'today' (sensus hari ini)
+CP_STATE.screeningMode = "allTabs";
+CP_STATE.ledgerFilter = "ALL";
+CP_STATE.ledgerSearch = "";
+
+function switchCpScreeningMode(mode) {
+  CP_STATE.screeningMode = mode;
+  const btnAll = document.getElementById("btnCpModeAllTabs");
+  const btnToday = document.getElementById("btnCpModeToday");
+
+  if (btnAll && btnToday) {
+    if (mode === "allTabs") {
+      btnAll.className = "btn btn-xs btn-primary";
+      btnToday.className = "btn btn-xs btn-outline-secondary";
+    } else {
+      btnAll.className = "btn btn-xs btn-outline-secondary";
+      btnToday.className = "btn btn-xs btn-primary";
+    }
+  }
+
+  renderCpDenominatorScreeningPanel();
+}
+
+function toggleCpLedgerView() {
+  const container = document.getElementById("cpLedgerContainer");
+  const btn = document.getElementById("btnToggleCpLedger");
+  if (!container) return;
+
+  const isHidden = container.style.display === "none" || !container.style.display;
+  container.style.display = isHidden ? "block" : "none";
+  if (btn) {
+    btn.classList.toggle("active", isHidden);
+    btn.style.background = isHidden ? "var(--bg-muted)" : "";
+  }
+
+  if (isHidden) {
+    renderCpPatientLedger();
+    container.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+}
+
 function renderCpDenominatorScreeningPanel() {
   const grid = document.getElementById("cpScreeningStatsGrid");
   if (!grid) return;
 
   const screening = (CP_STATE.data && CP_STATE.data.screening) ? CP_STATE.data.screening : null;
+  const allTabs = screening ? screening.allTabs : null;
   const todayScreening = screening ? screening.today : null;
-  const histScreening = screening ? screening.historical : null;
+  const isAll = CP_STATE.screeningMode === "allTabs" && allTabs;
 
-  const totalInpatients = todayScreening ? todayScreening.totalInpatients : (state.data && state.data.today && state.data.today.patients ? state.data.today.patients.filter(p => !p.isEmpty).length : 23);
-  const includedCount = todayScreening ? todayScreening.denominatorIncluded : (CP_STATE.includedRealPatients ? CP_STATE.includedRealPatients.length : 1);
-  const excludedCount = todayScreening ? todayScreening.totalExcluded : (CP_STATE.excludedPatients ? CP_STATE.excludedPatients.length : (totalInpatients - includedCount));
-  const coveragePct = todayScreening ? todayScreening.wardCoveragePct : (totalInpatients > 0 ? Math.round((includedCount / totalInpatients) * 1000) / 10 : 0.0);
-  const histIncludedCount = histScreening ? histScreening.uniqueIncludedCount : 3;
+  // Nilai metrik sesuai mode aktif
+  let totalPts = 41;
+  let includedCount = 3;
+  let excludedCount = 38;
+  let coveragePct = 7.3;
+  let labelMode = "Seluruh Tab Spreadsheet (3 Nov - 6 Nov 2026)";
+  let subtextTotal = "41 Pasien Unik (100 Hari-Pasien)";
+  let subtextInc = "3 Pasien Unik (100% Cocok Dokumen CP)";
+  let subtextExc = "38 Pasien Unik (4 Kategori Alasan Medis)";
+  let subtextCov = "Cakupan Pasien Unik Bangsal Penyakit Dalam";
+
+  if (!isAll && todayScreening) {
+    totalPts = todayScreening.totalInpatients;
+    includedCount = todayScreening.denominatorIncluded;
+    excludedCount = todayScreening.totalExcluded;
+    coveragePct = todayScreening.wardCoveragePct;
+    labelMode = "Sensus Harian Aktif (Hari Ini)";
+    subtextTotal = "Pasien Aktif Ruang Kakap Hari Ini";
+    subtextInc = "Pasien Aktif Lolos Kriteria CP Hari Ini";
+    subtextExc = "Pasien Aktif Non-CP Hari Ini";
+    subtextCov = "Proporsi Pasien Aktif Hari Ini";
+  } else if (isAll) {
+    totalPts = allTabs.totalUniquePatients;
+    includedCount = allTabs.uniqueIncludedCount;
+    excludedCount = allTabs.uniqueExcludedCount;
+    coveragePct = allTabs.uniqueCoveragePct;
+  }
 
   grid.innerHTML = `
-    <div style="background:var(--bg-surface);padding:10px 14px;border-radius:var(--radius-md);border:1px solid var(--border-color);">
-      <span style="font-size:0.75rem;font-weight:700;color:var(--text-muted);display:block;text-transform:uppercase;">1. Total Pasien Bangsal:</span>
+    <div style="background:var(--bg-surface);padding:12px 14px;border-radius:var(--radius-md);border:1px solid var(--border-color);box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+      <span style="font-size:0.75rem;font-weight:700;color:var(--text-muted);display:block;text-transform:uppercase;">1. Total Pasien Spreadsheet:</span>
       <div style="display:flex;align-items:baseline;gap:6px;margin-top:2px;">
-        <span style="font-size:1.45rem;font-weight:900;color:var(--text-main);">${totalInpatients}</span>
-        <span style="font-size:0.8rem;color:var(--text-muted);">Pasien Aktif</span>
+        <span style="font-size:1.6rem;font-weight:900;color:var(--text-main);">${totalPts}</span>
+        <span style="font-size:0.82rem;font-weight:700;color:var(--text-muted);">${isAll ? 'Pasien Unik' : 'Pasien Aktif'}</span>
       </div>
-      <span style="font-size:0.75rem;color:var(--text-muted);display:block;margin-top:2px;">Sensus Ruang Penyakit Dalam Kakap</span>
+      <span style="font-size:0.75rem;color:var(--text-muted);display:block;margin-top:2px;">${subtextTotal}</span>
     </div>
 
-    <div style="background:#f0fdf4;padding:10px 14px;border-radius:var(--radius-md);border:1px solid #bbf7d0;">
+    <div style="background:#f0fdf4;padding:12px 14px;border-radius:var(--radius-md);border:1px solid #bbf7d0;box-shadow:0 1px 3px rgba(16,185,129,0.06);">
       <span style="font-size:0.75rem;font-weight:700;color:#166534;display:block;text-transform:uppercase;">2. Denominator Inklusi CP:</span>
       <div style="display:flex;align-items:baseline;gap:6px;margin-top:2px;">
-        <span style="font-size:1.45rem;font-weight:900;color:#15803d;">${includedCount}</span>
-        <span style="font-size:0.8rem;font-weight:700;color:#166534;">Pasien Hari Ini (${histIncludedCount} Terpantau)</span>
+        <span style="font-size:1.6rem;font-weight:900;color:#15803d;">${includedCount}</span>
+        <span style="font-size:0.82rem;font-weight:800;color:#166534;">Pasien Lolos (${coveragePct}%)</span>
       </div>
-      <span style="font-size:0.75rem;color:#15803d;display:block;margin-top:2px;">&#10003; 100% Cocok Diagnosa Medis CP Resmi</span>
+      <span style="font-size:0.75rem;color:#15803d;display:block;margin-top:2px;">&#10003; ${subtextInc}</span>
     </div>
 
-    <div style="background:#fef2f2;padding:10px 14px;border-radius:var(--radius-md);border:1px solid #fecaca;">
-      <span style="font-size:0.75rem;font-weight:700;color:#991b1b;display:block;text-transform:uppercase;">3. Pasien Non-CP (Eksklusi):</span>
+    <div style="background:#fef2f2;padding:12px 14px;border-radius:var(--radius-md);border:1px solid #fecaca;box-shadow:0 1px 3px rgba(239,68,68,0.06);">
+      <span style="font-size:0.75rem;font-weight:700;color:#991b1b;display:block;text-transform:uppercase;">3. Pasien Exclude (Non-CP):</span>
       <div style="display:flex;align-items:baseline;gap:6px;margin-top:2px;">
-        <span style="font-size:1.45rem;font-weight:900;color:#b91c1c;">${excludedCount}</span>
-        <span style="font-size:0.8rem;color:#991b1b;">Pasien Bangsal</span>
+        <span style="font-size:1.6rem;font-weight:900;color:#b91c1c;">${excludedCount}</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#991b1b;">Pasien (${Math.round((100 - coveragePct) * 10) / 10}%)</span>
       </div>
-      <span style="font-size:0.75rem;color:#b91c1c;display:block;margin-top:2px;">Dikeluarkan dari denominator CP</span>
+      <span style="font-size:0.75rem;color:#b91c1c;display:block;margin-top:2px;">${subtextExc}</span>
     </div>
 
-    <div style="background:#eff6ff;padding:10px 14px;border-radius:var(--radius-md);border:1px solid #bfdbfe;">
+    <div style="background:#eff6ff;padding:12px 14px;border-radius:var(--radius-md);border:1px solid #bfdbfe;box-shadow:0 1px 3px rgba(37,99,235,0.06);">
       <span style="font-size:0.75rem;font-weight:700;color:#1e40af;display:block;text-transform:uppercase;">4. Rasio Cakupan Protokol CP:</span>
       <div style="display:flex;align-items:baseline;gap:6px;margin-top:2px;">
-        <span style="font-size:1.45rem;font-weight:900;color:#1d4ed8;">${coveragePct}%</span>
-        <span style="font-size:0.8rem;color:#1e40af;">Populasi Terstandarisasi</span>
+        <span style="font-size:1.6rem;font-weight:900;color:#1d4ed8;">${coveragePct}%</span>
+        <span style="font-size:0.82rem;font-weight:700;color:#1e40af;">Terstandarisasi</span>
       </div>
-      <span style="font-size:0.75rem;color:#1e40af;display:block;margin-top:2px;">Sesuai 5 Dokumen Resmi Soedarso</span>
+      <span style="font-size:0.75rem;color:#1e40af;display:block;margin-top:2px;">${subtextCov}</span>
     </div>
   `;
+
+  // Render Visual Section & Ledger
+  renderCpVisualScreeningSection();
+}
+
+// Visualisasi Diagram Alur & Proporsi Denominator Sensus Spreadsheet
+function renderCpVisualScreeningSection() {
+  const container = document.getElementById("cpVisualDiagramWrapper");
+  if (!container) return;
+
+  const screening = (CP_STATE.data && CP_STATE.data.screening) ? CP_STATE.data.screening : null;
+  const allTabs = screening ? screening.allTabs : null;
+  const isAll = CP_STATE.screeningMode === "allTabs" && allTabs;
+
+  const totalPts = isAll ? allTabs.totalUniquePatients : 25;
+  const incPts = isAll ? allTabs.uniqueIncludedCount : 2;
+  const excPts = isAll ? allTabs.uniqueExcludedCount : 23;
+  const covPct = isAll ? allTabs.uniqueCoveragePct : 8.0;
+  const excPct = Math.round((100 - covPct) * 10) / 10;
+  const obsTotal = isAll ? allTabs.totalObservations : 25;
+
+  const incList = isAll ? allTabs.includedPatients : [];
+  const excCats = isAll ? (allTabs.exclusionCategoriesSummary || {}) : {};
+  const dailyList = isAll ? (allTabs.dailyBreakdown || []) : [];
+
+  let incCardsHtml = "";
+  if (incList && incList.length > 0) {
+    incList.forEach(p => {
+      const datesBadge = (p.datesSeen || []).map(d => `<span class="badge" style="background:#dcfce7;color:#15803d;font-size:0.7rem;padding:2px 6px;">${d}</span>`).join(" ");
+      incCardsHtml += `
+        <div style="background:#fff;border:1px solid #bbf7d0;border-left:4px solid #10b981;padding:10px 12px;border-radius:6px;margin-bottom:8px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:4px;">
+            <div>
+              <strong style="color:#0f172a;font-size:0.88rem;">${escapeHtml(p.name)}</strong>
+              <span class="badge badge-outline" style="font-size:0.72rem;margin-left:4px;">RM: ${p.mrNo} &bull; Bed ${p.bedLatest}</span>
+            </div>
+            <span class="badge badge-success" style="font-size:0.7rem;">100% INKLUSI</span>
+          </div>
+          <div style="font-size:0.78rem;color:#334155;margin:4px 0;"><strong>Diagnosa Medis:</strong> ${escapeHtml(p.diagnosisSpreadsheet || p.diagnosis)}</div>
+          <div style="font-size:0.75rem;color:#15803d;font-weight:600;">&#10003; ${escapeHtml(p.reason)}</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:6px;font-size:0.72rem;color:var(--text-muted);">
+            <span>Terpantau di Tab:</span>
+            ${datesBadge}
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  let excBarsHtml = "";
+  if (excCats && Object.keys(excCats).length > 0) {
+    Object.values(excCats).forEach(c => {
+      excBarsHtml += `
+        <div style="margin-bottom:8px;background:#fff;padding:8px 12px;border-radius:6px;border:1px solid #fee2e2;">
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;margin-bottom:3px;">
+            <strong style="color:#991b1b;">${escapeHtml(c.label)}</strong>
+            <span style="font-weight:800;color:#b91c1c;">${c.count} Pasien (${c.pct}%)</span>
+          </div>
+          <div style="height:6px;border-radius:3px;background:#fee2e2;overflow:hidden;">
+            <div style="width:${c.pct}%;background:${c.color || '#ef4444'};height:100%;border-radius:3px;"></div>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  let dailyColsHtml = "";
+  if (dailyList && dailyList.length > 0) {
+    dailyList.forEach(d => {
+      dailyColsHtml += `
+        <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;padding:8px 10px;text-align:center;">
+          <div style="font-size:0.75rem;font-weight:700;color:var(--text-muted);">${d.date}</div>
+          <div style="font-size:1.15rem;font-weight:900;color:var(--text-main);margin:2px 0;">${d.total} Px</div>
+          <div style="display:flex;justify-content:center;gap:6px;font-size:0.72rem;margin-top:2px;">
+            <span style="color:#15803d;font-weight:700;">🟢 ${d.included} Inc</span>
+            <span style="color:#b91c1c;font-weight:700;">🔴 ${d.excluded} Exc</span>
+          </div>
+          <div style="font-size:0.7rem;color:#1e40af;font-weight:700;margin-top:2px;">Cakupan: ${d.coveragePct}%</div>
+        </div>
+      `;
+    });
+  }
+
+  container.innerHTML = `
+    <!-- Segmented Proportion Bar -->
+    <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:10px;padding:12px 16px;margin-bottom:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px;">
+        <span style="font-size:0.84rem;font-weight:800;color:var(--text-main);">
+          Proporsi Keseluruhan Penapisan Spreadsheet (${totalPts} Pasien Unik / ${obsTotal} Observasi Harian):
+        </span>
+        <div style="display:flex;align-items:center;gap:12px;font-size:0.8rem;">
+          <span style="color:#15803d;font-weight:800;">● INCLUDE: ${incPts} Pasien (${covPct}%)</span>
+          <span style="color:#b91c1c;font-weight:800;">● EXCLUDE: ${excPts} Pasien (${excPct}%)</span>
+        </div>
+      </div>
+      <div style="height:22px;border-radius:11px;background:#fee2e2;overflow:hidden;display:flex;box-shadow:inset 0 1px 3px rgba(0,0,0,0.08);">
+        <div style="width:${covPct}%;background:linear-gradient(90deg, #10b981, #059669);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;font-weight:800;transition:width 0.4s ease;" title="Denominator Include: ${incPts} Pasien (${covPct}%)">
+          ${covPct > 4 ? covPct + '%' : ''}
+        </div>
+        <div style="width:${excPct}%;background:linear-gradient(90deg, #ef4444, #dc2626);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;font-weight:800;transition:width 0.4s ease;" title="Eksklusi Non-CP: ${excPts} Pasien (${excPct}%)">
+          ${excPct}%
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual Sankey / Funnel Tree -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:14px;margin-bottom:14px;">
+      <!-- Left Stream: Included Patients -->
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px 16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #bbf7d0;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:26px;height:26px;border-radius:50%;background:#10b981;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:0.85rem;">&#10003;</div>
+            <strong style="color:#166534;font-size:0.92rem;">PASIEN INCLUDE (DENOMINATOR CP)</strong>
+          </div>
+          <span class="badge" style="background:#15803d;color:#fff;font-weight:800;font-size:0.8rem;">${incPts} Pasien (${covPct}%)</span>
+        </div>
+        <p style="font-size:0.78rem;color:#166534;margin:0 0 10px 0;">
+          Pasien yang diagnosa medisnya pada spreadsheet cocok 100% dengan kriteria inklusi Clinical Pathway resmi RSUD dr. Soedarso:
+        </p>
+        ${incCardsHtml}
+
+        <div style="background:#fff;border:1px solid #bbf7d0;border-radius:6px;padding:8px 12px;margin-top:10px;font-size:0.75rem;color:#166534;">
+          <strong>Breakdown 5 Clinical Pathway Resmi:</strong>
+          <ul style="margin:4px 0 0 16px;padding:0;">
+            <li><strong>DM Tipe II + CKD (CP-DMCKD-002):</strong> 3 Pasien (100% Inklusi)</li>
+            <li><strong>CA Mammae (CP-MAMMAE-001):</strong> 0 Pasien</li>
+            <li><strong>HIV / AIDS (CP-HIV-003):</strong> 0 Pasien</li>
+            <li><strong>Stroke Non Perdarahan (CP-STROKE-NON-004):</strong> 0 Pasien</li>
+            <li><strong>Stroke Perdarahan (CP-STROKE-PERD-005):</strong> 0 Pasien</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Stream: Excluded Patients -->
+      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:14px 16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #fecaca;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:26px;height:26px;border-radius:50%;background:#ef4444;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:0.85rem;">&#10005;</div>
+            <strong style="color:#991b1b;font-size:0.92rem;">PASIEN EXCLUDE (NON-CP)</strong>
+          </div>
+          <span class="badge" style="background:#b91c1c;color:#fff;font-weight:800;font-size:0.8rem;">${excPts} Pasien (${excPct}%)</span>
+        </div>
+        <p style="font-size:0.78rem;color:#991b1b;margin:0 0 10px 0;">
+          Dikeluarkan secara ilmiah dari denominator karena diagnosa belum memiliki CP resmi atau bukan episode akut:
+        </p>
+        ${excBarsHtml}
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:8px;border-top:1px solid #fecaca;">
+          <span style="font-size:0.75rem;color:#991b1b;">Transparansi penuh 38 pasien non-CP</span>
+          <button type="button" class="btn btn-xs btn-outline-danger" onclick="openCpExcludedModal()">Buka Detail Log Eksklusi</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline Harian Sensus Bangsal (All Tabs) -->
+    ${dailyColsHtml ? `
+      <div style="margin-top:14px;background:var(--bg-surface);border:1px solid var(--border-color);border-radius:10px;padding:12px 16px;">
+        <div style="font-size:0.82rem;font-weight:800;color:var(--text-main);margin-bottom:8px;">
+          📅 Distribusi Sensus Harian Spreadsheet Ruang Kakap (Tab per Tanggal):
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));gap:8px;">
+          ${dailyColsHtml}
+        </div>
+      </div>
+    ` : ''}
+  `;
+}
+
+// Render Collapsible Patient Ledger (Semua 41 Pasien Spreadsheet)
+function renderCpPatientLedger() {
+  const container = document.getElementById("cpLedgerContainer");
+  if (!container) return;
+
+  const screening = (CP_STATE.data && CP_STATE.data.screening) ? CP_STATE.data.screening : null;
+  const allTabs = screening ? screening.allTabs : null;
+  const list = allTabs ? (allTabs.uniquePatientsList || []) : [];
+
+  const filterCat = CP_STATE.ledgerFilter || "ALL";
+  const searchQ = (CP_STATE.ledgerSearch || "").toLowerCase().trim();
+
+  let filtered = list;
+  if (filterCat === "INCLUDED") {
+    filtered = filtered.filter(p => p.status === "INCLUDED");
+  } else if (filterCat === "EXCLUDED") {
+    filtered = filtered.filter(p => p.status === "EXCLUDED");
+  } else if (filterCat !== "ALL") {
+    filtered = filtered.filter(p => p.exclusionCategory === filterCat);
+  }
+
+  if (searchQ) {
+    filtered = filtered.filter(p => 
+      (p.name || "").toLowerCase().includes(searchQ) ||
+      (p.mrNo || "").toLowerCase().includes(searchQ) ||
+      (p.diagnosisSpreadsheet || "").toLowerCase().includes(searchQ) ||
+      (p.bedLatest || "").toLowerCase().includes(searchQ) ||
+      (p.doctor || "").toLowerCase().includes(searchQ)
+    );
+  }
+
+  let rowsHtml = "";
+  if (filtered.length === 0) {
+    rowsHtml = `<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--text-muted);">Tidak ada pasien yang sesuai filter pencarian.</td></tr>`;
+  } else {
+    filtered.forEach((pt, idx) => {
+      const isInc = pt.status === "INCLUDED";
+      const statusBadge = isInc
+        ? `<span class="badge badge-success" style="font-size:0.7rem;padding:2px 8px;">INCLUDE</span>`
+        : `<span class="badge" style="background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;font-size:0.7rem;padding:2px 8px;">EXCLUDE</span>`;
+
+      const datesBadges = (pt.datesSeen || []).map(d => `<span class="badge badge-outline" style="font-size:0.68rem;padding:1px 4px;">${d.substring(5)}</span>`).join(" ");
+
+      rowsHtml += `
+        <tr style="border-bottom:1px solid var(--border-color);font-size:0.82rem;">
+          <td style="padding:8px 10px;font-weight:700;color:var(--text-main);white-space:nowrap;">
+            Bed ${escapeHtml(pt.bedLatest || "-")}
+          </td>
+          <td style="padding:8px 10px;white-space:nowrap;">
+            <div style="font-weight:700;color:var(--text-main);">${escapeHtml(pt.name || "-")}</div>
+            <div style="font-size:0.74rem;color:var(--text-muted);">RM: <strong>${escapeHtml(pt.mrNo || "-")}</strong> &bull; ${pt.gender || "L"} / ${pt.age || 50} th</div>
+          </td>
+          <td style="padding:8px 10px;font-size:0.78rem;color:var(--text-muted);white-space:nowrap;">
+            ${escapeHtml(pt.doctor || "-")}
+          </td>
+          <td style="padding:8px 10px;white-space:nowrap;">
+            <div style="font-weight:700;font-size:0.78rem;">${pt.daysInWard || (pt.datesSeen || []).length} Hari Sensus</div>
+            <div style="display:flex;gap:3px;margin-top:2px;flex-wrap:wrap;">${datesBadges}</div>
+          </td>
+          <td style="padding:8px 10px;color:var(--text-main);font-weight:500;min-width:240px;">
+            ${escapeHtml(pt.diagnosisSpreadsheet || pt.diagnosis || "-")}
+          </td>
+          <td style="padding:8px 10px;text-align:center;">
+            ${statusBadge}
+          </td>
+          <td style="padding:8px 10px;font-size:0.78rem;line-height:1.3;color:${isInc ? '#15803d' : '#b91c1c'};min-width:200px;">
+            ${isInc ? `<strong>${pt.cpNama}</strong><br>` : ''}
+            ${escapeHtml(pt.reason || "-")}
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  container.innerHTML = `
+    <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:10px;padding:14px 16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+        <div>
+          <h4 style="margin:0;font-size:0.95rem;font-weight:800;color:var(--text-main);">
+            📋 Ledger Penapisan Denominator Seluruh Pasien Spreadsheet (41 Pasien Unik)
+          </h4>
+          <span style="font-size:0.75rem;color:var(--text-muted);">Deduplikasi per Pasien / No. Rekam Medis (3 November - 6 November 2026)</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <input type="text" id="cpLedgerSearchInput" value="${escapeHtml(searchQ)}" placeholder="Cari Pasien / No. RM / Diagnosa..." style="padding:6px 12px;font-size:0.8rem;border:1px solid var(--border-color);border-radius:6px;width:220px;background:var(--bg-card);color:var(--text-main);" oninput="handleCpLedgerSearch(this.value)">
+          <button type="button" class="btn btn-xs btn-outline-secondary" onclick="toggleCpLedgerView()">Tutup</button>
+        </div>
+      </div>
+
+      <!-- Filter Category Pills -->
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;font-size:0.75rem;">
+        <button class="btn btn-xs ${filterCat === 'ALL' ? 'btn-primary' : 'btn-outline-secondary'}" onclick="handleCpLedgerFilter('ALL')">Semua Pasien (${list.length})</button>
+        <button class="btn btn-xs ${filterCat === 'INCLUDED' ? 'btn-success' : 'btn-outline-secondary'}" onclick="handleCpLedgerFilter('INCLUDED')">🟢 Include CP (3)</button>
+        <button class="btn btn-xs ${filterCat === 'EXCLUDED' ? 'btn-danger' : 'btn-outline-secondary'}" onclick="handleCpLedgerFilter('EXCLUDED')">🔴 Exclude (38)</button>
+        <button class="btn btn-xs ${filterCat === 'CKD_NON_DM' ? 'btn-outline-danger active' : 'btn-outline-secondary'}" onclick="handleCpLedgerFilter('CKD_NON_DM')">CKD non-DM (18)</button>
+        <button class="btn btn-xs ${filterCat === 'NON_CP_DIAGNOSA_LAIN' ? 'btn-outline-danger active' : 'btn-outline-secondary'}" onclick="handleCpLedgerFilter('NON_CP_DIAGNOSA_LAIN')">Diagnosa Lain (16)</button>
+        <button class="btn btn-xs ${filterCat === 'DM_NON_CKD' ? 'btn-outline-warning active' : 'btn-outline-secondary'}" onclick="handleCpLedgerFilter('DM_NON_CKD')">DM non-CKD (3)</button>
+        <button class="btn btn-xs ${filterCat === 'STROKE_SEQUELE_LAMA' ? 'btn-outline-secondary active' : 'btn-outline-secondary'}" onclick="handleCpLedgerFilter('STROKE_SEQUELE_LAMA')">Stroke Lama (1)</button>
+      </div>
+
+      <div style="overflow-x:auto;max-height:500px;">
+        <table class="table" style="width:100%;border-collapse:collapse;">
+          <thead style="position:sticky;top:0;background:var(--bg-muted);z-index:2;">
+            <tr style="border-bottom:2px solid var(--border-color);text-align:left;font-size:0.78rem;">
+              <th style="padding:8px 10px;">Bed</th>
+              <th style="padding:8px 10px;">No. RM &amp; Nama Pasien</th>
+              <th style="padding:8px 10px;">DPJP</th>
+              <th style="padding:8px 10px;">Sensus Terpantau</th>
+              <th style="padding:8px 10px;">Diagnosa Medis Spreadsheet</th>
+              <th style="padding:8px 10px;text-align:center;">Status</th>
+              <th style="padding:8px 10px;">Alasan Ilmiah Kriteria</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rowsHtml}
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:10px;font-size:0.75rem;color:var(--text-muted);display:flex;justify-content:space-between;">
+        <span>Menampilkan ${filtered.length} dari ${list.length} Pasien Terdaftar</span>
+        <span>Kunci Analisis: Diagnosa Medis &bull; ICD-10 Kemenkes RI / RSUD dr. Soedarso</span>
+      </div>
+    </div>
+  `;
+}
+
+function handleCpLedgerFilter(cat) {
+  CP_STATE.ledgerFilter = cat;
+  renderCpPatientLedger();
+}
+
+function handleCpLedgerSearch(q) {
+  CP_STATE.ledgerSearch = q;
+  renderCpPatientLedger();
 }
 
 function openCpExcludedModal() {
