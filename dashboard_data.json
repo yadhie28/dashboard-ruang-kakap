@@ -13,7 +13,7 @@
       "Tim I (Kakap 1-5 & Isolasi - 21 Bed)",
       "Tim II (Kakap 6-10 - 20 Bed)"
     ],
-    "lastUpdated": "06-11-2026 08:44:43",
+    "lastUpdated": "06-11-2026 01:45:07",
     "latestDate": "2026-11-06",
     "totalDatesRecorded": 4,
     "dateRange": "2026-11-03 s/d 2026-11-06",
@@ -53,10 +53,10 @@
     {
       "date": "2026-11-06",
       "occTim1": 13,
-      "occTim2": 13,
-      "totalOcc": 29,
+      "occTim2": 12,
+      "totalOcc": 28,
       "totalBeds": 41,
-      "bor": 70.7
+      "bor": 68.3
     }
   ],
   "analytics": {
@@ -71,7 +71,7 @@
       },
       {
         "name": "dr. Apriani, M.Ked(PD), Sp.PD",
-        "count": 4
+        "count": 3
       },
       {
         "name": "dr. Decky Andrea, Sp.PD",
@@ -138,11 +138,11 @@
         "count": 15
       },
       {
-        "name": "Penyakit Dalam (Umum)",
-        "count": 5
+        "name": "Penyakit Dalam (Metabolik)",
+        "count": 4
       },
       {
-        "name": "Penyakit Dalam (Metabolik)",
+        "name": "Penyakit Dalam (Umum)",
         "count": 4
       },
       {
@@ -157,23 +157,23 @@
     "insurances": [
       {
         "name": "BPJS Kelas 3",
-        "count": 25
+        "count": 24
       },
       {
         "name": "BPJS Kelas 2",
         "count": 1
       }
     ],
-    "totalPatients": 29
+    "totalPatients": 28
   },
   "monthly": [
     {
       "month": "2026-11",
       "daysCounted": 4,
-      "avgOcc": 32.0,
+      "avgOcc": 31.8,
       "avgOccA": 13.5,
-      "avgOccB": 11.8,
-      "avgBor": 78.0
+      "avgOccB": 11.5,
+      "avgBor": 77.4
     }
   ],
   "hospitalIndicators": {
@@ -184,12 +184,12 @@
     },
     "availableBeds": 41,
     "totalDays": 4,
-    "totalHP": 128,
+    "totalHP": 127,
     "totalDischarges": 11,
     "overall": {
-      "bor": 78.0,
-      "avlos": 11.6,
-      "toi": 3.3,
+      "bor": 77.4,
+      "avlos": 11.5,
+      "toi": 3.4,
       "bto": 24.5,
       "gdr": 181.8,
       "ndr": 90.9
@@ -198,15 +198,15 @@
       {
         "month": "2026-11",
         "days": 4,
-        "hp": 128,
+        "hp": 127,
         "hpTim1": 54,
-        "hpTim2": 47,
+        "hpTim2": 46,
         "discharges": 11,
         "deaths": 2,
         "deathsGt48": 1,
-        "bor": 78.0,
-        "avlos": 11.6,
-        "toi": 3.3,
+        "bor": 77.4,
+        "avlos": 11.5,
+        "toi": 3.4,
         "bto": 24.5,
         "gdr": 181.8,
         "ndr": 90.9
@@ -18426,7 +18426,7 @@
           "diagnosis": "CKD ST V Edema pulmo Hiperkalemia",
           "category": "Nefrologi & Urologi",
           "notes": {
-            "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD, input (+)\n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang (-)",
+            "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD SSH \n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang ada dengan Pasien",
             "sore": "",
             "malam": ""
           },
@@ -18478,9 +18478,9 @@
           "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
           "category": "Penyakit Dalam (Metabolik)",
           "notes": {
-            "pagi": "",
-            "sore": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift =\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (-) Sampel (-)\n- Lapor PB (+)",
-            "malam": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)"
+            "pagi": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)",
+            "sore": "",
+            "malam": ""
           },
           "tags": [],
           "ews": {
@@ -18896,7 +18896,7 @@
           "diagnosis": "Malnutrisi Hoponatremia Hipoosmoler",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (-)",
+            "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (+) Balasan (-)",
             "sore": "",
             "malam": ""
           },
@@ -18926,29 +18926,33 @@
         },
         {
           "bed": "8.1",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Terisi",
-          "isEmpty": false,
-          "isDischargedToday": false,
-          "dischargeColor": null,
+          "status": "Pulang Hari Ini",
+          "isEmpty": true,
+          "isDischargedToday": true,
+          "dischargeColor": "FFD5A6BD",
           "name": "Ny. Musriyah",
           "mrNo": "00306661",
-          "gender": "P",
+          "gender": "-",
           "age": "",
-          "admissionDate": "05/11/2026",
-          "los": 2,
-          "insurance": "BPJS Kelas 3",
-          "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
-          "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
-          "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
+          "admissionDate": "-",
+          "los": 0,
+          "insurance": "-",
+          "doctor": "-",
+          "doctorPrimary": "-",
+          "diagnosis": "-",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "PB via IGD jam 22.30 \n\n- Kel : os keluhan nyeri perut atas sejak 1 minggu ini , mual + , muntah - , bab cair 2 kali hari ini , warna kuning biasa , demam + 3 hari , mata tampak kuing sejak 1 minggu\n- Terapi dari IGD : asering 20 tpm inj peinlos 800 mg inj ranitidin 1amp\n\n- dr. Apri via IGD : asering 20 tpm, inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pctv3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1, Hbsag, Hcv, Hiv, Usg Abd\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
+            "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- SSH Cek Hbsag, Hcv, Hiv\n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
             "sore": "",
             "malam": ""
           },
           "tags": [
+            {
+              "label": "Pulang Hari Ini",
+              "color": "emerald"
+            },
             {
               "label": "Onkologi",
               "color": "pink"
@@ -18970,7 +18974,7 @@
         },
         {
           "bed": "8.2",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
           "status": "Terisi",
           "isEmpty": false,
@@ -19018,7 +19022,7 @@
         },
         {
           "bed": "8.3",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
           "status": "Terisi",
           "isEmpty": false,
@@ -19066,7 +19070,7 @@
         },
         {
           "bed": "8.4",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
           "status": "Terisi",
           "isEmpty": false,
@@ -19404,7 +19408,7 @@
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: kelemahan anggota gerak bawah +, sulit tidur + demam hilang timbul + mual + setiap makan muntah , beberapa kali berwarna hitam - kedua kaki kebas + nyeri pinggang + batuk berkurang bab hitam - nyeri ulu hati +\n- RPD: anemia berulang (+), riw. operasi tulang belakang dengan dr. Oktav, sp.OT\n\ndr.Decky,Sp.PD visite tanggal 05/11/2026:\n- Ivf ns 500/12 jam \n- Terapi: Omeprazole 1x40 mg Nocid 3x1 Bicnat 3x500 ceftriaxone 1x 2 gr IV H2 \n- Diet Lunak =>> Lapor Kak Diah Gizi (+)\n- Hasil cek GDT sebelum tranfusi (Tanggal 03/11/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. bone marrow disorder (keganasan hematologi?) dd/ infeksi/inflamasi berat.\"\n- Cek GD tiap pagi (Pagi: 178)\n- Transfusi PRC 5 kolf (prc/24 jam) (URUS 4 KOLF) (+) SELESAI 4 KOLF =>> Hasil cek DR ulang (HB:8.7 PLT: 465 WBC: 8.27) =>> Lapor dr.Decky (+) Balasan (+) : Tranfusi PRC 2 kolf lagi =>> Ready di UTD, pagi transfusi \n- Premed furosemid 1 amp \n\ndr.Dini,Sp.N visite tanggal 04/11/2026:\n- Inj mecobalamin 3x500mcg, Pregabalin 1x75mg\n- Ro LumboSacral AP-LAT (04/11/2026) di SIMRS (+) =>> Lapor dr.Dini (+) Balasan (+) : vertebral metastase",
-            "sore": "",
+            "sore": "MRI lumbosacral + kontras",
             "malam": ""
           },
           "tags": [
@@ -20279,7 +20283,7 @@
           "diagnosis": "CKD ST V Edema pulmo Hiperkalemia",
           "category": "Nefrologi & Urologi",
           "notes": {
-            "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD, input (+)\n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang (-)",
+            "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD SSH \n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang ada dengan Pasien",
             "sore": "",
             "malam": ""
           },
@@ -20331,9 +20335,9 @@
           "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
           "category": "Penyakit Dalam (Metabolik)",
           "notes": {
-            "pagi": "",
-            "sore": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift =\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (-) Sampel (-)\n- Lapor PB (+)",
-            "malam": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)"
+            "pagi": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)",
+            "sore": "",
+            "malam": ""
           },
           "tags": [],
           "ews": {
@@ -20799,7 +20803,7 @@
           "diagnosis": "Malnutrisi Hoponatremia Hipoosmoler",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (-)",
+            "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (+) Balasan (-)",
             "sore": "",
             "malam": ""
           },
@@ -20829,29 +20833,33 @@
         },
         {
           "bed": "8.1",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Terisi",
-          "isEmpty": false,
-          "isDischargedToday": false,
-          "dischargeColor": null,
+          "status": "Pulang Hari Ini",
+          "isEmpty": true,
+          "isDischargedToday": true,
+          "dischargeColor": "FFD5A6BD",
           "name": "Ny. Musriyah",
           "mrNo": "00306661",
-          "gender": "P",
+          "gender": "-",
           "age": "",
-          "admissionDate": "05/11/2026",
-          "los": 2,
-          "insurance": "BPJS Kelas 3",
-          "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
-          "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
-          "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
+          "admissionDate": "-",
+          "los": 0,
+          "insurance": "-",
+          "doctor": "-",
+          "doctorPrimary": "-",
+          "diagnosis": "-",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "PB via IGD jam 22.30 \n\n- Kel : os keluhan nyeri perut atas sejak 1 minggu ini , mual + , muntah - , bab cair 2 kali hari ini , warna kuning biasa , demam + 3 hari , mata tampak kuing sejak 1 minggu\n- Terapi dari IGD : asering 20 tpm inj peinlos 800 mg inj ranitidin 1amp\n\n- dr. Apri via IGD : asering 20 tpm, inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pctv3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1, Hbsag, Hcv, Hiv, Usg Abd\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
+            "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- SSH Cek Hbsag, Hcv, Hiv\n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
             "sore": "",
             "malam": ""
           },
           "tags": [
+            {
+              "label": "Pulang Hari Ini",
+              "color": "emerald"
+            },
             {
               "label": "Onkologi",
               "color": "pink"
@@ -20873,7 +20881,7 @@
         },
         {
           "bed": "8.2",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
           "status": "Terisi",
           "isEmpty": false,
@@ -20921,7 +20929,7 @@
         },
         {
           "bed": "8.3",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
           "status": "Terisi",
           "isEmpty": false,
@@ -20969,7 +20977,7 @@
         },
         {
           "bed": "8.4",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
           "status": "Terisi",
           "isEmpty": false,
@@ -21307,7 +21315,7 @@
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: kelemahan anggota gerak bawah +, sulit tidur + demam hilang timbul + mual + setiap makan muntah , beberapa kali berwarna hitam - kedua kaki kebas + nyeri pinggang + batuk berkurang bab hitam - nyeri ulu hati +\n- RPD: anemia berulang (+), riw. operasi tulang belakang dengan dr. Oktav, sp.OT\n\ndr.Decky,Sp.PD visite tanggal 05/11/2026:\n- Ivf ns 500/12 jam \n- Terapi: Omeprazole 1x40 mg Nocid 3x1 Bicnat 3x500 ceftriaxone 1x 2 gr IV H2 \n- Diet Lunak =>> Lapor Kak Diah Gizi (+)\n- Hasil cek GDT sebelum tranfusi (Tanggal 03/11/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. bone marrow disorder (keganasan hematologi?) dd/ infeksi/inflamasi berat.\"\n- Cek GD tiap pagi (Pagi: 178)\n- Transfusi PRC 5 kolf (prc/24 jam) (URUS 4 KOLF) (+) SELESAI 4 KOLF =>> Hasil cek DR ulang (HB:8.7 PLT: 465 WBC: 8.27) =>> Lapor dr.Decky (+) Balasan (+) : Tranfusi PRC 2 kolf lagi =>> Ready di UTD, pagi transfusi \n- Premed furosemid 1 amp \n\ndr.Dini,Sp.N visite tanggal 04/11/2026:\n- Inj mecobalamin 3x500mcg, Pregabalin 1x75mg\n- Ro LumboSacral AP-LAT (04/11/2026) di SIMRS (+) =>> Lapor dr.Dini (+) Balasan (+) : vertebral metastase",
-            "sore": "",
+            "sore": "MRI lumbosacral + kontras",
             "malam": ""
           },
           "tags": [
@@ -22134,7 +22142,7 @@
           "diagnosis": "CKD ST V Edema pulmo Hiperkalemia",
           "category": "Nefrologi & Urologi",
           "notes": {
-            "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD, input (+)\n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang (-)",
+            "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD SSH \n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang ada dengan Pasien",
             "sore": "",
             "malam": ""
           },
@@ -22186,9 +22194,9 @@
           "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
           "category": "Penyakit Dalam (Metabolik)",
           "notes": {
-            "pagi": "",
-            "sore": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift =\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (-) Sampel (-)\n- Lapor PB (+)",
-            "malam": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)"
+            "pagi": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)",
+            "sore": "",
+            "malam": ""
           },
           "tags": [],
           "ews": {
@@ -22654,7 +22662,7 @@
           "diagnosis": "Malnutrisi Hoponatremia Hipoosmoler",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (-)",
+            "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (+) Balasan (-)",
             "sore": "",
             "malam": ""
           },
@@ -22684,29 +22692,33 @@
         },
         {
           "bed": "8.1",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Terisi",
-          "isEmpty": false,
-          "isDischargedToday": false,
-          "dischargeColor": null,
+          "status": "Pulang Hari Ini",
+          "isEmpty": true,
+          "isDischargedToday": true,
+          "dischargeColor": "FFD5A6BD",
           "name": "Ny. Musriyah",
           "mrNo": "00306661",
-          "gender": "P",
+          "gender": "-",
           "age": "",
-          "admissionDate": "05/11/2026",
-          "los": 2,
-          "insurance": "BPJS Kelas 3",
-          "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
-          "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
-          "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
+          "admissionDate": "-",
+          "los": 0,
+          "insurance": "-",
+          "doctor": "-",
+          "doctorPrimary": "-",
+          "diagnosis": "-",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
-            "pagi": "PB via IGD jam 22.30 \n\n- Kel : os keluhan nyeri perut atas sejak 1 minggu ini , mual + , muntah - , bab cair 2 kali hari ini , warna kuning biasa , demam + 3 hari , mata tampak kuing sejak 1 minggu\n- Terapi dari IGD : asering 20 tpm inj peinlos 800 mg inj ranitidin 1amp\n\n- dr. Apri via IGD : asering 20 tpm, inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pctv3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1, Hbsag, Hcv, Hiv, Usg Abd\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
+            "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- SSH Cek Hbsag, Hcv, Hiv\n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
             "sore": "",
             "malam": ""
           },
           "tags": [
+            {
+              "label": "Pulang Hari Ini",
+              "color": "emerald"
+            },
             {
               "label": "Onkologi",
               "color": "pink"
@@ -22728,7 +22740,7 @@
         },
         {
           "bed": "8.2",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
           "status": "Terisi",
           "isEmpty": false,
@@ -22776,7 +22788,7 @@
         },
         {
           "bed": "8.3",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
           "status": "Terisi",
           "isEmpty": false,
@@ -22824,7 +22836,7 @@
         },
         {
           "bed": "8.4",
-          "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+          "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
           "status": "Terisi",
           "isEmpty": false,
@@ -23162,7 +23174,7 @@
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: kelemahan anggota gerak bawah +, sulit tidur + demam hilang timbul + mual + setiap makan muntah , beberapa kali berwarna hitam - kedua kaki kebas + nyeri pinggang + batuk berkurang bab hitam - nyeri ulu hati +\n- RPD: anemia berulang (+), riw. operasi tulang belakang dengan dr. Oktav, sp.OT\n\ndr.Decky,Sp.PD visite tanggal 05/11/2026:\n- Ivf ns 500/12 jam \n- Terapi: Omeprazole 1x40 mg Nocid 3x1 Bicnat 3x500 ceftriaxone 1x 2 gr IV H2 \n- Diet Lunak =>> Lapor Kak Diah Gizi (+)\n- Hasil cek GDT sebelum tranfusi (Tanggal 03/11/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. bone marrow disorder (keganasan hematologi?) dd/ infeksi/inflamasi berat.\"\n- Cek GD tiap pagi (Pagi: 178)\n- Transfusi PRC 5 kolf (prc/24 jam) (URUS 4 KOLF) (+) SELESAI 4 KOLF =>> Hasil cek DR ulang (HB:8.7 PLT: 465 WBC: 8.27) =>> Lapor dr.Decky (+) Balasan (+) : Tranfusi PRC 2 kolf lagi =>> Ready di UTD, pagi transfusi \n- Premed furosemid 1 amp \n\ndr.Dini,Sp.N visite tanggal 04/11/2026:\n- Inj mecobalamin 3x500mcg, Pregabalin 1x75mg\n- Ro LumboSacral AP-LAT (04/11/2026) di SIMRS (+) =>> Lapor dr.Dini (+) Balasan (+) : vertebral metastase",
-            "sore": "",
+            "sore": "MRI lumbosacral + kontras",
             "malam": ""
           },
           "tags": [
@@ -23196,27 +23208,27 @@
         "capacityTim2": 20,
         "capacityA": 21,
         "capacityB": 20,
-        "occupied": 29,
-        "empty": 12,
-        "bor": 70.7,
+        "occupied": 28,
+        "empty": 13,
+        "bor": 68.3,
         "borTim1": 61.9,
-        "borTim2": 65.0,
+        "borTim2": 60.0,
         "borA": 61.9,
-        "borB": 65.0,
+        "borB": 60.0,
         "occTim1": 13,
-        "occTim2": 13,
+        "occTim2": 12,
         "occA": 13,
-        "occB": 13,
+        "occB": 12,
         "emptyTim1": 8,
-        "emptyTim2": 7,
+        "emptyTim2": 8,
         "emptyA": 8,
-        "emptyB": 7,
-        "dischargedToday": 9,
+        "emptyB": 8,
+        "dischargedToday": 10,
         "tagCounts": {
           "Hemodialisa (HD)": 18,
           "Transfusi Darah": 21,
           "Onkologi": 10,
-          "Pulang Hari Ini": 9,
+          "Pulang Hari Ini": 10,
           "Rencana Pulang": 3,
           "Puasa Pre-Op": 3,
           "Bedah / Operasi": 3,
@@ -23232,9 +23244,9 @@
           "malam": []
         },
         "pasienAwal": {
-          "pagi": 26,
-          "sore": 29,
-          "malam": 29
+          "pagi": 25,
+          "sore": 28,
+          "malam": 28
         },
         "pasienBaru": {
           "pagi": 3,
@@ -23257,14 +23269,14 @@
           "malam": 0
         },
         "total": {
-          "pagi": 29,
-          "sore": 29,
-          "malam": 29
+          "pagi": 28,
+          "sore": 28,
+          "malam": 28
         },
         "bedKosong": {
-          "pagi": 8,
-          "sore": 8,
-          "malam": 8
+          "pagi": 9,
+          "sore": 9,
+          "malam": 9
         },
         "bedKosongText": {
           "pagi": "",
@@ -23273,20 +23285,20 @@
         },
         "bedKosongDetail": {
           "pagi": {
-            "total": 8,
-            "pria": 3,
+            "total": 9,
+            "pria": 4,
             "wanita": 4,
             "isolasi": 1
           },
           "sore": {
-            "total": 8,
-            "pria": 3,
+            "total": 9,
+            "pria": 4,
             "wanita": 4,
             "isolasi": 1
           },
           "malam": {
-            "total": 8,
-            "pria": 3,
+            "total": 9,
+            "pria": 4,
             "wanita": 4,
             "isolasi": 1
           }
@@ -24110,7 +24122,7 @@
         "diagnosis": "CKD ST V Edema pulmo Hiperkalemia",
         "category": "Nefrologi & Urologi",
         "notes": {
-          "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD, input (+)\n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang (-)",
+          "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD SSH \n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang ada dengan Pasien",
           "sore": "",
           "malam": ""
         },
@@ -24162,9 +24174,9 @@
         "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
         "category": "Penyakit Dalam (Metabolik)",
         "notes": {
-          "pagi": "",
-          "sore": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift =\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (-) Sampel (-)\n- Lapor PB (+)",
-          "malam": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)"
+          "pagi": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)",
+          "sore": "",
+          "malam": ""
         },
         "tags": [],
         "ews": {
@@ -24580,7 +24592,7 @@
         "diagnosis": "Malnutrisi Hoponatremia Hipoosmoler",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (-)",
+          "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (+) Balasan (-)",
           "sore": "",
           "malam": ""
         },
@@ -24610,29 +24622,33 @@
       },
       {
         "bed": "8.1",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Terisi",
-        "isEmpty": false,
-        "isDischargedToday": false,
-        "dischargeColor": null,
+        "status": "Pulang Hari Ini",
+        "isEmpty": true,
+        "isDischargedToday": true,
+        "dischargeColor": "FFD5A6BD",
         "name": "Ny. Musriyah",
         "mrNo": "00306661",
-        "gender": "P",
+        "gender": "-",
         "age": "",
-        "admissionDate": "05/11/2026",
-        "los": 2,
-        "insurance": "BPJS Kelas 3",
-        "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
-        "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
-        "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
+        "admissionDate": "-",
+        "los": 0,
+        "insurance": "-",
+        "doctor": "-",
+        "doctorPrimary": "-",
+        "diagnosis": "-",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "PB via IGD jam 22.30 \n\n- Kel : os keluhan nyeri perut atas sejak 1 minggu ini , mual + , muntah - , bab cair 2 kali hari ini , warna kuning biasa , demam + 3 hari , mata tampak kuing sejak 1 minggu\n- Terapi dari IGD : asering 20 tpm inj peinlos 800 mg inj ranitidin 1amp\n\n- dr. Apri via IGD : asering 20 tpm, inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pctv3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1, Hbsag, Hcv, Hiv, Usg Abd\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
+          "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- SSH Cek Hbsag, Hcv, Hiv\n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
           "sore": "",
           "malam": ""
         },
         "tags": [
+          {
+            "label": "Pulang Hari Ini",
+            "color": "emerald"
+          },
           {
             "label": "Onkologi",
             "color": "pink"
@@ -24654,7 +24670,7 @@
       },
       {
         "bed": "8.2",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
         "status": "Terisi",
         "isEmpty": false,
@@ -24702,7 +24718,7 @@
       },
       {
         "bed": "8.3",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
         "status": "Terisi",
         "isEmpty": false,
@@ -24750,7 +24766,7 @@
       },
       {
         "bed": "8.4",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
         "status": "Terisi",
         "isEmpty": false,
@@ -25088,7 +25104,7 @@
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: kelemahan anggota gerak bawah +, sulit tidur + demam hilang timbul + mual + setiap makan muntah , beberapa kali berwarna hitam - kedua kaki kebas + nyeri pinggang + batuk berkurang bab hitam - nyeri ulu hati +\n- RPD: anemia berulang (+), riw. operasi tulang belakang dengan dr. Oktav, sp.OT\n\ndr.Decky,Sp.PD visite tanggal 05/11/2026:\n- Ivf ns 500/12 jam \n- Terapi: Omeprazole 1x40 mg Nocid 3x1 Bicnat 3x500 ceftriaxone 1x 2 gr IV H2 \n- Diet Lunak =>> Lapor Kak Diah Gizi (+)\n- Hasil cek GDT sebelum tranfusi (Tanggal 03/11/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. bone marrow disorder (keganasan hematologi?) dd/ infeksi/inflamasi berat.\"\n- Cek GD tiap pagi (Pagi: 178)\n- Transfusi PRC 5 kolf (prc/24 jam) (URUS 4 KOLF) (+) SELESAI 4 KOLF =>> Hasil cek DR ulang (HB:8.7 PLT: 465 WBC: 8.27) =>> Lapor dr.Decky (+) Balasan (+) : Tranfusi PRC 2 kolf lagi =>> Ready di UTD, pagi transfusi \n- Premed furosemid 1 amp \n\ndr.Dini,Sp.N visite tanggal 04/11/2026:\n- Inj mecobalamin 3x500mcg, Pregabalin 1x75mg\n- Ro LumboSacral AP-LAT (04/11/2026) di SIMRS (+) =>> Lapor dr.Dini (+) Balasan (+) : vertebral metastase",
-          "sore": "",
+          "sore": "MRI lumbosacral + kontras",
           "malam": ""
         },
         "tags": [
@@ -25963,7 +25979,7 @@
         "diagnosis": "CKD ST V Edema pulmo Hiperkalemia",
         "category": "Nefrologi & Urologi",
         "notes": {
-          "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD, input (+)\n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang (-)",
+          "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD SSH \n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang ada dengan Pasien",
           "sore": "",
           "malam": ""
         },
@@ -26015,9 +26031,9 @@
         "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
         "category": "Penyakit Dalam (Metabolik)",
         "notes": {
-          "pagi": "",
-          "sore": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift =\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (-) Sampel (-)\n- Lapor PB (+)",
-          "malam": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)"
+          "pagi": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)",
+          "sore": "",
+          "malam": ""
         },
         "tags": [],
         "ews": {
@@ -26483,7 +26499,7 @@
         "diagnosis": "Malnutrisi Hoponatremia Hipoosmoler",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (-)",
+          "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (+) Balasan (-)",
           "sore": "",
           "malam": ""
         },
@@ -26513,29 +26529,33 @@
       },
       {
         "bed": "8.1",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Terisi",
-        "isEmpty": false,
-        "isDischargedToday": false,
-        "dischargeColor": null,
+        "status": "Pulang Hari Ini",
+        "isEmpty": true,
+        "isDischargedToday": true,
+        "dischargeColor": "FFD5A6BD",
         "name": "Ny. Musriyah",
         "mrNo": "00306661",
-        "gender": "P",
+        "gender": "-",
         "age": "",
-        "admissionDate": "05/11/2026",
-        "los": 2,
-        "insurance": "BPJS Kelas 3",
-        "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
-        "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
-        "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
+        "admissionDate": "-",
+        "los": 0,
+        "insurance": "-",
+        "doctor": "-",
+        "doctorPrimary": "-",
+        "diagnosis": "-",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "PB via IGD jam 22.30 \n\n- Kel : os keluhan nyeri perut atas sejak 1 minggu ini , mual + , muntah - , bab cair 2 kali hari ini , warna kuning biasa , demam + 3 hari , mata tampak kuing sejak 1 minggu\n- Terapi dari IGD : asering 20 tpm inj peinlos 800 mg inj ranitidin 1amp\n\n- dr. Apri via IGD : asering 20 tpm, inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pctv3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1, Hbsag, Hcv, Hiv, Usg Abd\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
+          "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- SSH Cek Hbsag, Hcv, Hiv\n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
           "sore": "",
           "malam": ""
         },
         "tags": [
+          {
+            "label": "Pulang Hari Ini",
+            "color": "emerald"
+          },
           {
             "label": "Onkologi",
             "color": "pink"
@@ -26557,7 +26577,7 @@
       },
       {
         "bed": "8.2",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
         "status": "Terisi",
         "isEmpty": false,
@@ -26605,7 +26625,7 @@
       },
       {
         "bed": "8.3",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
         "status": "Terisi",
         "isEmpty": false,
@@ -26653,7 +26673,7 @@
       },
       {
         "bed": "8.4",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
         "status": "Terisi",
         "isEmpty": false,
@@ -26991,7 +27011,7 @@
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: kelemahan anggota gerak bawah +, sulit tidur + demam hilang timbul + mual + setiap makan muntah , beberapa kali berwarna hitam - kedua kaki kebas + nyeri pinggang + batuk berkurang bab hitam - nyeri ulu hati +\n- RPD: anemia berulang (+), riw. operasi tulang belakang dengan dr. Oktav, sp.OT\n\ndr.Decky,Sp.PD visite tanggal 05/11/2026:\n- Ivf ns 500/12 jam \n- Terapi: Omeprazole 1x40 mg Nocid 3x1 Bicnat 3x500 ceftriaxone 1x 2 gr IV H2 \n- Diet Lunak =>> Lapor Kak Diah Gizi (+)\n- Hasil cek GDT sebelum tranfusi (Tanggal 03/11/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. bone marrow disorder (keganasan hematologi?) dd/ infeksi/inflamasi berat.\"\n- Cek GD tiap pagi (Pagi: 178)\n- Transfusi PRC 5 kolf (prc/24 jam) (URUS 4 KOLF) (+) SELESAI 4 KOLF =>> Hasil cek DR ulang (HB:8.7 PLT: 465 WBC: 8.27) =>> Lapor dr.Decky (+) Balasan (+) : Tranfusi PRC 2 kolf lagi =>> Ready di UTD, pagi transfusi \n- Premed furosemid 1 amp \n\ndr.Dini,Sp.N visite tanggal 04/11/2026:\n- Inj mecobalamin 3x500mcg, Pregabalin 1x75mg\n- Ro LumboSacral AP-LAT (04/11/2026) di SIMRS (+) =>> Lapor dr.Dini (+) Balasan (+) : vertebral metastase",
-          "sore": "",
+          "sore": "MRI lumbosacral + kontras",
           "malam": ""
         },
         "tags": [
@@ -27818,7 +27838,7 @@
         "diagnosis": "CKD ST V Edema pulmo Hiperkalemia",
         "category": "Nefrologi & Urologi",
         "notes": {
-          "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD, input (+)\n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang (-)",
+          "pagi": "- Kel: Tidak ada keluhan \n\ndr.Darmawan,Sp.PD-KGH visite tanggal 04/11/2026:\n- JADWAL HD RUTIN: Senin-kamis (DI RSDS) (Akses: CDL dan CIMINO INFO DARI KELUARGA SUDAH BOLEH PAKAI) =>> HD Kamis 05/11/26 dgn Akses Cimino (+)\n- Jumat 06/11/26 Cek UR CR post HD SSH \n- Drip Furosemide drip 10 mg per jam via SP jalan 1cc/jam=>> STOP\n- Cek DR post TF PRC 2 Kolf (+) Hb 9,8 g/dL\n- R/ BLPL Post tranfusi Jika HB Baik =>> Resep & resume pulang ada dengan Pasien",
           "sore": "",
           "malam": ""
         },
@@ -27870,9 +27890,9 @@
         "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
         "category": "Penyakit Dalam (Metabolik)",
         "notes": {
-          "pagi": "",
-          "sore": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift =\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (-) Sampel (-)\n- Lapor PB (+)",
-          "malam": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)"
+          "pagi": "PB dari IGD Jam 19.20 WIB\n- Os dibawa petugas Lapas krn tdk sadar sejak jam pagi ini . GDS bolak balik low. Post D40 fl 3 os sadar. Rwyt DM on acarbose 3x1. Ada keluhan mual muntah sejak bbrp hr terakhir. Melena -. • Os pasien DM lama dg riwayat nyeri pinggang on analgetik.\n- Th IGD: Inf D10 % 20 tpm jk GDS > 200 ganti RL Inj D 40 fl 3 --> os sadar cek GDS 1- 2 jam Inj Omeprazole 1x1 vial Inj Ondancentron 2x 8 mg iv Sukralfate 3x 5 ml\n- Cek GDS/Shift = ( jam 23.00 = 132 g/dl ) ( Jam 06.00 = )\n\ndr.Apriani, a/i:\n- Inj Omeprazole 1x1 vial, Inj Ondancentron 2x 8 mg iv, Sukralfate 3x 10 ml, Inj. Ceftriaxon 2x1 gr st\n- Protap hipoglikemia\n- Cek Urinalisa (-) =>> POT (+) Sampel (+) input (+) pagi tol. antr\n- LUKA DI KAKI, PAGI TOL. GV\n- Lapor PB (+)",
+          "sore": "",
+          "malam": ""
         },
         "tags": [],
         "ews": {
@@ -28338,7 +28358,7 @@
         "diagnosis": "Malnutrisi Hoponatremia Hipoosmoler",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (-)",
+          "pagi": "- Kel: batuk berdahak + mual muntah - sesak - nafsu makan baik\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD D5 : BFluid = 1:1 20 ttpm \n- Inj. ranitidin 2x1 inj. ondancetron 3x1 inj. omeprazole 1 vial/ 12 jam Lactulac syr 1x 1 sd makan Tracetate syr 1x 20- cc Cefoperazon 3x 1 gram iv, Amp-Sul 3x 1,5 gram iv, Vip Albumin 3x 2 cap\n- Ro.Thorax (Tanggal 01/11/2026) \"Suggest Bekas TB dg mphysmeatous lung\" =>> dr.Sony sudah lihat\n- Hasil cek LED, Elektrolit post koreksi NaCl 3% 1 KOLF, Albumin (Laju Endap Darah (2 jam): 48, Alb: 2.65 Na:136.18 K:  3.71 Cl:  103.45 Ca Ion:  1.59 ) =>> dr.Sony sudah lihat\n- Hasil Cek IGRA (Rabu 04/11/2026) \" POSITIF\" =>> Lapor dr.Sony (+) Balasan (-)",
           "sore": "",
           "malam": ""
         },
@@ -28368,29 +28388,33 @@
       },
       {
         "bed": "8.1",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Terisi",
-        "isEmpty": false,
-        "isDischargedToday": false,
-        "dischargeColor": null,
+        "status": "Pulang Hari Ini",
+        "isEmpty": true,
+        "isDischargedToday": true,
+        "dischargeColor": "FFD5A6BD",
         "name": "Ny. Musriyah",
         "mrNo": "00306661",
-        "gender": "P",
+        "gender": "-",
         "age": "",
-        "admissionDate": "05/11/2026",
-        "los": 2,
-        "insurance": "BPJS Kelas 3",
-        "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
-        "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
-        "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
+        "admissionDate": "-",
+        "los": 0,
+        "insurance": "-",
+        "doctor": "-",
+        "doctorPrimary": "-",
+        "diagnosis": "-",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
-          "pagi": "PB via IGD jam 22.30 \n\n- Kel : os keluhan nyeri perut atas sejak 1 minggu ini , mual + , muntah - , bab cair 2 kali hari ini , warna kuning biasa , demam + 3 hari , mata tampak kuing sejak 1 minggu\n- Terapi dari IGD : asering 20 tpm inj peinlos 800 mg inj ranitidin 1amp\n\n- dr. Apri via IGD : asering 20 tpm, inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pctv3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1, Hbsag, Hcv, Hiv, Usg Abd\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
+          "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- SSH Cek Hbsag, Hcv, Hiv\n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI\n\n- Besok Jumat 6/11/26 cek serologi (-) \n- Besok antrikan USG Abdomen (-) Form (-) \n- LApor PB (+)",
           "sore": "",
           "malam": ""
         },
         "tags": [
+          {
+            "label": "Pulang Hari Ini",
+            "color": "emerald"
+          },
           {
             "label": "Onkologi",
             "color": "pink"
@@ -28412,7 +28436,7 @@
       },
       {
         "bed": "8.2",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
         "status": "Terisi",
         "isEmpty": false,
@@ -28460,7 +28484,7 @@
       },
       {
         "bed": "8.3",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
         "status": "Terisi",
         "isEmpty": false,
@@ -28508,7 +28532,7 @@
       },
       {
         "bed": "8.4",
-        "room": "KAKAP 8 ♀ PEREMPUAN (RUANGAN PANAS, AC RUSAK)",
+        "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
         "status": "Terisi",
         "isEmpty": false,
@@ -28846,7 +28870,7 @@
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: kelemahan anggota gerak bawah +, sulit tidur + demam hilang timbul + mual + setiap makan muntah , beberapa kali berwarna hitam - kedua kaki kebas + nyeri pinggang + batuk berkurang bab hitam - nyeri ulu hati +\n- RPD: anemia berulang (+), riw. operasi tulang belakang dengan dr. Oktav, sp.OT\n\ndr.Decky,Sp.PD visite tanggal 05/11/2026:\n- Ivf ns 500/12 jam \n- Terapi: Omeprazole 1x40 mg Nocid 3x1 Bicnat 3x500 ceftriaxone 1x 2 gr IV H2 \n- Diet Lunak =>> Lapor Kak Diah Gizi (+)\n- Hasil cek GDT sebelum tranfusi (Tanggal 03/11/2026) \" Anemia dengan gambaran leukoeritroblastik ec. susp. bone marrow disorder (keganasan hematologi?) dd/ infeksi/inflamasi berat.\"\n- Cek GD tiap pagi (Pagi: 178)\n- Transfusi PRC 5 kolf (prc/24 jam) (URUS 4 KOLF) (+) SELESAI 4 KOLF =>> Hasil cek DR ulang (HB:8.7 PLT: 465 WBC: 8.27) =>> Lapor dr.Decky (+) Balasan (+) : Tranfusi PRC 2 kolf lagi =>> Ready di UTD, pagi transfusi \n- Premed furosemid 1 amp \n\ndr.Dini,Sp.N visite tanggal 04/11/2026:\n- Inj mecobalamin 3x500mcg, Pregabalin 1x75mg\n- Ro LumboSacral AP-LAT (04/11/2026) di SIMRS (+) =>> Lapor dr.Dini (+) Balasan (+) : vertebral metastase",
-          "sore": "",
+          "sore": "MRI lumbosacral + kontras",
           "malam": ""
         },
         "tags": [
@@ -28880,27 +28904,27 @@
       "capacityTim2": 20,
       "capacityA": 21,
       "capacityB": 20,
-      "occupied": 29,
-      "empty": 12,
-      "bor": 70.7,
+      "occupied": 28,
+      "empty": 13,
+      "bor": 68.3,
       "borTim1": 61.9,
-      "borTim2": 65.0,
+      "borTim2": 60.0,
       "borA": 61.9,
-      "borB": 65.0,
+      "borB": 60.0,
       "occTim1": 13,
-      "occTim2": 13,
+      "occTim2": 12,
       "occA": 13,
-      "occB": 13,
+      "occB": 12,
       "emptyTim1": 8,
-      "emptyTim2": 7,
+      "emptyTim2": 8,
       "emptyA": 8,
-      "emptyB": 7,
-      "dischargedToday": 9,
+      "emptyB": 8,
+      "dischargedToday": 10,
       "tagCounts": {
         "Hemodialisa (HD)": 18,
         "Transfusi Darah": 21,
         "Onkologi": 10,
-        "Pulang Hari Ini": 9,
+        "Pulang Hari Ini": 10,
         "Rencana Pulang": 3,
         "Puasa Pre-Op": 3,
         "Bedah / Operasi": 3,
@@ -28916,9 +28940,9 @@
         "malam": []
       },
       "pasienAwal": {
-        "pagi": 26,
-        "sore": 29,
-        "malam": 29
+        "pagi": 25,
+        "sore": 28,
+        "malam": 28
       },
       "pasienBaru": {
         "pagi": 3,
@@ -28941,14 +28965,14 @@
         "malam": 0
       },
       "total": {
-        "pagi": 29,
-        "sore": 29,
-        "malam": 29
+        "pagi": 28,
+        "sore": 28,
+        "malam": 28
       },
       "bedKosong": {
-        "pagi": 8,
-        "sore": 8,
-        "malam": 8
+        "pagi": 9,
+        "sore": 9,
+        "malam": 9
       },
       "bedKosongText": {
         "pagi": "",
@@ -28957,20 +28981,20 @@
       },
       "bedKosongDetail": {
         "pagi": {
-          "total": 8,
-          "pria": 3,
+          "total": 9,
+          "pria": 4,
           "wanita": 4,
           "isolasi": 1
         },
         "sore": {
-          "total": 8,
-          "pria": 3,
+          "total": 9,
+          "pria": 4,
           "wanita": 4,
           "isolasi": 1
         },
         "malam": {
-          "total": 8,
-          "pria": 3,
+          "total": 9,
+          "pria": 4,
           "wanita": 4,
           "isolasi": 1
         }
@@ -29009,9 +29033,9 @@
           "2026-11-05",
           "2026-11-06"
         ],
-        "totalObservations": 101,
+        "totalObservations": 100,
         "observationsIncludedCount": 7,
-        "observationsExcludedCount": 94,
+        "observationsExcludedCount": 93,
         "totalUniquePatients": 41,
         "uniqueIncludedCount": 3,
         "uniqueExcludedCount": 38,
@@ -29247,8 +29271,7 @@
                 "name": "Ny. Musriyah",
                 "bed": "8.1",
                 "datesSeen": [
-                  "2026-11-05",
-                  "2026-11-06"
+                  "2026-11-05"
                 ],
                 "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia"
               },
@@ -29558,10 +29581,10 @@
           },
           {
             "date": "2026-11-06",
-            "total": 26,
+            "total": 25,
             "included": 2,
-            "excluded": 24,
-            "coveragePct": 7.7
+            "excluded": 23,
+            "coveragePct": 8.0
           }
         ],
         "uniquePatientsList": [
@@ -30620,10 +30643,9 @@
             "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
             "admissionDate": "05/11/2026",
             "datesSeen": [
-              "2026-11-05",
-              "2026-11-06"
+              "2026-11-05"
             ],
-            "daysInWard": 2,
+            "daysInWard": 1,
             "diagnoses": [
               "abdominal pain susp \nkholelithiasis hipokalemia"
             ],
@@ -30631,7 +30653,7 @@
             "cpId": null,
             "cpNama": null,
             "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-            "losLatest": 2,
+            "losLatest": 1,
             "gender": "P",
             "age": "",
             "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
@@ -31752,10 +31774,9 @@
             "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
             "admissionDate": "05/11/2026",
             "datesSeen": [
-              "2026-11-05",
-              "2026-11-06"
+              "2026-11-05"
             ],
-            "daysInWard": 2,
+            "daysInWard": 1,
             "diagnoses": [
               "abdominal pain susp \nkholelithiasis hipokalemia"
             ],
@@ -31763,7 +31784,7 @@
             "cpId": null,
             "cpNama": null,
             "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-            "losLatest": 2,
+            "losLatest": 1,
             "gender": "P",
             "age": "",
             "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
@@ -31828,10 +31849,10 @@
         ]
       },
       "today": {
-        "totalInpatients": 26,
+        "totalInpatients": 25,
         "denominatorIncluded": 2,
-        "totalExcluded": 24,
-        "wardCoveragePct": 7.7,
+        "totalExcluded": 23,
+        "wardCoveragePct": 8.0,
         "perCpDenominator": {
           "CP-MAMMAE-001": 0,
           "CP-DMCKD-002": 2,
@@ -32127,20 +32148,6 @@
             "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
           },
           {
-            "bed": "8.1",
-            "name": "Ny. Musriyah",
-            "mrNo": "00306661",
-            "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
-            "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
-            "los": 2,
-            "gender": "P",
-            "age": "",
-            "admissionDate": "05/11/2026",
-            "date": "2026-11-06",
-            "status": "EXCLUDED",
-            "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
-          },
-          {
             "bed": "8.2",
             "name": "Ny. Nuraini",
             "mrNo": "00306418",
@@ -32213,9 +32220,9 @@
         ]
       },
       "historical": {
-        "totalRecords": 101,
+        "totalRecords": 100,
         "uniqueIncludedCount": 3,
-        "totalExcludedRecords": 94,
+        "totalExcludedRecords": 93,
         "perCpDenominator": {
           "CP-MAMMAE-001": 0,
           "CP-DMCKD-002": 3,
@@ -33281,10 +33288,9 @@
             "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
             "admissionDate": "05/11/2026",
             "datesSeen": [
-              "2026-11-05",
-              "2026-11-06"
+              "2026-11-05"
             ],
-            "daysInWard": 2,
+            "daysInWard": 1,
             "diagnoses": [
               "abdominal pain susp \nkholelithiasis hipokalemia"
             ],
@@ -33292,7 +33298,7 @@
             "cpId": null,
             "cpNama": null,
             "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-            "losLatest": 2,
+            "losLatest": 1,
             "gender": "P",
             "age": "",
             "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",

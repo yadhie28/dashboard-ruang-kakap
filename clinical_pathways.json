@@ -15,9 +15,9 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "totalObservations": 101,
+      "totalObservations": 100,
       "observationsIncludedCount": 7,
-      "observationsExcludedCount": 94,
+      "observationsExcludedCount": 93,
       "totalUniquePatients": 41,
       "uniqueIncludedCount": 3,
       "uniqueExcludedCount": 38,
@@ -253,8 +253,7 @@
               "name": "Ny. Musriyah",
               "bed": "8.1",
               "datesSeen": [
-                "2026-11-05",
-                "2026-11-06"
+                "2026-11-05"
               ],
               "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia"
             },
@@ -564,10 +563,10 @@
         },
         {
           "date": "2026-11-06",
-          "total": 26,
+          "total": 25,
           "included": 2,
-          "excluded": 24,
-          "coveragePct": 7.7
+          "excluded": 23,
+          "coveragePct": 8.0
         }
       ],
       "uniquePatientsList": [
@@ -1626,10 +1625,9 @@
           "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "abdominal pain susp \nkholelithiasis hipokalemia"
           ],
@@ -1637,7 +1635,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
@@ -2758,10 +2756,9 @@
           "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "abdominal pain susp \nkholelithiasis hipokalemia"
           ],
@@ -2769,7 +2766,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
@@ -2834,10 +2831,10 @@
       ]
     },
     "today": {
-      "totalInpatients": 26,
+      "totalInpatients": 25,
       "denominatorIncluded": 2,
-      "totalExcluded": 24,
-      "wardCoveragePct": 7.7,
+      "totalExcluded": 23,
+      "wardCoveragePct": 8.0,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -3133,20 +3130,6 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
-          "bed": "8.1",
-          "name": "Ny. Musriyah",
-          "mrNo": "00306661",
-          "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
-          "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
-          "los": 2,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "05/11/2026",
-          "date": "2026-11-06",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
-        },
-        {
           "bed": "8.2",
           "name": "Ny. Nuraini",
           "mrNo": "00306418",
@@ -3219,9 +3202,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 101,
+      "totalRecords": 100,
       "uniqueIncludedCount": 3,
-      "totalExcludedRecords": 94,
+      "totalExcludedRecords": 93,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 3,
@@ -4287,10 +4270,9 @@
           "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "abdominal pain susp \nkholelithiasis hipokalemia"
           ],
@@ -4298,7 +4280,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
