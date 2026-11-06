@@ -15,13 +15,13 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "totalObservations": 99,
+      "totalObservations": 100,
       "observationsIncludedCount": 7,
-      "observationsExcludedCount": 92,
-      "totalUniquePatients": 41,
+      "observationsExcludedCount": 93,
+      "totalUniquePatients": 42,
       "uniqueIncludedCount": 3,
-      "uniqueExcludedCount": 38,
-      "uniqueCoveragePct": 7.3,
+      "uniqueExcludedCount": 39,
+      "uniqueCoveragePct": 7.1,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -38,7 +38,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 3,
           "pctOfIncluded": 100.0,
-          "pctOfTotal": 7.3,
+          "pctOfTotal": 7.1,
           "patients": [
             {
               "mrNo": "00301588",
@@ -110,7 +110,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 16,
+          "count": 17,
           "patients": [
             {
               "mrNo": "00302040",
@@ -275,9 +275,18 @@
                 "2026-11-06"
               ],
               "diagnosis": "hemateesis melena ec pscba \nSUSP TUMOR GANAS OVARIUM + TUMOR LIEN"
+            },
+            {
+              "mrNo": "00304027",
+              "name": "Ny. Desi Adma Iswandira",
+              "bed": "2.1",
+              "datesSeen": [
+                "2026-11-06"
+              ],
+              "diagnosis": "ITP"
             }
           ],
-          "pct": 42.1
+          "pct": 43.6
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -475,7 +484,7 @@
               "diagnosis": "Anemia in CKD\nHCV dan HBSag Reaktif"
             }
           ],
-          "pct": 47.4
+          "pct": 46.2
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -535,7 +544,7 @@
               "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID"
             }
           ],
-          "pct": 7.9
+          "pct": 7.7
         }
       },
       "dailyBreakdown": [
@@ -562,10 +571,10 @@
         },
         {
           "date": "2026-11-06",
-          "total": 24,
+          "total": 25,
           "included": 2,
-          "excluded": 22,
-          "coveragePct": 8.3
+          "excluded": 23,
+          "coveragePct": 8.0
         }
       ],
       "uniquePatientsList": [
@@ -1697,6 +1706,32 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00304027",
+          "mrNo": "00304027",
+          "name": "Ny. Desi Adma Iswandira",
+          "bedLatest": "2.1",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "admissionDate": "06/11/2026",
+          "datesSeen": [
+            "2026-11-06"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "ITP"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "ITP",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         }
       ],
       "includedPatients": [
@@ -2830,14 +2865,40 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00304027",
+          "mrNo": "00304027",
+          "name": "Ny. Desi Adma Iswandira",
+          "bedLatest": "2.1",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "admissionDate": "06/11/2026",
+          "datesSeen": [
+            "2026-11-06"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "ITP"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "ITP",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         }
       ]
     },
     "today": {
-      "totalInpatients": 24,
+      "totalInpatients": 25,
       "denominatorIncluded": 2,
-      "totalExcluded": 22,
-      "wardCoveragePct": 8.3,
+      "totalExcluded": 23,
+      "wardCoveragePct": 8.0,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -2921,6 +2982,20 @@
           "date": "2026-11-06",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+        },
+        {
+          "bed": "2.1",
+          "name": "Ny. Desi Adma Iswandira",
+          "mrNo": "00304027",
+          "diagnosis": "ITP",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "06/11/2026",
+          "date": "2026-11-06",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "2.4",
@@ -3191,9 +3266,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 99,
+      "totalRecords": 100,
       "uniqueIncludedCount": 3,
-      "totalExcludedRecords": 92,
+      "totalExcludedRecords": 93,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 3,
@@ -4329,6 +4404,32 @@
           "gender": "P",
           "age": "41 th",
           "diagnosisSpreadsheet": "hemateesis melena ec pscba \nSUSP TUMOR GANAS OVARIUM + TUMOR LIEN",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00304027",
+          "mrNo": "00304027",
+          "name": "Ny. Desi Adma Iswandira",
+          "bedLatest": "2.1",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "admissionDate": "06/11/2026",
+          "datesSeen": [
+            "2026-11-06"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "ITP"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "ITP",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -21651,8 +21752,8 @@
         "Sheet 2026-11-05",
         "Sheet 2026-11-06"
       ],
-      "totalUniqueInpatients": 41,
-      "totalObservations": 99
+      "totalUniqueInpatients": 42,
+      "totalObservations": 100
     },
     "realSummary": {
       "denominator": 3,
