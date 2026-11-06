@@ -1,9 +1,9 @@
 {
   "summary": {
-    "totalEpisodes": 54,
-    "overallRawScore": 95.8,
+    "totalEpisodes": 53,
+    "overallRawScore": 95.7,
     "overallAdjScore": 99.8,
-    "overallBundlePct": 90.7,
+    "overallBundlePct": 90.6,
     "totalVariances": 24
   },
   "screening": {
@@ -15,13 +15,13 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "totalObservations": 107,
-      "observationsIncludedCount": 8,
-      "observationsExcludedCount": 99,
-      "totalUniquePatients": 48,
-      "uniqueIncludedCount": 4,
-      "uniqueExcludedCount": 44,
-      "uniqueCoveragePct": 8.3,
+      "totalObservations": 102,
+      "observationsIncludedCount": 7,
+      "observationsExcludedCount": 95,
+      "totalUniquePatients": 45,
+      "uniqueIncludedCount": 3,
+      "uniqueExcludedCount": 42,
+      "uniqueCoveragePct": 6.7,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -36,9 +36,9 @@
           "templateId": "CP-DMCKD-002",
           "nama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
           "kodeIcd10": "E11.22",
-          "uniqueCount": 4,
+          "uniqueCount": 3,
           "pctOfIncluded": 100.0,
-          "pctOfTotal": 8.3,
+          "pctOfTotal": 6.7,
           "patients": [
             {
               "mrNo": "00301588",
@@ -73,16 +73,6 @@
                 "2026-11-06"
               ],
               "diagnosis": "//CKD on HD //HHS dd KAD //Hipertensi // //Anemia renal //Efusi pleura //Pleuritis TB on OAT // Hepatitis B kronis",
-              "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
-            },
-            {
-              "mrNo": "00290001",
-              "name": "Tn. Mardiansyah",
-              "bed": "5.1",
-              "datesSeen": [
-                "2026-11-06"
-              ],
-              "diagnosis": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
               "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
             }
           ]
@@ -120,7 +110,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 21,
+          "count": 19,
           "patients": [
             {
               "mrNo": "00302040",
@@ -201,8 +191,7 @@
               "datesSeen": [
                 "2026-11-03",
                 "2026-11-04",
-                "2026-11-05",
-                "2026-11-06"
+                "2026-11-05"
               ],
               "diagnosis": "pempigus vugaris | pempigus vulgaris"
             },
@@ -256,7 +245,7 @@
                 "2026-11-05",
                 "2026-11-06"
               ],
-              "diagnosis": "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )"
+              "diagnosis": "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) | Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) CLD Hipoalbuminemia (2,3)"
             },
             {
               "mrNo": "00306661",
@@ -266,7 +255,7 @@
                 "2026-11-05",
                 "2026-11-06"
               ],
-              "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia"
+              "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia | abdominal pain susp kholelithiasis hipokalemia Obs jaundice"
             },
             {
               "mrNo": "00305488",
@@ -298,22 +287,13 @@
               "diagnosis": "ITP"
             },
             {
-              "mrNo": "RM-K-2.4",
-              "name": "BOOKINGAN TRANSIT a/n Ny.Deviola",
-              "bed": "2.4",
-              "datesSeen": [
-                "2026-11-06"
-              ],
-              "diagnosis": "-"
-            },
-            {
-              "mrNo": "RM-K-3.4",
-              "name": "BOOKINGAN TRANSIT a/n Ny. Monalisa",
+              "mrNo": "00236457",
+              "name": "Deviola Anjjel",
               "bed": "3.4",
               "datesSeen": [
                 "2026-11-06"
               ],
-              "diagnosis": "-"
+              "diagnosis": "A: SLE hipoalbumin hipokalemia"
             },
             {
               "mrNo": "00306196",
@@ -323,18 +303,9 @@
                 "2026-11-06"
               ],
               "diagnosis": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia"
-            },
-            {
-              "mrNo": "00284845",
-              "name": "Ny. Sunarmi",
-              "bed": "10.1",
-              "datesSeen": [
-                "2026-11-06"
-              ],
-              "diagnosis": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)"
             }
           ],
-          "pct": 47.7
+          "pct": 45.2
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -515,8 +486,7 @@
               "name": "Ny. Phang Kui Nyuk",
               "bed": "4.3",
               "datesSeen": [
-                "2026-11-05",
-                "2026-11-06"
+                "2026-11-05"
               ],
               "diagnosis": "CKD st V dd AKI ec dehidrasi Gizi kurang/kakeksia Hipotensi ec syok hipovolemik Hiperkaemia"
             },
@@ -540,7 +510,7 @@
               "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK"
             }
           ],
-          "pct": 43.2
+          "pct": 45.2
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -561,7 +531,7 @@
               "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik"
             }
           ],
-          "pct": 2.3
+          "pct": 2.4
         },
         "DM_NON_CKD": {
           "category": "DM_NON_CKD",
@@ -597,10 +567,10 @@
                 "2026-11-05",
                 "2026-11-06"
               ],
-              "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID"
+              "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID | Penkes ec hipoglikemia pada DM type 2 Dyspepsia Ulkus DM HHD"
             }
           ],
-          "pct": 6.8
+          "pct": 7.1
         }
       },
       "dailyBreakdown": [
@@ -627,10 +597,10 @@
         },
         {
           "date": "2026-11-06",
-          "total": 32,
-          "included": 3,
-          "excluded": 29,
-          "coveragePct": 9.4
+          "total": 27,
+          "included": 2,
+          "excluded": 25,
+          "coveragePct": 7.4
         }
       ],
       "uniquePatientsList": [
@@ -1025,10 +995,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "pempigus vugaris",
             "pempigus vulgaris"
@@ -1037,7 +1006,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "pempigus vugaris | pempigus vulgaris",
@@ -1584,10 +1553,9 @@
           "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "CKD st V dd AKI ec dehidrasi Gizi kurang/kakeksia Hipotensi ec syok hipovolemik Hiperkaemia"
           ],
@@ -1595,7 +1563,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "CKD st V dd AKI ec dehidrasi Gizi kurang/kakeksia Hipotensi ec syok hipovolemik Hiperkaemia",
@@ -1616,7 +1584,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID"
+            "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
+            "Penkes ec hipoglikemia pada DM type 2 Dyspepsia Ulkus DM HHD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1625,7 +1594,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
+          "diagnosisSpreadsheet": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID | Penkes ec hipoglikemia pada DM type 2 Dyspepsia Ulkus DM HHD",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -1643,7 +1612,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )"
+            "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )",
+            "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) CLD Hipoalbuminemia (2,3)"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1652,7 +1622,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )",
+          "diagnosisSpreadsheet": "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) | Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) CLD Hipoalbuminemia (2,3)",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -1697,7 +1667,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "abdominal pain susp \nkholelithiasis hipokalemia"
+            "abdominal pain susp \nkholelithiasis hipokalemia",
+            "abdominal pain susp kholelithiasis hipokalemia Obs jaundice"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1706,7 +1677,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
+          "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia | abdominal pain susp kholelithiasis hipokalemia Obs jaundice",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -1792,49 +1763,27 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN TRANSIT A/N NY.DEVIOLA",
-          "mrNo": "RM-K-2.4",
-          "name": "BOOKINGAN TRANSIT a/n Ny.Deviola",
-          "bedLatest": "2.4",
-          "doctor": "",
-          "admissionDate": "2026-11-06",
-          "datesSeen": [
-            "2026-11-06"
-          ],
-          "daysInWard": 1,
-          "diagnoses": [],
-          "status": "EXCLUDED",
-          "cpId": null,
-          "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
-          "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
-        },
-        {
-          "key": "BOOKINGAN TRANSIT A/N NY. MONALISA",
-          "mrNo": "RM-K-3.4",
-          "name": "BOOKINGAN TRANSIT a/n Ny. Monalisa",
+          "key": "00236457",
+          "mrNo": "00236457",
+          "name": "Deviola Anjjel",
           "bedLatest": "3.4",
-          "doctor": "",
-          "admissionDate": "2026-11-06",
+          "doctor": "dr.Muhardani Iqbal,spPD",
+          "admissionDate": "06/11/2026",
           "datesSeen": [
             "2026-11-06"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "A: SLE hipoalbumin hipokalemia"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "-",
+          "diagnosisSpreadsheet": "A: SLE hipoalbumin hipokalemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -1866,29 +1815,6 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "00290001",
-          "mrNo": "00290001",
-          "name": "Tn. Mardiansyah",
-          "bedLatest": "5.1",
-          "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
-          "admissionDate": "24/10/2026",
-          "datesSeen": [
-            "2026-11-06"
-          ],
-          "daysInWard": 1,
-          "diagnoses": [
-            "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
-          ],
-          "status": "INCLUDED",
-          "cpId": "CP-DMCKD-002",
-          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
-          "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
-          "losLatest": 14,
-          "gender": "L",
-          "age": "",
-          "diagnosisSpreadsheet": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
-        },
-        {
           "key": "00186499",
           "mrNo": "00186499",
           "name": "Tn. Kaseng",
@@ -1913,32 +1839,6 @@
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
-        },
-        {
-          "key": "00284845",
-          "mrNo": "00284845",
-          "name": "Ny. Sunarmi",
-          "bedLatest": "10.1",
-          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
-          "admissionDate": "29/10/2026",
-          "datesSeen": [
-            "2026-11-06"
-          ],
-          "daysInWard": 1,
-          "diagnoses": [
-            "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)"
-          ],
-          "status": "EXCLUDED",
-          "cpId": null,
-          "cpNama": null,
-          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 9,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
         }
       ],
       "includedPatients": [
@@ -2017,29 +1917,6 @@
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "//CKD on HD //HHS dd KAD //Hipertensi // //Anemia renal //Efusi pleura //Pleuritis TB on OAT // Hepatitis B kronis"
-        },
-        {
-          "key": "00290001",
-          "mrNo": "00290001",
-          "name": "Tn. Mardiansyah",
-          "bedLatest": "5.1",
-          "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
-          "admissionDate": "24/10/2026",
-          "datesSeen": [
-            "2026-11-06"
-          ],
-          "daysInWard": 1,
-          "diagnoses": [
-            "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
-          ],
-          "status": "INCLUDED",
-          "cpId": "CP-DMCKD-002",
-          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
-          "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
-          "losLatest": 14,
-          "gender": "L",
-          "age": "",
-          "diagnosisSpreadsheet": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
         }
       ],
       "excludedPatients": [
@@ -2383,10 +2260,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "pempigus vugaris",
             "pempigus vulgaris"
@@ -2395,7 +2271,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "pempigus vugaris | pempigus vulgaris",
@@ -2917,10 +2793,9 @@
           "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "CKD st V dd AKI ec dehidrasi Gizi kurang/kakeksia Hipotensi ec syok hipovolemik Hiperkaemia"
           ],
@@ -2928,7 +2803,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "CKD st V dd AKI ec dehidrasi Gizi kurang/kakeksia Hipotensi ec syok hipovolemik Hiperkaemia",
@@ -2949,7 +2824,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID"
+            "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
+            "Penkes ec hipoglikemia pada DM type 2 Dyspepsia Ulkus DM HHD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -2958,7 +2834,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
+          "diagnosisSpreadsheet": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID | Penkes ec hipoglikemia pada DM type 2 Dyspepsia Ulkus DM HHD",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -2976,7 +2852,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )"
+            "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )",
+            "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) CLD Hipoalbuminemia (2,3)"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -2985,7 +2862,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )",
+          "diagnosisSpreadsheet": "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) | Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) CLD Hipoalbuminemia (2,3)",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3030,7 +2907,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "abdominal pain susp \nkholelithiasis hipokalemia"
+            "abdominal pain susp \nkholelithiasis hipokalemia",
+            "abdominal pain susp kholelithiasis hipokalemia Obs jaundice"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3039,7 +2917,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
+          "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia | abdominal pain susp kholelithiasis hipokalemia Obs jaundice",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3125,49 +3003,27 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN TRANSIT A/N NY.DEVIOLA",
-          "mrNo": "RM-K-2.4",
-          "name": "BOOKINGAN TRANSIT a/n Ny.Deviola",
-          "bedLatest": "2.4",
-          "doctor": "",
-          "admissionDate": "2026-11-06",
-          "datesSeen": [
-            "2026-11-06"
-          ],
-          "daysInWard": 1,
-          "diagnoses": [],
-          "status": "EXCLUDED",
-          "cpId": null,
-          "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
-          "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
-        },
-        {
-          "key": "BOOKINGAN TRANSIT A/N NY. MONALISA",
-          "mrNo": "RM-K-3.4",
-          "name": "BOOKINGAN TRANSIT a/n Ny. Monalisa",
+          "key": "00236457",
+          "mrNo": "00236457",
+          "name": "Deviola Anjjel",
           "bedLatest": "3.4",
-          "doctor": "",
-          "admissionDate": "2026-11-06",
+          "doctor": "dr.Muhardani Iqbal,spPD",
+          "admissionDate": "06/11/2026",
           "datesSeen": [
             "2026-11-06"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "A: SLE hipoalbumin hipokalemia"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "-",
+          "diagnosisSpreadsheet": "A: SLE hipoalbumin hipokalemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3223,43 +3079,17 @@
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
-        },
-        {
-          "key": "00284845",
-          "mrNo": "00284845",
-          "name": "Ny. Sunarmi",
-          "bedLatest": "10.1",
-          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
-          "admissionDate": "29/10/2026",
-          "datesSeen": [
-            "2026-11-06"
-          ],
-          "daysInWard": 1,
-          "diagnoses": [
-            "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)"
-          ],
-          "status": "EXCLUDED",
-          "cpId": null,
-          "cpNama": null,
-          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 9,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
         }
       ]
     },
     "today": {
-      "totalInpatients": 32,
-      "denominatorIncluded": 3,
-      "totalExcluded": 29,
-      "wardCoveragePct": 9.4,
+      "totalInpatients": 27,
+      "denominatorIncluded": 2,
+      "totalExcluded": 25,
+      "wardCoveragePct": 7.4,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
-        "CP-DMCKD-002": 3,
+        "CP-DMCKD-002": 2,
         "CP-HIV-003": 0,
         "CP-STROKE-NON-004": 0,
         "CP-STROKE-PERD-005": 0
@@ -3275,22 +3105,6 @@
           "gender": "P",
           "age": "42 th",
           "admissionDate": "02/11/2026",
-          "date": "2026-11-06",
-          "cpId": "CP-DMCKD-002",
-          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
-          "status": "INCLUDED",
-          "inclusionReason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
-        },
-        {
-          "bed": "5.1",
-          "name": "Tn. Mardiansyah",
-          "mrNo": "00290001",
-          "diagnosis": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
-          "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
-          "los": 14,
-          "gender": "L",
-          "age": "",
-          "admissionDate": "24/10/2026",
           "date": "2026-11-06",
           "cpId": "CP-DMCKD-002",
           "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
@@ -3334,7 +3148,7 @@
           "name": "Tn. Ishardi",
           "mrNo": "00302040",
           "diagnosis": "hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI",
-          "doctor": "dr. Decky Andrea, Sp.PD",
+          "doctor": "dr. Decky Andrea, Sp.PD\nco dr.alvin BTKV",
           "los": 4,
           "gender": "L",
           "age": "",
@@ -3386,20 +3200,6 @@
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
-          "bed": "2.4",
-          "name": "BOOKINGAN TRANSIT a/n Ny.Deviola",
-          "mrNo": "RM-K-2.4",
-          "diagnosis": "",
-          "doctor": "",
-          "los": 1,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "2026-11-06",
-          "date": "2026-11-06",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
-        },
-        {
           "bed": "3.2",
           "name": "Sdri A Elma Tiara",
           "mrNo": "00306752",
@@ -3429,17 +3229,17 @@
         },
         {
           "bed": "3.4",
-          "name": "BOOKINGAN TRANSIT a/n Ny. Monalisa",
-          "mrNo": "RM-K-3.4",
-          "diagnosis": "",
-          "doctor": "",
+          "name": "Deviola Anjjel",
+          "mrNo": "00236457",
+          "diagnosis": "A: SLE hipoalbumin hipokalemia",
+          "doctor": "dr.Muhardani Iqbal,spPD",
           "los": 1,
           "gender": "P",
           "age": "",
-          "admissionDate": "2026-11-06",
+          "admissionDate": "06/11/2026",
           "date": "2026-11-06",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "4.1",
@@ -3470,24 +3270,10 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
-          "bed": "4.3",
-          "name": "Ny. Phang Kui Nyuk",
-          "mrNo": "00306644",
-          "diagnosis": "CKD st V dd AKI ec dehidrasi Gizi kurang/kakeksia Hipotensi ec syok hipovolemik Hiperkaemia",
-          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
-          "los": 2,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "05/11/2026",
-          "date": "2026-11-06",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
-        },
-        {
           "bed": "5.3",
           "name": "Tn. Ilham PASIEN LAPAS",
           "mrNo": "00175689",
-          "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
+          "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia Ulkus DM HHD",
           "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
           "los": 2,
           "gender": "L",
@@ -3501,7 +3287,7 @@
           "bed": "5.4",
           "name": "Tn. Saleh",
           "mrNo": "00306671",
-          "diagnosis": "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )",
+          "diagnosis": "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) CLD Hipoalbuminemia (2,3)",
           "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
           "los": 2,
           "gender": "L",
@@ -3524,20 +3310,6 @@
           "date": "2026-11-06",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
-        },
-        {
-          "bed": "6.2",
-          "name": "Tn. Muhammad Yani",
-          "mrNo": "00305974",
-          "diagnosis": "pempigus vulgaris",
-          "doctor": "dr. Retno Mustikaningsih, M.Kes., Sp.KK",
-          "los": 7,
-          "gender": "L",
-          "age": "",
-          "admissionDate": "31/10/2026",
-          "date": "2026-11-06",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "6.3",
@@ -3627,7 +3399,7 @@
           "bed": "8.1",
           "name": "Ny. Musriyah",
           "mrNo": "00306661",
-          "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
+          "diagnosis": "abdominal pain susp kholelithiasis hipokalemia Obs jaundice",
           "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
           "los": 2,
           "gender": "P",
@@ -3664,20 +3436,6 @@
           "date": "2026-11-06",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
-        },
-        {
-          "bed": "10.1",
-          "name": "Ny. Sunarmi",
-          "mrNo": "00284845",
-          "diagnosis": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
-          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
-          "los": 9,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "29/10/2026",
-          "date": "2026-11-06",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "10.2",
@@ -3724,12 +3482,12 @@
       ]
     },
     "historical": {
-      "totalRecords": 107,
-      "uniqueIncludedCount": 4,
-      "totalExcludedRecords": 99,
+      "totalRecords": 102,
+      "uniqueIncludedCount": 3,
+      "totalExcludedRecords": 95,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
-        "CP-DMCKD-002": 4,
+        "CP-DMCKD-002": 3,
         "CP-HIV-003": 0,
         "CP-STROKE-NON-004": 0,
         "CP-STROKE-PERD-005": 0
@@ -3810,29 +3568,6 @@
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "//CKD on HD //HHS dd KAD //Hipertensi // //Anemia renal //Efusi pleura //Pleuritis TB on OAT // Hepatitis B kronis"
-        },
-        {
-          "key": "00290001",
-          "mrNo": "00290001",
-          "name": "Tn. Mardiansyah",
-          "bedLatest": "5.1",
-          "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
-          "admissionDate": "24/10/2026",
-          "datesSeen": [
-            "2026-11-06"
-          ],
-          "daysInWard": 1,
-          "diagnoses": [
-            "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
-          ],
-          "status": "INCLUDED",
-          "cpId": "CP-DMCKD-002",
-          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
-          "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
-          "losLatest": 14,
-          "gender": "L",
-          "age": "",
-          "diagnosisSpreadsheet": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
         }
       ],
       "sampleExcluded": [
@@ -4176,10 +3911,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "pempigus vugaris",
             "pempigus vulgaris"
@@ -4188,7 +3922,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "pempigus vugaris | pempigus vulgaris",
@@ -4710,10 +4444,9 @@
           "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "CKD st V dd AKI ec dehidrasi Gizi kurang/kakeksia Hipotensi ec syok hipovolemik Hiperkaemia"
           ],
@@ -4721,7 +4454,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "CKD st V dd AKI ec dehidrasi Gizi kurang/kakeksia Hipotensi ec syok hipovolemik Hiperkaemia",
@@ -4742,7 +4475,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID"
+            "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
+            "Penkes ec hipoglikemia pada DM type 2 Dyspepsia Ulkus DM HHD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4751,7 +4485,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
+          "diagnosisSpreadsheet": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID | Penkes ec hipoglikemia pada DM type 2 Dyspepsia Ulkus DM HHD",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -4769,7 +4503,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )"
+            "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )",
+            "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) CLD Hipoalbuminemia (2,3)"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4778,7 +4513,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 )",
+          "diagnosisSpreadsheet": "Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) | Obs Hematemesis et Melena ec PSCBA Anemia ( Hb 6.2 ) CLD Hipoalbuminemia (2,3)",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -4823,7 +4558,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "abdominal pain susp \nkholelithiasis hipokalemia"
+            "abdominal pain susp \nkholelithiasis hipokalemia",
+            "abdominal pain susp kholelithiasis hipokalemia Obs jaundice"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4832,7 +4568,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
+          "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia | abdominal pain susp kholelithiasis hipokalemia Obs jaundice",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -4918,49 +4654,27 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN TRANSIT A/N NY.DEVIOLA",
-          "mrNo": "RM-K-2.4",
-          "name": "BOOKINGAN TRANSIT a/n Ny.Deviola",
-          "bedLatest": "2.4",
-          "doctor": "",
-          "admissionDate": "2026-11-06",
-          "datesSeen": [
-            "2026-11-06"
-          ],
-          "daysInWard": 1,
-          "diagnoses": [],
-          "status": "EXCLUDED",
-          "cpId": null,
-          "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
-          "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
-        },
-        {
-          "key": "BOOKINGAN TRANSIT A/N NY. MONALISA",
-          "mrNo": "RM-K-3.4",
-          "name": "BOOKINGAN TRANSIT a/n Ny. Monalisa",
+          "key": "00236457",
+          "mrNo": "00236457",
+          "name": "Deviola Anjjel",
           "bedLatest": "3.4",
-          "doctor": "",
-          "admissionDate": "2026-11-06",
+          "doctor": "dr.Muhardani Iqbal,spPD",
+          "admissionDate": "06/11/2026",
           "datesSeen": [
             "2026-11-06"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "A: SLE hipoalbumin hipokalemia"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "-",
+          "diagnosisSpreadsheet": "A: SLE hipoalbumin hipokalemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5016,32 +4730,6 @@
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
-        },
-        {
-          "key": "00284845",
-          "mrNo": "00284845",
-          "name": "Ny. Sunarmi",
-          "bedLatest": "10.1",
-          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
-          "admissionDate": "29/10/2026",
-          "datesSeen": [
-            "2026-11-06"
-          ],
-          "daysInWard": 1,
-          "diagnoses": [
-            "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)"
-          ],
-          "status": "EXCLUDED",
-          "cpId": null,
-          "cpNama": null,
-          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 9,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
         }
       ]
     }
@@ -8111,13 +7799,13 @@
       "nama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
       "ksm": "Penyakit Dalam (Nefrologi & Endokrin)",
       "losTarget": 7,
-      "avgRealLos": 7.1,
-      "totalEpisodes": 14,
-      "realInpatientActive": 3,
-      "realInpatientHistorical": 4,
+      "avgRealLos": 6.6,
+      "totalEpisodes": 13,
+      "realInpatientActive": 2,
+      "realInpatientHistorical": 3,
       "rawAvg": 99.6,
       "adjAvg": 99.9,
-      "bundlePassedPct": 92.9,
+      "bundlePassedPct": 92.3,
       "mutuCategory": "HIJAU",
       "episodes": [
         {
@@ -8939,303 +8627,6 @@
             },
             "deviations": [],
             "summaryText": "Sesuai CP pada seluruh 6 aspek pelayanan (LOS, Diagnostik, Terapi, Keperawatan, Gizi, Discharge)"
-          }
-        },
-        {
-          "episodeId": "EP-REAL-5.1-20261106",
-          "mrNo": "00290001",
-          "namaPasien": "Tn. Mardiansyah",
-          "gender": "L",
-          "usia": "",
-          "ruangRawat": "Ruang Kakap (5.1)",
-          "dpjp": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
-          "templateId": "CP-DMCKD-002",
-          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
-          "caseProfile": "PASIEN_RIIL_BANGSAL",
-          "statusEnrollment": "AKTIF",
-          "alasanKeluar": null,
-          "hariTerakhirCp": 7,
-          "targetLos": 7,
-          "realLos": 14,
-          "tglMasuk": "24/10/2026",
-          "tglKeluar": null,
-          "executions": {
-            "DM-01_d1": "TERLAKSANA",
-            "DM-02_d1": "TERLAKSANA",
-            "DM-02_d2": "TERLAKSANA",
-            "DM-02_d3": "TERLAKSANA",
-            "DM-02_d4": "TERLAKSANA",
-            "DM-02_d5": "TERLAKSANA",
-            "DM-02_d6": "TERLAKSANA",
-            "DM-02_d7": "TERLAKSANA",
-            "DM-03_d1": "TERLAKSANA",
-            "DM-03_d2": "TERLAKSANA",
-            "DM-03_d3": "TERLAKSANA",
-            "DM-03_d4": "TERLAKSANA",
-            "DM-03_d5": "TERLAKSANA",
-            "DM-03_d6": "TERLAKSANA",
-            "DM-03_d7": "TERLAKSANA",
-            "DM-04_d1": "TERLAKSANA",
-            "DM-04_d2": "TERLAKSANA",
-            "DM-04_d3": "TERLAKSANA",
-            "DM-04_d4": "TERLAKSANA",
-            "DM-04_d5": "TERLAKSANA",
-            "DM-04_d6": "TERLAKSANA",
-            "DM-04_d7": "TERLAKSANA",
-            "DM-05_d1": "TERLAKSANA",
-            "DM-05_d2": "TERLAKSANA",
-            "DM-05_d3": "TERLAKSANA",
-            "DM-05_d4": "TERLAKSANA",
-            "DM-05_d5": "TERLAKSANA",
-            "DM-05_d6": "TERLAKSANA",
-            "DM-05_d7": "TERLAKSANA",
-            "DM-06_d1": "TERLAKSANA",
-            "DM-06_d2": "TERLAKSANA",
-            "DM-06_d3": "TERLAKSANA",
-            "DM-06_d4": "TERLAKSANA",
-            "DM-06_d5": "TERLAKSANA",
-            "DM-06_d6": "TERLAKSANA",
-            "DM-06_d7": "TERLAKSANA",
-            "DM-07_d1": "TERLAKSANA",
-            "DM-07_d4": "TERLAKSANA",
-            "DM-07_d7": "TERLAKSANA",
-            "DM-08_d1": "TERLAKSANA",
-            "DM-08_d2": "TERLAKSANA",
-            "DM-08_d3": "TERLAKSANA",
-            "DM-09_d1": "TERLAKSANA",
-            "DM-10_d1": "TERLAKSANA",
-            "DM-11_d1": "TERLAKSANA",
-            "DM-12_d1": "TERLAKSANA",
-            "DM-12_d2": "TERLAKSANA",
-            "DM-13_d4": "TERLAKSANA",
-            "DM-13_d5": "TERLAKSANA",
-            "DM-14_d1": "TERLAKSANA",
-            "DM-15_d1": "TERLAKSANA",
-            "DM-15_d2": "TERLAKSANA",
-            "DM-15_d3": "TERLAKSANA",
-            "DM-15_d4": "TERLAKSANA",
-            "DM-15_d5": "TERLAKSANA",
-            "DM-15_d6": "TERLAKSANA",
-            "DM-15_d7": "TERLAKSANA",
-            "DM-16_d1": "TERLAKSANA",
-            "DM-16_d2": "TERLAKSANA",
-            "DM-16_d3": "TERLAKSANA",
-            "DM-16_d4": "TERLAKSANA",
-            "DM-16_d5": "TERLAKSANA",
-            "DM-16_d6": "TERLAKSANA",
-            "DM-16_d7": "TERLAKSANA",
-            "DM-17_d2": "TERLAKSANA",
-            "DM-17_d3": "TERLAKSANA",
-            "DM-17_d4": "TERLAKSANA",
-            "DM-18_d5": "TERLAKSANA",
-            "DM-18_d6": "TERLAKSANA",
-            "DM-18_d7": "TERLAKSANA",
-            "DM-19_d7": "TERLAKSANA",
-            "DM-20_d7": "TERLAKSANA"
-          },
-          "variances": [],
-          "isRealPatient": true,
-          "denominatorStatus": "INCLUDED",
-          "inclusionReason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
-          "diagnosisSpreadsheet": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
-          "compliance": {
-            "totalWajibScheduled": 72,
-            "totalTerlaksana": 72,
-            "totalNaJustified": 0,
-            "totalTidakTerlaksana": 0,
-            "rawScore": 100.0,
-            "adjScore": 100.0,
-            "criticalBundlePassed": true,
-            "criticalItemsFailed": [],
-            "mutuCategory": "HIJAU",
-            "ppaSummary": {
-              "DPJP": {
-                "terlaksana": 35,
-                "wajib": 35,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "PERAWAT": {
-                "terlaksana": 31,
-                "wajib": 31,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "AHLI_GIZI": {
-                "terlaksana": 5,
-                "wajib": 5,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "APOTEKER": {
-                "terlaksana": 1,
-                "wajib": 1,
-                "na": 0,
-                "compliancePct": 100.0
-              }
-            },
-            "domainSummary": {
-              "MED": {
-                "terlaksana": 8,
-                "wajib": 8,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "KEP": {
-                "terlaksana": 21,
-                "wajib": 21,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "PEN": {
-                "terlaksana": 15,
-                "wajib": 15,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "GIZ": {
-                "terlaksana": 3,
-                "wajib": 3,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "EDU": {
-                "terlaksana": 5,
-                "wajib": 5,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "FAR": {
-                "terlaksana": 1,
-                "wajib": 1,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "OBT": {
-                "terlaksana": 14,
-                "wajib": 14,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "TIN": {
-                "terlaksana": 3,
-                "wajib": 3,
-                "na": 0,
-                "compliancePct": 100.0
-              },
-              "OUT": {
-                "terlaksana": 2,
-                "wajib": 2,
-                "na": 0,
-                "compliancePct": 100.0
-              }
-            }
-          },
-          "aspectCompliance": {
-            "isNominator": false,
-            "nominatorStatus": "NON_NOMINATOR_PARSIAL",
-            "nominatorBadgeText": "NON-NOMINATOR (DEVIASI)",
-            "compliantAspectsCount": 5,
-            "totalAspects": 6,
-            "aspectsScorePct": 83.3,
-            "aspects": {
-              "los": {
-                "aspectCode": "LOS",
-                "aspectName": "Kontrol Lama Rawat (LOS)",
-                "isCompliant": false,
-                "score": 0.0,
-                "realLos": 14,
-                "targetLos": 7,
-                "details": "Lama rawat 14 hari melebihi Target LOS 7 hari (Deviasi LOS)"
-              },
-              "diagnostik": {
-                "aspectCode": "PEN",
-                "aspectName": "Pemeriksaan Diagnostik & Penunjang",
-                "isCompliant": true,
-                "score": 100.0,
-                "details": "15/15 item terpenuhi (100.0%)",
-                "scheduled": 15,
-                "terlaksana": 15,
-                "naJustified": 0,
-                "itemsSummary": [
-                  "✓ Pemeriksaan GDS serial harian (pre-pra (H1)",
-                  "✓ Pemeriksaan GDS serial harian (pre-pra (H2)",
-                  "✓ Pemeriksaan GDS serial harian (pre-pra (H3)",
-                  "✓ Pemeriksaan GDS serial harian (pre-pra (H4)",
-                  "✓ Pemeriksaan GDS serial harian (pre-pra (H5)"
-                ]
-              },
-              "terapi": {
-                "aspectCode": "OBT",
-                "aspectName": "Terapi Medikamentosa & Farmasi",
-                "isCompliant": true,
-                "score": 100.0,
-                "details": "18/18 item terpenuhi (100.0%)",
-                "scheduled": 18,
-                "terlaksana": 18,
-                "naJustified": 0,
-                "itemsSummary": [
-                  "✓ Rekonsiliasi obat saat admisi & penyes (H1)",
-                  "✓ Antihiperglikemi: Injeksi Insulin (Reg (H1)",
-                  "✓ Antihiperglikemi: Injeksi Insulin (Reg (H2)",
-                  "✓ Antihiperglikemi: Injeksi Insulin (Reg (H3)",
-                  "✓ Antihiperglikemi: Injeksi Insulin (Reg (H4)"
-                ]
-              },
-              "keperawatan": {
-                "aspectCode": "KEP",
-                "aspectName": "Asuhan Medis & Keperawatan",
-                "isCompliant": true,
-                "score": 100.0,
-                "details": "29/29 item terpenuhi (100.0%)",
-                "scheduled": 29,
-                "terlaksana": 29,
-                "naJustified": 0,
-                "itemsSummary": [
-                  "✓ Asesmen klinis komplikasi mikrovaskula (H1)",
-                  "✓ Visite harian DPJP dan penyesuaian dos (H1)",
-                  "✓ Visite harian DPJP dan penyesuaian dos (H2)",
-                  "✓ Visite harian DPJP dan penyesuaian dos (H3)",
-                  "✓ Visite harian DPJP dan penyesuaian dos (H4)"
-                ]
-              },
-              "nutrisi": {
-                "aspectCode": "GIZ",
-                "aspectName": "Asesmen & Edukasi Nutrisi Gizi",
-                "isCompliant": true,
-                "score": 100.0,
-                "details": "3/3 item terpenuhi (100.0%)",
-                "scheduled": 3,
-                "terlaksana": 3,
-                "naJustified": 0,
-                "itemsSummary": [
-                  "✓ Asesmen gizi & penetapan diet DM Ginja (H1)",
-                  "✓ Monitoring dan evaluasi (Monev) asupan (H4)",
-                  "✓ Monitoring dan evaluasi (Monev) asupan (H5)"
-                ]
-              },
-              "discharge": {
-                "aspectCode": "EDU",
-                "aspectName": "Edukasi & Discharge Planning",
-                "isCompliant": true,
-                "score": 100.0,
-                "details": "7/7 item terpenuhi (100.0%)",
-                "scheduled": 7,
-                "terlaksana": 7,
-                "naJustified": 0,
-                "itemsSummary": [
-                  "✓ Edukasi gizi terintegrasi untuk pasien (H1)",
-                  "✓ Edukasi gizi terintegrasi untuk pasien (H2)",
-                  "✓ Edukasi perawatan kaki diabetik & tekn (H5)",
-                  "✓ Edukasi perawatan kaki diabetik & tekn (H6)",
-                  "✓ Edukasi perawatan kaki diabetik & tekn (H7)"
-                ]
-              }
-            },
-            "deviations": [
-              "LOS melebihi target (14 hari > 7 hari)"
-            ],
-            "summaryText": "Belum memenuhi seluruh aspek (1 aspek deviasi: LOS melebihi target (14 hari > 7 hari))"
           }
         },
         {
@@ -21034,26 +20425,26 @@
     {
       "ppa": "DPJP",
       "compliancePct": 99.7,
-      "terlaksana": 1441,
-      "wajib": 1445
+      "terlaksana": 1406,
+      "wajib": 1410
     },
     {
       "ppa": "PERAWAT",
       "compliancePct": 99.9,
-      "terlaksana": 921,
-      "wajib": 922
+      "terlaksana": 890,
+      "wajib": 891
     },
     {
       "ppa": "AHLI_GIZI",
       "compliancePct": 100.0,
-      "terlaksana": 283,
-      "wajib": 283
+      "terlaksana": 278,
+      "wajib": 278
     },
     {
       "ppa": "APOTEKER",
       "compliancePct": 100.0,
-      "terlaksana": 257,
-      "wajib": 257
+      "terlaksana": 256,
+      "wajib": 256
     },
     {
       "ppa": "FISIOTERAPIS",
@@ -22658,35 +22049,35 @@
         "Sheet 2026-11-05",
         "Sheet 2026-11-06"
       ],
-      "totalUniqueInpatients": 48,
-      "totalObservations": 107
+      "totalUniqueInpatients": 45,
+      "totalObservations": 102
     },
     "realSummary": {
-      "denominator": 4,
+      "denominator": 3,
       "denominatorLabel": "Pasien Masuk Kriteria Inklusi CP (Denominator)",
       "nominator": 3,
       "nominatorLabel": "Pasien Sesuai CP Seluruh Aspek (Nominator)",
-      "nonNominator": 1,
-      "complianceRatePct": 75.0,
+      "nonNominator": 0,
+      "complianceRatePct": 100.0,
       "formula": "Kepatuhan CP (%) = (Pasien Patuh Seluruh Aspek [Nominator] ÷ Pasien Inklusi CP [Denominator]) × 100%",
       "mutuTarget": 80.0,
-      "mutuStatus": "SUBSTANDAR",
+      "mutuStatus": "MEMENUHI STANDAR MUTU PARIPURNA (≥ 80%)",
       "aspects": {
         "los": {
           "code": "LOS",
           "label": "Kontrol Lama Rawat (LOS Control)",
           "standard": "LOS Pasien ≤ Target LOS Dokumen CP (7 Hari)",
           "compliantCount": 3,
-          "totalCount": 4,
-          "pct": 75.0,
-          "status": "SUBSTANDAR"
+          "totalCount": 3,
+          "pct": 100.0,
+          "status": "PATUH"
         },
         "diagnostik": {
           "code": "PEN",
           "label": "Pemeriksaan Diagnostik & Penunjang",
           "standard": "Pemeriksaan Lab (GDS, Urin, Renal) & Radiologi/USG Lengkap",
-          "compliantCount": 4,
-          "totalCount": 4,
+          "compliantCount": 3,
+          "totalCount": 3,
           "pct": 100.0,
           "status": "PATUH"
         },
@@ -22694,8 +22085,8 @@
           "code": "OBT",
           "label": "Terapi Medikamentosa & Farmasi",
           "standard": "Regulasi Insulin, Antihipertensi, Terapi Cairan & Medikasi Wajib",
-          "compliantCount": 4,
-          "totalCount": 4,
+          "compliantCount": 3,
+          "totalCount": 3,
           "pct": 100.0,
           "status": "PATUH"
         },
@@ -22703,8 +22094,8 @@
           "code": "KEP",
           "label": "Asuhan Medis & Keperawatan",
           "standard": "Visite DPJP Harian & Balans Cairan 24 Jam Terpantau Lengkap",
-          "compliantCount": 4,
-          "totalCount": 4,
+          "compliantCount": 3,
+          "totalCount": 3,
           "pct": 100.0,
           "status": "PATUH"
         },
@@ -22712,8 +22103,8 @@
           "code": "GIZ",
           "label": "Asesmen & Edukasi Diet Nutrisi",
           "standard": "Konsultasi Diet Khusus Ginjal & DM pada Hari 1-2",
-          "compliantCount": 4,
-          "totalCount": 4,
+          "compliantCount": 3,
+          "totalCount": 3,
           "pct": 100.0,
           "status": "PATUH"
         },
@@ -22721,8 +22112,8 @@
           "code": "EDU",
           "label": "Edukasi & Discharge Planning",
           "standard": "Edukasi Obat Pulang, Manajemen Hipoglikemia & Kesiapan Pulang",
-          "compliantCount": 4,
-          "totalCount": 4,
+          "compliantCount": 3,
+          "totalCount": 3,
           "pct": 100.0,
           "status": "PATUH"
         }
@@ -23071,122 +22462,6 @@
         },
         "deviations": [],
         "summaryText": "Sesuai CP pada seluruh 6 aspek pelayanan (LOS, Diagnostik, Terapi, Keperawatan, Gizi, Discharge)"
-      },
-      {
-        "episodeId": "EP-REAL-5.1-20261106",
-        "mrNo": "00290001",
-        "name": "Tn. Mardiansyah",
-        "bed": "Ruang Kakap (5.1)",
-        "dpjp": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
-        "cpId": "CP-DMCKD-002",
-        "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
-        "realLos": 14,
-        "targetLos": 7,
-        "tglMasuk": "24/10/2026",
-        "statusEnrollment": "AKTIF",
-        "isNominator": false,
-        "nominatorBadgeText": "NON-NOMINATOR (DEVIASI)",
-        "aspectsScorePct": 83.3,
-        "compliantAspectsCount": 5,
-        "totalAspects": 6,
-        "aspects": {
-          "los": {
-            "aspectCode": "LOS",
-            "aspectName": "Kontrol Lama Rawat (LOS)",
-            "isCompliant": false,
-            "score": 0.0,
-            "realLos": 14,
-            "targetLos": 7,
-            "details": "Lama rawat 14 hari melebihi Target LOS 7 hari (Deviasi LOS)"
-          },
-          "diagnostik": {
-            "aspectCode": "PEN",
-            "aspectName": "Pemeriksaan Diagnostik & Penunjang",
-            "isCompliant": true,
-            "score": 100.0,
-            "details": "15/15 item terpenuhi (100.0%)",
-            "scheduled": 15,
-            "terlaksana": 15,
-            "naJustified": 0,
-            "itemsSummary": [
-              "✓ Pemeriksaan GDS serial harian (pre-pra (H1)",
-              "✓ Pemeriksaan GDS serial harian (pre-pra (H2)",
-              "✓ Pemeriksaan GDS serial harian (pre-pra (H3)",
-              "✓ Pemeriksaan GDS serial harian (pre-pra (H4)",
-              "✓ Pemeriksaan GDS serial harian (pre-pra (H5)"
-            ]
-          },
-          "terapi": {
-            "aspectCode": "OBT",
-            "aspectName": "Terapi Medikamentosa & Farmasi",
-            "isCompliant": true,
-            "score": 100.0,
-            "details": "18/18 item terpenuhi (100.0%)",
-            "scheduled": 18,
-            "terlaksana": 18,
-            "naJustified": 0,
-            "itemsSummary": [
-              "✓ Rekonsiliasi obat saat admisi & penyes (H1)",
-              "✓ Antihiperglikemi: Injeksi Insulin (Reg (H1)",
-              "✓ Antihiperglikemi: Injeksi Insulin (Reg (H2)",
-              "✓ Antihiperglikemi: Injeksi Insulin (Reg (H3)",
-              "✓ Antihiperglikemi: Injeksi Insulin (Reg (H4)"
-            ]
-          },
-          "keperawatan": {
-            "aspectCode": "KEP",
-            "aspectName": "Asuhan Medis & Keperawatan",
-            "isCompliant": true,
-            "score": 100.0,
-            "details": "29/29 item terpenuhi (100.0%)",
-            "scheduled": 29,
-            "terlaksana": 29,
-            "naJustified": 0,
-            "itemsSummary": [
-              "✓ Asesmen klinis komplikasi mikrovaskula (H1)",
-              "✓ Visite harian DPJP dan penyesuaian dos (H1)",
-              "✓ Visite harian DPJP dan penyesuaian dos (H2)",
-              "✓ Visite harian DPJP dan penyesuaian dos (H3)",
-              "✓ Visite harian DPJP dan penyesuaian dos (H4)"
-            ]
-          },
-          "nutrisi": {
-            "aspectCode": "GIZ",
-            "aspectName": "Asesmen & Edukasi Nutrisi Gizi",
-            "isCompliant": true,
-            "score": 100.0,
-            "details": "3/3 item terpenuhi (100.0%)",
-            "scheduled": 3,
-            "terlaksana": 3,
-            "naJustified": 0,
-            "itemsSummary": [
-              "✓ Asesmen gizi & penetapan diet DM Ginja (H1)",
-              "✓ Monitoring dan evaluasi (Monev) asupan (H4)",
-              "✓ Monitoring dan evaluasi (Monev) asupan (H5)"
-            ]
-          },
-          "discharge": {
-            "aspectCode": "EDU",
-            "aspectName": "Edukasi & Discharge Planning",
-            "isCompliant": true,
-            "score": 100.0,
-            "details": "7/7 item terpenuhi (100.0%)",
-            "scheduled": 7,
-            "terlaksana": 7,
-            "naJustified": 0,
-            "itemsSummary": [
-              "✓ Edukasi gizi terintegrasi untuk pasien (H1)",
-              "✓ Edukasi gizi terintegrasi untuk pasien (H2)",
-              "✓ Edukasi perawatan kaki diabetik & tekn (H5)",
-              "✓ Edukasi perawatan kaki diabetik & tekn (H6)",
-              "✓ Edukasi perawatan kaki diabetik & tekn (H7)"
-            ]
-          }
-        },
-        "deviations": [
-          "LOS melebihi target (14 hari > 7 hari)"
-        ],
-        "summaryText": "Belum memenuhi seluruh aspek (1 aspek deviasi: LOS melebihi target (14 hari > 7 hari))"
       }
     ],
     "dailyMorningTrend": [
