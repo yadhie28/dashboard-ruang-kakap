@@ -13,7 +13,7 @@
       "Tim I (Kakap 1-5 & Isolasi - 21 Bed)",
       "Tim II (Kakap 6-10 - 20 Bed)"
     ],
-    "lastUpdated": "06-11-2026 06:11:04",
+    "lastUpdated": "06-11-2026 06:36:59",
     "latestDate": "2026-11-06",
     "totalDatesRecorded": 4,
     "dateRange": "2026-11-03 s/d 2026-11-06",
@@ -52,164 +52,164 @@
     },
     {
       "date": "2026-11-06",
-      "occTim1": 14,
-      "occTim2": 12,
-      "totalOcc": 28,
+      "occTim1": 16,
+      "occTim2": 16,
+      "totalOcc": 33,
       "totalBeds": 41,
-      "bor": 68.3
+      "bor": 80.5
     }
   ],
   "analytics": {
     "topDoctors": [
       {
         "name": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
-        "count": 12,
-        "pct": 27.3
+        "count": 14,
+        "pct": 29.2
       },
       {
         "name": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
         "count": 10,
-        "pct": 22.7
+        "pct": 20.8
+      },
+      {
+        "name": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+        "count": 5,
+        "pct": 10.4
       },
       {
         "name": "dr. Apriani, M.Ked(PD), Sp.PD",
         "count": 4,
-        "pct": 9.1
-      },
-      {
-        "name": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-        "count": 3,
-        "pct": 6.8
+        "pct": 8.3
       },
       {
         "name": "dr. Danar Anggrahini K.D., Sp.PD-KGH",
         "count": 3,
-        "pct": 6.8
+        "pct": 6.2
       },
       {
         "name": "dr. Decky Andrea, Sp.PD",
         "count": 2,
-        "pct": 4.5
+        "pct": 4.2
       },
       {
         "name": "dr. Retno Mustikaningsih, M.Kes., Sp.K",
         "count": 2,
-        "pct": 4.5
+        "pct": 4.2
       },
       {
         "name": "dr. Harry Andhika, Sp.PD",
         "count": 2,
-        "pct": 4.5
+        "pct": 4.2
       },
       {
         "name": "dr. Zainul Naim, Sp.B-KBD",
         "count": 1,
-        "pct": 2.3
+        "pct": 2.1
       },
       {
         "name": "dr. Muhardani Iqbal, Sp.PD",
         "count": 1,
-        "pct": 2.3
+        "pct": 2.1
       }
     ],
     "topDiagnoses": [
       {
         "name": "Gagal Ginjal Kronik (CKD on HD / Stage V)",
-        "count": 21,
-        "pct": 47.7
+        "count": 22,
+        "pct": 45.8
       },
       {
         "name": "Anemia Renal / Anemia Gravis in CKD",
         "count": 18,
-        "pct": 40.9
+        "pct": 37.5
       },
       {
         "name": "Gangguan Elektrolit (Hiponatremia / Hiperkalemia)",
-        "count": 11,
+        "count": 12,
         "pct": 25.0
       },
       {
         "name": "Keganasan / Onkologi (Ca Nasofaring, Ovarium, CML)",
         "count": 8,
-        "pct": 18.2
+        "pct": 16.7
       },
       {
         "name": "Gastrointestinal / PSCBA / Melena / Dyspepsia",
         "count": 8,
-        "pct": 18.2
+        "pct": 16.7
       },
       {
         "name": "Diabetes Melitus Tipe II (DKD / HHS / KAD)",
-        "count": 6,
-        "pct": 13.6
+        "count": 7,
+        "pct": 14.6
       },
       {
         "name": "Edema Paru / Efusi Pleura / CHF",
         "count": 5,
-        "pct": 11.4
+        "pct": 10.4
+      },
+      {
+        "name": "Hipertensi (Urgensi / Emergensi / HHD)",
+        "count": 5,
+        "pct": 10.4
       },
       {
         "name": "Dermatologi & Imunologi (Pempigus, Psoriasis)",
         "count": 4,
-        "pct": 9.1
-      },
-      {
-        "name": "Hipertensi (Urgensi / Emergensi / HHD)",
-        "count": 4,
-        "pct": 9.1
+        "pct": 8.3
       },
       {
         "name": "Urologi / Hidronefrosis / Nefrolitiasis",
-        "count": 3,
-        "pct": 6.8
+        "count": 4,
+        "pct": 8.3
       }
     ],
     "categories": [
       {
         "name": "Nefrologi & Urologi",
-        "count": 22,
+        "count": 24,
         "pct": 50.0
       },
       {
         "name": "Penyakit Dalam (Umum)",
         "count": 11,
-        "pct": 25.0
+        "pct": 22.9
       },
       {
         "name": "Penyakit Dalam (Metabolik)",
-        "count": 6,
-        "pct": 13.6
+        "count": 7,
+        "pct": 14.6
       },
       {
         "name": "Hematologi & Onkologi",
-        "count": 4,
-        "pct": 9.1
+        "count": 5,
+        "pct": 10.4
       },
       {
         "name": "Gastroenterologi & Digestif",
         "count": 1,
-        "pct": 2.3
+        "pct": 2.1
       }
     ],
     "insurances": [
       {
         "name": "BPJS Kelas 3",
-        "count": 39,
-        "pct": 88.6
+        "count": 43,
+        "pct": 89.6
       },
       {
         "name": "BPJS Kelas 2",
         "count": 3,
-        "pct": 6.8
+        "pct": 6.2
       },
       {
         "name": "BPJS Kelas 1",
         "count": 2,
-        "pct": 4.5
+        "pct": 4.2
       }
     ],
-    "totalPatients": 44,
-    "totalObservations": 101,
+    "totalPatients": 48,
+    "totalObservations": 107,
     "measurementSchedule": "Diukur per hari di pagi hari (Pukul 07:00 WIB)",
     "measurementScope": "Data dari seluruh tab spreadsheet (3 November 2026 s/d tab mutakhir)",
     "totalTabsCount": 4,
@@ -219,10 +219,10 @@
     {
       "month": "2026-11",
       "daysCounted": 4,
-      "avgOcc": 31.8,
-      "avgOccA": 13.8,
-      "avgOccB": 11.5,
-      "avgBor": 77.4
+      "avgOcc": 33.0,
+      "avgOccA": 14.2,
+      "avgOccB": 12.5,
+      "avgBor": 80.5
     }
   ],
   "hospitalIndicators": {
@@ -233,12 +233,12 @@
     },
     "availableBeds": 41,
     "totalDays": 4,
-    "totalHP": 127,
+    "totalHP": 132,
     "totalDischarges": 11,
     "overall": {
-      "bor": 77.4,
-      "avlos": 11.5,
-      "toi": 3.4,
+      "bor": 80.5,
+      "avlos": 12.0,
+      "toi": 2.9,
       "bto": 24.5,
       "gdr": 181.8,
       "ndr": 90.9
@@ -247,15 +247,15 @@
       {
         "month": "2026-11",
         "days": 4,
-        "hp": 127,
-        "hpTim1": 55,
-        "hpTim2": 46,
+        "hp": 132,
+        "hpTim1": 57,
+        "hpTim2": 50,
         "discharges": 11,
         "deaths": 2,
         "deathsGt48": 1,
-        "bor": 77.4,
-        "avlos": 11.5,
-        "toi": 3.4,
+        "bor": 80.5,
+        "avlos": 12.0,
+        "toi": 2.9,
         "bto": 24.5,
         "gdr": 181.8,
         "ndr": 90.9
@@ -17727,7 +17727,7 @@
           "diagnosis": "CKD on HD, Anemia Renalis",
           "category": "Nefrologi & Urologi",
           "notes": {
-            "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Cek Ur cr Post HD",
+            "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Besok sabtu 7/11/2026 Cek Ur cr Post HD DR",
             "sore": "",
             "malam": ""
           },
@@ -17853,22 +17853,22 @@
         },
         {
           "bed": "2.1",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFD5A6BD",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Ny. Desi Adma Iswandira",
           "mrNo": "00304027",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "06/11/2026",
+          "los": 1,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "diagnosis": "ITP",
           "category": "Hematologi & Onkologi",
           "notes": {
             "pagi": "PB Via Igd Jam 11.28 \nKeluhan : lebam2 di badan, perdarahan gusi, bintik merah di kaki dan tangan\nintruksi Via Igd : inf. nacl 100 cc + inj. metil prednisolon 500mg TF TC 12 unit Mychophen 2x360mg oral rebozet 1x50 mg oral \nCek Lab Via Igd : HB : 13,5 Trombosit : 4     \nLapor pb (+)",
@@ -17876,10 +17876,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Transfusi Darah",
               "color": "red"
@@ -17901,7 +17897,7 @@
         },
         {
           "bed": "2.2",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -17945,7 +17941,7 @@
         },
         {
           "bed": "2.3",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -17993,7 +17989,7 @@
         },
         {
           "bed": "2.4",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -18032,11 +18028,12 @@
         },
         {
           "bed": "3.1",
-          "room": "Kakap 3 (♀)",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Kosong",
           "isEmpty": true,
           "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Bed Kosong",
           "mrNo": "",
           "gender": "-",
@@ -18062,7 +18059,7 @@
         },
         {
           "bed": "3.2",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -18101,7 +18098,7 @@
         },
         {
           "bed": "3.3",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -18149,7 +18146,7 @@
         },
         {
           "bed": "3.4",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -18369,20 +18366,20 @@
           "bed": "5.1",
           "room": "KAKAP 5 ♂ LAKI-LAKI",
           "team": "Tim I",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFDBE8F7",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Tn. Mardiansyah",
           "mrNo": "00290001",
-          "gender": "-",
+          "gender": "L",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "24/10/2026",
+          "los": 14,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+          "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "diagnosis": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: Tidak ada keluhan Tungkai Bawah Bengkak \n\ndr. Decky visite tanggal 06/11/2026:\n- TARGET S/D ALBUMIN = 2,5 => Alb : 1.95 post TF Botol ke-7 =>> TF Albumin ke-8 (+)\n- Jumat 06/11/26 Cek Albumin ulang (+) SSH \n- Cek GDS/ hari : 156\n- Levemir 1x12 & Novorapid 3x8 =>> pasien menolak insulin =>> TTD penolakan (+) \n- Cek UL (Tanggal 29/10/2026) (+) disimrs\n- Jumat 30/10/2026 cek DL, UR/CR, Albumin, Kolesterol (+) Hasil dr Sudah Tau \n- Hasil Usg (+) Konsul dr. Sony terkait hasil USG, Albumin dan Curiga SN \n- Rencana Pulang Siang ini \n- Resep + Resume sudah dengan Pasien",
@@ -18391,8 +18388,8 @@
           },
           "tags": [
             {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
+              "label": "Rencana Pulang",
+              "color": "green"
             },
             {
               "label": "Transfusi Darah",
@@ -18552,20 +18549,20 @@
           "bed": "6.1",
           "room": "KAKAP 6 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFDBE8F7",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Tn. Kaseng",
           "mrNo": "00186499",
-          "gender": "-",
+          "gender": "L",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "01/11/2026",
+          "los": 6,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
+          "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: kaki kiri bengkak dan terasa nyeri demam tadi malam tangan gemetar sejak kemarin\n- Terpasang DC (+)\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD RL 20 tpm \n- Inj. Omz 1x1 IV Inj. Ondansetron 3x4 mg IV Inj. Parasetamol 3x1 gr IV Inj Levofloxacin 1x 500 m,g iv Allopurinol 1x 300m mg po, NOCID 3x2 tab \n- Hasil Cek UL (Tanggal 03/11/2026) di SIMRS (+) \n- Hasil cek Asam Urat dan Elektrolit (Rabu 04/11/2026) (AU: 8.1 Na: 138.17 K:  4.98 Cl: 108.70 Ca Ion: 1.25)\n- BNO (Selasa 3/11/2026) \"Tidak tampak ileus maupun pneumoperitoneum\" =>> dr.Sony sudah lihat\n- Hasil USG Ginjal Buli (Rabu 04/11/2026) \"Chronic parenchymal kidney disease bilateral, Hidronefrosis berat kiri, Cystitis, Hipertrofi prostat berat\"\n- SSH cek PSA (Jumat 06/11/2026)\n\ndr.Yance,Sp.U:\n- Co Urologi untuk  penanganan os dengan BPH berat\n- dr.Surya R/ Visite (-)",
@@ -18573,10 +18570,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Onkologi",
               "color": "pink"
@@ -18739,32 +18732,27 @@
           "bed": "7.1",
           "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFDBE8F7",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Tn. Abdul Hasan",
           "mrNo": "00306550",
-          "gender": "-",
+          "gender": "L",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "04/11/2026",
+          "los": 3,
+          "insurance": "BPJS Kelas 2",
+          "doctor": "dr. Lindayani Halim, Sp.KK\n\nCo drg.Chairul,Sp.BM\n\nCo dr.Eni,Sp.THT\n\nCo dr.Iqbal,Sp.M",
+          "doctorPrimary": "dr. Lindayani Halim, Sp.KK",
+          "diagnosis": "H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
             "pagi": "- Kel: LEPUH BARU TIDAK ADA, NYERI +, DEMAM - \n\ndr.Linda,Sp.KK visite tanggal 05/11/2026:\n- RANITIDINE 2X 1 AMP iv PCT 3X 1 G NA-DIKLOFENAK 1X 50 MG PC  Gabapentin 1x 300 mg malam\n- ASIKLOVIR 5X800 MG/ 800 MG TIAP 5 JAM =>> PASTIKAN OBAT DIMUNUM DAN JANGAN PUTUS!!\n- KOMPRES NACL 3 X 30 MENIT DISELURUH AREA MUKA KANAN + BERISIHKAN LUBANG HIDUNG (DILAKUKAN OLEH PERAWAT TIAP SHIFT) =>> Selanjutnya Jumat 06/11/2026 Sore (-)\n- Hasil serologi \"NR\"\n- CO ulang SPTHT/dr.Eni.Sp.THT dengan  HZ. ofthalmika dengan sinusitis (+) Balasan (-)\n\ndr.Iqbal,Sp.M:\n- CO SPM/dr.Iqbal,Sp.M dengan  HZ ofthalmika (+) \n- Hervis salep 5 x sehari, bise masukkan mate =>> STOK KOSOONG DI APOTEK\n- lyter tiap 2 jam\n- Tobroson tetes 4 x sehari mata kiri =>> STOK KOSOONG DI APOTEK\n- Konfirm dr.Iqbal,Sp.M ADA STOK OBAT KOSONG (+) a/i: obat di ganti : tobroson boleh ganti polydex, kalau hervis ngak ada krn yg ada asiklovir tapi salep kulit\n\ndrg.Chairul,Sp.BM visite tanggal 05/11/2026:\n- Ceftriaxon 3x1 gr",
             "sore": "",
             "malam": ""
           },
-          "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            }
-          ],
+          "tags": [],
           "ews": {
             "score": 0,
             "level": "normal",
@@ -18931,20 +18919,20 @@
           "bed": "8.1",
           "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFD5A6BD",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Ny. Musriyah",
           "mrNo": "00306661",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "05/11/2026",
+          "los": 2,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
+          "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
+          "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
             "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- Hasil Cek Hbsag, Hcv, Hiv (NR) \n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI",
@@ -18952,10 +18940,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Onkologi",
               "color": "pink"
@@ -19247,20 +19231,20 @@
           "bed": "10.1",
           "room": "KAKAP 10 ♀ PEREMPUAN",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFD5A6BD",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Ny. Sunarmi",
           "mrNo": "00284845",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "29/10/2026",
+          "los": 9,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
+          "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "diagnosis": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
           "category": "Penyakit Dalam (Metabolik)",
           "notes": {
             "pagi": "- Kel: Nafsu makan mulai membaik, Nyeri (-)\n- RPD: Riw laparatomy explore cbd (28/3/26) dg dr. Denny\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi: Levofloxacyn 1x500mg IV, Ondan 3x4mg IV, Lansoprazole 1x30mg IV, Mecobalamin 2x500mg IV, As.Folat 1x5mg PO, Curcuma 3x2 tab PO\n- Vip Albumin 2x1 sach PO (TARGET S/D ALB > 3.0)\n- Masuk Inf. Albumin 20% 100 cc (1x1) BOTOL KE-3 (TARGET S/D ALB > 2,5) (+) SELESAI\n- Hasil PA (Tanggal 30/03/2026) \"gall bladder, cholecystectomy : Chronic Cholecystitis\"\n- Hasil Lab Tanggal 31/10/2026 (Bil. Tot: 1.16 Bil. Dir: 0.73 Bil. Ind: 0.43 OT:  26.6 PT: 13.5 GGT: 386 Alkali Fosfatase:789 Tubex:  2 Urinalisa \"Terlampir\")\n- Hasil Lab Tanggal 28/10/2026 (HB:12.5 PLT: 426 WBC: 10.59)\n- Hasil USG Abdomen (Tanggal 02/11/2026) \"Obstruksi bilier extrahepatik ec obstruksi distal CBD ec tumor distal CBD ? DD/ Tumor caput pancreas Cholangio ca Ascites minimal dan effusi pleura bilateral minimal\" =>> CURIGA MASSA, CURIGA KEGANASAN CBD\n- Diit tktp =>> Lapor Kak Diah Gizi (+)\n- Lacak hasil CT Scan Abdomen lama dari RS Kharitas =>> BERKAS SUDAH HILANG, INFO DARI KELUARGA\n- Co ulang dr.Denny,Sp.B-KBD pada pasien Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder) dengan PA: Chronic Cholecystitis (+) Balasan (-)\n- R/ CT Scan Abdomen dengan Kontras ulang Tanggal 17/11/2026 =>> FORM DI STATUS (+), INPUT (-), ABB.20 + THREEWAY (-), PUASA (-)\n- Hasil cek AFP, Ca 19-9, cek Albumin Post BOTOL KE-3 (AFP: 2.26 Ca 19-9:  441.85 Alb: 2.61)\n\nINFUS (-)",
@@ -19268,10 +19252,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Transfusi Darah",
               "color": "red"
@@ -19538,7 +19518,7 @@
           "diagnosis": "CKD on HD, Anemia Renalis",
           "category": "Nefrologi & Urologi",
           "notes": {
-            "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Cek Ur cr Post HD",
+            "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Besok sabtu 7/11/2026 Cek Ur cr Post HD DR",
             "sore": "",
             "malam": ""
           },
@@ -19664,22 +19644,22 @@
         },
         {
           "bed": "2.1",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFD5A6BD",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Ny. Desi Adma Iswandira",
           "mrNo": "00304027",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "06/11/2026",
+          "los": 1,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "diagnosis": "ITP",
           "category": "Hematologi & Onkologi",
           "notes": {
             "pagi": "PB Via Igd Jam 11.28 \nKeluhan : lebam2 di badan, perdarahan gusi, bintik merah di kaki dan tangan\nintruksi Via Igd : inf. nacl 100 cc + inj. metil prednisolon 500mg TF TC 12 unit Mychophen 2x360mg oral rebozet 1x50 mg oral \nCek Lab Via Igd : HB : 13,5 Trombosit : 4     \nLapor pb (+)",
@@ -19687,10 +19667,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Transfusi Darah",
               "color": "red"
@@ -19712,7 +19688,7 @@
         },
         {
           "bed": "2.2",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -19756,7 +19732,7 @@
         },
         {
           "bed": "2.3",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -19804,7 +19780,7 @@
         },
         {
           "bed": "2.4",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -19843,11 +19819,12 @@
         },
         {
           "bed": "3.1",
-          "room": "Kakap 3 (♀)",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Kosong",
           "isEmpty": true,
           "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Bed Kosong",
           "mrNo": "",
           "gender": "-",
@@ -19873,7 +19850,7 @@
         },
         {
           "bed": "3.2",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -19912,7 +19889,7 @@
         },
         {
           "bed": "3.3",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -19960,7 +19937,7 @@
         },
         {
           "bed": "3.4",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -20180,20 +20157,20 @@
           "bed": "5.1",
           "room": "KAKAP 5 ♂ LAKI-LAKI",
           "team": "Tim I",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFDBE8F7",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Tn. Mardiansyah",
           "mrNo": "00290001",
-          "gender": "-",
+          "gender": "L",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "24/10/2026",
+          "los": 14,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+          "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "diagnosis": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: Tidak ada keluhan Tungkai Bawah Bengkak \n\ndr. Decky visite tanggal 06/11/2026:\n- TARGET S/D ALBUMIN = 2,5 => Alb : 1.95 post TF Botol ke-7 =>> TF Albumin ke-8 (+)\n- Jumat 06/11/26 Cek Albumin ulang (+) SSH \n- Cek GDS/ hari : 156\n- Levemir 1x12 & Novorapid 3x8 =>> pasien menolak insulin =>> TTD penolakan (+) \n- Cek UL (Tanggal 29/10/2026) (+) disimrs\n- Jumat 30/10/2026 cek DL, UR/CR, Albumin, Kolesterol (+) Hasil dr Sudah Tau \n- Hasil Usg (+) Konsul dr. Sony terkait hasil USG, Albumin dan Curiga SN \n- Rencana Pulang Siang ini \n- Resep + Resume sudah dengan Pasien",
@@ -20202,8 +20179,8 @@
           },
           "tags": [
             {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
+              "label": "Rencana Pulang",
+              "color": "green"
             },
             {
               "label": "Transfusi Darah",
@@ -20413,20 +20390,20 @@
           "bed": "6.1",
           "room": "KAKAP 6 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFDBE8F7",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Tn. Kaseng",
           "mrNo": "00186499",
-          "gender": "-",
+          "gender": "L",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "01/11/2026",
+          "los": 6,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
+          "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: kaki kiri bengkak dan terasa nyeri demam tadi malam tangan gemetar sejak kemarin\n- Terpasang DC (+)\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD RL 20 tpm \n- Inj. Omz 1x1 IV Inj. Ondansetron 3x4 mg IV Inj. Parasetamol 3x1 gr IV Inj Levofloxacin 1x 500 m,g iv Allopurinol 1x 300m mg po, NOCID 3x2 tab \n- Hasil Cek UL (Tanggal 03/11/2026) di SIMRS (+) \n- Hasil cek Asam Urat dan Elektrolit (Rabu 04/11/2026) (AU: 8.1 Na: 138.17 K:  4.98 Cl: 108.70 Ca Ion: 1.25)\n- BNO (Selasa 3/11/2026) \"Tidak tampak ileus maupun pneumoperitoneum\" =>> dr.Sony sudah lihat\n- Hasil USG Ginjal Buli (Rabu 04/11/2026) \"Chronic parenchymal kidney disease bilateral, Hidronefrosis berat kiri, Cystitis, Hipertrofi prostat berat\"\n- SSH cek PSA (Jumat 06/11/2026)\n\ndr.Yance,Sp.U:\n- Co Urologi untuk  penanganan os dengan BPH berat\n- dr.Surya R/ Visite (-)",
@@ -20434,10 +20411,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Onkologi",
               "color": "pink"
@@ -20600,32 +20573,27 @@
           "bed": "7.1",
           "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFDBE8F7",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Tn. Abdul Hasan",
           "mrNo": "00306550",
-          "gender": "-",
+          "gender": "L",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "04/11/2026",
+          "los": 3,
+          "insurance": "BPJS Kelas 2",
+          "doctor": "dr. Lindayani Halim, Sp.KK\n\nCo drg.Chairul,Sp.BM\n\nCo dr.Eni,Sp.THT\n\nCo dr.Iqbal,Sp.M",
+          "doctorPrimary": "dr. Lindayani Halim, Sp.KK",
+          "diagnosis": "H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
             "pagi": "- Kel: LEPUH BARU TIDAK ADA, NYERI +, DEMAM - \n\ndr.Linda,Sp.KK visite tanggal 05/11/2026:\n- RANITIDINE 2X 1 AMP iv PCT 3X 1 G NA-DIKLOFENAK 1X 50 MG PC  Gabapentin 1x 300 mg malam\n- ASIKLOVIR 5X800 MG/ 800 MG TIAP 5 JAM =>> PASTIKAN OBAT DIMUNUM DAN JANGAN PUTUS!!\n- KOMPRES NACL 3 X 30 MENIT DISELURUH AREA MUKA KANAN + BERISIHKAN LUBANG HIDUNG (DILAKUKAN OLEH PERAWAT TIAP SHIFT) =>> Selanjutnya Jumat 06/11/2026 Sore (-)\n- Hasil serologi \"NR\"\n- CO ulang SPTHT/dr.Eni.Sp.THT dengan  HZ. ofthalmika dengan sinusitis (+) Balasan (-)\n\ndr.Iqbal,Sp.M:\n- CO SPM/dr.Iqbal,Sp.M dengan  HZ ofthalmika (+) \n- Hervis salep 5 x sehari, bise masukkan mate =>> STOK KOSOONG DI APOTEK\n- lyter tiap 2 jam\n- Tobroson tetes 4 x sehari mata kiri =>> STOK KOSOONG DI APOTEK\n- Konfirm dr.Iqbal,Sp.M ADA STOK OBAT KOSONG (+) a/i: obat di ganti : tobroson boleh ganti polydex, kalau hervis ngak ada krn yg ada asiklovir tapi salep kulit\n\ndrg.Chairul,Sp.BM visite tanggal 05/11/2026:\n- Ceftriaxon 3x1 gr",
             "sore": "",
             "malam": ""
           },
-          "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            }
-          ],
+          "tags": [],
           "ews": {
             "score": 0,
             "level": "normal",
@@ -20792,20 +20760,20 @@
           "bed": "8.1",
           "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFD5A6BD",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Ny. Musriyah",
           "mrNo": "00306661",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "05/11/2026",
+          "los": 2,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
+          "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
+          "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
             "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- Hasil Cek Hbsag, Hcv, Hiv (NR) \n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI",
@@ -20813,10 +20781,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Onkologi",
               "color": "pink"
@@ -21108,20 +21072,20 @@
           "bed": "10.1",
           "room": "KAKAP 10 ♀ PEREMPUAN",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFD5A6BD",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Ny. Sunarmi",
           "mrNo": "00284845",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "29/10/2026",
+          "los": 9,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
+          "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "diagnosis": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
           "category": "Penyakit Dalam (Metabolik)",
           "notes": {
             "pagi": "- Kel: Nafsu makan mulai membaik, Nyeri (-)\n- RPD: Riw laparatomy explore cbd (28/3/26) dg dr. Denny\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi: Levofloxacyn 1x500mg IV, Ondan 3x4mg IV, Lansoprazole 1x30mg IV, Mecobalamin 2x500mg IV, As.Folat 1x5mg PO, Curcuma 3x2 tab PO\n- Vip Albumin 2x1 sach PO (TARGET S/D ALB > 3.0)\n- Masuk Inf. Albumin 20% 100 cc (1x1) BOTOL KE-3 (TARGET S/D ALB > 2,5) (+) SELESAI\n- Hasil PA (Tanggal 30/03/2026) \"gall bladder, cholecystectomy : Chronic Cholecystitis\"\n- Hasil Lab Tanggal 31/10/2026 (Bil. Tot: 1.16 Bil. Dir: 0.73 Bil. Ind: 0.43 OT:  26.6 PT: 13.5 GGT: 386 Alkali Fosfatase:789 Tubex:  2 Urinalisa \"Terlampir\")\n- Hasil Lab Tanggal 28/10/2026 (HB:12.5 PLT: 426 WBC: 10.59)\n- Hasil USG Abdomen (Tanggal 02/11/2026) \"Obstruksi bilier extrahepatik ec obstruksi distal CBD ec tumor distal CBD ? DD/ Tumor caput pancreas Cholangio ca Ascites minimal dan effusi pleura bilateral minimal\" =>> CURIGA MASSA, CURIGA KEGANASAN CBD\n- Diit tktp =>> Lapor Kak Diah Gizi (+)\n- Lacak hasil CT Scan Abdomen lama dari RS Kharitas =>> BERKAS SUDAH HILANG, INFO DARI KELUARGA\n- Co ulang dr.Denny,Sp.B-KBD pada pasien Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder) dengan PA: Chronic Cholecystitis (+) Balasan (-)\n- R/ CT Scan Abdomen dengan Kontras ulang Tanggal 17/11/2026 =>> FORM DI STATUS (+), INPUT (-), ABB.20 + THREEWAY (-), PUASA (-)\n- Hasil cek AFP, Ca 19-9, cek Albumin Post BOTOL KE-3 (AFP: 2.26 Ca 19-9:  441.85 Alb: 2.61)\n\nINFUS (-)",
@@ -21129,10 +21093,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Transfusi Darah",
               "color": "red"
@@ -21351,7 +21311,7 @@
           "diagnosis": "CKD on HD, Anemia Renalis",
           "category": "Nefrologi & Urologi",
           "notes": {
-            "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Cek Ur cr Post HD",
+            "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Besok sabtu 7/11/2026 Cek Ur cr Post HD DR",
             "sore": "",
             "malam": ""
           },
@@ -21477,22 +21437,22 @@
         },
         {
           "bed": "2.1",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFD5A6BD",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Ny. Desi Adma Iswandira",
           "mrNo": "00304027",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "06/11/2026",
+          "los": 1,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "diagnosis": "ITP",
           "category": "Hematologi & Onkologi",
           "notes": {
             "pagi": "PB Via Igd Jam 11.28 \nKeluhan : lebam2 di badan, perdarahan gusi, bintik merah di kaki dan tangan\nintruksi Via Igd : inf. nacl 100 cc + inj. metil prednisolon 500mg TF TC 12 unit Mychophen 2x360mg oral rebozet 1x50 mg oral \nCek Lab Via Igd : HB : 13,5 Trombosit : 4     \nLapor pb (+)",
@@ -21500,10 +21460,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Transfusi Darah",
               "color": "red"
@@ -21525,7 +21481,7 @@
         },
         {
           "bed": "2.2",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -21569,7 +21525,7 @@
         },
         {
           "bed": "2.3",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -21617,7 +21573,7 @@
         },
         {
           "bed": "2.4",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 2 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -21656,11 +21612,12 @@
         },
         {
           "bed": "3.1",
-          "room": "Kakap 3 (♀)",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Kosong",
           "isEmpty": true,
           "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Bed Kosong",
           "mrNo": "",
           "gender": "-",
@@ -21686,7 +21643,7 @@
         },
         {
           "bed": "3.2",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -21725,7 +21682,7 @@
         },
         {
           "bed": "3.3",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -21773,7 +21730,7 @@
         },
         {
           "bed": "3.4",
-          "room": "KAKAP 4 ♀ PEREMPUAN",
+          "room": "KAKAP 3 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Terisi",
           "isEmpty": false,
@@ -21993,20 +21950,20 @@
           "bed": "5.1",
           "room": "KAKAP 5 ♂ LAKI-LAKI",
           "team": "Tim I",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFDBE8F7",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Tn. Mardiansyah",
           "mrNo": "00290001",
-          "gender": "-",
+          "gender": "L",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "24/10/2026",
+          "los": 14,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+          "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "diagnosis": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: Tidak ada keluhan Tungkai Bawah Bengkak \n\ndr. Decky visite tanggal 06/11/2026:\n- TARGET S/D ALBUMIN = 2,5 => Alb : 1.95 post TF Botol ke-7 =>> TF Albumin ke-8 (+)\n- Jumat 06/11/26 Cek Albumin ulang (+) SSH \n- Cek GDS/ hari : 156\n- Levemir 1x12 & Novorapid 3x8 =>> pasien menolak insulin =>> TTD penolakan (+) \n- Cek UL (Tanggal 29/10/2026) (+) disimrs\n- Jumat 30/10/2026 cek DL, UR/CR, Albumin, Kolesterol (+) Hasil dr Sudah Tau \n- Hasil Usg (+) Konsul dr. Sony terkait hasil USG, Albumin dan Curiga SN \n- Rencana Pulang Siang ini \n- Resep + Resume sudah dengan Pasien",
@@ -22015,8 +21972,8 @@
           },
           "tags": [
             {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
+              "label": "Rencana Pulang",
+              "color": "green"
             },
             {
               "label": "Transfusi Darah",
@@ -22226,20 +22183,20 @@
           "bed": "6.1",
           "room": "KAKAP 6 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFDBE8F7",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Tn. Kaseng",
           "mrNo": "00186499",
-          "gender": "-",
+          "gender": "L",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "01/11/2026",
+          "los": 6,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
+          "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: kaki kiri bengkak dan terasa nyeri demam tadi malam tangan gemetar sejak kemarin\n- Terpasang DC (+)\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD RL 20 tpm \n- Inj. Omz 1x1 IV Inj. Ondansetron 3x4 mg IV Inj. Parasetamol 3x1 gr IV Inj Levofloxacin 1x 500 m,g iv Allopurinol 1x 300m mg po, NOCID 3x2 tab \n- Hasil Cek UL (Tanggal 03/11/2026) di SIMRS (+) \n- Hasil cek Asam Urat dan Elektrolit (Rabu 04/11/2026) (AU: 8.1 Na: 138.17 K:  4.98 Cl: 108.70 Ca Ion: 1.25)\n- BNO (Selasa 3/11/2026) \"Tidak tampak ileus maupun pneumoperitoneum\" =>> dr.Sony sudah lihat\n- Hasil USG Ginjal Buli (Rabu 04/11/2026) \"Chronic parenchymal kidney disease bilateral, Hidronefrosis berat kiri, Cystitis, Hipertrofi prostat berat\"\n- SSH cek PSA (Jumat 06/11/2026)\n\ndr.Yance,Sp.U:\n- Co Urologi untuk  penanganan os dengan BPH berat\n- dr.Surya R/ Visite (-)",
@@ -22247,10 +22204,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Onkologi",
               "color": "pink"
@@ -22413,32 +22366,27 @@
           "bed": "7.1",
           "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFDBE8F7",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Tn. Abdul Hasan",
           "mrNo": "00306550",
-          "gender": "-",
+          "gender": "L",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "04/11/2026",
+          "los": 3,
+          "insurance": "BPJS Kelas 2",
+          "doctor": "dr. Lindayani Halim, Sp.KK\n\nCo drg.Chairul,Sp.BM\n\nCo dr.Eni,Sp.THT\n\nCo dr.Iqbal,Sp.M",
+          "doctorPrimary": "dr. Lindayani Halim, Sp.KK",
+          "diagnosis": "H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
             "pagi": "- Kel: LEPUH BARU TIDAK ADA, NYERI +, DEMAM - \n\ndr.Linda,Sp.KK visite tanggal 05/11/2026:\n- RANITIDINE 2X 1 AMP iv PCT 3X 1 G NA-DIKLOFENAK 1X 50 MG PC  Gabapentin 1x 300 mg malam\n- ASIKLOVIR 5X800 MG/ 800 MG TIAP 5 JAM =>> PASTIKAN OBAT DIMUNUM DAN JANGAN PUTUS!!\n- KOMPRES NACL 3 X 30 MENIT DISELURUH AREA MUKA KANAN + BERISIHKAN LUBANG HIDUNG (DILAKUKAN OLEH PERAWAT TIAP SHIFT) =>> Selanjutnya Jumat 06/11/2026 Sore (-)\n- Hasil serologi \"NR\"\n- CO ulang SPTHT/dr.Eni.Sp.THT dengan  HZ. ofthalmika dengan sinusitis (+) Balasan (-)\n\ndr.Iqbal,Sp.M:\n- CO SPM/dr.Iqbal,Sp.M dengan  HZ ofthalmika (+) \n- Hervis salep 5 x sehari, bise masukkan mate =>> STOK KOSOONG DI APOTEK\n- lyter tiap 2 jam\n- Tobroson tetes 4 x sehari mata kiri =>> STOK KOSOONG DI APOTEK\n- Konfirm dr.Iqbal,Sp.M ADA STOK OBAT KOSONG (+) a/i: obat di ganti : tobroson boleh ganti polydex, kalau hervis ngak ada krn yg ada asiklovir tapi salep kulit\n\ndrg.Chairul,Sp.BM visite tanggal 05/11/2026:\n- Ceftriaxon 3x1 gr",
             "sore": "",
             "malam": ""
           },
-          "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            }
-          ],
+          "tags": [],
           "ews": {
             "score": 0,
             "level": "normal",
@@ -22605,20 +22553,20 @@
           "bed": "8.1",
           "room": "KAKAP 7 ♂ LAKI-LAKI",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFD5A6BD",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Ny. Musriyah",
           "mrNo": "00306661",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "05/11/2026",
+          "los": 2,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
+          "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
+          "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
           "category": "Penyakit Dalam (Umum)",
           "notes": {
             "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- Hasil Cek Hbsag, Hcv, Hiv (NR) \n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI",
@@ -22626,10 +22574,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Onkologi",
               "color": "pink"
@@ -22921,20 +22865,20 @@
           "bed": "10.1",
           "room": "KAKAP 10 ♀ PEREMPUAN",
           "team": "Tim II",
-          "status": "Pulang Hari Ini",
-          "isEmpty": true,
-          "isDischargedToday": true,
-          "dischargeColor": "FFD5A6BD",
+          "status": "Terisi",
+          "isEmpty": false,
+          "isDischargedToday": false,
+          "dischargeColor": null,
           "name": "Ny. Sunarmi",
           "mrNo": "00284845",
-          "gender": "-",
+          "gender": "P",
           "age": "",
-          "admissionDate": "-",
-          "los": 0,
-          "insurance": "-",
-          "doctor": "-",
-          "doctorPrimary": "-",
-          "diagnosis": "-",
+          "admissionDate": "29/10/2026",
+          "los": 9,
+          "insurance": "BPJS Kelas 3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
+          "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "diagnosis": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
           "category": "Penyakit Dalam (Metabolik)",
           "notes": {
             "pagi": "- Kel: Nafsu makan mulai membaik, Nyeri (-)\n- RPD: Riw laparatomy explore cbd (28/3/26) dg dr. Denny\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi: Levofloxacyn 1x500mg IV, Ondan 3x4mg IV, Lansoprazole 1x30mg IV, Mecobalamin 2x500mg IV, As.Folat 1x5mg PO, Curcuma 3x2 tab PO\n- Vip Albumin 2x1 sach PO (TARGET S/D ALB > 3.0)\n- Masuk Inf. Albumin 20% 100 cc (1x1) BOTOL KE-3 (TARGET S/D ALB > 2,5) (+) SELESAI\n- Hasil PA (Tanggal 30/03/2026) \"gall bladder, cholecystectomy : Chronic Cholecystitis\"\n- Hasil Lab Tanggal 31/10/2026 (Bil. Tot: 1.16 Bil. Dir: 0.73 Bil. Ind: 0.43 OT:  26.6 PT: 13.5 GGT: 386 Alkali Fosfatase:789 Tubex:  2 Urinalisa \"Terlampir\")\n- Hasil Lab Tanggal 28/10/2026 (HB:12.5 PLT: 426 WBC: 10.59)\n- Hasil USG Abdomen (Tanggal 02/11/2026) \"Obstruksi bilier extrahepatik ec obstruksi distal CBD ec tumor distal CBD ? DD/ Tumor caput pancreas Cholangio ca Ascites minimal dan effusi pleura bilateral minimal\" =>> CURIGA MASSA, CURIGA KEGANASAN CBD\n- Diit tktp =>> Lapor Kak Diah Gizi (+)\n- Lacak hasil CT Scan Abdomen lama dari RS Kharitas =>> BERKAS SUDAH HILANG, INFO DARI KELUARGA\n- Co ulang dr.Denny,Sp.B-KBD pada pasien Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder) dengan PA: Chronic Cholecystitis (+) Balasan (-)\n- R/ CT Scan Abdomen dengan Kontras ulang Tanggal 17/11/2026 =>> FORM DI STATUS (+), INPUT (-), ABB.20 + THREEWAY (-), PUASA (-)\n- Hasil cek AFP, Ca 19-9, cek Albumin Post BOTOL KE-3 (AFP: 2.26 Ca 19-9:  441.85 Alb: 2.61)\n\nINFUS (-)",
@@ -22942,10 +22886,6 @@
             "malam": ""
           },
           "tags": [
-            {
-              "label": "Pulang Hari Ini",
-              "color": "emerald"
-            },
             {
               "label": "Transfusi Darah",
               "color": "red"
@@ -23119,28 +23059,29 @@
         "capacityTim2": 20,
         "capacityA": 21,
         "capacityB": 20,
-        "occupied": 28,
-        "empty": 13,
-        "bor": 68.3,
-        "borTim1": 66.7,
-        "borTim2": 60.0,
-        "borA": 66.7,
-        "borB": 60.0,
-        "occTim1": 14,
-        "occTim2": 12,
-        "occA": 14,
-        "occB": 12,
-        "emptyTim1": 7,
-        "emptyTim2": 8,
-        "emptyA": 7,
-        "emptyB": 8,
-        "dischargedToday": 9,
+        "occupied": 33,
+        "empty": 8,
+        "bor": 80.5,
+        "borTim1": 76.2,
+        "borTim2": 80.0,
+        "borA": 76.2,
+        "borB": 80.0,
+        "occTim1": 16,
+        "occTim2": 16,
+        "occA": 16,
+        "occB": 16,
+        "emptyTim1": 5,
+        "emptyTim2": 4,
+        "emptyA": 5,
+        "emptyB": 4,
+        "dischargedToday": 3,
         "tagCounts": {
           "Hemodialisa (HD)": 15,
           "Transfusi Darah": 19,
           "Onkologi": 10,
-          "Pulang Hari Ini": 9,
           "Puasa Pre-Op": 2,
+          "Pulang Hari Ini": 3,
+          "Rencana Pulang": 1,
           "Bedah / Operasi": 3
         },
         "criticalEWS": 0,
@@ -23153,12 +23094,12 @@
           "malam": []
         },
         "pasienAwal": {
-          "pagi": 26,
-          "sore": 28,
-          "malam": 28
+          "pagi": 32,
+          "sore": 33,
+          "malam": 33
         },
         "pasienBaru": {
-          "pagi": 2,
+          "pagi": 1,
           "sore": 0,
           "malam": 0
         },
@@ -23178,14 +23119,14 @@
           "malam": 0
         },
         "total": {
-          "pagi": 28,
-          "sore": 28,
-          "malam": 28
+          "pagi": 33,
+          "sore": 33,
+          "malam": 33
         },
         "bedKosong": {
-          "pagi": 9,
-          "sore": 9,
-          "malam": 9
+          "pagi": 4,
+          "sore": 4,
+          "malam": 4
         },
         "bedKosongText": {
           "pagi": "",
@@ -23194,21 +23135,21 @@
         },
         "bedKosongDetail": {
           "pagi": {
-            "total": 9,
-            "pria": 5,
-            "wanita": 3,
+            "total": 4,
+            "pria": 1,
+            "wanita": 2,
             "isolasi": 1
           },
           "sore": {
-            "total": 9,
-            "pria": 5,
-            "wanita": 3,
+            "total": 4,
+            "pria": 1,
+            "wanita": 2,
             "isolasi": 1
           },
           "malam": {
-            "total": 9,
-            "pria": 5,
-            "wanita": 3,
+            "total": 4,
+            "pria": 1,
+            "wanita": 2,
             "isolasi": 1
           }
         },
@@ -23283,7 +23224,7 @@
         "diagnosis": "CKD on HD, Anemia Renalis",
         "category": "Nefrologi & Urologi",
         "notes": {
-          "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Cek Ur cr Post HD",
+          "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Besok sabtu 7/11/2026 Cek Ur cr Post HD DR",
           "sore": "",
           "malam": ""
         },
@@ -23409,22 +23350,22 @@
       },
       {
         "bed": "2.1",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFD5A6BD",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Ny. Desi Adma Iswandira",
         "mrNo": "00304027",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "06/11/2026",
+        "los": 1,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+        "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+        "diagnosis": "ITP",
         "category": "Hematologi & Onkologi",
         "notes": {
           "pagi": "PB Via Igd Jam 11.28 \nKeluhan : lebam2 di badan, perdarahan gusi, bintik merah di kaki dan tangan\nintruksi Via Igd : inf. nacl 100 cc + inj. metil prednisolon 500mg TF TC 12 unit Mychophen 2x360mg oral rebozet 1x50 mg oral \nCek Lab Via Igd : HB : 13,5 Trombosit : 4     \nLapor pb (+)",
@@ -23432,10 +23373,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Transfusi Darah",
             "color": "red"
@@ -23457,7 +23394,7 @@
       },
       {
         "bed": "2.2",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -23501,7 +23438,7 @@
       },
       {
         "bed": "2.3",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -23549,7 +23486,7 @@
       },
       {
         "bed": "2.4",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -23588,11 +23525,12 @@
       },
       {
         "bed": "3.1",
-        "room": "Kakap 3 (♀)",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Kosong",
         "isEmpty": true,
         "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Bed Kosong",
         "mrNo": "",
         "gender": "-",
@@ -23618,7 +23556,7 @@
       },
       {
         "bed": "3.2",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -23657,7 +23595,7 @@
       },
       {
         "bed": "3.3",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -23705,7 +23643,7 @@
       },
       {
         "bed": "3.4",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -23925,20 +23863,20 @@
         "bed": "5.1",
         "room": "KAKAP 5 ♂ LAKI-LAKI",
         "team": "Tim I",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFDBE8F7",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Tn. Mardiansyah",
         "mrNo": "00290001",
-        "gender": "-",
+        "gender": "L",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "24/10/2026",
+        "los": 14,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+        "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+        "diagnosis": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: Tidak ada keluhan Tungkai Bawah Bengkak \n\ndr. Decky visite tanggal 06/11/2026:\n- TARGET S/D ALBUMIN = 2,5 => Alb : 1.95 post TF Botol ke-7 =>> TF Albumin ke-8 (+)\n- Jumat 06/11/26 Cek Albumin ulang (+) SSH \n- Cek GDS/ hari : 156\n- Levemir 1x12 & Novorapid 3x8 =>> pasien menolak insulin =>> TTD penolakan (+) \n- Cek UL (Tanggal 29/10/2026) (+) disimrs\n- Jumat 30/10/2026 cek DL, UR/CR, Albumin, Kolesterol (+) Hasil dr Sudah Tau \n- Hasil Usg (+) Konsul dr. Sony terkait hasil USG, Albumin dan Curiga SN \n- Rencana Pulang Siang ini \n- Resep + Resume sudah dengan Pasien",
@@ -23947,8 +23885,8 @@
         },
         "tags": [
           {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
+            "label": "Rencana Pulang",
+            "color": "green"
           },
           {
             "label": "Transfusi Darah",
@@ -24108,20 +24046,20 @@
         "bed": "6.1",
         "room": "KAKAP 6 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFDBE8F7",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Tn. Kaseng",
         "mrNo": "00186499",
-        "gender": "-",
+        "gender": "L",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "01/11/2026",
+        "los": 6,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
+        "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+        "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: kaki kiri bengkak dan terasa nyeri demam tadi malam tangan gemetar sejak kemarin\n- Terpasang DC (+)\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD RL 20 tpm \n- Inj. Omz 1x1 IV Inj. Ondansetron 3x4 mg IV Inj. Parasetamol 3x1 gr IV Inj Levofloxacin 1x 500 m,g iv Allopurinol 1x 300m mg po, NOCID 3x2 tab \n- Hasil Cek UL (Tanggal 03/11/2026) di SIMRS (+) \n- Hasil cek Asam Urat dan Elektrolit (Rabu 04/11/2026) (AU: 8.1 Na: 138.17 K:  4.98 Cl: 108.70 Ca Ion: 1.25)\n- BNO (Selasa 3/11/2026) \"Tidak tampak ileus maupun pneumoperitoneum\" =>> dr.Sony sudah lihat\n- Hasil USG Ginjal Buli (Rabu 04/11/2026) \"Chronic parenchymal kidney disease bilateral, Hidronefrosis berat kiri, Cystitis, Hipertrofi prostat berat\"\n- SSH cek PSA (Jumat 06/11/2026)\n\ndr.Yance,Sp.U:\n- Co Urologi untuk  penanganan os dengan BPH berat\n- dr.Surya R/ Visite (-)",
@@ -24129,10 +24067,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Onkologi",
             "color": "pink"
@@ -24295,32 +24229,27 @@
         "bed": "7.1",
         "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFDBE8F7",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Tn. Abdul Hasan",
         "mrNo": "00306550",
-        "gender": "-",
+        "gender": "L",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "04/11/2026",
+        "los": 3,
+        "insurance": "BPJS Kelas 2",
+        "doctor": "dr. Lindayani Halim, Sp.KK\n\nCo drg.Chairul,Sp.BM\n\nCo dr.Eni,Sp.THT\n\nCo dr.Iqbal,Sp.M",
+        "doctorPrimary": "dr. Lindayani Halim, Sp.KK",
+        "diagnosis": "H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
           "pagi": "- Kel: LEPUH BARU TIDAK ADA, NYERI +, DEMAM - \n\ndr.Linda,Sp.KK visite tanggal 05/11/2026:\n- RANITIDINE 2X 1 AMP iv PCT 3X 1 G NA-DIKLOFENAK 1X 50 MG PC  Gabapentin 1x 300 mg malam\n- ASIKLOVIR 5X800 MG/ 800 MG TIAP 5 JAM =>> PASTIKAN OBAT DIMUNUM DAN JANGAN PUTUS!!\n- KOMPRES NACL 3 X 30 MENIT DISELURUH AREA MUKA KANAN + BERISIHKAN LUBANG HIDUNG (DILAKUKAN OLEH PERAWAT TIAP SHIFT) =>> Selanjutnya Jumat 06/11/2026 Sore (-)\n- Hasil serologi \"NR\"\n- CO ulang SPTHT/dr.Eni.Sp.THT dengan  HZ. ofthalmika dengan sinusitis (+) Balasan (-)\n\ndr.Iqbal,Sp.M:\n- CO SPM/dr.Iqbal,Sp.M dengan  HZ ofthalmika (+) \n- Hervis salep 5 x sehari, bise masukkan mate =>> STOK KOSOONG DI APOTEK\n- lyter tiap 2 jam\n- Tobroson tetes 4 x sehari mata kiri =>> STOK KOSOONG DI APOTEK\n- Konfirm dr.Iqbal,Sp.M ADA STOK OBAT KOSONG (+) a/i: obat di ganti : tobroson boleh ganti polydex, kalau hervis ngak ada krn yg ada asiklovir tapi salep kulit\n\ndrg.Chairul,Sp.BM visite tanggal 05/11/2026:\n- Ceftriaxon 3x1 gr",
           "sore": "",
           "malam": ""
         },
-        "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          }
-        ],
+        "tags": [],
         "ews": {
           "score": 0,
           "level": "normal",
@@ -24487,20 +24416,20 @@
         "bed": "8.1",
         "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFD5A6BD",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Ny. Musriyah",
         "mrNo": "00306661",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "05/11/2026",
+        "los": 2,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
+        "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
+        "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
           "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- Hasil Cek Hbsag, Hcv, Hiv (NR) \n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI",
@@ -24508,10 +24437,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Onkologi",
             "color": "pink"
@@ -24803,20 +24728,20 @@
         "bed": "10.1",
         "room": "KAKAP 10 ♀ PEREMPUAN",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFD5A6BD",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Ny. Sunarmi",
         "mrNo": "00284845",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "29/10/2026",
+        "los": 9,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
+        "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+        "diagnosis": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
         "category": "Penyakit Dalam (Metabolik)",
         "notes": {
           "pagi": "- Kel: Nafsu makan mulai membaik, Nyeri (-)\n- RPD: Riw laparatomy explore cbd (28/3/26) dg dr. Denny\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi: Levofloxacyn 1x500mg IV, Ondan 3x4mg IV, Lansoprazole 1x30mg IV, Mecobalamin 2x500mg IV, As.Folat 1x5mg PO, Curcuma 3x2 tab PO\n- Vip Albumin 2x1 sach PO (TARGET S/D ALB > 3.0)\n- Masuk Inf. Albumin 20% 100 cc (1x1) BOTOL KE-3 (TARGET S/D ALB > 2,5) (+) SELESAI\n- Hasil PA (Tanggal 30/03/2026) \"gall bladder, cholecystectomy : Chronic Cholecystitis\"\n- Hasil Lab Tanggal 31/10/2026 (Bil. Tot: 1.16 Bil. Dir: 0.73 Bil. Ind: 0.43 OT:  26.6 PT: 13.5 GGT: 386 Alkali Fosfatase:789 Tubex:  2 Urinalisa \"Terlampir\")\n- Hasil Lab Tanggal 28/10/2026 (HB:12.5 PLT: 426 WBC: 10.59)\n- Hasil USG Abdomen (Tanggal 02/11/2026) \"Obstruksi bilier extrahepatik ec obstruksi distal CBD ec tumor distal CBD ? DD/ Tumor caput pancreas Cholangio ca Ascites minimal dan effusi pleura bilateral minimal\" =>> CURIGA MASSA, CURIGA KEGANASAN CBD\n- Diit tktp =>> Lapor Kak Diah Gizi (+)\n- Lacak hasil CT Scan Abdomen lama dari RS Kharitas =>> BERKAS SUDAH HILANG, INFO DARI KELUARGA\n- Co ulang dr.Denny,Sp.B-KBD pada pasien Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder) dengan PA: Chronic Cholecystitis (+) Balasan (-)\n- R/ CT Scan Abdomen dengan Kontras ulang Tanggal 17/11/2026 =>> FORM DI STATUS (+), INPUT (-), ABB.20 + THREEWAY (-), PUASA (-)\n- Hasil cek AFP, Ca 19-9, cek Albumin Post BOTOL KE-3 (AFP: 2.26 Ca 19-9:  441.85 Alb: 2.61)\n\nINFUS (-)",
@@ -24824,10 +24749,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Transfusi Darah",
             "color": "red"
@@ -25094,7 +25015,7 @@
         "diagnosis": "CKD on HD, Anemia Renalis",
         "category": "Nefrologi & Urologi",
         "notes": {
-          "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Cek Ur cr Post HD",
+          "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Besok sabtu 7/11/2026 Cek Ur cr Post HD DR",
           "sore": "",
           "malam": ""
         },
@@ -25220,22 +25141,22 @@
       },
       {
         "bed": "2.1",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFD5A6BD",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Ny. Desi Adma Iswandira",
         "mrNo": "00304027",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "06/11/2026",
+        "los": 1,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+        "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+        "diagnosis": "ITP",
         "category": "Hematologi & Onkologi",
         "notes": {
           "pagi": "PB Via Igd Jam 11.28 \nKeluhan : lebam2 di badan, perdarahan gusi, bintik merah di kaki dan tangan\nintruksi Via Igd : inf. nacl 100 cc + inj. metil prednisolon 500mg TF TC 12 unit Mychophen 2x360mg oral rebozet 1x50 mg oral \nCek Lab Via Igd : HB : 13,5 Trombosit : 4     \nLapor pb (+)",
@@ -25243,10 +25164,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Transfusi Darah",
             "color": "red"
@@ -25268,7 +25185,7 @@
       },
       {
         "bed": "2.2",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -25312,7 +25229,7 @@
       },
       {
         "bed": "2.3",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -25360,7 +25277,7 @@
       },
       {
         "bed": "2.4",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -25399,11 +25316,12 @@
       },
       {
         "bed": "3.1",
-        "room": "Kakap 3 (♀)",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Kosong",
         "isEmpty": true,
         "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Bed Kosong",
         "mrNo": "",
         "gender": "-",
@@ -25429,7 +25347,7 @@
       },
       {
         "bed": "3.2",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -25468,7 +25386,7 @@
       },
       {
         "bed": "3.3",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -25516,7 +25434,7 @@
       },
       {
         "bed": "3.4",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -25736,20 +25654,20 @@
         "bed": "5.1",
         "room": "KAKAP 5 ♂ LAKI-LAKI",
         "team": "Tim I",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFDBE8F7",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Tn. Mardiansyah",
         "mrNo": "00290001",
-        "gender": "-",
+        "gender": "L",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "24/10/2026",
+        "los": 14,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+        "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+        "diagnosis": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: Tidak ada keluhan Tungkai Bawah Bengkak \n\ndr. Decky visite tanggal 06/11/2026:\n- TARGET S/D ALBUMIN = 2,5 => Alb : 1.95 post TF Botol ke-7 =>> TF Albumin ke-8 (+)\n- Jumat 06/11/26 Cek Albumin ulang (+) SSH \n- Cek GDS/ hari : 156\n- Levemir 1x12 & Novorapid 3x8 =>> pasien menolak insulin =>> TTD penolakan (+) \n- Cek UL (Tanggal 29/10/2026) (+) disimrs\n- Jumat 30/10/2026 cek DL, UR/CR, Albumin, Kolesterol (+) Hasil dr Sudah Tau \n- Hasil Usg (+) Konsul dr. Sony terkait hasil USG, Albumin dan Curiga SN \n- Rencana Pulang Siang ini \n- Resep + Resume sudah dengan Pasien",
@@ -25758,8 +25676,8 @@
         },
         "tags": [
           {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
+            "label": "Rencana Pulang",
+            "color": "green"
           },
           {
             "label": "Transfusi Darah",
@@ -25969,20 +25887,20 @@
         "bed": "6.1",
         "room": "KAKAP 6 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFDBE8F7",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Tn. Kaseng",
         "mrNo": "00186499",
-        "gender": "-",
+        "gender": "L",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "01/11/2026",
+        "los": 6,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
+        "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+        "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: kaki kiri bengkak dan terasa nyeri demam tadi malam tangan gemetar sejak kemarin\n- Terpasang DC (+)\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD RL 20 tpm \n- Inj. Omz 1x1 IV Inj. Ondansetron 3x4 mg IV Inj. Parasetamol 3x1 gr IV Inj Levofloxacin 1x 500 m,g iv Allopurinol 1x 300m mg po, NOCID 3x2 tab \n- Hasil Cek UL (Tanggal 03/11/2026) di SIMRS (+) \n- Hasil cek Asam Urat dan Elektrolit (Rabu 04/11/2026) (AU: 8.1 Na: 138.17 K:  4.98 Cl: 108.70 Ca Ion: 1.25)\n- BNO (Selasa 3/11/2026) \"Tidak tampak ileus maupun pneumoperitoneum\" =>> dr.Sony sudah lihat\n- Hasil USG Ginjal Buli (Rabu 04/11/2026) \"Chronic parenchymal kidney disease bilateral, Hidronefrosis berat kiri, Cystitis, Hipertrofi prostat berat\"\n- SSH cek PSA (Jumat 06/11/2026)\n\ndr.Yance,Sp.U:\n- Co Urologi untuk  penanganan os dengan BPH berat\n- dr.Surya R/ Visite (-)",
@@ -25990,10 +25908,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Onkologi",
             "color": "pink"
@@ -26156,32 +26070,27 @@
         "bed": "7.1",
         "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFDBE8F7",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Tn. Abdul Hasan",
         "mrNo": "00306550",
-        "gender": "-",
+        "gender": "L",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "04/11/2026",
+        "los": 3,
+        "insurance": "BPJS Kelas 2",
+        "doctor": "dr. Lindayani Halim, Sp.KK\n\nCo drg.Chairul,Sp.BM\n\nCo dr.Eni,Sp.THT\n\nCo dr.Iqbal,Sp.M",
+        "doctorPrimary": "dr. Lindayani Halim, Sp.KK",
+        "diagnosis": "H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
           "pagi": "- Kel: LEPUH BARU TIDAK ADA, NYERI +, DEMAM - \n\ndr.Linda,Sp.KK visite tanggal 05/11/2026:\n- RANITIDINE 2X 1 AMP iv PCT 3X 1 G NA-DIKLOFENAK 1X 50 MG PC  Gabapentin 1x 300 mg malam\n- ASIKLOVIR 5X800 MG/ 800 MG TIAP 5 JAM =>> PASTIKAN OBAT DIMUNUM DAN JANGAN PUTUS!!\n- KOMPRES NACL 3 X 30 MENIT DISELURUH AREA MUKA KANAN + BERISIHKAN LUBANG HIDUNG (DILAKUKAN OLEH PERAWAT TIAP SHIFT) =>> Selanjutnya Jumat 06/11/2026 Sore (-)\n- Hasil serologi \"NR\"\n- CO ulang SPTHT/dr.Eni.Sp.THT dengan  HZ. ofthalmika dengan sinusitis (+) Balasan (-)\n\ndr.Iqbal,Sp.M:\n- CO SPM/dr.Iqbal,Sp.M dengan  HZ ofthalmika (+) \n- Hervis salep 5 x sehari, bise masukkan mate =>> STOK KOSOONG DI APOTEK\n- lyter tiap 2 jam\n- Tobroson tetes 4 x sehari mata kiri =>> STOK KOSOONG DI APOTEK\n- Konfirm dr.Iqbal,Sp.M ADA STOK OBAT KOSONG (+) a/i: obat di ganti : tobroson boleh ganti polydex, kalau hervis ngak ada krn yg ada asiklovir tapi salep kulit\n\ndrg.Chairul,Sp.BM visite tanggal 05/11/2026:\n- Ceftriaxon 3x1 gr",
           "sore": "",
           "malam": ""
         },
-        "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          }
-        ],
+        "tags": [],
         "ews": {
           "score": 0,
           "level": "normal",
@@ -26348,20 +26257,20 @@
         "bed": "8.1",
         "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFD5A6BD",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Ny. Musriyah",
         "mrNo": "00306661",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "05/11/2026",
+        "los": 2,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
+        "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
+        "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
           "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- Hasil Cek Hbsag, Hcv, Hiv (NR) \n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI",
@@ -26369,10 +26278,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Onkologi",
             "color": "pink"
@@ -26664,20 +26569,20 @@
         "bed": "10.1",
         "room": "KAKAP 10 ♀ PEREMPUAN",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFD5A6BD",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Ny. Sunarmi",
         "mrNo": "00284845",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "29/10/2026",
+        "los": 9,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
+        "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+        "diagnosis": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
         "category": "Penyakit Dalam (Metabolik)",
         "notes": {
           "pagi": "- Kel: Nafsu makan mulai membaik, Nyeri (-)\n- RPD: Riw laparatomy explore cbd (28/3/26) dg dr. Denny\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi: Levofloxacyn 1x500mg IV, Ondan 3x4mg IV, Lansoprazole 1x30mg IV, Mecobalamin 2x500mg IV, As.Folat 1x5mg PO, Curcuma 3x2 tab PO\n- Vip Albumin 2x1 sach PO (TARGET S/D ALB > 3.0)\n- Masuk Inf. Albumin 20% 100 cc (1x1) BOTOL KE-3 (TARGET S/D ALB > 2,5) (+) SELESAI\n- Hasil PA (Tanggal 30/03/2026) \"gall bladder, cholecystectomy : Chronic Cholecystitis\"\n- Hasil Lab Tanggal 31/10/2026 (Bil. Tot: 1.16 Bil. Dir: 0.73 Bil. Ind: 0.43 OT:  26.6 PT: 13.5 GGT: 386 Alkali Fosfatase:789 Tubex:  2 Urinalisa \"Terlampir\")\n- Hasil Lab Tanggal 28/10/2026 (HB:12.5 PLT: 426 WBC: 10.59)\n- Hasil USG Abdomen (Tanggal 02/11/2026) \"Obstruksi bilier extrahepatik ec obstruksi distal CBD ec tumor distal CBD ? DD/ Tumor caput pancreas Cholangio ca Ascites minimal dan effusi pleura bilateral minimal\" =>> CURIGA MASSA, CURIGA KEGANASAN CBD\n- Diit tktp =>> Lapor Kak Diah Gizi (+)\n- Lacak hasil CT Scan Abdomen lama dari RS Kharitas =>> BERKAS SUDAH HILANG, INFO DARI KELUARGA\n- Co ulang dr.Denny,Sp.B-KBD pada pasien Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder) dengan PA: Chronic Cholecystitis (+) Balasan (-)\n- R/ CT Scan Abdomen dengan Kontras ulang Tanggal 17/11/2026 =>> FORM DI STATUS (+), INPUT (-), ABB.20 + THREEWAY (-), PUASA (-)\n- Hasil cek AFP, Ca 19-9, cek Albumin Post BOTOL KE-3 (AFP: 2.26 Ca 19-9:  441.85 Alb: 2.61)\n\nINFUS (-)",
@@ -26685,10 +26590,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Transfusi Darah",
             "color": "red"
@@ -26907,7 +26808,7 @@
         "diagnosis": "CKD on HD, Anemia Renalis",
         "category": "Nefrologi & Urologi",
         "notes": {
-          "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Cek Ur cr Post HD",
+          "pagi": "- Keluhan : Lemah \n- HB 7.1 g/dL = R/TF PRC 2 Kolf =>> Kolf ke-1 (+), Sisa 1 diUTD\n- Riwayat HD  selasa jumat (akses cimino) \n- HD Terakhir Selasa\n- Rencana HD + TF PRC kolf ke-2 Jumat 6/11/26 \n- Sedang HD \n\ndr.Darmawan Visit  6/11/2026 \n- Besok sabtu 7/11/2026 Cek Ur cr Post HD DR",
           "sore": "",
           "malam": ""
         },
@@ -27033,22 +26934,22 @@
       },
       {
         "bed": "2.1",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFD5A6BD",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Ny. Desi Adma Iswandira",
         "mrNo": "00304027",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "06/11/2026",
+        "los": 1,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+        "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+        "diagnosis": "ITP",
         "category": "Hematologi & Onkologi",
         "notes": {
           "pagi": "PB Via Igd Jam 11.28 \nKeluhan : lebam2 di badan, perdarahan gusi, bintik merah di kaki dan tangan\nintruksi Via Igd : inf. nacl 100 cc + inj. metil prednisolon 500mg TF TC 12 unit Mychophen 2x360mg oral rebozet 1x50 mg oral \nCek Lab Via Igd : HB : 13,5 Trombosit : 4     \nLapor pb (+)",
@@ -27056,10 +26957,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Transfusi Darah",
             "color": "red"
@@ -27081,7 +26978,7 @@
       },
       {
         "bed": "2.2",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -27125,7 +27022,7 @@
       },
       {
         "bed": "2.3",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -27173,7 +27070,7 @@
       },
       {
         "bed": "2.4",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 2 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -27212,11 +27109,12 @@
       },
       {
         "bed": "3.1",
-        "room": "Kakap 3 (♀)",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Kosong",
         "isEmpty": true,
         "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Bed Kosong",
         "mrNo": "",
         "gender": "-",
@@ -27242,7 +27140,7 @@
       },
       {
         "bed": "3.2",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -27281,7 +27179,7 @@
       },
       {
         "bed": "3.3",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -27329,7 +27227,7 @@
       },
       {
         "bed": "3.4",
-        "room": "KAKAP 4 ♀ PEREMPUAN",
+        "room": "KAKAP 3 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Terisi",
         "isEmpty": false,
@@ -27549,20 +27447,20 @@
         "bed": "5.1",
         "room": "KAKAP 5 ♂ LAKI-LAKI",
         "team": "Tim I",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFDBE8F7",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Tn. Mardiansyah",
         "mrNo": "00290001",
-        "gender": "-",
+        "gender": "L",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "24/10/2026",
+        "los": 14,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+        "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+        "diagnosis": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: Tidak ada keluhan Tungkai Bawah Bengkak \n\ndr. Decky visite tanggal 06/11/2026:\n- TARGET S/D ALBUMIN = 2,5 => Alb : 1.95 post TF Botol ke-7 =>> TF Albumin ke-8 (+)\n- Jumat 06/11/26 Cek Albumin ulang (+) SSH \n- Cek GDS/ hari : 156\n- Levemir 1x12 & Novorapid 3x8 =>> pasien menolak insulin =>> TTD penolakan (+) \n- Cek UL (Tanggal 29/10/2026) (+) disimrs\n- Jumat 30/10/2026 cek DL, UR/CR, Albumin, Kolesterol (+) Hasil dr Sudah Tau \n- Hasil Usg (+) Konsul dr. Sony terkait hasil USG, Albumin dan Curiga SN \n- Rencana Pulang Siang ini \n- Resep + Resume sudah dengan Pasien",
@@ -27571,8 +27469,8 @@
         },
         "tags": [
           {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
+            "label": "Rencana Pulang",
+            "color": "green"
           },
           {
             "label": "Transfusi Darah",
@@ -27782,20 +27680,20 @@
         "bed": "6.1",
         "room": "KAKAP 6 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFDBE8F7",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Tn. Kaseng",
         "mrNo": "00186499",
-        "gender": "-",
+        "gender": "L",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "01/11/2026",
+        "los": 6,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
+        "doctorPrimary": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+        "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: kaki kiri bengkak dan terasa nyeri demam tadi malam tangan gemetar sejak kemarin\n- Terpasang DC (+)\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- IVFD RL 20 tpm \n- Inj. Omz 1x1 IV Inj. Ondansetron 3x4 mg IV Inj. Parasetamol 3x1 gr IV Inj Levofloxacin 1x 500 m,g iv Allopurinol 1x 300m mg po, NOCID 3x2 tab \n- Hasil Cek UL (Tanggal 03/11/2026) di SIMRS (+) \n- Hasil cek Asam Urat dan Elektrolit (Rabu 04/11/2026) (AU: 8.1 Na: 138.17 K:  4.98 Cl: 108.70 Ca Ion: 1.25)\n- BNO (Selasa 3/11/2026) \"Tidak tampak ileus maupun pneumoperitoneum\" =>> dr.Sony sudah lihat\n- Hasil USG Ginjal Buli (Rabu 04/11/2026) \"Chronic parenchymal kidney disease bilateral, Hidronefrosis berat kiri, Cystitis, Hipertrofi prostat berat\"\n- SSH cek PSA (Jumat 06/11/2026)\n\ndr.Yance,Sp.U:\n- Co Urologi untuk  penanganan os dengan BPH berat\n- dr.Surya R/ Visite (-)",
@@ -27803,10 +27701,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Onkologi",
             "color": "pink"
@@ -27969,32 +27863,27 @@
         "bed": "7.1",
         "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFDBE8F7",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Tn. Abdul Hasan",
         "mrNo": "00306550",
-        "gender": "-",
+        "gender": "L",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "04/11/2026",
+        "los": 3,
+        "insurance": "BPJS Kelas 2",
+        "doctor": "dr. Lindayani Halim, Sp.KK\n\nCo drg.Chairul,Sp.BM\n\nCo dr.Eni,Sp.THT\n\nCo dr.Iqbal,Sp.M",
+        "doctorPrimary": "dr. Lindayani Halim, Sp.KK",
+        "diagnosis": "H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
           "pagi": "- Kel: LEPUH BARU TIDAK ADA, NYERI +, DEMAM - \n\ndr.Linda,Sp.KK visite tanggal 05/11/2026:\n- RANITIDINE 2X 1 AMP iv PCT 3X 1 G NA-DIKLOFENAK 1X 50 MG PC  Gabapentin 1x 300 mg malam\n- ASIKLOVIR 5X800 MG/ 800 MG TIAP 5 JAM =>> PASTIKAN OBAT DIMUNUM DAN JANGAN PUTUS!!\n- KOMPRES NACL 3 X 30 MENIT DISELURUH AREA MUKA KANAN + BERISIHKAN LUBANG HIDUNG (DILAKUKAN OLEH PERAWAT TIAP SHIFT) =>> Selanjutnya Jumat 06/11/2026 Sore (-)\n- Hasil serologi \"NR\"\n- CO ulang SPTHT/dr.Eni.Sp.THT dengan  HZ. ofthalmika dengan sinusitis (+) Balasan (-)\n\ndr.Iqbal,Sp.M:\n- CO SPM/dr.Iqbal,Sp.M dengan  HZ ofthalmika (+) \n- Hervis salep 5 x sehari, bise masukkan mate =>> STOK KOSOONG DI APOTEK\n- lyter tiap 2 jam\n- Tobroson tetes 4 x sehari mata kiri =>> STOK KOSOONG DI APOTEK\n- Konfirm dr.Iqbal,Sp.M ADA STOK OBAT KOSONG (+) a/i: obat di ganti : tobroson boleh ganti polydex, kalau hervis ngak ada krn yg ada asiklovir tapi salep kulit\n\ndrg.Chairul,Sp.BM visite tanggal 05/11/2026:\n- Ceftriaxon 3x1 gr",
           "sore": "",
           "malam": ""
         },
-        "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          }
-        ],
+        "tags": [],
         "ews": {
           "score": 0,
           "level": "normal",
@@ -28161,20 +28050,20 @@
         "bed": "8.1",
         "room": "KAKAP 7 ♂ LAKI-LAKI",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFD5A6BD",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Ny. Musriyah",
         "mrNo": "00306661",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "05/11/2026",
+        "los": 2,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
+        "doctorPrimary": "dr. Apriani, M.Ked(PD), Sp.PD",
+        "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
         "category": "Penyakit Dalam (Umum)",
         "notes": {
           "pagi": "- Kel: nyeri perut sebelah kiri menjalar ke punggung muntah berkurang\n\ndr.Apriani,Sp.PD via IGD:\n- IVFD asering 20 tpm\n- inj ketorolac 3x1, inj ranitidin 2x1amp, Drip cifrofloksasin 2x200mg st, Pct 3x500mg kp, Curcuma 3x1, UDCA 3x1, KSR 1x1\n- Hasil Cek Hbsag, Hcv, Hiv (NR) \n- R/ USG ABDOMEN =>> FORM DI STATUS (+), INPUT (-), JADWAL (-), SEDANG ANTRI",
@@ -28182,10 +28071,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Onkologi",
             "color": "pink"
@@ -28477,20 +28362,20 @@
         "bed": "10.1",
         "room": "KAKAP 10 ♀ PEREMPUAN",
         "team": "Tim II",
-        "status": "Pulang Hari Ini",
-        "isEmpty": true,
-        "isDischargedToday": true,
-        "dischargeColor": "FFD5A6BD",
+        "status": "Terisi",
+        "isEmpty": false,
+        "isDischargedToday": false,
+        "dischargeColor": null,
         "name": "Ny. Sunarmi",
         "mrNo": "00284845",
-        "gender": "-",
+        "gender": "P",
         "age": "",
-        "admissionDate": "-",
-        "los": 0,
-        "insurance": "-",
-        "doctor": "-",
-        "doctorPrimary": "-",
-        "diagnosis": "-",
+        "admissionDate": "29/10/2026",
+        "los": 9,
+        "insurance": "BPJS Kelas 3",
+        "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
+        "doctorPrimary": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+        "diagnosis": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
         "category": "Penyakit Dalam (Metabolik)",
         "notes": {
           "pagi": "- Kel: Nafsu makan mulai membaik, Nyeri (-)\n- RPD: Riw laparatomy explore cbd (28/3/26) dg dr. Denny\n\ndr.Ivan,Sp.PD-KHOM visite tanggal 04/11/2026:\n- IVFD BFluid : Asering (1:2 kolf/hari)\n- Terapi: Levofloxacyn 1x500mg IV, Ondan 3x4mg IV, Lansoprazole 1x30mg IV, Mecobalamin 2x500mg IV, As.Folat 1x5mg PO, Curcuma 3x2 tab PO\n- Vip Albumin 2x1 sach PO (TARGET S/D ALB > 3.0)\n- Masuk Inf. Albumin 20% 100 cc (1x1) BOTOL KE-3 (TARGET S/D ALB > 2,5) (+) SELESAI\n- Hasil PA (Tanggal 30/03/2026) \"gall bladder, cholecystectomy : Chronic Cholecystitis\"\n- Hasil Lab Tanggal 31/10/2026 (Bil. Tot: 1.16 Bil. Dir: 0.73 Bil. Ind: 0.43 OT:  26.6 PT: 13.5 GGT: 386 Alkali Fosfatase:789 Tubex:  2 Urinalisa \"Terlampir\")\n- Hasil Lab Tanggal 28/10/2026 (HB:12.5 PLT: 426 WBC: 10.59)\n- Hasil USG Abdomen (Tanggal 02/11/2026) \"Obstruksi bilier extrahepatik ec obstruksi distal CBD ec tumor distal CBD ? DD/ Tumor caput pancreas Cholangio ca Ascites minimal dan effusi pleura bilateral minimal\" =>> CURIGA MASSA, CURIGA KEGANASAN CBD\n- Diit tktp =>> Lapor Kak Diah Gizi (+)\n- Lacak hasil CT Scan Abdomen lama dari RS Kharitas =>> BERKAS SUDAH HILANG, INFO DARI KELUARGA\n- Co ulang dr.Denny,Sp.B-KBD pada pasien Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder) dengan PA: Chronic Cholecystitis (+) Balasan (-)\n- R/ CT Scan Abdomen dengan Kontras ulang Tanggal 17/11/2026 =>> FORM DI STATUS (+), INPUT (-), ABB.20 + THREEWAY (-), PUASA (-)\n- Hasil cek AFP, Ca 19-9, cek Albumin Post BOTOL KE-3 (AFP: 2.26 Ca 19-9:  441.85 Alb: 2.61)\n\nINFUS (-)",
@@ -28498,10 +28383,6 @@
           "malam": ""
         },
         "tags": [
-          {
-            "label": "Pulang Hari Ini",
-            "color": "emerald"
-          },
           {
             "label": "Transfusi Darah",
             "color": "red"
@@ -28675,28 +28556,29 @@
       "capacityTim2": 20,
       "capacityA": 21,
       "capacityB": 20,
-      "occupied": 28,
-      "empty": 13,
-      "bor": 68.3,
-      "borTim1": 66.7,
-      "borTim2": 60.0,
-      "borA": 66.7,
-      "borB": 60.0,
-      "occTim1": 14,
-      "occTim2": 12,
-      "occA": 14,
-      "occB": 12,
-      "emptyTim1": 7,
-      "emptyTim2": 8,
-      "emptyA": 7,
-      "emptyB": 8,
-      "dischargedToday": 9,
+      "occupied": 33,
+      "empty": 8,
+      "bor": 80.5,
+      "borTim1": 76.2,
+      "borTim2": 80.0,
+      "borA": 76.2,
+      "borB": 80.0,
+      "occTim1": 16,
+      "occTim2": 16,
+      "occA": 16,
+      "occB": 16,
+      "emptyTim1": 5,
+      "emptyTim2": 4,
+      "emptyA": 5,
+      "emptyB": 4,
+      "dischargedToday": 3,
       "tagCounts": {
         "Hemodialisa (HD)": 15,
         "Transfusi Darah": 19,
         "Onkologi": 10,
-        "Pulang Hari Ini": 9,
         "Puasa Pre-Op": 2,
+        "Pulang Hari Ini": 3,
+        "Rencana Pulang": 1,
         "Bedah / Operasi": 3
       },
       "criticalEWS": 0,
@@ -28709,12 +28591,12 @@
         "malam": []
       },
       "pasienAwal": {
-        "pagi": 26,
-        "sore": 28,
-        "malam": 28
+        "pagi": 32,
+        "sore": 33,
+        "malam": 33
       },
       "pasienBaru": {
-        "pagi": 2,
+        "pagi": 1,
         "sore": 0,
         "malam": 0
       },
@@ -28734,14 +28616,14 @@
         "malam": 0
       },
       "total": {
-        "pagi": 28,
-        "sore": 28,
-        "malam": 28
+        "pagi": 33,
+        "sore": 33,
+        "malam": 33
       },
       "bedKosong": {
-        "pagi": 9,
-        "sore": 9,
-        "malam": 9
+        "pagi": 4,
+        "sore": 4,
+        "malam": 4
       },
       "bedKosongText": {
         "pagi": "",
@@ -28750,21 +28632,21 @@
       },
       "bedKosongDetail": {
         "pagi": {
-          "total": 9,
-          "pria": 5,
-          "wanita": 3,
+          "total": 4,
+          "pria": 1,
+          "wanita": 2,
           "isolasi": 1
         },
         "sore": {
-          "total": 9,
-          "pria": 5,
-          "wanita": 3,
+          "total": 4,
+          "pria": 1,
+          "wanita": 2,
           "isolasi": 1
         },
         "malam": {
-          "total": 9,
-          "pria": 5,
-          "wanita": 3,
+          "total": 4,
+          "pria": 1,
+          "wanita": 2,
           "isolasi": 1
         }
       },
@@ -28787,10 +28669,10 @@
   },
   "clinicalPathways": {
     "summary": {
-      "totalEpisodes": 53,
-      "overallRawScore": 95.7,
+      "totalEpisodes": 54,
+      "overallRawScore": 95.8,
       "overallAdjScore": 99.8,
-      "overallBundlePct": 90.6,
+      "overallBundlePct": 90.7,
       "totalVariances": 24
     },
     "screening": {
@@ -28802,13 +28684,13 @@
           "2026-11-05",
           "2026-11-06"
         ],
-        "totalObservations": 101,
-        "observationsIncludedCount": 7,
-        "observationsExcludedCount": 94,
-        "totalUniquePatients": 44,
-        "uniqueIncludedCount": 3,
-        "uniqueExcludedCount": 41,
-        "uniqueCoveragePct": 6.8,
+        "totalObservations": 107,
+        "observationsIncludedCount": 8,
+        "observationsExcludedCount": 99,
+        "totalUniquePatients": 48,
+        "uniqueIncludedCount": 4,
+        "uniqueExcludedCount": 44,
+        "uniqueCoveragePct": 8.3,
         "perCpSummary": {
           "CP-MAMMAE-001": {
             "templateId": "CP-MAMMAE-001",
@@ -28823,9 +28705,9 @@
             "templateId": "CP-DMCKD-002",
             "nama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
             "kodeIcd10": "E11.22",
-            "uniqueCount": 3,
+            "uniqueCount": 4,
             "pctOfIncluded": 100.0,
-            "pctOfTotal": 6.8,
+            "pctOfTotal": 8.3,
             "patients": [
               {
                 "mrNo": "00301588",
@@ -28860,6 +28742,16 @@
                   "2026-11-06"
                 ],
                 "diagnosis": "//CKD on HD //HHS dd KAD //Hipertensi // //Anemia renal //Efusi pleura //Pleuritis TB on OAT // Hepatitis B kronis",
+                "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
+              },
+              {
+                "mrNo": "00290001",
+                "name": "Tn. Mardiansyah",
+                "bed": "5.1",
+                "datesSeen": [
+                  "2026-11-06"
+                ],
+                "diagnosis": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
                 "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
               }
             ]
@@ -28897,7 +28789,7 @@
             "category": "NON_CP_DIAGNOSA_LAIN",
             "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
             "color": "#dc2626",
-            "count": 19,
+            "count": 21,
             "patients": [
               {
                 "mrNo": "00302040",
@@ -29010,9 +28902,10 @@
                 "name": "Tn. Abdul Hasan",
                 "bed": "7.1",
                 "datesSeen": [
-                  "2026-11-04"
+                  "2026-11-04",
+                  "2026-11-06"
                 ],
-                "diagnosis": "Herpes zoster dd/ selulitis ec infksi oral? sinusitis"
+                "diagnosis": "Herpes zoster dd/ selulitis ec infksi oral? sinusitis | H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS"
               },
               {
                 "mrNo": "00306752",
@@ -29039,7 +28932,8 @@
                 "name": "Ny. Musriyah",
                 "bed": "8.1",
                 "datesSeen": [
-                  "2026-11-05"
+                  "2026-11-05",
+                  "2026-11-06"
                 ],
                 "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia"
               },
@@ -29062,6 +28956,15 @@
                   "2026-11-06"
                 ],
                 "diagnosis": "hemateesis melena ec pscba \nSUSP TUMOR GANAS OVARIUM + TUMOR LIEN"
+              },
+              {
+                "mrNo": "00304027",
+                "name": "Ny. Desi Adma Iswandira",
+                "bed": "2.1",
+                "datesSeen": [
+                  "2026-11-06"
+                ],
+                "diagnosis": "ITP"
               },
               {
                 "mrNo": "RM-K-2.4",
@@ -29089,15 +28992,24 @@
                   "2026-11-06"
                 ],
                 "diagnosis": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia"
+              },
+              {
+                "mrNo": "00284845",
+                "name": "Ny. Sunarmi",
+                "bed": "10.1",
+                "datesSeen": [
+                  "2026-11-06"
+                ],
+                "diagnosis": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)"
               }
             ],
-            "pct": 46.3
+            "pct": 47.7
           },
           "CKD_NON_DM": {
             "category": "CKD_NON_DM",
             "label": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
             "color": "#ef4444",
-            "count": 18,
+            "count": 19,
             "patients": [
               {
                 "mrNo": "00301205",
@@ -29286,9 +29198,18 @@
                   "2026-11-06"
                 ],
                 "diagnosis": "Anemia in CKD\nHCV dan HBSag Reaktif"
+              },
+              {
+                "mrNo": "00186499",
+                "name": "Tn. Kaseng",
+                "bed": "6.1",
+                "datesSeen": [
+                  "2026-11-06"
+                ],
+                "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK"
               }
             ],
-            "pct": 43.9
+            "pct": 43.2
           },
           "STROKE_SEQUELE_LAMA": {
             "category": "STROKE_SEQUELE_LAMA",
@@ -29309,7 +29230,7 @@
                 "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik"
               }
             ],
-            "pct": 2.4
+            "pct": 2.3
           },
           "DM_NON_CKD": {
             "category": "DM_NON_CKD",
@@ -29348,7 +29269,7 @@
                 "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID"
               }
             ],
-            "pct": 7.3
+            "pct": 6.8
           }
         },
         "dailyBreakdown": [
@@ -29375,10 +29296,10 @@
           },
           {
             "date": "2026-11-06",
-            "total": 26,
-            "included": 2,
-            "excluded": 24,
-            "coveragePct": 7.7
+            "total": 32,
+            "included": 3,
+            "excluded": 29,
+            "coveragePct": 9.4
           }
         ],
         "uniquePatientsList": [
@@ -30138,20 +30059,22 @@
             "doctor": "dr. Lindayani Halim, Sp.KK\n\ndr. chairul",
             "admissionDate": "04/11/2026",
             "datesSeen": [
-              "2026-11-04"
+              "2026-11-04",
+              "2026-11-06"
             ],
-            "daysInWard": 1,
+            "daysInWard": 2,
             "diagnoses": [
-              "Herpes zoster dd/ selulitis ec infksi oral? sinusitis"
+              "Herpes zoster dd/ selulitis ec infksi oral? sinusitis",
+              "H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS"
             ],
             "status": "EXCLUDED",
             "cpId": null,
             "cpNama": null,
             "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-            "losLatest": 1,
+            "losLatest": 3,
             "gender": "L",
             "age": "",
-            "diagnosisSpreadsheet": "Herpes zoster dd/ selulitis ec infksi oral? sinusitis",
+            "diagnosisSpreadsheet": "Herpes zoster dd/ selulitis ec infksi oral? sinusitis | H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS",
             "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
             "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
             "exclusionCategoryColor": "#dc2626"
@@ -30438,9 +30361,10 @@
             "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
             "admissionDate": "05/11/2026",
             "datesSeen": [
-              "2026-11-05"
+              "2026-11-05",
+              "2026-11-06"
             ],
-            "daysInWard": 1,
+            "daysInWard": 2,
             "diagnoses": [
               "abdominal pain susp \nkholelithiasis hipokalemia"
             ],
@@ -30448,7 +30372,7 @@
             "cpId": null,
             "cpNama": null,
             "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-            "losLatest": 1,
+            "losLatest": 2,
             "gender": "P",
             "age": "",
             "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
@@ -30506,6 +30430,32 @@
             "gender": "P",
             "age": "41 th",
             "diagnosisSpreadsheet": "hemateesis melena ec pscba \nSUSP TUMOR GANAS OVARIUM + TUMOR LIEN",
+            "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+            "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+            "exclusionCategoryColor": "#dc2626"
+          },
+          {
+            "key": "00304027",
+            "mrNo": "00304027",
+            "name": "Ny. Desi Adma Iswandira",
+            "bedLatest": "2.1",
+            "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+            "admissionDate": "06/11/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "ITP"
+            ],
+            "status": "EXCLUDED",
+            "cpId": null,
+            "cpNama": null,
+            "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+            "losLatest": 1,
+            "gender": "P",
+            "age": "",
+            "diagnosisSpreadsheet": "ITP",
             "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
             "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
             "exclusionCategoryColor": "#dc2626"
@@ -30580,6 +30530,81 @@
             "gender": "P",
             "age": "",
             "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
+            "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+            "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+            "exclusionCategoryColor": "#dc2626"
+          },
+          {
+            "key": "00290001",
+            "mrNo": "00290001",
+            "name": "Tn. Mardiansyah",
+            "bedLatest": "5.1",
+            "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+            "admissionDate": "24/10/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
+            ],
+            "status": "INCLUDED",
+            "cpId": "CP-DMCKD-002",
+            "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+            "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
+            "losLatest": 14,
+            "gender": "L",
+            "age": "",
+            "diagnosisSpreadsheet": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
+          },
+          {
+            "key": "00186499",
+            "mrNo": "00186499",
+            "name": "Tn. Kaseng",
+            "bedLatest": "6.1",
+            "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
+            "admissionDate": "01/11/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK"
+            ],
+            "status": "EXCLUDED",
+            "cpId": null,
+            "cpNama": null,
+            "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+            "losLatest": 6,
+            "gender": "L",
+            "age": "",
+            "diagnosisSpreadsheet": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+            "exclusionCategory": "CKD_NON_DM",
+            "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+            "exclusionCategoryColor": "#ef4444"
+          },
+          {
+            "key": "00284845",
+            "mrNo": "00284845",
+            "name": "Ny. Sunarmi",
+            "bedLatest": "10.1",
+            "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
+            "admissionDate": "29/10/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)"
+            ],
+            "status": "EXCLUDED",
+            "cpId": null,
+            "cpNama": null,
+            "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+            "losLatest": 9,
+            "gender": "P",
+            "age": "",
+            "diagnosisSpreadsheet": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
             "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
             "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
             "exclusionCategoryColor": "#dc2626"
@@ -30661,6 +30686,29 @@
             "gender": "P",
             "age": "",
             "diagnosisSpreadsheet": "//CKD on HD //HHS dd KAD //Hipertensi // //Anemia renal //Efusi pleura //Pleuritis TB on OAT // Hepatitis B kronis"
+          },
+          {
+            "key": "00290001",
+            "mrNo": "00290001",
+            "name": "Tn. Mardiansyah",
+            "bedLatest": "5.1",
+            "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+            "admissionDate": "24/10/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
+            ],
+            "status": "INCLUDED",
+            "cpId": "CP-DMCKD-002",
+            "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+            "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
+            "losLatest": 14,
+            "gender": "L",
+            "age": "",
+            "diagnosisSpreadsheet": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
           }
         ],
         "excludedPatients": [
@@ -31369,20 +31417,22 @@
             "doctor": "dr. Lindayani Halim, Sp.KK\n\ndr. chairul",
             "admissionDate": "04/11/2026",
             "datesSeen": [
-              "2026-11-04"
+              "2026-11-04",
+              "2026-11-06"
             ],
-            "daysInWard": 1,
+            "daysInWard": 2,
             "diagnoses": [
-              "Herpes zoster dd/ selulitis ec infksi oral? sinusitis"
+              "Herpes zoster dd/ selulitis ec infksi oral? sinusitis",
+              "H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS"
             ],
             "status": "EXCLUDED",
             "cpId": null,
             "cpNama": null,
             "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-            "losLatest": 1,
+            "losLatest": 3,
             "gender": "L",
             "age": "",
-            "diagnosisSpreadsheet": "Herpes zoster dd/ selulitis ec infksi oral? sinusitis",
+            "diagnosisSpreadsheet": "Herpes zoster dd/ selulitis ec infksi oral? sinusitis | H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS",
             "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
             "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
             "exclusionCategoryColor": "#dc2626"
@@ -31644,9 +31694,10 @@
             "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
             "admissionDate": "05/11/2026",
             "datesSeen": [
-              "2026-11-05"
+              "2026-11-05",
+              "2026-11-06"
             ],
-            "daysInWard": 1,
+            "daysInWard": 2,
             "diagnoses": [
               "abdominal pain susp \nkholelithiasis hipokalemia"
             ],
@@ -31654,7 +31705,7 @@
             "cpId": null,
             "cpNama": null,
             "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-            "losLatest": 1,
+            "losLatest": 2,
             "gender": "P",
             "age": "",
             "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
@@ -31712,6 +31763,32 @@
             "gender": "P",
             "age": "41 th",
             "diagnosisSpreadsheet": "hemateesis melena ec pscba \nSUSP TUMOR GANAS OVARIUM + TUMOR LIEN",
+            "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+            "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+            "exclusionCategoryColor": "#dc2626"
+          },
+          {
+            "key": "00304027",
+            "mrNo": "00304027",
+            "name": "Ny. Desi Adma Iswandira",
+            "bedLatest": "2.1",
+            "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+            "admissionDate": "06/11/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "ITP"
+            ],
+            "status": "EXCLUDED",
+            "cpId": null,
+            "cpNama": null,
+            "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+            "losLatest": 1,
+            "gender": "P",
+            "age": "",
+            "diagnosisSpreadsheet": "ITP",
             "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
             "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
             "exclusionCategoryColor": "#dc2626"
@@ -31789,17 +31866,69 @@
             "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
             "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
             "exclusionCategoryColor": "#dc2626"
+          },
+          {
+            "key": "00186499",
+            "mrNo": "00186499",
+            "name": "Tn. Kaseng",
+            "bedLatest": "6.1",
+            "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
+            "admissionDate": "01/11/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK"
+            ],
+            "status": "EXCLUDED",
+            "cpId": null,
+            "cpNama": null,
+            "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+            "losLatest": 6,
+            "gender": "L",
+            "age": "",
+            "diagnosisSpreadsheet": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+            "exclusionCategory": "CKD_NON_DM",
+            "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+            "exclusionCategoryColor": "#ef4444"
+          },
+          {
+            "key": "00284845",
+            "mrNo": "00284845",
+            "name": "Ny. Sunarmi",
+            "bedLatest": "10.1",
+            "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
+            "admissionDate": "29/10/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)"
+            ],
+            "status": "EXCLUDED",
+            "cpId": null,
+            "cpNama": null,
+            "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+            "losLatest": 9,
+            "gender": "P",
+            "age": "",
+            "diagnosisSpreadsheet": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
+            "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+            "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+            "exclusionCategoryColor": "#dc2626"
           }
         ]
       },
       "today": {
-        "totalInpatients": 26,
-        "denominatorIncluded": 2,
-        "totalExcluded": 24,
-        "wardCoveragePct": 7.7,
+        "totalInpatients": 32,
+        "denominatorIncluded": 3,
+        "totalExcluded": 29,
+        "wardCoveragePct": 9.4,
         "perCpDenominator": {
           "CP-MAMMAE-001": 0,
-          "CP-DMCKD-002": 2,
+          "CP-DMCKD-002": 3,
           "CP-HIV-003": 0,
           "CP-STROKE-NON-004": 0,
           "CP-STROKE-PERD-005": 0
@@ -31815,6 +31944,22 @@
             "gender": "P",
             "age": "42 th",
             "admissionDate": "02/11/2026",
+            "date": "2026-11-06",
+            "cpId": "CP-DMCKD-002",
+            "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+            "status": "INCLUDED",
+            "inclusionReason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
+          },
+          {
+            "bed": "5.1",
+            "name": "Tn. Mardiansyah",
+            "mrNo": "00290001",
+            "diagnosis": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
+            "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+            "los": 14,
+            "gender": "L",
+            "age": "",
+            "admissionDate": "24/10/2026",
             "date": "2026-11-06",
             "cpId": "CP-DMCKD-002",
             "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
@@ -31880,6 +32025,20 @@
             "date": "2026-11-06",
             "status": "EXCLUDED",
             "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          },
+          {
+            "bed": "2.1",
+            "name": "Ny. Desi Adma Iswandira",
+            "mrNo": "00304027",
+            "diagnosis": "ITP",
+            "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+            "los": 1,
+            "gender": "P",
+            "age": "",
+            "admissionDate": "06/11/2026",
+            "date": "2026-11-06",
+            "status": "EXCLUDED",
+            "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
           },
           {
             "bed": "2.2",
@@ -32022,6 +32181,20 @@
             "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
           },
           {
+            "bed": "6.1",
+            "name": "Tn. Kaseng",
+            "mrNo": "00186499",
+            "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+            "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
+            "los": 6,
+            "gender": "L",
+            "age": "",
+            "admissionDate": "01/11/2026",
+            "date": "2026-11-06",
+            "status": "EXCLUDED",
+            "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          },
+          {
             "bed": "6.2",
             "name": "Tn. Muhammad Yani",
             "mrNo": "00305974",
@@ -32062,6 +32235,20 @@
             "date": "2026-11-06",
             "status": "EXCLUDED",
             "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          },
+          {
+            "bed": "7.1",
+            "name": "Tn. Abdul Hasan",
+            "mrNo": "00306550",
+            "diagnosis": "H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS",
+            "doctor": "dr. Lindayani Halim, Sp.KK\n\nCo drg.Chairul,Sp.BM\n\nCo dr.Eni,Sp.THT\n\nCo dr.Iqbal,Sp.M",
+            "los": 3,
+            "gender": "L",
+            "age": "",
+            "admissionDate": "04/11/2026",
+            "date": "2026-11-06",
+            "status": "EXCLUDED",
+            "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
           },
           {
             "bed": "7.2",
@@ -32106,6 +32293,20 @@
             "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
           },
           {
+            "bed": "8.1",
+            "name": "Ny. Musriyah",
+            "mrNo": "00306661",
+            "diagnosis": "abdominal pain susp \nkholelithiasis hipokalemia",
+            "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
+            "los": 2,
+            "gender": "P",
+            "age": "",
+            "admissionDate": "05/11/2026",
+            "date": "2026-11-06",
+            "status": "EXCLUDED",
+            "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+          },
+          {
             "bed": "8.2",
             "name": "Ny. Nuraini",
             "mrNo": "00306418",
@@ -32132,6 +32333,20 @@
             "date": "2026-11-06",
             "status": "EXCLUDED",
             "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          },
+          {
+            "bed": "10.1",
+            "name": "Ny. Sunarmi",
+            "mrNo": "00284845",
+            "diagnosis": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
+            "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
+            "los": 9,
+            "gender": "P",
+            "age": "",
+            "admissionDate": "29/10/2026",
+            "date": "2026-11-06",
+            "status": "EXCLUDED",
+            "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
           },
           {
             "bed": "10.2",
@@ -32178,12 +32393,12 @@
         ]
       },
       "historical": {
-        "totalRecords": 101,
-        "uniqueIncludedCount": 3,
-        "totalExcludedRecords": 94,
+        "totalRecords": 107,
+        "uniqueIncludedCount": 4,
+        "totalExcludedRecords": 99,
         "perCpDenominator": {
           "CP-MAMMAE-001": 0,
-          "CP-DMCKD-002": 3,
+          "CP-DMCKD-002": 4,
           "CP-HIV-003": 0,
           "CP-STROKE-NON-004": 0,
           "CP-STROKE-PERD-005": 0
@@ -32264,6 +32479,29 @@
             "gender": "P",
             "age": "",
             "diagnosisSpreadsheet": "//CKD on HD //HHS dd KAD //Hipertensi // //Anemia renal //Efusi pleura //Pleuritis TB on OAT // Hepatitis B kronis"
+          },
+          {
+            "key": "00290001",
+            "mrNo": "00290001",
+            "name": "Tn. Mardiansyah",
+            "bedLatest": "5.1",
+            "doctor": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+            "admissionDate": "24/10/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
+            ],
+            "status": "INCLUDED",
+            "cpId": "CP-DMCKD-002",
+            "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+            "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
+            "losLatest": 14,
+            "gender": "L",
+            "age": "",
+            "diagnosisSpreadsheet": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis"
           }
         ],
         "sampleExcluded": [
@@ -32972,20 +33210,22 @@
             "doctor": "dr. Lindayani Halim, Sp.KK\n\ndr. chairul",
             "admissionDate": "04/11/2026",
             "datesSeen": [
-              "2026-11-04"
+              "2026-11-04",
+              "2026-11-06"
             ],
-            "daysInWard": 1,
+            "daysInWard": 2,
             "diagnoses": [
-              "Herpes zoster dd/ selulitis ec infksi oral? sinusitis"
+              "Herpes zoster dd/ selulitis ec infksi oral? sinusitis",
+              "H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS"
             ],
             "status": "EXCLUDED",
             "cpId": null,
             "cpNama": null,
             "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-            "losLatest": 1,
+            "losLatest": 3,
             "gender": "L",
             "age": "",
-            "diagnosisSpreadsheet": "Herpes zoster dd/ selulitis ec infksi oral? sinusitis",
+            "diagnosisSpreadsheet": "Herpes zoster dd/ selulitis ec infksi oral? sinusitis | H. ZOSTER OFTHALMIKA/HZO DD/ HZO DENGAN SELULITIS HZO DENGAN SINUSITIS",
             "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
             "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
             "exclusionCategoryColor": "#dc2626"
@@ -33247,9 +33487,10 @@
             "doctor": "APRIANI, DR, \nM.KED (PD), SP.PD",
             "admissionDate": "05/11/2026",
             "datesSeen": [
-              "2026-11-05"
+              "2026-11-05",
+              "2026-11-06"
             ],
-            "daysInWard": 1,
+            "daysInWard": 2,
             "diagnoses": [
               "abdominal pain susp \nkholelithiasis hipokalemia"
             ],
@@ -33257,7 +33498,7 @@
             "cpId": null,
             "cpNama": null,
             "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-            "losLatest": 1,
+            "losLatest": 2,
             "gender": "P",
             "age": "",
             "diagnosisSpreadsheet": "abdominal pain susp \nkholelithiasis hipokalemia",
@@ -33315,6 +33556,32 @@
             "gender": "P",
             "age": "41 th",
             "diagnosisSpreadsheet": "hemateesis melena ec pscba \nSUSP TUMOR GANAS OVARIUM + TUMOR LIEN",
+            "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+            "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+            "exclusionCategoryColor": "#dc2626"
+          },
+          {
+            "key": "00304027",
+            "mrNo": "00304027",
+            "name": "Ny. Desi Adma Iswandira",
+            "bedLatest": "2.1",
+            "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+            "admissionDate": "06/11/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "ITP"
+            ],
+            "status": "EXCLUDED",
+            "cpId": null,
+            "cpNama": null,
+            "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+            "losLatest": 1,
+            "gender": "P",
+            "age": "",
+            "diagnosisSpreadsheet": "ITP",
             "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
             "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
             "exclusionCategoryColor": "#dc2626"
@@ -33389,6 +33656,58 @@
             "gender": "P",
             "age": "",
             "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
+            "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+            "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+            "exclusionCategoryColor": "#dc2626"
+          },
+          {
+            "key": "00186499",
+            "mrNo": "00186499",
+            "name": "Tn. Kaseng",
+            "bedLatest": "6.1",
+            "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
+            "admissionDate": "01/11/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK"
+            ],
+            "status": "EXCLUDED",
+            "cpId": null,
+            "cpNama": null,
+            "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+            "losLatest": 6,
+            "gender": "L",
+            "age": "",
+            "diagnosisSpreadsheet": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+            "exclusionCategory": "CKD_NON_DM",
+            "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+            "exclusionCategoryColor": "#ef4444"
+          },
+          {
+            "key": "00284845",
+            "mrNo": "00284845",
+            "name": "Ny. Sunarmi",
+            "bedLatest": "10.1",
+            "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Denny,Sp.B-KBD",
+            "admissionDate": "29/10/2026",
+            "datesSeen": [
+              "2026-11-06"
+            ],
+            "daysInWard": 1,
+            "diagnoses": [
+              "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)"
+            ],
+            "status": "EXCLUDED",
+            "cpId": null,
+            "cpNama": null,
+            "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+            "losLatest": 9,
+            "gender": "P",
+            "age": "",
+            "diagnosisSpreadsheet": "Hipoalbumin, General Weakness, Post Laparatomy (Op Gallbladder)",
             "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
             "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
             "exclusionCategoryColor": "#dc2626"
@@ -36461,13 +36780,13 @@
         "nama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
         "ksm": "Penyakit Dalam (Nefrologi & Endokrin)",
         "losTarget": 7,
-        "avgRealLos": 6.6,
-        "totalEpisodes": 13,
-        "realInpatientActive": 2,
-        "realInpatientHistorical": 3,
+        "avgRealLos": 7.1,
+        "totalEpisodes": 14,
+        "realInpatientActive": 3,
+        "realInpatientHistorical": 4,
         "rawAvg": 99.6,
         "adjAvg": 99.9,
-        "bundlePassedPct": 92.3,
+        "bundlePassedPct": 92.9,
         "mutuCategory": "HIJAU",
         "episodes": [
           {
@@ -37289,6 +37608,303 @@
               },
               "deviations": [],
               "summaryText": "Sesuai CP pada seluruh 6 aspek pelayanan (LOS, Diagnostik, Terapi, Keperawatan, Gizi, Discharge)"
+            }
+          },
+          {
+            "episodeId": "EP-REAL-5.1-20261106",
+            "mrNo": "00290001",
+            "namaPasien": "Tn. Mardiansyah",
+            "gender": "L",
+            "usia": "",
+            "ruangRawat": "Ruang Kakap (5.1)",
+            "dpjp": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+            "templateId": "CP-DMCKD-002",
+            "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+            "caseProfile": "PASIEN_RIIL_BANGSAL",
+            "statusEnrollment": "AKTIF",
+            "alasanKeluar": null,
+            "hariTerakhirCp": 7,
+            "targetLos": 7,
+            "realLos": 14,
+            "tglMasuk": "24/10/2026",
+            "tglKeluar": null,
+            "executions": {
+              "DM-01_d1": "TERLAKSANA",
+              "DM-02_d1": "TERLAKSANA",
+              "DM-02_d2": "TERLAKSANA",
+              "DM-02_d3": "TERLAKSANA",
+              "DM-02_d4": "TERLAKSANA",
+              "DM-02_d5": "TERLAKSANA",
+              "DM-02_d6": "TERLAKSANA",
+              "DM-02_d7": "TERLAKSANA",
+              "DM-03_d1": "TERLAKSANA",
+              "DM-03_d2": "TERLAKSANA",
+              "DM-03_d3": "TERLAKSANA",
+              "DM-03_d4": "TERLAKSANA",
+              "DM-03_d5": "TERLAKSANA",
+              "DM-03_d6": "TERLAKSANA",
+              "DM-03_d7": "TERLAKSANA",
+              "DM-04_d1": "TERLAKSANA",
+              "DM-04_d2": "TERLAKSANA",
+              "DM-04_d3": "TERLAKSANA",
+              "DM-04_d4": "TERLAKSANA",
+              "DM-04_d5": "TERLAKSANA",
+              "DM-04_d6": "TERLAKSANA",
+              "DM-04_d7": "TERLAKSANA",
+              "DM-05_d1": "TERLAKSANA",
+              "DM-05_d2": "TERLAKSANA",
+              "DM-05_d3": "TERLAKSANA",
+              "DM-05_d4": "TERLAKSANA",
+              "DM-05_d5": "TERLAKSANA",
+              "DM-05_d6": "TERLAKSANA",
+              "DM-05_d7": "TERLAKSANA",
+              "DM-06_d1": "TERLAKSANA",
+              "DM-06_d2": "TERLAKSANA",
+              "DM-06_d3": "TERLAKSANA",
+              "DM-06_d4": "TERLAKSANA",
+              "DM-06_d5": "TERLAKSANA",
+              "DM-06_d6": "TERLAKSANA",
+              "DM-06_d7": "TERLAKSANA",
+              "DM-07_d1": "TERLAKSANA",
+              "DM-07_d4": "TERLAKSANA",
+              "DM-07_d7": "TERLAKSANA",
+              "DM-08_d1": "TERLAKSANA",
+              "DM-08_d2": "TERLAKSANA",
+              "DM-08_d3": "TERLAKSANA",
+              "DM-09_d1": "TERLAKSANA",
+              "DM-10_d1": "TERLAKSANA",
+              "DM-11_d1": "TERLAKSANA",
+              "DM-12_d1": "TERLAKSANA",
+              "DM-12_d2": "TERLAKSANA",
+              "DM-13_d4": "TERLAKSANA",
+              "DM-13_d5": "TERLAKSANA",
+              "DM-14_d1": "TERLAKSANA",
+              "DM-15_d1": "TERLAKSANA",
+              "DM-15_d2": "TERLAKSANA",
+              "DM-15_d3": "TERLAKSANA",
+              "DM-15_d4": "TERLAKSANA",
+              "DM-15_d5": "TERLAKSANA",
+              "DM-15_d6": "TERLAKSANA",
+              "DM-15_d7": "TERLAKSANA",
+              "DM-16_d1": "TERLAKSANA",
+              "DM-16_d2": "TERLAKSANA",
+              "DM-16_d3": "TERLAKSANA",
+              "DM-16_d4": "TERLAKSANA",
+              "DM-16_d5": "TERLAKSANA",
+              "DM-16_d6": "TERLAKSANA",
+              "DM-16_d7": "TERLAKSANA",
+              "DM-17_d2": "TERLAKSANA",
+              "DM-17_d3": "TERLAKSANA",
+              "DM-17_d4": "TERLAKSANA",
+              "DM-18_d5": "TERLAKSANA",
+              "DM-18_d6": "TERLAKSANA",
+              "DM-18_d7": "TERLAKSANA",
+              "DM-19_d7": "TERLAKSANA",
+              "DM-20_d7": "TERLAKSANA"
+            },
+            "variances": [],
+            "isRealPatient": true,
+            "denominatorStatus": "INCLUDED",
+            "inclusionReason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
+            "diagnosisSpreadsheet": "DM tipe 2 Hipertensi grade 2 AKI on CKD Hipoalbumin 1.74 Hipokalemia 3.09 bronkitis",
+            "compliance": {
+              "totalWajibScheduled": 72,
+              "totalTerlaksana": 72,
+              "totalNaJustified": 0,
+              "totalTidakTerlaksana": 0,
+              "rawScore": 100.0,
+              "adjScore": 100.0,
+              "criticalBundlePassed": true,
+              "criticalItemsFailed": [],
+              "mutuCategory": "HIJAU",
+              "ppaSummary": {
+                "DPJP": {
+                  "terlaksana": 35,
+                  "wajib": 35,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "PERAWAT": {
+                  "terlaksana": 31,
+                  "wajib": 31,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "AHLI_GIZI": {
+                  "terlaksana": 5,
+                  "wajib": 5,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "APOTEKER": {
+                  "terlaksana": 1,
+                  "wajib": 1,
+                  "na": 0,
+                  "compliancePct": 100.0
+                }
+              },
+              "domainSummary": {
+                "MED": {
+                  "terlaksana": 8,
+                  "wajib": 8,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "KEP": {
+                  "terlaksana": 21,
+                  "wajib": 21,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "PEN": {
+                  "terlaksana": 15,
+                  "wajib": 15,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "GIZ": {
+                  "terlaksana": 3,
+                  "wajib": 3,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "EDU": {
+                  "terlaksana": 5,
+                  "wajib": 5,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "FAR": {
+                  "terlaksana": 1,
+                  "wajib": 1,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "OBT": {
+                  "terlaksana": 14,
+                  "wajib": 14,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "TIN": {
+                  "terlaksana": 3,
+                  "wajib": 3,
+                  "na": 0,
+                  "compliancePct": 100.0
+                },
+                "OUT": {
+                  "terlaksana": 2,
+                  "wajib": 2,
+                  "na": 0,
+                  "compliancePct": 100.0
+                }
+              }
+            },
+            "aspectCompliance": {
+              "isNominator": false,
+              "nominatorStatus": "NON_NOMINATOR_PARSIAL",
+              "nominatorBadgeText": "NON-NOMINATOR (DEVIASI)",
+              "compliantAspectsCount": 5,
+              "totalAspects": 6,
+              "aspectsScorePct": 83.3,
+              "aspects": {
+                "los": {
+                  "aspectCode": "LOS",
+                  "aspectName": "Kontrol Lama Rawat (LOS)",
+                  "isCompliant": false,
+                  "score": 0.0,
+                  "realLos": 14,
+                  "targetLos": 7,
+                  "details": "Lama rawat 14 hari melebihi Target LOS 7 hari (Deviasi LOS)"
+                },
+                "diagnostik": {
+                  "aspectCode": "PEN",
+                  "aspectName": "Pemeriksaan Diagnostik & Penunjang",
+                  "isCompliant": true,
+                  "score": 100.0,
+                  "details": "15/15 item terpenuhi (100.0%)",
+                  "scheduled": 15,
+                  "terlaksana": 15,
+                  "naJustified": 0,
+                  "itemsSummary": [
+                    "✓ Pemeriksaan GDS serial harian (pre-pra (H1)",
+                    "✓ Pemeriksaan GDS serial harian (pre-pra (H2)",
+                    "✓ Pemeriksaan GDS serial harian (pre-pra (H3)",
+                    "✓ Pemeriksaan GDS serial harian (pre-pra (H4)",
+                    "✓ Pemeriksaan GDS serial harian (pre-pra (H5)"
+                  ]
+                },
+                "terapi": {
+                  "aspectCode": "OBT",
+                  "aspectName": "Terapi Medikamentosa & Farmasi",
+                  "isCompliant": true,
+                  "score": 100.0,
+                  "details": "18/18 item terpenuhi (100.0%)",
+                  "scheduled": 18,
+                  "terlaksana": 18,
+                  "naJustified": 0,
+                  "itemsSummary": [
+                    "✓ Rekonsiliasi obat saat admisi & penyes (H1)",
+                    "✓ Antihiperglikemi: Injeksi Insulin (Reg (H1)",
+                    "✓ Antihiperglikemi: Injeksi Insulin (Reg (H2)",
+                    "✓ Antihiperglikemi: Injeksi Insulin (Reg (H3)",
+                    "✓ Antihiperglikemi: Injeksi Insulin (Reg (H4)"
+                  ]
+                },
+                "keperawatan": {
+                  "aspectCode": "KEP",
+                  "aspectName": "Asuhan Medis & Keperawatan",
+                  "isCompliant": true,
+                  "score": 100.0,
+                  "details": "29/29 item terpenuhi (100.0%)",
+                  "scheduled": 29,
+                  "terlaksana": 29,
+                  "naJustified": 0,
+                  "itemsSummary": [
+                    "✓ Asesmen klinis komplikasi mikrovaskula (H1)",
+                    "✓ Visite harian DPJP dan penyesuaian dos (H1)",
+                    "✓ Visite harian DPJP dan penyesuaian dos (H2)",
+                    "✓ Visite harian DPJP dan penyesuaian dos (H3)",
+                    "✓ Visite harian DPJP dan penyesuaian dos (H4)"
+                  ]
+                },
+                "nutrisi": {
+                  "aspectCode": "GIZ",
+                  "aspectName": "Asesmen & Edukasi Nutrisi Gizi",
+                  "isCompliant": true,
+                  "score": 100.0,
+                  "details": "3/3 item terpenuhi (100.0%)",
+                  "scheduled": 3,
+                  "terlaksana": 3,
+                  "naJustified": 0,
+                  "itemsSummary": [
+                    "✓ Asesmen gizi & penetapan diet DM Ginja (H1)",
+                    "✓ Monitoring dan evaluasi (Monev) asupan (H4)",
+                    "✓ Monitoring dan evaluasi (Monev) asupan (H5)"
+                  ]
+                },
+                "discharge": {
+                  "aspectCode": "EDU",
+                  "aspectName": "Edukasi & Discharge Planning",
+                  "isCompliant": true,
+                  "score": 100.0,
+                  "details": "7/7 item terpenuhi (100.0%)",
+                  "scheduled": 7,
+                  "terlaksana": 7,
+                  "naJustified": 0,
+                  "itemsSummary": [
+                    "✓ Edukasi gizi terintegrasi untuk pasien (H1)",
+                    "✓ Edukasi gizi terintegrasi untuk pasien (H2)",
+                    "✓ Edukasi perawatan kaki diabetik & tekn (H5)",
+                    "✓ Edukasi perawatan kaki diabetik & tekn (H6)",
+                    "✓ Edukasi perawatan kaki diabetik & tekn (H7)"
+                  ]
+                }
+              },
+              "deviations": [
+                "LOS melebihi target (14 hari > 7 hari)"
+              ],
+              "summaryText": "Belum memenuhi seluruh aspek (1 aspek deviasi: LOS melebihi target (14 hari > 7 hari))"
             }
           },
           {
@@ -49087,26 +49703,26 @@
       {
         "ppa": "DPJP",
         "compliancePct": 99.7,
-        "terlaksana": 1406,
-        "wajib": 1410
+        "terlaksana": 1441,
+        "wajib": 1445
       },
       {
         "ppa": "PERAWAT",
         "compliancePct": 99.9,
-        "terlaksana": 890,
-        "wajib": 891
+        "terlaksana": 921,
+        "wajib": 922
       },
       {
         "ppa": "AHLI_GIZI",
         "compliancePct": 100.0,
-        "terlaksana": 278,
-        "wajib": 278
+        "terlaksana": 283,
+        "wajib": 283
       },
       {
         "ppa": "APOTEKER",
         "compliancePct": 100.0,
-        "terlaksana": 256,
-        "wajib": 256
+        "terlaksana": 257,
+        "wajib": 257
       },
       {
         "ppa": "FISIOTERAPIS",
@@ -50711,35 +51327,35 @@
           "Sheet 2026-11-05",
           "Sheet 2026-11-06"
         ],
-        "totalUniqueInpatients": 44,
-        "totalObservations": 101
+        "totalUniqueInpatients": 48,
+        "totalObservations": 107
       },
       "realSummary": {
-        "denominator": 3,
+        "denominator": 4,
         "denominatorLabel": "Pasien Masuk Kriteria Inklusi CP (Denominator)",
         "nominator": 3,
         "nominatorLabel": "Pasien Sesuai CP Seluruh Aspek (Nominator)",
-        "nonNominator": 0,
-        "complianceRatePct": 100.0,
+        "nonNominator": 1,
+        "complianceRatePct": 75.0,
         "formula": "Kepatuhan CP (%) = (Pasien Patuh Seluruh Aspek [Nominator] ÷ Pasien Inklusi CP [Denominator]) × 100%",
         "mutuTarget": 80.0,
-        "mutuStatus": "MEMENUHI STANDAR MUTU PARIPURNA (≥ 80%)",
+        "mutuStatus": "SUBSTANDAR",
         "aspects": {
           "los": {
             "code": "LOS",
             "label": "Kontrol Lama Rawat (LOS Control)",
             "standard": "LOS Pasien ≤ Target LOS Dokumen CP (7 Hari)",
             "compliantCount": 3,
-            "totalCount": 3,
-            "pct": 100.0,
-            "status": "PATUH"
+            "totalCount": 4,
+            "pct": 75.0,
+            "status": "SUBSTANDAR"
           },
           "diagnostik": {
             "code": "PEN",
             "label": "Pemeriksaan Diagnostik & Penunjang",
             "standard": "Pemeriksaan Lab (GDS, Urin, Renal) & Radiologi/USG Lengkap",
-            "compliantCount": 3,
-            "totalCount": 3,
+            "compliantCount": 4,
+            "totalCount": 4,
             "pct": 100.0,
             "status": "PATUH"
           },
@@ -50747,8 +51363,8 @@
             "code": "OBT",
             "label": "Terapi Medikamentosa & Farmasi",
             "standard": "Regulasi Insulin, Antihipertensi, Terapi Cairan & Medikasi Wajib",
-            "compliantCount": 3,
-            "totalCount": 3,
+            "compliantCount": 4,
+            "totalCount": 4,
             "pct": 100.0,
             "status": "PATUH"
           },
@@ -50756,8 +51372,8 @@
             "code": "KEP",
             "label": "Asuhan Medis & Keperawatan",
             "standard": "Visite DPJP Harian & Balans Cairan 24 Jam Terpantau Lengkap",
-            "compliantCount": 3,
-            "totalCount": 3,
+            "compliantCount": 4,
+            "totalCount": 4,
             "pct": 100.0,
             "status": "PATUH"
           },
@@ -50765,8 +51381,8 @@
             "code": "GIZ",
             "label": "Asesmen & Edukasi Diet Nutrisi",
             "standard": "Konsultasi Diet Khusus Ginjal & DM pada Hari 1-2",
-            "compliantCount": 3,
-            "totalCount": 3,
+            "compliantCount": 4,
+            "totalCount": 4,
             "pct": 100.0,
             "status": "PATUH"
           },
@@ -50774,8 +51390,8 @@
             "code": "EDU",
             "label": "Edukasi & Discharge Planning",
             "standard": "Edukasi Obat Pulang, Manajemen Hipoglikemia & Kesiapan Pulang",
-            "compliantCount": 3,
-            "totalCount": 3,
+            "compliantCount": 4,
+            "totalCount": 4,
             "pct": 100.0,
             "status": "PATUH"
           }
@@ -51124,6 +51740,122 @@
           },
           "deviations": [],
           "summaryText": "Sesuai CP pada seluruh 6 aspek pelayanan (LOS, Diagnostik, Terapi, Keperawatan, Gizi, Discharge)"
+        },
+        {
+          "episodeId": "EP-REAL-5.1-20261106",
+          "mrNo": "00290001",
+          "name": "Tn. Mardiansyah",
+          "bed": "Ruang Kakap (5.1)",
+          "dpjp": "dr. Decky Andrea, Sp.PD\n\nCo. dr.Sony",
+          "cpId": "CP-DMCKD-002",
+          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+          "realLos": 14,
+          "targetLos": 7,
+          "tglMasuk": "24/10/2026",
+          "statusEnrollment": "AKTIF",
+          "isNominator": false,
+          "nominatorBadgeText": "NON-NOMINATOR (DEVIASI)",
+          "aspectsScorePct": 83.3,
+          "compliantAspectsCount": 5,
+          "totalAspects": 6,
+          "aspects": {
+            "los": {
+              "aspectCode": "LOS",
+              "aspectName": "Kontrol Lama Rawat (LOS)",
+              "isCompliant": false,
+              "score": 0.0,
+              "realLos": 14,
+              "targetLos": 7,
+              "details": "Lama rawat 14 hari melebihi Target LOS 7 hari (Deviasi LOS)"
+            },
+            "diagnostik": {
+              "aspectCode": "PEN",
+              "aspectName": "Pemeriksaan Diagnostik & Penunjang",
+              "isCompliant": true,
+              "score": 100.0,
+              "details": "15/15 item terpenuhi (100.0%)",
+              "scheduled": 15,
+              "terlaksana": 15,
+              "naJustified": 0,
+              "itemsSummary": [
+                "✓ Pemeriksaan GDS serial harian (pre-pra (H1)",
+                "✓ Pemeriksaan GDS serial harian (pre-pra (H2)",
+                "✓ Pemeriksaan GDS serial harian (pre-pra (H3)",
+                "✓ Pemeriksaan GDS serial harian (pre-pra (H4)",
+                "✓ Pemeriksaan GDS serial harian (pre-pra (H5)"
+              ]
+            },
+            "terapi": {
+              "aspectCode": "OBT",
+              "aspectName": "Terapi Medikamentosa & Farmasi",
+              "isCompliant": true,
+              "score": 100.0,
+              "details": "18/18 item terpenuhi (100.0%)",
+              "scheduled": 18,
+              "terlaksana": 18,
+              "naJustified": 0,
+              "itemsSummary": [
+                "✓ Rekonsiliasi obat saat admisi & penyes (H1)",
+                "✓ Antihiperglikemi: Injeksi Insulin (Reg (H1)",
+                "✓ Antihiperglikemi: Injeksi Insulin (Reg (H2)",
+                "✓ Antihiperglikemi: Injeksi Insulin (Reg (H3)",
+                "✓ Antihiperglikemi: Injeksi Insulin (Reg (H4)"
+              ]
+            },
+            "keperawatan": {
+              "aspectCode": "KEP",
+              "aspectName": "Asuhan Medis & Keperawatan",
+              "isCompliant": true,
+              "score": 100.0,
+              "details": "29/29 item terpenuhi (100.0%)",
+              "scheduled": 29,
+              "terlaksana": 29,
+              "naJustified": 0,
+              "itemsSummary": [
+                "✓ Asesmen klinis komplikasi mikrovaskula (H1)",
+                "✓ Visite harian DPJP dan penyesuaian dos (H1)",
+                "✓ Visite harian DPJP dan penyesuaian dos (H2)",
+                "✓ Visite harian DPJP dan penyesuaian dos (H3)",
+                "✓ Visite harian DPJP dan penyesuaian dos (H4)"
+              ]
+            },
+            "nutrisi": {
+              "aspectCode": "GIZ",
+              "aspectName": "Asesmen & Edukasi Nutrisi Gizi",
+              "isCompliant": true,
+              "score": 100.0,
+              "details": "3/3 item terpenuhi (100.0%)",
+              "scheduled": 3,
+              "terlaksana": 3,
+              "naJustified": 0,
+              "itemsSummary": [
+                "✓ Asesmen gizi & penetapan diet DM Ginja (H1)",
+                "✓ Monitoring dan evaluasi (Monev) asupan (H4)",
+                "✓ Monitoring dan evaluasi (Monev) asupan (H5)"
+              ]
+            },
+            "discharge": {
+              "aspectCode": "EDU",
+              "aspectName": "Edukasi & Discharge Planning",
+              "isCompliant": true,
+              "score": 100.0,
+              "details": "7/7 item terpenuhi (100.0%)",
+              "scheduled": 7,
+              "terlaksana": 7,
+              "naJustified": 0,
+              "itemsSummary": [
+                "✓ Edukasi gizi terintegrasi untuk pasien (H1)",
+                "✓ Edukasi gizi terintegrasi untuk pasien (H2)",
+                "✓ Edukasi perawatan kaki diabetik & tekn (H5)",
+                "✓ Edukasi perawatan kaki diabetik & tekn (H6)",
+                "✓ Edukasi perawatan kaki diabetik & tekn (H7)"
+              ]
+            }
+          },
+          "deviations": [
+            "LOS melebihi target (14 hari > 7 hari)"
+          ],
+          "summaryText": "Belum memenuhi seluruh aspek (1 aspek deviasi: LOS melebihi target (14 hari > 7 hari))"
         }
       ],
       "dailyMorningTrend": [
