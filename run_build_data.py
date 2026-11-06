@@ -878,27 +878,91 @@ def build_data(download=False):
     latest_date = all_dates[-1] if all_dates else datetime.now().strftime("%Y-%m-%d")
     today_data = recent_days.get(latest_date)
 
-    # Doctor and Diagnosis Analytics aggregation
+    # Doctor, Diagnosis, and Insurance Analytics aggregation from ALL TABS in spreadsheet
+    # Diukur per hari di pagi hari dari total data seluruh tab spreadsheet (3 Nov s/d tab mutakhir)
+    unique_patients_map = {}
+    all_observations_count = 0
+
+    for iso_d in all_dates:
+        day_info = recent_days.get(iso_d, {})
+        for p in day_info.get('patients', []):
+            if not p.get('isEmpty'):
+                all_observations_count += 1
+                mr = p.get('mrNo', '').strip()
+                name = p.get('name', '').strip()
+                key = mr if mr and len(mr) >= 6 else name
+                
+                if key not in unique_patients_map:
+                    unique_patients_map[key] = {
+                        "mrNo": mr,
+                        "name": name,
+                        "bedLatest": p.get("bed", "-"),
+                        "doctorPrimary": p.get("doctorPrimary", "-"),
+                        "diagnosis": p.get("diagnosis", "-"),
+                        "category": p.get("category", "-"),
+                        "insurance": p.get("insurance", "-"),
+                        "datesSeen": [iso_d]
+                    }
+                else:
+                    unique_patients_map[key]["datesSeen"].append(iso_d)
+                    unique_patients_map[key]["bedLatest"] = p.get("bed", unique_patients_map[key]["bedLatest"])
+                    if p.get("doctorPrimary") and p.get("doctorPrimary") != "-":
+                        unique_patients_map[key]["doctorPrimary"] = p.get("doctorPrimary")
+                    if p.get("insurance") and p.get("insurance") != "-":
+                        unique_patients_map[key]["insurance"] = p.get("insurance")
+                    if p.get("diagnosis") and p.get("diagnosis") != "-":
+                        old_d = unique_patients_map[key]["diagnosis"]
+                        new_d = p.get("diagnosis")
+                        if new_d != old_d and new_d not in old_d:
+                            unique_patients_map[key]["diagnosis"] = f"{old_d} | {new_d}"
+
+    total_unique_pts = len(unique_patients_map)
+
     doctor_counts = defaultdict(int)
-    diag_counts = defaultdict(int)
-    cat_counts = defaultdict(int)
     ins_counts = defaultdict(int)
+    cat_counts = defaultdict(int)
+    diag_group_counts = defaultdict(int)
 
-    for p in today_data.get('patients', []):
-        if not p.get('isEmpty'):
-            doc = p.get('doctorPrimary', '-')
-            if doc != '-': doctor_counts[doc] += 1
-            diag = p.get('diagnosis', '-')
-            if diag != '-': diag_counts[diag] += 1
-            cat = p.get('category', '-')
-            if cat != '-': cat_counts[cat] += 1
-            ins = p.get('insurance', '-')
-            if ins != '-': ins_counts[ins] += 1
+    # Standard Clinical Disease Entities for Top 10 Diagnosa Medis
+    disease_patterns = [
+        ("Gagal Ginjal Kronik (CKD on HD / Stage V)", ["CKD", "GAGAL GINJAL", "STAGE V", "ST V", "STG 5", "ST.V", "PRO HD", "ON HD", "NEFROPATI"]),
+        ("Anemia Renal / Anemia Gravis in CKD", ["ANEMIA", "ANEMI", "GRAVIS", "LEUKOSITOSIS", "TROMBOSITOPENIA"]),
+        ("Gangguan Elektrolit (Hiponatremia / Hiperkalemia)", ["ELEKTROLIT", "HIPONATREMIA", "HIPERKALEMIA", "HIPOKALEMIA", "HIPOCA", "HIPOOSMOLER"]),
+        ("Keganasan / Onkologi (Ca Nasofaring, Ovarium, CML)", ["CA ", "CANCER", "TUMOR", "CML", "MALIGNANCY", "APLASTIK", "LIEN", "SERVIKS"]),
+        ("Gastrointestinal / PSCBA / Melena / Dyspepsia", ["MELENA", "PSCBA", "HEMATEMESIS", "DYSPEPSIA", "DISPEPSIA", "GASTROPATI", "HEMATOCHEZIA", "GASTRO"]),
+        ("Diabetes Melitus Tipe II (DKD / HHS / KAD)", ["DM ", "DM T", "DIABETES", "DKD", "HHS", "KAD", "HIPOGLIKEMIA"]),
+        ("Edema Paru / Efusi Pleura / CHF", ["EDEMA PULMO", "EFUSI", "PLEURA", "CHF", "ANASARKA", "SESAK"]),
+        ("Dermatologi & Imunologi (Pempigus, Psoriasis)", ["PEMFIGUS", "PEMPENIGUS", "VUGARIS", "VULGARIS", "PSORIASIS", "HERPES", "SLE", "RTA"]),
+        ("Hipertensi (Urgensi / Emergensi / HHD)", ["HT ", "HIPERTENSI", "HHD", "URGENSI", "EMERGENSI", "HT STG"]),
+        ("Urologi / Hidronefrosis / Nefrolitiasis", ["HIDRONEFROSIS", "NEFROLIT", "BATU", "URETER", "STENT"])
+    ]
 
-    top_doctors = [{"name": k, "count": v} for k, v in sorted(doctor_counts.items(), key=lambda x: x[1], reverse=True)[:10]]
-    top_diagnoses = [{"name": k, "count": v} for k, v in sorted(diag_counts.items(), key=lambda x: x[1], reverse=True)[:10]]
-    category_list = [{"name": k, "count": v} for k, v in sorted(cat_counts.items(), key=lambda x: x[1], reverse=True)]
-    insurance_list = [{"name": k, "count": v} for k, v in sorted(ins_counts.items(), key=lambda x: x[1], reverse=True)]
+    for p in unique_patients_map.values():
+        doc = p.get('doctorPrimary', '-')
+        if doc and doc != '-':
+            doctor_counts[doc] += 1
+
+        ins = p.get('insurance', '-')
+        if ins and ins != '-':
+            ins_counts[ins] += 1
+
+        cat = p.get('category', '-')
+        if cat and cat != '-':
+            cat_counts[cat] += 1
+
+        diag_full = (p.get('diagnosis', '')).upper()
+        matched_any = False
+        for label, keywords in disease_patterns:
+            if any(k in diag_full for k in keywords):
+                diag_group_counts[label] += 1
+                matched_any = True
+        if not matched_any and diag_full.strip() and not diag_full.startswith('ATAS NAMA'):
+            diag_group_counts["Penyakit Dalam / Diagnosa Lainnya"] += 1
+
+    top_doctors = [{"name": k, "count": v, "pct": round(v / total_unique_pts * 100, 1)} for k, v in sorted(doctor_counts.items(), key=lambda x: x[1], reverse=True)[:10]]
+    top_diagnoses = [{"name": k, "count": v, "pct": round(v / total_unique_pts * 100, 1)} for k, v in sorted(diag_group_counts.items(), key=lambda x: x[1], reverse=True)[:10]]
+    category_list = [{"name": k, "count": v, "pct": round(v / total_unique_pts * 100, 1)} for k, v in sorted(cat_counts.items(), key=lambda x: x[1], reverse=True)]
+    insurance_list = [{"name": k, "count": v, "pct": round(v / total_unique_pts * 100, 1)} for k, v in sorted(ins_counts.items(), key=lambda x: x[1], reverse=True)]
 
     # Hospital Indicators Calculation for Ruang Kakap
     # Derived strictly from authentic spreadsheet census data
@@ -992,7 +1056,12 @@ def build_data(download=False):
             "topDiagnoses": top_diagnoses,
             "categories": category_list,
             "insurances": insurance_list,
-            "totalPatients": today_data["summary"]["occupied"]
+            "totalPatients": total_unique_pts,
+            "totalObservations": all_observations_count,
+            "measurementSchedule": "Diukur per hari di pagi hari (Pukul 07:00 WIB)",
+            "measurementScope": "Data dari seluruh tab spreadsheet (3 November 2026 s/d tab mutakhir)",
+            "totalTabsCount": len(all_dates),
+            "spreadsheetRange": f"{all_dates[0]} s/d {all_dates[-1]}"
         },
         "monthly": [{
             "month": month_key,

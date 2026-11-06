@@ -13,7 +13,7 @@
       "Tim I (Kakap 1-5 & Isolasi - 21 Bed)",
       "Tim II (Kakap 6-10 - 20 Bed)"
     ],
-    "lastUpdated": "06-11-2026 05:02:32",
+    "lastUpdated": "06-11-2026 13:10:40",
     "latestDate": "2026-11-06",
     "totalDatesRecorded": 4,
     "dateRange": "2026-11-03 s/d 2026-11-06",
@@ -63,108 +63,157 @@
     "topDoctors": [
       {
         "name": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
-        "count": 9
+        "count": 12,
+        "pct": 28.6
       },
       {
         "name": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
-        "count": 6
-      },
-      {
-        "name": "dr. Apriani, M.Ked(PD), Sp.PD",
-        "count": 3
-      },
-      {
-        "name": "dr. Decky Andrea, Sp.PD",
-        "count": 2
-      },
-      {
-        "name": "dr. Danar Anggrahini K.D., Sp.PD-KGH",
-        "count": 2
-      },
-      {
-        "name": "dr. Retno Mustikaningsih, M.Kes., Sp.K",
-        "count": 2
+        "count": 10,
+        "pct": 23.8
       },
       {
         "name": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-        "count": 1
+        "count": 4,
+        "pct": 9.5
+      },
+      {
+        "name": "dr. Apriani, M.Ked(PD), Sp.PD",
+        "count": 4,
+        "pct": 9.5
+      },
+      {
+        "name": "dr. Danar Anggrahini K.D., Sp.PD-KGH",
+        "count": 3,
+        "pct": 7.1
+      },
+      {
+        "name": "dr. Decky Andrea, Sp.PD",
+        "count": 2,
+        "pct": 4.8
+      },
+      {
+        "name": "dr. Retno Mustikaningsih, M.Kes., Sp.K",
+        "count": 2,
+        "pct": 4.8
+      },
+      {
+        "name": "dr. Zainul Naim, Sp.B-KBD",
+        "count": 1,
+        "pct": 2.4
+      },
+      {
+        "name": "dr. Muhardani Iqbal, Sp.PD",
+        "count": 1,
+        "pct": 2.4
+      },
+      {
+        "name": "dr. Lindayani Halim, Sp.KK",
+        "count": 1,
+        "pct": 2.4
       }
     ],
     "topDiagnoses": [
       {
-        "name": "CKD on HD, Anemia Renalis",
-        "count": 1
+        "name": "Gagal Ginjal Kronik (CKD on HD / Stage V)",
+        "count": 21,
+        "pct": 50.0
       },
       {
-        "name": "hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI",
-        "count": 1
+        "name": "Anemia Renal / Anemia Gravis in CKD",
+        "count": 17,
+        "pct": 40.5
       },
       {
-        "name": "ckd5-hd Anemia",
-        "count": 1
+        "name": "Gangguan Elektrolit (Hiponatremia / Hiperkalemia)",
+        "count": 10,
+        "pct": 23.8
       },
       {
-        "name": "ITP",
-        "count": 1
+        "name": "Keganasan / Onkologi (Ca Nasofaring, Ovarium, CML)",
+        "count": 8,
+        "pct": 19.0
       },
       {
-        "name": "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG )",
-        "count": 1
+        "name": "Gastrointestinal / PSCBA / Melena / Dyspepsia",
+        "count": 8,
+        "pct": 19.0
       },
       {
-        "name": "RTA tipe -1",
-        "count": 1
+        "name": "Diabetes Melitus Tipe II (DKD / HHS / KAD)",
+        "count": 6,
+        "pct": 14.3
       },
       {
-        "name": "CKD stg 5 pro HD Ht stg 2 Hiperkalemia",
-        "count": 1
+        "name": "Edema Paru / Efusi Pleura / CHF",
+        "count": 5,
+        "pct": 11.9
       },
       {
-        "name": "CKD std V -HD hidronefrosis(s) ec stenosis ureter(s0 + Dj stent (s) Obstruksi Nefropati Uremic Syndrome Anemia Gravis",
-        "count": 1
+        "name": "Dermatologi & Imunologi (Pempigus, Psoriasis)",
+        "count": 4,
+        "pct": 9.5
       },
       {
-        "name": "Oedema Anasarka HT",
-        "count": 1
+        "name": "Hipertensi (Urgensi / Emergensi / HHD)",
+        "count": 4,
+        "pct": 9.5
       },
       {
-        "name": "CKD st V dd AKI ec dehidrasi Gizi kurang/kakeksia Hipotensi ec syok hipovolemik Hiperkaemia",
-        "count": 1
+        "name": "Urologi / Hidronefrosis / Nefrolitiasis",
+        "count": 3,
+        "pct": 7.1
       }
     ],
     "categories": [
       {
         "name": "Nefrologi & Urologi",
-        "count": 15
-      },
-      {
-        "name": "Penyakit Dalam (Metabolik)",
-        "count": 4
+        "count": 21,
+        "pct": 50.0
       },
       {
         "name": "Penyakit Dalam (Umum)",
-        "count": 3
+        "count": 9,
+        "pct": 21.4
+      },
+      {
+        "name": "Penyakit Dalam (Metabolik)",
+        "count": 6,
+        "pct": 14.3
       },
       {
         "name": "Hematologi & Onkologi",
-        "count": 2
+        "count": 5,
+        "pct": 11.9
       },
       {
         "name": "Gastroenterologi & Digestif",
-        "count": 1
+        "count": 1,
+        "pct": 2.4
       }
     ],
     "insurances": [
       {
         "name": "BPJS Kelas 3",
-        "count": 24
+        "count": 37,
+        "pct": 88.1
       },
       {
         "name": "BPJS Kelas 2",
-        "count": 1
+        "count": 3,
+        "pct": 7.1
+      },
+      {
+        "name": "BPJS Kelas 1",
+        "count": 2,
+        "pct": 4.8
       }
     ],
-    "totalPatients": 29
+    "totalPatients": 42,
+    "totalObservations": 100,
+    "measurementSchedule": "Diukur per hari di pagi hari (Pukul 07:00 WIB)",
+    "measurementScope": "Data dari seluruh tab spreadsheet (3 November 2026 s/d tab mutakhir)",
+    "totalTabsCount": 4,
+    "spreadsheetRange": "2026-11-03 s/d 2026-11-06"
   },
   "monthly": [
     {

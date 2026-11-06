@@ -980,13 +980,17 @@ function highlightClinicalKeywords(text) {
 function renderAnalyticsTab() {
   if (!state.data) return;
 
+  const totalPatients = state.data.analytics.totalPatients || state.data.today?.summary?.occupied || 41;
+  document.querySelectorAll('.total-pts-placeholder').forEach(el => {
+    el.textContent = totalPatients;
+  });
+
   // 1. Top 10 DPJP / Dokter Spesialis (Leaderboard Podium Bars)
   const docContainer = document.getElementById('topDoctorsList');
   if (docContainer && state.data.analytics.topDoctors) {
     docContainer.innerHTML = '';
     const top10 = state.data.analytics.topDoctors.slice(0, 10);
     const maxVal = Math.max(...top10.map(d => d.count));
-    const totalPatients = state.data.analytics.totalPatients || state.data.today?.summary?.occupied || 35;
 
     const listWrapper = document.createElement('div');
     listWrapper.className = 'leaderboard-list';
@@ -1004,7 +1008,7 @@ function renderAnalyticsTab() {
 
       const row = document.createElement('div');
       row.className = `leaderboard-row ${rankClass}`;
-      row.title = `${doc.name}: ${doc.count} pasien (${pctTotal}% dari total akumulasi)`;
+      row.title = `${doc.name}: ${doc.count} pasien (${pctTotal}% dari total akumulasi seluruh tab)`;
       row.innerHTML = `
         <div class="lb-header">
           <div class="lb-left">
@@ -1024,6 +1028,23 @@ function renderAnalyticsTab() {
     });
 
     docContainer.appendChild(listWrapper);
+
+    // Cantumkan jumlah pasien total di footer DPJP
+    const totalDocItem = document.createElement('div');
+    totalDocItem.className = 'dist-total-footer';
+    totalDocItem.innerHTML = `
+      <div class="dist-total-box">
+        <div class="dist-total-left">
+          <span class="dist-total-icon">👨‍⚕️</span>
+          <div>
+            <div class="dist-total-label">Total Akumulasi Pasien Unik:</div>
+            <div class="dist-total-subtext">Diukur per hari di pagi hari (07:00 WIB) &bull; Seluruh Tab Spreadsheet Sensus (1 Pasien per No. RM)</div>
+          </div>
+        </div>
+        <div class="dist-total-value">${totalPatients.toLocaleString('id-ID')} Pasien</div>
+      </div>
+    `;
+    docContainer.appendChild(totalDocItem);
   }
 
   // 2. Top 10 Diagnosa Medis (Clinical Stem & Bubble / Lollipop Chart)
@@ -1035,20 +1056,19 @@ function renderAnalyticsTab() {
   if (catContainer && diagnoses && diagnoses.length > 0) {
     catContainer.innerHTML = '';
     const top10 = diagnoses.slice(0, 10);
-    const totalPatients = state.data.analytics.totalPatients || state.data.today?.summary?.occupied || 35;
     const maxVal = Math.max(...top10.map(c => c.count));
     
     const diagThemes = [
-      { color: '#f43f5e', icon: '🩸', cat: 'Hematologi' },
       { color: '#6366f1', icon: '🫘', cat: 'Nefrologi' },
+      { color: '#f43f5e', icon: '🩸', cat: 'Hematologi' },
       { color: '#f59e0b', icon: '⚡', cat: 'Elektrolit' },
       { color: '#ec4899', icon: '🎗️', cat: 'Onkologi' },
-      { color: '#10b981', icon: '🩺', cat: 'Metabolik' },
-      { color: '#ea580c', icon: '❤️', cat: 'Kardio / Vaskular' },
       { color: '#06b6d4', icon: '🧪', cat: 'Gastroenterologi' },
-      { color: '#8b5cf6', icon: '🔬', cat: 'Renal Akut' },
-      { color: '#14b8a6', icon: '⚠️', cat: 'Akut Abdomen' },
-      { color: '#64748b', icon: '🦴', cat: 'Trauma / Ortopedi' }
+      { color: '#10b981', icon: '🩺', cat: 'Metabolik' },
+      { color: '#ea580c', icon: '🫁', cat: 'Pulmonologi' },
+      { color: '#8b5cf6', icon: '🩹', cat: 'Dermatologi' },
+      { color: '#e11d48', icon: '❤️', cat: 'Kardiovaskular' },
+      { color: '#14b8a6', icon: '🔬', cat: 'Urologi' }
     ];
 
     const lollipopContainer = document.createElement('div');
@@ -1096,7 +1116,7 @@ function renderAnalyticsTab() {
           <span class="dist-total-icon">👥</span>
           <div>
             <div class="dist-total-label">Total Akumulasi Pasien Unik:</div>
-            <div class="dist-total-subtext">1 MR = 1 Pasien &bull; Pasien dapat memiliki lebih dari 1 diagnosa medis</div>
+            <div class="dist-total-subtext">Diukur per hari di pagi hari (07:00 WIB) &bull; Seluruh Tab Spreadsheet Sensus (1 Pasien per No. RM)</div>
           </div>
         </div>
         <div class="dist-total-value">${totalPatients.toLocaleString('id-ID')} Pasien</div>
@@ -1178,7 +1198,7 @@ function renderAnalyticsTab() {
         <div class="donut-center-info" id="donutCenterInfo">
           <div class="donut-center-pct" id="donutCenterPct">${topPct}%</div>
           <div class="donut-center-label" id="donutCenterLabel" title="${escapeHtml(topItem.name)}">${escapeHtml(topItem.name)}</div>
-          <div class="donut-center-sub" id="donutCenterSub">${topItem.count.toLocaleString('id-ID')} hari</div>
+          <div class="donut-center-sub" id="donutCenterSub">${topItem.count.toLocaleString('id-ID')} pasien</div>
         </div>
       </div>
 
@@ -1192,7 +1212,7 @@ function renderAnalyticsTab() {
               <div class="legend-info">
                 <div class="legend-name" title="${escapeHtml(item.name)}">${escapeHtml(item.name)}</div>
                 <div class="legend-numbers">
-                  <span class="legend-count">${item.count.toLocaleString('id-ID')} hari</span>
+                  <span class="legend-count">${item.count.toLocaleString('id-ID')} pasien</span>
                   <span class="legend-pct-pill" style="color:${color}; background:${color}18;">${pct}%</span>
                 </div>
               </div>
@@ -1203,6 +1223,23 @@ function renderAnalyticsTab() {
     `;
 
     insContainer.appendChild(donutLayout);
+
+    // Cantumkan jumlah pasien total di footer asuransi
+    const totalInsItem = document.createElement('div');
+    totalInsItem.className = 'dist-total-footer';
+    totalInsItem.innerHTML = `
+      <div class="dist-total-box">
+        <div class="dist-total-left">
+          <span class="dist-total-icon">💳</span>
+          <div>
+            <div class="dist-total-label">Total Akumulasi Pasien Unik:</div>
+            <div class="dist-total-subtext">Diukur per hari di pagi hari (07:00 WIB) &bull; Seluruh Tab Spreadsheet Sensus (1 Pasien per No. RM)</div>
+          </div>
+        </div>
+        <div class="dist-total-value">${totalPatients.toLocaleString('id-ID')} Pasien</div>
+      </div>
+    `;
+    insContainer.appendChild(totalInsItem);
 
     // Interactive hover listeners for Donut & Legend
     const centerPct = document.getElementById('donutCenterPct');
@@ -1215,7 +1252,7 @@ function renderAnalyticsTab() {
         centerLabel.textContent = name;
         centerLabel.title = name;
       }
-      if (centerSub) centerSub.textContent = `${Number(count).toLocaleString('id-ID')} hari`;
+      if (centerSub) centerSub.textContent = `${Number(count).toLocaleString('id-ID')} pasien`;
     };
 
     const resetCenter = () => {
