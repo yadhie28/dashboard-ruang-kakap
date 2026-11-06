@@ -15,13 +15,13 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "totalObservations": 100,
+      "totalObservations": 101,
       "observationsIncludedCount": 7,
-      "observationsExcludedCount": 93,
-      "totalUniquePatients": 42,
+      "observationsExcludedCount": 94,
+      "totalUniquePatients": 44,
       "uniqueIncludedCount": 3,
-      "uniqueExcludedCount": 39,
-      "uniqueCoveragePct": 7.1,
+      "uniqueExcludedCount": 41,
+      "uniqueCoveragePct": 6.8,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -38,7 +38,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 3,
           "pctOfIncluded": 100.0,
-          "pctOfTotal": 7.1,
+          "pctOfTotal": 6.8,
           "patients": [
             {
               "mrNo": "00301588",
@@ -110,7 +110,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 17,
+          "count": 19,
           "patients": [
             {
               "mrNo": "00302040",
@@ -149,8 +149,7 @@
               "datesSeen": [
                 "2026-11-03",
                 "2026-11-04",
-                "2026-11-05",
-                "2026-11-06"
+                "2026-11-05"
               ],
               "diagnosis": "RTA tipe -1"
             },
@@ -233,7 +232,8 @@
               "name": "Sdri A Elma Tiara",
               "bed": "3.2",
               "datesSeen": [
-                "2026-11-05"
+                "2026-11-05",
+                "2026-11-06"
               ],
               "diagnosis": "susp hipertiroid hipokalemia berulang"
             },
@@ -277,16 +277,34 @@
               "diagnosis": "hemateesis melena ec pscba \nSUSP TUMOR GANAS OVARIUM + TUMOR LIEN"
             },
             {
-              "mrNo": "00304027",
-              "name": "Ny. Desi Adma Iswandira",
-              "bed": "2.1",
+              "mrNo": "RM-K-2.4",
+              "name": "BOOKINGAN TRANSIT a/n Ny.Deviola",
+              "bed": "2.4",
               "datesSeen": [
                 "2026-11-06"
               ],
-              "diagnosis": "ITP"
+              "diagnosis": "-"
+            },
+            {
+              "mrNo": "RM-K-3.4",
+              "name": "BOOKINGAN TRANSIT a/n Ny. Monalisa",
+              "bed": "3.4",
+              "datesSeen": [
+                "2026-11-06"
+              ],
+              "diagnosis": "-"
+            },
+            {
+              "mrNo": "00306196",
+              "name": "Ny. Nurhayati",
+              "bed": "4.1",
+              "datesSeen": [
+                "2026-11-06"
+              ],
+              "diagnosis": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia"
             }
           ],
-          "pct": 43.6
+          "pct": 46.3
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -301,7 +319,8 @@
               "datesSeen": [
                 "2026-11-03",
                 "2026-11-04",
-                "2026-11-05"
+                "2026-11-05",
+                "2026-11-06"
               ],
               "diagnosis": "ckd on HD edema pulmo"
             },
@@ -321,8 +340,7 @@
               "datesSeen": [
                 "2026-11-03",
                 "2026-11-04",
-                "2026-11-05",
-                "2026-11-06"
+                "2026-11-05"
               ],
               "diagnosis": "CKD std V -HD hidronefrosis(s) ec stenosis ureter(s0 + Dj stent (s) Obstruksi Nefropati Uremic Syndrome Anemia Gravis"
             },
@@ -333,8 +351,7 @@
               "datesSeen": [
                 "2026-11-03",
                 "2026-11-04",
-                "2026-11-05",
-                "2026-11-06"
+                "2026-11-05"
               ],
               "diagnosis": "CKD ST V Edema pulmo Hiperkalemia"
             },
@@ -484,7 +501,7 @@
               "diagnosis": "Anemia in CKD\nHCV dan HBSag Reaktif"
             }
           ],
-          "pct": 46.2
+          "pct": 43.9
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -502,10 +519,10 @@
                 "2026-11-05",
                 "2026-11-06"
               ],
-              "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik"
+              "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik"
             }
           ],
-          "pct": 2.6
+          "pct": 2.4
         },
         "DM_NON_CKD": {
           "category": "DM_NON_CKD",
@@ -544,7 +561,7 @@
               "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID"
             }
           ],
-          "pct": 7.7
+          "pct": 7.3
         }
       },
       "dailyBreakdown": [
@@ -571,10 +588,10 @@
         },
         {
           "date": "2026-11-06",
-          "total": 25,
+          "total": 26,
           "included": 2,
-          "excluded": 23,
-          "coveragePct": 8.0
+          "excluded": 24,
+          "coveragePct": 7.7
         }
       ],
       "uniquePatientsList": [
@@ -693,9 +710,10 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05"
+            "2026-11-05",
+            "2026-11-06"
           ],
-          "daysInWard": 3,
+          "daysInWard": 4,
           "diagnoses": [
             "ckd on HD edema pulmo"
           ],
@@ -703,7 +721,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 3,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "ckd on HD edema pulmo",
@@ -749,10 +767,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "RTA tipe -1"
           ],
@@ -760,7 +777,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 5,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "RTA tipe -1",
@@ -804,10 +821,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "CKD std V -HD hidronefrosis(s) ec stenosis ureter(s0 + Dj stent (s) Obstruksi Nefropati Uremic Syndrome Anemia Gravis"
           ],
@@ -815,7 +831,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 11,
+          "losLatest": 10,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "CKD std V -HD hidronefrosis(s) ec stenosis ureter(s0 + Dj stent (s) Obstruksi Nefropati Uremic Syndrome Anemia Gravis",
@@ -889,10 +905,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "CKD ST V Edema pulmo Hiperkalemia"
           ],
@@ -900,7 +915,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 13,
+          "losLatest": 12,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "CKD ST V Edema pulmo Hiperkalemia",
@@ -1064,7 +1079,7 @@
           "daysInWard": 4,
           "diagnoses": [
             "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele",
-            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik"
+            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1073,7 +1088,7 @@
           "losLatest": 12,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik",
+          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik",
           "exclusionCategory": "STROKE_SEQUELE_LAMA",
           "exclusionCategoryLabel": "Sekuele / Riwayat Stroke Lama (Non-Akut)",
           "exclusionCategoryColor": "#64748b"
@@ -1501,9 +1516,10 @@
           "doctor": "dr. Harry Andhika, Sp.PD",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05"
+            "2026-11-05",
+            "2026-11-06"
           ],
-          "daysInWard": 1,
+          "daysInWard": 2,
           "diagnoses": [
             "susp hipertiroid hipokalemia berulang"
           ],
@@ -1511,7 +1527,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 1,
+          "losLatest": 2,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "susp hipertiroid hipokalemia berulang",
@@ -1708,27 +1724,75 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "00304027",
-          "mrNo": "00304027",
-          "name": "Ny. Desi Adma Iswandira",
-          "bedLatest": "2.1",
-          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
-          "admissionDate": "06/11/2026",
+          "key": "BOOKINGAN TRANSIT A/N NY.DEVIOLA",
+          "mrNo": "RM-K-2.4",
+          "name": "BOOKINGAN TRANSIT a/n Ny.Deviola",
+          "bedLatest": "2.4",
+          "doctor": "",
+          "admissionDate": "2026-11-06",
+          "datesSeen": [
+            "2026-11-06"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "BOOKINGAN TRANSIT A/N NY. MONALISA",
+          "mrNo": "RM-K-3.4",
+          "name": "BOOKINGAN TRANSIT a/n Ny. Monalisa",
+          "bedLatest": "3.4",
+          "doctor": "",
+          "admissionDate": "2026-11-06",
+          "datesSeen": [
+            "2026-11-06"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00306196",
+          "mrNo": "00306196",
+          "name": "Ny. Nurhayati",
+          "bedLatest": "4.1",
+          "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Marta,Sp.KFR",
+          "admissionDate": "31/10/2026",
           "datesSeen": [
             "2026-11-06"
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "ITP"
+            "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 1,
+          "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "ITP",
+          "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -1905,9 +1969,10 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05"
+            "2026-11-05",
+            "2026-11-06"
           ],
-          "daysInWard": 3,
+          "daysInWard": 4,
           "diagnoses": [
             "ckd on HD edema pulmo"
           ],
@@ -1915,7 +1980,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 3,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "ckd on HD edema pulmo",
@@ -1933,10 +1998,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "RTA tipe -1"
           ],
@@ -1944,7 +2008,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 5,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "RTA tipe -1",
@@ -1988,10 +2052,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "CKD std V -HD hidronefrosis(s) ec stenosis ureter(s0 + Dj stent (s) Obstruksi Nefropati Uremic Syndrome Anemia Gravis"
           ],
@@ -1999,7 +2062,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 11,
+          "losLatest": 10,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "CKD std V -HD hidronefrosis(s) ec stenosis ureter(s0 + Dj stent (s) Obstruksi Nefropati Uremic Syndrome Anemia Gravis",
@@ -2073,10 +2136,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "CKD ST V Edema pulmo Hiperkalemia"
           ],
@@ -2084,7 +2146,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 13,
+          "losLatest": 12,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "CKD ST V Edema pulmo Hiperkalemia",
@@ -2248,7 +2310,7 @@
           "daysInWard": 4,
           "diagnoses": [
             "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele",
-            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik"
+            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -2257,7 +2319,7 @@
           "losLatest": 12,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik",
+          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik",
           "exclusionCategory": "STROKE_SEQUELE_LAMA",
           "exclusionCategoryLabel": "Sekuele / Riwayat Stroke Lama (Non-Akut)",
           "exclusionCategoryColor": "#64748b"
@@ -2660,9 +2722,10 @@
           "doctor": "dr. Harry Andhika, Sp.PD",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05"
+            "2026-11-05",
+            "2026-11-06"
           ],
-          "daysInWard": 1,
+          "daysInWard": 2,
           "diagnoses": [
             "susp hipertiroid hipokalemia berulang"
           ],
@@ -2670,7 +2733,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 1,
+          "losLatest": 2,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "susp hipertiroid hipokalemia berulang",
@@ -2867,27 +2930,75 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "00304027",
-          "mrNo": "00304027",
-          "name": "Ny. Desi Adma Iswandira",
-          "bedLatest": "2.1",
-          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
-          "admissionDate": "06/11/2026",
+          "key": "BOOKINGAN TRANSIT A/N NY.DEVIOLA",
+          "mrNo": "RM-K-2.4",
+          "name": "BOOKINGAN TRANSIT a/n Ny.Deviola",
+          "bedLatest": "2.4",
+          "doctor": "",
+          "admissionDate": "2026-11-06",
+          "datesSeen": [
+            "2026-11-06"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "BOOKINGAN TRANSIT A/N NY. MONALISA",
+          "mrNo": "RM-K-3.4",
+          "name": "BOOKINGAN TRANSIT a/n Ny. Monalisa",
+          "bedLatest": "3.4",
+          "doctor": "",
+          "admissionDate": "2026-11-06",
+          "datesSeen": [
+            "2026-11-06"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00306196",
+          "mrNo": "00306196",
+          "name": "Ny. Nurhayati",
+          "bedLatest": "4.1",
+          "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Marta,Sp.KFR",
+          "admissionDate": "31/10/2026",
           "datesSeen": [
             "2026-11-06"
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "ITP"
+            "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 1,
+          "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "ITP",
+          "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -2895,10 +3006,10 @@
       ]
     },
     "today": {
-      "totalInpatients": 25,
+      "totalInpatients": 26,
       "denominatorIncluded": 2,
-      "totalExcluded": 23,
-      "wardCoveragePct": 8.0,
+      "totalExcluded": 24,
+      "wardCoveragePct": 7.7,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -2984,29 +3095,43 @@
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
-          "bed": "2.1",
-          "name": "Ny. Desi Adma Iswandira",
-          "mrNo": "00304027",
-          "diagnosis": "ITP",
-          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
-          "los": 1,
+          "bed": "2.2",
+          "name": "Ny. Suhartini",
+          "mrNo": "00301205",
+          "diagnosis": "ckd on HD edema pulmo",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "los": 4,
           "gender": "P",
           "age": "",
-          "admissionDate": "06/11/2026",
+          "admissionDate": "03/11/2026",
           "date": "2026-11-06",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "2.4",
-          "name": "Ny. Saideh",
-          "mrNo": "00306296",
-          "diagnosis": "RTA tipe -1",
-          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
-          "los": 5,
+          "name": "BOOKINGAN TRANSIT a/n Ny.Deviola",
+          "mrNo": "RM-K-2.4",
+          "diagnosis": "",
+          "doctor": "",
+          "los": 1,
           "gender": "P",
           "age": "",
-          "admissionDate": "02/11/2026",
+          "admissionDate": "2026-11-06",
+          "date": "2026-11-06",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+        },
+        {
+          "bed": "3.2",
+          "name": "Sdri A Elma Tiara",
+          "mrNo": "00306752",
+          "diagnosis": "susp hipertiroid hipokalemia berulang",
+          "doctor": "dr. Harry Andhika, Sp.PD",
+          "los": 2,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "05/11/2026",
           "date": "2026-11-06",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
@@ -3027,17 +3152,31 @@
         },
         {
           "bed": "3.4",
-          "name": "Ny. Citra",
-          "mrNo": "00123388",
-          "diagnosis": "CKD std V -HD hidronefrosis(s) ec stenosis ureter(s0 + Dj stent (s) Obstruksi Nefropati Uremic Syndrome Anemia Gravis",
-          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
-          "los": 11,
+          "name": "BOOKINGAN TRANSIT a/n Ny. Monalisa",
+          "mrNo": "RM-K-3.4",
+          "diagnosis": "",
+          "doctor": "",
+          "los": 1,
           "gender": "P",
           "age": "",
-          "admissionDate": "27/10/2026",
+          "admissionDate": "2026-11-06",
           "date": "2026-11-06",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+        },
+        {
+          "bed": "4.1",
+          "name": "Ny. Nurhayati",
+          "mrNo": "00306196",
+          "diagnosis": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
+          "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Marta,Sp.KFR",
+          "los": 7,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "31/10/2026",
+          "date": "2026-11-06",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "4.2",
@@ -3063,20 +3202,6 @@
           "gender": "P",
           "age": "",
           "admissionDate": "05/11/2026",
-          "date": "2026-11-06",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
-        },
-        {
-          "bed": "5.2",
-          "name": "Tn. Edi Nurdini",
-          "mrNo": "00295532",
-          "diagnosis": "CKD ST V Edema pulmo Hiperkalemia",
-          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
-          "los": 13,
-          "gender": "L",
-          "age": "",
-          "admissionDate": "25/10/2026",
           "date": "2026-11-06",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
@@ -3155,7 +3280,7 @@
           "bed": "7.2",
           "name": "Tn. Tjen Tjhiung Fong",
           "mrNo": "00305651",
-          "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik",
+          "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nco' dr. Dini\n\nco' dr. Alice",
           "los": 12,
           "gender": "L",
@@ -3266,9 +3391,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 100,
+      "totalRecords": 101,
       "uniqueIncludedCount": 3,
-      "totalExcludedRecords": 93,
+      "totalExcludedRecords": 94,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 3,
@@ -3447,9 +3572,10 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05"
+            "2026-11-05",
+            "2026-11-06"
           ],
-          "daysInWard": 3,
+          "daysInWard": 4,
           "diagnoses": [
             "ckd on HD edema pulmo"
           ],
@@ -3457,7 +3583,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 3,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "ckd on HD edema pulmo",
@@ -3475,10 +3601,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "RTA tipe -1"
           ],
@@ -3486,7 +3611,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 5,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "RTA tipe -1",
@@ -3530,10 +3655,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "CKD std V -HD hidronefrosis(s) ec stenosis ureter(s0 + Dj stent (s) Obstruksi Nefropati Uremic Syndrome Anemia Gravis"
           ],
@@ -3541,7 +3665,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 11,
+          "losLatest": 10,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "CKD std V -HD hidronefrosis(s) ec stenosis ureter(s0 + Dj stent (s) Obstruksi Nefropati Uremic Syndrome Anemia Gravis",
@@ -3615,10 +3739,9 @@
           "datesSeen": [
             "2026-11-03",
             "2026-11-04",
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "CKD ST V Edema pulmo Hiperkalemia"
           ],
@@ -3626,7 +3749,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 13,
+          "losLatest": 12,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "CKD ST V Edema pulmo Hiperkalemia",
@@ -3790,7 +3913,7 @@
           "daysInWard": 4,
           "diagnoses": [
             "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele",
-            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik"
+            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3799,7 +3922,7 @@
           "losLatest": 12,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik",
+          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik",
           "exclusionCategory": "STROKE_SEQUELE_LAMA",
           "exclusionCategoryLabel": "Sekuele / Riwayat Stroke Lama (Non-Akut)",
           "exclusionCategoryColor": "#64748b"
@@ -4202,9 +4325,10 @@
           "doctor": "dr. Harry Andhika, Sp.PD",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05"
+            "2026-11-05",
+            "2026-11-06"
           ],
-          "daysInWard": 1,
+          "daysInWard": 2,
           "diagnoses": [
             "susp hipertiroid hipokalemia berulang"
           ],
@@ -4212,7 +4336,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 1,
+          "losLatest": 2,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "susp hipertiroid hipokalemia berulang",
@@ -4409,27 +4533,75 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "00304027",
-          "mrNo": "00304027",
-          "name": "Ny. Desi Adma Iswandira",
-          "bedLatest": "2.1",
-          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
-          "admissionDate": "06/11/2026",
+          "key": "BOOKINGAN TRANSIT A/N NY.DEVIOLA",
+          "mrNo": "RM-K-2.4",
+          "name": "BOOKINGAN TRANSIT a/n Ny.Deviola",
+          "bedLatest": "2.4",
+          "doctor": "",
+          "admissionDate": "2026-11-06",
+          "datesSeen": [
+            "2026-11-06"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "BOOKINGAN TRANSIT A/N NY. MONALISA",
+          "mrNo": "RM-K-3.4",
+          "name": "BOOKINGAN TRANSIT a/n Ny. Monalisa",
+          "bedLatest": "3.4",
+          "doctor": "",
+          "admissionDate": "2026-11-06",
+          "datesSeen": [
+            "2026-11-06"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00306196",
+          "mrNo": "00306196",
+          "name": "Ny. Nurhayati",
+          "bedLatest": "4.1",
+          "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Marta,Sp.KFR",
+          "admissionDate": "31/10/2026",
           "datesSeen": [
             "2026-11-06"
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "ITP"
+            "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 1,
+          "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "ITP",
+          "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -21752,8 +21924,8 @@
         "Sheet 2026-11-05",
         "Sheet 2026-11-06"
       ],
-      "totalUniqueInpatients": 42,
-      "totalObservations": 100
+      "totalUniqueInpatients": 44,
+      "totalObservations": 101
     },
     "realSummary": {
       "denominator": 3,
