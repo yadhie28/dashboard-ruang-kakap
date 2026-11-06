@@ -15,9 +15,9 @@
         "2026-11-05",
         "2026-11-06"
       ],
-      "totalObservations": 100,
+      "totalObservations": 99,
       "observationsIncludedCount": 7,
-      "observationsExcludedCount": 93,
+      "observationsExcludedCount": 92,
       "totalUniquePatients": 41,
       "uniqueIncludedCount": 3,
       "uniqueExcludedCount": 38,
@@ -233,8 +233,7 @@
               "name": "Sdri A Elma Tiara",
               "bed": "3.2",
               "datesSeen": [
-                "2026-11-05",
-                "2026-11-06"
+                "2026-11-05"
               ],
               "diagnosis": "susp hipertiroid hipokalemia berulang"
             },
@@ -350,7 +349,7 @@
                 "2026-11-05",
                 "2026-11-06"
               ],
-              "diagnosis": "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR"
+              "diagnosis": "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR | CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR \nSuspek massa sinonasal"
             },
             {
               "mrNo": "00306243",
@@ -381,7 +380,7 @@
                 "2026-11-05",
                 "2026-11-06"
               ],
-              "diagnosis": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior"
+              "diagnosis": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase"
             },
             {
               "mrNo": "00294633",
@@ -494,7 +493,7 @@
                 "2026-11-05",
                 "2026-11-06"
               ],
-              "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele"
+              "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik"
             }
           ],
           "pct": 2.6
@@ -563,10 +562,10 @@
         },
         {
           "date": "2026-11-06",
-          "total": 25,
+          "total": 24,
           "included": 2,
-          "excluded": 23,
-          "coveragePct": 8.0
+          "excluded": 22,
+          "coveragePct": 8.3
         }
       ],
       "uniquePatientsList": [
@@ -1025,7 +1024,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR"
+            "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR",
+            "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR \nSuspek massa sinonasal"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1034,7 +1034,7 @@
           "losLatest": 7,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR",
+          "diagnosisSpreadsheet": "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR | CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR \nSuspek massa sinonasal",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -1054,7 +1054,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele"
+            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele",
+            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1063,7 +1064,7 @@
           "losLatest": 12,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele",
+          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik",
           "exclusionCategory": "STROKE_SEQUELE_LAMA",
           "exclusionCategoryLabel": "Sekuele / Riwayat Stroke Lama (Non-Akut)",
           "exclusionCategoryColor": "#64748b"
@@ -1193,7 +1194,8 @@
           "diagnoses": [
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia",
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
-            "ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior"
+            "ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
+            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1202,7 +1204,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
+          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -1490,10 +1492,9 @@
           "doctor": "dr. Harry Andhika, Sp.PD",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "susp hipertiroid hipokalemia berulang"
           ],
@@ -1501,7 +1502,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "susp hipertiroid hipokalemia berulang",
@@ -2181,7 +2182,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR"
+            "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR",
+            "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR \nSuspek massa sinonasal"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -2190,7 +2192,7 @@
           "losLatest": 7,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR",
+          "diagnosisSpreadsheet": "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR | CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR \nSuspek massa sinonasal",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -2210,7 +2212,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele"
+            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele",
+            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -2219,7 +2222,7 @@
           "losLatest": 12,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele",
+          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik",
           "exclusionCategory": "STROKE_SEQUELE_LAMA",
           "exclusionCategoryLabel": "Sekuele / Riwayat Stroke Lama (Non-Akut)",
           "exclusionCategoryColor": "#64748b"
@@ -2349,7 +2352,8 @@
           "diagnoses": [
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia",
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
-            "ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior"
+            "ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
+            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -2358,7 +2362,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
+          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -2621,10 +2625,9 @@
           "doctor": "dr. Harry Andhika, Sp.PD",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "susp hipertiroid hipokalemia berulang"
           ],
@@ -2632,7 +2635,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "susp hipertiroid hipokalemia berulang",
@@ -2831,10 +2834,10 @@
       ]
     },
     "today": {
-      "totalInpatients": 25,
+      "totalInpatients": 24,
       "denominatorIncluded": 2,
-      "totalExcluded": 23,
-      "wardCoveragePct": 8.0,
+      "totalExcluded": 22,
+      "wardCoveragePct": 8.3,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -2934,20 +2937,6 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
-          "bed": "3.2",
-          "name": "Sdri A Elma Tiara",
-          "mrNo": "00306752",
-          "diagnosis": "susp hipertiroid hipokalemia berulang",
-          "doctor": "dr. Harry Andhika, Sp.PD",
-          "los": 2,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "05/11/2026",
-          "date": "2026-11-06",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
-        },
-        {
           "bed": "3.3",
           "name": "Ny. Wahyuni Dwiwati",
           "mrNo": "00304988",
@@ -3019,7 +3008,7 @@
         },
         {
           "bed": "5.3",
-          "name": "Tn. Ilham",
+          "name": "Tn. Ilham PASIEN LAPAS",
           "mrNo": "00175689",
           "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID",
           "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
@@ -3077,8 +3066,8 @@
           "bed": "6.4",
           "name": "Tn. H.Darul Khaer",
           "mrNo": "00277336",
-          "diagnosis": "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR",
-          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\ndr. Temi\n\ndrg AAN",
+          "diagnosis": "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR \nSuspek massa sinonasal",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\ndr. Temi\n\ndrg AAN\n\nCo dr.Eni,Sp.THT",
           "los": 7,
           "gender": "L",
           "age": "",
@@ -3091,7 +3080,7 @@
           "bed": "7.2",
           "name": "Tn. Tjen Tjhiung Fong",
           "mrNo": "00305651",
-          "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele",
+          "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nco' dr. Dini\n\nco' dr. Alice",
           "los": 12,
           "gender": "L",
@@ -3099,7 +3088,7 @@
           "admissionDate": "26/10/2026",
           "date": "2026-11-06",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Riwayat / sekuele stroke lama (Bukan episode akut CP)"
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "7.3",
@@ -3189,7 +3178,7 @@
           "bed": "10.4",
           "name": "Ny. Hatti",
           "mrNo": "00162461",
-          "diagnosis": "ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
+          "diagnosis": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
           "doctor": "dr. Decky Andrea, Sp.PD\n\nCo dr.Dini,Sp.N",
           "los": 6,
           "gender": "P",
@@ -3202,9 +3191,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 100,
+      "totalRecords": 99,
       "uniqueIncludedCount": 3,
-      "totalExcludedRecords": 93,
+      "totalExcludedRecords": 92,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 3,
@@ -3695,7 +3684,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR"
+            "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR",
+            "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR \nSuspek massa sinonasal"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3704,7 +3694,7 @@
           "losLatest": 7,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR",
+          "diagnosisSpreadsheet": "CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR | CKD 5 PRO HD Anemia renal Leukositosis CHF Hiponatremia\nCHF, AF NVR \nSuspek massa sinonasal",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -3724,7 +3714,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele"
+            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele",
+            "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3733,7 +3724,7 @@
           "losLatest": 12,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele",
+          "diagnosisSpreadsheet": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n\tpost snh enchepalopati metabolik",
           "exclusionCategory": "STROKE_SEQUELE_LAMA",
           "exclusionCategoryLabel": "Sekuele / Riwayat Stroke Lama (Non-Akut)",
           "exclusionCategoryColor": "#64748b"
@@ -3863,7 +3854,8 @@
           "diagnoses": [
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia",
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
-            "ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior"
+            "ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
+            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3872,7 +3864,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
+          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -4135,10 +4127,9 @@
           "doctor": "dr. Harry Andhika, Sp.PD",
           "admissionDate": "05/11/2026",
           "datesSeen": [
-            "2026-11-05",
-            "2026-11-06"
+            "2026-11-05"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "susp hipertiroid hipokalemia berulang"
           ],
@@ -4146,7 +4137,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "susp hipertiroid hipokalemia berulang",
