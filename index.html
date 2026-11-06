@@ -1014,7 +1014,11 @@
 
           <!-- Sub-Navigation Pills -->
           <div class="cp-subnav-bar">
-            <button class="cp-subnav-btn active" id="btnCpSubChecklist" data-cpsub="checklist">
+            <button class="cp-subnav-btn active" id="btnCpSubMorningAudit" data-cpsub="morningAudit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+              <span>Pengukuran Harian Pagi (Nom/Denom)</span>
+            </button>
+            <button class="cp-subnav-btn" id="btnCpSubChecklist" data-cpsub="checklist">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
               <span>Ceklis Matriks Harian Bangsal</span>
             </button>
@@ -1034,9 +1038,73 @@
         </div>
 
         <!-- ================================================================== -->
+        <!-- SUB-VIEW 0: PENGUKURAN KEPATUHAN HARIAN PAGI (NOMINATOR VS DENOMINATOR) -->
+        <!-- ================================================================== -->
+        <div id="cpViewMorningAudit" class="cp-subview-panel active">
+          <!-- Banner Pengukuran Harian Pagi -->
+          <div class="card" style="margin-bottom:1.25rem;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:14px;border-bottom:1px solid var(--border-color);padding-bottom:12px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg, #f59e0b, #d97706);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;font-size:1.35rem;box-shadow:0 3px 8px rgba(245,158,11,0.35);">
+                  &#9728;
+                </div>
+                <div>
+                  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <h4 style="margin:0;font-size:1.1rem;font-weight:800;color:var(--text-main);letter-spacing:-0.01em;">
+                      Pengukuran Kepatuhan Clinical Pathway Harian Pagi
+                    </h4>
+                    <span class="badge" style="background:#fef3c7;color:#92400e;border:1px solid #fde68a;font-weight:800;font-size:0.75rem;">
+                      JADWAL: SEKALI SEHARI (PAGI 07:00 WIB)
+                    </span>
+                    <span class="badge badge-success" style="font-size:0.72rem;">
+                      DATA: SELURUH TAB SPREADSHEET (3-6 NOV 2026)
+                    </span>
+                  </div>
+                  <div style="font-size:0.78rem;color:var(--text-muted);margin-top:3px;">
+                    Mengukur rasio Nominator (Pasien sesuai CP seluruh aspek: LOS, diagnostik, terapi, asuhan, gizi, discharge) terhadap Denominator (Pasien inklusi CP per No. RM).
+                  </div>
+                </div>
+              </div>
+              
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                <!-- Cohort Mode Toggle -->
+                <div class="btn-group" id="cpMorningCohortToggle" style="display:flex;background:var(--bg-surface);border:1px solid var(--border-color);border-radius:6px;padding:2px;">
+                  <button type="button" class="btn btn-xs active" id="btnCpCohortReal" onclick="switchCpMorningCohort('real')" style="font-weight:700;padding:4px 10px;">
+                    🏨 Pasien Riil Kakap (All Tabs)
+                  </button>
+                  <button type="button" class="btn btn-xs" id="btnCpCohortBenchmark" onclick="switchCpMorningCohort('benchmark')" style="font-weight:700;padding:4px 10px;">
+                    📚 Kasus Benchmark (50 Kasus 5 CP)
+                  </button>
+                </div>
+
+                <button type="button" class="btn btn-sm btn-primary" id="btnTriggerMorningSync" onclick="triggerDailyMorningSync()" style="display:inline-flex;align-items:center;gap:6px;font-weight:700;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                  <span>Tarik Data Pagi &amp; Ukur Kepatuhan</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Box Definisi Indikator Mutu & Rumus -->
+            <div id="cpMorningFormulaBox" style="margin-bottom:16px;"></div>
+
+            <!-- Scorecards Grid Nominator vs Denominator -->
+            <div id="cpMorningStatsGrid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:12px;margin-bottom:16px;"></div>
+
+            <!-- Matriks Evaluasi 6 Aspek Pelayanan CP -->
+            <div id="cpMorningAspectsContainer" style="margin-bottom:16px;"></div>
+
+            <!-- Buku Induk Pasien Nominator & Denominator -->
+            <div id="cpMorningPatientsTableContainer" style="margin-bottom:16px;"></div>
+
+            <!-- Riwayat Tren Harian Pagi -->
+            <div id="cpMorningTrendContainer"></div>
+          </div>
+        </div>
+
+        <!-- ================================================================== -->
         <!-- SUB-VIEW 1: CEKLIS MATRIKS HARIAN BANGSAL -->
         <!-- ================================================================== -->
-        <div id="cpViewChecklist" class="cp-subview-panel active">
+        <div id="cpViewChecklist" class="cp-subview-panel" style="display:none;">
           <!-- PANEL AUDIT PENAPISAN DENOMINATOR PASIEN SPREADSHEET -->
           <div id="cpDenominatorScreeningPanel" class="card" style="margin-bottom:1.25rem;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);">
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:14px;border-bottom:1px solid var(--border-color);padding-bottom:12px;">

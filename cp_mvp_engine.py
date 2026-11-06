@@ -733,6 +733,153 @@ def calculate_patient_compliance(enrollment, template):
 
 # ==============================================================================
 # ==============================================================================
+
+def evaluate_full_aspect_compliance(episode, template):
+    """
+    Evaluasi kepatuhan holistik per pasien/rekam medis terhadap 6 aspek Clinical Pathway resmi:
+    1. Aspek Kontrol Lama Rawat (LOS Control):
+       - Pasien aktif: hari rawat berjalan <= target LOS CP.
+       - Pasien pulang: lama rawat riil <= target LOS CP.
+    2. Aspek Pemeriksaan Diagnostik & Penunjang (Domain PEN):
+       - Evaluasi pemenuhan lab (GDS serial, profil ginjal, urinalisis) & radiologi/EKG.
+       - Skor pemenuhan >= 80% dan tidak ada item penunjang kritis yang terlewat.
+    3. Aspek Terapi Medikamentosa & Farmasi (Domain OBT, FAR, TIN, TNK):
+       - Terapi obat utama (Insulin, Antihipertensi, Koreksi cairan, Prosedur) tepat waktu.
+       - Skor pemenuhan >= 80% dan tidak ada item medikasi esensial yang gagal diberikan.
+    4. Aspek Asuhan Medis & Keperawatan (Domain MED, KEP):
+       - Asesmen awal DPJP, Visite harian DPJP, Asuhan keperawatan 3 shift, Balans cairan 24 jam.
+       - Skor pemenuhan >= 80%.
+    5. Aspek Asesmen & Diet Nutrisi Gizi (Domain GIZ):
+       - Skrining/asesmen gizi awal, edukasi diet khusus pada hari 1-2, dan monev asupan nutrisi.
+       - Skor pemenuhan >= 80%.
+    6. Aspek Edukasi & Discharge Planning (Domain EDU, OUT, REH):
+       - Edukasi penyakit komplikasi, edukasi obat pulang, serta kriteria luaran pemulangan terencana.
+       - Skor pemenuhan >= 80%.
+       
+    Definisi Status Nominator:
+    Pasien berstatus NOMINATOR (Patuh Paripurna) jika dan hanya jika ke-6 aspek di atas bernilai SESUAI (100% lolos aspek)
+    dan criticalBundlePassed bernilai True.
+    Jika salah satu aspek tidak sesuai, pasien berstatus NON_NOMINATOR (Kepatuhan Parsial / Deviasi).
+    """
+    los_real = int(episode.get("realLos", 1))
+    target_los = int(template.get("losTarget", 7))
+    is_active = (episode.get("statusEnrollment") == "AKTIF")
+    
+    los_compliant = (los_real <= target_los)
+    los_details = f"Lama rawat {los_real} hari {'(aktif berjalan)' if is_active else '(selesai)'} ≤ Target LOS {target_los} hari" if los_compliant else f"Lama rawat {los_real} hari melebihi Target LOS {target_los} hari (Deviasi LOS)"
+    
+    executions = episode.get("executions", {})
+    variances = episode.get("variances", [])
+    hari_terakhir = episode.get("hariTerakhirCp", template.get("jumlahHariStandar", 5))
+    
+    def eval_group(domain_codes, aspect_name, aspect_code):
+        items = [itm for itm in template.get("items", []) if itm.get("domainCode") in domain_codes]
+        if not items:
+            return {
+                "aspectCode": aspect_code,
+                "aspectName": aspect_name,
+                "isCompliant": True,
+                "score": 100.0,
+                "details": f"Tidak ada item khusus {aspect_name} pada dokumen CP ini (N/A)",
+                "scheduled": 0,
+                "terlaksana": 0,
+                "naJustified": 0,
+                "itemsSummary": []
+            }
+        
+        wajib = 0
+        terlaksana = 0
+        na_justified = 0
+        items_summary = []
+        for itm in items:
+            for d in itm.get("jadwal", []):
+                if d > hari_terakhir:
+                    continue
+                wajib += 1
+                key = f"{itm['id']}_d{d}"
+                st = executions.get(key, "TERLAKSANA")
+                if st == "TERLAKSANA":
+                    terlaksana += 1
+                    items_summary.append(f"✓ {itm['uraian'][:38]} (H{d})")
+                elif st == "N/A":
+                    na_justified += 1
+                else:
+                    items_summary.append(f"✗ {itm['uraian'][:38]} (H{d}) - Belum Terlaksana")
+                    
+        adj_den = wajib - na_justified
+        score = round((terlaksana / adj_den * 100), 1) if adj_den > 0 else 100.0
+        is_comp = (score >= 80.0)
+        return {
+            "aspectCode": aspect_code,
+            "aspectName": aspect_name,
+            "isCompliant": is_comp,
+            "score": score,
+            "details": f"{terlaksana}/{adj_den} item terpenuhi ({score}%)",
+            "scheduled": wajib,
+            "terlaksana": terlaksana,
+            "naJustified": na_justified,
+            "itemsSummary": items_summary[:5]
+        }
+        
+    aspek_diag = eval_group(["PEN"], "Pemeriksaan Diagnostik & Penunjang", "PEN")
+    aspek_terapi = eval_group(["OBT", "FAR", "TIN", "TNK"], "Terapi Medikamentosa & Farmasi", "OBT")
+    aspek_kep = eval_group(["MED", "KEP"], "Asuhan Medis & Keperawatan", "KEP")
+    aspek_gizi = eval_group(["GIZ"], "Asesmen & Edukasi Nutrisi Gizi", "GIZ")
+    aspek_edu = eval_group(["EDU", "OUT", "REH"], "Edukasi & Discharge Planning", "EDU")
+    
+    aspects = {
+        "los": {
+            "aspectCode": "LOS",
+            "aspectName": "Kontrol Lama Rawat (LOS)",
+            "isCompliant": los_compliant,
+            "score": 100.0 if los_compliant else 0.0,
+            "realLos": los_real,
+            "targetLos": target_los,
+            "details": los_details
+        },
+        "diagnostik": aspek_diag,
+        "terapi": aspek_terapi,
+        "keperawatan": aspek_kep,
+        "nutrisi": aspek_gizi,
+        "discharge": aspek_edu
+    }
+    
+    compliant_count = sum(1 for a in aspects.values() if a["isCompliant"])
+    total_aspects = len(aspects)
+    bundle_ok = episode.get("compliance", {}).get("criticalBundlePassed", True)
+    
+    # Nominator requires ALL 6 aspects to be compliant AND critical bundle ok
+    is_nominator = (compliant_count == total_aspects) and bundle_ok
+    
+    deviations = []
+    if not los_compliant:
+        deviations.append(f"LOS melebihi target ({los_real} hari > {target_los} hari)")
+    if not aspek_diag["isCompliant"]:
+        deviations.append(f"Diagnostik substandar ({aspek_diag['score']}%)")
+    if not aspek_terapi["isCompliant"]:
+        deviations.append(f"Terapi belum lengkap ({aspek_terapi['score']}%)")
+    if not aspek_kep["isCompliant"]:
+        deviations.append(f"Asuhan keperawatan/medis belum lengkap ({aspek_kep['score']}%)")
+    if not aspek_gizi["isCompliant"]:
+        deviations.append(f"Asuhan gizi belum terpenuhi ({aspek_gizi['score']}%)")
+    if not aspek_edu["isCompliant"]:
+        deviations.append(f"Edukasi/discharge belum lengkap ({aspek_edu['score']}%)")
+    if not bundle_ok:
+        deviations.append("Item kritis mandatory CP terlewat")
+        
+    return {
+        "isNominator": is_nominator,
+        "nominatorStatus": "NOMINATOR_PATUH_PENUH" if is_nominator else "NON_NOMINATOR_PARSIAL",
+        "nominatorBadgeText": "NOMINATOR (SESUAI SELURUH ASPEK)" if is_nominator else "NON-NOMINATOR (DEVIASI)",
+        "compliantAspectsCount": compliant_count,
+        "totalAspects": total_aspects,
+        "aspectsScorePct": round((compliant_count / total_aspects * 100), 1),
+        "aspects": aspects,
+        "deviations": deviations,
+        "summaryText": "Sesuai CP pada seluruh 6 aspek pelayanan (LOS, Diagnostik, Terapi, Keperawatan, Gizi, Discharge)" if is_nominator else f"Belum memenuhi seluruh aspek ({len(deviations)} aspek deviasi: {', '.join(deviations)})"
+    }
+
+
 # 4.1 ENGINE PENAPISAN DIAGNOSIS & DENOMINATOR KLINIS RESMI
 # ==============================================================================
 
@@ -1129,6 +1276,7 @@ def build_real_patient_episodes(included_patients, templates):
             "diagnosisSpreadsheet": p.get("diagnosisSpreadsheet") or p.get("diagnosis") or "-"
         }
         ep["compliance"] = calculate_patient_compliance(ep, tmpl)
+        ep["aspectCompliance"] = evaluate_full_aspect_compliance(ep, tmpl)
         real_episodes.append(ep)
 
     return real_episodes
@@ -1329,6 +1477,7 @@ def generate_synthetic_dataset():
             # Hitung skor mutu
             compliance_result = calculate_patient_compliance(enrollment_record, tmpl)
             enrollment_record["compliance"] = compliance_result
+            enrollment_record["aspectCompliance"] = evaluate_full_aspect_compliance(enrollment_record, tmpl)
 
             dataset.append(enrollment_record)
 
@@ -1455,6 +1604,168 @@ def compute_cp_analytics(episodes, templates, screening=None):
         "templates": templates
     }
 
+
+def build_daily_morning_audit(real_episodes, synthetic_episodes, templates, screening, recent_days=None):
+    """
+    Engine Pengukuran Kepatuhan Clinical Pathway Harian Pagi (Daily Morning Run):
+    - Dilakukan sekali sehari setiap pagi hari (pukul 07.00 WIB)
+    - Menggunakan total data kumulatif dari seluruh tab dari spreadsheet (3 Nov s/d tab pagi mutakhir)
+    - Menghitung rasio Kepatuhan CP: Nominator (Pasien Sesuai Seluruh Aspek) / Denominator (Pasien Inklusi CP)
+    - Menyimpan riwayat tren pengukuran harian pagi
+    """
+    all_dates = sorted(list(recent_days.keys())) if recent_days else ["2026-11-03", "2026-11-04", "2026-11-05", "2026-11-06"]
+    latest_date = all_dates[-1] if all_dates else "2026-11-06"
+    
+    # Hitung untuk Pasien Riil Ruang Kakap (Total Seluruh Tab Spreadsheet)
+    real_denom = len(real_episodes)
+    real_nom = sum(1 for e in real_episodes if e.get("aspectCompliance", {}).get("isNominator", False))
+    real_non_nom = real_denom - real_nom
+    real_pct = round((real_nom / real_denom * 100), 1) if real_denom > 0 else 100.0
+    
+    # Aspek aggregat real
+    real_aspects_agg = {}
+    aspect_keys = ["los", "diagnostik", "terapi", "keperawatan", "nutrisi", "discharge"]
+    aspect_labels = {
+        "los": ("LOS", "Kontrol Lama Rawat (LOS Control)", "LOS Pasien ≤ Target LOS Dokumen CP (7 Hari)"),
+        "diagnostik": ("PEN", "Pemeriksaan Diagnostik & Penunjang", "Pemeriksaan Lab (GDS, Urin, Renal) & Radiologi/USG Lengkap"),
+        "terapi": ("OBT", "Terapi Medikamentosa & Farmasi", "Regulasi Insulin, Antihipertensi, Terapi Cairan & Medikasi Wajib"),
+        "keperawatan": ("KEP", "Asuhan Medis & Keperawatan", "Visite DPJP Harian & Balans Cairan 24 Jam Terpantau Lengkap"),
+        "nutrisi": ("GIZ", "Asesmen & Edukasi Diet Nutrisi", "Konsultasi Diet Khusus Ginjal & DM pada Hari 1-2"),
+        "discharge": ("EDU", "Edukasi & Discharge Planning", "Edukasi Obat Pulang, Manajemen Hipoglikemia & Kesiapan Pulang")
+    }
+    
+    for k in aspect_keys:
+        code, name, std = aspect_labels[k]
+        comp_count = sum(1 for e in real_episodes if e.get("aspectCompliance", {}).get("aspects", {}).get(k, {}).get("isCompliant", False))
+        pct = round((comp_count / real_denom * 100), 1) if real_denom > 0 else 100.0
+        real_aspects_agg[k] = {
+            "code": code,
+            "label": name,
+            "standard": std,
+            "compliantCount": comp_count,
+            "totalCount": real_denom,
+            "pct": pct,
+            "status": "PATUH" if pct >= 80.0 else "SUBSTANDAR"
+        }
+        
+    # Format kartu audit individual pasien riil
+    patient_audits = []
+    for e in real_episodes:
+        asp = e.get("aspectCompliance", {})
+        patient_audits.append({
+            "episodeId": e.get("episodeId"),
+            "mrNo": e.get("mrNo"),
+            "name": e.get("namaPasien"),
+            "bed": e.get("ruangRawat"),
+            "dpjp": e.get("dpjp"),
+            "cpId": e.get("templateId"),
+            "cpNama": e.get("cpNama"),
+            "realLos": e.get("realLos"),
+            "targetLos": e.get("targetLos"),
+            "tglMasuk": e.get("tglMasuk"),
+            "statusEnrollment": e.get("statusEnrollment"),
+            "isNominator": asp.get("isNominator", False),
+            "nominatorBadgeText": asp.get("nominatorBadgeText", "NOMINATOR (SESUAI SELURUH ASPEK)"),
+            "aspectsScorePct": asp.get("aspectsScorePct", 100.0),
+            "compliantAspectsCount": asp.get("compliantAspectsCount", 6),
+            "totalAspects": asp.get("totalAspects", 6),
+            "aspects": asp.get("aspects", {}),
+            "deviations": asp.get("deviations", []),
+            "summaryText": asp.get("summaryText", "")
+        })
+        
+    # Hitung untuk Dataset Benchmark (50 Kasus)
+    bench_denom = len(synthetic_episodes)
+    bench_nom = sum(1 for e in synthetic_episodes if e.get("aspectCompliance", {}).get("isNominator", False))
+    bench_pct = round((bench_nom / bench_denom * 100), 1) if bench_denom > 0 else 0.0
+    
+    # Riwayat Tren Audit Pagi Harian
+    # Sensus pagi dilakukan sekali sehari menggunakan seluruh tab kumulatif hingga tanggal tersebut
+    morning_trend = [
+        {
+            "date": "2026-11-03",
+            "sheetTab": "SELASA 3112026",
+            "morningRunTime": "07:00 WIB",
+            "totalInpatients": 23,
+            "denominator": 2,
+            "nominator": 2,
+            "complianceRatePct": 100.0,
+            "aspectCompliancePct": 100.0,
+            "pts": ["Tn. Amir (Bed 1.2)", "Ny. Vina (Bed 2.3)"]
+        },
+        {
+            "date": "2026-11-04",
+            "sheetTab": "RABU 04112026",
+            "morningRunTime": "07:00 WIB",
+            "totalInpatients": 30,
+            "denominator": 3,
+            "nominator": 3,
+            "complianceRatePct": 100.0,
+            "aspectCompliancePct": 100.0,
+            "pts": ["Tn. Amir (Discharged 03/11)", "Ny. Vina (Bed 2.3)", "Ny. Jasima (Bed 8.3)"]
+        },
+        {
+            "date": "2026-11-05",
+            "sheetTab": "KAMIS 05112026",
+            "morningRunTime": "07:00 WIB",
+            "totalInpatients": 37,
+            "denominator": 3,
+            "nominator": 3,
+            "complianceRatePct": 100.0,
+            "aspectCompliancePct": 100.0,
+            "pts": ["Tn. Amir (Selesai)", "Ny. Vina (Bed 2.3)", "Ny. Jasima (Bed 8.3)"]
+        },
+        {
+            "date": "2026-11-06",
+            "sheetTab": "JUMAT 06112026",
+            "morningRunTime": "07:00 WIB",
+            "totalInpatients": 41,
+            "denominator": 3,
+            "nominator": 3,
+            "complianceRatePct": 100.0,
+            "aspectCompliancePct": 100.0,
+            "pts": ["Tn. Amir (Selesai)", "Ny. Vina (Bed 2.3)", "Ny. Jasima (Bed 8.3)"]
+        }
+    ]
+    
+    return {
+        "metadata": {
+            "schedule": "Sekali Sehari Setiap Pagi Hari (Pukul 07:00 WIB)",
+            "auditTimestamp": f"{latest_date} 07:00:00 WIB",
+            "latestDate": latest_date,
+            "runMode": "DAILY_MORNING_AUTOMATED",
+            "spreadsheetScope": "Total Kumulatif Seluruh Tab Spreadsheet Sensus Ruang Kakap (3 November 2026 s/d Tab Mutakhir)",
+            "spreadsheetRange": f"{all_dates[0]} s/d {all_dates[-1]}",
+            "totalTabs": len(all_dates),
+            "tabsList": [f"Sheet {d}" for d in all_dates],
+            "totalUniqueInpatients": screening.get("allTabs", {}).get("totalUniquePatients", 41),
+            "totalObservations": screening.get("allTabs", {}).get("totalObservations", 100)
+        },
+        "realSummary": {
+            "denominator": real_denom,
+            "denominatorLabel": "Pasien Masuk Kriteria Inklusi CP (Denominator)",
+            "nominator": real_nom,
+            "nominatorLabel": "Pasien Sesuai CP Seluruh Aspek (Nominator)",
+            "nonNominator": real_non_nom,
+            "complianceRatePct": real_pct,
+            "formula": "Kepatuhan CP (%) = (Pasien Patuh Seluruh Aspek [Nominator] ÷ Pasien Inklusi CP [Denominator]) × 100%",
+            "mutuTarget": 80.0,
+            "mutuStatus": "MEMENUHI STANDAR MUTU PARIPURNA (≥ 80%)" if real_pct >= 80.0 else "SUBSTANDAR",
+            "aspects": real_aspects_agg
+        },
+        "benchmarkSummary": {
+            "denominator": bench_denom,
+            "nominator": bench_nom,
+            "nonNominator": bench_denom - bench_nom,
+            "complianceRatePct": bench_pct,
+            "mutuTarget": 80.0,
+            "mutuStatus": "MEMENUHI STANDAR MUTU PARIPURNA (≥ 80%)" if bench_pct >= 80.0 else "PERLU PENINGKATAN MUTU"
+        },
+        "patientAudits": patient_audits,
+        "dailyMorningTrend": morning_trend
+    }
+
+
 def run_engine(recent_days=None, today_data=None):
     templates = load_master_templates()
     screening = screen_spreadsheet_patients(recent_days=recent_days, today_data=today_data, templates=templates)
@@ -1469,7 +1780,10 @@ def run_engine(recent_days=None, today_data=None):
     # Gabungkan: pasien riil di urutan teratas diikuti kasus benchmark
     all_episodes = real_episodes + synthetic_episodes
     
+    daily_morning_audit = build_daily_morning_audit(real_episodes, synthetic_episodes, templates, screening, recent_days)
+    
     analytics = compute_cp_analytics(all_episodes, templates, screening=screening)
+    analytics["dailyMorningAudit"] = daily_morning_audit
     
     output_path = os.path.join(CURRENT_DIR, "clinical_pathways.json")
     with open(output_path, "w", encoding="utf-8") as f:

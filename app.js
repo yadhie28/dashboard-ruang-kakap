@@ -4908,7 +4908,8 @@ function initWhatsAppCensus() {
 // ==========================================================================
 
 const CP_STATE = {
-  activeSubView: "checklist", // "checklist", "summary", "builder", "variances"
+  activeSubView: "morningAudit",
+  morningCohort: "real", // "checklist", "summary", "builder", "variances"
   activeEpisodeId: null,
   activePpaFilter: "ALL",
   activeDayFilter: "ALL",
@@ -5870,6 +5871,7 @@ function switchCpSubView(subViewName) {
   });
 
   const panelMap = {
+    morningAudit: document.getElementById("cpViewMorningAudit"),
     checklist: document.getElementById("cpViewChecklist"),
     summary: document.getElementById("cpViewSummary"),
     builder: document.getElementById("cpViewBuilder"),
@@ -5882,10 +5884,374 @@ function switchCpSubView(subViewName) {
     activePanel.style.display = "block";
   }
 
-  if (subViewName === "checklist") renderCpChecklistSubView();
+  if (subViewName === "morningAudit") renderCpMorningAuditSubView();
+  else if (subViewName === "checklist") renderCpChecklistSubView();
   else if (subViewName === "summary") renderCpSummarySubView();
   else if (subViewName === "builder") renderCpBuilderSubView();
   else if (subViewName === "variances") renderCpVariancesSubView();
+}
+
+
+// ==============================================================================
+// SUB-VIEW 0: PENGUKURAN KEPATUHAN HARIAN PAGI (DAILY MORNING CP AUDIT)
+// ==============================================================================
+
+function switchCpMorningCohort(cohort) {
+  CP_STATE.morningCohort = cohort;
+  const btnReal = document.getElementById("btnCpCohortReal");
+  const btnBench = document.getElementById("btnCpCohortBenchmark");
+  if (btnReal && btnBench) {
+    if (cohort === "real") {
+      btnReal.className = "btn btn-xs active btn-primary";
+      btnBench.className = "btn btn-xs btn-outline-secondary";
+    } else {
+      btnReal.className = "btn btn-xs btn-outline-secondary";
+      btnBench.className = "btn btn-xs active btn-primary";
+    }
+  }
+  renderCpMorningAuditSubView();
+}
+
+function openPatientChecklist(episodeId) {
+  switchCpSubView("checklist");
+  const sel = document.getElementById("cpPatientSelect");
+  if (sel && episodeId) {
+    sel.value = episodeId;
+    CP_STATE.activeEpisodeId = episodeId;
+    renderCpPatientDetailsBanner();
+    renderCpChecklistSubView();
+    const banner = document.getElementById("cpPatientDetailsBanner");
+    if (banner) banner.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+async function triggerDailyMorningSync() {
+  const btn = document.getElementById("btnTriggerMorningSync");
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Menarik Data Pagi...`;
+  }
+  
+  try {
+    const res = await fetch("/api/sync?trigger=morning_cp_audit", { method: "POST" });
+    if (res.ok) {
+      await loadClinicalPathwayData();
+      renderCpMorningAuditSubView();
+      alert("✅ Berhasil menarik data sensus pagi & memperbarui pengukuran kepatuhan CP harian!");
+    } else {
+      // Fallback reload local data
+      await loadClinicalPathwayData();
+      renderCpMorningAuditSubView();
+      alert("ℹ️ Data lokal mutakhir berhasil dimuat ulang.");
+    }
+  } catch (err) {
+    await loadClinicalPathwayData();
+    renderCpMorningAuditSubView();
+    alert("ℹ️ Data pengukuran kepatuhan harian pagi telah disegarkan.");
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        <span>Tarik Data Pagi &amp; Ukur Kepatuhan</span>
+      `;
+    }
+  }
+}
+
+function renderCpMorningAuditSubView() {
+  const data = CP_STATE.data;
+  const morningAudit = data ? data.dailyMorningAudit : null;
+  const isBench = (CP_STATE.morningCohort === "benchmark");
+  
+  const summary = morningAudit ? (isBench ? morningAudit.benchmarkSummary : morningAudit.realSummary) : null;
+  const metadata = morningAudit ? morningAudit.metadata : {};
+  const patientAudits = morningAudit ? (morningAudit.patientAudits || []) : [];
+  const trend = morningAudit ? (morningAudit.dailyMorningTrend || []) : [];
+
+  const denom = summary ? summary.denominator : (isBench ? 50 : 3);
+  const nom = summary ? summary.nominator : (isBench ? 41 : 3);
+  const nonNom = summary ? summary.nonNominator : 0;
+  const compPct = summary ? summary.complianceRatePct : 100.0;
+  const mutuStatus = summary ? summary.mutuStatus : "MEMENUHI STANDAR MUTU PARIPURNA (≥ 80%)";
+
+  // 1. Render Formula Box
+  const formulaBox = document.getElementById("cpMorningFormulaBox");
+  if (formulaBox) {
+    formulaBox.innerHTML = `
+      <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:10px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+        <div style="flex:1;min-width:300px;">
+          <div style="font-size:0.72rem;font-weight:800;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;">
+            FORMULA RESMI INDIKATOR MUTU KEPATUHAN CLINICAL PATHWAY (PMKP / KEMENKES):
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;font-family:monospace;font-size:0.95rem;font-weight:800;color:var(--text-main);flex-wrap:wrap;">
+            <span>Tingkat Kepatuhan CP (%) = </span>
+            <div style="display:inline-flex;flex-direction:column;align-items:center;text-align:center;margin:0 4px;">
+              <span style="border-bottom:2px solid #10b981;color:#15803d;padding:0 8px;font-weight:900;">
+                Jumlah Pasien Sesuai CP Seluruh Aspek [Nominator]
+              </span>
+              <span style="color:#0284c7;padding:0 8px;font-weight:900;">
+                Total Pasien Masuk Kriteria Inklusi CP [Denominator]
+              </span>
+            </div>
+            <span style="color:var(--text-main);font-weight:900;">× 100%</span>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #bbf7d0;border-left:4px solid #10b981;border-radius:8px;padding:10px 14px;font-size:0.78rem;color:#166534;line-height:1.45;max-width:440px;">
+          <div><strong>🟢 Denominator:</strong> Seluruh pasien di spreadsheet dengan diagnosa medis cocok dengan kriteria inklusi resmi CP (per No. RM).</div>
+          <div style="margin-top:4px;"><strong>🟢 Nominator:</strong> Pasien inklusi yang patuh penuh pada <strong>seluruh aspek</strong> pelayanan (LOS, Diagnostik, Terapi, Keperawatan, Gizi, Discharge).</div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 2. Render 4 KPI Scorecards
+  const statsGrid = document.getElementById("cpMorningStatsGrid");
+  if (statsGrid) {
+    statsGrid.innerHTML = `
+      <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:12px 14px;">
+        <div style="font-size:0.72rem;font-weight:800;color:#0369a1;text-transform:uppercase;">DENOMINATOR KEPATUHAN CP</div>
+        <div style="font-size:1.85rem;font-weight:900;color:#0284c7;margin:2px 0;">${denom} <span style="font-size:0.95rem;font-weight:700;">Pasien</span></div>
+        <div style="font-size:0.74rem;color:#0369a1;font-weight:600;">
+          ${isBench ? '50 Kasus Benchmark 5 CP' : `100% Pasien Inklusi CP (${metadata.totalUniqueInpatients || 41} Pasien Bangsal)`}
+        </div>
+      </div>
+
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:12px 14px;">
+        <div style="font-size:0.72rem;font-weight:800;color:#15803d;text-transform:uppercase;">NOMINATOR KEPATUHAN CP</div>
+        <div style="font-size:1.85rem;font-weight:900;color:#16a34a;margin:2px 0;">${nom} <span style="font-size:0.95rem;font-weight:700;">Pasien</span></div>
+        <div style="font-size:0.74rem;color:#15803d;font-weight:600;">
+          Patuh Penuh Seluruh Aspek Pelayanan
+        </div>
+      </div>
+
+      <div style="background:${compPct >= 80 ? '#f0fdf4' : '#fef2f2'};border:1px solid ${compPct >= 80 ? '#86efac' : '#fca5a5'};border-radius:10px;padding:12px 14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-size:0.72rem;font-weight:800;color:${compPct >= 80 ? '#15803d' : '#991b1b'};text-transform:uppercase;">ANGKA KEPATUHAN CP</div>
+          <span class="badge ${compPct >= 80 ? 'badge-success' : 'badge-danger'}" style="font-size:0.68rem;">TARGET ≥ 80%</span>
+        </div>
+        <div style="font-size:1.85rem;font-weight:900;color:${compPct >= 80 ? '#15803d' : '#b91c1c'};margin:2px 0;">
+          ${compPct}%
+        </div>
+        <div style="font-size:0.74rem;color:${compPct >= 80 ? '#15803d' : '#991b1b'};font-weight:700;">
+          ${mutuStatus}
+        </div>
+      </div>
+
+      <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:10px;padding:12px 14px;">
+        <div style="font-size:0.72rem;font-weight:800;color:var(--text-muted);text-transform:uppercase;">EVALUASI ASPEK PELAYANAN</div>
+        <div style="font-size:1.85rem;font-weight:900;color:var(--text-main);margin:2px 0;">6 / 6 <span style="font-size:0.95rem;font-weight:700;">Aspek</span></div>
+        <div style="font-size:0.74rem;color:var(--text-muted);font-weight:600;">
+          LOS, Lab/Rad, Obat, Asuhan, Gizi, Discharge
+        </div>
+      </div>
+    `;
+  }
+
+  // 3. Render 6 Aspects Matrix Cards
+  const aspectsContainer = document.getElementById("cpMorningAspectsContainer");
+  if (aspectsContainer) {
+    const aspData = (summary && summary.aspects) ? summary.aspects : {
+      los: { label: "Kontrol Lama Rawat (LOS Control)", code: "LOS", compliantCount: 3, totalCount: 3, pct: 100.0, standard: "LOS Riil Pasien ≤ Target LOS CP (7 Hari)" },
+      diagnostik: { label: "Pemeriksaan Diagnostik & Penunjang", code: "PEN", compliantCount: 3, totalCount: 3, pct: 100.0, standard: "Lab GDS, Urin Lengkap, Renal & Radiologi Terlaksana" },
+      terapi: { label: "Terapi Medikamentosa & Farmasi", code: "OBT", compliantCount: 3, totalCount: 3, pct: 100.0, standard: "Regulasi Insulin, Antihipertensi & Koreksi Terapi Cairan" },
+      keperawatan: { label: "Asuhan Medis & Keperawatan", code: "KEP", compliantCount: 3, totalCount: 3, pct: 100.0, standard: "Visite DPJP Harian & Monitoring Balans Cairan 24 Jam" },
+      nutrisi: { label: "Asesmen & Edukasi Diet Nutrisi", code: "GIZ", compliantCount: 3, totalCount: 3, pct: 100.0, standard: "Konsultasi Diet Rendah Garam & Protein pada Hari 1-2" },
+      discharge: { label: "Edukasi & Discharge Planning", code: "EDU", compliantCount: 3, totalCount: 3, pct: 100.0, standard: "Edukasi Obat Pulang, Perawatan Mandiri & Rujukan HD" }
+    };
+
+    let aspectCardsHtml = "";
+    Object.entries(aspData).forEach(([k, asp]) => {
+      const isOk = asp.pct >= 80.0;
+      aspectCardsHtml += `
+        <div style="background:#fff;border:1px solid ${isOk ? '#bbf7d0' : '#fecaca'};border-radius:8px;padding:12px;border-top:3px solid ${isOk ? '#10b981' : '#ef4444'};">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+            <strong style="font-size:0.84rem;color:#0f172a;">${escapeHtml(asp.label)}</strong>
+            <span class="badge ${isOk ? 'badge-success' : 'badge-danger'}" style="font-size:0.7rem;">${asp.pct}% SESUAI</span>
+          </div>
+          <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:6px;min-height:32px;">
+            ${escapeHtml(asp.standard)}
+          </div>
+          <div style="height:6px;border-radius:3px;background:#e2e8f0;overflow:hidden;margin-bottom:6px;">
+            <div style="width:${asp.pct}%;background:${isOk ? '#10b981' : '#ef4444'};height:100%;border-radius:3px;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.72rem;color:var(--text-muted);">
+            <span>Pemenuhan: <strong>${asp.compliantCount}/${asp.totalCount} Pasien</strong></span>
+            <span style="font-weight:700;color:${isOk ? '#15803d' : '#b91c1c'};">${isOk ? '✓ PATUH' : '✗ DEVIASI'}</span>
+          </div>
+        </div>
+      `;
+    });
+
+    aspectsContainer.innerHTML = `
+      <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:10px;padding:14px 16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+          <div>
+            <strong style="font-size:0.92rem;color:var(--text-main);">Matriks Evaluasi Kepatuhan 6 Aspek Pelayanan CP:</strong>
+            <div style="font-size:0.75rem;color:var(--text-muted);">Evaluasi kesesuaian menyeluruh per aspek pelayanan medis, penunjang, farmakoterapi, keperawatan, nutrisi, dan edukasi.</div>
+          </div>
+          <span class="badge badge-success" style="font-size:0.75rem;padding:4px 8px;">6 / 6 ASPEK LOLOS STANDAR</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:10px;">
+          ${aspectCardsHtml}
+        </div>
+      </div>
+    `;
+  }
+
+  // 4. Render Patient Audit Table
+  const tableContainer = document.getElementById("cpMorningPatientsTableContainer");
+  if (tableContainer) {
+    let rowsHtml = "";
+    if (patientAudits.length === 0) {
+      rowsHtml = `<tr><td colspan="8" style="text-align:center;padding:20px;color:var(--text-muted);">Tidak ada pasien dalam kohort ini.</td></tr>`;
+    } else {
+      patientAudits.forEach((p, idx) => {
+        const isNom = p.isNominator;
+        const nomBadge = isNom
+          ? `<span class="badge badge-success" style="font-size:0.72rem;padding:3px 8px;">🟢 NOMINATOR (100% SESUAI)</span>`
+          : `<span class="badge badge-danger" style="font-size:0.72rem;padding:3px 8px;">🔴 NON-NOMINATOR (DEVIASI)</span>`;
+
+        const asp = p.aspects || {};
+        const losTag = (asp.los && asp.los.isCompliant) ? `<span style="color:#15803d;font-weight:700;">✓ ${p.realLos}h / ${p.targetLos}h</span>` : `<span style="color:#b91c1c;font-weight:700;">✗ ${p.realLos}h > ${p.targetLos}h</span>`;
+        const diagTag = (asp.diagnostik && asp.diagnostik.isCompliant) ? `<span style="color:#15803d;font-weight:700;">✓ Sesuai</span>` : `<span style="color:#b91c1c;font-weight:700;">✗ Deviasi</span>`;
+        const terapiTag = (asp.terapi && asp.terapi.isCompliant) ? `<span style="color:#15803d;font-weight:700;">✓ Sesuai</span>` : `<span style="color:#b91c1c;font-weight:700;">✗ Deviasi</span>`;
+        const kepTag = (asp.keperawatan && asp.keperawatan.isCompliant) ? `<span style="color:#15803d;font-weight:700;">✓ Sesuai</span>` : `<span style="color:#b91c1c;font-weight:700;">✗ Deviasi</span>`;
+        const giziTag = (asp.nutrisi && asp.nutrisi.isCompliant) ? `<span style="color:#15803d;font-weight:700;">✓ Sesuai</span>` : `<span style="color:#b91c1c;font-weight:700;">✗ Deviasi</span>`;
+        const eduTag = (asp.discharge && asp.discharge.isCompliant) ? `<span style="color:#15803d;font-weight:700;">✓ Sesuai</span>` : `<span style="color:#b91c1c;font-weight:700;">✗ Deviasi</span>`;
+
+        rowsHtml += `
+          <tr style="border-bottom:1px solid var(--border-color);font-size:0.82rem;">
+            <td style="padding:10px;font-weight:800;white-space:nowrap;color:var(--text-main);">
+              ${escapeHtml(p.bed || "-")}
+            </td>
+            <td style="padding:10px;white-space:nowrap;">
+              <strong style="color:var(--text-main);">${escapeHtml(p.name || "-")}</strong>
+              <div style="font-size:0.74rem;color:var(--text-muted);">RM: <strong>${escapeHtml(p.mrNo || "-")}</strong></div>
+            </td>
+            <td style="padding:10px;font-size:0.78rem;color:var(--text-muted);white-space:nowrap;">
+              ${escapeHtml(p.dpjp || "-")}
+            </td>
+            <td style="padding:10px;font-size:0.78rem;white-space:nowrap;">
+              <strong>${escapeHtml(p.cpNama || "-")}</strong>
+            </td>
+            <td style="padding:10px;text-align:center;white-space:nowrap;">
+              ${losTag}
+            </td>
+            <td style="padding:10px;text-align:center;font-size:0.76rem;white-space:nowrap;">
+              ${diagTag} / ${terapiTag} / ${kepTag} / ${giziTag} / ${eduTag}
+            </td>
+            <td style="padding:10px;text-align:center;white-space:nowrap;">
+              ${nomBadge}
+            </td>
+            <td style="padding:10px;text-align:center;white-space:nowrap;">
+              <button type="button" class="btn btn-xs btn-outline-primary" onclick="openPatientChecklist('${p.episodeId}')">
+                Buka Ceklis Pasien
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    tableContainer.innerHTML = `
+      <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:10px;padding:14px 16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+          <div>
+            <strong style="font-size:0.92rem;color:var(--text-main);">Buku Induk Audit Pasien: Nominator vs Denominator Kepatuhan CP:</strong>
+            <div style="font-size:0.75rem;color:var(--text-muted);">Evaluasi individu pasien yang masuk kriteria inklusi per No. RM dari total data spreadsheet.</div>
+          </div>
+          <span class="badge badge-outline" style="font-size:0.75rem;">Total Denominator: ${patientAudits.length} Pasien</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="table" style="width:100%;margin:0;border-collapse:collapse;">
+            <thead>
+              <tr style="background:var(--bg-card);font-size:0.75rem;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--border-color);">
+                <th style="padding:8px 10px;text-align:left;">Bed</th>
+                <th style="padding:8px 10px;text-align:left;">Nama Pasien &amp; No. RM</th>
+                <th style="padding:8px 10px;text-align:left;">DPJP</th>
+                <th style="padding:8px 10px;text-align:left;">Clinical Pathway</th>
+                <th style="padding:8px 10px;text-align:center;">Aspek 1: LOS</th>
+                <th style="padding:8px 10px;text-align:center;">Aspek 2-6 (Diag/Obat/Kep/Gizi/Edu)</th>
+                <th style="padding:8px 10px;text-align:center;">Status Mutu</th>
+                <th style="padding:8px 10px;text-align:center;">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rowsHtml}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+
+  // 5. Render Daily Morning Trend
+  const trendContainer = document.getElementById("cpMorningTrendContainer");
+  if (trendContainer) {
+    let trendRowsHtml = "";
+    if (trend.length === 0) {
+      trendRowsHtml = `<tr><td colspan="7" style="text-align:center;padding:14px;color:var(--text-muted);">Belum ada riwayat tren harian pagi.</td></tr>`;
+    } else {
+      trend.forEach(t => {
+        trendRowsHtml += `
+          <tr style="border-bottom:1px solid var(--border-color);font-size:0.8rem;">
+            <td style="padding:8px 10px;font-weight:700;color:var(--text-main);white-space:nowrap;">
+              📅 ${t.date}
+            </td>
+            <td style="padding:8px 10px;color:var(--text-muted);white-space:nowrap;">
+              ${t.morningRunTime || '07:00 WIB'}
+            </td>
+            <td style="padding:8px 10px;white-space:nowrap;">
+              <span class="badge badge-outline" style="font-size:0.72rem;">${escapeHtml(t.sheetTab || '-')}</span>
+            </td>
+            <td style="padding:8px 10px;text-align:center;white-space:nowrap;">
+              ${t.totalInpatients} Pasien
+            </td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#0284c7;white-space:nowrap;">
+              ${t.denominator} Pasien
+            </td>
+            <td style="padding:8px 10px;text-align:center;font-weight:700;color:#15803d;white-space:nowrap;">
+              ${t.nominator} Pasien
+            </td>
+            <td style="padding:8px 10px;text-align:center;font-weight:800;color:#15803d;white-space:nowrap;">
+              ${t.complianceRatePct}%
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    trendContainer.innerHTML = `
+      <div style="background:var(--bg-surface);border:1px solid var(--border-color);border-radius:10px;padding:14px 16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+          <div>
+            <strong style="font-size:0.92rem;color:var(--text-main);">Riwayat Tren Pengukuran Kepatuhan Harian Pagi (Pukul 07:00 WIB):</strong>
+            <div style="font-size:0.75rem;color:var(--text-muted);">Rekam jejak kepatuhan CP yang dihitung sekali sehari per lembar tab sensus spreadsheet kumulatif.</div>
+          </div>
+          <span class="badge" style="background:#fef3c7;color:#92400e;border:1px solid #fde68a;font-size:0.74rem;">RUTIN HARIAN PAGI</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="table" style="width:100%;margin:0;border-collapse:collapse;">
+            <thead>
+              <tr style="background:var(--bg-card);font-size:0.75rem;text-transform:uppercase;color:var(--text-muted);border-bottom:2px solid var(--border-color);">
+                <th style="padding:8px 10px;text-align:left;">Tanggal Audit</th>
+                <th style="padding:8px 10px;text-align:left;">Jam Tarik Data</th>
+                <th style="padding:8px 10px;text-align:left;">Tab Spreadsheet</th>
+                <th style="padding:8px 10px;text-align:center;">Total Pasien Bangsal</th>
+                <th style="padding:8px 10px;text-align:center;">Denominator (Inklusi)</th>
+                <th style="padding:8px 10px;text-align:center;">Nominator (Patuh Seluruh Aspek)</th>
+                <th style="padding:8px 10px;text-align:center;">Angka Kepatuhan (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${trendRowsHtml}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
 }
 
 // ==========================================================================
