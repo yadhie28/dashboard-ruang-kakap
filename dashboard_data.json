@@ -13,7 +13,7 @@
       "Tim I (Kakap 1-5 & Isolasi - 21 Bed)",
       "Tim II (Kakap 6-10 - 20 Bed)"
     ],
-    "lastUpdated": "07-11-2026 13:36:10",
+    "lastUpdated": "07-11-2026 13:44:04",
     "latestDate": "2026-11-07",
     "totalDatesRecorded": 5,
     "dateRange": "2026-11-03 s/d 2026-11-07",
@@ -63,9 +63,9 @@
       "date": "2026-11-07",
       "occTim1": 17,
       "occTim2": 13,
-      "totalOcc": 34,
+      "totalOcc": 33,
       "totalBeds": 41,
-      "bor": 82.9
+      "bor": 80.5
     }
   ],
   "analytics": {
@@ -233,10 +233,10 @@
     {
       "month": "2026-11",
       "daysCounted": 5,
-      "avgOcc": 33.0,
+      "avgOcc": 32.8,
       "avgOccA": 14.8,
       "avgOccB": 12.4,
-      "avgBor": 80.5
+      "avgBor": 80.0
     }
   ],
   "hospitalIndicators": {
@@ -247,12 +247,12 @@
     },
     "availableBeds": 41,
     "totalDays": 5,
-    "totalHP": 165,
+    "totalHP": 164,
     "totalDischarges": 11,
     "overall": {
-      "bor": 80.5,
-      "avlos": 15.0,
-      "toi": 3.6,
+      "bor": 80.0,
+      "avlos": 14.9,
+      "toi": 3.7,
       "bto": 19.6,
       "gdr": 181.8,
       "ndr": 90.9
@@ -261,15 +261,15 @@
       {
         "month": "2026-11",
         "days": 5,
-        "hp": 165,
+        "hp": 164,
         "hpTim1": 74,
         "hpTim2": 62,
         "discharges": 11,
         "deaths": 2,
         "deathsGt48": 1,
-        "bor": 80.5,
-        "avlos": 15.0,
-        "toi": 3.6,
+        "bor": 80.0,
+        "avlos": 14.9,
+        "toi": 3.7,
         "bto": 19.6,
         "gdr": 181.8,
         "ndr": 90.9
@@ -23565,7 +23565,7 @@
           "category": "Hematologi & Onkologi",
           "notes": {
             "pagi": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240 \n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD\n- Sabtu 07/11/26 Cek Elektrolit post KCL dan GDT (-) => INPUT (-)\n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-)\nPasien minta siang P. Infus Ulang",
-            "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+)",
+            "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+) a/i terapi tambahan ceftriaxon 2x1, nace 2x1 resep(+) malam tol. mulai",
             "malam": ""
           },
           "tags": [
@@ -23996,11 +23996,12 @@
         },
         {
           "bed": "4.4",
-          "room": "Kakap 4 (♀)",
+          "room": "KAKAP 4 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Kosong",
           "isEmpty": true,
           "isDischargedToday": false,
+          "dischargeColor": "FFFF9900",
           "name": "Bed Kosong",
           "mrNo": "",
           "gender": "-",
@@ -24712,7 +24713,7 @@
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
-            "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
+            "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE :   181\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
             "malam": ""
           },
           "tags": [
@@ -24972,7 +24973,7 @@
           "category": "Penyakit Dalam (Metabolik)",
           "notes": {
             "pagi": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
-            "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
+            "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-  SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
             "malam": ""
           },
           "tags": [
@@ -25388,7 +25389,7 @@
           "category": "Hematologi & Onkologi",
           "notes": {
             "pagi": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240 \n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD\n- Sabtu 07/11/26 Cek Elektrolit post KCL dan GDT (-) => INPUT (-)\n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-)\nPasien minta siang P. Infus Ulang",
-            "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+)",
+            "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+) a/i terapi tambahan ceftriaxon 2x1, nace 2x1 resep(+) malam tol. mulai",
             "malam": ""
           },
           "tags": [
@@ -25819,11 +25820,12 @@
         },
         {
           "bed": "4.4",
-          "room": "Kakap 4 (♀)",
+          "room": "KAKAP 4 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Kosong",
           "isEmpty": true,
           "isDischargedToday": false,
+          "dischargeColor": "FFFF9900",
           "name": "Bed Kosong",
           "mrNo": "",
           "gender": "-",
@@ -26585,7 +26587,7 @@
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
-            "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
+            "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE :   181\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
             "malam": ""
           },
           "tags": [
@@ -26845,7 +26847,7 @@
           "category": "Penyakit Dalam (Metabolik)",
           "notes": {
             "pagi": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
-            "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
+            "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-  SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
             "malam": ""
           },
           "tags": [
@@ -27213,7 +27215,7 @@
           "category": "Hematologi & Onkologi",
           "notes": {
             "pagi": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240 \n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD\n- Sabtu 07/11/26 Cek Elektrolit post KCL dan GDT (-) => INPUT (-)\n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-)\nPasien minta siang P. Infus Ulang",
-            "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+)",
+            "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+) a/i terapi tambahan ceftriaxon 2x1, nace 2x1 resep(+) malam tol. mulai",
             "malam": ""
           },
           "tags": [
@@ -27644,11 +27646,12 @@
         },
         {
           "bed": "4.4",
-          "room": "Kakap 4 (♀)",
+          "room": "KAKAP 4 ♀ PEREMPUAN",
           "team": "Tim I",
           "status": "Kosong",
           "isEmpty": true,
           "isDischargedToday": false,
+          "dischargeColor": "FFFF9900",
           "name": "Bed Kosong",
           "mrNo": "",
           "gender": "-",
@@ -28410,7 +28413,7 @@
           "category": "Nefrologi & Urologi",
           "notes": {
             "pagi": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
-            "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
+            "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE :   181\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
             "malam": ""
           },
           "tags": [
@@ -28670,7 +28673,7 @@
           "category": "Penyakit Dalam (Metabolik)",
           "notes": {
             "pagi": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
-            "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
+            "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-  SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
             "malam": ""
           },
           "tags": [
@@ -28800,9 +28803,9 @@
         "capacityTim2": 20,
         "capacityA": 21,
         "capacityB": 20,
-        "occupied": 34,
-        "empty": 7,
-        "bor": 82.9,
+        "occupied": 33,
+        "empty": 8,
+        "bor": 80.5,
         "borTim1": 81.0,
         "borTim2": 65.0,
         "borA": 81.0,
@@ -28836,11 +28839,11 @@
         },
         "pasienAwal": {
           "pagi": 30,
-          "sore": 34,
-          "malam": 34
+          "sore": 33,
+          "malam": 33
         },
         "pasienBaru": {
-          "pagi": 4,
+          "pagi": 3,
           "sore": 0,
           "malam": 0
         },
@@ -28860,14 +28863,14 @@
           "malam": 0
         },
         "total": {
-          "pagi": 34,
-          "sore": 34,
-          "malam": 34
+          "pagi": 33,
+          "sore": 33,
+          "malam": 33
         },
         "bedKosong": {
-          "pagi": 3,
-          "sore": 3,
-          "malam": 3
+          "pagi": 4,
+          "sore": 4,
+          "malam": 4
         },
         "bedKosongText": {
           "pagi": "",
@@ -28876,21 +28879,21 @@
         },
         "bedKosongDetail": {
           "pagi": {
-            "total": 3,
+            "total": 4,
             "pria": 2,
-            "wanita": 0,
+            "wanita": 1,
             "isolasi": 1
           },
           "sore": {
-            "total": 3,
+            "total": 4,
             "pria": 2,
-            "wanita": 0,
+            "wanita": 1,
             "isolasi": 1
           },
           "malam": {
-            "total": 3,
+            "total": 4,
             "pria": 2,
-            "wanita": 0,
+            "wanita": 1,
             "isolasi": 1
           }
         },
@@ -29158,7 +29161,7 @@
         "category": "Hematologi & Onkologi",
         "notes": {
           "pagi": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240 \n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD\n- Sabtu 07/11/26 Cek Elektrolit post KCL dan GDT (-) => INPUT (-)\n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-)\nPasien minta siang P. Infus Ulang",
-          "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+)",
+          "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+) a/i terapi tambahan ceftriaxon 2x1, nace 2x1 resep(+) malam tol. mulai",
           "malam": ""
         },
         "tags": [
@@ -29589,11 +29592,12 @@
       },
       {
         "bed": "4.4",
-        "room": "Kakap 4 (♀)",
+        "room": "KAKAP 4 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Kosong",
         "isEmpty": true,
         "isDischargedToday": false,
+        "dischargeColor": "FFFF9900",
         "name": "Bed Kosong",
         "mrNo": "",
         "gender": "-",
@@ -30305,7 +30309,7 @@
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
-          "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
+          "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE :   181\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
           "malam": ""
         },
         "tags": [
@@ -30565,7 +30569,7 @@
         "category": "Penyakit Dalam (Metabolik)",
         "notes": {
           "pagi": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
-          "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
+          "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-  SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
           "malam": ""
         },
         "tags": [
@@ -30981,7 +30985,7 @@
         "category": "Hematologi & Onkologi",
         "notes": {
           "pagi": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240 \n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD\n- Sabtu 07/11/26 Cek Elektrolit post KCL dan GDT (-) => INPUT (-)\n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-)\nPasien minta siang P. Infus Ulang",
-          "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+)",
+          "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+) a/i terapi tambahan ceftriaxon 2x1, nace 2x1 resep(+) malam tol. mulai",
           "malam": ""
         },
         "tags": [
@@ -31412,11 +31416,12 @@
       },
       {
         "bed": "4.4",
-        "room": "Kakap 4 (♀)",
+        "room": "KAKAP 4 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Kosong",
         "isEmpty": true,
         "isDischargedToday": false,
+        "dischargeColor": "FFFF9900",
         "name": "Bed Kosong",
         "mrNo": "",
         "gender": "-",
@@ -32178,7 +32183,7 @@
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
-          "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
+          "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE :   181\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
           "malam": ""
         },
         "tags": [
@@ -32438,7 +32443,7 @@
         "category": "Penyakit Dalam (Metabolik)",
         "notes": {
           "pagi": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
-          "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
+          "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-  SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
           "malam": ""
         },
         "tags": [
@@ -32806,7 +32811,7 @@
         "category": "Hematologi & Onkologi",
         "notes": {
           "pagi": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240 \n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD\n- Sabtu 07/11/26 Cek Elektrolit post KCL dan GDT (-) => INPUT (-)\n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-)\nPasien minta siang P. Infus Ulang",
-          "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+)",
+          "sore": "- Badan lemah, Batuk 2 minggu, ada darah. Kedua kaki terasa nyeri. Demam +. Pasien riw Leukemia, baru pulang rawat dua hari yang lalu kerna hb dan trombosit rendah\n- SSH Ro.Thorax (06/11/26)\n- Th IGD: IVFD Asering 10 tpm Inj PCT 1 gr iv kp demam Inj Ondn 3x4 mg iv\n- Lab IGD = HB 8.2 g/dL, PLT 13, K: 240\n- Koreksi KCL 1 fls dalam Nacl 0.9% habis dalam 12 jam (+) diIGD. Sedang terpasang Nacl + KCL 1 flc tahap 2 \n- Sabtu 07/11/26 Cek Elektrolit post KCL (+) hasil Na 128.33  K 1.93 Cl 91.16 Ca Ion 0.95 \n- R/TF PRC 2 Kolf =>> 2 Kolf diUTD\n- Premed TF: Dexa 4 amp + NS 0.9% 100ml dan Dipen 4 amp + NS 0.9% 100ml\n\nPasien ada keluhan batuk berdahak, sering demam =>> Lapor dr.Ruangan atau dr.Ivan (-)\n- CEK GDT JIKA BELUM ADA (-) TERAKHIR DI CEK DI EG TGL.10/10/2026 \n\nlapor dr Nani hasil lab terbaru(+) a/i terapi tambahan ceftriaxon 2x1, nace 2x1 resep(+) malam tol. mulai",
           "malam": ""
         },
         "tags": [
@@ -33237,11 +33242,12 @@
       },
       {
         "bed": "4.4",
-        "room": "Kakap 4 (♀)",
+        "room": "KAKAP 4 ♀ PEREMPUAN",
         "team": "Tim I",
         "status": "Kosong",
         "isEmpty": true,
         "isDischargedToday": false,
+        "dischargeColor": "FFFF9900",
         "name": "Bed Kosong",
         "mrNo": "",
         "gender": "-",
@@ -34003,7 +34009,7 @@
         "category": "Nefrologi & Urologi",
         "notes": {
           "pagi": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
-          "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE : 166\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
+          "sore": "- Kel: sesak mual muntah - tidak bisa berdiri pusing mengambang\n- RPO: obat rutin pasien = omeprazol 1x1, cefixim 2x1, asam folat 3x1, ketorenal 3x1, curcuma 2x1, na bic 3x1, n-ase 3x1, Novo 3x16\n- RPD: CKD on HD, TB on OAT \n- o2 5lpm\n\ndr.Sony,Sp.PD-KGH visite tanggal 05/11/2026:\n- Venflon \n- Lamivudin 1x1 // Levofloxacin 1x 500 mg //Nebu : Ventolin Pulmicort / 8 jam //Amlodipin 1x 10 mg //OMZ 2x 1 amp iv//Alprazolam 1x1 mg malam// Tramadol tab 2x1 \n- OAT: =>> MULAI MINUM Jumat 06/11/2026 PAGI (+)\n* FDC Fase Lanjutan 1x4 tab (40 tab) sebelum makan =>> MINUM SETIAP HARI\n* Pyrazunamide 500mg 1x2 (20 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n* Ethambutol 500mg 1x 1 1/2 tab (8 tab) setelah makan =>> SELANG HARI (SENIN, RABU, JUMAT)\n- JADWAL HD RUTIN: rabu - sabtu dengan dr. Sony, SpPD-KGH di RSDS =>> HD Kamis 05/11/2026 (+) \n- Hasil Cek UR/CR post HD Kamis (UR: 70.1 CR:  3.20 eGFR: 16)\n- Cek GDS/Hari (JAM 06.00 : 186) =>> Novorapid 3x 35 U sc //Levemir 1x 35 U jam 22.00 \n- GDS Jumat 06/11/2026 jam 13:45 = 57 =>> BOLUS D40% 2 FLC (+) =>> JUMAT 06/11/2026 SORE CEK GDS ULANG (+) GDS SORE :   181\n- Hasil Ro Thorax PA ulang (Tanggal 06/11/2026) \"Kardiomegali dengan congestif paru dan effusi pleura bilateral\" =>> LAPOR KE DR.SONY SEKALIAN TANYA PERLU KONSUL PARU & PINDAH ISO (+) a/i: Tidak usah Konsul terapi lanjut",
           "malam": ""
         },
         "tags": [
@@ -34263,7 +34269,7 @@
         "category": "Penyakit Dalam (Metabolik)",
         "notes": {
           "pagi": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
-          "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
+          "sore": "-PB Jam 13.00\n-BAB cair >3x, badan lemah tidak nafsu makan RPD selesai pengobatan TB paru minggu lalu, HIV on ARV\n-HB: 6.4 R/tf PRC 4 kolf =>2 kolf di bank darah, 2 kolf sedang cari\n - Transfusi Kolof ke 1 (+) sisa 1 di UTD\n-  SEDANG TERPASANG NS+KCL 2 FLC \n\n\nLAPOR PB (+)",
           "malam": ""
         },
         "tags": [
@@ -34393,9 +34399,9 @@
       "capacityTim2": 20,
       "capacityA": 21,
       "capacityB": 20,
-      "occupied": 34,
-      "empty": 7,
-      "bor": 82.9,
+      "occupied": 33,
+      "empty": 8,
+      "bor": 80.5,
       "borTim1": 81.0,
       "borTim2": 65.0,
       "borA": 81.0,
@@ -34429,11 +34435,11 @@
       },
       "pasienAwal": {
         "pagi": 30,
-        "sore": 34,
-        "malam": 34
+        "sore": 33,
+        "malam": 33
       },
       "pasienBaru": {
-        "pagi": 4,
+        "pagi": 3,
         "sore": 0,
         "malam": 0
       },
@@ -34453,14 +34459,14 @@
         "malam": 0
       },
       "total": {
-        "pagi": 34,
-        "sore": 34,
-        "malam": 34
+        "pagi": 33,
+        "sore": 33,
+        "malam": 33
       },
       "bedKosong": {
-        "pagi": 3,
-        "sore": 3,
-        "malam": 3
+        "pagi": 4,
+        "sore": 4,
+        "malam": 4
       },
       "bedKosongText": {
         "pagi": "",
@@ -34469,21 +34475,21 @@
       },
       "bedKosongDetail": {
         "pagi": {
-          "total": 3,
+          "total": 4,
           "pria": 2,
-          "wanita": 0,
+          "wanita": 1,
           "isolasi": 1
         },
         "sore": {
-          "total": 3,
+          "total": 4,
           "pria": 2,
-          "wanita": 0,
+          "wanita": 1,
           "isolasi": 1
         },
         "malam": {
-          "total": 3,
+          "total": 4,
           "pria": 2,
-          "wanita": 0,
+          "wanita": 1,
           "isolasi": 1
         }
       },
