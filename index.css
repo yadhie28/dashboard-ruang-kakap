@@ -866,49 +866,179 @@ body::before {
 }
 
 /* ==========================================================================
-   TAB 1: DENAH BED & SENSUS PASIEN
+   TAB 1: DENAH BED & SENSUS PASIEN (1 KAMAR PER ROW @ 4 BED)
    ========================================================================== */
-.wing-selection-bar {
+.bed-view-controls-bar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.35rem;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 1rem;
-}
-
-.wing-toggle-group {
-  display: flex;
-  gap: 0.45rem;
   background: var(--bg-surface);
-  padding: 0.35rem;
-  border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.35rem;
+  margin-bottom: 1.5rem;
   box-shadow: var(--shadow-sm);
 }
 
-.wing-btn {
+.group-mode-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.view-mode-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.mode-pill-group {
+  display: inline-flex;
+  background: var(--bg-body);
+  padding: 0.3rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  gap: 0.35rem;
+}
+
+.mode-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mode-pill-btn:hover {
+  color: var(--accent-primary);
+}
+
+.mode-pill-btn.active {
+  background: var(--accent-primary);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+}
+
+.subfilter-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.wing-toggle-group, .gender-toggle-group {
+  display: flex;
+  gap: 0.45rem;
+  background: var(--bg-body);
+  padding: 0.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.wing-btn, .gender-btn {
   background: transparent;
   border: none;
   color: var(--text-secondary);
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 600;
-  padding: 0.45rem 0.95rem;
+  padding: 0.4rem 0.85rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
-.wing-btn:hover {
+.wing-btn:hover, .gender-btn:hover {
   color: var(--accent-primary);
 }
 
-.wing-btn.active {
+.wing-btn.active, .gender-btn.active {
   background: var(--bg-surface-elevated);
   color: var(--accent-primary);
   font-weight: 700;
   box-shadow: var(--shadow-sm);
+}
+
+.gender-btn.btn-gender-male.active {
+  color: #0284c7;
+  border-left: 3px solid #0284c7;
+}
+
+.gender-btn.btn-gender-female.active {
+  color: #db2777;
+  border-left: 3px solid #db2777;
+}
+
+.gender-btn.btn-gender-iso.active {
+  color: #9333ea;
+  border-left: 3px solid #9333ea;
+}
+
+/* Patient Gender Chip Filter */
+.pt-gender-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--bg-body);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.pt-gender-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.pt-gender-chip {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pt-gender-chip:hover {
+  color: var(--text-primary);
+}
+
+.pt-gender-chip.active {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  font-weight: 700;
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-xs);
+}
+
+.pt-gender-chip.chip-male.active {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0284c7;
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+.pt-gender-chip.chip-female.active {
+  background: rgba(236, 72, 153, 0.15);
+  color: #db2777;
+  border-color: rgba(236, 72, 153, 0.3);
 }
 
 .bed-legend {
@@ -919,6 +1049,7 @@ body::before {
   font-size: 0.76rem;
   font-weight: 600;
   color: var(--text-secondary);
+  padding-top: 0.35rem;
 }
 
 .legend-item {
@@ -965,13 +1096,28 @@ body::before {
   flex-wrap: wrap;
 }
 
-.wing-badge {
+.wing-badge, .gender-ward-badge {
   font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 700;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
   letter-spacing: 0.05em;
+}
+
+.gender-ward-badge.badge-male {
+  background: #0284c7;
+  color: #fff;
+}
+
+.gender-ward-badge.badge-female {
+  background: #db2777;
+  color: #fff;
+}
+
+.gender-ward-badge.badge-iso {
+  background: #9333ea;
+  color: #fff;
 }
 
 .ward-title-group h2 {
@@ -987,7 +1133,151 @@ body::before {
   font-weight: 500;
 }
 
-/* Bed Grid & Bed Cards */
+/* ==========================================================================
+   ROOM ROW (1 KAMAR PER ROW @ TEPAT 4 PASIEN/BED)
+   ========================================================================== */
+.room-rows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.room-row-card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.25rem 1.25rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.room-row-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.room-row-card.room-gender-male {
+  border-left: 4px solid #0284c7;
+}
+
+.room-row-card.room-gender-female {
+  border-left: 4px solid #db2777;
+}
+
+.room-row-card.room-gender-isolation {
+  border-left: 4px solid #9333ea;
+}
+
+.room-row-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.95rem;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.room-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.room-name-badge {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.room-gender-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.room-gender-tag.tag-male {
+  background: rgba(14, 165, 233, 0.12);
+  color: #0284c7;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+.room-gender-tag.tag-female {
+  background: rgba(236, 72, 153, 0.12);
+  color: #db2777;
+  border: 1px solid rgba(236, 72, 153, 0.25);
+}
+
+.room-gender-tag.tag-iso {
+  background: rgba(147, 51, 234, 0.12);
+  color: #9333ea;
+  border: 1px solid rgba(147, 51, 234, 0.25);
+}
+
+.room-team-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.room-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.room-occ-badge {
+  font-weight: 600;
+}
+
+.room-occ-badge strong {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.room-swipe-hint {
+  display: none;
+  font-size: 0.72rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  animation: pulseHint 2s infinite ease-in-out;
+}
+
+@keyframes pulseHint {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* 1 KAMAR PER ROW: TEPAT 4 BED PER BARIS */
+.room-beds-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.95rem;
+  width: 100%;
+}
+
+.room-beds-row.beds-iso {
+  grid-template-columns: minmax(280px, 360px);
+}
+
+/* Bed Grid & Bed Cards (Fallback / Legacy Grid) */
 .bed-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
@@ -1069,6 +1359,48 @@ body::before {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.gender-pill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.gender-pill.gender-l {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0284c7;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.gender-pill.gender-p {
+  background: rgba(236, 72, 153, 0.15);
+  color: #db2777;
+  border: 1px solid rgba(236, 72, 153, 0.3);
+}
+
+.night-note-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #4f46e5;
+  background: rgba(79, 70, 229, 0.12);
+  border: 1px solid rgba(79, 70, 229, 0.25);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  margin-top: 0.2rem;
+}
+
+[data-theme="dark"] .night-note-badge {
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.2);
 }
 
 .los-pill {
@@ -2830,13 +3162,44 @@ body::before {
     display: none;
   }
 
-  /* Wards layout */
+  /* Wards layout & Room Row locked 1 room per row (4 beds horizontal) */
   .wards-container {
-    gap: 1rem;
+    gap: 1.25rem;
   }
   .bed-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.6rem;
+  }
+
+  .room-row-card {
+    padding: 0.85rem 0.95rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .room-swipe-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .room-beds-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(235px, 1fr)) !important;
+    gap: 0.65rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.55rem;
+  }
+
+  .room-beds-row.beds-iso {
+    grid-template-columns: minmax(235px, 320px) !important;
+  }
+
+  .room-beds-row .bed-card {
+    scroll-snap-align: start;
+    min-width: 235px;
+    margin-bottom: 0;
   }
 }
 

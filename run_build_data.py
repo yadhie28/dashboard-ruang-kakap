@@ -795,15 +795,16 @@ def build_data(download=False):
                         if t == 's': val = shared_strings[int(val)]
                         texts.append(str(val))
             combined_txt = ' '.join(texts)
-            m = re.search(r'(\d{1,2})[/\-.](\d{1,2})[/\-.](\d{4})', combined_txt)
+            # Prioritaskan nama tab sheet karena cell A2 seringkali copy-paste dari hari sebelumnya
+            m_tab = re.search(r'(\d{1,2})(\d{2})(202\d)', name)
             iso_d = None
-            if m:
-                d, mth, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+            if m_tab:
+                d, mth, y = int(m_tab.group(1)), int(m_tab.group(2)), int(m_tab.group(3))
                 iso_d = f"{y:04d}-{mth:02d}-{d:02d}"
             else:
-                m_tab = re.search(r'(\d{1,2})(\d{2})(202\d)', name)
-                if m_tab:
-                    d, mth, y = int(m_tab.group(1)), int(m_tab.group(2)), int(m_tab.group(3))
+                m = re.search(r'(\d{1,2})[/\-.](\d{1,2})[/\-.](\d{4})', combined_txt)
+                if m:
+                    d, mth, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
                     iso_d = f"{y:04d}-{mth:02d}-{d:02d}"
 
             if iso_d:

@@ -9,6 +9,9 @@ const state = {
   data: null,
   currentDate: null,
   activeShift: 'pagi',
+  groupMode: 'team', // 'team' (Per Tim Keperawatan) or 'gender' (Per Gender Pasien)
+  genderFilter: 'all', // 'all', 'male', 'female', 'isolation'
+  ptGenderFilter: 'all', // 'all', 'L', 'P'
   activeFilter: 'all',
   activeWing: 'all',
   searchQuery: '',
@@ -473,6 +476,52 @@ function setupEventListeners() {
     });
   });
 
+  // Bed View Mode Switcher (Per Tim vs Per Gender)
+  const btnModeTeam = document.getElementById('btnModeTeam');
+  const btnModeGender = document.getElementById('btnModeGender');
+  const teamFilterGroup = document.getElementById('teamFilterGroup');
+  const genderFilterGroup = document.getElementById('genderFilterGroup');
+
+  if (btnModeTeam && btnModeGender) {
+    btnModeTeam.addEventListener('click', () => {
+      state.groupMode = 'team';
+      btnModeTeam.classList.add('active');
+      btnModeGender.classList.remove('active');
+      if (teamFilterGroup) teamFilterGroup.style.display = 'flex';
+      if (genderFilterGroup) genderFilterGroup.style.display = 'none';
+      renderBedGrids();
+    });
+
+    btnModeGender.addEventListener('click', () => {
+      state.groupMode = 'gender';
+      btnModeGender.classList.add('active');
+      btnModeTeam.classList.remove('active');
+      if (teamFilterGroup) teamFilterGroup.style.display = 'none';
+      if (genderFilterGroup) genderFilterGroup.style.display = 'flex';
+      renderBedGrids();
+    });
+  }
+
+  // Gender Filter Buttons (Kamar Pria vs Wanita vs Isolasi)
+  document.querySelectorAll('.gender-btn').forEach(gBtn => {
+    gBtn.addEventListener('click', () => {
+      document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+      gBtn.classList.add('active');
+      state.genderFilter = gBtn.getAttribute('data-gender');
+      applyGenderFilter();
+    });
+  });
+
+  // Patient Gender Chips Filter (Semua vs ♂ Pria vs ♀ Wanita)
+  document.querySelectorAll('.pt-gender-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.pt-gender-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      state.ptGenderFilter = chip.getAttribute('data-pt-gender');
+      renderBedGrids();
+    });
+  });
+
   // Wing Filter Toggle
   document.querySelectorAll('.wing-btn').forEach(wBtn => {
     wBtn.addEventListener('click', () => {
@@ -706,62 +755,259 @@ function updateKpiMetrics(dayData) {
   if (countB) countB.textContent = ptsB.length;
 }
 
-// Render Bed Grids
+// Master Room Layout Definitions for Ruang Kakap (41 Beds)
+const KAKAP_ROOM_DEFS = [
+  { id: 'kakap-1', name: 'Kakap 1', gender: 'male', genderLabel: 'Kamar Pria', genderSymbol: '♂', team: 'Tim I', beds: ['1.1', '1.2', '1.3', '1.4'] },
+  { id: 'kakap-2', name: 'Kakap 2', gender: 'female', genderLabel: 'Kamar Wanita', genderSymbol: '♀', team: 'Tim I', beds: ['2.1', '2.2', '2.3', '2.4'] },
+  { id: 'kakap-3', name: 'Kakap 3', gender: 'female', genderLabel: 'Kamar Wanita', genderSymbol: '♀', team: 'Tim I', beds: ['3.1', '3.2', '3.3', '3.4'] },
+  { id: 'kakap-4', name: 'Kakap 4', gender: 'female', genderLabel: 'Kamar Wanita', genderSymbol: '♀', team: 'Tim I', beds: ['4.1', '4.2', '4.3', '4.4'] },
+  { id: 'kakap-5', name: 'Kakap 5', gender: 'male', genderLabel: 'Kamar Pria', genderSymbol: '♂', team: 'Tim I', beds: ['5.1', '5.2', '5.3', '5.4'] },
+  { id: 'kakap-6', name: 'Kakap 6', gender: 'male', genderLabel: 'Kamar Pria', genderSymbol: '♂', team: 'Tim II', beds: ['6.1', '6.2', '6.3', '6.4'] },
+  { id: 'kakap-7', name: 'Kakap 7', gender: 'male', genderLabel: 'Kamar Pria', genderSymbol: '♂', team: 'Tim II', beds: ['7.1', '7.2', '7.3', '7.4'] },
+  { id: 'kakap-8', name: 'Kakap 8', gender: 'female', genderLabel: 'Kamar Wanita', genderSymbol: '♀', team: 'Tim II', beds: ['8.1', '8.2', '8.3', '8.4'] },
+  { id: 'kakap-9', name: 'Kakap 9', gender: 'male', genderLabel: 'Kamar Pria (BAU/Rusak)', genderSymbol: '♂', team: 'Tim II', beds: ['9.1', '9.2', '9.3', '9.4'] },
+  { id: 'kakap-10', name: 'Kakap 10', gender: 'female', genderLabel: 'Kamar Wanita', genderSymbol: '♀', team: 'Tim II', beds: ['10.1', '10.2', '10.3', '10.4'] },
+  { id: 'kakap-isolasi', name: 'Isolasi', gender: 'isolation', genderLabel: 'Kamar Isolasi Khusus', genderSymbol: '🛡️', team: 'Tim I', beds: ['ISOLASI'] }
+];
+
+// Helper: Filter patient against quick tags, query, and gender chips
+function isPatientMatchingFilters(pt) {
+  if (!pt) return false;
+
+  // Filter by quick tag
+  if (state.activeFilter === 'empty') {
+    if (!pt.isEmpty) return false;
+  } else if (state.activeFilter !== 'all') {
+    const isDischargeFilter = state.activeFilter.toLowerCase().includes('pulang');
+    const hasTag = pt.tags && pt.tags.some(t => {
+      const lbl = t.label.toLowerCase();
+      if (isDischargeFilter && lbl.includes('pulang')) return true;
+      return lbl.includes(state.activeFilter.toLowerCase());
+    });
+    if (!hasTag && !(isDischargeFilter && pt.isDischargedToday)) return false;
+  }
+
+  // Filter by Patient Gender Chip
+  if (state.ptGenderFilter && state.ptGenderFilter !== 'all') {
+    if (pt.isEmpty) return false;
+    const g = String(pt.gender || '').toUpperCase();
+    if (state.ptGenderFilter === 'L' && !g.startsWith('L')) return false;
+    if (state.ptGenderFilter === 'P' && !g.startsWith('P')) return false;
+  }
+
+  // Filter by search query
+  if (state.searchQuery) {
+    const q = state.searchQuery;
+    const haystack = `${pt.bed} ${pt.name} ${pt.mrNo} ${pt.doctor} ${pt.diagnosis} ${pt.insurance}`.toLowerCase();
+    if (!haystack.includes(q)) return false;
+  }
+
+  return true;
+}
+
+// Create 1 Room Row Card (Contains Room Header & exactly 4 Bed Cards in a single horizontal row)
+function createRoomRowCard(roomDef, patientsByBed) {
+  const roomCard = document.createElement('div');
+  roomCard.className = `room-row-card room-gender-${roomDef.gender}`;
+  roomCard.id = `roomCard_${roomDef.id}`;
+
+  const roomPatients = roomDef.beds.map(bKey => {
+    return patientsByBed[bKey.toUpperCase()] || {
+      bed: bKey,
+      room: roomDef.name,
+      team: roomDef.team,
+      status: 'Kosong',
+      isEmpty: true,
+      name: 'Bed Kosong',
+      gender: roomDef.gender === 'male' ? 'L' : roomDef.gender === 'female' ? 'P' : '-'
+    };
+  });
+
+  const occCount = roomPatients.filter(p => !p.isEmpty).length;
+  const emptyCount = roomPatients.length - occCount;
+
+  // Room Header Row
+  const header = document.createElement('div');
+  header.className = 'room-row-header';
+
+  const left = document.createElement('div');
+  left.className = 'room-header-left';
+  left.innerHTML = `
+    <span class="room-name-badge">${roomDef.name.toUpperCase()}</span>
+    <span class="room-gender-tag tag-${roomDef.gender === 'male' ? 'male' : roomDef.gender === 'female' ? 'female' : 'iso'}">
+      ${roomDef.genderSymbol} ${roomDef.genderLabel}
+    </span>
+    <span class="room-team-tag">${roomDef.team}</span>
+  `;
+
+  const right = document.createElement('div');
+  right.className = 'room-header-right';
+  right.innerHTML = `
+    <span class="room-occ-badge"><strong>${occCount}</strong> Terisi &bull; <strong>${emptyCount}</strong> Kosong</span>
+    <span class="room-swipe-hint">⇄ Geser 4 bed</span>
+  `;
+
+  header.appendChild(left);
+  header.appendChild(right);
+  roomCard.appendChild(header);
+
+  // Beds Container: Tepat 4 Bed per baris (1 Kamar per Row)
+  const bedsContainer = document.createElement('div');
+  bedsContainer.className = `room-beds-row ${roomDef.gender === 'isolation' ? 'beds-iso' : ''}`;
+
+  let matchingPatientsCount = 0;
+  roomPatients.forEach(pt => {
+    const isMatch = isPatientMatchingFilters(pt);
+    if (isMatch) matchingPatientsCount++;
+
+    const cardEl = createBedCard(pt, roomDef);
+    if (!isMatch) {
+      cardEl.style.opacity = '0.32';
+      cardEl.style.filter = 'grayscale(85%)';
+    }
+    bedsContainer.appendChild(cardEl);
+  });
+
+  // Jika ada filter aktif tapi kamar ini tidak memiliki pasien yang cocok
+  const hasFilterActive = state.activeFilter !== 'all' || state.searchQuery || (state.ptGenderFilter && state.ptGenderFilter !== 'all');
+  if (hasFilterActive && matchingPatientsCount === 0) {
+    roomCard.style.display = 'none';
+  } else {
+    roomCard.style.display = 'block';
+  }
+
+  roomCard.appendChild(bedsContainer);
+  return roomCard;
+}
+
+// Render Bed Grids: Kunci 1 Kamar per Row (4 Pasien) & Pilihan Per Tim / Per Gender
 function renderBedGrids(dataToUse) {
   const dayData = dataToUse || state.data.recentDays[state.currentDate] || state.data.today;
   if (!dayData) return;
 
-  const containerA = document.getElementById('bedGridKakapA') || document.getElementById('bedGridEG2A') || document.getElementById('bedGridTim1');
-  const containerB = document.getElementById('bedGridKakapB') || document.getElementById('bedGridEG2B') || document.getElementById('bedGridTim2');
-  if (!containerA || !containerB) return;
+  // Build lookup map by bed key
+  const patientsByBed = {};
+  const allPts = getDayPatients(dayData);
+  allPts.forEach(p => {
+    if (p && p.bed) {
+      patientsByBed[String(p.bed).trim().toUpperCase()] = p;
+    }
+  });
 
-  containerA.innerHTML = '';
-  containerB.innerHTML = '';
+  // Wadah Blok Tim
+  const blockA = document.getElementById('wardBlockKakapA');
+  const blockB = document.getElementById('wardBlockKakapB');
+  const containerA = document.getElementById('bedGridKakapA');
+  const containerB = document.getElementById('bedGridKakapB');
 
-  const filterPatient = (pt) => {
-    // Filter by quick tag
-    if (state.activeFilter === 'empty') {
-      if (!pt.isEmpty) return false;
-    } else if (state.activeFilter !== 'all') {
-      const isDischargeFilter = state.activeFilter.toLowerCase().includes('pulang');
-      const hasTag = pt.tags && pt.tags.some(t => {
-        const lbl = t.label.toLowerCase();
-        if (isDischargeFilter && lbl.includes('pulang')) return true;
-        return lbl.includes(state.activeFilter.toLowerCase());
-      });
-      if (!hasTag && !(isDischargeFilter && pt.isDischargedToday)) return false;
+  // Wadah Blok Gender
+  const blockMale = document.getElementById('wardBlockGenderMale');
+  const blockFemale = document.getElementById('wardBlockGenderFemale');
+  const blockIso = document.getElementById('wardBlockGenderIso');
+  const containerMale = document.getElementById('bedGridGenderMale');
+  const containerFemale = document.getElementById('bedGridGenderFemale');
+  const containerIso = document.getElementById('bedGridGenderIso');
+
+  if (state.groupMode === 'gender') {
+    // Sembunyikan blok Tim
+    if (blockA) blockA.style.display = 'none';
+    if (blockB) blockB.style.display = 'none';
+
+    // Bersihkan kontainer Gender
+    if (containerMale) containerMale.innerHTML = '';
+    if (containerFemale) containerFemale.innerHTML = '';
+    if (containerIso) containerIso.innerHTML = '';
+
+    const maleRooms = KAKAP_ROOM_DEFS.filter(r => r.gender === 'male');
+    const femaleRooms = KAKAP_ROOM_DEFS.filter(r => r.gender === 'female');
+    const isoRooms = KAKAP_ROOM_DEFS.filter(r => r.gender === 'isolation');
+
+    if (containerMale) {
+      maleRooms.forEach(r => containerMale.appendChild(createRoomRowCard(r, patientsByBed)));
+    }
+    if (containerFemale) {
+      femaleRooms.forEach(r => containerFemale.appendChild(createRoomRowCard(r, patientsByBed)));
+    }
+    if (containerIso) {
+      isoRooms.forEach(r => containerIso.appendChild(createRoomRowCard(r, patientsByBed)));
     }
 
-    // Filter by search query
-    if (state.searchQuery) {
-      const q = state.searchQuery;
-      const haystack = `${pt.bed} ${pt.name} ${pt.mrNo} ${pt.doctor} ${pt.diagnosis} ${pt.insurance}`.toLowerCase();
-      if (!haystack.includes(q)) return false;
+    // Hitung total terisi per gender
+    const occMale = allPts.filter(p => !p.isEmpty && maleRooms.some(r => r.beds.includes(p.bed))).length;
+    const occFemale = allPts.filter(p => !p.isEmpty && femaleRooms.some(r => r.beds.includes(p.bed))).length;
+    const occIso = allPts.filter(p => !p.isEmpty && p.bed === 'ISOLASI').length;
+
+    const metaMale = document.getElementById('metaGenderMale');
+    if (metaMale) metaMale.textContent = `${occMale} Pasien Terisi • 20 Bed`;
+    const metaFemale = document.getElementById('metaGenderFemale');
+    if (metaFemale) metaFemale.textContent = `${occFemale} Pasien Terisi • 20 Bed`;
+    const metaIso = document.getElementById('metaGenderIso');
+    if (metaIso) metaIso.textContent = `${occIso} Pasien Terisi • 1 Bed`;
+
+    // Terapkan filter gender tombol
+    applyGenderFilter();
+
+  } else {
+    // Mode Per Tim (Default)
+    if (blockMale) blockMale.style.display = 'none';
+    if (blockFemale) blockFemale.style.display = 'none';
+    if (blockIso) blockIso.style.display = 'none';
+
+    if (containerA) containerA.innerHTML = '';
+    if (containerB) containerB.innerHTML = '';
+
+    const tim1Rooms = KAKAP_ROOM_DEFS.filter(r => r.team === 'Tim I');
+    const tim2Rooms = KAKAP_ROOM_DEFS.filter(r => r.team === 'Tim II');
+
+    if (containerA) {
+      tim1Rooms.forEach(r => containerA.appendChild(createRoomRowCard(r, patientsByBed)));
+    }
+    if (containerB) {
+      tim2Rooms.forEach(r => containerB.appendChild(createRoomRowCard(r, patientsByBed)));
     }
 
-    return true;
-  };
+    const occTim1 = allPts.filter(p => !p.isEmpty && p.team === 'Tim I').length;
+    const occTim2 = allPts.filter(p => !p.isEmpty && p.team === 'Tim II').length;
 
-  const ptsA = getTim1Patients(dayData);
-  const ptsB = getTim2Patients(dayData);
-  const filteredA = ptsA.filter(filterPatient);
-  const filteredB = ptsB.filter(filterPatient);
+    const metaA = document.getElementById('metaWingA');
+    if (metaA) metaA.textContent = `${occTim1} Pasien Terisi • 21 Bed`;
+    const metaB = document.getElementById('metaWingB');
+    if (metaB) metaB.textContent = `${occTim2} Pasien Terisi • 20 Bed`;
 
-  if (filteredA.length === 0) {
-    containerA.innerHTML = '<div class="empty-bed-content"><p>Tidak ada pasien yang sesuai filter di Tim I</p></div>';
-  } else {
-    filteredA.forEach(pt => containerA.appendChild(createBedCard(pt)));
-  }
-
-  if (filteredB.length === 0) {
-    containerB.innerHTML = '<div class="empty-bed-content"><p>Tidak ada pasien yang sesuai filter di Tim II</p></div>';
-  } else {
-    filteredB.forEach(pt => containerB.appendChild(createBedCard(pt)));
+    // Terapkan filter wing tim
+    applyWingFilter();
   }
 }
 
-// Create Bed Card Element
-function createBedCard(pt) {
+// Filter Gender Section Visibility
+function applyGenderFilter() {
+  const blockMale = document.getElementById('wardBlockGenderMale');
+  const blockFemale = document.getElementById('wardBlockGenderFemale');
+  const blockIso = document.getElementById('wardBlockGenderIso');
+  if (!blockMale || !blockFemale || !blockIso) return;
+
+  const f = state.genderFilter || 'all';
+  if (f === 'all') {
+    blockMale.style.display = 'flex';
+    blockFemale.style.display = 'flex';
+    blockIso.style.display = 'flex';
+  } else if (f === 'male') {
+    blockMale.style.display = 'flex';
+    blockFemale.style.display = 'none';
+    blockIso.style.display = 'none';
+  } else if (f === 'female') {
+    blockMale.style.display = 'none';
+    blockFemale.style.display = 'flex';
+    blockIso.style.display = 'none';
+  } else if (f === 'isolation') {
+    blockMale.style.display = 'none';
+    blockFemale.style.display = 'none';
+    blockIso.style.display = 'flex';
+  }
+}
+
+// Create Bed Card Element (Ditempatkan rapi di dalam 1 Kamar per Row)
+function createBedCard(pt, roomDef) {
   const card = document.createElement('div');
   
   // Card status class
@@ -777,10 +1023,22 @@ function createBedCard(pt) {
   }
   card.className = `bed-card ${statusClass}`;
 
+  // Gender badge
+  let genderBadge = '';
+  if (!pt.isEmpty && pt.gender && pt.gender !== '-') {
+    const isMale = String(pt.gender).toUpperCase().startsWith('L');
+    genderBadge = `<span class="gender-pill ${isMale ? 'gender-l' : 'gender-p'}" title="Jenis Kelamin Pasien: ${isMale ? 'Laki-laki' : 'Perempuan'}">${isMale ? '♂ L' : '♀ P'}</span>`;
+  } else if (pt.isEmpty && roomDef) {
+    genderBadge = `<span class="gender-pill" style="opacity:0.6; font-size:0.65rem;">${roomDef.genderSymbol}</span>`;
+  }
+
   if (pt.isEmpty) {
     card.innerHTML = `
       <div class="bed-card-header">
-        <span class="bed-number-badge">BED ${pt.bed}</span>
+        <div style="display:flex; align-items:center; gap:0.35rem;">
+          <span class="bed-number-badge">BED ${pt.bed}</span>
+          ${genderBadge}
+        </div>
         <span class="status-chip chip-warning">${pt.status}</span>
       </div>
       <div class="empty-bed-content">
@@ -791,7 +1049,7 @@ function createBedCard(pt) {
         <span class="caption-text">Siap untuk pasien baru</span>
       </div>
       <div class="bed-card-footer">
-        <span>Ruang ${pt.room}</span>
+        <span>Ruang ${pt.room || (roomDef ? roomDef.name : '-')}</span>
         <span>-</span>
       </div>
     `;
@@ -815,12 +1073,13 @@ function createBedCard(pt) {
 
   card.innerHTML = `
     <div class="bed-card-header">
-      <div style="display:flex; align-items:center; gap:0.4rem;">
+      <div style="display:flex; align-items:center; gap:0.35rem; flex-wrap:wrap;">
         <span class="bed-number-badge">BED ${pt.bed}</span>
+        ${genderBadge}
         ${pt.ews && pt.ews.score > 0 ? `<span class="ews-badge ews-${pt.ews.level}" title="Skor NEWS2/EWS: ${pt.ews.score} (${pt.ews.level.toUpperCase()})">EWS ${pt.ews.score}</span>` : ''}
       </div>
       <div class="bed-header-right">
-        ${pt.isDischargedToday ? '<span class="status-chip chip-success" style="font-size:0.68rem; padding:0.18rem 0.5rem; font-weight:800; letter-spacing:0.02em;">PULANG HARI INI</span>' : ''}
+        ${pt.isDischargedToday ? '<span class="status-chip chip-success" style="font-size:0.68rem; padding:0.18rem 0.5rem; font-weight:800; letter-spacing:0.02em;">PULANG</span>' : ''}
         <span class="los-pill">LOS: ${pt.los}h</span>
         <span class="insurance-pill">${pt.insurance}</span>
       </div>
@@ -840,6 +1099,7 @@ function createBedCard(pt) {
 
       <p class="patient-diagnosis" title="${escapeHtml(pt.diagnosis)}">${escapeHtml(pt.diagnosis)}</p>
 
+      ${hasMalam ? '<div class="night-note-badge" title="Instruksi Operan Shift Malam tersedia">🌙 Catatan Malam Terisi</div>' : ''}
       ${tagsHtml ? `<div class="bed-card-tags">${tagsHtml}</div>` : ''}
     </div>
 
@@ -891,8 +1151,21 @@ function renderHandoverBoard(dataToUse) {
   const container = document.getElementById('handoverListContainer');
   if (!container) return;
 
+  // Update badge jumlah catatan pada tombol shift
+  const countPagi = (dayData.patients || []).filter(p => !p.isEmpty && p.notes && p.notes.pagi && p.notes.pagi.length > 5).length;
+  const countSore = (dayData.patients || []).filter(p => !p.isEmpty && p.notes && p.notes.sore && p.notes.sore.length > 5).length;
+  const countMalam = (dayData.patients || []).filter(p => !p.isEmpty && p.notes && p.notes.malam && p.notes.malam.length > 5).length;
+
+  const btnPagi = document.querySelector('.shift-btn[data-shift="pagi"] span');
+  const btnSore = document.querySelector('.shift-btn[data-shift="sore"] span');
+  const btnMalam = document.querySelector('.shift-btn[data-shift="malam"] span');
+
+  if (btnPagi) btnPagi.innerHTML = `Shift Pagi (07:00 - 14:00) <strong style="font-size:0.75rem; background:rgba(2,132,199,0.15); padding:1px 6px; border-radius:10px;">${countPagi}</strong>`;
+  if (btnSore) btnSore.innerHTML = `Shift Sore (14:00 - 20:00) <strong style="font-size:0.75rem; background:rgba(234,88,12,0.15); padding:1px 6px; border-radius:10px;">${countSore}</strong>`;
+  if (btnMalam) btnMalam.innerHTML = `Shift Malam (20:00 - 07:00) <strong style="font-size:0.75rem; background:rgba(99,102,241,0.25); color:#6366f1; padding:1px 6px; border-radius:10px;">${countMalam} Baru</strong>`;
+
   const shiftTitle = document.getElementById('handoverActiveShiftTitle');
-  const shiftNames = { pagi: 'Shift Pagi (07:00 - 14:00)', sore: 'Shift Sore (14:00 - 21:00)', malam: 'Shift Malam (21:00 - 07:00)' };
+  const shiftNames = { pagi: 'Shift Pagi (07:00 - 14:00)', sore: 'Shift Sore (14:00 - 20:00)', malam: 'Shift Malam (20:00 - 07:00)' };
   if (shiftTitle) shiftTitle.textContent = `Operan Jaga: ${shiftNames[state.activeShift]}`;
   const dateText = document.getElementById('handoverActiveDateText');
   if (dateText) dateText.textContent = formatIndonesianDate(state.currentDate);
@@ -1759,14 +2032,69 @@ function printSinglePatient() {
 }
 
 // ==========================================================================
-// SHIFT AUTO-SYNC & SCHEDULER CONTROLLER (07.00, 14.00, 21.00 WIB)
+// SHIFT AUTO-SYNC & SCHEDULER CONTROLLER (07.00, 14.00, 20.00 WIB)
 // ==========================================================================
 let syncScheduleTimer = null;
+
+// Helper: Waktu Indonesia Barat (WIB = UTC+7)
+function getWIBTime() {
+  const now = new Date();
+  const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+  return new Date(utc + (7 * 3600000));
+}
+
+// Client-Side Calculation for Shift Sync Schedule (07.00, 14.00, 20.00 WIB)
+function computeClientSideShiftSchedule() {
+  const wib = getWIBTime();
+  const h = wib.getHours();
+  const m = wib.getMinutes();
+  const curMins = h * 60 + m;
+
+  // Jadwal resmi penarikan sensus: 07:00, 14:00, 20:00 WIB
+  const shifts = [
+    { shiftName: 'Shift Pagi', time: '07:00', desc: 'Operan Jaga Malam ➔ Pagi & Visite Dokter', mins: 7 * 60 },
+    { shiftName: 'Shift Sore', time: '14:00', desc: 'Operan Jaga Pagi ➔ Sore & Rencana Pasien Pulang', mins: 14 * 60 },
+    { shiftName: 'Shift Malam', time: '20:00', desc: 'Operan Jaga Sore ➔ Malam & Rekap Sensus Lengkap', mins: 20 * 60 }
+  ];
+
+  let next = shifts.find(sh => sh.mins > curMins);
+  let diffMins = 0;
+  let targetDate = new Date(wib);
+
+  if (next) {
+    diffMins = next.mins - curMins;
+  } else {
+    next = shifts[0]; // Besok pagi 07:00 WIB
+    diffMins = (24 * 60 - curMins) + shifts[0].mins;
+    targetDate.setDate(targetDate.getDate() + 1);
+  }
+
+  const hoursRem = Math.floor(diffMins / 60);
+  const minsRem = diffMins % 60;
+  const remainingFormatted = hoursRem > 0 ? `${hoursRem} jam ${minsRem} mnt` : `${minsRem} menit`;
+
+  const pad = (n) => String(n).padStart(2, '0');
+  const datetimeStr = `${pad(targetDate.getDate())}/${pad(targetDate.getMonth()+1)} ${next.time}`;
+
+  return {
+    nextSync: {
+      time: next.time + ' WIB',
+      datetime: datetimeStr,
+      shiftName: next.shiftName,
+      shiftDesc: next.desc,
+      remainingFormatted: remainingFormatted,
+      isDueNow: diffMins <= 1
+    },
+    lastSync: state.data ? state.data.metadata.lastUpdated : 'Terjadwal Cloud Actions',
+    lastMessage: 'Sinkronisasi Otomatis Sukses'
+  };
+}
 
 function initSyncSchedule() {
   fetchSyncSchedule();
   if (syncScheduleTimer) clearInterval(syncScheduleTimer);
-  syncScheduleTimer = setInterval(fetchSyncSchedule, 20000);
+  // Interval pengecekan jadwal tiap 15 detik
+  syncScheduleTimer = setInterval(fetchSyncSchedule, 15000);
 
   // Setup modal triggers
   const openBtn = document.getElementById('openSyncModalBtn');
@@ -1793,25 +2121,47 @@ function initSyncSchedule() {
 }
 
 async function fetchSyncSchedule() {
+  let info = null;
   try {
     const res = await fetch('/api/sync-schedule');
-    if (!res.ok) return;
-    const info = await res.json();
-    state.syncSchedule = info;
-
-    // Check if new sync completed in background
-    if (info.lastSync && state.lastSyncKnown && info.lastSync !== state.lastSyncKnown) {
-      showToast(`🔄 Data sensus otomatis ditarik dari Google Spreadsheet (${info.lastSync})`, 'success');
-      state.lastSyncKnown = info.lastSync;
-      loadData();
-    } else if (info.lastSync && !state.lastSyncKnown) {
-      state.lastSyncKnown = info.lastSync;
+    if (res.ok) {
+      info = await res.json();
     }
-
-    updateSyncScheduleUI(info);
   } catch (err) {
-    // Offline / static file mode
+    // Offline / static file mode (GitHub Pages)
   }
+
+  // Gunakan kalkulasi waktu client-side jika server endpoint offline (seperti di GitHub Pages)
+  if (!info) {
+    info = computeClientSideShiftSchedule();
+  }
+  state.syncSchedule = info;
+
+  // Cek apakah baru selesai sinkronisasi di background server
+  if (info.lastSync && state.lastSyncKnown && info.lastSync !== state.lastSyncKnown) {
+    showToast(`🔄 Data sensus otomatis ditarik dari Google Spreadsheet (${info.lastSync})`, 'success');
+    state.lastSyncKnown = info.lastSync;
+    loadData();
+  } else if (info.lastSync && !state.lastSyncKnown) {
+    state.lastSyncKnown = info.lastSync;
+  }
+
+  // Auto-Update Pemicu Tepat pada Jam 07.00, 14.00, dan 20.00 WIB
+  const wib = getWIBTime();
+  const h = wib.getHours();
+  const m = wib.getMinutes();
+  const s = wib.getSeconds();
+  if ((h === 7 || h === 14 || h === 20) && m === 0 && s < 30) {
+    const minuteKey = `${h}:${m}`;
+    if (!state._lastShiftReloadMinute || state._lastShiftReloadMinute !== minuteKey) {
+      state._lastShiftReloadMinute = minuteKey;
+      console.log(`[AUTO-UPDATE] Jam ${h}:00 WIB tiba. Memperbarui data pasien...`);
+      showToast(`⏰ Pukul ${h}:00 WIB: Memperbarui data sensus & laporan jaga shift terbaru...`, 'info');
+      loadData();
+    }
+  }
+
+  updateSyncScheduleUI(info);
 }
 
 function updateSyncScheduleUI(info) {

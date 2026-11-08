@@ -71,7 +71,7 @@
             <svg class="sync-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
             <span id="syncBtnText">Sinkron Data</span>
           </button>
-          <button class="btn-sync-schedule-pill" id="openSyncModalBtn" title="Jadwal Tarik Otomatis Tiap Shift: 07:00, 14:00, 21:00 WIB. Klik untuk info detail &amp; riwayat.">
+          <button class="btn-sync-schedule-pill" id="openSyncModalBtn" title="Jadwal Tarik Otomatis Tiap Shift: 07:00, 14:00, 20:00 WIB. Klik untuk info detail &amp; riwayat.">
             <span class="sync-schedule-icon">⏱️</span>
             <div class="sync-schedule-text-col">
               <span class="sync-schedule-tag">Auto-Sync Shift</span>
@@ -232,14 +232,50 @@
           </div>
         </div>
       </section>
-      <!-- Wing Selector Subtabs -->
-      <div class="wing-selection-bar">
-        <div class="wing-toggle-group">
-          <button class="wing-btn active" data-wing="all">Semua Tim (Tim I + II)</button>
-          <button class="wing-btn" data-wing="KakapA">Tim I (<span id="countWingA">21</span> Bed)</button>
-          <button class="wing-btn" data-wing="KakapB">Tim II (<span id="countWingB">20</span> Bed)</button>
+      <!-- Control Bar: Mode Tampilan (Per Tim vs Per Gender) & Filter -->
+      <div class="bed-view-controls-bar">
+        <!-- Switcher Mode Pengelompokan Utama -->
+        <div class="group-mode-wrapper">
+          <span class="view-mode-label">Mode Denah:</span>
+          <div class="mode-pill-group">
+            <button class="mode-pill-btn active" id="btnModeTeam" data-mode="team" title="Kelompokkan kamar berdasarkan Tim Keperawatan (Tim I & II)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Per Tim (Tim I &amp; II)</span>
+            </button>
+            <button class="mode-pill-btn" id="btnModeGender" data-mode="gender" title="Kelompokkan kamar berdasarkan Jenis Kelamin Pasien (Kamar Pria & Wanita)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="6" r="3"/><line x1="12" y1="9" x2="12" y2="21"/><line x1="7" y1="16" x2="17" y2="16"/><path d="M5 6l4-4M19 6l-4-4"/></svg>
+              <span>Per Gender (Pria &amp; Wanita)</span>
+            </button>
+          </div>
         </div>
 
+        <!-- Filter Sub-Kategori Sesuai Mode Aktif -->
+        <div class="subfilter-wrapper">
+          <!-- Subfilter Tim (Aktif saat mode team) -->
+          <div class="wing-toggle-group" id="teamFilterGroup">
+            <button class="wing-btn active" data-wing="all">Semua Tim (41 Bed)</button>
+            <button class="wing-btn" data-wing="KakapA">Tim I (<span id="countWingA">21</span> Bed)</button>
+            <button class="wing-btn" data-wing="KakapB">Tim II (<span id="countWingB">20</span> Bed)</button>
+          </div>
+
+          <!-- Subfilter Gender (Aktif saat mode gender) -->
+          <div class="gender-toggle-group" id="genderFilterGroup" style="display:none;">
+            <button class="gender-btn active" data-gender="all">Semua Gender (41 Bed)</button>
+            <button class="gender-btn btn-gender-male" data-gender="male">♂ Kamar Pria (20 Bed)</button>
+            <button class="gender-btn btn-gender-female" data-gender="female">♀ Kamar Wanita (20 Bed)</button>
+            <button class="gender-btn btn-gender-iso" data-gender="isolation">🛡️ Isolasi (1 Bed)</button>
+          </div>
+
+          <!-- Filter Jenis Kelamin Pasien Individu -->
+          <div class="pt-gender-filter-group" title="Filter cepat pasien berdasarkan jenis kelamin">
+            <span class="pt-gender-label">Pasien:</span>
+            <button class="pt-gender-chip active" data-pt-gender="all">Semua</button>
+            <button class="pt-gender-chip chip-male" data-pt-gender="L">♂ Pria</button>
+            <button class="pt-gender-chip chip-female" data-pt-gender="P">♀ Wanita</button>
+          </div>
+        </div>
+
+        <!-- Legenda Status Pasien -->
         <div class="bed-legend">
           <span class="legend-item"><span class="legend-dot status-occupied"></span> Terisi</span>
           <span class="legend-item"><span class="legend-dot status-hd"></span> Hemodialisa</span>
@@ -250,8 +286,8 @@
         </div>
       </div>
 
-      <!-- Wing Sections Container -->
-      <div class="wards-container">
+      <!-- Wards Container: 1 Kamar per Row (Tepat 4 Pasien per Baris di Desktop & Mobile) -->
+      <div class="wards-container" id="wardsContainer">
         <!-- Tim I Section -->
         <div class="ward-block" id="wardBlockKakapA">
           <div class="ward-header">
@@ -261,8 +297,8 @@
               <span class="ward-meta-text" id="metaWingA">-- Pasien Terisi &bull; 21 Bed</span>
             </div>
           </div>
-          <div class="bed-grid" id="bedGridKakapA">
-            <!-- Bed Cards dynamically injected -->
+          <div class="room-rows-list" id="bedGridKakapA">
+            <!-- Room Rows (1 Kamar per Row @ 4 Pasien) dynamically injected -->
           </div>
         </div>
 
@@ -275,8 +311,50 @@
               <span class="ward-meta-text" id="metaWingB">-- Pasien Terisi &bull; 20 Bed</span>
             </div>
           </div>
-          <div class="bed-grid" id="bedGridKakapB">
-            <!-- Bed Cards dynamically injected -->
+          <div class="room-rows-list" id="bedGridKakapB">
+            <!-- Room Rows (1 Kamar per Row @ 4 Pasien) dynamically injected -->
+          </div>
+        </div>
+
+        <!-- Kamar Pria Section (untuk Mode Gender) -->
+        <div class="ward-block" id="wardBlockGenderMale" style="display:none;">
+          <div class="ward-header">
+            <div class="ward-title-group">
+              <span class="gender-ward-badge badge-male">♂ KAMAR PRIA</span>
+              <h2>Kamar Pasien Laki-laki — Kakap 1, 5, 6, 7 &amp; 9</h2>
+              <span class="ward-meta-text" id="metaGenderMale">-- Pasien Terisi &bull; 20 Bed</span>
+            </div>
+          </div>
+          <div class="room-rows-list" id="bedGridGenderMale">
+            <!-- Room Rows dynamically injected -->
+          </div>
+        </div>
+
+        <!-- Kamar Wanita Section (untuk Mode Gender) -->
+        <div class="ward-block" id="wardBlockGenderFemale" style="display:none;">
+          <div class="ward-header">
+            <div class="ward-title-group">
+              <span class="gender-ward-badge badge-female">♀ KAMAR WANITA</span>
+              <h2>Kamar Pasien Perempuan — Kakap 2, 3, 4, 8 &amp; 10</h2>
+              <span class="ward-meta-text" id="metaGenderFemale">-- Pasien Terisi &bull; 20 Bed</span>
+            </div>
+          </div>
+          <div class="room-rows-list" id="bedGridGenderFemale">
+            <!-- Room Rows dynamically injected -->
+          </div>
+        </div>
+
+        <!-- Kamar Isolasi Section (untuk Mode Gender) -->
+        <div class="ward-block" id="wardBlockGenderIso" style="display:none;">
+          <div class="ward-header">
+            <div class="ward-title-group">
+              <span class="gender-ward-badge badge-iso">🛡️ ISOLASI</span>
+              <h2>Kamar Isolasi Khusus — Bed Isolasi</h2>
+              <span class="ward-meta-text" id="metaGenderIso">-- Pasien Terisi &bull; 1 Bed</span>
+            </div>
+          </div>
+          <div class="room-rows-list" id="bedGridGenderIso">
+            <!-- Room Rows dynamically injected -->
           </div>
         </div>
       </div>
@@ -1475,14 +1553,14 @@
 
           <div class="shift-note-card shift-note-sore">
             <div class="shift-note-header">
-              <span class="shift-badge badge-sore">SHIFT SORE (14:00 - 21:00)</span>
+              <span class="shift-badge badge-sore">SHIFT SORE (14:00 - 20:00)</span>
             </div>
             <div class="shift-note-content" id="modalNoteSore">Tidak ada catatan shift sore.</div>
           </div>
 
           <div class="shift-note-card shift-note-malam">
             <div class="shift-note-header">
-              <span class="shift-badge badge-malam">SHIFT MALAM (21:00 - 07:00)</span>
+              <span class="shift-badge badge-malam">SHIFT MALAM (20:00 - 07:00)</span>
             </div>
             <div class="shift-note-content" id="modalNoteMalam">Tidak ada catatan shift malam.</div>
           </div>
@@ -1681,8 +1759,8 @@
               <label for="entryShiftSelect" class="form-label">Shift / Jenis Catatan</label>
               <select id="entryShiftSelect" class="form-control" required>
                 <option value="pagi">Shift Pagi (07:00 - 14:00)</option>
-                <option value="sore">Shift Sore (14:00 - 21:00)</option>
-                <option value="malam">Shift Malam (21:00 - 07:00)</option>
+                <option value="sore">Shift Sore (14:00 - 20:00)</option>
+                <option value="malam">Shift Malam (20:00 - 07:00)</option>
                 <option value="visite_dpjp">Visite Dokter Spesialis (DPJP)</option>
                 <option value="visite_jaga">Visite Dokter Jaga Ruangan</option>
                 <option value="tindakan">Tindakan / Prosedur Khusus</option>
