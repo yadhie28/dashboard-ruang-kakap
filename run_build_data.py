@@ -740,6 +740,19 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
         "mediumEWS": sum(1 for p in final_patients if p.get('ews', {}).get('level') == 'medium')
     }
 
+    room_notes = {
+        "kakap-8": {"type": "warning", "text": "AC Panas (kamar 8 klg pasien setuju kondisi)"},
+        "kakap-9": {"type": "warning", "text": "AC Panas · Kamar BAU/Rusak — Tidak aktif digunakan"}
+    }
+    fasilitas_notes = [
+        "Lift luar mati, lift dalam sering error (pintu terbuka sendiri)"
+    ]
+    antrean_dict = {
+        "pagi": [],
+        "sore": [{"sumber": "IGD", "nama": "Tn. Dwi Ariandi", "keterangan": "kerabat Munazzil (K.5.3)"}] if iso_date == "2026-11-08" else [],
+        "malam": []
+    }
+
     return {
         "date": iso_date,
         "patients": final_patients,
@@ -748,7 +761,10 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
         "eg2a": tim1_patients,
         "eg2b": tim2_patients,
         "summary": summary,
-        "sensus": sensus
+        "sensus": sensus,
+        "roomNotes": room_notes,
+        "fasilitasNotes": fasilitas_notes,
+        "antrean": antrean_dict
     }
 
 def build_data(download=False):

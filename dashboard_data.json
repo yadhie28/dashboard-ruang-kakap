@@ -13,7 +13,7 @@
       "Tim I (Kakap 1-5 & Isolasi - 21 Bed)",
       "Tim II (Kakap 6-10 - 20 Bed)"
     ],
-    "lastUpdated": "09-11-2026 17:09:04",
+    "lastUpdated": "10-11-2026 08:23:34",
     "latestDate": "2026-11-09",
     "totalDatesRecorded": 7,
     "dateRange": "2026-11-03 s/d 2026-11-09",
@@ -73,9 +73,9 @@
       "date": "2026-11-08",
       "occTim1": 19,
       "occTim2": 18,
-      "totalOcc": 34,
+      "totalOcc": 35,
       "totalBeds": 41,
-      "bor": 82.9
+      "bor": 85.4
     },
     {
       "date": "2026-11-09",
@@ -251,10 +251,10 @@
     {
       "month": "2026-11",
       "daysCounted": 7,
-      "avgOcc": 30.9,
+      "avgOcc": 31.0,
       "avgOccA": 15.6,
       "avgOccB": 13.7,
-      "avgBor": 75.3
+      "avgBor": 75.6
     }
   ],
   "hospitalIndicators": {
@@ -265,32 +265,32 @@
     },
     "availableBeds": 41,
     "totalDays": 7,
-    "totalHP": 216,
-    "totalDischarges": 8,
+    "totalHP": 217,
+    "totalDischarges": 7,
     "overall": {
-      "bor": 75.3,
-      "avlos": 27.0,
-      "toi": 8.9,
-      "bto": 10.2,
-      "gdr": 125.0,
-      "ndr": 125.0
+      "bor": 75.6,
+      "avlos": 31.0,
+      "toi": 10.0,
+      "bto": 8.9,
+      "gdr": 142.9,
+      "ndr": 142.9
     },
     "monthly": [
       {
         "month": "2026-11",
         "days": 7,
-        "hp": 216,
+        "hp": 217,
         "hpTim1": 109,
         "hpTim2": 96,
-        "discharges": 8,
+        "discharges": 7,
         "deaths": 1,
         "deathsGt48": 1,
-        "bor": 75.3,
-        "avlos": 27.0,
-        "toi": 8.9,
-        "bto": 10.2,
-        "gdr": 125.0,
-        "ndr": 125.0
+        "bor": 75.6,
+        "avlos": 31.0,
+        "toi": 10.0,
+        "bto": 8.9,
+        "gdr": 142.9,
+        "ndr": 142.9
       }
     ]
   },
@@ -6093,6 +6093,24 @@
           "sore": "TERISI",
           "malam": "TERISI"
         }
+      },
+      "roomNotes": {
+        "kakap-8": {
+          "type": "warning",
+          "text": "AC Panas (kamar 8 klg pasien setuju kondisi)"
+        },
+        "kakap-9": {
+          "type": "warning",
+          "text": "AC Panas · Kamar BAU/Rusak — Tidak aktif digunakan"
+        }
+      },
+      "fasilitasNotes": [
+        "Lift luar mati, lift dalam sering error (pintu terbuka sendiri)"
+      ],
+      "antrean": {
+        "pagi": [],
+        "sore": [],
+        "malam": []
       }
     },
     "2026-11-04": {
@@ -11967,6 +11985,24 @@
           "sore": "TERISI",
           "malam": "TERISI"
         }
+      },
+      "roomNotes": {
+        "kakap-8": {
+          "type": "warning",
+          "text": "AC Panas (kamar 8 klg pasien setuju kondisi)"
+        },
+        "kakap-9": {
+          "type": "warning",
+          "text": "AC Panas · Kamar BAU/Rusak — Tidak aktif digunakan"
+        }
+      },
+      "fasilitasNotes": [
+        "Lift luar mati, lift dalam sering error (pintu terbuka sendiri)"
+      ],
+      "antrean": {
+        "pagi": [],
+        "sore": [],
+        "malam": []
       }
     },
     "2026-11-05": {
@@ -17704,6 +17740,24 @@
           "sore": "KOSONG",
           "malam": "KOSONG"
         }
+      },
+      "roomNotes": {
+        "kakap-8": {
+          "type": "warning",
+          "text": "AC Panas (kamar 8 klg pasien setuju kondisi)"
+        },
+        "kakap-9": {
+          "type": "warning",
+          "text": "AC Panas · Kamar BAU/Rusak — Tidak aktif digunakan"
+        }
+      },
+      "fasilitasNotes": [
+        "Lift luar mati, lift dalam sering error (pintu terbuka sendiri)"
+      ],
+      "antrean": {
+        "pagi": [],
+        "sore": [],
+        "malam": []
       }
     },
     "2026-11-06": {
@@ -23335,6 +23389,24 @@
           "sore": "KOSONG",
           "malam": "KOSONG"
         }
+      },
+      "roomNotes": {
+        "kakap-8": {
+          "type": "warning",
+          "text": "AC Panas (kamar 8 klg pasien setuju kondisi)"
+        },
+        "kakap-9": {
+          "type": "warning",
+          "text": "AC Panas · Kamar BAU/Rusak — Tidak aktif digunakan"
+        }
+      },
+      "fasilitasNotes": [
+        "Lift luar mati, lift dalam sering error (pintu terbuka sendiri)"
+      ],
+      "antrean": {
+        "pagi": [],
+        "sore": [],
+        "malam": []
       }
     },
     "2026-11-07": {
@@ -28981,6 +29053,24 @@
           "sore": "KOSONG",
           "malam": "KOSONG"
         }
+      },
+      "roomNotes": {
+        "kakap-8": {
+          "type": "warning",
+          "text": "AC Panas (kamar 8 klg pasien setuju kondisi)"
+        },
+        "kakap-9": {
+          "type": "warning",
+          "text": "AC Panas · Kamar BAU/Rusak — Tidak aktif digunakan"
+        }
+      },
+      "fasilitasNotes": [
+        "Lift luar mati, lift dalam sering error (pintu terbuka sendiri)"
+      ],
+      "antrean": {
+        "pagi": [],
+        "sore": [],
+        "malam": []
       }
     },
     "2026-11-08": {
@@ -34632,9 +34722,9 @@
         "capacityTim2": 20,
         "capacityA": 21,
         "capacityB": 20,
-        "occupied": 34,
-        "empty": 7,
-        "bor": 82.9,
+        "occupied": 35,
+        "empty": 6,
+        "bor": 85.4,
         "borTim1": 90.5,
         "borTim2": 90.0,
         "borA": 90.5,
@@ -34669,22 +34759,22 @@
         "pasienAwal": {
           "pagi": 37,
           "sore": 34,
-          "malam": 34
+          "malam": 37
         },
         "pasienBaru": {
           "pagi": 0,
-          "sore": 0,
+          "sore": 2,
           "malam": 0
         },
         "pulang": {
-          "pagi": 2,
+          "pagi": 0,
           "sore": 0,
-          "malam": 0
+          "malam": 1
         },
         "pindah": {
-          "pagi": 1,
+          "pagi": 0,
           "sore": 0,
-          "malam": 0
+          "malam": 1
         },
         "meninggal": {
           "pagi": 0,
@@ -34692,14 +34782,14 @@
           "malam": 0
         },
         "total": {
-          "pagi": 34,
-          "sore": 34,
-          "malam": 34
+          "pagi": 37,
+          "sore": 36,
+          "malam": 35
         },
         "bedKosong": {
-          "pagi": 3,
-          "sore": 3,
-          "malam": 3
+          "pagi": 0,
+          "sore": 0,
+          "malam": 2
         },
         "bedKosongText": {
           "pagi": "",
@@ -34708,20 +34798,20 @@
         },
         "bedKosongDetail": {
           "pagi": {
-            "total": 3,
-            "pria": 1,
-            "wanita": 1,
-            "isolasi": 1
+            "total": 0,
+            "pria": 0,
+            "wanita": 0,
+            "isolasi": 0
           },
           "sore": {
-            "total": 3,
-            "pria": 1,
-            "wanita": 1,
-            "isolasi": 1
+            "total": 0,
+            "pria": 0,
+            "wanita": 0,
+            "isolasi": 0
           },
           "malam": {
-            "total": 3,
-            "pria": 1,
+            "total": 2,
+            "pria": 0,
             "wanita": 1,
             "isolasi": 1
           }
@@ -34741,6 +34831,30 @@
           "sore": "KOSONG",
           "malam": "KOSONG"
         }
+      },
+      "roomNotes": {
+        "kakap-8": {
+          "type": "warning",
+          "text": "AC Panas (kamar 8 klg pasien setuju kondisi)"
+        },
+        "kakap-9": {
+          "type": "warning",
+          "text": "AC Panas · Kamar BAU/Rusak — Tidak aktif digunakan"
+        }
+      },
+      "fasilitasNotes": [
+        "Lift luar mati, lift dalam sering error (pintu terbuka sendiri)"
+      ],
+      "antrean": {
+        "pagi": [],
+        "sore": [
+          {
+            "sumber": "IGD",
+            "nama": "Tn. Dwi Ariandi",
+            "keterangan": "kerabat Munazzil (K.5.3)"
+          }
+        ],
+        "malam": []
       }
     },
     "2026-11-09": {
@@ -40550,6 +40664,24 @@
           "sore": "KOSONG",
           "malam": "KOSONG"
         }
+      },
+      "roomNotes": {
+        "kakap-8": {
+          "type": "warning",
+          "text": "AC Panas (kamar 8 klg pasien setuju kondisi)"
+        },
+        "kakap-9": {
+          "type": "warning",
+          "text": "AC Panas · Kamar BAU/Rusak — Tidak aktif digunakan"
+        }
+      },
+      "fasilitasNotes": [
+        "Lift luar mati, lift dalam sering error (pintu terbuka sendiri)"
+      ],
+      "antrean": {
+        "pagi": [],
+        "sore": [],
+        "malam": []
       }
     }
   },
@@ -46360,6 +46492,24 @@
         "sore": "KOSONG",
         "malam": "KOSONG"
       }
+    },
+    "roomNotes": {
+      "kakap-8": {
+        "type": "warning",
+        "text": "AC Panas (kamar 8 klg pasien setuju kondisi)"
+      },
+      "kakap-9": {
+        "type": "warning",
+        "text": "AC Panas · Kamar BAU/Rusak — Tidak aktif digunakan"
+      }
+    },
+    "fasilitasNotes": [
+      "Lift luar mati, lift dalam sering error (pintu terbuka sendiri)"
+    ],
+    "antrean": {
+      "pagi": [],
+      "sore": [],
+      "malam": []
     }
   },
   "clinicalPathways": {

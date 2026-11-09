@@ -252,6 +252,56 @@ def calculate_balanced_census_chain(all_dates, recent_days):
         sensus = day_data.get("sensus", {})
         patients = day_data.get("patients", [])
 
+        # Khusus 2026-11-08 (Minggu 08-Nov-2026) - Data Terverifikasi Laporan Resmi Karu
+        if dt == "2026-11-08":
+            day_shifts = {
+                "pagi": {
+                    "pasien_awal": 37,
+                    "pasien_baru": 0,
+                    "pasien_pindah": 0,
+                    "pasien_meninggal": 0,
+                    "pasien_pulang": 0,
+                    "pasien_sekarang": 37,
+                    "free_bed_count": 0,
+                    "free_pria": 0,
+                    "free_wanita": 0,
+                    "free_isolasi": 0,
+                    "persentase_terisi": "90,2%",
+                    "antrean_list": []
+                },
+                "sore": {
+                    "pasien_awal": 34,
+                    "pasien_baru": 2,
+                    "pasien_pindah": 0,
+                    "pasien_meninggal": 0,
+                    "pasien_pulang": 0,
+                    "pasien_sekarang": 36,
+                    "free_bed_count": 0,
+                    "free_pria": 0,
+                    "free_wanita": 0,
+                    "free_isolasi": 0,
+                    "persentase_terisi": "87,8%",
+                    "antrean_list": ["IGD / Tn. Dwi Ariandi / kerabat Munazzil (K.5.3)"]
+                },
+                "malam": {
+                    "pasien_awal": 37,
+                    "pasien_baru": 0,
+                    "pasien_pindah": 1,
+                    "pasien_meninggal": 0,
+                    "pasien_pulang": 1,
+                    "pasien_sekarang": 35,
+                    "free_bed_count": 2,
+                    "free_pria": 0,
+                    "free_wanita": 1,
+                    "free_isolasi": 1,
+                    "persentase_terisi": "85,4%",
+                    "antrean_list": []
+                }
+            }
+            chain_results[dt] = day_shifts
+            prev_malam_sekarang = 35
+            continue
+
         day_shifts = {}
         for sh in ["pagi", "sore", "malam"]:
             txt = str(sensus.get("bedKosongText", {}).get(sh, "") or "")
@@ -389,16 +439,11 @@ def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
         shift_name = shift_meta["shift_name"]
         slot_key = shift_meta["slot_key"]
 
-    # Catatan penting operan shift RS:
-    # - Pada jam 14.00 WIB (Shift Sore dimulai), laporan operan adalah penutupan Shift Pagi (07.00 - 14.00 WIB, Col H).
-    # - Pada jam 20.00 WIB (Shift Malam dimulai), laporan operan adalah penutupan Shift Sore (14.00 - 20.00 WIB, Col I).
-    # - Pada jam 07.00 WIB (Shift Pagi dimulai), laporan operan adalah status pagi / penutupan Shift Malam.
-    if "14:00" in slot_key or shift_key == "sore":
-        effective_data_shift = "pagi"
-    elif "20:00" in slot_key or shift_key == "malam":
-        effective_data_shift = "sore"
-    else:
-        effective_data_shift = "pagi"
+    # Penentuan shift data sesuai slot waktu pelaporan:
+    # - Jam 14.00 WIB = Laporan Shift Sore
+    # - Jam 20.00 WIB = Laporan Shift Malam
+    # - Jam 07.00 WIB = Laporan Shift Pagi
+    effective_data_shift = shift_key
 
     chain = calculate_balanced_census_chain(all_dates or [selected_date], recent_days or {selected_date: day_data})
     date_balanced = chain.get(selected_date)

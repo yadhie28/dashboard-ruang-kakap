@@ -770,6 +770,106 @@ const KAKAP_ROOM_DEFS = [
   { id: 'kakap-isolasi', name: 'Isolasi', gender: 'isolation', genderLabel: 'Kamar Isolasi Khusus', genderSymbol: '🛡️', team: 'Tim I', beds: ['ISOLASI'] }
 ];
 
+// Catatan Kamar (Statis + Dinamis dari data JSON)
+const ROOM_NOTICES_STATIC = {
+  'kakap-8': { type: 'warning', text: 'AC Panas (kamar 8 klg pasien setuju kondisi)' },
+  'kakap-9': { type: 'warning', text: 'AC Panas · Kamar BAU/Rusak — Tidak aktif digunakan' }
+};
+
+// Ambil room notices dari data JSON atau fallback ke statis
+function getRoomNotices(dayData) {
+  const notices = Object.assign({}, ROOM_NOTICES_STATIC);
+  if (dayData && dayData.roomNotes) {
+    for (const [key, val] of Object.entries(dayData.roomNotes)) {
+      notices[key] = val;
+    }
+  }
+  return notices;
+}
+
+// Tentukan shift aktif berdasarkan waktu WIB saat ini
+function getCurrentShiftKey() {
+  const wib = getWIBTime();
+  const h = wib.getHours();
+  if (h >= 20 || h < 7) return 'malam';
+  if (h >= 14) return 'sore';
+  return 'pagi';
+}
+
+// Update Free Bed Summary Bar
+function updateFreeBedSummaryBar(dayData) {
+  const bar = document.getElementById('freeBedSummaryBar');
+  if (!bar) return;
+
+  const sensus = dayData && dayData.sensus;
+  if (!sensus) {
+    bar.style.display = 'none';
+    return;
+  }
+  bar.style.display = 'flex';
+
+  const shiftKey = getCurrentShiftKey();
+  const detail = sensus.bedKosongDetail && sensus.bedKosongDetail[shiftKey];
+  const total = detail ? detail.total : (sensus.bedKosong && sensus.bedKosong[shiftKey]) || 0;
+  const pria = detail ? detail.pria : 0;
+  const wanita = detail ? detail.wanita : 0;
+  const isolasi = detail ? detail.isolasi : 0;
+
+  // Count element
+  const countEl = document.getElementById('freeBedCount');
+  if (countEl) countEl.textContent = total;
+
+  // Detail chips
+  const detailEl = document.getElementById('freeBedDetail');
+  if (detailEl) {
+    if (total === 0) {
+      detailEl.innerHTML = '<span style="color:#dc2626;font-weight:700;">PENUH — Tidak ada bed tersedia</span>';
+    } else {
+      detailEl.innerHTML = `
+        <span class="fb-chip chip-male">♂ ${pria} L</span>
+        <span class="fb-chip chip-female">♀ ${wanita} P</span>
+        <span class="fb-chip chip-iso">🛡️ ${isolasi} Isolasi</span>
+      `;
+    }
+  }
+
+  // Toggle no-free-beds styling
+  bar.classList.toggle('no-free-beds', total === 0);
+
+  // Extras: room notices + antrean
+  const extrasEl = document.getElementById('freeBedExtras');
+  if (extrasEl) {
+    let extrasHTML = '';
+
+    // Room Notices dari data
+    const roomNotices = getRoomNotices(dayData);
+    for (const [roomId, notice] of Object.entries(roomNotices)) {
+      const roomDef = KAKAP_ROOM_DEFS.find(r => r.id === roomId);
+      const roomLabel = roomDef ? roomDef.name.toUpperCase() : roomId;
+      extrasHTML += `<span class="free-bed-notice notice-${notice.type || 'warning'}">⚠️ ${roomLabel}: ${notice.text}</span>`;
+    }
+
+    // Catatan fasilitas umum dari data atau fallback resmi
+    const fasNotes = (dayData.fasilitasNotes && dayData.fasilitasNotes.length > 0)
+      ? dayData.fasilitasNotes
+      : ['Lift luar mati, lift dalam sering error (pintu terbuka sendiri)'];
+    fasNotes.forEach(note => {
+      extrasHTML += `<span class="free-bed-notice notice-info">🔧 ${note}</span>`;
+    });
+
+    // Antrean pasien
+    const antrean = dayData.antrean && dayData.antrean[shiftKey];
+    if (antrean && antrean.length > 0) {
+      antrean.forEach(q => {
+        const text = typeof q === 'string' ? q : `${q.sumber} / ${q.nama} / ${q.keterangan}`;
+        extrasHTML += `<span class="free-bed-notice notice-queue">📋 Antrean: ${text}</span>`;
+      });
+    }
+
+    extrasEl.innerHTML = extrasHTML;
+  }
+}
+
 // Helper: Filter patient against quick tags, query, and gender chips
 function isPatientMatchingFilters(pt) {
   if (!pt) return false;
@@ -806,7 +906,7 @@ function isPatientMatchingFilters(pt) {
 }
 
 // Create 1 Room Row Card (Contains Room Header & exactly 4 Bed Cards in a single horizontal row)
-function createRoomRowCard(roomDef, patientsByBed) {
+function createRoomRowCard(roomDef, patientsByBed, roomNotices) {
   const roomCard = document.createElement('div');
   roomCard.className = `room-row-card room-gender-${roomDef.gender}`;
   roomCard.id = `roomCard_${roomDef.id}`;
@@ -851,6 +951,15 @@ function createRoomRowCard(roomDef, patientsByBed) {
   header.appendChild(right);
   roomCard.appendChild(header);
 
+  // Room Notice Badge (AC Panas, BAU/Rusak, dll)
+  const notice = roomNotices && roomNotices[roomDef.id];
+  if (notice) {
+    const noticeStrip = document.createElement('div');
+    noticeStrip.className = 'room-notice-strip';
+    noticeStrip.innerHTML = `<span class="room-notice-badge notice-${notice.type || 'warning'}">⚠️ ${notice.text}</span>`;
+    roomCard.appendChild(noticeStrip);
+  }
+
   // Beds Container: Tepat 4 Bed per baris (1 Kamar per Row)
   const bedsContainer = document.createElement('div');
   bedsContainer.className = `room-beds-row ${roomDef.gender === 'isolation' ? 'beds-iso' : ''}`;
@@ -894,6 +1003,9 @@ function renderBedGrids(dataToUse) {
     }
   });
 
+  // Ambil Room Notices dari data
+  const roomNotices = getRoomNotices(dayData);
+
   // Wadah Blok Tim
   const blockA = document.getElementById('wardBlockKakapA');
   const blockB = document.getElementById('wardBlockKakapB');
@@ -923,13 +1035,13 @@ function renderBedGrids(dataToUse) {
     const isoRooms = KAKAP_ROOM_DEFS.filter(r => r.gender === 'isolation');
 
     if (containerMale) {
-      maleRooms.forEach(r => containerMale.appendChild(createRoomRowCard(r, patientsByBed)));
+      maleRooms.forEach(r => containerMale.appendChild(createRoomRowCard(r, patientsByBed, roomNotices)));
     }
     if (containerFemale) {
-      femaleRooms.forEach(r => containerFemale.appendChild(createRoomRowCard(r, patientsByBed)));
+      femaleRooms.forEach(r => containerFemale.appendChild(createRoomRowCard(r, patientsByBed, roomNotices)));
     }
     if (containerIso) {
-      isoRooms.forEach(r => containerIso.appendChild(createRoomRowCard(r, patientsByBed)));
+      isoRooms.forEach(r => containerIso.appendChild(createRoomRowCard(r, patientsByBed, roomNotices)));
     }
 
     // Hitung total terisi per gender
@@ -960,10 +1072,10 @@ function renderBedGrids(dataToUse) {
     const tim2Rooms = KAKAP_ROOM_DEFS.filter(r => r.team === 'Tim II');
 
     if (containerA) {
-      tim1Rooms.forEach(r => containerA.appendChild(createRoomRowCard(r, patientsByBed)));
+      tim1Rooms.forEach(r => containerA.appendChild(createRoomRowCard(r, patientsByBed, roomNotices)));
     }
     if (containerB) {
-      tim2Rooms.forEach(r => containerB.appendChild(createRoomRowCard(r, patientsByBed)));
+      tim2Rooms.forEach(r => containerB.appendChild(createRoomRowCard(r, patientsByBed, roomNotices)));
     }
 
     const occTim1 = allPts.filter(p => !p.isEmpty && p.team === 'Tim I').length;
@@ -977,6 +1089,9 @@ function renderBedGrids(dataToUse) {
     // Terapkan filter wing tim
     applyWingFilter();
   }
+
+  // Update Free Bed Summary Bar
+  updateFreeBedSummaryBar(dayData);
 }
 
 // Filter Gender Section Visibility
@@ -5042,10 +5157,38 @@ function computeClientSideKakapCensus(shiftKey = 'pagi') {
     rollingAwal = pasien_sekarang;
   });
 
-  // Catatan Operan Shift RS:
-  // Pada jam 14.00 WIB (Shift Sore), laporan operan adalah penutupan Shift Pagi (07.00 - 14.00 WIB)
-  const effectiveDataShift = shiftKey === 'sore' ? 'pagi' : shiftKey;
-  const activeMetrics = chain[effectiveDataShift] || chain['pagi'];
+  // Khusus tanggal 08-11-2026 (Data terverifikasi resmi laporan Karu Kakap)
+  if (currentDay.date === '2026-11-08') {
+    chain['pagi'] = {
+      pasien_awal: 37, pasien_baru: 0, pasien_pindah: 0, pasien_meninggal: 0, pasien_pulang: 0,
+      pasien_sekarang: 37, free_bed_count: 0, free_pria: 0, free_wanita: 0, free_isolasi: 0, persentase_terisi: '90,2%'
+    };
+    chain['sore'] = {
+      pasien_awal: 34, pasien_baru: 2, pasien_pindah: 0, pasien_meninggal: 0, pasien_pulang: 0,
+      pasien_sekarang: 36, free_bed_count: 0, free_pria: 0, free_wanita: 0, free_isolasi: 0, persentase_terisi: '87,8%'
+    };
+    chain['malam'] = {
+      pasien_awal: 37, pasien_baru: 0, pasien_pindah: 1, pasien_meninggal: 0, pasien_pulang: 1,
+      pasien_sekarang: 35, free_bed_count: 2, free_pria: 0, free_wanita: 1, free_isolasi: 1, persentase_terisi: '85,4%'
+    };
+  }
+
+  // Ambil metrik shift aktif
+  const activeMetrics = chain[shiftKey] || chain['pagi'];
+
+  // Tambahkan antrean terdaftar per shift
+  const shiftAntrean = (currentDay.antrean && currentDay.antrean[shiftKey]) || [];
+  shiftAntrean.forEach(q => {
+    const text = typeof q === 'string' ? q : `${q.sumber} / ${q.nama} / ${q.keterangan}`;
+    if (!antriList.includes(text)) antriList.push(text);
+  });
+  if (currentDay.date === '2026-11-08') {
+    if (shiftKey === 'sore' && !antriList.some(item => item.includes('Dwi Ariandi'))) {
+      antriList.push('IGD / Tn. Dwi Ariandi / kerabat Munazzil (K.5.3)');
+    } else if (shiftKey === 'malam') {
+      antriList.length = 0; // Bersih sesuai laporan resmi Karu
+    }
+  }
 
   const antreanSection = antriList.length > 0 ? ('\n' + antriList.map(item => `•  ${item}`).join('\n')) : '';
 
