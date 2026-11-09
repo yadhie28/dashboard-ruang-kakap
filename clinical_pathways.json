@@ -18,13 +18,13 @@
         "2026-11-08",
         "2026-11-09"
       ],
-      "totalObservations": 207,
+      "totalObservations": 209,
       "observationsIncludedCount": 20,
-      "observationsExcludedCount": 187,
-      "totalUniquePatients": 62,
+      "observationsExcludedCount": 189,
+      "totalUniquePatients": 63,
       "uniqueIncludedCount": 6,
-      "uniqueExcludedCount": 56,
-      "uniqueCoveragePct": 9.7,
+      "uniqueExcludedCount": 57,
+      "uniqueCoveragePct": 9.5,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -41,7 +41,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 5,
           "pctOfIncluded": 83.3,
-          "pctOfTotal": 8.1,
+          "pctOfTotal": 7.9,
           "patients": [
             {
               "mrNo": "00301588",
@@ -103,7 +103,7 @@
                 "2026-11-08",
                 "2026-11-09"
               ],
-              "diagnosis": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4",
+              "diagnosis": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4 | DM tipe 2 //Ulkus Diabetic //DKD //KAD //Anemia //Mild Hiperkalemia ( 5,8) // Hiponatremia - ISOOSMOLER // DVT, Okluisi V Femoralis\nfraktur obliq metatarsal 4",
               "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
             }
           ]
@@ -154,7 +154,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 29,
+          "count": 30,
           "patients": [
             {
               "mrNo": "00302040",
@@ -268,7 +268,7 @@
                 "2026-11-08",
                 "2026-11-09"
               ],
-              "diagnosis": "Malnutrisi Hoponatremia Hipoosmoler"
+              "diagnosis": "Malnutrisi Hoponatremia Hipoosmoler | Malnutrisi //Hiponatremia Hipoosmoler // TBC"
             },
             {
               "mrNo": "00306550",
@@ -461,6 +461,16 @@
               "diagnosis": "Dyspneu e.c susp. Edema Pulmo \nAscites"
             },
             {
+              "mrNo": "00233242",
+              "name": "Ny. Nur Asmah",
+              "bed": "4.3",
+              "datesSeen": [
+                "2026-11-08",
+                "2026-11-09"
+              ],
+              "diagnosis": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis"
+            },
+            {
               "mrNo": "00287047",
               "name": "Tn. Wahab",
               "bed": "7.3",
@@ -478,7 +488,7 @@
                 "2026-11-08",
                 "2026-11-09"
               ],
-              "diagnosis": "-"
+              "diagnosis": "sirosis hepatis dekompensata hematemesis anemia"
             },
             {
               "mrNo": "00236875",
@@ -491,7 +501,7 @@
               "diagnosis": "vomitus ec dispepsia"
             }
           ],
-          "pct": 51.8
+          "pct": 52.6
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -599,7 +609,7 @@
                 "2026-11-08",
                 "2026-11-09"
               ],
-              "diagnosis": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase"
+              "diagnosis": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia Sup HAP\nParaplegi inferior ec susp metastase"
             },
             {
               "mrNo": "00294633",
@@ -613,7 +623,7 @@
                 "2026-11-08",
                 "2026-11-09"
               ],
-              "diagnosis": "ckd st5 anemia | ckd5-hd Anemia"
+              "diagnosis": "ckd st5 anemia | ckd5-hd Anemia | ckd5-hd //Anemia"
             },
             {
               "mrNo": "00262324",
@@ -670,7 +680,7 @@
                 "2026-11-08",
                 "2026-11-09"
               ],
-              "diagnosis": "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal | CKD5 - HD Uremic Syndrome"
+              "diagnosis": "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal | CKD5 - HD Uremic Syndrome | CKD5 - HD //Uremic Syndrome //Vertigo"
             },
             {
               "mrNo": "00294638",
@@ -712,7 +722,7 @@
                 "2026-11-08",
                 "2026-11-09"
               ],
-              "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK"
+              "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
             },
             {
               "mrNo": "00306551",
@@ -755,7 +765,7 @@
               "diagnosis": "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD"
             }
           ],
-          "pct": 41.1
+          "pct": 40.4
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -818,7 +828,7 @@
               "diagnosis": "Penkes ec hipoglikemia pada DM type 2 Dyspepsia ec NSAID | hipoglikemia pada DM type 2 Dyspepsia Ulkus DM HHD"
             }
           ],
-          "pct": 5.4
+          "pct": 5.3
         }
       },
       "dailyBreakdown": [
@@ -859,17 +869,17 @@
         },
         {
           "date": "2026-11-08",
-          "total": 36,
+          "total": 37,
           "included": 5,
-          "excluded": 31,
-          "coveragePct": 13.9
+          "excluded": 32,
+          "coveragePct": 13.5
         },
         {
           "date": "2026-11-09",
-          "total": 36,
+          "total": 37,
           "included": 5,
-          "excluded": 31,
-          "coveragePct": 13.9
+          "excluded": 32,
+          "coveragePct": 13.5
         }
       ],
       "uniquePatientsList": [
@@ -1426,7 +1436,8 @@
           ],
           "daysInWard": 7,
           "diagnoses": [
-            "Malnutrisi Hoponatremia Hipoosmoler"
+            "Malnutrisi Hoponatremia Hipoosmoler",
+            "Malnutrisi //Hiponatremia Hipoosmoler // TBC"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1435,7 +1446,7 @@
           "losLatest": 8,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Malnutrisi Hoponatremia Hipoosmoler",
+          "diagnosisSpreadsheet": "Malnutrisi Hoponatremia Hipoosmoler | Malnutrisi //Hiponatremia Hipoosmoler // TBC",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -1514,7 +1525,8 @@
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia",
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
             "ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
-            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase"
+            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
+            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia Sup HAP\nParaplegi inferior ec susp metastase"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1523,7 +1535,7 @@
           "losLatest": 9,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
+          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia Sup HAP\nParaplegi inferior ec susp metastase",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -1546,7 +1558,8 @@
           "daysInWard": 6,
           "diagnoses": [
             "ckd st5 anemia",
-            "ckd5-hd Anemia"
+            "ckd5-hd Anemia",
+            "ckd5-hd //Anemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1555,7 +1568,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "18 th",
-          "diagnosisSpreadsheet": "ckd st5 anemia | ckd5-hd Anemia",
+          "diagnosisSpreadsheet": "ckd st5 anemia | ckd5-hd Anemia | ckd5-hd //Anemia",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -1782,7 +1795,8 @@
           "daysInWard": 6,
           "diagnoses": [
             "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal",
-            "CKD5 - HD Uremic Syndrome"
+            "CKD5 - HD Uremic Syndrome",
+            "CKD5 - HD //Uremic Syndrome //Vertigo"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1791,7 +1805,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal | CKD5 - HD Uremic Syndrome",
+          "diagnosisSpreadsheet": "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal | CKD5 - HD Uremic Syndrome | CKD5 - HD //Uremic Syndrome //Vertigo",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -2242,7 +2256,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK"
+            "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+            "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -2251,7 +2266,7 @@
           "losLatest": 9,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+          "diagnosisSpreadsheet": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -2448,6 +2463,33 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "00233242",
+          "mrNo": "00233242",
+          "name": "Ny. Nur Asmah",
+          "bedLatest": "4.3",
+          "doctor": "DECKY ANDREA, DR, SP.PD",
+          "admissionDate": "11/09/2026",
+          "datesSeen": [
+            "2026-11-08",
+            "2026-11-09"
+          ],
+          "daysInWard": 2,
+          "diagnoses": [
+            "hematoschezia ec susp hemoroid eksterna anemia adenomiosis"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00273555",
           "mrNo": "00273555",
           "name": "Tn. Ahmad",
@@ -2564,7 +2606,9 @@
             "2026-11-09"
           ],
           "daysInWard": 2,
-          "diagnoses": [],
+          "diagnoses": [
+            "sirosis hepatis dekompensata hematemesis anemia"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
@@ -2572,7 +2616,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "-",
+          "diagnosisSpreadsheet": "sirosis hepatis dekompensata hematemesis anemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -2617,7 +2661,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4"
+            "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4",
+            "DM tipe 2 //Ulkus Diabetic //DKD //KAD //Anemia //Mild Hiperkalemia ( 5,8) // Hiponatremia - ISOOSMOLER // DVT, Okluisi V Femoralis\nfraktur obliq metatarsal 4"
           ],
           "status": "INCLUDED",
           "cpId": "CP-DMCKD-002",
@@ -2626,7 +2671,7 @@
           "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4"
+          "diagnosisSpreadsheet": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4 | DM tipe 2 //Ulkus Diabetic //DKD //KAD //Anemia //Mild Hiperkalemia ( 5,8) // Hiponatremia - ISOOSMOLER // DVT, Okluisi V Femoralis\nfraktur obliq metatarsal 4"
         }
       ],
       "includedPatients": [
@@ -2774,7 +2819,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4"
+            "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4",
+            "DM tipe 2 //Ulkus Diabetic //DKD //KAD //Anemia //Mild Hiperkalemia ( 5,8) // Hiponatremia - ISOOSMOLER // DVT, Okluisi V Femoralis\nfraktur obliq metatarsal 4"
           ],
           "status": "INCLUDED",
           "cpId": "CP-DMCKD-002",
@@ -2783,7 +2829,7 @@
           "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4"
+          "diagnosisSpreadsheet": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4 | DM tipe 2 //Ulkus Diabetic //DKD //KAD //Anemia //Mild Hiperkalemia ( 5,8) // Hiponatremia - ISOOSMOLER // DVT, Okluisi V Femoralis\nfraktur obliq metatarsal 4"
         }
       ],
       "excludedPatients": [
@@ -3286,7 +3332,8 @@
           ],
           "daysInWard": 7,
           "diagnoses": [
-            "Malnutrisi Hoponatremia Hipoosmoler"
+            "Malnutrisi Hoponatremia Hipoosmoler",
+            "Malnutrisi //Hiponatremia Hipoosmoler // TBC"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3295,7 +3342,7 @@
           "losLatest": 8,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Malnutrisi Hoponatremia Hipoosmoler",
+          "diagnosisSpreadsheet": "Malnutrisi Hoponatremia Hipoosmoler | Malnutrisi //Hiponatremia Hipoosmoler // TBC",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3374,7 +3421,8 @@
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia",
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
             "ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
-            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase"
+            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
+            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia Sup HAP\nParaplegi inferior ec susp metastase"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3383,7 +3431,7 @@
           "losLatest": 9,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
+          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia Sup HAP\nParaplegi inferior ec susp metastase",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -3406,7 +3454,8 @@
           "daysInWard": 6,
           "diagnoses": [
             "ckd st5 anemia",
-            "ckd5-hd Anemia"
+            "ckd5-hd Anemia",
+            "ckd5-hd //Anemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3415,7 +3464,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "18 th",
-          "diagnosisSpreadsheet": "ckd st5 anemia | ckd5-hd Anemia",
+          "diagnosisSpreadsheet": "ckd st5 anemia | ckd5-hd Anemia | ckd5-hd //Anemia",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -3614,7 +3663,8 @@
           "daysInWard": 6,
           "diagnoses": [
             "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal",
-            "CKD5 - HD Uremic Syndrome"
+            "CKD5 - HD Uremic Syndrome",
+            "CKD5 - HD //Uremic Syndrome //Vertigo"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3623,7 +3673,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal | CKD5 - HD Uremic Syndrome",
+          "diagnosisSpreadsheet": "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal | CKD5 - HD Uremic Syndrome | CKD5 - HD //Uremic Syndrome //Vertigo",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -4074,7 +4124,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK"
+            "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+            "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4083,7 +4134,7 @@
           "losLatest": 9,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+          "diagnosisSpreadsheet": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -4255,6 +4306,33 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "00233242",
+          "mrNo": "00233242",
+          "name": "Ny. Nur Asmah",
+          "bedLatest": "4.3",
+          "doctor": "DECKY ANDREA, DR, SP.PD",
+          "admissionDate": "11/09/2026",
+          "datesSeen": [
+            "2026-11-08",
+            "2026-11-09"
+          ],
+          "daysInWard": 2,
+          "diagnoses": [
+            "hematoschezia ec susp hemoroid eksterna anemia adenomiosis"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00273555",
           "mrNo": "00273555",
           "name": "Tn. Ahmad",
@@ -4347,7 +4425,9 @@
             "2026-11-09"
           ],
           "daysInWard": 2,
-          "diagnoses": [],
+          "diagnoses": [
+            "sirosis hepatis dekompensata hematemesis anemia"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
@@ -4355,7 +4435,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "-",
+          "diagnosisSpreadsheet": "sirosis hepatis dekompensata hematemesis anemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -4390,10 +4470,10 @@
       ]
     },
     "today": {
-      "totalInpatients": 36,
+      "totalInpatients": 37,
       "denominatorIncluded": 5,
-      "totalExcluded": 31,
-      "wardCoveragePct": 13.9,
+      "totalExcluded": 32,
+      "wardCoveragePct": 13.5,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 4,
@@ -4470,7 +4550,7 @@
           "bed": "ISOLASI",
           "name": "Ny. Boini",
           "mrNo": "00306295",
-          "diagnosis": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4",
+          "diagnosis": "DM tipe 2 //Ulkus Diabetic //DKD //KAD //Anemia //Mild Hiperkalemia ( 5,8) // Hiponatremia - ISOOSMOLER // DVT, Okluisi V Femoralis\nfraktur obliq metatarsal 4",
           "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Oktav,Sp.OT",
           "los": 7,
           "gender": "P",
@@ -4516,7 +4596,7 @@
           "bed": "1.4",
           "name": "Sdr. Bibli",
           "mrNo": "00294633",
-          "diagnosis": "ckd5-hd Anemia",
+          "diagnosis": "ckd5-hd //Anemia",
           "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
           "los": 6,
           "gender": "L",
@@ -4653,6 +4733,20 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
+          "bed": "4.3",
+          "name": "\"Ny. Nur Asmah \"",
+          "mrNo": "00233242",
+          "diagnosis": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
+          "doctor": "DECKY ANDREA, DR, SP.PD",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "09/11/2026",
+          "date": "2026-11-09",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
           "bed": "5.1",
           "name": "Tn. Sukamto",
           "mrNo": "00306797",
@@ -4712,7 +4806,7 @@
           "bed": "6.1",
           "name": "Tn. Kaseng",
           "mrNo": "00186499",
-          "diagnosis": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+          "diagnosis": "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
           "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U",
           "los": 9,
           "gender": "L",
@@ -4782,8 +4876,8 @@
           "bed": "7.4",
           "name": "Tn. Rais",
           "mrNo": "00099615",
-          "diagnosis": "Malnutrisi Hoponatremia Hipoosmoler",
-          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "diagnosis": "Malnutrisi //Hiponatremia Hipoosmoler // TBC",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Risa,Sp.P",
           "los": 8,
           "gender": "L",
           "age": "",
@@ -4824,7 +4918,7 @@
           "bed": "8.4",
           "name": "Ny. Rini",
           "mrNo": "00302693",
-          "diagnosis": "CKD5 - HD Uremic Syndrome",
+          "diagnosis": "CKD5 - HD //Uremic Syndrome //Vertigo",
           "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
           "los": 6,
           "gender": "P",
@@ -4852,7 +4946,7 @@
           "bed": "9.3",
           "name": "Tn. Rudi",
           "mrNo": "00265251",
-          "diagnosis": "",
+          "diagnosis": "sirosis hepatis dekompensata hematemesis anemia",
           "doctor": "dr. Decky Andrea, Sp.PD",
           "los": 2,
           "gender": "L",
@@ -4860,7 +4954,7 @@
           "admissionDate": "08/11/2026",
           "date": "2026-11-09",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "9.4",
@@ -4908,7 +5002,7 @@
           "bed": "10.4",
           "name": "Ny. Hatti",
           "mrNo": "00162461",
-          "diagnosis": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
+          "diagnosis": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia Sup HAP\nParaplegi inferior ec susp metastase",
           "doctor": "dr. Decky Andrea, Sp.PD\n\nCo dr.Dini,Sp.N",
           "los": 9,
           "gender": "P",
@@ -4921,9 +5015,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 207,
+      "totalRecords": 209,
       "uniqueIncludedCount": 6,
-      "totalExcludedRecords": 187,
+      "totalExcludedRecords": 189,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 5,
@@ -5076,7 +5170,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4"
+            "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4",
+            "DM tipe 2 //Ulkus Diabetic //DKD //KAD //Anemia //Mild Hiperkalemia ( 5,8) // Hiponatremia - ISOOSMOLER // DVT, Okluisi V Femoralis\nfraktur obliq metatarsal 4"
           ],
           "status": "INCLUDED",
           "cpId": "CP-DMCKD-002",
@@ -5085,7 +5180,7 @@
           "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4"
+          "diagnosisSpreadsheet": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4 | DM tipe 2 //Ulkus Diabetic //DKD //KAD //Anemia //Mild Hiperkalemia ( 5,8) // Hiponatremia - ISOOSMOLER // DVT, Okluisi V Femoralis\nfraktur obliq metatarsal 4"
         }
       ],
       "sampleExcluded": [
@@ -5588,7 +5683,8 @@
           ],
           "daysInWard": 7,
           "diagnoses": [
-            "Malnutrisi Hoponatremia Hipoosmoler"
+            "Malnutrisi Hoponatremia Hipoosmoler",
+            "Malnutrisi //Hiponatremia Hipoosmoler // TBC"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5597,7 +5693,7 @@
           "losLatest": 8,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Malnutrisi Hoponatremia Hipoosmoler",
+          "diagnosisSpreadsheet": "Malnutrisi Hoponatremia Hipoosmoler | Malnutrisi //Hiponatremia Hipoosmoler // TBC",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5676,7 +5772,8 @@
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia",
             "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
             "ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior",
-            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase"
+            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
+            "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia Sup HAP\nParaplegi inferior ec susp metastase"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5685,7 +5782,7 @@
           "losLatest": 9,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase",
+          "diagnosisSpreadsheet": "sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | ssup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\n\nparaparese inferior | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia\nParaplegi inferior ec susp metastase | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia Sup HAP\nParaplegi inferior ec susp metastase",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -5708,7 +5805,8 @@
           "daysInWard": 6,
           "diagnoses": [
             "ckd st5 anemia",
-            "ckd5-hd Anemia"
+            "ckd5-hd Anemia",
+            "ckd5-hd //Anemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5717,7 +5815,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "18 th",
-          "diagnosisSpreadsheet": "ckd st5 anemia | ckd5-hd Anemia",
+          "diagnosisSpreadsheet": "ckd st5 anemia | ckd5-hd Anemia | ckd5-hd //Anemia",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -5916,7 +6014,8 @@
           "daysInWard": 6,
           "diagnoses": [
             "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal",
-            "CKD5 - HD Uremic Syndrome"
+            "CKD5 - HD Uremic Syndrome",
+            "CKD5 - HD //Uremic Syndrome //Vertigo"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5925,7 +6024,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal | CKD5 - HD Uremic Syndrome",
+          "diagnosisSpreadsheet": "CKD st V -HD // Nefrolitiasis bilatateral //Anemia Renal | CKD5 - HD Uremic Syndrome | CKD5 - HD //Uremic Syndrome //Vertigo",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -6376,7 +6475,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK"
+            "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+            "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6385,7 +6485,7 @@
           "losLatest": 9,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
+          "diagnosisSpreadsheet": "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -6557,6 +6657,33 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "00233242",
+          "mrNo": "00233242",
+          "name": "Ny. Nur Asmah",
+          "bedLatest": "4.3",
+          "doctor": "DECKY ANDREA, DR, SP.PD",
+          "admissionDate": "11/09/2026",
+          "datesSeen": [
+            "2026-11-08",
+            "2026-11-09"
+          ],
+          "daysInWard": 2,
+          "diagnoses": [
+            "hematoschezia ec susp hemoroid eksterna anemia adenomiosis"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00273555",
           "mrNo": "00273555",
           "name": "Tn. Ahmad",
@@ -6649,7 +6776,9 @@
             "2026-11-09"
           ],
           "daysInWard": 2,
-          "diagnoses": [],
+          "diagnoses": [
+            "sirosis hepatis dekompensata hematemesis anemia"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
@@ -6657,7 +6786,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "-",
+          "diagnosisSpreadsheet": "sirosis hepatis dekompensata hematemesis anemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10989,7 +11118,7 @@
           "isRealPatient": true,
           "denominatorStatus": "INCLUDED",
           "inclusionReason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
-          "diagnosisSpreadsheet": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4",
+          "diagnosisSpreadsheet": "DM tipe 2 Ulkus Diabetic DKD KAD Anemia Mild Hiperkalemia ( 5,8) Hiponatremia - ISOOSMOLER\nfraktur obliq metatarsal 4 | DM tipe 2 //Ulkus Diabetic //DKD //KAD //Anemia //Mild Hiperkalemia ( 5,8) // Hiponatremia - ISOOSMOLER // DVT, Okluisi V Femoralis\nfraktur obliq metatarsal 4",
           "compliance": {
             "totalWajibScheduled": 72,
             "totalTerlaksana": 72,
@@ -24856,8 +24985,8 @@
         "Sheet 2026-11-08",
         "Sheet 2026-11-09"
       ],
-      "totalUniqueInpatients": 62,
-      "totalObservations": 207
+      "totalUniqueInpatients": 63,
+      "totalObservations": 209
     },
     "realSummary": {
       "denominator": 6,
