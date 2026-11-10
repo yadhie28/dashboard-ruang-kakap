@@ -19,13 +19,13 @@
         "2026-11-09",
         "2026-11-10"
       ],
-      "totalObservations": 307,
+      "totalObservations": 308,
       "observationsIncludedCount": 41,
-      "observationsExcludedCount": 266,
-      "totalUniquePatients": 83,
+      "observationsExcludedCount": 267,
+      "totalUniquePatients": 85,
       "uniqueIncludedCount": 10,
-      "uniqueExcludedCount": 73,
-      "uniqueCoveragePct": 12.0,
+      "uniqueExcludedCount": 75,
+      "uniqueCoveragePct": 11.8,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -42,7 +42,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 8,
           "pctOfIncluded": 80.0,
-          "pctOfTotal": 9.6,
+          "pctOfTotal": 9.4,
           "patients": [
             {
               "mrNo": "00301588",
@@ -681,22 +681,22 @@
               "diagnosis": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH"
             },
             {
-              "mrNo": "RM-K-8.1",
-              "name": "BOOKINGAN IGD a/n Sdri Fierly Sauliyah Sukma",
+              "mrNo": "00307172",
+              "name": "Sdri Fierly Sauliyah Sukma 00307172",
               "bed": "8.1",
               "datesSeen": [
                 "2026-11-10"
               ],
-              "diagnosis": "-"
+              "diagnosis": "febris h1 vommitus profuse"
             }
           ],
-          "pct": 54.8
+          "pct": 53.3
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
           "label": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "color": "#ef4444",
-          "count": 28,
+          "count": 30,
           "patients": [
             {
               "mrNo": "00301205",
@@ -999,10 +999,9 @@
               "name": "Tn. Silvanus Iros 00293033",
               "bed": "9.1",
               "datesSeen": [
-                "2026-11-09",
-                "2026-11-10"
+                "2026-11-09"
               ],
-              "diagnosis": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative"
+              "diagnosis": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
             },
             {
               "mrNo": "00146747",
@@ -1012,9 +1011,27 @@
                 "2026-11-10"
               ],
               "diagnosis": "Asma dd ppok\nCKD on HD"
+            },
+            {
+              "mrNo": "00163563",
+              "name": "Ny. Normina",
+              "bed": "8.4",
+              "datesSeen": [
+                "2026-11-10"
+              ],
+              "diagnosis": "ckd st5 anemia"
+            },
+            {
+              "mrNo": "00221464",
+              "name": "Tn. Safren S",
+              "bed": "9.1",
+              "datesSeen": [
+                "2026-11-10"
+              ],
+              "diagnosis": "edema anasarka ec ckd chf ef 23.6 % ht emergency"
             }
           ],
-          "pct": 38.4
+          "pct": 40.0
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1036,7 +1053,7 @@
               "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik"
             }
           ],
-          "pct": 1.4
+          "pct": 1.3
         },
         "DM_NON_CKD": {
           "category": "DM_NON_CKD",
@@ -1091,7 +1108,7 @@
               "diagnosis": "Dyspepsia Vomitus Dm t2 Post avr, post mv repair"
             }
           ],
-          "pct": 5.5
+          "pct": 5.3
         }
       },
       "dailyBreakdown": [
@@ -1146,10 +1163,10 @@
         },
         {
           "date": "2026-11-10",
-          "total": 40,
+          "total": 41,
           "included": 7,
-          "excluded": 33,
-          "coveragePct": 17.5
+          "excluded": 34,
+          "coveragePct": 17.1
         }
       ],
       "uniquePatientsList": [
@@ -3449,22 +3466,20 @@
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nCo dr.Temi,Sp.JP",
           "admissionDate": "09/11/2026",
           "datesSeen": [
-            "2026-11-09",
-            "2026-11-10"
+            "2026-11-09"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
-            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
-            "AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative"
+            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "L",
           "age": "61 th",
-          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative",
+          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -3522,28 +3537,82 @@
           "exclusionCategoryColor": "#ef4444"
         },
         {
-          "key": "BOOKINGAN IGD A/N SDRI FIERLY SAULIYAH SUKMA",
-          "mrNo": "RM-K-8.1",
-          "name": "BOOKINGAN IGD a/n Sdri Fierly Sauliyah Sukma",
+          "key": "00307172",
+          "mrNo": "00307172",
+          "name": "Sdri Fierly Sauliyah Sukma 00307172",
           "bedLatest": "8.1",
-          "doctor": "",
-          "admissionDate": "2026-11-10",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
+          "admissionDate": "10/11/2026",
           "datesSeen": [
             "2026-11-10"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "febris h1 vommitus profuse"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
           "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "age": "25 th",
+          "diagnosisSpreadsheet": "febris h1 vommitus profuse",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00163563",
+          "mrNo": "00163563",
+          "name": "Ny. Normina",
+          "bedLatest": "8.4",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "10/11/2026",
+          "datesSeen": [
+            "2026-11-10"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "ckd st5 anemia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "ckd st5 anemia",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "00221464",
+          "mrNo": "00221464",
+          "name": "Tn. Safren S",
+          "bedLatest": "9.1",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
+          "admissionDate": "10/11/2026",
+          "datesSeen": [
+            "2026-11-10"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "edema anasarka ec ckd chf ef 23.6 % ht emergency"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "edema anasarka ec ckd chf ef 23.6 % ht emergency",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ],
       "includedPatients": [
@@ -5845,22 +5914,20 @@
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nCo dr.Temi,Sp.JP",
           "admissionDate": "09/11/2026",
           "datesSeen": [
-            "2026-11-09",
-            "2026-11-10"
+            "2026-11-09"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
-            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
-            "AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative"
+            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "L",
           "age": "61 th",
-          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative",
+          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -5918,36 +5985,90 @@
           "exclusionCategoryColor": "#ef4444"
         },
         {
-          "key": "BOOKINGAN IGD A/N SDRI FIERLY SAULIYAH SUKMA",
-          "mrNo": "RM-K-8.1",
-          "name": "BOOKINGAN IGD a/n Sdri Fierly Sauliyah Sukma",
+          "key": "00307172",
+          "mrNo": "00307172",
+          "name": "Sdri Fierly Sauliyah Sukma 00307172",
           "bedLatest": "8.1",
-          "doctor": "",
-          "admissionDate": "2026-11-10",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
+          "admissionDate": "10/11/2026",
           "datesSeen": [
             "2026-11-10"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "febris h1 vommitus profuse"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
           "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "age": "25 th",
+          "diagnosisSpreadsheet": "febris h1 vommitus profuse",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00163563",
+          "mrNo": "00163563",
+          "name": "Ny. Normina",
+          "bedLatest": "8.4",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "10/11/2026",
+          "datesSeen": [
+            "2026-11-10"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "ckd st5 anemia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "ckd st5 anemia",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "00221464",
+          "mrNo": "00221464",
+          "name": "Tn. Safren S",
+          "bedLatest": "9.1",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
+          "admissionDate": "10/11/2026",
+          "datesSeen": [
+            "2026-11-10"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "edema anasarka ec ckd chf ef 23.6 % ht emergency"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "edema anasarka ec ckd chf ef 23.6 % ht emergency",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     },
     "today": {
-      "totalInpatients": 40,
+      "totalInpatients": 41,
       "denominatorIncluded": 7,
-      "totalExcluded": 33,
-      "wardCoveragePct": 17.5,
+      "totalExcluded": 34,
+      "wardCoveragePct": 17.1,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 5,
@@ -6254,7 +6375,7 @@
         },
         {
           "bed": "4.3",
-          "name": "\"Ny. Nur Asmah \"",
+          "name": "Ny. Nur Asmah",
           "mrNo": "00233242",
           "diagnosis": "hematokezia anemia gangguan bipolar",
           "doctor": "dr. Decky sp.pd\n\n\ndr. Nurul sp.kj",
@@ -6285,7 +6406,7 @@
           "name": "Tn. Hermanto",
           "mrNo": "00306356",
           "diagnosis": "DM2 HT CKD 5 Hipo-kalemia",
-          "doctor": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH",
+          "doctor": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH\n\n\ndr. Hengky, sp. btkv",
           "los": 5,
           "gender": "L",
           "age": "",
@@ -6408,17 +6529,17 @@
         },
         {
           "bed": "8.1",
-          "name": "BOOKINGAN IGD a/n Sdri Fierly Sauliyah Sukma",
-          "mrNo": "RM-K-8.1",
-          "diagnosis": "",
-          "doctor": "",
+          "name": "Sdri Fierly Sauliyah Sukma 00307172",
+          "mrNo": "00307172",
+          "diagnosis": "febris h1 vommitus profuse",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
           "los": 1,
           "gender": "P",
-          "age": "",
-          "admissionDate": "2026-11-10",
+          "age": "25 th",
+          "admissionDate": "10/11/2026",
           "date": "2026-11-10",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "8.2",
@@ -6435,15 +6556,29 @@
           "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
+          "bed": "8.4",
+          "name": "Ny. Normina",
+          "mrNo": "00163563",
+          "diagnosis": "ckd st5 anemia",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "10/11/2026",
+          "date": "2026-11-10",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+        },
+        {
           "bed": "9.1",
-          "name": "Tn. Silvanus Iros 00293033",
-          "mrNo": "00293033",
-          "diagnosis": "AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative",
-          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nCo dr.Temi,Sp.JP",
-          "los": 2,
+          "name": "Tn. Safren S",
+          "mrNo": "00221464",
+          "diagnosis": "edema anasarka ec ckd chf ef 23.6 % ht emergency",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
+          "los": 1,
           "gender": "L",
-          "age": "61 th",
-          "admissionDate": "09/11/2026",
+          "age": "",
+          "admissionDate": "10/11/2026",
           "date": "2026-11-10",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
@@ -6495,7 +6630,7 @@
           "name": "Ny. Nurdaini",
           "mrNo": "00175178",
           "diagnosis": "dispneu ec asma bronkial hipokalemi CHF EF 43%",
-          "doctor": "RISA FEBRIANA, DR, SP.P\n\nRB dr. Alice",
+          "doctor": "RISA FEBRIANA, DR, SP.P\n\nRB dr. Alice\n\nco' dr. Sinta",
           "los": 4,
           "gender": "P",
           "age": "",
@@ -6535,9 +6670,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 307,
+      "totalRecords": 308,
       "uniqueIncludedCount": 10,
-      "totalExcludedRecords": 266,
+      "totalExcludedRecords": 267,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 8,
@@ -8844,22 +8979,20 @@
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nCo dr.Temi,Sp.JP",
           "admissionDate": "09/11/2026",
           "datesSeen": [
-            "2026-11-09",
-            "2026-11-10"
+            "2026-11-09"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
-            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
-            "AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative"
+            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "L",
           "age": "61 th",
-          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative",
+          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -8917,28 +9050,82 @@
           "exclusionCategoryColor": "#ef4444"
         },
         {
-          "key": "BOOKINGAN IGD A/N SDRI FIERLY SAULIYAH SUKMA",
-          "mrNo": "RM-K-8.1",
-          "name": "BOOKINGAN IGD a/n Sdri Fierly Sauliyah Sukma",
+          "key": "00307172",
+          "mrNo": "00307172",
+          "name": "Sdri Fierly Sauliyah Sukma 00307172",
           "bedLatest": "8.1",
-          "doctor": "",
-          "admissionDate": "2026-11-10",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
+          "admissionDate": "10/11/2026",
           "datesSeen": [
             "2026-11-10"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "febris h1 vommitus profuse"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
           "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "age": "25 th",
+          "diagnosisSpreadsheet": "febris h1 vommitus profuse",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00163563",
+          "mrNo": "00163563",
+          "name": "Ny. Normina",
+          "bedLatest": "8.4",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "10/11/2026",
+          "datesSeen": [
+            "2026-11-10"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "ckd st5 anemia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "ckd st5 anemia",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "00221464",
+          "mrNo": "00221464",
+          "name": "Tn. Safren S",
+          "bedLatest": "9.1",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
+          "admissionDate": "10/11/2026",
+          "datesSeen": [
+            "2026-11-10"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "edema anasarka ec ckd chf ef 23.6 % ht emergency"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "edema anasarka ec ckd chf ef 23.6 % ht emergency",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     }
@@ -28235,8 +28422,8 @@
         "Sheet 2026-11-09",
         "Sheet 2026-11-10"
       ],
-      "totalUniqueInpatients": 83,
-      "totalObservations": 307
+      "totalUniqueInpatients": 85,
+      "totalObservations": 308
     },
     "realSummary": {
       "denominator": 10,
