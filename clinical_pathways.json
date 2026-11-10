@@ -678,7 +678,7 @@
               "datesSeen": [
                 "2026-11-10"
               ],
-              "diagnosis": "pansitopenia"
+              "diagnosis": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH"
             }
           ],
           "pct": 54.2
@@ -3466,7 +3466,7 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "pansitopenia"
+            "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3475,7 +3475,7 @@
           "losLatest": 1,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "pansitopenia",
+          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5832,7 +5832,7 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "pansitopenia"
+            "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5841,7 +5841,7 @@
           "losLatest": 1,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "pansitopenia",
+          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6299,7 +6299,7 @@
           "bed": "7.1",
           "name": "Tn. Sofian",
           "mrNo": "00163772",
-          "diagnosis": "pansitopenia",
+          "diagnosis": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH",
           "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
           "los": 1,
           "gender": "L",
@@ -8787,7 +8787,7 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "pansitopenia"
+            "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8796,7 +8796,7 @@
           "losLatest": 1,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "pansitopenia",
+          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
