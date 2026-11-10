@@ -283,7 +283,7 @@
                 "2026-11-09",
                 "2026-11-10"
               ],
-              "diagnosis": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia"
+              "diagnosis": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia | Anemia ( Hb 8.3 ) Leukositosis ( Wbc 18.28 ) AKI Hipoalbumin ( Alb 2.84 ) Hiponatremia ( Na 123.32 ) Hipokalemia ( K 3.24 ) disfagia ulkus dekubitus susp SNH Pneumonia Depresi pada geriatri Geriatric Syndrome"
             },
             {
               "mrNo": "00278294",
@@ -605,7 +605,7 @@
                 "2026-11-09",
                 "2026-11-10"
               ],
-              "diagnosis": "Dyspneu e.c susp. Edema Pulmo \nAscites"
+              "diagnosis": "Dyspneu e.c susp. Edema Pulmo \nAscites | CHF CAD hipokalemia trombositopenia"
             },
             {
               "mrNo": "00233242",
@@ -616,7 +616,7 @@
                 "2026-11-09",
                 "2026-11-10"
               ],
-              "diagnosis": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis"
+              "diagnosis": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis | hematokezia anemia gangguan bipolar"
             },
             {
               "mrNo": "00287047",
@@ -649,7 +649,7 @@
                 "2026-11-09",
                 "2026-11-10"
               ],
-              "diagnosis": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK"
+              "diagnosis": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO"
             },
             {
               "mrNo": "00307019",
@@ -993,7 +993,7 @@
                 "2026-11-09",
                 "2026-11-10"
               ],
-              "diagnosis": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
+              "diagnosis": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative"
             },
             {
               "mrNo": "00146747",
@@ -1058,7 +1058,7 @@
                 "2026-11-09",
                 "2026-11-10"
               ],
-              "diagnosis": "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia"
+              "diagnosis": "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia Hiponatremia membaik peningkatan enzim tgransaminase"
             },
             {
               "mrNo": "00175689",
@@ -1491,7 +1491,8 @@
           ],
           "daysInWard": 8,
           "diagnoses": [
-            "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia"
+            "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
+            "Anemia ( Hb 8.3 ) Leukositosis ( Wbc 18.28 ) AKI Hipoalbumin ( Alb 2.84 ) Hiponatremia ( Na 123.32 ) Hipokalemia ( K 3.24 ) disfagia ulkus dekubitus susp SNH Pneumonia Depresi pada geriatri Geriatric Syndrome"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1500,7 +1501,7 @@
           "losLatest": 11,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
+          "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia | Anemia ( Hb 8.3 ) Leukositosis ( Wbc 18.28 ) AKI Hipoalbumin ( Alb 2.84 ) Hiponatremia ( Na 123.32 ) Hipokalemia ( K 3.24 ) disfagia ulkus dekubitus susp SNH Pneumonia Depresi pada geriatri Geriatric Syndrome",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -1995,7 +1996,8 @@
           "daysInWard": 8,
           "diagnoses": [
             "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia",
-            "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia"
+            "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia",
+            "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia Hiponatremia membaik peningkatan enzim tgransaminase"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -2004,7 +2006,7 @@
           "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia",
+          "diagnosisSpreadsheet": "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia Hiponatremia membaik peningkatan enzim tgransaminase",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -3059,7 +3061,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "Dyspneu e.c susp. Edema Pulmo \nAscites"
+            "Dyspneu e.c susp. Edema Pulmo \nAscites",
+            "CHF CAD hipokalemia trombositopenia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3068,7 +3071,7 @@
           "losLatest": 3,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Dyspneu e.c susp. Edema Pulmo \nAscites",
+          "diagnosisSpreadsheet": "Dyspneu e.c susp. Edema Pulmo \nAscites | CHF CAD hipokalemia trombositopenia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3087,7 +3090,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "hematoschezia ec susp hemoroid eksterna anemia adenomiosis"
+            "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
+            "hematokezia anemia gangguan bipolar"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3096,7 +3100,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
+          "diagnosisSpreadsheet": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis | hematokezia anemia gangguan bipolar",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3281,7 +3285,8 @@
           "daysInWard": 3,
           "diagnoses": [
             "vomitus ec dispepsia",
-            "vomitus ec dispepsia\nPJK"
+            "vomitus ec dispepsia\nPJK",
+            "Vomitus ec Dispepsia CHFrEF DM2NO"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3290,7 +3295,7 @@
           "losLatest": 3,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK",
+          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3440,7 +3445,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
+            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+            "AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3449,7 +3455,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "61 th",
-          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -4046,7 +4052,8 @@
           ],
           "daysInWard": 8,
           "diagnoses": [
-            "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia"
+            "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
+            "Anemia ( Hb 8.3 ) Leukositosis ( Wbc 18.28 ) AKI Hipoalbumin ( Alb 2.84 ) Hiponatremia ( Na 123.32 ) Hipokalemia ( K 3.24 ) disfagia ulkus dekubitus susp SNH Pneumonia Depresi pada geriatri Geriatric Syndrome"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4055,7 +4062,7 @@
           "losLatest": 11,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
+          "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia | Anemia ( Hb 8.3 ) Leukositosis ( Wbc 18.28 ) AKI Hipoalbumin ( Alb 2.84 ) Hiponatremia ( Na 123.32 ) Hipokalemia ( K 3.24 ) disfagia ulkus dekubitus susp SNH Pneumonia Depresi pada geriatri Geriatric Syndrome",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -4525,7 +4532,8 @@
           "daysInWard": 8,
           "diagnoses": [
             "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia",
-            "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia"
+            "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia",
+            "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia Hiponatremia membaik peningkatan enzim tgransaminase"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4534,7 +4542,7 @@
           "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia",
+          "diagnosisSpreadsheet": "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia Hiponatremia membaik peningkatan enzim tgransaminase",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -5474,7 +5482,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "Dyspneu e.c susp. Edema Pulmo \nAscites"
+            "Dyspneu e.c susp. Edema Pulmo \nAscites",
+            "CHF CAD hipokalemia trombositopenia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5483,7 +5492,7 @@
           "losLatest": 3,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Dyspneu e.c susp. Edema Pulmo \nAscites",
+          "diagnosisSpreadsheet": "Dyspneu e.c susp. Edema Pulmo \nAscites | CHF CAD hipokalemia trombositopenia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5502,7 +5511,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "hematoschezia ec susp hemoroid eksterna anemia adenomiosis"
+            "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
+            "hematokezia anemia gangguan bipolar"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5511,7 +5521,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
+          "diagnosisSpreadsheet": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis | hematokezia anemia gangguan bipolar",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5671,7 +5681,8 @@
           "daysInWard": 3,
           "diagnoses": [
             "vomitus ec dispepsia",
-            "vomitus ec dispepsia\nPJK"
+            "vomitus ec dispepsia\nPJK",
+            "Vomitus ec Dispepsia CHFrEF DM2NO"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5680,7 +5691,7 @@
           "losLatest": 3,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK",
+          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5806,7 +5817,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
+            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+            "AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5815,7 +5827,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "61 th",
-          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -6019,7 +6031,7 @@
           "bed": "1.2",
           "name": "Tn. Sunarto",
           "mrNo": "00076333",
-          "diagnosis": "Dyspneu e.c susp. Edema Pulmo \nAscites",
+          "diagnosis": "CHF CAD hipokalemia trombositopenia",
           "doctor": "DECKY ANDREA, DR, SP.PD",
           "los": 3,
           "gender": "L",
@@ -6159,7 +6171,7 @@
           "bed": "4.1",
           "name": "Ny. Nurhayati",
           "mrNo": "00306196",
-          "diagnosis": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
+          "diagnosis": "Anemia ( Hb 8.3 ) Leukositosis ( Wbc 18.28 ) AKI Hipoalbumin ( Alb 2.84 ) Hiponatremia ( Na 123.32 ) Hipokalemia ( K 3.24 ) disfagia ulkus dekubitus susp SNH Pneumonia Depresi pada geriatri Geriatric Syndrome",
           "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Marta,Sp.KFR",
           "los": 11,
           "gender": "P",
@@ -6187,8 +6199,8 @@
           "bed": "4.3",
           "name": "\"Ny. Nur Asmah \"",
           "mrNo": "00233242",
-          "diagnosis": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
-          "doctor": "DECKY ANDREA, DR, SP.PD",
+          "diagnosis": "hematokezia anemia gangguan bipolar",
+          "doctor": "dr. Decky sp.pd\n\n\ndr. Nurul sp.kj",
           "los": 2,
           "gender": "P",
           "age": "",
@@ -6341,7 +6353,7 @@
           "bed": "8.2",
           "name": "Ny. Nuraini",
           "mrNo": "00306418",
-          "diagnosis": "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia",
+          "diagnosis": "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia Hiponatremia membaik peningkatan enzim tgransaminase",
           "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM\n\nCo dr.Sabar,Sp.N",
           "los": 7,
           "gender": "P",
@@ -6355,7 +6367,7 @@
           "bed": "9.1",
           "name": "Tn. Silvanus Iros 00293033",
           "mrNo": "00293033",
-          "diagnosis": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+          "diagnosis": "AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nCo dr.Temi,Sp.JP",
           "los": 2,
           "gender": "L",
@@ -6397,7 +6409,7 @@
           "bed": "9.4",
           "name": "Tn. Sutris",
           "mrNo": "00236875",
-          "diagnosis": "vomitus ec dispepsia\nPJK",
+          "diagnosis": "Vomitus ec Dispepsia CHFrEF DM2NO",
           "doctor": "DANAR ANGGRAHINI. K.D., DR. SP.PD. KGH. FINASIM.\n\nRaber dr. infan",
           "los": 3,
           "gender": "L",
@@ -7001,7 +7013,8 @@
           ],
           "daysInWard": 8,
           "diagnoses": [
-            "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia"
+            "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
+            "Anemia ( Hb 8.3 ) Leukositosis ( Wbc 18.28 ) AKI Hipoalbumin ( Alb 2.84 ) Hiponatremia ( Na 123.32 ) Hipokalemia ( K 3.24 ) disfagia ulkus dekubitus susp SNH Pneumonia Depresi pada geriatri Geriatric Syndrome"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7010,7 +7023,7 @@
           "losLatest": 11,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia",
+          "diagnosisSpreadsheet": "Anemia Leukositosis AKI Hipoalbumin Hiponatremia Hipokalemia | Anemia ( Hb 8.3 ) Leukositosis ( Wbc 18.28 ) AKI Hipoalbumin ( Alb 2.84 ) Hiponatremia ( Na 123.32 ) Hipokalemia ( K 3.24 ) disfagia ulkus dekubitus susp SNH Pneumonia Depresi pada geriatri Geriatric Syndrome",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7480,7 +7493,8 @@
           "daysInWard": 8,
           "diagnoses": [
             "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia",
-            "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia"
+            "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia",
+            "Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia Hiponatremia membaik peningkatan enzim tgransaminase"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7489,7 +7503,7 @@
           "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia",
+          "diagnosisSpreadsheet": "abdominal pain gastropati DM DM T II Trombositopenia hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia | Gastropati DM DM T II Trombositopenia Cephalgia ec hiponatremia Hiponatremia membaik peningkatan enzim tgransaminase",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -8429,7 +8443,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "Dyspneu e.c susp. Edema Pulmo \nAscites"
+            "Dyspneu e.c susp. Edema Pulmo \nAscites",
+            "CHF CAD hipokalemia trombositopenia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8438,7 +8453,7 @@
           "losLatest": 3,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Dyspneu e.c susp. Edema Pulmo \nAscites",
+          "diagnosisSpreadsheet": "Dyspneu e.c susp. Edema Pulmo \nAscites | CHF CAD hipokalemia trombositopenia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -8457,7 +8472,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "hematoschezia ec susp hemoroid eksterna anemia adenomiosis"
+            "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
+            "hematokezia anemia gangguan bipolar"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8466,7 +8482,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis",
+          "diagnosisSpreadsheet": "hematoschezia ec susp hemoroid eksterna anemia adenomiosis | hematokezia anemia gangguan bipolar",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -8626,7 +8642,8 @@
           "daysInWard": 3,
           "diagnoses": [
             "vomitus ec dispepsia",
-            "vomitus ec dispepsia\nPJK"
+            "vomitus ec dispepsia\nPJK",
+            "Vomitus ec Dispepsia CHFrEF DM2NO"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8635,7 +8652,7 @@
           "losLatest": 3,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK",
+          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -8761,7 +8778,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
+            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+            "AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8770,7 +8788,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "61 th",
-          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | AKI dd/ acute on CKD (Cr 1.7) ; Riw. hipoglikemia ; Susp. CAP\nADHF w/w ec CAD (EF 15%) ; Severe MR dengan flail PML dan ruptur korda ; Severe TR ; severe AR ec degenerative",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
