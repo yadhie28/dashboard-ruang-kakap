@@ -257,7 +257,7 @@ def extract_tags(notes_dict, diag_str, is_empty=False, is_colored=False):
     tags = []
     combined = f"{diag_str}\n{notes_dict.get('pagi', '')}\n{notes_dict.get('sore', '')}\n{notes_dict.get('malam', '')}".upper()
 
-    if is_colored or any(k in combined for k in ["PULANG HARI INI", "ACC BLPL", "ACC PULANG", "ACC RAWAT JALAN", "KRS HARI INI"]) or re.search(r'\b(?:BLPL\s+JAM|PULANG\s*$|PULANG\s*\n)\b', combined):
+    if any(k in combined for k in ["PULANG HARI INI", "ACC BLPL", "ACC PULANG", "ACC RAWAT JALAN", "KRS HARI INI"]) or re.search(r'\b(?:BLPL\s+JAM|PULANG\s*$|PULANG\s*\n)\b', combined):
         tags.append({"label": "Pulang Hari Ini", "color": "emerald"})
     elif any(k in combined for k in ["PULANG", "BLPL", "KRS", "RAJAL", "RENCANA PULANG"]):
         tags.append({"label": "Rencana Pulang", "color": "green"})
@@ -313,27 +313,21 @@ def parse_patient_block(row_cells, current_room, current_iso_date, xf_to_color):
     m_b = re.search(r'(\d{1,2}\.\d|ISOLASI)', bed_clean, re.IGNORECASE)
     bed_id = m_b.group(1).upper() if m_b else bed_clean
 
-    # Determine room name & team
-    room_name = kamar_raw.replace('\n', ' ').strip()
-    if not room_name:
-        m_r = re.search(r'KAKAP\s*(\d{1,2})', bed_clean, re.IGNORECASE)
-        if m_r:
-            room_name = f"Kakap {m_r.group(1)}"
-        elif 'ISOLASI' in bed_clean.upper():
-            room_name = "Isolasi"
+    # Determine room name & team directly from bed identifier to prevent merged/empty Column A bleed
+    m_r = re.search(r'KAKAP\s*(\d{1,2})', bed_clean, re.IGNORECASE)
+    if not m_r and '.' in bed_id:
+        m_r = re.search(r'(\d{1,2})\.', bed_id)
 
-    # Team assignment
-    # Tim I: Kakap 1 - 5 + Isolasi
-    # Tim II: Kakap 6 - 10
-    team = "Tim I"
-    m_num = re.search(r'KAKAP\s*(\d{1,2})', room_name, re.IGNORECASE)
-    if m_num:
-        k_num = int(m_num.group(1))
-        if 6 <= k_num <= 10:
-            team = "Tim II"
-        else:
-            team = "Tim I"
-    elif 'ISOLASI' in room_name.upper():
+    if m_r:
+        k_num = int(m_r.group(1))
+        gender_hint = "♂" if k_num in [1, 5, 6, 7, 9] else "♀"
+        room_name = f"Kakap {k_num} ({gender_hint})"
+        team = "Tim II" if (6 <= k_num <= 10) else "Tim I"
+    elif 'ISOLASI' in bed_clean.upper() or 'ISOLASI' in bed_id:
+        room_name = "Isolasi"
+        team = "Tim I"
+    else:
+        room_name = kamar_raw.replace('\n', ' ').strip()
         team = "Tim I"
 
     # Empty bed detection
@@ -413,7 +407,9 @@ def parse_patient_block(row_cells, current_room, current_iso_date, xf_to_color):
     is_discharged = any(t['label'] == 'Pulang Hari Ini' for t in tags)
     if is_discharged:
         status = "Pulang Hari Ini"
-        is_empty = True
+        # Pasien tetap terhitung di bed (Terisi) sampai benar-benar keluar (baris kosong/Bed Kosong)
+        if not nama_raw or nama_raw == '-' or 'BED KOSONG' in nama_raw.upper():
+            is_empty = True
 
     return {
         "bed": bed_id,
@@ -538,7 +534,7 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
     patients_parsed = []
     current_kamar = ""
     for r_idx in sorted(rows_data.keys()):
-        if r_idx < 5: continue
+        if r_idx < 4: continue  # Row 4 adalah Kakap 1.1 (jangan dilewati)
         if r_idx >= sensus_start_row: break
         c = rows_data[r_idx]
         if c.get('A'):
@@ -613,10 +609,10 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
             sensus["pasienBaru"]["pagi"] = safe_int(h_val)
             sensus["pasienBaru"]["sore"] = safe_int(i_val)
             sensus["pasienBaru"]["malam"] = safe_int(j_val)
-        elif label == "Pulang":
-            sensus["pulang"]["pagi"] = safe_int(h_val)
-            sensus["pulang"]["sore"] = safe_int(i_val)
-            sensus["pulang"]["malam"] = safe_int(j_val)
+        elif "Pulang" in label:
+            sensus["pulang"]["pagi"] += safe_int(h_val)
+            sensus["pulang"]["sore"] += safe_int(i_val)
+            sensus["pulang"]["malam"] += safe_int(j_val)
         elif "Pindah" in label:
             sensus["pindah"]["pagi"] = safe_int(h_val)
             sensus["pindah"]["sore"] = safe_int(i_val)
@@ -691,15 +687,14 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
             sensus["bedKosongDetail"][sh]["wanita"] = 0
             sensus["bedKosongDetail"][sh]["isolasi"] = 0
         else:
-            iso_val = sensus["isolasi"][sh].upper()
-            sh_iso_free = 1 if (iso_val == 'KOSONG' or iso_val == '0') else 0
-            sensus["bedKosongDetail"][sh]["isolasi"] = sh_iso_free
+            # Gunakan status aktual isolasi dari bed map
+            sensus["bedKosongDetail"][sh]["isolasi"] = iso_empty
             if sensus["bedKosongDetail"][sh]["pria"] == 0 and sensus["bedKosongDetail"][sh]["wanita"] == 0:
                 sensus["bedKosongDetail"][sh]["pria"] = male_empty
                 sensus["bedKosongDetail"][sh]["wanita"] = female_empty
-                if sensus["bedKosong"][sh] == 0:
-                    sensus["bedKosong"][sh] = male_empty + female_empty + sh_iso_free
-                    sensus["bedKosongDetail"][sh]["total"] = sensus["bedKosong"][sh]
+                sensus["bedKosongDetail"][sh]["isolasi"] = iso_empty
+                sensus["bedKosong"][sh] = male_empty + female_empty + iso_empty
+                sensus["bedKosongDetail"][sh]["total"] = sensus["bedKosong"][sh]
 
     # Calculate summary
     empty_total = TOTAL_BEDS - occ_total

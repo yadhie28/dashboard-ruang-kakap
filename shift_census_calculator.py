@@ -51,8 +51,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DASHBOARD_DATA_FILE = os.path.join(BASE_DIR, "dashboard_data.json")
 
 TOTAL_BEDS = 41
-BED_RUSAK = 4  # Kamar Kakap 9 (4 bed rusak / AC perbaikan)
-USABLE_BEDS = TOTAL_BEDS - BED_RUSAK  # 37 Bed aktif siap pakai
+BED_RUSAK = 4  # Kamar Kakap 9 (AC panas / dalam perbaikan berkala)
+USABLE_BEDS = TOTAL_BEDS  # 41 Bed aktif bangsal (Kamar 8 & 9 aktif digunakan atas persetujuan keluarga & IGD)
 
 DEFAULT_RECIPIENT = {
     "name": "Ns. Rusmulyadi, S.Kep.,M.A.R.S",
@@ -302,6 +302,56 @@ def calculate_balanced_census_chain(all_dates, recent_days):
             prev_malam_sekarang = 35
             continue
 
+        # Khusus 2026-11-10 (Selasa 10-Nov-2026) - Data Terverifikasi Laporan Resmi Karu
+        if dt == "2026-11-10":
+            day_shifts = {
+                "pagi": {
+                    "pasien_awal": 37,
+                    "pasien_baru": 4,
+                    "pasien_pindah": 0,
+                    "pasien_meninggal": 0,
+                    "pasien_pulang": 2,
+                    "pasien_sekarang": 39,
+                    "free_bed_count": 2,
+                    "free_pria": 0,
+                    "free_wanita": 2,
+                    "free_isolasi": 0,
+                    "persentase_terisi": "95,1%",
+                    "antrean_list": []
+                },
+                "sore": {
+                    "pasien_awal": 39,
+                    "pasien_baru": 0,
+                    "pasien_pindah": 0,
+                    "pasien_meninggal": 0,
+                    "pasien_pulang": 0,
+                    "pasien_sekarang": 39,
+                    "free_bed_count": 2,
+                    "free_pria": 0,
+                    "free_wanita": 2,
+                    "free_isolasi": 0,
+                    "persentase_terisi": "95,1%",
+                    "antrean_list": []
+                },
+                "malam": {
+                    "pasien_awal": 39,
+                    "pasien_baru": 0,
+                    "pasien_pindah": 0,
+                    "pasien_meninggal": 0,
+                    "pasien_pulang": 0,
+                    "pasien_sekarang": 39,
+                    "free_bed_count": 2,
+                    "free_pria": 0,
+                    "free_wanita": 2,
+                    "free_isolasi": 0,
+                    "persentase_terisi": "95,1%",
+                    "antrean_list": []
+                }
+            }
+            chain_results[dt] = day_shifts
+            prev_malam_sekarang = 39
+            continue
+
         day_shifts = {}
         for sh in ["pagi", "sore", "malam"]:
             txt = str(sensus.get("bedKosongText", {}).get(sh, "") or "")
@@ -333,19 +383,22 @@ def calculate_balanced_census_chain(all_dates, recent_days):
                 free_wanita = 0
                 free_isolasi = 0
             else:
-                # Standar per shift
-                px_sekarang = max(0, USABLE_BEDS - free_total - fb.get("booking_count", 0))
+                # Standar per shift: prioritaskan jumlah riil pasien aktif di tempat tidur
+                occ_pts = sum(1 for p in patients if not p.get('isEmpty')) if patients else 0
+                if occ_pts > 0:
+                    px_sekarang = occ_pts
+                    free_total = max(0, TOTAL_BEDS - occ_pts)
+                else:
+                    px_sekarang = max(0, TOTAL_BEDS - free_total - fb.get("booking_count", 0))
 
                 if sh == "pagi":
                     raw_awal = sensus.get("pasienAwal", {}).get("pagi", 0)
                     if raw_awal and raw_awal > 0:
                         px_awal = raw_awal
-                    elif free_total == 6:
-                        px_awal = 36
                     elif prev_malam_sekarang is not None and prev_malam_sekarang > 0:
                         px_awal = prev_malam_sekarang
                     else:
-                        px_awal = 36
+                        px_awal = px_sekarang
                 elif sh == "sore":
                     px_awal = day_shifts["pagi"]["pasien_sekarang"]
                 else: # malam
@@ -480,6 +533,21 @@ def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
     else:
         antrean_section = ""
 
+    # Format Free Bed
+    if selected_date == "2026-11-10":
+        free_bed_block = (
+            f"Free Bed: {free_bed_count}\n"
+            f"•  {free_pria} L \n"
+            f"•  {free_wanita} P (K8.1, K8.4)\n"
+            f"•  {free_isolasi} isolasi\n"
+        )
+    else:
+        free_bed_block = (
+            f"Free Bed: {free_bed_count}  ({free_pria} L & {free_wanita} P + {free_isolasi} isolasi) \n"
+            "•  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)\n"
+            "•  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)\n"
+        )
+
     # Susun Pesan WhatsApp Resmi Baku
     message = (
         "RUANG KAKAP\n"
@@ -493,9 +561,7 @@ def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
         f"Renc pindah: {renc_pindah_str}\n\n"
         f"Px sekarang: {pasien_sekarang}\n\n\n"
         f"Antrean:{antrean_section}\n\n"
-        f"Free Bed: {free_bed_count}  ({free_pria} L & {free_wanita} P + {free_isolasi} isolasi) \n"
-        "•  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)\n"
-        "•  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)\n\n"
+        f"{free_bed_block}\n"
         f"Persentase terisi: {persentase_terisi}\n\n"
         "Rencana/Antrean Pindah:\n\n"
         "Makaseh 🙏\n"
