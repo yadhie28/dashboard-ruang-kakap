@@ -19,13 +19,13 @@
         "2026-11-09",
         "2026-11-10"
       ],
-      "totalObservations": 306,
+      "totalObservations": 307,
       "observationsIncludedCount": 41,
-      "observationsExcludedCount": 265,
-      "totalUniquePatients": 82,
+      "observationsExcludedCount": 266,
+      "totalUniquePatients": 83,
       "uniqueIncludedCount": 10,
-      "uniqueExcludedCount": 72,
-      "uniqueCoveragePct": 12.2,
+      "uniqueExcludedCount": 73,
+      "uniqueCoveragePct": 12.0,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -42,7 +42,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 8,
           "pctOfIncluded": 80.0,
-          "pctOfTotal": 9.8,
+          "pctOfTotal": 9.6,
           "patients": [
             {
               "mrNo": "00301588",
@@ -213,7 +213,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 39,
+          "count": 40,
           "patients": [
             {
               "mrNo": "00263502",
@@ -679,9 +679,18 @@
                 "2026-11-10"
               ],
               "diagnosis": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH"
+            },
+            {
+              "mrNo": "RM-K-8.1",
+              "name": "BOOKINGAN IGD a/n Sdri Fierly Sauliyah Sukma",
+              "bed": "8.1",
+              "datesSeen": [
+                "2026-11-10"
+              ],
+              "diagnosis": "-"
             }
           ],
-          "pct": 54.2
+          "pct": 54.8
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -1005,7 +1014,7 @@
               "diagnosis": "Asma dd ppok\nCKD on HD"
             }
           ],
-          "pct": 38.9
+          "pct": 38.4
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1082,7 +1091,7 @@
               "diagnosis": "Dyspepsia Vomitus Dm t2 Post avr, post mv repair"
             }
           ],
-          "pct": 5.6
+          "pct": 5.5
         }
       },
       "dailyBreakdown": [
@@ -1137,10 +1146,10 @@
         },
         {
           "date": "2026-11-10",
-          "total": 39,
+          "total": 40,
           "included": 7,
-          "excluded": 32,
-          "coveragePct": 17.9
+          "excluded": 33,
+          "coveragePct": 17.5
         }
       ],
       "uniquePatientsList": [
@@ -3511,6 +3520,30 @@
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "BOOKINGAN IGD A/N SDRI FIERLY SAULIYAH SUKMA",
+          "mrNo": "RM-K-8.1",
+          "name": "BOOKINGAN IGD a/n Sdri Fierly Sauliyah Sukma",
+          "bedLatest": "8.1",
+          "doctor": "",
+          "admissionDate": "2026-11-10",
+          "datesSeen": [
+            "2026-11-10"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         }
       ],
       "includedPatients": [
@@ -5883,14 +5916,38 @@
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "BOOKINGAN IGD A/N SDRI FIERLY SAULIYAH SUKMA",
+          "mrNo": "RM-K-8.1",
+          "name": "BOOKINGAN IGD a/n Sdri Fierly Sauliyah Sukma",
+          "bedLatest": "8.1",
+          "doctor": "",
+          "admissionDate": "2026-11-10",
+          "datesSeen": [
+            "2026-11-10"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         }
       ]
     },
     "today": {
-      "totalInpatients": 39,
+      "totalInpatients": 40,
       "denominatorIncluded": 7,
-      "totalExcluded": 32,
-      "wardCoveragePct": 17.9,
+      "totalExcluded": 33,
+      "wardCoveragePct": 17.5,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 5,
@@ -6046,7 +6103,7 @@
           "name": "Tn. Ishardi",
           "mrNo": "00302040",
           "diagnosis": "hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI",
-          "doctor": "dr. Decky Andrea, Sp.PD\n\n\ndr. Parsaoran, Sp.U",
+          "doctor": "dr. Decky Andrea, Sp.PD\n\n\ndr. Yance, Sp.U",
           "los": 8,
           "gender": "L",
           "age": "",
@@ -6060,7 +6117,7 @@
           "name": "Sdr. Bibli",
           "mrNo": "00294633",
           "diagnosis": "ckd5-hd //Anemia",
-          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\ndr. Alvin, sp.btkv",
           "los": 7,
           "gender": "L",
           "age": "18 th",
@@ -6242,7 +6299,7 @@
           "name": "Tn. Ahmad",
           "mrNo": "00273555",
           "diagnosis": "ckd st v \nalo \nht",
-          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\n\ndr. Alvin, sp. btkv",
           "los": 3,
           "gender": "L",
           "age": "",
@@ -6348,6 +6405,20 @@
           "date": "2026-11-10",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+        },
+        {
+          "bed": "8.1",
+          "name": "BOOKINGAN IGD a/n Sdri Fierly Sauliyah Sukma",
+          "mrNo": "RM-K-8.1",
+          "diagnosis": "",
+          "doctor": "",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "2026-11-10",
+          "date": "2026-11-10",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
         },
         {
           "bed": "8.2",
@@ -6464,9 +6535,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 306,
+      "totalRecords": 307,
       "uniqueIncludedCount": 10,
-      "totalExcludedRecords": 265,
+      "totalExcludedRecords": 266,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 8,
@@ -8844,6 +8915,30 @@
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "BOOKINGAN IGD A/N SDRI FIERLY SAULIYAH SUKMA",
+          "mrNo": "RM-K-8.1",
+          "name": "BOOKINGAN IGD a/n Sdri Fierly Sauliyah Sukma",
+          "bedLatest": "8.1",
+          "doctor": "",
+          "admissionDate": "2026-11-10",
+          "datesSeen": [
+            "2026-11-10"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         }
       ]
     }
@@ -28140,8 +28235,8 @@
         "Sheet 2026-11-09",
         "Sheet 2026-11-10"
       ],
-      "totalUniqueInpatients": 82,
-      "totalObservations": 306
+      "totalUniqueInpatients": 83,
+      "totalObservations": 307
     },
     "realSummary": {
       "denominator": 10,
