@@ -142,7 +142,7 @@
                 "2026-11-10",
                 "2026-11-11"
               ],
-              "diagnosis": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia",
+              "diagnosis": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia | AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia\nPneumonia non spesifik dd spesifik",
               "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
             },
             {
@@ -586,7 +586,7 @@
                 "2026-11-10",
                 "2026-11-11"
               ],
-              "diagnosis": "Susp colitis ulcerative dd chron disease"
+              "diagnosis": "Susp colitis ulcerative dd chron disease | Melena ec Gastric Erosif Hipokalsemia"
             },
             {
               "mrNo": "00195463",
@@ -2970,7 +2970,8 @@
           ],
           "daysInWard": 6,
           "diagnoses": [
-            "Susp colitis ulcerative dd chron disease"
+            "Susp colitis ulcerative dd chron disease",
+            "Melena ec Gastric Erosif Hipokalsemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -2979,7 +2980,7 @@
           "losLatest": 5,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Susp colitis ulcerative dd chron disease",
+          "diagnosisSpreadsheet": "Susp colitis ulcerative dd chron disease | Melena ec Gastric Erosif Hipokalsemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3261,7 +3262,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia"
+            "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia",
+            "AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia\nPneumonia non spesifik dd spesifik"
           ],
           "status": "INCLUDED",
           "cpId": "CP-DMCKD-002",
@@ -3270,7 +3272,7 @@
           "losLatest": 5,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia"
+          "diagnosisSpreadsheet": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia | AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia\nPneumonia non spesifik dd spesifik"
         },
         {
           "key": "00287047",
@@ -3987,7 +3989,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia"
+            "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia",
+            "AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia\nPneumonia non spesifik dd spesifik"
           ],
           "status": "INCLUDED",
           "cpId": "CP-DMCKD-002",
@@ -3996,7 +3999,7 @@
           "losLatest": 5,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia"
+          "diagnosisSpreadsheet": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia | AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia\nPneumonia non spesifik dd spesifik"
         },
         {
           "key": "00237851",
@@ -5596,7 +5599,8 @@
           ],
           "daysInWard": 6,
           "diagnoses": [
-            "Susp colitis ulcerative dd chron disease"
+            "Susp colitis ulcerative dd chron disease",
+            "Melena ec Gastric Erosif Hipokalsemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5605,7 +5609,7 @@
           "losLatest": 5,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Susp colitis ulcerative dd chron disease",
+          "diagnosisSpreadsheet": "Susp colitis ulcerative dd chron disease | Melena ec Gastric Erosif Hipokalsemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6332,7 +6336,7 @@
           "bed": "7.2",
           "name": "Tn. Abdul Mutholib",
           "mrNo": "00306920",
-          "diagnosis": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia",
+          "diagnosis": "AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia\nPneumonia non spesifik dd spesifik",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nco dr.pradana",
           "los": 5,
           "gender": "L",
@@ -6594,7 +6598,7 @@
           "bed": "5.1",
           "name": "Tn. Sukamto",
           "mrNo": "00306797",
-          "diagnosis": "Susp colitis ulcerative dd chron disease",
+          "diagnosis": "Melena ec Gastric Erosif Hipokalsemia",
           "doctor": "dr. Yustar Mulyadi., Sp.PD",
           "los": 5,
           "gender": "L",
@@ -6833,7 +6837,7 @@
           "name": "Ny. Nurdaini",
           "mrNo": "00175178",
           "diagnosis": "dispneu ec asma bronkial hipokalemi CHF EF 43%",
-          "doctor": "RISA FEBRIANA, DR, SP.P\n\nRB dr. Alice\n\nco' dr. Sinta",
+          "doctor": "RISA FEBRIANA, DR, SP.P\n\nRB dr. Alice\n\nCo dr.Shinta,Sp.N",
           "los": 5,
           "gender": "P",
           "age": "",
@@ -7125,7 +7129,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia"
+            "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia",
+            "AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia\nPneumonia non spesifik dd spesifik"
           ],
           "status": "INCLUDED",
           "cpId": "CP-DMCKD-002",
@@ -7134,7 +7139,7 @@
           "losLatest": 5,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia"
+          "diagnosisSpreadsheet": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia | AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia\nPneumonia non spesifik dd spesifik"
         },
         {
           "key": "00237851",
@@ -8734,7 +8739,8 @@
           ],
           "daysInWard": 6,
           "diagnoses": [
-            "Susp colitis ulcerative dd chron disease"
+            "Susp colitis ulcerative dd chron disease",
+            "Melena ec Gastric Erosif Hipokalsemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8743,7 +8749,7 @@
           "losLatest": 5,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Susp colitis ulcerative dd chron disease",
+          "diagnosisSpreadsheet": "Susp colitis ulcerative dd chron disease | Melena ec Gastric Erosif Hipokalsemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -14339,7 +14345,7 @@
           "isRealPatient": true,
           "denominatorStatus": "INCLUDED",
           "inclusionReason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
-          "diagnosisSpreadsheet": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia",
+          "diagnosisSpreadsheet": "susp pneumonia dd TB paru AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia | AKI dd CKD susp CHF DM tipe II hiperkalemia  anemia\nPneumonia non spesifik dd spesifik",
           "compliance": {
             "totalWajibScheduled": 53,
             "totalTerlaksana": 53,
