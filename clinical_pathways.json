@@ -1,9 +1,9 @@
 {
   "summary": {
-    "totalEpisodes": 60,
-    "overallRawScore": 96.2,
+    "totalEpisodes": 61,
+    "overallRawScore": 96.3,
     "overallAdjScore": 99.9,
-    "overallBundlePct": 91.7,
+    "overallBundlePct": 91.8,
     "totalVariances": 24
   },
   "screening": {
@@ -21,12 +21,12 @@
         "2026-11-11"
       ],
       "totalObservations": 349,
-      "observationsIncludedCount": 48,
-      "observationsExcludedCount": 301,
+      "observationsIncludedCount": 49,
+      "observationsExcludedCount": 300,
       "totalUniquePatients": 86,
-      "uniqueIncludedCount": 10,
-      "uniqueExcludedCount": 76,
-      "uniqueCoveragePct": 11.6,
+      "uniqueIncludedCount": 11,
+      "uniqueExcludedCount": 75,
+      "uniqueCoveragePct": 12.8,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -41,9 +41,9 @@
           "templateId": "CP-DMCKD-002",
           "nama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
           "kodeIcd10": "E11.22",
-          "uniqueCount": 8,
-          "pctOfIncluded": 80.0,
-          "pctOfTotal": 9.3,
+          "uniqueCount": 9,
+          "pctOfIncluded": 81.8,
+          "pctOfTotal": 10.5,
           "patients": [
             {
               "mrNo": "00301588",
@@ -156,6 +156,17 @@
               ],
               "diagnosis": "aki dd ckd susp chf dd pneumonia ? dm tipe II",
               "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
+            },
+            {
+              "mrNo": "00221464",
+              "name": "Tn. Safren S",
+              "bed": "9.1",
+              "datesSeen": [
+                "2026-11-10",
+                "2026-11-11"
+              ],
+              "diagnosis": "edema anasarka ec ckd chf ef 23.6 % ht emergency | edema anasarka ec ckd chf ef 23.6 % ht emergency DM Tipe II",
+              "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
             }
           ]
         },
@@ -164,7 +175,7 @@
           "nama": "Human Immunodeficiency Virus (HIV / AIDS)",
           "kodeIcd10": "B20",
           "uniqueCount": 2,
-          "pctOfIncluded": 20.0,
+          "pctOfIncluded": 18.2,
           "pctOfTotal": 2.3,
           "patients": [
             {
@@ -361,7 +372,7 @@
                 "2026-11-10",
                 "2026-11-11"
               ],
-              "diagnosis": "BSK Obs Febris | BSK GNA / DD= Ig A nefropati Obs Febris | Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
+              "diagnosis": "BSK Obs Febris | BSK GNA / DD= Ig A nefropati Obs Febris | Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK | Hidronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
             },
             {
               "mrNo": "00305974",
@@ -728,13 +739,13 @@
               "diagnosis": "hipertensi emergensy dispepsia"
             }
           ],
-          "pct": 53.9
+          "pct": 54.7
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
           "label": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "color": "#ef4444",
-          "count": 30,
+          "count": 29,
           "patients": [
             {
               "mrNo": "00301205",
@@ -1067,19 +1078,9 @@
                 "2026-11-11"
               ],
               "diagnosis": "ckd st5 anemia"
-            },
-            {
-              "mrNo": "00221464",
-              "name": "Tn. Safren S",
-              "bed": "9.1",
-              "datesSeen": [
-                "2026-11-10",
-                "2026-11-11"
-              ],
-              "diagnosis": "edema anasarka ec ckd chf ef 23.6 % ht emergency"
             }
           ],
-          "pct": 39.5
+          "pct": 38.7
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1221,9 +1222,9 @@
         {
           "date": "2026-11-11",
           "total": 41,
-          "included": 7,
-          "excluded": 34,
-          "coveragePct": 17.1
+          "included": 8,
+          "excluded": 33,
+          "coveragePct": 19.5
         }
       ],
       "uniquePatientsList": [
@@ -1817,7 +1818,8 @@
             "BSK Obs Febris",
             "BSK GNA / DD= Ig A nefropati Obs Febris",
             "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
-            "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
+            "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
+            "Hidronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -1826,7 +1828,7 @@
           "losLatest": 11,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "BSK Obs Febris | BSK GNA / DD= Ig A nefropati Obs Febris | Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
+          "diagnosisSpreadsheet": "BSK Obs Febris | BSK GNA / DD= Ig A nefropati Obs Febris | Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK | Hidronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3706,19 +3708,17 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "edema anasarka ec ckd chf ef 23.6 % ht emergency"
+            "edema anasarka ec ckd chf ef 23.6 % ht emergency",
+            "edema anasarka ec ckd chf ef 23.6 % ht emergency DM Tipe II"
           ],
-          "status": "EXCLUDED",
-          "cpId": null,
-          "cpNama": null,
-          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "status": "INCLUDED",
+          "cpId": "CP-DMCKD-002",
+          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+          "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "edema anasarka ec ckd chf ef 23.6 % ht emergency",
-          "exclusionCategory": "CKD_NON_DM",
-          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
-          "exclusionCategoryColor": "#ef4444"
+          "diagnosisSpreadsheet": "edema anasarka ec ckd chf ef 23.6 % ht emergency | edema anasarka ec ckd chf ef 23.6 % ht emergency DM Tipe II"
         },
         {
           "key": "00307190",
@@ -4025,6 +4025,31 @@
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "aki dd ckd susp chf dd pneumonia ? dm tipe II"
+        },
+        {
+          "key": "00221464",
+          "mrNo": "00221464",
+          "name": "Tn. Safren S",
+          "bedLatest": "9.1",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
+          "admissionDate": "10/11/2026",
+          "datesSeen": [
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "daysInWard": 2,
+          "diagnoses": [
+            "edema anasarka ec ckd chf ef 23.6 % ht emergency",
+            "edema anasarka ec ckd chf ef 23.6 % ht emergency DM Tipe II"
+          ],
+          "status": "INCLUDED",
+          "cpId": "CP-DMCKD-002",
+          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+          "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
+          "losLatest": 2,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "edema anasarka ec ckd chf ef 23.6 % ht emergency | edema anasarka ec ckd chf ef 23.6 % ht emergency DM Tipe II"
         }
       ],
       "excludedPatients": [
@@ -4512,7 +4537,8 @@
             "BSK Obs Febris",
             "BSK GNA / DD= Ig A nefropati Obs Febris",
             "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
-            "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
+            "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
+            "Hidronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4521,7 +4547,7 @@
           "losLatest": 11,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "BSK Obs Febris | BSK GNA / DD= Ig A nefropati Obs Febris | Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
+          "diagnosisSpreadsheet": "BSK Obs Febris | BSK GNA / DD= Ig A nefropati Obs Febris | Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK | Hidronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6217,33 +6243,6 @@
           "exclusionCategoryColor": "#ef4444"
         },
         {
-          "key": "00221464",
-          "mrNo": "00221464",
-          "name": "Tn. Safren S",
-          "bedLatest": "9.1",
-          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
-          "admissionDate": "10/11/2026",
-          "datesSeen": [
-            "2026-11-10",
-            "2026-11-11"
-          ],
-          "daysInWard": 2,
-          "diagnoses": [
-            "edema anasarka ec ckd chf ef 23.6 % ht emergency"
-          ],
-          "status": "EXCLUDED",
-          "cpId": null,
-          "cpNama": null,
-          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
-          "gender": "L",
-          "age": "",
-          "diagnosisSpreadsheet": "edema anasarka ec ckd chf ef 23.6 % ht emergency",
-          "exclusionCategory": "CKD_NON_DM",
-          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
-          "exclusionCategoryColor": "#ef4444"
-        },
-        {
           "key": "00307190",
           "mrNo": "00307190",
           "name": "Ny. Dare",
@@ -6273,12 +6272,12 @@
     },
     "today": {
       "totalInpatients": 41,
-      "denominatorIncluded": 7,
-      "totalExcluded": 34,
-      "wardCoveragePct": 17.1,
+      "denominatorIncluded": 8,
+      "totalExcluded": 33,
+      "wardCoveragePct": 19.5,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
-        "CP-DMCKD-002": 5,
+        "CP-DMCKD-002": 6,
         "CP-HIV-003": 2,
         "CP-STROKE-NON-004": 0,
         "CP-STROKE-PERD-005": 0
@@ -6365,6 +6364,22 @@
           "inclusionReason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
         },
         {
+          "bed": "9.1",
+          "name": "Tn. Safren S",
+          "mrNo": "00221464",
+          "diagnosis": "edema anasarka ec ckd chf ef 23.6 % ht emergency DM Tipe II",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
+          "los": 2,
+          "gender": "L",
+          "age": "",
+          "admissionDate": "10/11/2026",
+          "date": "2026-11-11",
+          "cpId": "CP-DMCKD-002",
+          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+          "status": "INCLUDED",
+          "inclusionReason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
+        },
+        {
           "bed": "10.2",
           "name": "Ny. Nancy Hasan",
           "mrNo": "00289992",
@@ -6385,7 +6400,7 @@
           "name": "Ny. Boini",
           "mrNo": "00306295",
           "diagnosis": "DM tipe 2 //Ulkus Diabetic //DKD //KAD //Anemia //Mild Hiperkalemia ( 5,8) // Hiponatremia - ISOOSMOLER // DVT, Okluisi V Femoralis",
-          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Oktav,Sp.OT",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Oktav,Sp.OT\n\nCo dr.Risa,Sp.MK",
           "los": 9,
           "gender": "P",
           "age": "",
@@ -6403,7 +6418,7 @@
           "name": "Tn. Misin 00262342",
           "mrNo": "00262342",
           "diagnosis": "asites permagna ec sirois hepatis colesistitis DM type 2",
-          "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
+          "doctor": "dr. Apriani, M.Ked(PD), Sp.PD\n\nCo' dr. Gerald",
           "los": 8,
           "gender": "L",
           "age": "65 th",
@@ -6557,7 +6572,7 @@
           "name": "Ny. Nurhayati",
           "mrNo": "00306196",
           "diagnosis": "Anemia ( Hb 8.3 ) Leukositosis ( Wbc 18.28 ) AKI Hipoalbumin ( Alb 2.84 ) Hiponatremia ( Na 123.32 ) Hipokalemia ( K 3.24 ) disfagia ulkus dekubitus susp SNH Pneumonia Depresi pada geriatri Geriatric Syndrome",
-          "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Marta,Sp.KFR",
+          "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Marta,Sp.KFR\n\nCo dr. Dini",
           "los": 12,
           "gender": "P",
           "age": "",
@@ -6654,7 +6669,7 @@
           "bed": "6.1",
           "name": "Tn. Kaseng",
           "mrNo": "00186499",
-          "diagnosis": "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
+          "diagnosis": "Hidronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
           "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo dr.Yance,Sp.U\n\nCo dr.Sabar,Sp.N",
           "los": 11,
           "gender": "L",
@@ -6777,20 +6792,6 @@
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
-          "bed": "9.1",
-          "name": "Tn. Safren S",
-          "mrNo": "00221464",
-          "diagnosis": "edema anasarka ec ckd chf ef 23.6 % ht emergency",
-          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
-          "los": 2,
-          "gender": "L",
-          "age": "",
-          "admissionDate": "10/11/2026",
-          "date": "2026-11-11",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
-        },
-        {
           "bed": "9.2",
           "name": "Tn. Pery",
           "mrNo": "00272468",
@@ -6878,11 +6879,11 @@
     },
     "historical": {
       "totalRecords": 349,
-      "uniqueIncludedCount": 10,
-      "totalExcludedRecords": 301,
+      "uniqueIncludedCount": 11,
+      "totalExcludedRecords": 300,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
-        "CP-DMCKD-002": 8,
+        "CP-DMCKD-002": 9,
         "CP-HIV-003": 2,
         "CP-STROKE-NON-004": 0,
         "CP-STROKE-PERD-005": 0
@@ -7165,6 +7166,31 @@
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "aki dd ckd susp chf dd pneumonia ? dm tipe II"
+        },
+        {
+          "key": "00221464",
+          "mrNo": "00221464",
+          "name": "Tn. Safren S",
+          "bedLatest": "9.1",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
+          "admissionDate": "10/11/2026",
+          "datesSeen": [
+            "2026-11-10",
+            "2026-11-11"
+          ],
+          "daysInWard": 2,
+          "diagnoses": [
+            "edema anasarka ec ckd chf ef 23.6 % ht emergency",
+            "edema anasarka ec ckd chf ef 23.6 % ht emergency DM Tipe II"
+          ],
+          "status": "INCLUDED",
+          "cpId": "CP-DMCKD-002",
+          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+          "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
+          "losLatest": 2,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "edema anasarka ec ckd chf ef 23.6 % ht emergency | edema anasarka ec ckd chf ef 23.6 % ht emergency DM Tipe II"
         }
       ],
       "sampleExcluded": [
@@ -7652,7 +7678,8 @@
             "BSK Obs Febris",
             "BSK GNA / DD= Ig A nefropati Obs Febris",
             "Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK",
-            "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
+            "dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
+            "Hidronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7661,7 +7688,7 @@
           "losLatest": 11,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "BSK Obs Febris | BSK GNA / DD= Ig A nefropati Obs Febris | Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
+          "diagnosisSpreadsheet": "BSK Obs Febris | BSK GNA / DD= Ig A nefropati Obs Febris | Hidronefrosis Berat -S BPH Berat Obs Febris ec ISK | dronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK | Hidronefrosis Berat -S //BPH Berat DD, Ca Prostat // Obs Febris ec ISK",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9352,33 +9379,6 @@
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "ckd st5 anemia",
-          "exclusionCategory": "CKD_NON_DM",
-          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
-          "exclusionCategoryColor": "#ef4444"
-        },
-        {
-          "key": "00221464",
-          "mrNo": "00221464",
-          "name": "Tn. Safren S",
-          "bedLatest": "9.1",
-          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
-          "admissionDate": "10/11/2026",
-          "datesSeen": [
-            "2026-11-10",
-            "2026-11-11"
-          ],
-          "daysInWard": 2,
-          "diagnoses": [
-            "edema anasarka ec ckd chf ef 23.6 % ht emergency"
-          ],
-          "status": "EXCLUDED",
-          "cpId": null,
-          "cpNama": null,
-          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
-          "gender": "L",
-          "age": "",
-          "diagnosisSpreadsheet": "edema anasarka ec ckd chf ef 23.6 % ht emergency",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -12477,13 +12477,13 @@
       "nama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
       "ksm": "Penyakit Dalam (Nefrologi & Endokrin)",
       "losTarget": 7,
-      "avgRealLos": 7.5,
-      "totalEpisodes": 18,
-      "realInpatientActive": 5,
-      "realInpatientHistorical": 8,
+      "avgRealLos": 7.2,
+      "totalEpisodes": 19,
+      "realInpatientActive": 6,
+      "realInpatientHistorical": 9,
       "rawAvg": 99.7,
       "adjAvg": 99.9,
-      "bundlePassedPct": 94.4,
+      "bundlePassedPct": 94.7,
       "mutuCategory": "HIJAU",
       "episodes": [
         {
@@ -14760,6 +14760,249 @@
                   "✓ Visite harian DPJP dan penyesuaian dos (H2)",
                   "✓ Visite harian DPJP dan penyesuaian dos (H3)",
                   "✓ Asesmen keperawatan, pemantauan tanda  (H1)"
+                ]
+              },
+              "nutrisi": {
+                "aspectCode": "GIZ",
+                "aspectName": "Asesmen & Edukasi Nutrisi Gizi",
+                "isCompliant": true,
+                "score": 100.0,
+                "details": "1/1 item terpenuhi (100.0%)",
+                "scheduled": 1,
+                "terlaksana": 1,
+                "naJustified": 0,
+                "itemsSummary": [
+                  "✓ Asesmen gizi & penetapan diet DM Ginja (H1)"
+                ]
+              },
+              "discharge": {
+                "aspectCode": "EDU",
+                "aspectName": "Edukasi & Discharge Planning",
+                "isCompliant": true,
+                "score": 100.0,
+                "details": "2/2 item terpenuhi (100.0%)",
+                "scheduled": 2,
+                "terlaksana": 2,
+                "naJustified": 0,
+                "itemsSummary": [
+                  "✓ Edukasi gizi terintegrasi untuk pasien (H1)",
+                  "✓ Edukasi gizi terintegrasi untuk pasien (H2)"
+                ]
+              }
+            },
+            "deviations": [],
+            "summaryText": "Sesuai CP pada seluruh 6 aspek pelayanan (LOS, Diagnostik, Terapi, Keperawatan, Gizi, Discharge)"
+          }
+        },
+        {
+          "episodeId": "EP-REAL-9.1-20261111",
+          "mrNo": "00221464",
+          "namaPasien": "Tn. Safren S",
+          "gender": "L",
+          "usia": "",
+          "ruangRawat": "Ruang Kakap (9.1)",
+          "dpjp": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
+          "templateId": "CP-DMCKD-002",
+          "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+          "caseProfile": "PASIEN_RIIL_BANGSAL",
+          "statusEnrollment": "AKTIF",
+          "alasanKeluar": null,
+          "hariTerakhirCp": 2,
+          "targetLos": 7,
+          "realLos": 2,
+          "tglMasuk": "10/11/2026",
+          "tglKeluar": null,
+          "executions": {
+            "DM-01_d1": "TERLAKSANA",
+            "DM-02_d1": "TERLAKSANA",
+            "DM-02_d2": "TERLAKSANA",
+            "DM-03_d1": "TERLAKSANA",
+            "DM-03_d2": "TERLAKSANA",
+            "DM-04_d1": "TERLAKSANA",
+            "DM-04_d2": "TERLAKSANA",
+            "DM-05_d1": "TERLAKSANA",
+            "DM-05_d2": "TERLAKSANA",
+            "DM-06_d1": "TERLAKSANA",
+            "DM-06_d2": "TERLAKSANA",
+            "DM-07_d1": "TERLAKSANA",
+            "DM-08_d1": "TERLAKSANA",
+            "DM-08_d2": "TERLAKSANA",
+            "DM-09_d1": "TERLAKSANA",
+            "DM-10_d1": "TERLAKSANA",
+            "DM-11_d1": "TERLAKSANA",
+            "DM-12_d1": "TERLAKSANA",
+            "DM-12_d2": "TERLAKSANA",
+            "DM-14_d1": "TERLAKSANA",
+            "DM-15_d1": "TERLAKSANA",
+            "DM-15_d2": "TERLAKSANA",
+            "DM-16_d1": "TERLAKSANA",
+            "DM-16_d2": "TERLAKSANA",
+            "DM-17_d2": "TERLAKSANA"
+          },
+          "variances": [],
+          "isRealPatient": true,
+          "denominatorStatus": "INCLUDED",
+          "inclusionReason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
+          "diagnosisSpreadsheet": "edema anasarka ec ckd chf ef 23.6 % ht emergency | edema anasarka ec ckd chf ef 23.6 % ht emergency DM Tipe II",
+          "compliance": {
+            "totalWajibScheduled": 25,
+            "totalTerlaksana": 25,
+            "totalNaJustified": 0,
+            "totalTidakTerlaksana": 0,
+            "rawScore": 100.0,
+            "adjScore": 100.0,
+            "criticalBundlePassed": true,
+            "criticalItemsFailed": [],
+            "mutuCategory": "HIJAU",
+            "ppaSummary": {
+              "DPJP": {
+                "terlaksana": 13,
+                "wajib": 13,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "PERAWAT": {
+                "terlaksana": 8,
+                "wajib": 8,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "AHLI_GIZI": {
+                "terlaksana": 3,
+                "wajib": 3,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "APOTEKER": {
+                "terlaksana": 1,
+                "wajib": 1,
+                "na": 0,
+                "compliancePct": 100.0
+              }
+            },
+            "domainSummary": {
+              "MED": {
+                "terlaksana": 3,
+                "wajib": 3,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "KEP": {
+                "terlaksana": 6,
+                "wajib": 6,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "PEN": {
+                "terlaksana": 7,
+                "wajib": 7,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "GIZ": {
+                "terlaksana": 1,
+                "wajib": 1,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "EDU": {
+                "terlaksana": 2,
+                "wajib": 2,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "FAR": {
+                "terlaksana": 1,
+                "wajib": 1,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "OBT": {
+                "terlaksana": 4,
+                "wajib": 4,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "TIN": {
+                "terlaksana": 1,
+                "wajib": 1,
+                "na": 0,
+                "compliancePct": 100.0
+              },
+              "OUT": {
+                "terlaksana": 0,
+                "wajib": 0,
+                "na": 0,
+                "compliancePct": 100.0
+              }
+            }
+          },
+          "aspectCompliance": {
+            "isNominator": true,
+            "nominatorStatus": "NOMINATOR_PATUH_PENUH",
+            "nominatorBadgeText": "NOMINATOR (SESUAI SELURUH ASPEK)",
+            "compliantAspectsCount": 6,
+            "totalAspects": 6,
+            "aspectsScorePct": 100.0,
+            "aspects": {
+              "los": {
+                "aspectCode": "LOS",
+                "aspectName": "Kontrol Lama Rawat (LOS)",
+                "isCompliant": true,
+                "score": 100.0,
+                "realLos": 2,
+                "targetLos": 7,
+                "details": "Lama rawat 2 hari (aktif berjalan) ≤ Target LOS 7 hari"
+              },
+              "diagnostik": {
+                "aspectCode": "PEN",
+                "aspectName": "Pemeriksaan Diagnostik & Penunjang",
+                "isCompliant": true,
+                "score": 100.0,
+                "details": "7/7 item terpenuhi (100.0%)",
+                "scheduled": 7,
+                "terlaksana": 7,
+                "naJustified": 0,
+                "itemsSummary": [
+                  "✓ Pemeriksaan GDS serial harian (pre-pra (H1)",
+                  "✓ Pemeriksaan GDS serial harian (pre-pra (H2)",
+                  "✓ Pemeriksaan fungsi ginjal serial: Ureu (H1)",
+                  "✓ Pemeriksaan Elektrolit (Na, K, Cl) & A (H1)",
+                  "✓ Pemeriksaan Elektrolit (Na, K, Cl) & A (H2)"
+                ]
+              },
+              "terapi": {
+                "aspectCode": "OBT",
+                "aspectName": "Terapi Medikamentosa & Farmasi",
+                "isCompliant": true,
+                "score": 100.0,
+                "details": "6/6 item terpenuhi (100.0%)",
+                "scheduled": 6,
+                "terlaksana": 6,
+                "naJustified": 0,
+                "itemsSummary": [
+                  "✓ Rekonsiliasi obat saat admisi & penyes (H1)",
+                  "✓ Antihiperglikemi: Injeksi Insulin (Reg (H1)",
+                  "✓ Antihiperglikemi: Injeksi Insulin (Reg (H2)",
+                  "✓ Antihiperglikemi: Obat Hipoglikemik Or (H1)",
+                  "✓ Antihiperglikemi: Obat Hipoglikemik Or (H2)"
+                ]
+              },
+              "keperawatan": {
+                "aspectCode": "KEP",
+                "aspectName": "Asuhan Medis & Keperawatan",
+                "isCompliant": true,
+                "score": 100.0,
+                "details": "9/9 item terpenuhi (100.0%)",
+                "scheduled": 9,
+                "terlaksana": 9,
+                "naJustified": 0,
+                "itemsSummary": [
+                  "✓ Asesmen klinis komplikasi mikrovaskula (H1)",
+                  "✓ Visite harian DPJP dan penyesuaian dos (H1)",
+                  "✓ Visite harian DPJP dan penyesuaian dos (H2)",
+                  "✓ Asesmen keperawatan, pemantauan tanda  (H1)",
+                  "✓ Asesmen keperawatan, pemantauan tanda  (H2)"
                 ]
               },
               "nutrisi": {
@@ -27114,26 +27357,26 @@
     {
       "ppa": "DPJP",
       "compliancePct": 99.8,
-      "terlaksana": 1615,
-      "wajib": 1619
+      "terlaksana": 1628,
+      "wajib": 1632
     },
     {
       "ppa": "PERAWAT",
       "compliancePct": 99.9,
-      "terlaksana": 1063,
-      "wajib": 1064
+      "terlaksana": 1071,
+      "wajib": 1072
     },
     {
       "ppa": "AHLI_GIZI",
       "compliancePct": 100.0,
-      "terlaksana": 313,
-      "wajib": 313
+      "terlaksana": 316,
+      "wajib": 316
     },
     {
       "ppa": "APOTEKER",
       "compliancePct": 100.0,
-      "terlaksana": 271,
-      "wajib": 271
+      "terlaksana": 272,
+      "wajib": 272
     },
     {
       "ppa": "KONSULTAN",
@@ -28747,12 +28990,12 @@
       "totalObservations": 349
     },
     "realSummary": {
-      "denominator": 10,
+      "denominator": 11,
       "denominatorLabel": "Pasien Masuk Kriteria Inklusi CP (Denominator)",
-      "nominator": 4,
+      "nominator": 5,
       "nominatorLabel": "Pasien Sesuai CP Seluruh Aspek (Nominator)",
       "nonNominator": 6,
-      "complianceRatePct": 40.0,
+      "complianceRatePct": 45.5,
       "formula": "Kepatuhan CP (%) = (Pasien Patuh Seluruh Aspek [Nominator] ÷ Pasien Inklusi CP [Denominator]) × 100%",
       "mutuTarget": 80.0,
       "mutuStatus": "SUBSTANDAR",
@@ -28761,17 +29004,17 @@
           "code": "LOS",
           "label": "Kontrol Lama Rawat (LOS Control)",
           "standard": "LOS Pasien ≤ Target LOS Dokumen CP (7 Hari)",
-          "compliantCount": 4,
-          "totalCount": 10,
-          "pct": 40.0,
+          "compliantCount": 5,
+          "totalCount": 11,
+          "pct": 45.5,
           "status": "SUBSTANDAR"
         },
         "diagnostik": {
           "code": "PEN",
           "label": "Pemeriksaan Diagnostik & Penunjang",
           "standard": "Pemeriksaan Lab (GDS, Urin, Renal) & Radiologi/USG Lengkap",
-          "compliantCount": 10,
-          "totalCount": 10,
+          "compliantCount": 11,
+          "totalCount": 11,
           "pct": 100.0,
           "status": "PATUH"
         },
@@ -28779,8 +29022,8 @@
           "code": "OBT",
           "label": "Terapi Medikamentosa & Farmasi",
           "standard": "Regulasi Insulin, Antihipertensi, Terapi Cairan & Medikasi Wajib",
-          "compliantCount": 10,
-          "totalCount": 10,
+          "compliantCount": 11,
+          "totalCount": 11,
           "pct": 100.0,
           "status": "PATUH"
         },
@@ -28788,8 +29031,8 @@
           "code": "KEP",
           "label": "Asuhan Medis & Keperawatan",
           "standard": "Visite DPJP Harian & Balans Cairan 24 Jam Terpantau Lengkap",
-          "compliantCount": 10,
-          "totalCount": 10,
+          "compliantCount": 11,
+          "totalCount": 11,
           "pct": 100.0,
           "status": "PATUH"
         },
@@ -28797,8 +29040,8 @@
           "code": "GIZ",
           "label": "Asesmen & Edukasi Diet Nutrisi",
           "standard": "Konsultasi Diet Khusus Ginjal & DM pada Hari 1-2",
-          "compliantCount": 10,
-          "totalCount": 10,
+          "compliantCount": 11,
+          "totalCount": 11,
           "pct": 100.0,
           "status": "PATUH"
         },
@@ -28806,8 +29049,8 @@
           "code": "EDU",
           "label": "Edukasi & Discharge Planning",
           "standard": "Edukasi Obat Pulang, Manajemen Hipoglikemia & Kesiapan Pulang",
-          "compliantCount": 10,
-          "totalCount": 10,
+          "compliantCount": 11,
+          "totalCount": 11,
           "pct": 100.0,
           "status": "PATUH"
         }
@@ -29934,6 +30177,115 @@
               "✓ Visite harian DPJP dan penyesuaian dos (H2)",
               "✓ Visite harian DPJP dan penyesuaian dos (H3)",
               "✓ Asesmen keperawatan, pemantauan tanda  (H1)"
+            ]
+          },
+          "nutrisi": {
+            "aspectCode": "GIZ",
+            "aspectName": "Asesmen & Edukasi Nutrisi Gizi",
+            "isCompliant": true,
+            "score": 100.0,
+            "details": "1/1 item terpenuhi (100.0%)",
+            "scheduled": 1,
+            "terlaksana": 1,
+            "naJustified": 0,
+            "itemsSummary": [
+              "✓ Asesmen gizi & penetapan diet DM Ginja (H1)"
+            ]
+          },
+          "discharge": {
+            "aspectCode": "EDU",
+            "aspectName": "Edukasi & Discharge Planning",
+            "isCompliant": true,
+            "score": 100.0,
+            "details": "2/2 item terpenuhi (100.0%)",
+            "scheduled": 2,
+            "terlaksana": 2,
+            "naJustified": 0,
+            "itemsSummary": [
+              "✓ Edukasi gizi terintegrasi untuk pasien (H1)",
+              "✓ Edukasi gizi terintegrasi untuk pasien (H2)"
+            ]
+          }
+        },
+        "deviations": [],
+        "summaryText": "Sesuai CP pada seluruh 6 aspek pelayanan (LOS, Diagnostik, Terapi, Keperawatan, Gizi, Discharge)"
+      },
+      {
+        "episodeId": "EP-REAL-9.1-20261111",
+        "mrNo": "00221464",
+        "name": "Tn. Safren S",
+        "bed": "Ruang Kakap (9.1)",
+        "dpjp": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
+        "cpId": "CP-DMCKD-002",
+        "cpNama": "Diabetes Melitus Tipe II dengan Komplikasi CKD",
+        "realLos": 2,
+        "targetLos": 7,
+        "tglMasuk": "10/11/2026",
+        "statusEnrollment": "AKTIF",
+        "isNominator": true,
+        "nominatorBadgeText": "NOMINATOR (SESUAI SELURUH ASPEK)",
+        "aspectsScorePct": 100.0,
+        "compliantAspectsCount": 6,
+        "totalAspects": 6,
+        "aspects": {
+          "los": {
+            "aspectCode": "LOS",
+            "aspectName": "Kontrol Lama Rawat (LOS)",
+            "isCompliant": true,
+            "score": 100.0,
+            "realLos": 2,
+            "targetLos": 7,
+            "details": "Lama rawat 2 hari (aktif berjalan) ≤ Target LOS 7 hari"
+          },
+          "diagnostik": {
+            "aspectCode": "PEN",
+            "aspectName": "Pemeriksaan Diagnostik & Penunjang",
+            "isCompliant": true,
+            "score": 100.0,
+            "details": "7/7 item terpenuhi (100.0%)",
+            "scheduled": 7,
+            "terlaksana": 7,
+            "naJustified": 0,
+            "itemsSummary": [
+              "✓ Pemeriksaan GDS serial harian (pre-pra (H1)",
+              "✓ Pemeriksaan GDS serial harian (pre-pra (H2)",
+              "✓ Pemeriksaan fungsi ginjal serial: Ureu (H1)",
+              "✓ Pemeriksaan Elektrolit (Na, K, Cl) & A (H1)",
+              "✓ Pemeriksaan Elektrolit (Na, K, Cl) & A (H2)"
+            ]
+          },
+          "terapi": {
+            "aspectCode": "OBT",
+            "aspectName": "Terapi Medikamentosa & Farmasi",
+            "isCompliant": true,
+            "score": 100.0,
+            "details": "6/6 item terpenuhi (100.0%)",
+            "scheduled": 6,
+            "terlaksana": 6,
+            "naJustified": 0,
+            "itemsSummary": [
+              "✓ Rekonsiliasi obat saat admisi & penyes (H1)",
+              "✓ Antihiperglikemi: Injeksi Insulin (Reg (H1)",
+              "✓ Antihiperglikemi: Injeksi Insulin (Reg (H2)",
+              "✓ Antihiperglikemi: Obat Hipoglikemik Or (H1)",
+              "✓ Antihiperglikemi: Obat Hipoglikemik Or (H2)"
+            ]
+          },
+          "keperawatan": {
+            "aspectCode": "KEP",
+            "aspectName": "Asuhan Medis & Keperawatan",
+            "isCompliant": true,
+            "score": 100.0,
+            "details": "9/9 item terpenuhi (100.0%)",
+            "scheduled": 9,
+            "terlaksana": 9,
+            "naJustified": 0,
+            "itemsSummary": [
+              "✓ Asesmen klinis komplikasi mikrovaskula (H1)",
+              "✓ Visite harian DPJP dan penyesuaian dos (H1)",
+              "✓ Visite harian DPJP dan penyesuaian dos (H2)",
+              "✓ Asesmen keperawatan, pemantauan tanda  (H1)",
+              "✓ Asesmen keperawatan, pemantauan tanda  (H2)"
             ]
           },
           "nutrisi": {
