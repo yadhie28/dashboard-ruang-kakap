@@ -28,13 +28,13 @@
         "2026-11-18",
         "2026-11-19"
       ],
-      "totalObservations": 389,
+      "totalObservations": 390,
       "observationsIncludedCount": 57,
-      "observationsExcludedCount": 332,
-      "totalUniquePatients": 89,
+      "observationsExcludedCount": 333,
+      "totalUniquePatients": 90,
       "uniqueIncludedCount": 11,
-      "uniqueExcludedCount": 78,
-      "uniqueCoveragePct": 12.4,
+      "uniqueExcludedCount": 79,
+      "uniqueCoveragePct": 12.2,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -51,7 +51,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 9,
           "pctOfIncluded": 81.8,
-          "pctOfTotal": 10.1,
+          "pctOfTotal": 10.0,
           "patients": [
             {
               "mrNo": "00301588",
@@ -637,7 +637,7 @@
                 "2026-11-11",
                 "2026-11-12"
               ],
-              "diagnosis": "aiha"
+              "diagnosis": "aiha | aiha\n\nCo dr.Eni,Sp.THT"
             },
             {
               "mrNo": "00175178",
@@ -802,13 +802,13 @@
               "diagnosis": "-"
             }
           ],
-          "pct": 56.4
+          "pct": 55.7
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
           "label": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "color": "#ef4444",
-          "count": 29,
+          "count": 30,
           "patients": [
             {
               "mrNo": "00301205",
@@ -1149,9 +1149,18 @@
                 "2026-11-12"
               ],
               "diagnosis": "ckd st5 anemia"
+            },
+            {
+              "mrNo": "00302313",
+              "name": "Ny. Salmah 00302313",
+              "bed": "10.3",
+              "datesSeen": [
+                "2026-11-12"
+              ],
+              "diagnosis": "CKD on HD"
             }
           ],
-          "pct": 37.2
+          "pct": 38.0
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1300,10 +1309,10 @@
         },
         {
           "date": "2026-11-12",
-          "total": 40,
+          "total": 41,
           "included": 8,
-          "excluded": 32,
-          "coveragePct": 20.0
+          "excluded": 33,
+          "coveragePct": 19.5
         },
         {
           "date": "2026-11-13",
@@ -3152,7 +3161,8 @@
           ],
           "daysInWard": 7,
           "diagnoses": [
-            "aiha"
+            "aiha",
+            "aiha\n\nCo dr.Eni,Sp.THT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3161,7 +3171,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "aiha",
+          "diagnosisSpreadsheet": "aiha | aiha\n\nCo dr.Eni,Sp.THT",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3994,6 +4004,32 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00302313",
+          "mrNo": "00302313",
+          "name": "Ny. Salmah 00302313",
+          "bedLatest": "10.3",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
+          "admissionDate": "12/11/2026",
+          "datesSeen": [
+            "2026-11-12"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "CKD on HD"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "61 th",
+          "diagnosisSpreadsheet": "CKD on HD",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ],
       "includedPatients": [
@@ -5931,7 +5967,8 @@
           ],
           "daysInWard": 7,
           "diagnoses": [
-            "aiha"
+            "aiha",
+            "aiha\n\nCo dr.Eni,Sp.THT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5940,7 +5977,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "aiha",
+          "diagnosisSpreadsheet": "aiha | aiha\n\nCo dr.Eni,Sp.THT",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6637,6 +6674,32 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00302313",
+          "mrNo": "00302313",
+          "name": "Ny. Salmah 00302313",
+          "bedLatest": "10.3",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
+          "admissionDate": "12/11/2026",
+          "datesSeen": [
+            "2026-11-12"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "CKD on HD"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "61 th",
+          "diagnosisSpreadsheet": "CKD on HD",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     },
@@ -6656,9 +6719,9 @@
       "excludedPatients": []
     },
     "historical": {
-      "totalRecords": 389,
+      "totalRecords": 390,
       "uniqueIncludedCount": 11,
-      "totalExcludedRecords": 332,
+      "totalExcludedRecords": 333,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 9,
@@ -8601,7 +8664,8 @@
           ],
           "daysInWard": 7,
           "diagnoses": [
-            "aiha"
+            "aiha",
+            "aiha\n\nCo dr.Eni,Sp.THT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8610,7 +8674,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "aiha",
+          "diagnosisSpreadsheet": "aiha | aiha\n\nCo dr.Eni,Sp.THT",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9307,6 +9371,32 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00302313",
+          "mrNo": "00302313",
+          "name": "Ny. Salmah 00302313",
+          "bedLatest": "10.3",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
+          "admissionDate": "12/11/2026",
+          "datesSeen": [
+            "2026-11-12"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "CKD on HD"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "61 th",
+          "diagnosisSpreadsheet": "CKD on HD",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     }
@@ -28938,8 +29028,8 @@
         "Sheet 2026-11-18",
         "Sheet 2026-11-19"
       ],
-      "totalUniqueInpatients": 89,
-      "totalObservations": 389
+      "totalUniqueInpatients": 90,
+      "totalObservations": 390
     },
     "realSummary": {
       "denominator": 11,
