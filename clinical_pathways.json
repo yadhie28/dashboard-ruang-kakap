@@ -642,8 +642,7 @@
                 "2026-11-09",
                 "2026-11-10",
                 "2026-11-11",
-                "2026-11-12",
-                "2026-11-13"
+                "2026-11-12"
               ],
               "diagnosis": "aiha | aiha\n\nCo dr.Eni,Sp.THT"
             },
@@ -698,7 +697,7 @@
                 "2026-11-12",
                 "2026-11-13"
               ],
-              "diagnosis": "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis | hematemesis trombositopemnia AKI CAD"
+              "diagnosis": "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis | hematemesis trombositopemnia AKI CAD | hematemesis trombositopenia AKI CAD"
             },
             {
               "mrNo": "00265251",
@@ -794,7 +793,7 @@
                 "2026-11-12",
                 "2026-11-13"
               ],
-              "diagnosis": "hipertensi emergensy dispepsia"
+              "diagnosis": "hipertensi emergensy dispepsia | Hipertensi emergensi Dispepsia AKI"
             },
             {
               "mrNo": "00307002",
@@ -874,7 +873,7 @@
                 "2026-11-12",
                 "2026-11-13"
               ],
-              "diagnosis": "hipokalemia berat"
+              "diagnosis": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK"
             }
           ],
           "pct": 56.8
@@ -1203,11 +1202,12 @@
             {
               "mrNo": "00293033",
               "name": "Tn. Silvanus Iros 00293033",
-              "bed": "9.1",
+              "bed": "6.2",
               "datesSeen": [
-                "2026-11-09"
+                "2026-11-09",
+                "2026-11-13"
               ],
-              "diagnosis": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
+              "diagnosis": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | Anemia in CKD"
             },
             {
               "mrNo": "00146747",
@@ -1249,7 +1249,7 @@
                 "2026-11-12",
                 "2026-11-13"
               ],
-              "diagnosis": "CKD on HD | hipokalemia berat"
+              "diagnosis": "CKD on HD | CKD on HD\nhipokalemia berat"
             }
           ],
           "pct": 35.2
@@ -3276,10 +3276,9 @@
             "2026-11-09",
             "2026-11-10",
             "2026-11-11",
-            "2026-11-12",
-            "2026-11-13"
+            "2026-11-12"
           ],
-          "daysInWard": 8,
+          "daysInWard": 7,
           "diagnoses": [
             "aiha",
             "aiha\n\nCo dr.Eni,Sp.THT"
@@ -3288,7 +3287,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "aiha | aiha\n\nCo dr.Eni,Sp.THT",
@@ -3583,7 +3582,8 @@
           "daysInWard": 6,
           "diagnoses": [
             "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis",
-            "hematemesis trombositopemnia AKI CAD"
+            "hematemesis trombositopemnia AKI CAD",
+            "hematemesis trombositopenia AKI CAD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3592,7 +3592,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis | hematemesis trombositopemnia AKI CAD",
+          "diagnosisSpreadsheet": "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis | hematemesis trombositopemnia AKI CAD | hematemesis trombositopenia AKI CAD",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3869,15 +3869,17 @@
           "key": "00293033",
           "mrNo": "00293033",
           "name": "Tn. Silvanus Iros 00293033",
-          "bedLatest": "9.1",
+          "bedLatest": "6.2",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nCo dr.Temi,Sp.JP",
           "admissionDate": "09/11/2026",
           "datesSeen": [
-            "2026-11-09"
+            "2026-11-09",
+            "2026-11-13"
           ],
-          "daysInWard": 1,
+          "daysInWard": 2,
           "diagnoses": [
-            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
+            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+            "Anemia in CKD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3886,7 +3888,7 @@
           "losLatest": 1,
           "gender": "L",
           "age": "61 th",
-          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | Anemia in CKD",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -4076,7 +4078,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "hipertensi emergensy dispepsia"
+            "hipertensi emergensy dispepsia",
+            "Hipertensi emergensi Dispepsia AKI"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4085,7 +4088,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hipertensi emergensy dispepsia",
+          "diagnosisSpreadsheet": "hipertensi emergensy dispepsia | Hipertensi emergensi Dispepsia AKI",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -4376,7 +4379,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "hipokalemia berat"
+            "hipokalemia berat",
+            "hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4385,7 +4389,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hipokalemia berat",
+          "diagnosisSpreadsheet": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -4404,7 +4408,7 @@
           "daysInWard": 2,
           "diagnoses": [
             "CKD on HD",
-            "hipokalemia berat"
+            "CKD on HD\nhipokalemia berat"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4413,7 +4417,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "61 th",
-          "diagnosisSpreadsheet": "CKD on HD | hipokalemia berat",
+          "diagnosisSpreadsheet": "CKD on HD | CKD on HD\nhipokalemia berat",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -6359,10 +6363,9 @@
             "2026-11-09",
             "2026-11-10",
             "2026-11-11",
-            "2026-11-12",
-            "2026-11-13"
+            "2026-11-12"
           ],
-          "daysInWard": 8,
+          "daysInWard": 7,
           "diagnoses": [
             "aiha",
             "aiha\n\nCo dr.Eni,Sp.THT"
@@ -6371,7 +6374,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "aiha | aiha\n\nCo dr.Eni,Sp.THT",
@@ -6581,7 +6584,8 @@
           "daysInWard": 6,
           "diagnoses": [
             "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis",
-            "hematemesis trombositopemnia AKI CAD"
+            "hematemesis trombositopemnia AKI CAD",
+            "hematemesis trombositopenia AKI CAD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6590,7 +6594,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis | hematemesis trombositopemnia AKI CAD",
+          "diagnosisSpreadsheet": "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis | hematemesis trombositopemnia AKI CAD | hematemesis trombositopenia AKI CAD",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6840,15 +6844,17 @@
           "key": "00293033",
           "mrNo": "00293033",
           "name": "Tn. Silvanus Iros 00293033",
-          "bedLatest": "9.1",
+          "bedLatest": "6.2",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nCo dr.Temi,Sp.JP",
           "admissionDate": "09/11/2026",
           "datesSeen": [
-            "2026-11-09"
+            "2026-11-09",
+            "2026-11-13"
           ],
-          "daysInWard": 1,
+          "daysInWard": 2,
           "diagnoses": [
-            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
+            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+            "Anemia in CKD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6857,7 +6863,7 @@
           "losLatest": 1,
           "gender": "L",
           "age": "61 th",
-          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | Anemia in CKD",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -7020,7 +7026,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "hipertensi emergensy dispepsia"
+            "hipertensi emergensy dispepsia",
+            "Hipertensi emergensi Dispepsia AKI"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7029,7 +7036,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hipertensi emergensy dispepsia",
+          "diagnosisSpreadsheet": "hipertensi emergensy dispepsia | Hipertensi emergensi Dispepsia AKI",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7320,7 +7327,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "hipokalemia berat"
+            "hipokalemia berat",
+            "hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7329,7 +7337,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hipokalemia berat",
+          "diagnosisSpreadsheet": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7348,7 +7356,7 @@
           "daysInWard": 2,
           "diagnoses": [
             "CKD on HD",
-            "hipokalemia berat"
+            "CKD on HD\nhipokalemia berat"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7357,7 +7365,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "61 th",
-          "diagnosisSpreadsheet": "CKD on HD | hipokalemia berat",
+          "diagnosisSpreadsheet": "CKD on HD | CKD on HD\nhipokalemia berat",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -9330,10 +9338,9 @@
             "2026-11-09",
             "2026-11-10",
             "2026-11-11",
-            "2026-11-12",
-            "2026-11-13"
+            "2026-11-12"
           ],
-          "daysInWard": 8,
+          "daysInWard": 7,
           "diagnoses": [
             "aiha",
             "aiha\n\nCo dr.Eni,Sp.THT"
@@ -9342,7 +9349,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "aiha | aiha\n\nCo dr.Eni,Sp.THT",
@@ -9552,7 +9559,8 @@
           "daysInWard": 6,
           "diagnoses": [
             "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis",
-            "hematemesis trombositopemnia AKI CAD"
+            "hematemesis trombositopemnia AKI CAD",
+            "hematemesis trombositopenia AKI CAD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9561,7 +9569,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis | hematemesis trombositopemnia AKI CAD",
+          "diagnosisSpreadsheet": "hematemesis melena ec susp pscba\n ADHF ec CAD, EF 11% \nHematemesis \nTransaminitis | hematemesis trombositopemnia AKI CAD | hematemesis trombositopenia AKI CAD",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9811,15 +9819,17 @@
           "key": "00293033",
           "mrNo": "00293033",
           "name": "Tn. Silvanus Iros 00293033",
-          "bedLatest": "9.1",
+          "bedLatest": "6.2",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nCo dr.Temi,Sp.JP",
           "admissionDate": "09/11/2026",
           "datesSeen": [
-            "2026-11-09"
+            "2026-11-09",
+            "2026-11-13"
           ],
-          "daysInWard": 1,
+          "daysInWard": 2,
           "diagnoses": [
-            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP"
+            "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+            "Anemia in CKD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9828,7 +9838,7 @@
           "losLatest": 1,
           "gender": "L",
           "age": "61 th",
-          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
+          "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | Anemia in CKD",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -9991,7 +10001,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "hipertensi emergensy dispepsia"
+            "hipertensi emergensy dispepsia",
+            "Hipertensi emergensi Dispepsia AKI"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10000,7 +10011,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hipertensi emergensy dispepsia",
+          "diagnosisSpreadsheet": "hipertensi emergensy dispepsia | Hipertensi emergensi Dispepsia AKI",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10291,7 +10302,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "hipokalemia berat"
+            "hipokalemia berat",
+            "hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10300,7 +10312,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hipokalemia berat",
+          "diagnosisSpreadsheet": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10319,7 +10331,7 @@
           "daysInWard": 2,
           "diagnoses": [
             "CKD on HD",
-            "hipokalemia berat"
+            "CKD on HD\nhipokalemia berat"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10328,7 +10340,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "61 th",
-          "diagnosisSpreadsheet": "CKD on HD | hipokalemia berat",
+          "diagnosisSpreadsheet": "CKD on HD | CKD on HD\nhipokalemia berat",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
