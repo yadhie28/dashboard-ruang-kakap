@@ -724,7 +724,7 @@
                 "2026-11-12",
                 "2026-11-13"
               ],
-              "diagnosis": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO"
+              "diagnosis": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO | Vomitus ec Dispepsia CHFrEF DM2NO Penumonia"
             },
             {
               "mrNo": "00307019",
@@ -772,7 +772,7 @@
                 "2026-11-12",
                 "2026-11-13"
               ],
-              "diagnosis": "febris h1 vommitus profuse"
+              "diagnosis": "febris h1 vommitus profuse | Febris H3 Vomitus profuse GEA"
             },
             {
               "mrNo": "00008503",
@@ -1239,7 +1239,7 @@
                 "2026-11-12",
                 "2026-11-13"
               ],
-              "diagnosis": "Dizziness\nCAD \nSusp CKD"
+              "diagnosis": "Dizziness\nCAD \nSusp CKD | EPA CAD riw bypass CKD Anemia renal"
             },
             {
               "mrNo": "00302313",
@@ -3703,7 +3703,8 @@
           "diagnoses": [
             "vomitus ec dispepsia",
             "vomitus ec dispepsia\nPJK",
-            "Vomitus ec Dispepsia CHFrEF DM2NO"
+            "Vomitus ec Dispepsia CHFrEF DM2NO",
+            "Vomitus ec Dispepsia CHFrEF DM2NO Penumonia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3712,7 +3713,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO",
+          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO | Vomitus ec Dispepsia CHFrEF DM2NO Penumonia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -3962,7 +3963,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "febris h1 vommitus profuse"
+            "febris h1 vommitus profuse",
+            "Febris H3 Vomitus profuse GEA"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3971,7 +3973,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "25 th",
-          "diagnosisSpreadsheet": "febris h1 vommitus profuse",
+          "diagnosisSpreadsheet": "febris h1 vommitus profuse | Febris H3 Vomitus profuse GEA",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -4155,7 +4157,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Dizziness\nCAD \nSusp CKD"
+            "Dizziness\nCAD \nSusp CKD",
+            "EPA CAD riw bypass CKD Anemia renal"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4164,7 +4167,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Dizziness\nCAD \nSusp CKD",
+          "diagnosisSpreadsheet": "Dizziness\nCAD \nSusp CKD | EPA CAD riw bypass CKD Anemia renal",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -6698,7 +6701,8 @@
           "diagnoses": [
             "vomitus ec dispepsia",
             "vomitus ec dispepsia\nPJK",
-            "Vomitus ec Dispepsia CHFrEF DM2NO"
+            "Vomitus ec Dispepsia CHFrEF DM2NO",
+            "Vomitus ec Dispepsia CHFrEF DM2NO Penumonia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6707,7 +6711,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO",
+          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO | Vomitus ec Dispepsia CHFrEF DM2NO Penumonia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6930,7 +6934,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "febris h1 vommitus profuse"
+            "febris h1 vommitus profuse",
+            "Febris H3 Vomitus profuse GEA"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6939,7 +6944,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "25 th",
-          "diagnosisSpreadsheet": "febris h1 vommitus profuse",
+          "diagnosisSpreadsheet": "febris h1 vommitus profuse | Febris H3 Vomitus profuse GEA",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7096,7 +7101,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Dizziness\nCAD \nSusp CKD"
+            "Dizziness\nCAD \nSusp CKD",
+            "EPA CAD riw bypass CKD Anemia renal"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7105,7 +7111,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Dizziness\nCAD \nSusp CKD",
+          "diagnosisSpreadsheet": "Dizziness\nCAD \nSusp CKD | EPA CAD riw bypass CKD Anemia renal",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -9666,7 +9672,8 @@
           "diagnoses": [
             "vomitus ec dispepsia",
             "vomitus ec dispepsia\nPJK",
-            "Vomitus ec Dispepsia CHFrEF DM2NO"
+            "Vomitus ec Dispepsia CHFrEF DM2NO",
+            "Vomitus ec Dispepsia CHFrEF DM2NO Penumonia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9675,7 +9682,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO",
+          "diagnosisSpreadsheet": "vomitus ec dispepsia | vomitus ec dispepsia\nPJK | Vomitus ec Dispepsia CHFrEF DM2NO | Vomitus ec Dispepsia CHFrEF DM2NO Penumonia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9898,7 +9905,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "febris h1 vommitus profuse"
+            "febris h1 vommitus profuse",
+            "Febris H3 Vomitus profuse GEA"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9907,7 +9915,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "25 th",
-          "diagnosisSpreadsheet": "febris h1 vommitus profuse",
+          "diagnosisSpreadsheet": "febris h1 vommitus profuse | Febris H3 Vomitus profuse GEA",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10064,7 +10072,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Dizziness\nCAD \nSusp CKD"
+            "Dizziness\nCAD \nSusp CKD",
+            "EPA CAD riw bypass CKD Anemia renal"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10073,7 +10082,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Dizziness\nCAD \nSusp CKD",
+          "diagnosisSpreadsheet": "Dizziness\nCAD \nSusp CKD | EPA CAD riw bypass CKD Anemia renal",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
