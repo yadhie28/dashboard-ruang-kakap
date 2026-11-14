@@ -28,13 +28,13 @@
         "2026-11-18",
         "2026-11-19"
       ],
-      "totalObservations": 469,
+      "totalObservations": 472,
       "observationsIncludedCount": 68,
-      "observationsExcludedCount": 401,
-      "totalUniquePatients": 100,
+      "observationsExcludedCount": 404,
+      "totalUniquePatients": 103,
       "uniqueIncludedCount": 11,
-      "uniqueExcludedCount": 89,
-      "uniqueCoveragePct": 11.0,
+      "uniqueExcludedCount": 92,
+      "uniqueCoveragePct": 10.7,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -51,7 +51,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 9,
           "pctOfIncluded": 81.8,
-          "pctOfTotal": 9.0,
+          "pctOfTotal": 8.7,
           "patients": [
             {
               "mrNo": "00301588",
@@ -202,7 +202,7 @@
           "kodeIcd10": "B20",
           "uniqueCount": 2,
           "pctOfIncluded": 18.2,
-          "pctOfTotal": 2.0,
+          "pctOfTotal": 1.9,
           "patients": [
             {
               "mrNo": "00149236",
@@ -259,7 +259,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 51,
+          "count": 54,
           "patients": [
             {
               "mrNo": "00263502",
@@ -885,7 +885,7 @@
                 "2026-11-13",
                 "2026-11-14"
               ],
-              "diagnosis": "anemia hematemesis | MDS\nanemia hematemesis"
+              "diagnosis": "anemia hematemesis | MDS\nanemia hematemesis | MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN"
             },
             {
               "mrNo": "00306604",
@@ -907,9 +907,36 @@
                 "2026-11-14"
               ],
               "diagnosis": "DILI Hipertiroid"
+            },
+            {
+              "mrNo": "00307625",
+              "name": "Ny. Ismhah Rizkianti Aninda",
+              "bed": "3.3",
+              "datesSeen": [
+                "2026-11-14"
+              ],
+              "diagnosis": "Melena Pscba"
+            },
+            {
+              "mrNo": "00268435",
+              "name": "Ny. Sapariah",
+              "bed": "4.1",
+              "datesSeen": [
+                "2026-11-14"
+              ],
+              "diagnosis": "Hipokalemia Cholelithiasis pre op"
+            },
+            {
+              "mrNo": "00301691",
+              "name": "Ny. Nurvida",
+              "bed": "4.4",
+              "datesSeen": [
+                "2026-11-14"
+              ],
+              "diagnosis": "Ca cerviks pro CDL"
             }
           ],
-          "pct": 57.3
+          "pct": 58.7
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -1295,7 +1322,7 @@
               "diagnosis": "CKD on HD | CKD on HD\nhipokalemia berat"
             }
           ],
-          "pct": 34.8
+          "pct": 33.7
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1399,7 +1426,7 @@
               "diagnosis": "Anemia ec Perdarahan Hemoroid gr 3 Hiperglikemia AKI Hiponatremia KAD"
             }
           ],
-          "pct": 6.7
+          "pct": 6.5
         }
       },
       "dailyBreakdown": [
@@ -1482,10 +1509,10 @@
         },
         {
           "date": "2026-11-14",
-          "total": 38,
+          "total": 41,
           "included": 6,
-          "excluded": 32,
-          "coveragePct": 15.8
+          "excluded": 35,
+          "coveragePct": 14.6
         },
         {
           "date": "2026-11-15",
@@ -4376,7 +4403,8 @@
           "daysInWard": 3,
           "diagnoses": [
             "anemia hematemesis",
-            "MDS\nanemia hematemesis"
+            "MDS\nanemia hematemesis",
+            "MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4385,7 +4413,7 @@
           "losLatest": 3,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "anemia hematemesis | MDS\nanemia hematemesis",
+          "diagnosisSpreadsheet": "anemia hematemesis | MDS\nanemia hematemesis | MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -4527,6 +4555,84 @@
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "DILI Hipertiroid",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00307625",
+          "mrNo": "00307625",
+          "name": "Ny. Ismhah Rizkianti Aninda",
+          "bedLatest": "3.3",
+          "doctor": "MUHARDANI IQBAL, DR., M.KED (PD), SP.PD",
+          "admissionDate": "14/11/2026",
+          "datesSeen": [
+            "2026-11-14"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Melena Pscba"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Melena Pscba",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00268435",
+          "mrNo": "00268435",
+          "name": "Ny. Sapariah",
+          "bedLatest": "4.1",
+          "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
+          "admissionDate": "14/11/2026",
+          "datesSeen": [
+            "2026-11-14"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Hipokalemia Cholelithiasis pre op"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Hipokalemia Cholelithiasis pre op",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00301691",
+          "mrNo": "00301691",
+          "name": "Ny. Nurvida",
+          "bedLatest": "4.4",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
+          "admissionDate": "14/11/2026",
+          "datesSeen": [
+            "2026-11-14"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Ca cerviks pro CDL"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Ca cerviks pro CDL",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7387,7 +7493,8 @@
           "daysInWard": 3,
           "diagnoses": [
             "anemia hematemesis",
-            "MDS\nanemia hematemesis"
+            "MDS\nanemia hematemesis",
+            "MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7396,7 +7503,7 @@
           "losLatest": 3,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "anemia hematemesis | MDS\nanemia hematemesis",
+          "diagnosisSpreadsheet": "anemia hematemesis | MDS\nanemia hematemesis | MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7541,6 +7648,84 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00307625",
+          "mrNo": "00307625",
+          "name": "Ny. Ismhah Rizkianti Aninda",
+          "bedLatest": "3.3",
+          "doctor": "MUHARDANI IQBAL, DR., M.KED (PD), SP.PD",
+          "admissionDate": "14/11/2026",
+          "datesSeen": [
+            "2026-11-14"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Melena Pscba"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Melena Pscba",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00268435",
+          "mrNo": "00268435",
+          "name": "Ny. Sapariah",
+          "bedLatest": "4.1",
+          "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
+          "admissionDate": "14/11/2026",
+          "datesSeen": [
+            "2026-11-14"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Hipokalemia Cholelithiasis pre op"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Hipokalemia Cholelithiasis pre op",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00301691",
+          "mrNo": "00301691",
+          "name": "Ny. Nurvida",
+          "bedLatest": "4.4",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
+          "admissionDate": "14/11/2026",
+          "datesSeen": [
+            "2026-11-14"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Ca cerviks pro CDL"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Ca cerviks pro CDL",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         }
       ]
     },
@@ -7560,9 +7745,9 @@
       "excludedPatients": []
     },
     "historical": {
-      "totalRecords": 469,
+      "totalRecords": 472,
       "uniqueIncludedCount": 11,
-      "totalExcludedRecords": 401,
+      "totalExcludedRecords": 404,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 9,
@@ -10425,7 +10610,8 @@
           "daysInWard": 3,
           "diagnoses": [
             "anemia hematemesis",
-            "MDS\nanemia hematemesis"
+            "MDS\nanemia hematemesis",
+            "MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10434,7 +10620,7 @@
           "losLatest": 3,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "anemia hematemesis | MDS\nanemia hematemesis",
+          "diagnosisSpreadsheet": "anemia hematemesis | MDS\nanemia hematemesis | MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10576,6 +10762,84 @@
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "DILI Hipertiroid",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00307625",
+          "mrNo": "00307625",
+          "name": "Ny. Ismhah Rizkianti Aninda",
+          "bedLatest": "3.3",
+          "doctor": "MUHARDANI IQBAL, DR., M.KED (PD), SP.PD",
+          "admissionDate": "14/11/2026",
+          "datesSeen": [
+            "2026-11-14"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Melena Pscba"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Melena Pscba",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00268435",
+          "mrNo": "00268435",
+          "name": "Ny. Sapariah",
+          "bedLatest": "4.1",
+          "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
+          "admissionDate": "14/11/2026",
+          "datesSeen": [
+            "2026-11-14"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Hipokalemia Cholelithiasis pre op"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Hipokalemia Cholelithiasis pre op",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00301691",
+          "mrNo": "00301691",
+          "name": "Ny. Nurvida",
+          "bedLatest": "4.4",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
+          "admissionDate": "14/11/2026",
+          "datesSeen": [
+            "2026-11-14"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Ca cerviks pro CDL"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Ca cerviks pro CDL",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -30258,8 +30522,8 @@
         "Sheet 2026-11-18",
         "Sheet 2026-11-19"
       ],
-      "totalUniqueInpatients": 100,
-      "totalObservations": 469
+      "totalUniqueInpatients": 103,
+      "totalObservations": 472
     },
     "realSummary": {
       "denominator": 11,
