@@ -28,9 +28,9 @@
         "2026-11-18",
         "2026-11-19"
       ],
-      "totalObservations": 468,
+      "totalObservations": 469,
       "observationsIncludedCount": 68,
-      "observationsExcludedCount": 400,
+      "observationsExcludedCount": 401,
       "totalUniquePatients": 100,
       "uniqueIncludedCount": 11,
       "uniqueExcludedCount": 89,
@@ -795,7 +795,8 @@
               "datesSeen": [
                 "2026-11-11",
                 "2026-11-12",
-                "2026-11-13"
+                "2026-11-13",
+                "2026-11-14"
               ],
               "diagnosis": "thalsemia"
             },
@@ -1481,10 +1482,10 @@
         },
         {
           "date": "2026-11-14",
-          "total": 37,
+          "total": 38,
           "included": 6,
-          "excluded": 31,
-          "coveragePct": 16.2
+          "excluded": 32,
+          "coveragePct": 15.8
         },
         {
           "date": "2026-11-15",
@@ -4115,9 +4116,10 @@
           "datesSeen": [
             "2026-11-11",
             "2026-11-12",
-            "2026-11-13"
+            "2026-11-13",
+            "2026-11-14"
           ],
-          "daysInWard": 3,
+          "daysInWard": 4,
           "diagnoses": [
             "thalsemia"
           ],
@@ -4125,7 +4127,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 3,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "thalsemia",
@@ -7125,9 +7127,10 @@
           "datesSeen": [
             "2026-11-11",
             "2026-11-12",
-            "2026-11-13"
+            "2026-11-13",
+            "2026-11-14"
           ],
-          "daysInWard": 3,
+          "daysInWard": 4,
           "diagnoses": [
             "thalsemia"
           ],
@@ -7135,7 +7138,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 3,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "thalsemia",
@@ -7557,9 +7560,9 @@
       "excludedPatients": []
     },
     "historical": {
-      "totalRecords": 468,
+      "totalRecords": 469,
       "uniqueIncludedCount": 11,
-      "totalExcludedRecords": 400,
+      "totalExcludedRecords": 401,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 9,
@@ -10162,9 +10165,10 @@
           "datesSeen": [
             "2026-11-11",
             "2026-11-12",
-            "2026-11-13"
+            "2026-11-13",
+            "2026-11-14"
           ],
-          "daysInWard": 3,
+          "daysInWard": 4,
           "diagnoses": [
             "thalsemia"
           ],
@@ -10172,7 +10176,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 3,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "thalsemia",
@@ -30255,7 +30259,7 @@
         "Sheet 2026-11-19"
       ],
       "totalUniqueInpatients": 100,
-      "totalObservations": 468
+      "totalObservations": 469
     },
     "realSummary": {
       "denominator": 11,
