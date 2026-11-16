@@ -1023,7 +1023,7 @@
                 "2026-11-15",
                 "2026-11-16"
               ],
-              "diagnosis": "GEA"
+              "diagnosis": "GEA | GEA perbaikan"
             }
           ],
           "pct": 58.0
@@ -1397,7 +1397,7 @@
                 "2026-11-15",
                 "2026-11-16"
               ],
-              "diagnosis": "ckd st5 anemia"
+              "diagnosis": "ckd st5 anemia | ckd st5 anemia seizure ec?"
             },
             {
               "mrNo": "00002978",
@@ -4250,7 +4250,8 @@
           ],
           "daysInWard": 7,
           "diagnoses": [
-            "ckd st5 anemia"
+            "ckd st5 anemia",
+            "ckd st5 anemia seizure ec?"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4259,7 +4260,7 @@
           "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "ckd st5 anemia",
+          "diagnosisSpreadsheet": "ckd st5 anemia | ckd st5 anemia seizure ec?",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -5023,7 +5024,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "GEA"
+            "GEA",
+            "GEA perbaikan"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5032,7 +5034,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "GEA",
+          "diagnosisSpreadsheet": "GEA | GEA perbaikan",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7693,7 +7695,8 @@
           ],
           "daysInWard": 7,
           "diagnoses": [
-            "ckd st5 anemia"
+            "ckd st5 anemia",
+            "ckd st5 anemia seizure ec?"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7702,7 +7705,7 @@
           "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "ckd st5 anemia",
+          "diagnosisSpreadsheet": "ckd st5 anemia | ckd st5 anemia seizure ec?",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -8414,7 +8417,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "GEA"
+            "GEA",
+            "GEA perbaikan"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8423,7 +8427,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "GEA",
+          "diagnosisSpreadsheet": "GEA | GEA perbaikan",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -8891,7 +8895,7 @@
           "bed": "8.4",
           "name": "Ny. Normina",
           "mrNo": "00163563",
-          "diagnosis": "ckd st5 anemia",
+          "diagnosis": "ckd st5 anemia seizure ec?",
           "doctor": "dr.Darmawan,Sp.PD-KGH\n\nCo dr.Dini,Sp.N",
           "los": 7,
           "gender": "P",
@@ -8989,7 +8993,7 @@
           "bed": "10.4",
           "name": "Nn. Qarin Aurelia",
           "mrNo": "00307653",
-          "diagnosis": "GEA",
+          "diagnosis": "GEA perbaikan",
           "doctor": "dr. Decky Andrea, Sp.PD",
           "los": 2,
           "gender": "P",
@@ -11641,7 +11645,8 @@
           ],
           "daysInWard": 7,
           "diagnoses": [
-            "ckd st5 anemia"
+            "ckd st5 anemia",
+            "ckd st5 anemia seizure ec?"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11650,7 +11655,7 @@
           "losLatest": 7,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "ckd st5 anemia",
+          "diagnosisSpreadsheet": "ckd st5 anemia | ckd st5 anemia seizure ec?",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -12362,7 +12367,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "GEA"
+            "GEA",
+            "GEA perbaikan"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12371,7 +12377,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "GEA",
+          "diagnosisSpreadsheet": "GEA | GEA perbaikan",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
