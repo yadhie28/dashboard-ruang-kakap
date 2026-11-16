@@ -178,9 +178,12 @@ def extract_free_bed_details(sensus, shift_key, patients=None):
         total = 2
         return {"total": total, "pria": pria, "wanita": wanita, "isolasi": isolasi, "booking_count": booking_count}
 
-    if m_iso:
+    if patients:
+        iso_p = next((p for p in patients if 'ISOLASI' in p.get('room', '').upper() or p.get('bed') == 'ISOLASI'), None)
+        isolasi = 1 if (iso_p and iso_p.get('isEmpty')) else 0
+    elif m_iso:
         isolasi = min(1, int(m_iso.group(1)))
-    elif lead_tot is not None and lead_tot >= (pria + wanita):
+    elif lead_tot is not None and lead_tot >= (pria + wanita) and (pria > 0 or wanita > 0):
         isolasi = min(1, lead_tot - (pria + wanita))
     else:
         isolasi = 1 if iso_val in ['KOSONG', 'FREE', '1', '1.0'] else int(det.get("isolasi", 0) or 0)
@@ -189,15 +192,28 @@ def extract_free_bed_details(sensus, shift_key, patients=None):
     if lead_tot and total != lead_tot:
         total = lead_tot
 
-    # Fallback dari pasien aktif jika masih 0 dan data patients tersedia
-    if total == 0 and patients:
-        male_empty = sum(1 for p in patients if p.get('isEmpty') and re.search(r'\bKAKAP\s+(1|5|6|7)\b', p.get('room', '')))
-        female_empty = sum(1 for p in patients if p.get('isEmpty') and re.search(r'\bKAKAP\s+(2|3|4|8|10)\b', p.get('room', '')))
-        iso_p = next((p for p in patients if 'ISOLASI' in p.get('room', '') or p.get('bed') == 'ISOLASI'), None)
-        isolasi = 1 if (iso_p and iso_p.get('isEmpty')) else 0
-        pria = male_empty
-        wanita = female_empty
-        total = pria + wanita + isolasi
+    # Fallback dari pasien aktif jika gender belum terisi dan data patients tersedia
+    if (total == 0 or (pria == 0 and wanita == 0)) and patients:
+        male_empty = sum(1 for p in patients if p.get('isEmpty') and ('♂' in p.get('room', '') or re.search(r'\bKAKAP\s+(1|5|6|7|9)\b', p.get('room', ''), re.I)))
+        female_empty = sum(1 for p in patients if p.get('isEmpty') and ('♀' in p.get('room', '') or re.search(r'\bKAKAP\s+(2|3|4|8|10)\b', p.get('room', ''), re.I)))
+        iso_p = next((p for p in patients if 'ISOLASI' in p.get('room', '').upper() or p.get('bed') == 'ISOLASI'), None)
+        iso_empty = 1 if (iso_p and iso_p.get('isEmpty')) else 0
+        isolasi = iso_empty
+
+        if lead_tot and lead_tot != (male_empty + female_empty + iso_empty):
+            rem = max(0, lead_tot - isolasi)
+            tot_mf = male_empty + female_empty
+            if tot_mf > 0:
+                pria = int(round(rem * (male_empty / tot_mf)))
+                wanita = rem - pria
+            else:
+                pria = rem // 2
+                wanita = rem - pria
+            total = lead_tot
+        else:
+            pria = male_empty
+            wanita = female_empty
+            total = pria + wanita + isolasi
 
     return {
         "total": total,
@@ -383,13 +399,28 @@ def calculate_balanced_census_chain(all_dates, recent_days):
                 free_wanita = 0
                 free_isolasi = 0
             else:
-                # Standar per shift: prioritaskan jumlah riil pasien aktif di tempat tidur
+                # Standar per shift: prioritaskan data resmi sheet jika tersedia, atau jumlah riil pasien aktif di tempat tidur
                 occ_pts = sum(1 for p in patients if not p.get('isEmpty')) if patients else 0
-                if occ_pts > 0:
+                raw_tot = sensus.get("total", {}).get(sh, 0)
+                if raw_tot and raw_tot > 0:
+                    px_sekarang = raw_tot
+                    free_total = max(0, TOTAL_BEDS - raw_tot)
+                elif occ_pts > 0:
                     px_sekarang = occ_pts
                     free_total = max(0, TOTAL_BEDS - occ_pts)
                 else:
                     px_sekarang = max(0, TOTAL_BEDS - free_total - fb.get("booking_count", 0))
+
+                # Pastikan rincian gender selalu seimbang dengan free_total
+                if free_total != (free_pria + free_wanita + free_isolasi):
+                    rem = max(0, free_total - free_isolasi)
+                    tot_mf = free_pria + free_wanita
+                    if tot_mf > 0:
+                        free_pria = int(round(rem * (free_pria / tot_mf)))
+                        free_wanita = rem - free_pria
+                    else:
+                        free_pria = rem // 2
+                        free_wanita = rem - free_pria
 
                 if sh == "pagi":
                     raw_awal = sensus.get("pasienAwal", {}).get("pagi", 0)
@@ -400,9 +431,11 @@ def calculate_balanced_census_chain(all_dates, recent_days):
                     else:
                         px_awal = px_sekarang
                 elif sh == "sore":
-                    px_awal = day_shifts["pagi"]["pasien_sekarang"]
+                    raw_awal = sensus.get("pasienAwal", {}).get("sore", 0)
+                    px_awal = raw_awal if raw_awal > 0 else day_shifts["pagi"]["pasien_sekarang"]
                 else: # malam
-                    px_awal = day_shifts["sore"]["pasien_sekarang"]
+                    raw_awal = sensus.get("pasienAwal", {}).get("malam", 0)
+                    px_awal = raw_awal if raw_awal > 0 else day_shifts["sore"]["pasien_sekarang"]
 
                 px_baru = raw_baru
                 px_mng = raw_mng
@@ -534,6 +567,13 @@ def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
         antrean_section = ""
 
     # Format Free Bed
+    empty_male_beds = [f"K{p['bed']}" for p in patients if p.get('isEmpty') and ('♂' in p.get('room', '') or re.search(r'\bKAKAP\s+(1|5|6|7|9)\b', p.get('room', ''), re.I))]
+    empty_female_beds = [f"K{p['bed']}" for p in patients if p.get('isEmpty') and ('♀' in p.get('room', '') or re.search(r'\bKAKAP\s+(2|3|4|8|10)\b', p.get('room', ''), re.I))]
+    shown_male_beds = empty_male_beds[:free_pria]
+    shown_female_beds = empty_female_beds[:free_wanita]
+    male_sub = f" ({', '.join(shown_male_beds)})" if shown_male_beds else ""
+    female_sub = f" ({', '.join(shown_female_beds)})" if shown_female_beds else ""
+
     if selected_date == "2026-11-10":
         free_bed_block = (
             f"Free Bed: {free_bed_count}\n"
@@ -541,9 +581,18 @@ def compute_kakap_census(target_date=None, shift="auto", custom_now=None):
             f"•  {free_wanita} P (K8.1, K8.4)\n"
             f"•  {free_isolasi} isolasi\n"
         )
+    elif free_bed_count == 0:
+        free_bed_block = (
+            "Free Bed: 0  (PENUH — Tidak ada bed kosong siap pakai)\n"
+            "•  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)\n"
+            "•  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)\n"
+        )
     else:
         free_bed_block = (
-            f"Free Bed: {free_bed_count}  ({free_pria} L & {free_wanita} P + {free_isolasi} isolasi) \n"
+            f"Free Bed: {free_bed_count}\n"
+            f"•  {free_pria} L{male_sub}\n"
+            f"•  {free_wanita} P{female_sub}\n"
+            f"•  {free_isolasi} isolasi\n"
             "•  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)\n"
             "•  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)\n"
         )

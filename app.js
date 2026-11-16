@@ -5043,9 +5043,13 @@ function computeClientSideKakapCensus(shiftKey = 'pagi') {
       return { total: 2, pria: 2, wanita: 0, isolasi: 0, bookingCount };
     }
 
-    if (mIso) {
+    let isolasi = 0;
+    if (patients && patients.length > 0) {
+      const isoP = patients.find(p => p.room?.toUpperCase().includes('ISOLASI') || p.bed === 'ISOLASI');
+      isolasi = (isoP && isoP.isEmpty) ? 1 : 0;
+    } else if (mIso) {
       isolasi = Math.min(1, parseInt(mIso[1], 10));
-    } else if (leadTot !== undefined && leadTot >= (pria + wanita)) {
+    } else if (leadTot !== undefined && leadTot >= (pria + wanita) && (pria > 0 || wanita > 0)) {
       isolasi = Math.min(1, leadTot - (pria + wanita));
     } else {
       isolasi = ['KOSONG', 'FREE', '1', '1.0'].includes(isoVal) ? 1 : (det.isolasi || 0);
@@ -5054,11 +5058,29 @@ function computeClientSideKakapCensus(shiftKey = 'pagi') {
     let total = pria + wanita + isolasi;
     if (leadTot && total !== leadTot) total = leadTot;
 
-    if (total === 0 && patients.length > 0) {
-      const maleEmpty = patients.filter(p => p.isEmpty && /\bKAKAP\s+(1|5|6|7)\b/i.test(p.room || '')).length;
-      const femaleEmpty = patients.filter(p => p.isEmpty && /\bKAKAP\s+(2|3|4|8|10)\b/i.test(p.room || '')).length;
-      const isoEmpty = patients.some(p => (p.room?.includes('ISOLASI') || p.bed === 'ISOLASI') && p.isEmpty) ? 1 : 0;
-      return { total: maleEmpty + femaleEmpty + isoEmpty, pria: maleEmpty, wanita: femaleEmpty, isolasi: isoEmpty, bookingCount: 0 };
+    if ((total === 0 || (pria === 0 && wanita === 0)) && patients && patients.length > 0) {
+      const maleEmpty = patients.filter(p => p.isEmpty && (p.room?.includes('♂') || /\bKAKAP\s+(1|5|6|7|9)\b/i.test(p.room || ''))).length;
+      const femaleEmpty = patients.filter(p => p.isEmpty && (p.room?.includes('♀') || /\bKAKAP\s+(2|3|4|8|10)\b/i.test(p.room || ''))).length;
+      const isoEmpty = patients.some(p => (p.room?.toUpperCase().includes('ISOLASI') || p.bed === 'ISOLASI') && p.isEmpty) ? 1 : 0;
+      isolasi = isoEmpty;
+
+      if (leadTot && leadTot !== (maleEmpty + femaleEmpty + isoEmpty)) {
+        const rem = Math.max(0, leadTot - isolasi);
+        const totMf = maleEmpty + femaleEmpty;
+        if (totMf > 0) {
+          pria = Math.round(rem * (maleEmpty / totMf));
+          wanita = rem - pria;
+        } else {
+          pria = Math.floor(rem / 2);
+          wanita = rem - pria;
+        }
+        total = leadTot;
+      } else {
+        pria = maleEmpty;
+        wanita = femaleEmpty;
+        total = pria + wanita + isolasi;
+      }
+      return { total, pria, wanita, isolasi, bookingCount: 0 };
     }
 
     return { total, pria, wanita, isolasi, bookingCount };
@@ -5222,12 +5244,27 @@ function computeClientSideKakapCensus(shiftKey = 'pagi') {
 
   const antreanSection = antriList.length > 0 ? ('\n' + antriList.map(item => `•  ${item}`).join('\n')) : '';
 
+  const emptyBeds = (currentDay.patients || []).filter(p => p.isEmpty);
+  const emptyMaleBeds = emptyBeds.filter(p => p.room?.includes('♂') || /\bKAKAP\s+(1|5|6|7|9)\b/i.test(p.room || '')).map(p => `K${p.bed}`);
+  const emptyFemaleBeds = emptyBeds.filter(p => p.room?.includes('♀') || /\bKAKAP\s+(2|3|4|8|10)\b/i.test(p.room || '')).map(p => `K${p.bed}`);
+  const shownMaleBeds = emptyMaleBeds.slice(0, activeMetrics.free_pria);
+  const shownFemaleBeds = emptyFemaleBeds.slice(0, activeMetrics.free_wanita);
+  const maleSub = shownMaleBeds.length > 0 ? ` (${shownMaleBeds.join(', ')})` : '';
+  const femaleSub = shownFemaleBeds.length > 0 ? ` (${shownFemaleBeds.join(', ')})` : '';
+
   const freeBedBlock = (currentDay.date === '2026-11-10')
     ? `Free Bed: ${activeMetrics.free_bed_count}
 •  ${activeMetrics.free_pria} L 
 •  ${activeMetrics.free_wanita} P (K8.1, K8.4)
 •  ${activeMetrics.free_isolasi} isolasi`
-    : `Free Bed: ${activeMetrics.free_bed_count}  (${activeMetrics.free_pria} L & ${activeMetrics.free_wanita} P + ${activeMetrics.free_isolasi} isolasi) 
+    : (activeMetrics.free_bed_count === 0)
+    ? `Free Bed: 0  (PENUH — Tidak ada bed kosong siap pakai)
+•  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)
+•  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)`
+    : `Free Bed: ${activeMetrics.free_bed_count}
+•  ${activeMetrics.free_pria} L${maleSub}
+•  ${activeMetrics.free_wanita} P${femaleSub}
+•  ${activeMetrics.free_isolasi} isolasi
 •  Kamar Kakap 8 & 9 AC panas (kamar 8 klg pasien setuju kondisi)
 •  Lift luar mati, lift dalam sering error (pintu terbuka sendiri)`;
 

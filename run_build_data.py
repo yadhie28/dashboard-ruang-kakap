@@ -525,8 +525,9 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
 
     # Split between patient rows and sensus rows
     sensus_start_row = 9999
-    for r_idx, c in rows_data.items():
-        if c.get('G') == 'SENSUS':
+    for r_idx in sorted(rows_data.keys()):
+        g_val = str(rows_data[r_idx].get('G') or '').strip().upper()
+        if 'SENSUS' in g_val or 'PERAWAT 1' in g_val or 'PASIEN AWAL' in g_val:
             sensus_start_row = r_idx
             break
 
@@ -674,9 +675,9 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
         sensus["pasienAwal"]["malam"] = sensus["total"]["sore"]
 
     # Dynamic free bed calculation from actual beds
-    male_empty = sum(1 for p in final_patients if p.get('isEmpty') and re.search(r'\bKAKAP\s+(1|5|6|7)\b', p.get('room', '')))
-    female_empty = sum(1 for p in final_patients if p.get('isEmpty') and re.search(r'\bKAKAP\s+(2|3|4|8|10)\b', p.get('room', '')))
-    iso_patient = next((p for p in final_patients if 'ISOLASI' in p.get('room', '') or p.get('bed') == 'ISOLASI'), None)
+    male_empty = sum(1 for p in final_patients if p.get('isEmpty') and ('♂' in p.get('room', '') or re.search(r'\bKAKAP\s+(1|5|6|7|9)\b', p.get('room', ''), re.I)))
+    female_empty = sum(1 for p in final_patients if p.get('isEmpty') and ('♀' in p.get('room', '') or re.search(r'\bKAKAP\s+(2|3|4|8|10)\b', p.get('room', ''), re.I)))
+    iso_patient = next((p for p in final_patients if 'ISOLASI' in p.get('room', '').upper() or p.get('bed') == 'ISOLASI'), None)
     iso_empty = 1 if (iso_patient and iso_patient.get('isEmpty')) else 0
 
     for sh in ["pagi", "sore", "malam"]:
