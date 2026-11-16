@@ -25,13 +25,13 @@
         "2026-11-15",
         "2026-11-16"
       ],
-      "totalObservations": 547,
+      "totalObservations": 548,
       "observationsIncludedCount": 79,
-      "observationsExcludedCount": 468,
-      "totalUniquePatients": 111,
+      "observationsExcludedCount": 469,
+      "totalUniquePatients": 112,
       "uniqueIncludedCount": 12,
-      "uniqueExcludedCount": 99,
-      "uniqueCoveragePct": 10.8,
+      "uniqueExcludedCount": 100,
+      "uniqueCoveragePct": 10.7,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -48,7 +48,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 10,
           "pctOfIncluded": 83.3,
-          "pctOfTotal": 9.0,
+          "pctOfTotal": 8.9,
           "patients": [
             {
               "mrNo": "00301588",
@@ -1026,7 +1026,7 @@
               "diagnosis": "GEA"
             }
           ],
-          "pct": 58.6
+          "pct": 58.0
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -1345,7 +1345,7 @@
                 "2026-11-15",
                 "2026-11-16"
               ],
-              "diagnosis": "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade"
+              "diagnosis": "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade\nSusp Vaskular"
             },
             {
               "mrNo": "00176179",
@@ -1455,7 +1455,7 @@
               "diagnosis": "CKD HCC"
             }
           ],
-          "pct": 34.3
+          "pct": 34.0
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1483,7 +1483,7 @@
           "category": "DM_NON_CKD",
           "label": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "color": "#f59e0b",
-          "count": 6,
+          "count": 7,
           "patients": [
             {
               "mrNo": "00305881",
@@ -1561,9 +1561,18 @@
                 "2026-11-16"
               ],
               "diagnosis": "Anemia ec Perdarahan Hemoroid gr 3 Hiperglikemia AKI Hiponatremia KAD"
+            },
+            {
+              "mrNo": "RM-K-3.2",
+              "name": "Ny Sri Triani MR :",
+              "bed": "3.2",
+              "datesSeen": [
+                "2026-11-16"
+              ],
+              "diagnosis": "GEA Cephagia \nDm tipe II AKI"
             }
           ],
-          "pct": 6.1
+          "pct": 7.0
         }
       },
       "dailyBreakdown": [
@@ -1660,10 +1669,10 @@
         },
         {
           "date": "2026-11-16",
-          "total": 36,
+          "total": 37,
           "included": 5,
-          "excluded": 31,
-          "coveragePct": 13.9
+          "excluded": 32,
+          "coveragePct": 13.5
         }
       ],
       "uniquePatientsList": [
@@ -3868,7 +3877,8 @@
           "daysInWard": 9,
           "diagnoses": [
             "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD",
-            "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade"
+            "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade",
+            "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade\nSusp Vaskular"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -3877,7 +3887,7 @@
           "losLatest": 9,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade",
+          "diagnosisSpreadsheet": "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade\nSusp Vaskular",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -5026,6 +5036,32 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "NY SRI TRIANI MR :",
+          "mrNo": "RM-K-3.2",
+          "name": "Ny Sri Triani MR :",
+          "bedLatest": "3.2",
+          "doctor": "dr Harry Andika",
+          "admissionDate": "16/11/2026",
+          "datesSeen": [
+            "2026-11-16"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "GEA Cephagia \nDm tipe II AKI"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
         }
       ],
       "includedPatients": [
@@ -7314,7 +7350,8 @@
           "daysInWard": 9,
           "diagnoses": [
             "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD",
-            "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade"
+            "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade",
+            "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade\nSusp Vaskular"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7323,7 +7360,7 @@
           "losLatest": 9,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade",
+          "diagnosisSpreadsheet": "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade\nSusp Vaskular",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -8390,14 +8427,40 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "NY SRI TRIANI MR :",
+          "mrNo": "RM-K-3.2",
+          "name": "Ny Sri Triani MR :",
+          "bedLatest": "3.2",
+          "doctor": "dr Harry Andika",
+          "admissionDate": "16/11/2026",
+          "datesSeen": [
+            "2026-11-16"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "GEA Cephagia \nDm tipe II AKI"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
         }
       ]
     },
     "today": {
-      "totalInpatients": 36,
+      "totalInpatients": 37,
       "denominatorIncluded": 5,
-      "totalExcluded": 31,
-      "wardCoveragePct": 13.9,
+      "totalExcluded": 32,
+      "wardCoveragePct": 13.5,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 5,
@@ -8599,6 +8662,20 @@
           "date": "2026-11-16",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
+          "bed": "3.2",
+          "name": "Ny Sri Triani MR :",
+          "mrNo": "RM-K-3.2",
+          "diagnosis": "GEA Cephagia \nDm tipe II AKI",
+          "doctor": "dr Harry Andika",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "16/11/2026",
+          "date": "2026-11-16",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "3.3",
@@ -8815,7 +8892,7 @@
           "name": "Ny. Normina",
           "mrNo": "00163563",
           "diagnosis": "ckd st5 anemia",
-          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "doctor": "dr.Darmawan,Sp.PD-KGH\n\nCo dr.Dini,Sp.N",
           "los": 7,
           "gender": "P",
           "age": "",
@@ -8828,7 +8905,7 @@
           "bed": "9.2",
           "name": "Tn. Pery",
           "mrNo": "00272468",
-          "diagnosis": "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade",
+          "diagnosis": "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade\nSusp Vaskular",
           "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM",
           "los": 9,
           "gender": "L",
@@ -8925,9 +9002,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 547,
+      "totalRecords": 548,
       "uniqueIncludedCount": 12,
-      "totalExcludedRecords": 468,
+      "totalExcludedRecords": 469,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 10,
@@ -11221,7 +11298,8 @@
           "daysInWard": 9,
           "diagnoses": [
             "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD",
-            "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade"
+            "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade",
+            "ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade\nSusp Vaskular"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11230,7 +11308,7 @@
           "losLatest": 9,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade",
+          "diagnosisSpreadsheet": "ckd on HD edema pulmo\nHT emergency \nCHF ec HHD | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade | ckd on HD edema pulmo\nHT emergency \nCHF ec CAD dd/ HHD (EF 34%) ; efusi pericard ringan-sedang disekeliling jantung, tanpa tamponade\nSusp Vaskular",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -12297,6 +12375,32 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "NY SRI TRIANI MR :",
+          "mrNo": "RM-K-3.2",
+          "name": "Ny Sri Triani MR :",
+          "bedLatest": "3.2",
+          "doctor": "dr Harry Andika",
+          "admissionDate": "16/11/2026",
+          "datesSeen": [
+            "2026-11-16"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "GEA Cephagia \nDm tipe II AKI"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
         }
       ]
     }
@@ -32230,8 +32334,8 @@
         "Sheet 2026-11-15",
         "Sheet 2026-11-16"
       ],
-      "totalUniqueInpatients": 111,
-      "totalObservations": 547
+      "totalUniqueInpatients": 112,
+      "totalObservations": 548
     },
     "realSummary": {
       "denominator": 12,
