@@ -25,13 +25,13 @@
         "2026-11-15",
         "2026-11-16"
       ],
-      "totalObservations": 547,
+      "totalObservations": 548,
       "observationsIncludedCount": 79,
-      "observationsExcludedCount": 468,
-      "totalUniquePatients": 115,
+      "observationsExcludedCount": 469,
+      "totalUniquePatients": 116,
       "uniqueIncludedCount": 12,
-      "uniqueExcludedCount": 103,
-      "uniqueCoveragePct": 10.4,
+      "uniqueExcludedCount": 104,
+      "uniqueCoveragePct": 10.3,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -48,7 +48,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 10,
           "pctOfIncluded": 83.3,
-          "pctOfTotal": 8.7,
+          "pctOfTotal": 8.6,
           "patients": [
             {
               "mrNo": "00301588",
@@ -1040,13 +1040,13 @@
               "diagnosis": "HIpokalemia Vomitus Profuse"
             }
           ],
-          "pct": 58.3
+          "pct": 57.7
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
           "label": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "color": "#ef4444",
-          "count": 35,
+          "count": 36,
           "patients": [
             {
               "mrNo": "00301205",
@@ -1476,9 +1476,18 @@
                 "2026-11-16"
               ],
               "diagnosis": "syock hipovolemik obs vomitus nefrolithiasis AKI dd CKD"
+            },
+            {
+              "mrNo": "00299418",
+              "name": "Tn.Gusti Irawan 00299418",
+              "bed": "7.2",
+              "datesSeen": [
+                "2026-11-16"
+              ],
+              "diagnosis": "hipokalemia CKD on HD susp UAP dd NSTEMI"
             }
           ],
-          "pct": 34.0
+          "pct": 34.6
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1595,7 +1604,7 @@
               "diagnosis": "GEA Cephagia \nDm tipe II AKI"
             }
           ],
-          "pct": 6.8
+          "pct": 6.7
         }
       },
       "dailyBreakdown": [
@@ -1692,10 +1701,10 @@
         },
         {
           "date": "2026-11-16",
-          "total": 36,
+          "total": 37,
           "included": 5,
-          "excluded": 31,
-          "coveragePct": 13.9
+          "excluded": 32,
+          "coveragePct": 13.5
         }
       ],
       "uniquePatientsList": [
@@ -5167,6 +5176,32 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00299418",
+          "mrNo": "00299418",
+          "name": "Tn.Gusti Irawan 00299418",
+          "bedLatest": "7.2",
+          "doctor": "dr.Darmawan,Sp.PD-KGH",
+          "admissionDate": "16/11/2026",
+          "datesSeen": [
+            "2026-11-16"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "hipokalemia CKD on HD susp UAP dd NSTEMI"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "hipokalemia CKD on HD susp UAP dd NSTEMI",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ],
       "includedPatients": [
@@ -8640,14 +8675,40 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00299418",
+          "mrNo": "00299418",
+          "name": "Tn.Gusti Irawan 00299418",
+          "bedLatest": "7.2",
+          "doctor": "dr.Darmawan,Sp.PD-KGH",
+          "admissionDate": "16/11/2026",
+          "datesSeen": [
+            "2026-11-16"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "hipokalemia CKD on HD susp UAP dd NSTEMI"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "hipokalemia CKD on HD susp UAP dd NSTEMI",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     },
     "today": {
-      "totalInpatients": 36,
+      "totalInpatients": 37,
       "denominatorIncluded": 5,
-      "totalExcluded": 31,
-      "wardCoveragePct": 13.9,
+      "totalExcluded": 32,
+      "wardCoveragePct": 13.5,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 5,
@@ -9005,6 +9066,20 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
+          "bed": "7.2",
+          "name": "Tn.Gusti Irawan 00299418",
+          "mrNo": "00299418",
+          "diagnosis": "hipokalemia CKD on HD susp UAP dd NSTEMI",
+          "doctor": "dr.Darmawan,Sp.PD-KGH",
+          "los": 1,
+          "gender": "L",
+          "age": "",
+          "admissionDate": "16/11/2026",
+          "date": "2026-11-16",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+        },
+        {
           "bed": "7.3",
           "name": "Tn. Wahab",
           "mrNo": "00287047",
@@ -9175,9 +9250,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 547,
+      "totalRecords": 548,
       "uniqueIncludedCount": 12,
-      "totalExcludedRecords": 468,
+      "totalExcludedRecords": 469,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 10,
@@ -12656,6 +12731,32 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00299418",
+          "mrNo": "00299418",
+          "name": "Tn.Gusti Irawan 00299418",
+          "bedLatest": "7.2",
+          "doctor": "dr.Darmawan,Sp.PD-KGH",
+          "admissionDate": "16/11/2026",
+          "datesSeen": [
+            "2026-11-16"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "hipokalemia CKD on HD susp UAP dd NSTEMI"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "hipokalemia CKD on HD susp UAP dd NSTEMI",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     }
@@ -32589,8 +32690,8 @@
         "Sheet 2026-11-15",
         "Sheet 2026-11-16"
       ],
-      "totalUniqueInpatients": 115,
-      "totalObservations": 547
+      "totalUniqueInpatients": 116,
+      "totalObservations": 548
     },
     "realSummary": {
       "denominator": 12,
