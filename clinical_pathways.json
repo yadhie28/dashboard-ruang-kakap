@@ -26,13 +26,13 @@
         "2026-11-16",
         "2026-11-17"
       ],
-      "totalObservations": 583,
+      "totalObservations": 585,
       "observationsIncludedCount": 84,
-      "observationsExcludedCount": 499,
-      "totalUniquePatients": 120,
+      "observationsExcludedCount": 501,
+      "totalUniquePatients": 124,
       "uniqueIncludedCount": 12,
-      "uniqueExcludedCount": 108,
-      "uniqueCoveragePct": 10.0,
+      "uniqueExcludedCount": 112,
+      "uniqueCoveragePct": 9.7,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -49,7 +49,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 10,
           "pctOfIncluded": 83.3,
-          "pctOfTotal": 8.3,
+          "pctOfTotal": 8.1,
           "patients": [
             {
               "mrNo": "00301588",
@@ -225,7 +225,7 @@
           "kodeIcd10": "B20",
           "uniqueCount": 2,
           "pctOfIncluded": 16.7,
-          "pctOfTotal": 1.7,
+          "pctOfTotal": 1.6,
           "patients": [
             {
               "mrNo": "00149236",
@@ -282,7 +282,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 63,
+          "count": 66,
           "patients": [
             {
               "mrNo": "00263502",
@@ -623,8 +623,7 @@
                 "2026-11-13",
                 "2026-11-14",
                 "2026-11-15",
-                "2026-11-16",
-                "2026-11-17"
+                "2026-11-16"
               ],
               "diagnosis": "AML Bisitopenia Hiponatremia Hipokalemia | AML Bisitopenia Hipokalemia"
             },
@@ -811,7 +810,7 @@
                 "2026-11-16",
                 "2026-11-17"
               ],
-              "diagnosis": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH"
+              "diagnosis": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP"
             },
             {
               "mrNo": "00307172",
@@ -1061,6 +1060,15 @@
               "diagnosis": "HIpokalemia \nVomitus Profuse"
             },
             {
+              "mrNo": "00128458",
+              "name": "Ny. Ananda Maulidiah",
+              "bed": "2.2",
+              "datesSeen": [
+                "2026-11-17"
+              ],
+              "diagnosis": "ADB"
+            },
+            {
               "mrNo": "RM-K-5.2",
               "name": "Tn Syarif Beni Mr :",
               "bed": "5.2",
@@ -1068,6 +1076,15 @@
                 "2026-11-17"
               ],
               "diagnosis": "Susp Ascites dd massa"
+            },
+            {
+              "mrNo": "00307933",
+              "name": "Tn. Rudi Alfisa",
+              "bed": "7.3",
+              "datesSeen": [
+                "2026-11-17"
+              ],
+              "diagnosis": "Susp leukemia akut"
             },
             {
               "mrNo": "00172779",
@@ -1079,6 +1096,15 @@
               "diagnosis": "adenocystic ca maxilla on radiotherapy ca related pain low intake"
             },
             {
+              "mrNo": "00268738",
+              "name": "Tn. Heri Gunawan",
+              "bed": "9.3",
+              "datesSeen": [
+                "2026-11-17"
+              ],
+              "diagnosis": "Residif kanker testis Hematoskezia"
+            },
+            {
               "mrNo": "00212861",
               "name": "Ny. Lipam 00212861",
               "bed": "10.4",
@@ -1088,7 +1114,7 @@
               "diagnosis": "kolik abdomen ec susp cronic parenchymal disease chf"
             }
           ],
-          "pct": 58.3
+          "pct": 58.9
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -1553,7 +1579,7 @@
               "diagnosis": "hipokalemia CKD on HD susp UAP dd NSTEMI"
             }
           ],
-          "pct": 34.3
+          "pct": 33.0
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1581,7 +1607,7 @@
           "category": "DM_NON_CKD",
           "label": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "color": "#f59e0b",
-          "count": 7,
+          "count": 8,
           "patients": [
             {
               "mrNo": "00305881",
@@ -1666,13 +1692,21 @@
               "name": "Ny Sri Triani MR :",
               "bed": "3.2",
               "datesSeen": [
-                "2026-11-16",
+                "2026-11-16"
+              ],
+              "diagnosis": "GEA Cephagia \nDm tipe II AKI"
+            },
+            {
+              "mrNo": "00285196",
+              "name": "Ny. Sri Triani",
+              "bed": "3.2",
+              "datesSeen": [
                 "2026-11-17"
               ],
               "diagnosis": "GEA Cephagia \nDm tipe II AKI"
             }
           ],
-          "pct": 6.5
+          "pct": 7.1
         }
       },
       "dailyBreakdown": [
@@ -1776,10 +1810,10 @@
         },
         {
           "date": "2026-11-17",
-          "total": 36,
+          "total": 38,
           "included": 5,
-          "excluded": 31,
-          "coveragePct": 13.9
+          "excluded": 33,
+          "coveragePct": 13.2
         }
       ],
       "uniquePatientsList": [
@@ -3482,10 +3516,9 @@
             "2026-11-13",
             "2026-11-14",
             "2026-11-15",
-            "2026-11-16",
-            "2026-11-17"
+            "2026-11-16"
           ],
-          "daysInWard": 12,
+          "daysInWard": 11,
           "diagnoses": [
             "AML Bisitopenia Hiponatremia Hipokalemia",
             "AML Bisitopenia Hipokalemia"
@@ -3494,7 +3527,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 11,
+          "losLatest": 10,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "AML Bisitopenia Hiponatremia Hipokalemia | AML Bisitopenia Hipokalemia",
@@ -4276,7 +4309,8 @@
           "daysInWard": 8,
           "diagnoses": [
             "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH",
-            "Anemia Perdarahan, GEA, LBP, BPH"
+            "Anemia Perdarahan, GEA, LBP, BPH",
+            "Anemia Perdarahan, BPH, LBP"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4285,7 +4319,7 @@
           "losLatest": 8,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH",
+          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5212,10 +5246,9 @@
           "doctor": "dr Harry Andika",
           "admissionDate": "16/11/2026",
           "datesSeen": [
-            "2026-11-16",
-            "2026-11-17"
+            "2026-11-16"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "GEA Cephagia \nDm tipe II AKI"
           ],
@@ -5223,7 +5256,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
@@ -5341,6 +5374,58 @@
           "exclusionCategoryColor": "#ef4444"
         },
         {
+          "key": "00128458",
+          "mrNo": "00128458",
+          "name": "Ny. Ananda Maulidiah",
+          "bedLatest": "2.2",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "2026-11-17",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "ADB"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "ADB",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00285196",
+          "mrNo": "00285196",
+          "name": "Ny. Sri Triani",
+          "bedLatest": "3.2",
+          "doctor": "dr Harry Andika",
+          "admissionDate": "16/11/2026",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "GEA Cephagia \nDm tipe II AKI"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 2,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
+        },
+        {
           "key": "TN SYARIF BENI MR :",
           "mrNo": "RM-K-5.2",
           "name": "Tn Syarif Beni Mr :",
@@ -5367,6 +5452,32 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "00307933",
+          "mrNo": "00307933",
+          "name": "Tn. Rudi Alfisa",
+          "bedLatest": "7.3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "17/11/2026",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Susp leukemia akut"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Susp leukemia akut",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00172779",
           "mrNo": "00172779",
           "name": "Ny. Susana Aham 00172779",
@@ -5388,6 +5499,32 @@
           "gender": "P",
           "age": "43 th",
           "diagnosisSpreadsheet": "adenocystic ca maxilla on radiotherapy ca related pain low intake",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00268738",
+          "mrNo": "00268738",
+          "name": "Tn. Heri Gunawan",
+          "bedLatest": "9.3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "17/11/2026",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Residif kanker testis Hematoskezia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Residif kanker testis Hematoskezia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7292,10 +7429,9 @@
             "2026-11-13",
             "2026-11-14",
             "2026-11-15",
-            "2026-11-16",
-            "2026-11-17"
+            "2026-11-16"
           ],
-          "daysInWard": 12,
+          "daysInWard": 11,
           "diagnoses": [
             "AML Bisitopenia Hiponatremia Hipokalemia",
             "AML Bisitopenia Hipokalemia"
@@ -7304,7 +7440,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 11,
+          "losLatest": 10,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "AML Bisitopenia Hiponatremia Hipokalemia | AML Bisitopenia Hipokalemia",
@@ -7968,7 +8104,8 @@
           "daysInWard": 8,
           "diagnoses": [
             "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH",
-            "Anemia Perdarahan, GEA, LBP, BPH"
+            "Anemia Perdarahan, GEA, LBP, BPH",
+            "Anemia Perdarahan, BPH, LBP"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7977,7 +8114,7 @@
           "losLatest": 8,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH",
+          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -8851,10 +8988,9 @@
           "doctor": "dr Harry Andika",
           "admissionDate": "16/11/2026",
           "datesSeen": [
-            "2026-11-16",
-            "2026-11-17"
+            "2026-11-16"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "GEA Cephagia \nDm tipe II AKI"
           ],
@@ -8862,7 +8998,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
@@ -8980,6 +9116,58 @@
           "exclusionCategoryColor": "#ef4444"
         },
         {
+          "key": "00128458",
+          "mrNo": "00128458",
+          "name": "Ny. Ananda Maulidiah",
+          "bedLatest": "2.2",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "2026-11-17",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "ADB"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "ADB",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00285196",
+          "mrNo": "00285196",
+          "name": "Ny. Sri Triani",
+          "bedLatest": "3.2",
+          "doctor": "dr Harry Andika",
+          "admissionDate": "16/11/2026",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "GEA Cephagia \nDm tipe II AKI"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 2,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
+        },
+        {
           "key": "TN SYARIF BENI MR :",
           "mrNo": "RM-K-5.2",
           "name": "Tn Syarif Beni Mr :",
@@ -9006,6 +9194,32 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "00307933",
+          "mrNo": "00307933",
+          "name": "Tn. Rudi Alfisa",
+          "bedLatest": "7.3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "17/11/2026",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Susp leukemia akut"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Susp leukemia akut",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00172779",
           "mrNo": "00172779",
           "name": "Ny. Susana Aham 00172779",
@@ -9027,6 +9241,32 @@
           "gender": "P",
           "age": "43 th",
           "diagnosisSpreadsheet": "adenocystic ca maxilla on radiotherapy ca related pain low intake",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00268738",
+          "mrNo": "00268738",
+          "name": "Tn. Heri Gunawan",
+          "bedLatest": "9.3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "17/11/2026",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Residif kanker testis Hematoskezia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Residif kanker testis Hematoskezia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9060,10 +9300,10 @@
       ]
     },
     "today": {
-      "totalInpatients": 36,
+      "totalInpatients": 38,
       "denominatorIncluded": 5,
-      "totalExcluded": 31,
-      "wardCoveragePct": 13.9,
+      "totalExcluded": 33,
+      "wardCoveragePct": 13.2,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 5,
@@ -9198,14 +9438,14 @@
         },
         {
           "bed": "2.2",
-          "name": "Ny. Dewi Imas Septiana",
-          "mrNo": "00284553",
-          "diagnosis": "AML Bisitopenia Hipokalemia",
+          "name": "Ny. Ananda Maulidiah",
+          "mrNo": "00128458",
+          "diagnosis": "ADB",
           "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-          "los": 11,
+          "los": 1,
           "gender": "P",
           "age": "",
-          "admissionDate": "07/11/2026",
+          "admissionDate": "2026-11-17",
           "date": "2026-11-17",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
@@ -9240,8 +9480,8 @@
         },
         {
           "bed": "3.2",
-          "name": "Ny Sri Triani MR :",
-          "mrNo": "RM-K-3.2",
+          "name": "Ny. Sri Triani",
+          "mrNo": "00285196",
           "diagnosis": "GEA Cephagia \nDm tipe II AKI",
           "doctor": "dr Harry Andika",
           "los": 2,
@@ -9424,7 +9664,7 @@
           "bed": "7.1",
           "name": "Tn. Sofian",
           "mrNo": "00163772",
-          "diagnosis": "Anemia Perdarahan, GEA, LBP, BPH",
+          "diagnosis": "Anemia Perdarahan, BPH, LBP",
           "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\ndr.Saor,Sp.U",
           "los": 8,
           "gender": "L",
@@ -9447,6 +9687,20 @@
           "date": "2026-11-17",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+        },
+        {
+          "bed": "7.3",
+          "name": "Tn. Rudi Alfisa",
+          "mrNo": "00307933",
+          "diagnosis": "Susp leukemia akut",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "los": 1,
+          "gender": "L",
+          "age": "",
+          "admissionDate": "17/11/2026",
+          "date": "2026-11-17",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "7.4",
@@ -9517,6 +9771,20 @@
           "date": "2026-11-17",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+        },
+        {
+          "bed": "9.3",
+          "name": "Tn. Heri Gunawan",
+          "mrNo": "00268738",
+          "diagnosis": "Residif kanker testis Hematoskezia",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "los": 1,
+          "gender": "L",
+          "age": "",
+          "admissionDate": "17/11/2026",
+          "date": "2026-11-17",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "9.4",
@@ -9591,9 +9859,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 583,
+      "totalRecords": 585,
       "uniqueIncludedCount": 12,
-      "totalExcludedRecords": 499,
+      "totalExcludedRecords": 501,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 10,
@@ -11474,10 +11742,9 @@
             "2026-11-13",
             "2026-11-14",
             "2026-11-15",
-            "2026-11-16",
-            "2026-11-17"
+            "2026-11-16"
           ],
-          "daysInWard": 12,
+          "daysInWard": 11,
           "diagnoses": [
             "AML Bisitopenia Hiponatremia Hipokalemia",
             "AML Bisitopenia Hipokalemia"
@@ -11486,7 +11753,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 11,
+          "losLatest": 10,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "AML Bisitopenia Hiponatremia Hipokalemia | AML Bisitopenia Hipokalemia",
@@ -12150,7 +12417,8 @@
           "daysInWard": 8,
           "diagnoses": [
             "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH",
-            "Anemia Perdarahan, GEA, LBP, BPH"
+            "Anemia Perdarahan, GEA, LBP, BPH",
+            "Anemia Perdarahan, BPH, LBP"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12159,7 +12427,7 @@
           "losLatest": 8,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH",
+          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -13033,10 +13301,9 @@
           "doctor": "dr Harry Andika",
           "admissionDate": "16/11/2026",
           "datesSeen": [
-            "2026-11-16",
-            "2026-11-17"
+            "2026-11-16"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "GEA Cephagia \nDm tipe II AKI"
           ],
@@ -13044,7 +13311,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
@@ -13162,6 +13429,58 @@
           "exclusionCategoryColor": "#ef4444"
         },
         {
+          "key": "00128458",
+          "mrNo": "00128458",
+          "name": "Ny. Ananda Maulidiah",
+          "bedLatest": "2.2",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "2026-11-17",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "ADB"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "ADB",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00285196",
+          "mrNo": "00285196",
+          "name": "Ny. Sri Triani",
+          "bedLatest": "3.2",
+          "doctor": "dr Harry Andika",
+          "admissionDate": "16/11/2026",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "GEA Cephagia \nDm tipe II AKI"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 2,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
+        },
+        {
           "key": "TN SYARIF BENI MR :",
           "mrNo": "RM-K-5.2",
           "name": "Tn Syarif Beni Mr :",
@@ -13188,6 +13507,32 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "00307933",
+          "mrNo": "00307933",
+          "name": "Tn. Rudi Alfisa",
+          "bedLatest": "7.3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "17/11/2026",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Susp leukemia akut"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Susp leukemia akut",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00172779",
           "mrNo": "00172779",
           "name": "Ny. Susana Aham 00172779",
@@ -13209,6 +13554,32 @@
           "gender": "P",
           "age": "43 th",
           "diagnosisSpreadsheet": "adenocystic ca maxilla on radiotherapy ca related pain low intake",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00268738",
+          "mrNo": "00268738",
+          "name": "Tn. Heri Gunawan",
+          "bedLatest": "9.3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "17/11/2026",
+          "datesSeen": [
+            "2026-11-17"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Residif kanker testis Hematoskezia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Residif kanker testis Hematoskezia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -33181,8 +33552,8 @@
         "Sheet 2026-11-16",
         "Sheet 2026-11-17"
       ],
-      "totalUniqueInpatients": 120,
-      "totalObservations": 583
+      "totalUniqueInpatients": 124,
+      "totalObservations": 585
     },
     "realSummary": {
       "denominator": 12,
