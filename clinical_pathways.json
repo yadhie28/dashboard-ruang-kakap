@@ -1070,13 +1070,13 @@
               "diagnosis": "Susp Ascites dd massa"
             },
             {
-              "mrNo": "RM-K-8.4",
-              "name": "BOOKINGAN IGD Ny. Susana Aham",
+              "mrNo": "00172779",
+              "name": "Ny. Susana Aham 00172779",
               "bed": "8.4",
               "datesSeen": [
                 "2026-11-17"
               ],
-              "diagnosis": "-"
+              "diagnosis": "adenocystic ca maxilla on radiotherapy ca related pain low intake"
             },
             {
               "mrNo": "00212861",
@@ -5367,25 +5367,27 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN IGD NY. SUSANA AHAM",
-          "mrNo": "RM-K-8.4",
-          "name": "BOOKINGAN IGD Ny. Susana Aham",
+          "key": "00172779",
+          "mrNo": "00172779",
+          "name": "Ny. Susana Aham 00172779",
           "bedLatest": "8.4",
-          "doctor": "dr.Budiman,Sp.B(Onk)",
-          "admissionDate": "2026-11-17",
+          "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS",
+          "admissionDate": "17/11/2026",
           "datesSeen": [
             "2026-11-17"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "adenocystic ca maxilla on radiotherapy ca related pain low intake"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
           "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "age": "43 th",
+          "diagnosisSpreadsheet": "adenocystic ca maxilla on radiotherapy ca related pain low intake",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9004,25 +9006,27 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN IGD NY. SUSANA AHAM",
-          "mrNo": "RM-K-8.4",
-          "name": "BOOKINGAN IGD Ny. Susana Aham",
+          "key": "00172779",
+          "mrNo": "00172779",
+          "name": "Ny. Susana Aham 00172779",
           "bedLatest": "8.4",
-          "doctor": "dr.Budiman,Sp.B(Onk)",
-          "admissionDate": "2026-11-17",
+          "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS",
+          "admissionDate": "17/11/2026",
           "datesSeen": [
             "2026-11-17"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "adenocystic ca maxilla on radiotherapy ca related pain low intake"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
           "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "age": "43 th",
+          "diagnosisSpreadsheet": "adenocystic ca maxilla on radiotherapy ca related pain low intake",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9488,17 +9492,17 @@
         },
         {
           "bed": "8.4",
-          "name": "BOOKINGAN IGD Ny. Susana Aham",
-          "mrNo": "RM-K-8.4",
-          "diagnosis": "",
-          "doctor": "dr.Budiman,Sp.B(Onk)",
+          "name": "Ny. Susana Aham 00172779",
+          "mrNo": "00172779",
+          "diagnosis": "adenocystic ca maxilla on radiotherapy ca related pain low intake",
+          "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS",
           "los": 1,
           "gender": "P",
-          "age": "",
-          "admissionDate": "2026-11-17",
+          "age": "43 th",
+          "admissionDate": "17/11/2026",
           "date": "2026-11-17",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "9.2",
@@ -13184,25 +13188,27 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN IGD NY. SUSANA AHAM",
-          "mrNo": "RM-K-8.4",
-          "name": "BOOKINGAN IGD Ny. Susana Aham",
+          "key": "00172779",
+          "mrNo": "00172779",
+          "name": "Ny. Susana Aham 00172779",
           "bedLatest": "8.4",
-          "doctor": "dr.Budiman,Sp.B(Onk)",
-          "admissionDate": "2026-11-17",
+          "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS",
+          "admissionDate": "17/11/2026",
           "datesSeen": [
             "2026-11-17"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "adenocystic ca maxilla on radiotherapy ca related pain low intake"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
           "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "age": "43 th",
+          "diagnosisSpreadsheet": "adenocystic ca maxilla on radiotherapy ca related pain low intake",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
