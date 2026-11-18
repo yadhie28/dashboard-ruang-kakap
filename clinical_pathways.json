@@ -27,13 +27,13 @@
         "2026-11-17",
         "2026-11-18"
       ],
-      "totalObservations": 622,
+      "totalObservations": 623,
       "observationsIncludedCount": 88,
-      "observationsExcludedCount": 534,
-      "totalUniquePatients": 127,
+      "observationsExcludedCount": 535,
+      "totalUniquePatients": 130,
       "uniqueIncludedCount": 12,
-      "uniqueExcludedCount": 115,
-      "uniqueCoveragePct": 9.4,
+      "uniqueExcludedCount": 118,
+      "uniqueCoveragePct": 9.2,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -50,7 +50,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 10,
           "pctOfIncluded": 83.3,
-          "pctOfTotal": 7.9,
+          "pctOfTotal": 7.7,
           "patients": [
             {
               "mrNo": "00301588",
@@ -230,7 +230,7 @@
           "kodeIcd10": "B20",
           "uniqueCount": 2,
           "pctOfIncluded": 16.7,
-          "pctOfTotal": 1.6,
+          "pctOfTotal": 1.5,
           "patients": [
             {
               "mrNo": "00149236",
@@ -287,7 +287,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 67,
+          "count": 69,
           "patients": [
             {
               "mrNo": "00263502",
@@ -984,7 +984,7 @@
                 "2026-11-17",
                 "2026-11-18"
               ],
-              "diagnosis": "Melena Pscba | PSMBB ec susp haemoroid dd gastritis erosiva \nanemia"
+              "diagnosis": "Melena Pscba | PSMBB ec susp haemoroid dd gastritis erosiva \nanemia | PSMBB ec susp IBD dd gastritis erosiva anemia acute bronchitis"
             },
             {
               "mrNo": "00268435",
@@ -1104,7 +1104,7 @@
                 "2026-11-17",
                 "2026-11-18"
               ],
-              "diagnosis": "Susp leukemia akut"
+              "diagnosis": "Susp leukemia akut | Ca related anemia\nALL"
             },
             {
               "mrNo": "00172779",
@@ -1124,7 +1124,7 @@
                 "2026-11-17",
                 "2026-11-18"
               ],
-              "diagnosis": "Residif kanker testis Hematoskezia"
+              "diagnosis": "Residif kanker testis Hematoskezia | Seminoma Testis \nCa Related Pain \nDVT \nHematoskezia\nKonstipasi"
             },
             {
               "mrNo": "00212861",
@@ -1137,22 +1137,40 @@
               "diagnosis": "kolik abdomen ec susp cronic parenchymal disease chf | konstipasi CHFrEF Hipertensi hipokalemia"
             },
             {
+              "mrNo": "00307885",
+              "name": "Ny. Asfia",
+              "bed": "2.4",
+              "datesSeen": [
+                "2026-11-18"
+              ],
+              "diagnosis": "pansitopenia ec AML dd MM"
+            },
+            {
               "mrNo": "00307871",
-              "name": "Tn Syarif Beni",
+              "name": "Tn. Syarif Beni",
               "bed": "5.2",
               "datesSeen": [
                 "2026-11-18"
               ],
               "diagnosis": "Susp Ascites dd massa"
+            },
+            {
+              "mrNo": "00307865",
+              "name": "Ny. Agus Niwati",
+              "bed": "8.1",
+              "datesSeen": [
+                "2026-11-18"
+              ],
+              "diagnosis": "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht"
             }
           ],
-          "pct": 58.3
+          "pct": 58.5
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
           "label": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "color": "#ef4444",
-          "count": 37,
+          "count": 38,
           "patients": [
             {
               "mrNo": "00301205",
@@ -1493,8 +1511,7 @@
                 "2026-11-14",
                 "2026-11-15",
                 "2026-11-16",
-                "2026-11-17",
-                "2026-11-18"
+                "2026-11-17"
               ],
               "diagnosis": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | Anemia in CKD"
             },
@@ -1557,8 +1574,7 @@
                 "2026-11-14",
                 "2026-11-15",
                 "2026-11-16",
-                "2026-11-17",
-                "2026-11-18"
+                "2026-11-17"
               ],
               "diagnosis": "Anemia Melena Vertigo vestibula Ht gr 2 AKI dd CKD | anemia ec penyakit kronik dm tipe 2 aki std I sindrom geriatri"
             },
@@ -1584,7 +1600,7 @@
                 "2026-11-17",
                 "2026-11-18"
               ],
-              "diagnosis": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis"
+              "diagnosis": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF"
             },
             {
               "mrNo": "00283680",
@@ -1617,6 +1633,15 @@
                 "2026-11-18"
               ],
               "diagnosis": "hipokalemia CKD on HD susp UAP dd NSTEMI"
+            },
+            {
+              "mrNo": "00291032",
+              "name": "Ny. Suharti 00291032",
+              "bed": "8.2",
+              "datesSeen": [
+                "2026-11-18"
+              ],
+              "diagnosis": "susp edema pulmo CKD"
             }
           ],
           "pct": 32.2
@@ -1641,7 +1666,7 @@
               "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik"
             }
           ],
-          "pct": 0.9
+          "pct": 0.8
         },
         "DM_NON_CKD": {
           "category": "DM_NON_CKD",
@@ -1755,7 +1780,7 @@
                 "2026-11-17",
                 "2026-11-18"
               ],
-              "diagnosis": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia"
+              "diagnosis": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs"
             },
             {
               "mrNo": "00285196",
@@ -1765,10 +1790,10 @@
                 "2026-11-17",
                 "2026-11-18"
               ],
-              "diagnosis": "GEA Cephagia \nDm tipe II AKI"
+              "diagnosis": "GEA Cephagia \nDm tipe II AKI | GEA Cephalgia DM tipe II AKI HT"
             }
           ],
-          "pct": 8.7
+          "pct": 8.5
         }
       },
       "dailyBreakdown": [
@@ -1879,10 +1904,10 @@
         },
         {
           "date": "2026-11-18",
-          "total": 35,
+          "total": 36,
           "included": 4,
-          "excluded": 31,
-          "coveragePct": 11.4
+          "excluded": 32,
+          "coveragePct": 11.1
         }
       ],
       "uniquePatientsList": [
@@ -4347,10 +4372,9 @@
             "2026-11-14",
             "2026-11-15",
             "2026-11-16",
-            "2026-11-17",
-            "2026-11-18"
+            "2026-11-17"
           ],
-          "daysInWard": 7,
+          "daysInWard": 6,
           "diagnoses": [
             "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
             "Anemia in CKD"
@@ -4359,7 +4383,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 6,
+          "losLatest": 5,
           "gender": "L",
           "age": "61 th",
           "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | Anemia in CKD",
@@ -5003,7 +5027,8 @@
           "daysInWard": 5,
           "diagnoses": [
             "Melena Pscba",
-            "PSMBB ec susp haemoroid dd gastritis erosiva \nanemia"
+            "PSMBB ec susp haemoroid dd gastritis erosiva \nanemia",
+            "PSMBB ec susp IBD dd gastritis erosiva anemia acute bronchitis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5012,7 +5037,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Melena Pscba | PSMBB ec susp haemoroid dd gastritis erosiva \nanemia",
+          "diagnosisSpreadsheet": "Melena Pscba | PSMBB ec susp haemoroid dd gastritis erosiva \nanemia | PSMBB ec susp IBD dd gastritis erosiva anemia acute bronchitis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5085,10 +5110,9 @@
             "2026-11-14",
             "2026-11-15",
             "2026-11-16",
-            "2026-11-17",
-            "2026-11-18"
+            "2026-11-17"
           ],
-          "daysInWard": 5,
+          "daysInWard": 4,
           "diagnoses": [
             "Anemia Melena Vertigo vestibula Ht gr 2 AKI dd CKD",
             "anemia ec penyakit kronik dm tipe 2 aki std I sindrom geriatri"
@@ -5097,7 +5121,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 5,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "Anemia Melena Vertigo vestibula Ht gr 2 AKI dd CKD | anemia ec penyakit kronik dm tipe 2 aki std I sindrom geriatri",
@@ -5268,7 +5292,7 @@
           "diagnoses": [
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
-            "CKD HCC Trombositopenia Transminitis"
+            "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5277,7 +5301,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -5516,7 +5540,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia"
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia",
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5525,7 +5550,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia",
+          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -5570,7 +5595,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "GEA Cephagia \nDm tipe II AKI"
+            "GEA Cephagia \nDm tipe II AKI",
+            "GEA Cephalgia DM tipe II AKI HT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5579,7 +5605,7 @@
           "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
+          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI | GEA Cephalgia DM tipe II AKI HT",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -5623,7 +5649,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Susp leukemia akut"
+            "Susp leukemia akut",
+            "Ca related anemia\nALL"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5632,7 +5659,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Susp leukemia akut",
+          "diagnosisSpreadsheet": "Susp leukemia akut | Ca related anemia\nALL",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5678,7 +5705,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Residif kanker testis Hematoskezia"
+            "Residif kanker testis Hematoskezia",
+            "Seminoma Testis \nCa Related Pain \nDVT \nHematoskezia\nKonstipasi"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5687,7 +5715,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Residif kanker testis Hematoskezia",
+          "diagnosisSpreadsheet": "Residif kanker testis Hematoskezia | Seminoma Testis \nCa Related Pain \nDVT \nHematoskezia\nKonstipasi",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5721,11 +5749,37 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "00307885",
+          "mrNo": "00307885",
+          "name": "Ny. Asfia",
+          "bedLatest": "2.4",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "18/11/2026",
+          "datesSeen": [
+            "2026-11-18"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "pansitopenia ec AML dd MM"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "pansitopenia ec AML dd MM",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00307871",
           "mrNo": "00307871",
-          "name": "Tn Syarif Beni",
+          "name": "Tn. Syarif Beni",
           "bedLatest": "5.2",
-          "doctor": "DANAR ANGGRAHINI. K.D., DR. SP.PD. KGH. FINASIM",
+          "doctor": "DANAR ANGGRAHINI. K.D., DR. SP.PD. KGH. FINASIM\n\nDR. RISA SP.P\n\nCo'dr.Alice, Sp.JP",
           "admissionDate": "17/11/2026",
           "datesSeen": [
             "2026-11-18"
@@ -5739,12 +5793,64 @@
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 2,
-          "gender": "P",
+          "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "Susp Ascites dd massa",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00307865",
+          "mrNo": "00307865",
+          "name": "Ny. Agus Niwati",
+          "bedLatest": "8.1",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM\n\nco' dr. Infan, Sp. J",
+          "admissionDate": "18/11/2026",
+          "datesSeen": [
+            "2026-11-18"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00291032",
+          "mrNo": "00291032",
+          "name": "Ny. Suharti 00291032",
+          "bedLatest": "8.2",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM\n\nCo dr.Danayu,Sp.JP",
+          "admissionDate": "18/11/2026",
+          "datesSeen": [
+            "2026-11-18"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "susp edema pulmo CKD"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "39 th",
+          "diagnosisSpreadsheet": "susp edema pulmo CKD",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ],
       "includedPatients": [
@@ -8266,10 +8372,9 @@
             "2026-11-14",
             "2026-11-15",
             "2026-11-16",
-            "2026-11-17",
-            "2026-11-18"
+            "2026-11-17"
           ],
-          "daysInWard": 7,
+          "daysInWard": 6,
           "diagnoses": [
             "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
             "Anemia in CKD"
@@ -8278,7 +8383,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 6,
+          "losLatest": 5,
           "gender": "L",
           "age": "61 th",
           "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | Anemia in CKD",
@@ -8894,7 +8999,8 @@
           "daysInWard": 5,
           "diagnoses": [
             "Melena Pscba",
-            "PSMBB ec susp haemoroid dd gastritis erosiva \nanemia"
+            "PSMBB ec susp haemoroid dd gastritis erosiva \nanemia",
+            "PSMBB ec susp IBD dd gastritis erosiva anemia acute bronchitis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8903,7 +9009,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Melena Pscba | PSMBB ec susp haemoroid dd gastritis erosiva \nanemia",
+          "diagnosisSpreadsheet": "Melena Pscba | PSMBB ec susp haemoroid dd gastritis erosiva \nanemia | PSMBB ec susp IBD dd gastritis erosiva anemia acute bronchitis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -8976,10 +9082,9 @@
             "2026-11-14",
             "2026-11-15",
             "2026-11-16",
-            "2026-11-17",
-            "2026-11-18"
+            "2026-11-17"
           ],
-          "daysInWard": 5,
+          "daysInWard": 4,
           "diagnoses": [
             "Anemia Melena Vertigo vestibula Ht gr 2 AKI dd CKD",
             "anemia ec penyakit kronik dm tipe 2 aki std I sindrom geriatri"
@@ -8988,7 +9093,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 5,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "Anemia Melena Vertigo vestibula Ht gr 2 AKI dd CKD | anemia ec penyakit kronik dm tipe 2 aki std I sindrom geriatri",
@@ -9132,7 +9237,7 @@
           "diagnoses": [
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
-            "CKD HCC Trombositopenia Transminitis"
+            "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9141,7 +9246,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -9380,7 +9485,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia"
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia",
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9389,7 +9495,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia",
+          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -9434,7 +9540,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "GEA Cephagia \nDm tipe II AKI"
+            "GEA Cephagia \nDm tipe II AKI",
+            "GEA Cephalgia DM tipe II AKI HT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9443,7 +9550,7 @@
           "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
+          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI | GEA Cephalgia DM tipe II AKI HT",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -9487,7 +9594,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Susp leukemia akut"
+            "Susp leukemia akut",
+            "Ca related anemia\nALL"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9496,7 +9604,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Susp leukemia akut",
+          "diagnosisSpreadsheet": "Susp leukemia akut | Ca related anemia\nALL",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9542,7 +9650,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Residif kanker testis Hematoskezia"
+            "Residif kanker testis Hematoskezia",
+            "Seminoma Testis \nCa Related Pain \nDVT \nHematoskezia\nKonstipasi"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9551,7 +9660,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Residif kanker testis Hematoskezia",
+          "diagnosisSpreadsheet": "Residif kanker testis Hematoskezia | Seminoma Testis \nCa Related Pain \nDVT \nHematoskezia\nKonstipasi",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9585,11 +9694,37 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "00307885",
+          "mrNo": "00307885",
+          "name": "Ny. Asfia",
+          "bedLatest": "2.4",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "18/11/2026",
+          "datesSeen": [
+            "2026-11-18"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "pansitopenia ec AML dd MM"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "pansitopenia ec AML dd MM",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00307871",
           "mrNo": "00307871",
-          "name": "Tn Syarif Beni",
+          "name": "Tn. Syarif Beni",
           "bedLatest": "5.2",
-          "doctor": "DANAR ANGGRAHINI. K.D., DR. SP.PD. KGH. FINASIM",
+          "doctor": "DANAR ANGGRAHINI. K.D., DR. SP.PD. KGH. FINASIM\n\nDR. RISA SP.P\n\nCo'dr.Alice, Sp.JP",
           "admissionDate": "17/11/2026",
           "datesSeen": [
             "2026-11-18"
@@ -9603,20 +9738,72 @@
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 2,
-          "gender": "P",
+          "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "Susp Ascites dd massa",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00307865",
+          "mrNo": "00307865",
+          "name": "Ny. Agus Niwati",
+          "bedLatest": "8.1",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM\n\nco' dr. Infan, Sp. J",
+          "admissionDate": "18/11/2026",
+          "datesSeen": [
+            "2026-11-18"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00291032",
+          "mrNo": "00291032",
+          "name": "Ny. Suharti 00291032",
+          "bedLatest": "8.2",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM\n\nCo dr.Danayu,Sp.JP",
+          "admissionDate": "18/11/2026",
+          "datesSeen": [
+            "2026-11-18"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "susp edema pulmo CKD"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "39 th",
+          "diagnosisSpreadsheet": "susp edema pulmo CKD",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     },
     "today": {
-      "totalInpatients": 35,
+      "totalInpatients": 36,
       "denominatorIncluded": 4,
-      "totalExcluded": 31,
-      "wardCoveragePct": 11.4,
+      "totalExcluded": 32,
+      "wardCoveragePct": 11.1,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 4,
@@ -9737,8 +9924,8 @@
           "bed": "1.4",
           "name": "Tn. Abdullah",
           "mrNo": "00307975",
-          "diagnosis": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia",
-          "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
+          "diagnosis": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
+          "doctor": "APRIANI, DR, M.KED (PD), SP.PD\n\nCo' dr.Gerald, Sp.B",
           "los": 2,
           "gender": "L",
           "age": "",
@@ -9776,6 +9963,20 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
+          "bed": "2.4",
+          "name": "Ny. Asfia",
+          "mrNo": "00307885",
+          "diagnosis": "pansitopenia ec AML dd MM",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "18/11/2026",
+          "date": "2026-11-18",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
           "bed": "3.1",
           "name": "Ny. Sarimah",
           "mrNo": "00307706",
@@ -9793,7 +9994,7 @@
           "bed": "3.2",
           "name": "Ny. Sri Triani",
           "mrNo": "00285196",
-          "diagnosis": "GEA Cephagia \nDm tipe II AKI",
+          "diagnosis": "GEA Cephalgia DM tipe II AKI HT",
           "doctor": "dr Harry Andika",
           "los": 3,
           "gender": "P",
@@ -9807,7 +10008,7 @@
           "bed": "3.3",
           "name": "Ny. Ismhah Rizkianti Aninda",
           "mrNo": "00307625",
-          "diagnosis": "PSMBB ec susp haemoroid dd gastritis erosiva \nanemia",
+          "diagnosis": "PSMBB ec susp IBD dd gastritis erosiva anemia acute bronchitis",
           "doctor": "MUHARDANI IQBAL, DR., M.KED (PD), SP.PD\n\nKonsul dr. Yustar",
           "los": 5,
           "gender": "P",
@@ -9850,7 +10051,7 @@
           "name": "Ny. Suknah",
           "mrNo": "00296837",
           "diagnosis": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
-          "doctor": "dr. Decky Andrea \n\n co' dr. Elit \n\nco dr. DIni",
+          "doctor": "dr. Decky Andrea \n\nco' dr. Elit \n\nco' dr. Dini\n\nco' dr. Sony",
           "los": 3659,
           "gender": "P",
           "age": "",
@@ -9864,7 +10065,7 @@
           "name": "Nn. Adelia Kumalasari",
           "mrNo": "00152030",
           "diagnosis": "HIpokalemia \nVomitus Profuse",
-          "doctor": "dr. Harry Andhika, Sp.PD",
+          "doctor": "dr. Harry Andhika, Sp.PD\n\ndr.Nurul, Sp.KJ",
           "los": 3,
           "gender": "P",
           "age": "",
@@ -9889,12 +10090,12 @@
         },
         {
           "bed": "5.2",
-          "name": "Tn Syarif Beni",
+          "name": "Tn. Syarif Beni",
           "mrNo": "00307871",
           "diagnosis": "Susp Ascites dd massa",
-          "doctor": "DANAR ANGGRAHINI. K.D., DR. SP.PD. KGH. FINASIM",
+          "doctor": "DANAR ANGGRAHINI. K.D., DR. SP.PD. KGH. FINASIM\n\nDR. RISA SP.P\n\nCo'dr.Alice, Sp.JP",
           "los": 2,
-          "gender": "P",
+          "gender": "L",
           "age": "",
           "admissionDate": "17/11/2026",
           "date": "2026-11-18",
@@ -9916,20 +10117,6 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
-          "bed": "6.2",
-          "name": "Tn. Silvanus Iros",
-          "mrNo": "00293033",
-          "diagnosis": "Anemia in CKD",
-          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM\n\nGUSTI AYU TEMI VIDIANTI, DR, SP.JP (raber)",
-          "los": 6,
-          "gender": "L",
-          "age": "",
-          "admissionDate": "13/11/2026",
-          "date": "2026-11-18",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
-        },
-        {
           "bed": "6.4",
           "name": "Tn. Arpan",
           "mrNo": "00298322",
@@ -9948,7 +10135,7 @@
           "name": "Tn. Sofian",
           "mrNo": "00163772",
           "diagnosis": "Melena ec PSCBA\nAnemia Perdarahan\nBPH\nHT St I\nLBP ec Spondylosis Lumbalis",
-          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\ndr.Saor,Sp.U",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\nCo dr.Saor,Sp.U",
           "los": 9,
           "gender": "L",
           "age": "",
@@ -9975,7 +10162,7 @@
           "bed": "7.3",
           "name": "Tn. Rudi Alfisa",
           "mrNo": "00307933",
-          "diagnosis": "Susp leukemia akut",
+          "diagnosis": "Ca related anemia\nALL",
           "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
           "los": 2,
           "gender": "L",
@@ -10001,17 +10188,31 @@
         },
         {
           "bed": "8.1",
-          "name": "Ny. Satunah",
-          "mrNo": "00254209",
-          "diagnosis": "anemia ec penyakit kronik dm tipe 2 aki std I sindrom geriatri",
-          "doctor": "MUHARDANI IQBAL, DR., M.KED (PD), SP.PD",
-          "los": 5,
+          "name": "Ny. Agus Niwati",
+          "mrNo": "00307865",
+          "diagnosis": "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM\n\nco' dr. Infan, Sp. J",
+          "los": 1,
           "gender": "P",
           "age": "",
-          "admissionDate": "14/11/2026",
+          "admissionDate": "18/11/2026",
           "date": "2026-11-18",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
+          "bed": "8.2",
+          "name": "Ny. Suharti 00291032",
+          "mrNo": "00291032",
+          "diagnosis": "susp edema pulmo CKD",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM\n\nCo dr.Danayu,Sp.JP",
+          "los": 1,
+          "gender": "P",
+          "age": "39 th",
+          "admissionDate": "18/11/2026",
+          "date": "2026-11-18",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "8.4",
@@ -10045,7 +10246,7 @@
           "bed": "9.3",
           "name": "Tn. Heri Gunawan",
           "mrNo": "00268738",
-          "diagnosis": "Residif kanker testis Hematoskezia",
+          "diagnosis": "Seminoma Testis \nCa Related Pain \nDVT \nHematoskezia\nKonstipasi",
           "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
           "los": 2,
           "gender": "L",
@@ -10101,7 +10302,7 @@
           "bed": "10.3",
           "name": "Ny. Satirah",
           "mrNo": "00307673",
-          "diagnosis": "CKD HCC Trombositopenia Transminitis",
+          "diagnosis": "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
           "doctor": "dr. Harry Andhika, Sp.PD",
           "los": 4,
           "gender": "P",
@@ -10128,9 +10329,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 622,
+      "totalRecords": 623,
       "uniqueIncludedCount": 12,
-      "totalExcludedRecords": 534,
+      "totalExcludedRecords": 535,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 10,
@@ -12657,10 +12858,9 @@
             "2026-11-14",
             "2026-11-15",
             "2026-11-16",
-            "2026-11-17",
-            "2026-11-18"
+            "2026-11-17"
           ],
-          "daysInWard": 7,
+          "daysInWard": 6,
           "diagnoses": [
             "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP",
             "Anemia in CKD"
@@ -12669,7 +12869,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 6,
+          "losLatest": 5,
           "gender": "L",
           "age": "61 th",
           "diagnosisSpreadsheet": "ADHF ec old anterior MI \nAKI dd acute on CKD \nsusp CAP | Anemia in CKD",
@@ -13285,7 +13485,8 @@
           "daysInWard": 5,
           "diagnoses": [
             "Melena Pscba",
-            "PSMBB ec susp haemoroid dd gastritis erosiva \nanemia"
+            "PSMBB ec susp haemoroid dd gastritis erosiva \nanemia",
+            "PSMBB ec susp IBD dd gastritis erosiva anemia acute bronchitis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -13294,7 +13495,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Melena Pscba | PSMBB ec susp haemoroid dd gastritis erosiva \nanemia",
+          "diagnosisSpreadsheet": "Melena Pscba | PSMBB ec susp haemoroid dd gastritis erosiva \nanemia | PSMBB ec susp IBD dd gastritis erosiva anemia acute bronchitis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -13367,10 +13568,9 @@
             "2026-11-14",
             "2026-11-15",
             "2026-11-16",
-            "2026-11-17",
-            "2026-11-18"
+            "2026-11-17"
           ],
-          "daysInWard": 5,
+          "daysInWard": 4,
           "diagnoses": [
             "Anemia Melena Vertigo vestibula Ht gr 2 AKI dd CKD",
             "anemia ec penyakit kronik dm tipe 2 aki std I sindrom geriatri"
@@ -13379,7 +13579,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 5,
+          "losLatest": 4,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "Anemia Melena Vertigo vestibula Ht gr 2 AKI dd CKD | anemia ec penyakit kronik dm tipe 2 aki std I sindrom geriatri",
@@ -13523,7 +13723,7 @@
           "diagnoses": [
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
-            "CKD HCC Trombositopenia Transminitis"
+            "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -13532,7 +13732,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -13771,7 +13971,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia"
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia",
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -13780,7 +13981,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia",
+          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -13825,7 +14026,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "GEA Cephagia \nDm tipe II AKI"
+            "GEA Cephagia \nDm tipe II AKI",
+            "GEA Cephalgia DM tipe II AKI HT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -13834,7 +14036,7 @@
           "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI",
+          "diagnosisSpreadsheet": "GEA Cephagia \nDm tipe II AKI | GEA Cephalgia DM tipe II AKI HT",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -13878,7 +14080,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Susp leukemia akut"
+            "Susp leukemia akut",
+            "Ca related anemia\nALL"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -13887,7 +14090,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Susp leukemia akut",
+          "diagnosisSpreadsheet": "Susp leukemia akut | Ca related anemia\nALL",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -13933,7 +14136,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Residif kanker testis Hematoskezia"
+            "Residif kanker testis Hematoskezia",
+            "Seminoma Testis \nCa Related Pain \nDVT \nHematoskezia\nKonstipasi"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -13942,7 +14146,7 @@
           "losLatest": 2,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Residif kanker testis Hematoskezia",
+          "diagnosisSpreadsheet": "Residif kanker testis Hematoskezia | Seminoma Testis \nCa Related Pain \nDVT \nHematoskezia\nKonstipasi",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -13976,11 +14180,37 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "00307885",
+          "mrNo": "00307885",
+          "name": "Ny. Asfia",
+          "bedLatest": "2.4",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "18/11/2026",
+          "datesSeen": [
+            "2026-11-18"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "pansitopenia ec AML dd MM"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "pansitopenia ec AML dd MM",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00307871",
           "mrNo": "00307871",
-          "name": "Tn Syarif Beni",
+          "name": "Tn. Syarif Beni",
           "bedLatest": "5.2",
-          "doctor": "DANAR ANGGRAHINI. K.D., DR. SP.PD. KGH. FINASIM",
+          "doctor": "DANAR ANGGRAHINI. K.D., DR. SP.PD. KGH. FINASIM\n\nDR. RISA SP.P\n\nCo'dr.Alice, Sp.JP",
           "admissionDate": "17/11/2026",
           "datesSeen": [
             "2026-11-18"
@@ -13994,12 +14224,64 @@
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 2,
-          "gender": "P",
+          "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "Susp Ascites dd massa",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00307865",
+          "mrNo": "00307865",
+          "name": "Ny. Agus Niwati",
+          "bedLatest": "8.1",
+          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM\n\nco' dr. Infan, Sp. J",
+          "admissionDate": "18/11/2026",
+          "datesSeen": [
+            "2026-11-18"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00291032",
+          "mrNo": "00291032",
+          "name": "Ny. Suharti 00291032",
+          "bedLatest": "8.2",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM\n\nCo dr.Danayu,Sp.JP",
+          "admissionDate": "18/11/2026",
+          "datesSeen": [
+            "2026-11-18"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "susp edema pulmo CKD"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "39 th",
+          "diagnosisSpreadsheet": "susp edema pulmo CKD",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     }
@@ -33955,8 +34237,8 @@
         "Sheet 2026-11-17",
         "Sheet 2026-11-18"
       ],
-      "totalUniqueInpatients": 127,
-      "totalObservations": 622
+      "totalUniqueInpatients": 130,
+      "totalObservations": 623
     },
     "realSummary": {
       "denominator": 12,
