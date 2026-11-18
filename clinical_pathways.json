@@ -817,7 +817,7 @@
                 "2026-11-17",
                 "2026-11-18"
               ],
-              "diagnosis": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP"
+              "diagnosis": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP | Melena ec PSCBA\nAnemia Perdarahan\nBPH\nHT St I\nLBP ec Spondylosis Lumbalis"
             },
             {
               "mrNo": "00307172",
@@ -4389,7 +4389,8 @@
           "diagnoses": [
             "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH",
             "Anemia Perdarahan, GEA, LBP, BPH",
-            "Anemia Perdarahan, BPH, LBP"
+            "Anemia Perdarahan, BPH, LBP",
+            "Melena ec PSCBA\nAnemia Perdarahan\nBPH\nHT St I\nLBP ec Spondylosis Lumbalis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -4398,7 +4399,7 @@
           "losLatest": 9,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP",
+          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP | Melena ec PSCBA\nAnemia Perdarahan\nBPH\nHT St I\nLBP ec Spondylosis Lumbalis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -8307,7 +8308,8 @@
           "diagnoses": [
             "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH",
             "Anemia Perdarahan, GEA, LBP, BPH",
-            "Anemia Perdarahan, BPH, LBP"
+            "Anemia Perdarahan, BPH, LBP",
+            "Melena ec PSCBA\nAnemia Perdarahan\nBPH\nHT St I\nLBP ec Spondylosis Lumbalis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8316,7 +8318,7 @@
           "losLatest": 9,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP",
+          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP | Melena ec PSCBA\nAnemia Perdarahan\nBPH\nHT St I\nLBP ec Spondylosis Lumbalis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9945,7 +9947,7 @@
           "bed": "7.1",
           "name": "Tn. Sofian",
           "mrNo": "00163772",
-          "diagnosis": "Anemia Perdarahan, BPH, LBP",
+          "diagnosis": "Melena ec PSCBA\nAnemia Perdarahan\nBPH\nHT St I\nLBP ec Spondylosis Lumbalis",
           "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM\n\ndr.Saor,Sp.U",
           "los": 9,
           "gender": "L",
@@ -12697,7 +12699,8 @@
           "diagnoses": [
             "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH",
             "Anemia Perdarahan, GEA, LBP, BPH",
-            "Anemia Perdarahan, BPH, LBP"
+            "Anemia Perdarahan, BPH, LBP",
+            "Melena ec PSCBA\nAnemia Perdarahan\nBPH\nHT St I\nLBP ec Spondylosis Lumbalis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12706,7 +12709,7 @@
           "losLatest": 9,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP",
+          "diagnosisSpreadsheet": "pansitopenia (Hb: 8,8, Leu: 2,73 PLT: 112) GEA, LBP, BPH | Anemia Perdarahan, GEA, LBP, BPH | Anemia Perdarahan, BPH, LBP | Melena ec PSCBA\nAnemia Perdarahan\nBPH\nHT St I\nLBP ec Spondylosis Lumbalis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
