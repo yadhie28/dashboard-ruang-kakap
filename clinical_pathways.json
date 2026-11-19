@@ -291,7 +291,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 73,
+          "count": 71,
           "patients": [
             {
               "mrNo": "00263502",
@@ -1196,40 +1196,22 @@
               "diagnosis": "Ca Related Anemia\nCa Related Pain\nSCC Paru"
             },
             {
-              "mrNo": "RM-K-7.1",
-              "name": "BOOKINGAN SISRUTE Tn. Tedi Zulkarnaen",
+              "mrNo": "00303383",
+              "name": "Tn. Tedi Zulkarnaen 00303383",
               "bed": "7.1",
               "datesSeen": [
                 "2026-11-19"
               ],
-              "diagnosis": "-"
-            },
-            {
-              "mrNo": "RM-K-7.4",
-              "name": "BOOKINGAN IGD Tn. Lo Tjhin Khion",
-              "bed": "7.4",
-              "datesSeen": [
-                "2026-11-19"
-              ],
-              "diagnosis": "-"
-            },
-            {
-              "mrNo": "RM-K-9.1",
-              "name": "BOOKINGAN IGD Tn. Abdul Manaf",
-              "bed": "9.1",
-              "datesSeen": [
-                "2026-11-19"
-              ],
-              "diagnosis": "-"
+              "diagnosis": "- ca lidah - obs vomiting - konstipasi"
             }
           ],
-          "pct": 59.3
+          "pct": 57.7
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
           "label": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "color": "#ef4444",
-          "count": 38,
+          "count": 39,
           "patients": [
             {
               "mrNo": "00301205",
@@ -1707,9 +1689,18 @@
                 "2026-11-19"
               ],
               "diagnosis": "susp edema pulmo CKD"
+            },
+            {
+              "mrNo": "00308164",
+              "name": "Tn. Lo Tjhin Khion 00308164",
+              "bed": "7.4",
+              "datesSeen": [
+                "2026-11-19"
+              ],
+              "diagnosis": "Abdominal pain AKI dd CKD st. 5 Hiperkalemia Transiminitis"
             }
           ],
-          "pct": 30.9
+          "pct": 31.7
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1737,7 +1728,7 @@
           "category": "DM_NON_CKD",
           "label": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "color": "#f59e0b",
-          "count": 11,
+          "count": 12,
           "patients": [
             {
               "mrNo": "00305881",
@@ -1867,9 +1858,18 @@
                 "2026-11-18"
               ],
               "diagnosis": "GEA Cephalgia DM tipe II AKI HT"
+            },
+            {
+              "mrNo": "00253015",
+              "name": "Tn. Abdul Manaf 00253015",
+              "bed": "9.1",
+              "datesSeen": [
+                "2026-11-19"
+              ],
+              "diagnosis": "cirhep DM"
             }
           ],
-          "pct": 8.9
+          "pct": 9.8
         }
       },
       "dailyBreakdown": [
@@ -6025,76 +6025,82 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN SISRUTE TN. TEDI ZULKARNAEN",
-          "mrNo": "RM-K-7.1",
-          "name": "BOOKINGAN SISRUTE Tn. Tedi Zulkarnaen",
+          "key": "00303383",
+          "mrNo": "00303383",
+          "name": "Tn. Tedi Zulkarnaen 00303383",
           "bedLatest": "7.1",
-          "doctor": "",
-          "admissionDate": "2026-11-19",
+          "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS.",
+          "admissionDate": "19/11/2023",
           "datesSeen": [
             "2026-11-19"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "- ca lidah - obs vomiting - konstipasi"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
-          "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1097,
+          "gender": "L",
+          "age": "35 th",
+          "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN IGD TN. LO TJHIN KHION",
-          "mrNo": "RM-K-7.4",
-          "name": "BOOKINGAN IGD Tn. Lo Tjhin Khion",
+          "key": "00308164",
+          "mrNo": "00308164",
+          "name": "Tn. Lo Tjhin Khion 00308164",
           "bedLatest": "7.4",
-          "doctor": "",
-          "admissionDate": "2026-11-19",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-19"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "Abdominal pain AKI dd CKD st. 5 Hiperkalemia Transiminitis"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
+          "gender": "L",
+          "age": "71 th",
+          "diagnosisSpreadsheet": "Abdominal pain AKI dd CKD st. 5 Hiperkalemia Transiminitis",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         },
         {
-          "key": "BOOKINGAN IGD TN. ABDUL MANAF",
-          "mrNo": "RM-K-9.1",
-          "name": "BOOKINGAN IGD Tn. Abdul Manaf",
+          "key": "00253015",
+          "mrNo": "00253015",
+          "name": "Tn. Abdul Manaf 00253015",
           "bedLatest": "9.1",
-          "doctor": "",
-          "admissionDate": "2026-11-19",
+          "doctor": "DECKY ANDREA, DR, SP.PD",
+          "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-19"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "cirhep DM"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
+          "gender": "L",
+          "age": "53 th",
+          "diagnosisSpreadsheet": "cirhep DM",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
         }
       ],
       "includedPatients": [
@@ -10131,76 +10137,82 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN SISRUTE TN. TEDI ZULKARNAEN",
-          "mrNo": "RM-K-7.1",
-          "name": "BOOKINGAN SISRUTE Tn. Tedi Zulkarnaen",
+          "key": "00303383",
+          "mrNo": "00303383",
+          "name": "Tn. Tedi Zulkarnaen 00303383",
           "bedLatest": "7.1",
-          "doctor": "",
-          "admissionDate": "2026-11-19",
+          "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS.",
+          "admissionDate": "19/11/2023",
           "datesSeen": [
             "2026-11-19"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "- ca lidah - obs vomiting - konstipasi"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
-          "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1097,
+          "gender": "L",
+          "age": "35 th",
+          "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN IGD TN. LO TJHIN KHION",
-          "mrNo": "RM-K-7.4",
-          "name": "BOOKINGAN IGD Tn. Lo Tjhin Khion",
+          "key": "00308164",
+          "mrNo": "00308164",
+          "name": "Tn. Lo Tjhin Khion 00308164",
           "bedLatest": "7.4",
-          "doctor": "",
-          "admissionDate": "2026-11-19",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-19"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "Abdominal pain AKI dd CKD st. 5 Hiperkalemia Transiminitis"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
+          "gender": "L",
+          "age": "71 th",
+          "diagnosisSpreadsheet": "Abdominal pain AKI dd CKD st. 5 Hiperkalemia Transiminitis",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         },
         {
-          "key": "BOOKINGAN IGD TN. ABDUL MANAF",
-          "mrNo": "RM-K-9.1",
-          "name": "BOOKINGAN IGD Tn. Abdul Manaf",
+          "key": "00253015",
+          "mrNo": "00253015",
+          "name": "Tn. Abdul Manaf 00253015",
           "bedLatest": "9.1",
-          "doctor": "",
-          "admissionDate": "2026-11-19",
+          "doctor": "DECKY ANDREA, DR, SP.PD",
+          "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-19"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "cirhep DM"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
+          "gender": "L",
+          "age": "53 th",
+          "diagnosisSpreadsheet": "cirhep DM",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
         }
       ]
     },
@@ -10507,17 +10519,17 @@
         },
         {
           "bed": "7.1",
-          "name": "BOOKINGAN SISRUTE Tn. Tedi Zulkarnaen",
-          "mrNo": "RM-K-7.1",
-          "diagnosis": "",
-          "doctor": "",
-          "los": 1,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "2026-11-19",
+          "name": "Tn. Tedi Zulkarnaen 00303383",
+          "mrNo": "00303383",
+          "diagnosis": "- ca lidah - obs vomiting - konstipasi",
+          "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS.",
+          "los": 1097,
+          "gender": "L",
+          "age": "35 th",
+          "admissionDate": "19/11/2023",
           "date": "2026-11-19",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "7.2",
@@ -10549,17 +10561,17 @@
         },
         {
           "bed": "7.4",
-          "name": "BOOKINGAN IGD Tn. Lo Tjhin Khion",
-          "mrNo": "RM-K-7.4",
-          "diagnosis": "",
-          "doctor": "",
+          "name": "Tn. Lo Tjhin Khion 00308164",
+          "mrNo": "00308164",
+          "diagnosis": "Abdominal pain AKI dd CKD st. 5 Hiperkalemia Transiminitis",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
           "los": 1,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "2026-11-19",
+          "gender": "L",
+          "age": "71 th",
+          "admissionDate": "19/11/2026",
           "date": "2026-11-19",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "8.1",
@@ -10605,17 +10617,17 @@
         },
         {
           "bed": "9.1",
-          "name": "BOOKINGAN IGD Tn. Abdul Manaf",
-          "mrNo": "RM-K-9.1",
-          "diagnosis": "",
-          "doctor": "",
+          "name": "Tn. Abdul Manaf 00253015",
+          "mrNo": "00253015",
+          "diagnosis": "cirhep DM",
+          "doctor": "DECKY ANDREA, DR, SP.PD",
           "los": 1,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "2026-11-19",
+          "gender": "L",
+          "age": "53 th",
+          "admissionDate": "19/11/2026",
           "date": "2026-11-19",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+          "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "9.2",
@@ -14762,76 +14774,82 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN SISRUTE TN. TEDI ZULKARNAEN",
-          "mrNo": "RM-K-7.1",
-          "name": "BOOKINGAN SISRUTE Tn. Tedi Zulkarnaen",
+          "key": "00303383",
+          "mrNo": "00303383",
+          "name": "Tn. Tedi Zulkarnaen 00303383",
           "bedLatest": "7.1",
-          "doctor": "",
-          "admissionDate": "2026-11-19",
+          "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS.",
+          "admissionDate": "19/11/2023",
           "datesSeen": [
             "2026-11-19"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "- ca lidah - obs vomiting - konstipasi"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
-          "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1097,
+          "gender": "L",
+          "age": "35 th",
+          "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN IGD TN. LO TJHIN KHION",
-          "mrNo": "RM-K-7.4",
-          "name": "BOOKINGAN IGD Tn. Lo Tjhin Khion",
+          "key": "00308164",
+          "mrNo": "00308164",
+          "name": "Tn. Lo Tjhin Khion 00308164",
           "bedLatest": "7.4",
-          "doctor": "",
-          "admissionDate": "2026-11-19",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-19"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "Abdominal pain AKI dd CKD st. 5 Hiperkalemia Transiminitis"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
+          "gender": "L",
+          "age": "71 th",
+          "diagnosisSpreadsheet": "Abdominal pain AKI dd CKD st. 5 Hiperkalemia Transiminitis",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         },
         {
-          "key": "BOOKINGAN IGD TN. ABDUL MANAF",
-          "mrNo": "RM-K-9.1",
-          "name": "BOOKINGAN IGD Tn. Abdul Manaf",
+          "key": "00253015",
+          "mrNo": "00253015",
+          "name": "Tn. Abdul Manaf 00253015",
           "bedLatest": "9.1",
-          "doctor": "",
-          "admissionDate": "2026-11-19",
+          "doctor": "DECKY ANDREA, DR, SP.PD",
+          "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-19"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "cirhep DM"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
+          "gender": "L",
+          "age": "53 th",
+          "diagnosisSpreadsheet": "cirhep DM",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
         }
       ]
     }
