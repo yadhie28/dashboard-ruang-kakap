@@ -29,12 +29,12 @@
         "2026-11-19",
         "2026-11-20"
       ],
-      "totalObservations": 701,
+      "totalObservations": 702,
       "observationsIncludedCount": 93,
-      "observationsExcludedCount": 608,
-      "totalUniquePatients": 146,
+      "observationsExcludedCount": 609,
+      "totalUniquePatients": 147,
       "uniqueIncludedCount": 12,
-      "uniqueExcludedCount": 134,
+      "uniqueExcludedCount": 135,
       "uniqueCoveragePct": 8.2,
       "perCpSummary": {
         "CP-MAMMAE-001": {
@@ -89,7 +89,7 @@
                 "2026-11-19",
                 "2026-11-20"
               ],
-              "diagnosis": "CKD5-NHD anemia gravis ec susp penyakit kronik dm tipe II | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits",
+              "diagnosis": "CKD5-NHD anemia gravis ec susp penyakit kronik dm tipe II | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits | CKD5-HD \nanemia gravis ec susp penyakit kronik \ndm tipe II \nSirosis Hati ( USG ) \nPost Op Apendisits\nDepresi berat tanpa gejala Psikotik",
               "reason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)"
             },
             {
@@ -294,7 +294,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 77,
+          "count": 78,
           "patients": [
             {
               "mrNo": "00263502",
@@ -1254,22 +1254,31 @@
               "diagnosis": "- ca lidah - obs vomiting - konstipasi | SCC lidah"
             },
             {
-              "mrNo": "RM-K-6.2",
-              "name": "BOOKINGAN IGD Tn. Mangatur Sitorus",
+              "mrNo": "00253328",
+              "name": "Tn. Mangatur Sitorus 00253328",
               "bed": "6.2",
               "datesSeen": [
                 "2026-11-20"
               ],
-              "diagnosis": "-"
+              "diagnosis": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI"
             },
             {
-              "mrNo": "RM-K-7.2",
-              "name": "BOOKINGAN IGD Tn. Beni Junaidi",
+              "mrNo": "00201861",
+              "name": "Tn. Beni Junaidi 00201861",
               "bed": "7.2",
               "datesSeen": [
                 "2026-11-20"
               ],
-              "diagnosis": "-"
+              "diagnosis": "Typhoid fever? abdominal pain"
+            },
+            {
+              "mrNo": "00308286",
+              "name": "Tn. Muhsin 00308286",
+              "bed": "9.2",
+              "datesSeen": [
+                "2026-11-20"
+              ],
+              "diagnosis": "Susp Pneumonia Febris h7 dg Trombositopenia"
             },
             {
               "mrNo": "00248900",
@@ -1278,10 +1287,10 @@
               "datesSeen": [
                 "2026-11-20"
               ],
-              "diagnosis": "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
+              "diagnosis": "Anemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
             }
           ],
-          "pct": 57.5
+          "pct": 57.8
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -1720,7 +1729,7 @@
                 "2026-11-19",
                 "2026-11-20"
               ],
-              "diagnosis": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF"
+              "diagnosis": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik"
             },
             {
               "mrNo": "00283680",
@@ -1828,7 +1837,7 @@
               "diagnosis": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD"
             }
           ],
-          "pct": 32.8
+          "pct": 32.6
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1956,7 +1965,7 @@
                 "2026-11-19",
                 "2026-11-20"
               ],
-              "diagnosis": "Febris h2 DM tipe 2"
+              "diagnosis": "Febris h2 DM tipe 2 | Hiperglikemia Febris h3 DM tipe 2 ISPA HT"
             },
             {
               "mrNo": "00307975",
@@ -1968,7 +1977,7 @@
                 "2026-11-19",
                 "2026-11-20"
               ],
-              "diagnosis": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs"
+              "diagnosis": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs\nIleus membaik Thypoid fever"
             },
             {
               "mrNo": "00285196",
@@ -2001,7 +2010,7 @@
               "diagnosis": "cirhep DM | sirosis hepatis dekompensata DM tipe 2 hepatitis B ascites"
             }
           ],
-          "pct": 9.0
+          "pct": 8.9
         }
       },
       "dailyBreakdown": [
@@ -2126,10 +2135,10 @@
         },
         {
           "date": "2026-11-20",
-          "total": 38,
+          "total": 39,
           "included": 2,
-          "excluded": 36,
-          "coveragePct": 5.3
+          "excluded": 37,
+          "coveragePct": 5.1
         }
       ],
       "uniquePatientsList": [
@@ -2343,7 +2352,8 @@
             "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG )",
             "CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG )",
             "CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks",
-            "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits"
+            "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits",
+            "CKD5-HD \nanemia gravis ec susp penyakit kronik \ndm tipe II \nSirosis Hati ( USG ) \nPost Op Apendisits\nDepresi berat tanpa gejala Psikotik"
           ],
           "status": "INCLUDED",
           "cpId": "CP-DMCKD-002",
@@ -2352,7 +2362,7 @@
           "losLatest": 19,
           "gender": "P",
           "age": "42 th",
-          "diagnosisSpreadsheet": "CKD5-NHD anemia gravis ec susp penyakit kronik dm tipe II | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits"
+          "diagnosisSpreadsheet": "CKD5-NHD anemia gravis ec susp penyakit kronik dm tipe II | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits | CKD5-HD \nanemia gravis ec susp penyakit kronik \ndm tipe II \nSirosis Hati ( USG ) \nPost Op Apendisits\nDepresi berat tanpa gejala Psikotik"
         },
         {
           "key": "00306296",
@@ -5544,7 +5554,7 @@
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
             "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
-            "CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF"
+            "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5553,7 +5563,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -5771,7 +5781,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Febris h2 DM tipe 2"
+            "Febris h2 DM tipe 2",
+            "Hiperglikemia Febris h3 DM tipe 2 ISPA HT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5780,7 +5791,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Febris h2 DM tipe 2",
+          "diagnosisSpreadsheet": "Febris h2 DM tipe 2 | Hiperglikemia Febris h3 DM tipe 2 ISPA HT",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -5801,7 +5812,8 @@
           "daysInWard": 4,
           "diagnoses": [
             "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia",
-            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs"
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs\nIleus membaik Thypoid fever"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5810,7 +5822,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
+          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs\nIleus membaik Thypoid fever",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -6459,49 +6471,53 @@
           "exclusionCategoryColor": "#f59e0b"
         },
         {
-          "key": "BOOKINGAN IGD TN. MANGATUR SITORUS",
-          "mrNo": "RM-K-6.2",
-          "name": "BOOKINGAN IGD Tn. Mangatur Sitorus",
+          "key": "00253328",
+          "mrNo": "00253328",
+          "name": "Tn. Mangatur Sitorus 00253328",
           "bedLatest": "6.2",
-          "doctor": "",
-          "admissionDate": "2026-11-20",
+          "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
+          "admissionDate": "20/11/2026",
           "datesSeen": [
             "2026-11-20"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "gender": "L",
+          "age": "53 th",
+          "diagnosisSpreadsheet": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN IGD TN. BENI JUNAIDI",
-          "mrNo": "RM-K-7.2",
-          "name": "BOOKINGAN IGD Tn. Beni Junaidi",
+          "key": "00201861",
+          "mrNo": "00201861",
+          "name": "Tn. Beni Junaidi 00201861",
           "bedLatest": "7.2",
-          "doctor": "",
-          "admissionDate": "2026-11-20",
+          "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
+          "admissionDate": "20/11/2026",
           "datesSeen": [
             "2026-11-20"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "Typhoid fever? abdominal pain"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "gender": "L",
+          "age": "32 th",
+          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6533,6 +6549,32 @@
           "exclusionCategoryColor": "#ef4444"
         },
         {
+          "key": "00308286",
+          "mrNo": "00308286",
+          "name": "Tn. Muhsin 00308286",
+          "bedLatest": "9.2",
+          "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-20"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Susp Pneumonia Febris h7 dg Trombositopenia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "34 th",
+          "diagnosisSpreadsheet": "Susp Pneumonia Febris h7 dg Trombositopenia",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00248900",
           "mrNo": "00248900",
           "name": "Ny. Sulastri",
@@ -6544,7 +6586,7 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
+            "Anemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6553,7 +6595,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
+          "diagnosisSpreadsheet": "Anemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6618,7 +6660,8 @@
             "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG )",
             "CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG )",
             "CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks",
-            "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits"
+            "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits",
+            "CKD5-HD \nanemia gravis ec susp penyakit kronik \ndm tipe II \nSirosis Hati ( USG ) \nPost Op Apendisits\nDepresi berat tanpa gejala Psikotik"
           ],
           "status": "INCLUDED",
           "cpId": "CP-DMCKD-002",
@@ -6627,7 +6670,7 @@
           "losLatest": 19,
           "gender": "P",
           "age": "42 th",
-          "diagnosisSpreadsheet": "CKD5-NHD anemia gravis ec susp penyakit kronik dm tipe II | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits"
+          "diagnosisSpreadsheet": "CKD5-NHD anemia gravis ec susp penyakit kronik dm tipe II | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits | CKD5-HD \nanemia gravis ec susp penyakit kronik \ndm tipe II \nSirosis Hati ( USG ) \nPost Op Apendisits\nDepresi berat tanpa gejala Psikotik"
         },
         {
           "key": "00289269",
@@ -9973,7 +10016,7 @@
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
             "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
-            "CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF"
+            "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9982,7 +10025,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -10200,7 +10243,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Febris h2 DM tipe 2"
+            "Febris h2 DM tipe 2",
+            "Hiperglikemia Febris h3 DM tipe 2 ISPA HT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10209,7 +10253,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Febris h2 DM tipe 2",
+          "diagnosisSpreadsheet": "Febris h2 DM tipe 2 | Hiperglikemia Febris h3 DM tipe 2 ISPA HT",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -10230,7 +10274,8 @@
           "daysInWard": 4,
           "diagnoses": [
             "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia",
-            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs"
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs\nIleus membaik Thypoid fever"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10239,7 +10284,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
+          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs\nIleus membaik Thypoid fever",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -10888,49 +10933,53 @@
           "exclusionCategoryColor": "#f59e0b"
         },
         {
-          "key": "BOOKINGAN IGD TN. MANGATUR SITORUS",
-          "mrNo": "RM-K-6.2",
-          "name": "BOOKINGAN IGD Tn. Mangatur Sitorus",
+          "key": "00253328",
+          "mrNo": "00253328",
+          "name": "Tn. Mangatur Sitorus 00253328",
           "bedLatest": "6.2",
-          "doctor": "",
-          "admissionDate": "2026-11-20",
+          "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
+          "admissionDate": "20/11/2026",
           "datesSeen": [
             "2026-11-20"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "gender": "L",
+          "age": "53 th",
+          "diagnosisSpreadsheet": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN IGD TN. BENI JUNAIDI",
-          "mrNo": "RM-K-7.2",
-          "name": "BOOKINGAN IGD Tn. Beni Junaidi",
+          "key": "00201861",
+          "mrNo": "00201861",
+          "name": "Tn. Beni Junaidi 00201861",
           "bedLatest": "7.2",
-          "doctor": "",
-          "admissionDate": "2026-11-20",
+          "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
+          "admissionDate": "20/11/2026",
           "datesSeen": [
             "2026-11-20"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "Typhoid fever? abdominal pain"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "gender": "L",
+          "age": "32 th",
+          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10962,6 +11011,32 @@
           "exclusionCategoryColor": "#ef4444"
         },
         {
+          "key": "00308286",
+          "mrNo": "00308286",
+          "name": "Tn. Muhsin 00308286",
+          "bedLatest": "9.2",
+          "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-20"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Susp Pneumonia Febris h7 dg Trombositopenia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "34 th",
+          "diagnosisSpreadsheet": "Susp Pneumonia Febris h7 dg Trombositopenia",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00248900",
           "mrNo": "00248900",
           "name": "Ny. Sulastri",
@@ -10973,7 +11048,7 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
+            "Anemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10982,7 +11057,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
+          "diagnosisSpreadsheet": "Anemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10990,10 +11065,10 @@
       ]
     },
     "today": {
-      "totalInpatients": 38,
+      "totalInpatients": 39,
       "denominatorIncluded": 2,
-      "totalExcluded": 36,
-      "wardCoveragePct": 5.3,
+      "totalExcluded": 37,
+      "wardCoveragePct": 5.1,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -11006,8 +11081,8 @@
           "bed": "2.3",
           "name": "Ny. Vina 00171527",
           "mrNo": "00171527",
-          "diagnosis": "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits",
-          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo. dr. Nurul",
+          "diagnosis": "CKD5-HD \nanemia gravis ec susp penyakit kronik \ndm tipe II \nSirosis Hati ( USG ) \nPost Op Apendisits\nDepresi berat tanpa gejala Psikotik",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH\n\nCo. dr.Gerald \n\ndr. Nurul",
           "los": 19,
           "gender": "P",
           "age": "42 th",
@@ -11040,7 +11115,7 @@
           "bed": "1.1",
           "name": "Tn. Idris",
           "mrNo": "00188454",
-          "diagnosis": "Febris h2 DM tipe 2",
+          "diagnosis": "Hiperglikemia Febris h3 DM tipe 2 ISPA HT",
           "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
           "los": 4,
           "gender": "L",
@@ -11082,7 +11157,7 @@
           "bed": "1.4",
           "name": "Tn. Abdullah",
           "mrNo": "00307975",
-          "diagnosis": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
+          "diagnosis": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs\nIleus membaik Thypoid fever",
           "doctor": "APRIANI, DR, M.KED (PD), SP.PD\n\nCo' dr.Gerald, Sp.B",
           "los": 4,
           "gender": "L",
@@ -11318,17 +11393,17 @@
         },
         {
           "bed": "6.2",
-          "name": "BOOKINGAN IGD Tn. Mangatur Sitorus",
-          "mrNo": "RM-K-6.2",
-          "diagnosis": "",
-          "doctor": "",
+          "name": "Tn. Mangatur Sitorus 00253328",
+          "mrNo": "00253328",
+          "diagnosis": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
+          "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
           "los": 1,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "2026-11-20",
+          "gender": "L",
+          "age": "53 th",
+          "admissionDate": "20/11/2026",
           "date": "2026-11-20",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "6.4",
@@ -11360,17 +11435,17 @@
         },
         {
           "bed": "7.2",
-          "name": "BOOKINGAN IGD Tn. Beni Junaidi",
-          "mrNo": "RM-K-7.2",
-          "diagnosis": "",
-          "doctor": "",
+          "name": "Tn. Beni Junaidi 00201861",
+          "mrNo": "00201861",
+          "diagnosis": "Typhoid fever? abdominal pain",
+          "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
           "los": 1,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "2026-11-20",
+          "gender": "L",
+          "age": "32 th",
+          "admissionDate": "20/11/2026",
           "date": "2026-11-20",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "7.3",
@@ -11471,6 +11546,20 @@
           "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
+          "bed": "9.2",
+          "name": "Tn. Muhsin 00308286",
+          "mrNo": "00308286",
+          "diagnosis": "Susp Pneumonia Febris h7 dg Trombositopenia",
+          "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
+          "los": 1,
+          "gender": "L",
+          "age": "34 th",
+          "admissionDate": "20/11/2026",
+          "date": "2026-11-20",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
           "bed": "9.4",
           "name": "Sdr. Haikal Andika Riswandi",
           "mrNo": "00307690",
@@ -11502,7 +11591,7 @@
           "bed": "10.2",
           "name": "Ny. Sulastri",
           "mrNo": "00248900",
-          "diagnosis": "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
+          "diagnosis": "Anemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
           "doctor": "YUSTAR MULYADI, DR, SP.PD",
           "los": 2,
           "gender": "P",
@@ -11516,7 +11605,7 @@
           "bed": "10.3",
           "name": "Ny. Satirah",
           "mrNo": "00307673",
-          "diagnosis": "CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF",
+          "diagnosis": "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
           "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Yustar,Sp.PD-KGEH",
           "los": 6,
           "gender": "P",
@@ -11543,9 +11632,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 701,
+      "totalRecords": 702,
       "uniqueIncludedCount": 12,
-      "totalExcludedRecords": 608,
+      "totalExcludedRecords": 609,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 10,
@@ -11612,7 +11701,8 @@
             "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG )",
             "CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG )",
             "CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks",
-            "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits"
+            "CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits",
+            "CKD5-HD \nanemia gravis ec susp penyakit kronik \ndm tipe II \nSirosis Hati ( USG ) \nPost Op Apendisits\nDepresi berat tanpa gejala Psikotik"
           ],
           "status": "INCLUDED",
           "cpId": "CP-DMCKD-002",
@@ -11621,7 +11711,7 @@
           "losLatest": 19,
           "gender": "P",
           "age": "42 th",
-          "diagnosisSpreadsheet": "CKD5-NHD anemia gravis ec susp penyakit kronik dm tipe II | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits"
+          "diagnosisSpreadsheet": "CKD5-NHD anemia gravis ec susp penyakit kronik dm tipe II | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits | CKD5-HD \nanemia gravis ec susp penyakit kronik \ndm tipe II \nSirosis Hati ( USG ) \nPost Op Apendisits\nDepresi berat tanpa gejala Psikotik"
         },
         {
           "key": "00289269",
@@ -14967,7 +15057,7 @@
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
             "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
-            "CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF"
+            "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -14976,7 +15066,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -15194,7 +15284,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Febris h2 DM tipe 2"
+            "Febris h2 DM tipe 2",
+            "Hiperglikemia Febris h3 DM tipe 2 ISPA HT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -15203,7 +15294,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Febris h2 DM tipe 2",
+          "diagnosisSpreadsheet": "Febris h2 DM tipe 2 | Hiperglikemia Febris h3 DM tipe 2 ISPA HT",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -15224,7 +15315,8 @@
           "daysInWard": 4,
           "diagnoses": [
             "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia",
-            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs"
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
+            "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs\nIleus membaik Thypoid fever"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -15233,7 +15325,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs",
+          "diagnosisSpreadsheet": "GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs | GEA Vomitus Hiperglikemia ec susp. KAD dd/ HHS Hiponatremia susp ileus obs\nIleus membaik Thypoid fever",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -15882,49 +15974,53 @@
           "exclusionCategoryColor": "#f59e0b"
         },
         {
-          "key": "BOOKINGAN IGD TN. MANGATUR SITORUS",
-          "mrNo": "RM-K-6.2",
-          "name": "BOOKINGAN IGD Tn. Mangatur Sitorus",
+          "key": "00253328",
+          "mrNo": "00253328",
+          "name": "Tn. Mangatur Sitorus 00253328",
           "bedLatest": "6.2",
-          "doctor": "",
-          "admissionDate": "2026-11-20",
+          "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
+          "admissionDate": "20/11/2026",
           "datesSeen": [
             "2026-11-20"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "gender": "L",
+          "age": "53 th",
+          "diagnosisSpreadsheet": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN IGD TN. BENI JUNAIDI",
-          "mrNo": "RM-K-7.2",
-          "name": "BOOKINGAN IGD Tn. Beni Junaidi",
+          "key": "00201861",
+          "mrNo": "00201861",
+          "name": "Tn. Beni Junaidi 00201861",
           "bedLatest": "7.2",
-          "doctor": "",
-          "admissionDate": "2026-11-20",
+          "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
+          "admissionDate": "20/11/2026",
           "datesSeen": [
             "2026-11-20"
           ],
           "daysInWard": 1,
-          "diagnoses": [],
+          "diagnoses": [
+            "Typhoid fever? abdominal pain"
+          ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
           "losLatest": 1,
-          "gender": "P",
-          "age": "",
-          "diagnosisSpreadsheet": "-",
+          "gender": "L",
+          "age": "32 th",
+          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -15956,6 +16052,32 @@
           "exclusionCategoryColor": "#ef4444"
         },
         {
+          "key": "00308286",
+          "mrNo": "00308286",
+          "name": "Tn. Muhsin 00308286",
+          "bedLatest": "9.2",
+          "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-20"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Susp Pneumonia Febris h7 dg Trombositopenia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "34 th",
+          "diagnosisSpreadsheet": "Susp Pneumonia Febris h7 dg Trombositopenia",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
           "key": "00248900",
           "mrNo": "00248900",
           "name": "Ny. Sulastri",
@@ -15967,7 +16089,7 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
+            "Anemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -15976,7 +16098,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
+          "diagnosisSpreadsheet": "Anemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -19451,7 +19573,7 @@
           "isRealPatient": true,
           "denominatorStatus": "INCLUDED",
           "inclusionReason": "Inklusi: Diagnosa sesuai Clinical Pathway DM Tipe II + CKD (ICD-10 E11.22)",
-          "diagnosisSpreadsheet": "CKD5-NHD anemia gravis ec susp penyakit kronik dm tipe II | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits",
+          "diagnosisSpreadsheet": "CKD5-NHD anemia gravis ec susp penyakit kronik dm tipe II | sup hematologi malignancy Melena Anemia AKI dd CKD paraplegia | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) | CKD5-HD// // anemia gravis ec susp penyakit kronik // dm tipe II // Sirosis Hati ( USG ) // Mass abdomen ? DD : skibala ? Infiltrat apendiks | CKD5-HD anemia gravis ec susp penyakit kronik dm tipe II Sirosis Hati ( USG ) Post Op Apendisits | CKD5-HD \nanemia gravis ec susp penyakit kronik \ndm tipe II \nSirosis Hati ( USG ) \nPost Op Apendisits\nDepresi berat tanpa gejala Psikotik",
           "compliance": {
             "totalWajibScheduled": 72,
             "totalTerlaksana": 72,
@@ -35937,8 +36059,8 @@
         "Sheet 2026-11-19",
         "Sheet 2026-11-20"
       ],
-      "totalUniqueInpatients": 146,
-      "totalObservations": 701
+      "totalUniqueInpatients": 147,
+      "totalObservations": 702
     },
     "realSummary": {
       "denominator": 12,
