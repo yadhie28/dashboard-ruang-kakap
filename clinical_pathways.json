@@ -29,13 +29,13 @@
         "2026-11-19",
         "2026-11-20"
       ],
-      "totalObservations": 699,
+      "totalObservations": 701,
       "observationsIncludedCount": 93,
-      "observationsExcludedCount": 606,
-      "totalUniquePatients": 144,
+      "observationsExcludedCount": 608,
+      "totalUniquePatients": 146,
       "uniqueIncludedCount": 12,
-      "uniqueExcludedCount": 132,
-      "uniqueCoveragePct": 8.3,
+      "uniqueExcludedCount": 134,
+      "uniqueCoveragePct": 8.2,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -52,7 +52,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 10,
           "pctOfIncluded": 83.3,
-          "pctOfTotal": 6.9,
+          "pctOfTotal": 6.8,
           "patients": [
             {
               "mrNo": "00301588",
@@ -294,7 +294,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 75,
+          "count": 77,
           "patients": [
             {
               "mrNo": "00263502",
@@ -972,7 +972,7 @@
                 "2026-11-19",
                 "2026-11-20"
               ],
-              "diagnosis": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK akut abdomen"
+              "diagnosis": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK"
             },
             {
               "mrNo": "00307591",
@@ -1251,7 +1251,25 @@
                 "2026-11-19",
                 "2026-11-20"
               ],
-              "diagnosis": "- ca lidah - obs vomiting - konstipasi"
+              "diagnosis": "- ca lidah - obs vomiting - konstipasi | SCC lidah"
+            },
+            {
+              "mrNo": "RM-K-6.2",
+              "name": "BOOKINGAN IGD Tn. Mangatur Sitorus",
+              "bed": "6.2",
+              "datesSeen": [
+                "2026-11-20"
+              ],
+              "diagnosis": "-"
+            },
+            {
+              "mrNo": "RM-K-7.2",
+              "name": "BOOKINGAN IGD Tn. Beni Junaidi",
+              "bed": "7.2",
+              "datesSeen": [
+                "2026-11-20"
+              ],
+              "diagnosis": "-"
             },
             {
               "mrNo": "00248900",
@@ -1260,10 +1278,10 @@
               "datesSeen": [
                 "2026-11-20"
               ],
-              "diagnosis": "Melena Varises esofagus Gastropati porta Anemia"
+              "diagnosis": "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
             }
           ],
-          "pct": 56.8
+          "pct": 57.5
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -1702,7 +1720,7 @@
                 "2026-11-19",
                 "2026-11-20"
               ],
-              "diagnosis": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF"
+              "diagnosis": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF"
             },
             {
               "mrNo": "00283680",
@@ -1810,7 +1828,7 @@
               "diagnosis": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD"
             }
           ],
-          "pct": 33.3
+          "pct": 32.8
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1832,7 +1850,7 @@
               "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik"
             }
           ],
-          "pct": 0.8
+          "pct": 0.7
         },
         "DM_NON_CKD": {
           "category": "DM_NON_CKD",
@@ -1980,10 +1998,10 @@
                 "2026-11-19",
                 "2026-11-20"
               ],
-              "diagnosis": "cirhep DM"
+              "diagnosis": "cirhep DM | sirosis hepatis dekompensata DM tipe 2 hepatitis B ascites"
             }
           ],
-          "pct": 9.1
+          "pct": 9.0
         }
       },
       "dailyBreakdown": [
@@ -2108,10 +2126,10 @@
         },
         {
           "date": "2026-11-20",
-          "total": 36,
+          "total": 38,
           "included": 2,
-          "excluded": 34,
-          "coveragePct": 5.6
+          "excluded": 36,
+          "coveragePct": 5.3
         }
       ],
       "uniquePatientsList": [
@@ -5154,8 +5172,7 @@
           "diagnoses": [
             "hipokalemia berat",
             "hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
-            "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
-            "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK akut abdomen"
+            "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5164,7 +5181,7 @@
           "losLatest": 9,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK akut abdomen",
+          "diagnosisSpreadsheet": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5526,7 +5543,8 @@
           "diagnoses": [
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
-            "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF"
+            "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
+            "CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5535,7 +5553,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -6370,7 +6388,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "- ca lidah - obs vomiting - konstipasi"
+            "- ca lidah - obs vomiting - konstipasi",
+            "SCC lidah"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6379,7 +6398,7 @@
           "losLatest": 1098,
           "gender": "L",
           "age": "35 th",
-          "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi",
+          "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi | SCC lidah",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6424,7 +6443,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "cirhep DM"
+            "cirhep DM",
+            "sirosis hepatis dekompensata DM tipe 2 hepatitis B ascites"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6433,10 +6453,58 @@
           "losLatest": 2,
           "gender": "L",
           "age": "53 th",
-          "diagnosisSpreadsheet": "cirhep DM",
+          "diagnosisSpreadsheet": "cirhep DM | sirosis hepatis dekompensata DM tipe 2 hepatitis B ascites",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "BOOKINGAN IGD TN. MANGATUR SITORUS",
+          "mrNo": "RM-K-6.2",
+          "name": "BOOKINGAN IGD Tn. Mangatur Sitorus",
+          "bedLatest": "6.2",
+          "doctor": "",
+          "admissionDate": "2026-11-20",
+          "datesSeen": [
+            "2026-11-20"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "BOOKINGAN IGD TN. BENI JUNAIDI",
+          "mrNo": "RM-K-7.2",
+          "name": "BOOKINGAN IGD Tn. Beni Junaidi",
+          "bedLatest": "7.2",
+          "doctor": "",
+          "admissionDate": "2026-11-20",
+          "datesSeen": [
+            "2026-11-20"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         },
         {
           "key": "00300607",
@@ -6444,7 +6512,7 @@
           "name": "Ny. Juliana",
           "bedLatest": "8.3",
           "doctor": "DECKY ANDREA, DR, SP.PD",
-          "admissionDate": "2026-11-20",
+          "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-20"
           ],
@@ -6456,7 +6524,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 1,
+          "losLatest": 2,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
@@ -6476,7 +6544,7 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "Melena Varises esofagus Gastropati porta Anemia"
+            "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6485,7 +6553,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Melena Varises esofagus Gastropati porta Anemia",
+          "diagnosisSpreadsheet": "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9560,8 +9628,7 @@
           "diagnoses": [
             "hipokalemia berat",
             "hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
-            "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
-            "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK akut abdomen"
+            "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9570,7 +9637,7 @@
           "losLatest": 9,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK akut abdomen",
+          "diagnosisSpreadsheet": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9905,7 +9972,8 @@
           "diagnoses": [
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
-            "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF"
+            "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
+            "CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -9914,7 +9982,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -10749,7 +10817,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "- ca lidah - obs vomiting - konstipasi"
+            "- ca lidah - obs vomiting - konstipasi",
+            "SCC lidah"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10758,7 +10827,7 @@
           "losLatest": 1098,
           "gender": "L",
           "age": "35 th",
-          "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi",
+          "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi | SCC lidah",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10803,7 +10872,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "cirhep DM"
+            "cirhep DM",
+            "sirosis hepatis dekompensata DM tipe 2 hepatitis B ascites"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10812,10 +10882,58 @@
           "losLatest": 2,
           "gender": "L",
           "age": "53 th",
-          "diagnosisSpreadsheet": "cirhep DM",
+          "diagnosisSpreadsheet": "cirhep DM | sirosis hepatis dekompensata DM tipe 2 hepatitis B ascites",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "BOOKINGAN IGD TN. MANGATUR SITORUS",
+          "mrNo": "RM-K-6.2",
+          "name": "BOOKINGAN IGD Tn. Mangatur Sitorus",
+          "bedLatest": "6.2",
+          "doctor": "",
+          "admissionDate": "2026-11-20",
+          "datesSeen": [
+            "2026-11-20"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "BOOKINGAN IGD TN. BENI JUNAIDI",
+          "mrNo": "RM-K-7.2",
+          "name": "BOOKINGAN IGD Tn. Beni Junaidi",
+          "bedLatest": "7.2",
+          "doctor": "",
+          "admissionDate": "2026-11-20",
+          "datesSeen": [
+            "2026-11-20"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         },
         {
           "key": "00300607",
@@ -10823,7 +10941,7 @@
           "name": "Ny. Juliana",
           "bedLatest": "8.3",
           "doctor": "DECKY ANDREA, DR, SP.PD",
-          "admissionDate": "2026-11-20",
+          "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-20"
           ],
@@ -10835,7 +10953,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 1,
+          "losLatest": 2,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
@@ -10855,7 +10973,7 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "Melena Varises esofagus Gastropati porta Anemia"
+            "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10864,7 +10982,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Melena Varises esofagus Gastropati porta Anemia",
+          "diagnosisSpreadsheet": "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10872,10 +10990,10 @@
       ]
     },
     "today": {
-      "totalInpatients": 36,
+      "totalInpatients": 38,
       "denominatorIncluded": 2,
-      "totalExcluded": 34,
-      "wardCoveragePct": 5.6,
+      "totalExcluded": 36,
+      "wardCoveragePct": 5.3,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -11199,6 +11317,20 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
+          "bed": "6.2",
+          "name": "BOOKINGAN IGD Tn. Mangatur Sitorus",
+          "mrNo": "RM-K-6.2",
+          "diagnosis": "",
+          "doctor": "",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "2026-11-20",
+          "date": "2026-11-20",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
+        },
+        {
           "bed": "6.4",
           "name": "Tn. Sy. Ismail Husin",
           "mrNo": "00293778",
@@ -11216,7 +11348,7 @@
           "bed": "7.1",
           "name": "Tn. Tedi Zulkarnaen 00303383",
           "mrNo": "00303383",
-          "diagnosis": "- ca lidah - obs vomiting - konstipasi",
+          "diagnosis": "SCC lidah",
           "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS.",
           "los": 1098,
           "gender": "L",
@@ -11225,6 +11357,20 @@
           "date": "2026-11-20",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
+          "bed": "7.2",
+          "name": "BOOKINGAN IGD Tn. Beni Junaidi",
+          "mrNo": "RM-K-7.2",
+          "diagnosis": "",
+          "doctor": "",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "2026-11-20",
+          "date": "2026-11-20",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus"
         },
         {
           "bed": "7.3",
@@ -11288,10 +11434,10 @@
           "mrNo": "00300607",
           "diagnosis": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
           "doctor": "DECKY ANDREA, DR, SP.PD",
-          "los": 1,
+          "los": 2,
           "gender": "P",
           "age": "",
-          "admissionDate": "2026-11-20",
+          "admissionDate": "19/11/2026",
           "date": "2026-11-20",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
@@ -11314,7 +11460,7 @@
           "bed": "9.1",
           "name": "Tn. Abdul Manaf 00253015",
           "mrNo": "00253015",
-          "diagnosis": "cirhep DM",
+          "diagnosis": "sirosis hepatis dekompensata DM tipe 2 hepatitis B ascites",
           "doctor": "DECKY ANDREA, DR, SP.PD",
           "los": 2,
           "gender": "L",
@@ -11342,8 +11488,8 @@
           "bed": "10.1",
           "name": "Ny. Siti Yustika",
           "mrNo": "00306604",
-          "diagnosis": "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK akut abdomen",
-          "doctor": "HARRY ANDHIKA, DR, SP.PD\n\nCo dr.Gerald,Sp.B",
+          "diagnosis": "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
+          "doctor": "HARRY ANDHIKA, DR, SP.PD",
           "los": 9,
           "gender": "P",
           "age": "",
@@ -11356,7 +11502,7 @@
           "bed": "10.2",
           "name": "Ny. Sulastri",
           "mrNo": "00248900",
-          "diagnosis": "Melena Varises esofagus Gastropati porta Anemia",
+          "diagnosis": "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
           "doctor": "YUSTAR MULYADI, DR, SP.PD",
           "los": 2,
           "gender": "P",
@@ -11370,7 +11516,7 @@
           "bed": "10.3",
           "name": "Ny. Satirah",
           "mrNo": "00307673",
-          "diagnosis": "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
+          "diagnosis": "CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF",
           "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Yustar,Sp.PD-KGEH",
           "los": 6,
           "gender": "P",
@@ -11397,9 +11543,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 699,
+      "totalRecords": 701,
       "uniqueIncludedCount": 12,
-      "totalExcludedRecords": 606,
+      "totalExcludedRecords": 608,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 10,
@@ -14476,8 +14622,7 @@
           "diagnoses": [
             "hipokalemia berat",
             "hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
-            "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
-            "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK akut abdomen"
+            "Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -14486,7 +14631,7 @@
           "losLatest": 9,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK akut abdomen",
+          "diagnosisSpreadsheet": "hipokalemia berat | hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK | Hipokalemia berat AKI Hiperglikemia Nefrolitiasis Kanan ISK",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -14821,7 +14966,8 @@
           "diagnoses": [
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
-            "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF"
+            "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
+            "CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -14830,7 +14976,7 @@
           "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | CKD Trombositopenia Transminitis\nAscites\nHCC\nHRS\nHBSAG REAKTIF",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -15665,7 +15811,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "- ca lidah - obs vomiting - konstipasi"
+            "- ca lidah - obs vomiting - konstipasi",
+            "SCC lidah"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -15674,7 +15821,7 @@
           "losLatest": 1098,
           "gender": "L",
           "age": "35 th",
-          "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi",
+          "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi | SCC lidah",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -15719,7 +15866,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "cirhep DM"
+            "cirhep DM",
+            "sirosis hepatis dekompensata DM tipe 2 hepatitis B ascites"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -15728,10 +15876,58 @@
           "losLatest": 2,
           "gender": "L",
           "age": "53 th",
-          "diagnosisSpreadsheet": "cirhep DM",
+          "diagnosisSpreadsheet": "cirhep DM | sirosis hepatis dekompensata DM tipe 2 hepatitis B ascites",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "BOOKINGAN IGD TN. MANGATUR SITORUS",
+          "mrNo": "RM-K-6.2",
+          "name": "BOOKINGAN IGD Tn. Mangatur Sitorus",
+          "bedLatest": "6.2",
+          "doctor": "",
+          "admissionDate": "2026-11-20",
+          "datesSeen": [
+            "2026-11-20"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "BOOKINGAN IGD TN. BENI JUNAIDI",
+          "mrNo": "RM-K-7.2",
+          "name": "BOOKINGAN IGD Tn. Beni Junaidi",
+          "bedLatest": "7.2",
+          "doctor": "",
+          "admissionDate": "2026-11-20",
+          "datesSeen": [
+            "2026-11-20"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Tidak ada data diagnosa medis di lembar sensus",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         },
         {
           "key": "00300607",
@@ -15739,7 +15935,7 @@
           "name": "Ny. Juliana",
           "bedLatest": "8.3",
           "doctor": "DECKY ANDREA, DR, SP.PD",
-          "admissionDate": "2026-11-20",
+          "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-20"
           ],
@@ -15751,7 +15947,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 1,
+          "losLatest": 2,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
@@ -15771,7 +15967,7 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "Melena Varises esofagus Gastropati porta Anemia"
+            "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -15780,7 +15976,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Melena Varises esofagus Gastropati porta Anemia",
+          "diagnosisSpreadsheet": "Melena Varises esofagus Gastropati porta Anemia\nAnemia\nVarisses Esofagus\nSLT\nMelena ec Syok Hipovolemik\nSirosi Hepatis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -35741,8 +35937,8 @@
         "Sheet 2026-11-19",
         "Sheet 2026-11-20"
       ],
-      "totalUniqueInpatients": 144,
-      "totalObservations": 699
+      "totalUniqueInpatients": 146,
+      "totalObservations": 701
     },
     "realSummary": {
       "denominator": 12,
