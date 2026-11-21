@@ -30,9 +30,9 @@
         "2026-11-20",
         "2026-11-21"
       ],
-      "totalObservations": 739,
+      "totalObservations": 737,
       "observationsIncludedCount": 95,
-      "observationsExcludedCount": 644,
+      "observationsExcludedCount": 642,
       "totalUniquePatients": 152,
       "uniqueIncludedCount": 12,
       "uniqueExcludedCount": 140,
@@ -894,7 +894,7 @@
             {
               "mrNo": "00296837",
               "name": "Ny. Suknah",
-              "bed": "4.2",
+              "bed": "8.1",
               "datesSeen": [
                 "2026-11-12",
                 "2026-11-13",
@@ -1209,8 +1209,7 @@
               "datesSeen": [
                 "2026-11-18",
                 "2026-11-19",
-                "2026-11-20",
-                "2026-11-21"
+                "2026-11-20"
               ],
               "diagnosis": "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht | HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht"
             },
@@ -1234,7 +1233,7 @@
                 "2026-11-20",
                 "2026-11-21"
               ],
-              "diagnosis": "Pansitopenia"
+              "diagnosis": "Pansitopenia | Pansitopenia\nkardiomegali"
             },
             {
               "mrNo": "00308215",
@@ -1845,8 +1844,7 @@
               "bed": "4.3",
               "datesSeen": [
                 "2026-11-19",
-                "2026-11-20",
-                "2026-11-21"
+                "2026-11-20"
               ],
               "diagnosis": "dyspneu ec CKD anemia renal"
             },
@@ -2220,10 +2218,10 @@
         },
         {
           "date": "2026-11-21",
-          "total": 36,
+          "total": 34,
           "included": 2,
-          "excluded": 34,
-          "coveragePct": 5.6
+          "excluded": 32,
+          "coveragePct": 5.9
         }
       ],
       "uniquePatientsList": [
@@ -5028,7 +5026,7 @@
           "key": "00296837",
           "mrNo": "00296837",
           "name": "Ny. Suknah",
-          "bedLatest": "4.2",
+          "bedLatest": "8.1",
           "doctor": "dr. Decky Andrea \n\n co' dr. Elit",
           "admissionDate": "12/11/2016",
           "datesSeen": [
@@ -6220,10 +6218,9 @@
           "datesSeen": [
             "2026-11-18",
             "2026-11-19",
-            "2026-11-20",
-            "2026-11-21"
+            "2026-11-20"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
             "HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht"
@@ -6232,7 +6229,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 4,
+          "losLatest": 3,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht | HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
@@ -6334,10 +6331,9 @@
           "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-19",
-            "2026-11-20",
-            "2026-11-21"
+            "2026-11-20"
           ],
-          "daysInWard": 3,
+          "daysInWard": 2,
           "diagnoses": [
             "dyspneu ec CKD anemia renal"
           ],
@@ -6345,7 +6341,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 3,
+          "losLatest": 2,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "dyspneu ec CKD anemia renal",
@@ -6423,7 +6419,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "Pansitopenia"
+            "Pansitopenia",
+            "Pansitopenia\nkardiomegali"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6432,7 +6429,7 @@
           "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Pansitopenia",
+          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia\nkardiomegali",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9679,7 +9676,7 @@
           "key": "00296837",
           "mrNo": "00296837",
           "name": "Ny. Suknah",
-          "bedLatest": "4.2",
+          "bedLatest": "8.1",
           "doctor": "dr. Decky Andrea \n\n co' dr. Elit",
           "admissionDate": "12/11/2016",
           "datesSeen": [
@@ -10844,10 +10841,9 @@
           "datesSeen": [
             "2026-11-18",
             "2026-11-19",
-            "2026-11-20",
-            "2026-11-21"
+            "2026-11-20"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
             "HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht"
@@ -10856,7 +10852,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 4,
+          "losLatest": 3,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht | HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
@@ -10958,10 +10954,9 @@
           "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-19",
-            "2026-11-20",
-            "2026-11-21"
+            "2026-11-20"
           ],
-          "daysInWard": 3,
+          "daysInWard": 2,
           "diagnoses": [
             "dyspneu ec CKD anemia renal"
           ],
@@ -10969,7 +10964,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 3,
+          "losLatest": 2,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "dyspneu ec CKD anemia renal",
@@ -11047,7 +11042,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "Pansitopenia"
+            "Pansitopenia",
+            "Pansitopenia\nkardiomegali"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11056,7 +11052,7 @@
           "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Pansitopenia",
+          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia\nkardiomegali",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -11474,10 +11470,10 @@
       ]
     },
     "today": {
-      "totalInpatients": 36,
+      "totalInpatients": 34,
       "denominatorIncluded": 2,
-      "totalExcluded": 34,
-      "wardCoveragePct": 5.6,
+      "totalExcluded": 32,
+      "wardCoveragePct": 5.9,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -11647,34 +11643,6 @@
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
-          "bed": "4.2",
-          "name": "Ny. Suknah",
-          "mrNo": "00296837",
-          "diagnosis": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
-          "doctor": "dr. Decky Andrea \n\nco' dr. Elit \n\nco' dr. Dini\n\nco' dr. Sony\n\nco' dr. Alvin",
-          "los": 3662,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "12/11/2016",
-          "date": "2026-11-21",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
-        },
-        {
-          "bed": "4.3",
-          "name": "Nn. Rahmaniah",
-          "mrNo": "00294424",
-          "diagnosis": "dyspneu ec CKD anemia renal",
-          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
-          "los": 3,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "19/11/2026",
-          "date": "2026-11-21",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
-        },
-        {
           "bed": "4.4",
           "name": "Ny. Nurvida",
           "mrNo": "00301691",
@@ -11720,8 +11688,8 @@
           "bed": "5.3",
           "name": "Ny. Tan Siok Luan",
           "mrNo": "00300459",
-          "diagnosis": "Pansitopenia",
-          "doctor": "dr. Harry Andhika, Sp.PD",
+          "diagnosis": "Pansitopenia\nkardiomegali",
+          "doctor": "dr. Harry Andhika, Sp.PD\n\nco dr. Danayu",
           "los": 3,
           "gender": "P",
           "age": "",
@@ -11844,14 +11812,14 @@
         },
         {
           "bed": "8.1",
-          "name": "Ny. Agus Niwati",
-          "mrNo": "00307865",
-          "diagnosis": "HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
-          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM\n\nco' dr. Infan, Sp. J",
-          "los": 4,
+          "name": "Ny. Suknah",
+          "mrNo": "00296837",
+          "diagnosis": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
+          "doctor": "dr. Decky Andrea \n\nco' dr. Elit \n\nco' dr. Dini\n\nco' dr. Sony\n\nco' dr. Alvin",
+          "los": 3662,
           "gender": "P",
           "age": "",
-          "admissionDate": "18/11/2026",
+          "admissionDate": "12/11/2016",
           "date": "2026-11-21",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
@@ -11999,9 +11967,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 739,
+      "totalRecords": 737,
       "uniqueIncludedCount": 12,
-      "totalExcludedRecords": 644,
+      "totalExcludedRecords": 642,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 10,
@@ -14840,7 +14808,7 @@
           "key": "00296837",
           "mrNo": "00296837",
           "name": "Ny. Suknah",
-          "bedLatest": "4.2",
+          "bedLatest": "8.1",
           "doctor": "dr. Decky Andrea \n\n co' dr. Elit",
           "admissionDate": "12/11/2016",
           "datesSeen": [
@@ -16005,10 +15973,9 @@
           "datesSeen": [
             "2026-11-18",
             "2026-11-19",
-            "2026-11-20",
-            "2026-11-21"
+            "2026-11-20"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
             "HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht"
@@ -16017,7 +15984,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 4,
+          "losLatest": 3,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "susp HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht | HHD ec hipertiroid asites hipoalbuminemia anemia on kronik disease ht",
@@ -16119,10 +16086,9 @@
           "admissionDate": "19/11/2026",
           "datesSeen": [
             "2026-11-19",
-            "2026-11-20",
-            "2026-11-21"
+            "2026-11-20"
           ],
-          "daysInWard": 3,
+          "daysInWard": 2,
           "diagnoses": [
             "dyspneu ec CKD anemia renal"
           ],
@@ -16130,7 +16096,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 3,
+          "losLatest": 2,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "dyspneu ec CKD anemia renal",
@@ -16208,7 +16174,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "Pansitopenia"
+            "Pansitopenia",
+            "Pansitopenia\nkardiomegali"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -16217,7 +16184,7 @@
           "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Pansitopenia",
+          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia\nkardiomegali",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -36590,7 +36557,7 @@
         "Sheet 2026-11-21"
       ],
       "totalUniqueInpatients": 152,
-      "totalObservations": 739
+      "totalObservations": 737
     },
     "realSummary": {
       "denominator": 12,
