@@ -31,13 +31,13 @@
         "2026-11-21",
         "2026-11-22"
       ],
-      "totalObservations": 768,
+      "totalObservations": 772,
       "observationsIncludedCount": 96,
-      "observationsExcludedCount": 672,
-      "totalUniquePatients": 152,
+      "observationsExcludedCount": 676,
+      "totalUniquePatients": 159,
       "uniqueIncludedCount": 12,
-      "uniqueExcludedCount": 140,
-      "uniqueCoveragePct": 7.9,
+      "uniqueExcludedCount": 147,
+      "uniqueCoveragePct": 7.5,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -54,7 +54,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 10,
           "pctOfIncluded": 83.3,
-          "pctOfTotal": 6.6,
+          "pctOfTotal": 6.3,
           "patients": [
             {
               "mrNo": "00301588",
@@ -299,7 +299,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 81,
+          "count": 86,
           "patients": [
             {
               "mrNo": "00263502",
@@ -1036,8 +1036,7 @@
                 "2026-11-18",
                 "2026-11-19",
                 "2026-11-20",
-                "2026-11-21",
-                "2026-11-22"
+                "2026-11-21"
               ],
               "diagnosis": "Ca cerviks pro CDL"
             },
@@ -1356,15 +1355,60 @@
                 "2026-11-22"
               ],
               "diagnosis": "asma bronkial ascites edema perifer dispepsia syok sepsis"
+            },
+            {
+              "mrNo": "00228534",
+              "name": "Ny. Lim Lili",
+              "bed": "3.1",
+              "datesSeen": [
+                "2026-11-22"
+              ],
+              "diagnosis": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)"
+            },
+            {
+              "mrNo": "287051",
+              "name": "Ny. Sri wahyuni",
+              "bed": "6.1",
+              "datesSeen": [
+                "2026-11-22"
+              ],
+              "diagnosis": "SLE hemoptisis\nFebris , dypsnea"
+            },
+            {
+              "mrNo": "308378",
+              "name": "Ny.Yupita elia",
+              "bed": "6.3",
+              "datesSeen": [
+                "2026-11-22"
+              ],
+              "diagnosis": "Obs febris Vomitus profuse"
+            },
+            {
+              "mrNo": "308381",
+              "name": "Nn.Keysha Auli Ramadhani",
+              "bed": "6.4",
+              "datesSeen": [
+                "2026-11-22"
+              ],
+              "diagnosis": "obs febris \ndyspepsia anemia"
+            },
+            {
+              "mrNo": "00307864",
+              "name": "Ny. Dianitha",
+              "bed": "10.1",
+              "datesSeen": [
+                "2026-11-22"
+              ],
+              "diagnosis": "HT - SN"
             }
           ],
-          "pct": 57.9
+          "pct": 58.5
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
           "label": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "color": "#ef4444",
-          "count": 44,
+          "count": 45,
           "patients": [
             {
               "mrNo": "00301205",
@@ -1811,8 +1855,7 @@
                 "2026-11-18",
                 "2026-11-19",
                 "2026-11-20",
-                "2026-11-21",
-                "2026-11-22"
+                "2026-11-21"
               ],
               "diagnosis": "syock hipovolemik obs vomitus nefrolithiasis AKI dd CKD | Syok hipovolemik AKI dd CKD Batu ureter Hipokalemia"
             },
@@ -1917,9 +1960,18 @@
                 "2026-11-22"
               ],
               "diagnosis": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD"
+            },
+            {
+              "mrNo": "279963",
+              "name": "Ny.Maryani",
+              "bed": "6.2",
+              "datesSeen": [
+                "2026-11-22"
+              ],
+              "diagnosis": "penurunan kesadaran CKD st 5\nsusp syndrom uremikum"
             }
           ],
-          "pct": 31.4
+          "pct": 30.6
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -1947,7 +1999,7 @@
           "category": "DM_NON_CKD",
           "label": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "color": "#f59e0b",
-          "count": 14,
+          "count": 15,
           "patients": [
             {
               "mrNo": "00305881",
@@ -2115,9 +2167,18 @@
                 "2026-11-22"
               ],
               "diagnosis": "- susp. KAD"
+            },
+            {
+              "mrNo": "00085744",
+              "name": "Ny. Sumiati",
+              "bed": "3.2",
+              "datesSeen": [
+                "2026-11-22"
+              ],
+              "diagnosis": "poliatralgia dm hiperglikemi tetraparestese"
             }
           ],
-          "pct": 10.0
+          "pct": 10.2
         }
       },
       "dailyBreakdown": [
@@ -2256,10 +2317,10 @@
         },
         {
           "date": "2026-11-22",
-          "total": 31,
+          "total": 35,
           "included": 1,
-          "excluded": 30,
-          "coveragePct": 3.2
+          "excluded": 34,
+          "coveragePct": 2.9
         }
       ],
       "uniquePatientsList": [
@@ -5462,10 +5523,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 9,
+          "daysInWard": 8,
           "diagnoses": [
             "Ca cerviks pro CDL"
           ],
@@ -5473,7 +5533,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 9,
+          "losLatest": 8,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "Ca cerviks pro CDL",
@@ -5796,10 +5856,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 7,
+          "daysInWard": 6,
           "diagnoses": [
             "syock hipovolemik obs vomitus nefrolithiasis AKI dd CKD",
             "Syok hipovolemik AKI dd CKD Batu ureter Hipokalemia"
@@ -5808,7 +5867,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "syock hipovolemik obs vomitus nefrolithiasis AKI dd CKD | Syok hipovolemik AKI dd CKD Batu ureter Hipokalemia",
@@ -6908,6 +6967,188 @@
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "asma bronkial ascites edema perifer dispepsia syok sepsis",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00228534",
+          "mrNo": "00228534",
+          "name": "Ny. Lim Lili",
+          "bedLatest": "3.1",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 3,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00085744",
+          "mrNo": "00085744",
+          "name": "Ny. Sumiati",
+          "bedLatest": "3.2",
+          "doctor": "DECKY ANDREA, DR, SP.PD \n\ndr dini",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "poliatralgia dm hiperglikemi tetraparestese"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 3,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "poliatralgia dm hiperglikemi tetraparestese",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "287051",
+          "mrNo": "287051",
+          "name": "Ny. Sri wahyuni",
+          "bedLatest": "6.1",
+          "doctor": "Dr Decky andrea Sp.PD\n\nDr Temi",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "SLE hemoptisis\nFebris , dypsnea"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "SLE hemoptisis\nFebris , dypsnea",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "279963",
+          "mrNo": "279963",
+          "name": "Ny.Maryani",
+          "bedLatest": "6.2",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "penurunan kesadaran CKD st 5\nsusp syndrom uremikum"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "penurunan kesadaran CKD st 5\nsusp syndrom uremikum",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "308378",
+          "mrNo": "308378",
+          "name": "Ny.Yupita elia",
+          "bedLatest": "6.3",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Obs febris Vomitus profuse"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Obs febris Vomitus profuse",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "308381",
+          "mrNo": "308381",
+          "name": "Nn.Keysha Auli Ramadhani",
+          "bedLatest": "6.4",
+          "doctor": "dr. Decky Andrea, Sp.PD",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "obs febris \ndyspepsia anemia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "obs febris \ndyspepsia anemia",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00307864",
+          "mrNo": "00307864",
+          "name": "Ny. Dianitha",
+          "bedLatest": "10.1",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM\n\nco dr dini",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "HT - SN"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 3,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "HT - SN",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10142,10 +10383,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 9,
+          "daysInWard": 8,
           "diagnoses": [
             "Ca cerviks pro CDL"
           ],
@@ -10153,7 +10393,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 9,
+          "losLatest": 8,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "Ca cerviks pro CDL",
@@ -10449,10 +10689,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 7,
+          "daysInWard": 6,
           "diagnoses": [
             "syock hipovolemik obs vomitus nefrolithiasis AKI dd CKD",
             "Syok hipovolemik AKI dd CKD Batu ureter Hipokalemia"
@@ -10461,7 +10700,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "syock hipovolemik obs vomitus nefrolithiasis AKI dd CKD | Syok hipovolemik AKI dd CKD Batu ureter Hipokalemia",
@@ -11564,14 +11803,196 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00228534",
+          "mrNo": "00228534",
+          "name": "Ny. Lim Lili",
+          "bedLatest": "3.1",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 3,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00085744",
+          "mrNo": "00085744",
+          "name": "Ny. Sumiati",
+          "bedLatest": "3.2",
+          "doctor": "DECKY ANDREA, DR, SP.PD \n\ndr dini",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "poliatralgia dm hiperglikemi tetraparestese"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 3,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "poliatralgia dm hiperglikemi tetraparestese",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "287051",
+          "mrNo": "287051",
+          "name": "Ny. Sri wahyuni",
+          "bedLatest": "6.1",
+          "doctor": "Dr Decky andrea Sp.PD\n\nDr Temi",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "SLE hemoptisis\nFebris , dypsnea"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "SLE hemoptisis\nFebris , dypsnea",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "279963",
+          "mrNo": "279963",
+          "name": "Ny.Maryani",
+          "bedLatest": "6.2",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "penurunan kesadaran CKD st 5\nsusp syndrom uremikum"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "penurunan kesadaran CKD st 5\nsusp syndrom uremikum",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "308378",
+          "mrNo": "308378",
+          "name": "Ny.Yupita elia",
+          "bedLatest": "6.3",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Obs febris Vomitus profuse"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Obs febris Vomitus profuse",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "308381",
+          "mrNo": "308381",
+          "name": "Nn.Keysha Auli Ramadhani",
+          "bedLatest": "6.4",
+          "doctor": "dr. Decky Andrea, Sp.PD",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "obs febris \ndyspepsia anemia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "obs febris \ndyspepsia anemia",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00307864",
+          "mrNo": "00307864",
+          "name": "Ny. Dianitha",
+          "bedLatest": "10.1",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM\n\nco dr dini",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "HT - SN"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 3,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "HT - SN",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         }
       ]
     },
     "today": {
-      "totalInpatients": 31,
+      "totalInpatients": 35,
       "denominatorIncluded": 1,
-      "totalExcluded": 30,
-      "wardCoveragePct": 3.2,
+      "totalExcluded": 34,
+      "wardCoveragePct": 2.9,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 1,
@@ -11683,6 +12104,34 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
+          "bed": "3.1",
+          "name": "Ny. Lim Lili",
+          "mrNo": "00228534",
+          "diagnosis": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "los": 3,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "20/11/2026",
+          "date": "2026-11-22",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
+          "bed": "3.2",
+          "name": "Ny. Sumiati",
+          "mrNo": "00085744",
+          "diagnosis": "poliatralgia dm hiperglikemi tetraparestese",
+          "doctor": "DECKY ANDREA, DR, SP.PD \n\ndr dini",
+          "los": 3,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "20/11/2026",
+          "date": "2026-11-22",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+        },
+        {
           "bed": "3.3",
           "name": "Ny. Fatmawati",
           "mrNo": "00265766",
@@ -11706,34 +12155,6 @@
           "gender": "P",
           "age": "",
           "admissionDate": "19/11/2026",
-          "date": "2026-11-22",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
-        },
-        {
-          "bed": "4.1",
-          "name": "Ny. Lim Tjhe Piauw",
-          "mrNo": "00283680",
-          "diagnosis": "Syok hipovolemik AKI dd CKD Batu ureter Hipokalemia",
-          "doctor": "dr. Harry Andhika, Sp.PD",
-          "los": 7,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "16/11/2026",
-          "date": "2026-11-22",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
-        },
-        {
-          "bed": "4.4",
-          "name": "Ny. Nurvida",
-          "mrNo": "00301691",
-          "diagnosis": "Ca cerviks pro CDL",
-          "doctor": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
-          "los": 9,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "14/11/2026",
           "date": "2026-11-22",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
@@ -11767,20 +12188,6 @@
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
-          "bed": "5.3",
-          "name": "Ny. Tan Siok Luan",
-          "mrNo": "00300459",
-          "diagnosis": "Pansitopenia\nkardiomegali",
-          "doctor": "dr. Harry Andhika, Sp.PD\n\nco dr. Danayu",
-          "los": 4,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "19/11/2026",
-          "date": "2026-11-22",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
-        },
-        {
           "bed": "5.4",
           "name": "Ny. Saena",
           "mrNo": "00308215",
@@ -11790,6 +12197,62 @@
           "gender": "P",
           "age": "",
           "admissionDate": "19/11/2026",
+          "date": "2026-11-22",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
+          "bed": "6.1",
+          "name": "Ny. Sri wahyuni",
+          "mrNo": "287051",
+          "diagnosis": "SLE hemoptisis\nFebris , dypsnea",
+          "doctor": "Dr Decky andrea Sp.PD\n\nDr Temi",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "22/11/2026",
+          "date": "2026-11-22",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
+          "bed": "6.2",
+          "name": "Ny.Maryani",
+          "mrNo": "279963",
+          "diagnosis": "penurunan kesadaran CKD st 5\nsusp syndrom uremikum",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "22/11/2026",
+          "date": "2026-11-22",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+        },
+        {
+          "bed": "6.3",
+          "name": "Ny.Yupita elia",
+          "mrNo": "308378",
+          "diagnosis": "Obs febris Vomitus profuse",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "22/11/2026",
+          "date": "2026-11-22",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
+          "bed": "6.4",
+          "name": "Nn.Keysha Auli Ramadhani",
+          "mrNo": "308381",
+          "diagnosis": "obs febris \ndyspepsia anemia",
+          "doctor": "dr. Decky Andrea, Sp.PD",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "22/11/2026",
           "date": "2026-11-22",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
@@ -11963,6 +12426,20 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
+          "bed": "10.1",
+          "name": "Ny. Dianitha",
+          "mrNo": "00307864",
+          "diagnosis": "HT - SN",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM\n\nco dr dini",
+          "los": 3,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "20/11/2026",
+          "date": "2026-11-22",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
           "bed": "10.2",
           "name": "Ny. Sulastri",
           "mrNo": "00248900",
@@ -12021,9 +12498,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 768,
+      "totalRecords": 772,
       "uniqueIncludedCount": 12,
-      "totalExcludedRecords": 672,
+      "totalExcludedRecords": 676,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 10,
@@ -15260,10 +15737,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 9,
+          "daysInWard": 8,
           "diagnoses": [
             "Ca cerviks pro CDL"
           ],
@@ -15271,7 +15747,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 9,
+          "losLatest": 8,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "Ca cerviks pro CDL",
@@ -15567,10 +16043,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 7,
+          "daysInWard": 6,
           "diagnoses": [
             "syock hipovolemik obs vomitus nefrolithiasis AKI dd CKD",
             "Syok hipovolemik AKI dd CKD Batu ureter Hipokalemia"
@@ -15579,7 +16054,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "syock hipovolemik obs vomitus nefrolithiasis AKI dd CKD | Syok hipovolemik AKI dd CKD Batu ureter Hipokalemia",
@@ -16679,6 +17154,188 @@
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "asma bronkial ascites edema perifer dispepsia syok sepsis",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00228534",
+          "mrNo": "00228534",
+          "name": "Ny. Lim Lili",
+          "bedLatest": "3.1",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 3,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00085744",
+          "mrNo": "00085744",
+          "name": "Ny. Sumiati",
+          "bedLatest": "3.2",
+          "doctor": "DECKY ANDREA, DR, SP.PD \n\ndr dini",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "poliatralgia dm hiperglikemi tetraparestese"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 3,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "poliatralgia dm hiperglikemi tetraparestese",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "287051",
+          "mrNo": "287051",
+          "name": "Ny. Sri wahyuni",
+          "bedLatest": "6.1",
+          "doctor": "Dr Decky andrea Sp.PD\n\nDr Temi",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "SLE hemoptisis\nFebris , dypsnea"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "SLE hemoptisis\nFebris , dypsnea",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "279963",
+          "mrNo": "279963",
+          "name": "Ny.Maryani",
+          "bedLatest": "6.2",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "penurunan kesadaran CKD st 5\nsusp syndrom uremikum"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "penurunan kesadaran CKD st 5\nsusp syndrom uremikum",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "308378",
+          "mrNo": "308378",
+          "name": "Ny.Yupita elia",
+          "bedLatest": "6.3",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Obs febris Vomitus profuse"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Obs febris Vomitus profuse",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "308381",
+          "mrNo": "308381",
+          "name": "Nn.Keysha Auli Ramadhani",
+          "bedLatest": "6.4",
+          "doctor": "dr. Decky Andrea, Sp.PD",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "obs febris \ndyspepsia anemia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "obs febris \ndyspepsia anemia",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00307864",
+          "mrNo": "00307864",
+          "name": "Ny. Dianitha",
+          "bedLatest": "10.1",
+          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM\n\nco dr dini",
+          "admissionDate": "20/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "HT - SN"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 3,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "HT - SN",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -36641,8 +37298,8 @@
         "Sheet 2026-11-21",
         "Sheet 2026-11-22"
       ],
-      "totalUniqueInpatients": 152,
-      "totalObservations": 768
+      "totalUniqueInpatients": 159,
+      "totalObservations": 772
     },
     "realSummary": {
       "denominator": 12,
