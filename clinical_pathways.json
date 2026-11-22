@@ -31,12 +31,12 @@
         "2026-11-21",
         "2026-11-22"
       ],
-      "totalObservations": 772,
+      "totalObservations": 771,
       "observationsIncludedCount": 96,
-      "observationsExcludedCount": 676,
-      "totalUniquePatients": 159,
+      "observationsExcludedCount": 675,
+      "totalUniquePatients": 161,
       "uniqueIncludedCount": 12,
-      "uniqueExcludedCount": 147,
+      "uniqueExcludedCount": 149,
       "uniqueCoveragePct": 7.5,
       "perCpSummary": {
         "CP-MAMMAE-001": {
@@ -54,7 +54,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 10,
           "pctOfIncluded": 83.3,
-          "pctOfTotal": 6.3,
+          "pctOfTotal": 6.2,
           "patients": [
             {
               "mrNo": "00301588",
@@ -242,7 +242,7 @@
           "kodeIcd10": "B20",
           "uniqueCount": 2,
           "pctOfIncluded": 16.7,
-          "pctOfTotal": 1.3,
+          "pctOfTotal": 1.2,
           "patients": [
             {
               "mrNo": "00149236",
@@ -299,7 +299,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 86,
+          "count": 88,
           "patients": [
             {
               "mrNo": "00263502",
@@ -333,8 +333,7 @@
                 "2026-11-18",
                 "2026-11-19",
                 "2026-11-20",
-                "2026-11-21",
-                "2026-11-22"
+                "2026-11-21"
               ],
               "diagnosis": "syok hipovolumik dd syok sepsis | hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI | Hipokalemia berat hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI hipoalbumin"
             },
@@ -897,7 +896,7 @@
             {
               "mrNo": "00296837",
               "name": "Ny. Suknah",
-              "bed": "8.1",
+              "bed": "8.4",
               "datesSeen": [
                 "2026-11-12",
                 "2026-11-13",
@@ -1158,8 +1157,7 @@
                 "2026-11-18",
                 "2026-11-19",
                 "2026-11-20",
-                "2026-11-21",
-                "2026-11-22"
+                "2026-11-21"
               ],
               "diagnosis": "adenocystic ca maxilla on radiotherapy ca related pain low intake | Ca maxila dekstra on radiotherapy ca related pain low intake"
             },
@@ -1366,6 +1364,24 @@
               "diagnosis": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)"
             },
             {
+              "mrNo": "00308452",
+              "name": "Ny. Evi Julianti",
+              "bed": "5.1",
+              "datesSeen": [
+                "2026-11-22"
+              ],
+              "diagnosis": "febris ec tifoid fever vertigo"
+            },
+            {
+              "mrNo": "00291474",
+              "name": "Nn. Chiennica",
+              "bed": "5.3",
+              "datesSeen": [
+                "2026-11-22"
+              ],
+              "diagnosis": "febris h-7 ec tifoid fever leukopeni"
+            },
+            {
               "mrNo": "287051",
               "name": "Ny. Sri wahyuni",
               "bed": "6.1",
@@ -1402,7 +1418,7 @@
               "diagnosis": "HT - SN"
             }
           ],
-          "pct": 58.5
+          "pct": 59.1
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -1923,8 +1939,7 @@
               "datesSeen": [
                 "2026-11-19",
                 "2026-11-20",
-                "2026-11-21",
-                "2026-11-22"
+                "2026-11-21"
               ],
               "diagnosis": "anemia pro tranfusi CKD 5 menolak HD"
             },
@@ -1971,7 +1986,7 @@
               "diagnosis": "penurunan kesadaran CKD st 5\nsusp syndrom uremikum"
             }
           ],
-          "pct": 30.6
+          "pct": 30.2
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -2166,7 +2181,7 @@
                 "2026-11-21",
                 "2026-11-22"
               ],
-              "diagnosis": "- susp. KAD"
+              "diagnosis": "- susp. KAD | susp. KAD"
             },
             {
               "mrNo": "00085744",
@@ -2178,7 +2193,7 @@
               "diagnosis": "poliatralgia dm hiperglikemi tetraparestese"
             }
           ],
-          "pct": 10.2
+          "pct": 10.1
         }
       },
       "dailyBreakdown": [
@@ -2317,9 +2332,9 @@
         },
         {
           "date": "2026-11-22",
-          "total": 35,
+          "total": 34,
           "included": 1,
-          "excluded": 34,
+          "excluded": 33,
           "coveragePct": 2.9
         }
       ],
@@ -2400,10 +2415,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 20,
+          "daysInWard": 19,
           "diagnoses": [
             "syok hipovolumik dd syok sepsis",
             "hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI",
@@ -2413,7 +2427,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 20,
+          "losLatest": 19,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "syok hipovolumik dd syok sepsis | hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI | Hipokalemia berat hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI hipoalbumin",
@@ -5127,7 +5141,7 @@
           "key": "00296837",
           "mrNo": "00296837",
           "name": "Ny. Suknah",
-          "bedLatest": "8.1",
+          "bedLatest": "8.4",
           "doctor": "dr. Decky Andrea \n\n co' dr. Elit",
           "admissionDate": "12/11/2016",
           "datesSeen": [
@@ -6151,10 +6165,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 6,
+          "daysInWard": 5,
           "diagnoses": [
             "adenocystic ca maxilla on radiotherapy ca related pain low intake",
             "Ca maxila dekstra on radiotherapy ca related pain low intake"
@@ -6163,7 +6176,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 6,
+          "losLatest": 5,
           "gender": "P",
           "age": "43 th",
           "diagnosisSpreadsheet": "adenocystic ca maxilla on radiotherapy ca related pain low intake | Ca maxila dekstra on radiotherapy ca related pain low intake",
@@ -6471,10 +6484,9 @@
           "datesSeen": [
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "anemia pro tranfusi CKD 5 menolak HD"
           ],
@@ -6482,7 +6494,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 4,
+          "losLatest": 3,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "anemia pro tranfusi CKD 5 menolak HD",
@@ -6735,16 +6747,17 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "- susp. KAD"
+            "- susp. KAD",
+            "susp. KAD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 1,
+          "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "- susp. KAD",
+          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -7022,6 +7035,58 @@
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "00308452",
+          "mrNo": "00308452",
+          "name": "Ny. Evi Julianti",
+          "bedLatest": "5.1",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "febris ec tifoid fever vertigo"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "febris ec tifoid fever vertigo",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00291474",
+          "mrNo": "00291474",
+          "name": "Nn. Chiennica",
+          "bedLatest": "5.3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "febris h-7 ec tifoid fever leukopeni"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "febris h-7 ec tifoid fever leukopeni",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         },
         {
           "key": "287051",
@@ -7588,10 +7653,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 20,
+          "daysInWard": 19,
           "diagnoses": [
             "syok hipovolumik dd syok sepsis",
             "hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI",
@@ -7601,7 +7665,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 20,
+          "losLatest": 19,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "syok hipovolumik dd syok sepsis | hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI | Hipokalemia berat hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI hipoalbumin",
@@ -9987,7 +10051,7 @@
           "key": "00296837",
           "mrNo": "00296837",
           "name": "Ny. Suknah",
-          "bedLatest": "8.1",
+          "bedLatest": "8.4",
           "doctor": "dr. Decky Andrea \n\n co' dr. Elit",
           "admissionDate": "12/11/2016",
           "datesSeen": [
@@ -10984,10 +11048,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 6,
+          "daysInWard": 5,
           "diagnoses": [
             "adenocystic ca maxilla on radiotherapy ca related pain low intake",
             "Ca maxila dekstra on radiotherapy ca related pain low intake"
@@ -10996,7 +11059,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 6,
+          "losLatest": 5,
           "gender": "P",
           "age": "43 th",
           "diagnosisSpreadsheet": "adenocystic ca maxilla on radiotherapy ca related pain low intake | Ca maxila dekstra on radiotherapy ca related pain low intake",
@@ -11304,10 +11367,9 @@
           "datesSeen": [
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "anemia pro tranfusi CKD 5 menolak HD"
           ],
@@ -11315,7 +11377,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 4,
+          "losLatest": 3,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "anemia pro tranfusi CKD 5 menolak HD",
@@ -11568,16 +11630,17 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "- susp. KAD"
+            "- susp. KAD",
+            "susp. KAD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 1,
+          "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "- susp. KAD",
+          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -11855,6 +11918,58 @@
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "00308452",
+          "mrNo": "00308452",
+          "name": "Ny. Evi Julianti",
+          "bedLatest": "5.1",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "febris ec tifoid fever vertigo"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "febris ec tifoid fever vertigo",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00291474",
+          "mrNo": "00291474",
+          "name": "Nn. Chiennica",
+          "bedLatest": "5.3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "febris h-7 ec tifoid fever leukopeni"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "febris h-7 ec tifoid fever leukopeni",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         },
         {
           "key": "287051",
@@ -11989,9 +12104,9 @@
       ]
     },
     "today": {
-      "totalInpatients": 35,
+      "totalInpatients": 34,
       "denominatorIncluded": 1,
-      "totalExcluded": 34,
+      "totalExcluded": 33,
       "wardCoveragePct": 2.9,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
@@ -12034,20 +12149,6 @@
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
-          "bed": "1.3",
-          "name": "Tn. Ishardi",
-          "mrNo": "00302040",
-          "diagnosis": "Hipokalemia berat hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI hipoalbumin",
-          "doctor": "dr. Decky Andrea, Sp.PD\n\n\ndr. Yance, Sp.U",
-          "los": 20,
-          "gender": "L",
-          "age": "",
-          "admissionDate": "03/11/2026",
-          "date": "2026-11-22",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
-        },
-        {
           "bed": "1.4",
           "name": "Tn. Abdullah",
           "mrNo": "00307975",
@@ -12066,7 +12167,7 @@
           "name": "Nn. Wiwin Sunarti",
           "mrNo": "00308121",
           "diagnosis": "Gangren lower abdomen DM Type 2 Anemia (Hb 8 ) Obesitas",
-          "doctor": "DECKY ANDREA, DR, SP.PD\n\n        JONATHAN TALLU LEMBANG, DR, SP.B (consul)\n\n        RISA AGUSTINA, DR, M.KED.KLIN, SP.MK (konsul)",
+          "doctor": "DECKY ANDREA, DR, SP.PD \n\nJONATHAN TALLU LEMBANG, DR, SP.B (consul)\n\nRISA AGUSTINA, DR, M.KED.KLIN, SP.MK (konsul)",
           "los": 3,
           "gender": "P",
           "age": "",
@@ -12135,12 +12236,12 @@
           "bed": "3.3",
           "name": "Ny. Fatmawati",
           "mrNo": "00265766",
-          "diagnosis": "- susp. KAD",
+          "diagnosis": "susp. KAD",
           "doctor": "DECKY ANDREA, DR, SP.PD",
-          "los": 1,
+          "los": 3,
           "gender": "P",
           "age": "",
-          "admissionDate": "2026-11-22",
+          "admissionDate": "20/11/2026",
           "date": "2026-11-22",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
@@ -12161,17 +12262,17 @@
         },
         {
           "bed": "5.1",
-          "name": "Ny. Asiah",
-          "mrNo": "00208472",
-          "diagnosis": "anemia pro tranfusi CKD 5 menolak HD",
-          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
-          "los": 4,
+          "name": "Ny. Evi Julianti",
+          "mrNo": "00308452",
+          "diagnosis": "febris ec tifoid fever vertigo",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "los": 1,
           "gender": "P",
           "age": "",
-          "admissionDate": "19/11/2026",
+          "admissionDate": "22/11/2026",
           "date": "2026-11-22",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "5.2",
@@ -12186,6 +12287,20 @@
           "date": "2026-11-22",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+        },
+        {
+          "bed": "5.3",
+          "name": "Nn. Chiennica",
+          "mrNo": "00291474",
+          "diagnosis": "febris h-7 ec tifoid fever leukopeni",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "22/11/2026",
+          "date": "2026-11-22",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "5.4",
@@ -12314,20 +12429,6 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
-          "bed": "8.1",
-          "name": "Ny. Suknah",
-          "mrNo": "00296837",
-          "diagnosis": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
-          "doctor": "dr. Decky Andrea \n\nco' dr. Elit \n\nco' dr. Dini\n\nco' dr. Sony\n\nco' dr. Alvin",
-          "los": 3663,
-          "gender": "P",
-          "age": "",
-          "admissionDate": "12/11/2016",
-          "date": "2026-11-22",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
-        },
-        {
           "bed": "8.2",
           "name": "Ny. Suharti 00291032",
           "mrNo": "00291032",
@@ -12357,14 +12458,14 @@
         },
         {
           "bed": "8.4",
-          "name": "Ny. Susana Aham 00172779",
-          "mrNo": "00172779",
-          "diagnosis": "Ca maxila dekstra on radiotherapy ca related pain low intake",
-          "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS",
-          "los": 6,
+          "name": "Ny. Suknah",
+          "mrNo": "00296837",
+          "diagnosis": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
+          "doctor": "dr. Decky Andrea \n\nco' dr. Elit \n\nco' dr. Dini\n\nco' dr. Sony\n\nco' dr. Alvin",
+          "los": 3663,
           "gender": "P",
-          "age": "43 th",
-          "admissionDate": "17/11/2026",
+          "age": "",
+          "admissionDate": "12/11/2016",
           "date": "2026-11-22",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
@@ -12458,7 +12559,7 @@
           "name": "Ny. Satirah",
           "mrNo": "00307673",
           "diagnosis": "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
-          "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Yustar,Sp.PD-KGEH",
+          "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Yustar,Sp.PD-KGEH\nCo dr Nurul",
           "los": 8,
           "gender": "P",
           "age": "",
@@ -12498,9 +12599,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 772,
+      "totalRecords": 771,
       "uniqueIncludedCount": 12,
-      "totalExcludedRecords": 676,
+      "totalExcludedRecords": 675,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 10,
@@ -12942,10 +13043,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 20,
+          "daysInWard": 19,
           "diagnoses": [
             "syok hipovolumik dd syok sepsis",
             "hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI",
@@ -12955,7 +13055,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 20,
+          "losLatest": 19,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "syok hipovolumik dd syok sepsis | hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI | Hipokalemia berat hiponatremia hipoglikemi hipoCa sup ca colon anemia AKI hipoalbumin",
@@ -15341,7 +15441,7 @@
           "key": "00296837",
           "mrNo": "00296837",
           "name": "Ny. Suknah",
-          "bedLatest": "8.1",
+          "bedLatest": "8.4",
           "doctor": "dr. Decky Andrea \n\n co' dr. Elit",
           "admissionDate": "12/11/2016",
           "datesSeen": [
@@ -16338,10 +16438,9 @@
             "2026-11-18",
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 6,
+          "daysInWard": 5,
           "diagnoses": [
             "adenocystic ca maxilla on radiotherapy ca related pain low intake",
             "Ca maxila dekstra on radiotherapy ca related pain low intake"
@@ -16350,7 +16449,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 6,
+          "losLatest": 5,
           "gender": "P",
           "age": "43 th",
           "diagnosisSpreadsheet": "adenocystic ca maxilla on radiotherapy ca related pain low intake | Ca maxila dekstra on radiotherapy ca related pain low intake",
@@ -16658,10 +16757,9 @@
           "datesSeen": [
             "2026-11-19",
             "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-21"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "anemia pro tranfusi CKD 5 menolak HD"
           ],
@@ -16669,7 +16767,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 4,
+          "losLatest": 3,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "anemia pro tranfusi CKD 5 menolak HD",
@@ -16922,16 +17020,17 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "- susp. KAD"
+            "- susp. KAD",
+            "susp. KAD"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 1,
+          "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "- susp. KAD",
+          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -17209,6 +17308,58 @@
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "00308452",
+          "mrNo": "00308452",
+          "name": "Ny. Evi Julianti",
+          "bedLatest": "5.1",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "febris ec tifoid fever vertigo"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "febris ec tifoid fever vertigo",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00291474",
+          "mrNo": "00291474",
+          "name": "Nn. Chiennica",
+          "bedLatest": "5.3",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "22/11/2026",
+          "datesSeen": [
+            "2026-11-22"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "febris h-7 ec tifoid fever leukopeni"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "febris h-7 ec tifoid fever leukopeni",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         },
         {
           "key": "287051",
@@ -37298,8 +37449,8 @@
         "Sheet 2026-11-21",
         "Sheet 2026-11-22"
       ],
-      "totalUniqueInpatients": 159,
-      "totalObservations": 772
+      "totalUniqueInpatients": 161,
+      "totalObservations": 771
     },
     "realSummary": {
       "denominator": 12,
