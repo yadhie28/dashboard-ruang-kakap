@@ -32,13 +32,13 @@
         "2026-11-22",
         "2026-11-23"
       ],
-      "totalObservations": 808,
+      "totalObservations": 810,
       "observationsIncludedCount": 99,
-      "observationsExcludedCount": 709,
-      "totalUniquePatients": 164,
+      "observationsExcludedCount": 711,
+      "totalUniquePatients": 169,
       "uniqueIncludedCount": 13,
-      "uniqueExcludedCount": 151,
-      "uniqueCoveragePct": 7.9,
+      "uniqueExcludedCount": 156,
+      "uniqueCoveragePct": 7.7,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -55,7 +55,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 11,
           "pctOfIncluded": 84.6,
-          "pctOfTotal": 6.7,
+          "pctOfTotal": 6.5,
           "patients": [
             {
               "mrNo": "00301588",
@@ -312,7 +312,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 90,
+          "count": 93,
           "patients": [
             {
               "mrNo": "00263502",
@@ -664,7 +664,7 @@
             {
               "mrNo": "00303949",
               "name": "Ny. Djap Lie Ha",
-              "bed": "3.1",
+              "bed": "8.2",
               "datesSeen": [
                 "2026-11-06",
                 "2026-11-07",
@@ -674,9 +674,10 @@
                 "2026-11-11",
                 "2026-11-12",
                 "2026-11-13",
-                "2026-11-14"
+                "2026-11-14",
+                "2026-11-23"
               ],
-              "diagnosis": "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia"
+              "diagnosis": "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia | hcc"
             },
             {
               "mrNo": "00236457",
@@ -977,8 +978,7 @@
                 "2026-11-19",
                 "2026-11-20",
                 "2026-11-21",
-                "2026-11-22",
-                "2026-11-23"
+                "2026-11-22"
               ],
               "diagnosis": "anemia hematemesis | MDS\nanemia hematemesis | MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN"
             },
@@ -1249,7 +1249,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "obs jaundice febris h4 low intake obs vommitus hipotensi"
+              "diagnosis": "obs jaundice febris h4 low intake obs vommitus hipotensi | Ikterik obstruktif AKI HipoNa HipoK HipoCa"
             },
             {
               "mrNo": "00300459",
@@ -1262,7 +1262,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "Pansitopenia | Pansitopenia\nkardiomegali"
+              "diagnosis": "Pansitopenia | Pansitopenia\nkardiomegali | Pansitopenia Kardiomegali Skoliosis"
             },
             {
               "mrNo": "00308215",
@@ -1275,7 +1275,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "abdominal pain+febris | Abdominal pain+febris"
+              "diagnosis": "abdominal pain+febris | Abdominal pain+febris | Abdominal pain Febris Kardiomegali"
             },
             {
               "mrNo": "00293778",
@@ -1310,7 +1310,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI"
+              "diagnosis": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI | Pneumonia SH Hep B Hipoalbuminemia Dispepsia"
             },
             {
               "mrNo": "00201861",
@@ -1322,7 +1322,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "Typhoid fever? abdominal pain"
+              "diagnosis": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi"
             },
             {
               "mrNo": "00308286",
@@ -1345,7 +1345,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "anemia susp pscba\n\nHBSAG \" REAKTIF \""
+              "diagnosis": "anemia susp pscba\n\nHBSAG \" REAKTIF \" | Hemel ec PSCBA ec VE Anemia Hep B"
             },
             {
               "mrNo": "00248900",
@@ -1368,7 +1368,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "Hipokalemia"
+              "diagnosis": "Hipokalemia | Hipokalemia berat"
             },
             {
               "mrNo": "00308263",
@@ -1399,15 +1399,14 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)"
+              "diagnosis": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000) | Pansitopenia \nanemia aplastik"
             },
             {
               "mrNo": "00308452",
               "name": "Ny. Evi Julianti",
               "bed": "5.1",
               "datesSeen": [
-                "2026-11-22",
-                "2026-11-23"
+                "2026-11-22"
               ],
               "diagnosis": "febris ec tifoid fever vertigo"
             },
@@ -1416,8 +1415,7 @@
               "name": "Nn. Chiennica",
               "bed": "5.3",
               "datesSeen": [
-                "2026-11-22",
-                "2026-11-23"
+                "2026-11-22"
               ],
               "diagnosis": "febris h-7 ec tifoid fever leukopeni"
             },
@@ -1429,7 +1427,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "SLE hemoptisis\nFebris , dypsnea"
+              "diagnosis": "SLE hemoptisis\nFebris , dypsnea | SLE derajat sedang berat"
             },
             {
               "mrNo": "308378",
@@ -1469,6 +1467,33 @@
                 "2026-11-23"
               ],
               "diagnosis": "sirosis hati ascites"
+            },
+            {
+              "mrNo": "00308417",
+              "name": "Ny. Halijah",
+              "bed": "5.1",
+              "datesSeen": [
+                "2026-11-23"
+              ],
+              "diagnosis": "Abdominal Pain\nSusp Kolelithiasis dd Kolesistitis\nFebris H-2"
+            },
+            {
+              "mrNo": "00120756",
+              "name": "Tn. BAWON. S. 00120756",
+              "bed": "7.1",
+              "datesSeen": [
+                "2026-11-23"
+              ],
+              "diagnosis": "febris h-2 obs vommitus poliatralgia"
+            },
+            {
+              "mrNo": "00308507",
+              "name": "Tn. M Syahdun",
+              "bed": "9.2",
+              "datesSeen": [
+                "2026-11-23"
+              ],
+              "diagnosis": "SUSP VARISES ESOFAGUS\n\nHEP B"
             }
           ],
           "pct": 59.6
@@ -1913,7 +1938,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik"
+              "diagnosis": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik | HCC Trombositopenia Transminitis Depresi pada geriatri CKD\nHBSAH REAKTIF"
             },
             {
               "mrNo": "00283680",
@@ -1960,8 +1985,7 @@
                 "2026-11-19",
                 "2026-11-20",
                 "2026-11-21",
-                "2026-11-22",
-                "2026-11-23"
+                "2026-11-22"
               ],
               "diagnosis": "susp edema pulmo CKD"
             },
@@ -2032,7 +2056,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD"
+              "diagnosis": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD | Susp hepatoma DM tipe 2 Anemia AKI Hiponatremia"
             },
             {
               "mrNo": "279963",
@@ -2045,7 +2069,7 @@
               "diagnosis": "penurunan kesadaran CKD st 5\nsusp syndrom uremikum | //Penurunan kesadaran DD: Ensefalopati Uremik, Sepsis //CKD st 5-HD // Susp CRBSI"
             }
           ],
-          "pct": 29.8
+          "pct": 28.8
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -2067,13 +2091,13 @@
               "diagnosis": "CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia stroke sequele | CKD st V Hidronefrosis kanan ringan dg Nefrolit kanan, Hidronefrosis kiri sedang ec batu ureter kiri prox 1.7 PAC, HHD Dyspepsia \n        post snh enchepalopati metabolik"
             }
           ],
-          "pct": 0.7
+          "pct": 0.6
         },
         "DM_NON_CKD": {
           "category": "DM_NON_CKD",
           "label": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "color": "#f59e0b",
-          "count": 15,
+          "count": 17,
           "patients": [
             {
               "mrNo": "00305881",
@@ -2243,7 +2267,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "- susp. KAD | susp. KAD"
+              "diagnosis": "- susp. KAD | susp. KAD | Gastropaty DM Dm tipe 2 bacterial infection"
             },
             {
               "mrNo": "00085744",
@@ -2254,9 +2278,27 @@
                 "2026-11-23"
               ],
               "diagnosis": "poliatralgia dm hiperglikemi tetraparestese | DM tipe 2 neuropati AKI"
+            },
+            {
+              "mrNo": "00308463",
+              "name": "Ny. Irma Yunita",
+              "bed": "5.3",
+              "datesSeen": [
+                "2026-11-23"
+              ],
+              "diagnosis": "Stress Hiperglikeia \nec HHS DM tipe 2\nSepsis Hiponatremia Akut"
+            },
+            {
+              "mrNo": "00308614",
+              "name": "Tn. Yanto",
+              "bed": "9.4",
+              "datesSeen": [
+                "2026-11-23"
+              ],
+              "diagnosis": "Penkes ec Hipoglikemia HT DM Type II"
             }
           ],
-          "pct": 9.9
+          "pct": 10.9
         }
       },
       "dailyBreakdown": [
@@ -2402,10 +2444,10 @@
         },
         {
           "date": "2026-11-23",
-          "total": 35,
+          "total": 37,
           "included": 2,
-          "excluded": 33,
-          "coveragePct": 5.7
+          "excluded": 35,
+          "coveragePct": 5.4
         }
       ],
       "uniquePatientsList": [
@@ -4147,7 +4189,7 @@
           "key": "00303949",
           "mrNo": "00303949",
           "name": "Ny. Djap Lie Ha",
-          "bedLatest": "3.1",
+          "bedLatest": "8.2",
           "doctor": "dr. Yustar Mulyadi., Sp.PD",
           "admissionDate": "07/11/2026",
           "datesSeen": [
@@ -4159,20 +4201,22 @@
             "2026-11-11",
             "2026-11-12",
             "2026-11-13",
-            "2026-11-14"
+            "2026-11-14",
+            "2026-11-23"
           ],
-          "daysInWard": 9,
+          "daysInWard": 10,
           "diagnoses": [
-            "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia"
+            "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia",
+            "hcc"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 8,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia",
+          "diagnosisSpreadsheet": "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia | hcc",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -5355,10 +5399,9 @@
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 12,
+          "daysInWard": 11,
           "diagnoses": [
             "anemia hematemesis",
             "MDS\nanemia hematemesis",
@@ -5368,7 +5411,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 12,
+          "losLatest": 11,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "anemia hematemesis | MDS\nanemia hematemesis | MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN",
@@ -5837,7 +5880,8 @@
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
             "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
-            "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik"
+            "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
+            "HCC Trombositopenia Transminitis Depresi pada geriatri CKD\nHBSAH REAKTIF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5846,7 +5890,7 @@
           "losLatest": 9,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik | HCC Trombositopenia Transminitis Depresi pada geriatri CKD\nHBSAH REAKTIF",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -6451,10 +6495,9 @@
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 6,
+          "daysInWard": 5,
           "diagnoses": [
             "susp edema pulmo CKD"
           ],
@@ -6462,7 +6505,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 6,
+          "losLatest": 5,
           "gender": "P",
           "age": "39 th",
           "diagnosisSpreadsheet": "susp edema pulmo CKD",
@@ -6516,7 +6559,8 @@
           ],
           "daysInWard": 5,
           "diagnoses": [
-            "obs jaundice febris h4 low intake obs vommitus hipotensi"
+            "obs jaundice febris h4 low intake obs vommitus hipotensi",
+            "Ikterik obstruktif AKI HipoNa HipoK HipoCa"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6525,7 +6569,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "obs jaundice febris h4 low intake obs vommitus hipotensi",
+          "diagnosisSpreadsheet": "obs jaundice febris h4 low intake obs vommitus hipotensi | Ikterik obstruktif AKI HipoNa HipoK HipoCa",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6632,7 +6676,8 @@
           "daysInWard": 5,
           "diagnoses": [
             "Pansitopenia",
-            "Pansitopenia\nkardiomegali"
+            "Pansitopenia\nkardiomegali",
+            "Pansitopenia Kardiomegali Skoliosis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6641,7 +6686,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia\nkardiomegali",
+          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia\nkardiomegali | Pansitopenia Kardiomegali Skoliosis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6663,7 +6708,8 @@
           "daysInWard": 5,
           "diagnoses": [
             "abdominal pain+febris",
-            "Abdominal pain+febris"
+            "Abdominal pain+febris",
+            "Abdominal pain Febris Kardiomegali"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6672,7 +6718,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain+febris | Abdominal pain+febris",
+          "diagnosisSpreadsheet": "abdominal pain+febris | Abdominal pain+febris | Abdominal pain Febris Kardiomegali",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6836,7 +6882,8 @@
           "daysInWard": 4,
           "diagnoses": [
             "- susp. KAD",
-            "susp. KAD"
+            "susp. KAD",
+            "Gastropaty DM Dm tipe 2 bacterial infection"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6845,7 +6892,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD",
+          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD | Gastropaty DM Dm tipe 2 bacterial infection",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -6865,7 +6912,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI"
+            "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
+            "Pneumonia SH Hep B Hipoalbuminemia Dispepsia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6874,7 +6922,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "53 th",
-          "diagnosisSpreadsheet": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
+          "diagnosisSpreadsheet": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI | Pneumonia SH Hep B Hipoalbuminemia Dispepsia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6894,7 +6942,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Typhoid fever? abdominal pain"
+            "Typhoid fever? abdominal pain",
+            "Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6903,7 +6952,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "32 th",
-          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain",
+          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6923,7 +6972,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD"
+            "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
+            "Susp hepatoma DM tipe 2 Anemia AKI Hiponatremia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6932,7 +6982,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
+          "diagnosisSpreadsheet": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD | Susp hepatoma DM tipe 2 Anemia AKI Hiponatremia",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -6980,7 +7030,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "anemia susp pscba\n\nHBSAG \" REAKTIF \""
+            "anemia susp pscba\n\nHBSAG \" REAKTIF \"",
+            "Hemel ec PSCBA ec VE Anemia Hep B"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6989,7 +7040,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "anemia susp pscba\n\nHBSAG \" REAKTIF \"",
+          "diagnosisSpreadsheet": "anemia susp pscba\n\nHBSAG \" REAKTIF \" | Hemel ec PSCBA ec VE Anemia Hep B",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7037,7 +7088,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "Hipokalemia"
+            "Hipokalemia",
+            "Hipokalemia berat"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7046,7 +7098,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Hipokalemia",
+          "diagnosisSpreadsheet": "Hipokalemia | Hipokalemia berat",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7119,7 +7171,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)"
+            "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+            "Pansitopenia \nanemia aplastik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7128,7 +7181,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+          "diagnosisSpreadsheet": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000) | Pansitopenia \nanemia aplastik",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7169,10 +7222,9 @@
           "doctor": "dr. Muhardani Iqbal, Sp.PD",
           "admissionDate": "22/11/2026",
           "datesSeen": [
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "febris ec tifoid fever vertigo"
           ],
@@ -7180,7 +7232,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "febris ec tifoid fever vertigo",
@@ -7196,10 +7248,9 @@
           "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
           "admissionDate": "22/11/2026",
           "datesSeen": [
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "febris h-7 ec tifoid fever leukopeni"
           ],
@@ -7207,7 +7258,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "febris h-7 ec tifoid fever leukopeni",
@@ -7228,7 +7279,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "SLE hemoptisis\nFebris , dypsnea"
+            "SLE hemoptisis\nFebris , dypsnea",
+            "SLE derajat sedang berat"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7237,7 +7289,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "SLE hemoptisis\nFebris , dypsnea",
+          "diagnosisSpreadsheet": "SLE hemoptisis\nFebris , dypsnea | SLE derajat sedang berat",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7401,6 +7453,136 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308417",
+          "mrNo": "00308417",
+          "name": "Ny. Halijah",
+          "bedLatest": "5.1",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Abdominal Pain\nSusp Kolelithiasis dd Kolesistitis\nFebris H-2"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Abdominal Pain\nSusp Kolelithiasis dd Kolesistitis\nFebris H-2",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308463",
+          "mrNo": "00308463",
+          "name": "Ny. Irma Yunita",
+          "bedLatest": "5.3",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Stress Hiperglikeia \nec HHS DM tipe 2\nSepsis Hiponatremia Akut"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Stress Hiperglikeia \nec HHS DM tipe 2\nSepsis Hiponatremia Akut",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "00120756",
+          "mrNo": "00120756",
+          "name": "Tn. BAWON. S. 00120756",
+          "bedLatest": "7.1",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "febris h-2 obs vommitus poliatralgia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "73 th",
+          "diagnosisSpreadsheet": "febris h-2 obs vommitus poliatralgia",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308507",
+          "mrNo": "00308507",
+          "name": "Tn. M Syahdun",
+          "bedLatest": "9.2",
+          "doctor": "YUSTAR MULYADI, DR, SP.PD",
+          "admissionDate": "2026-11-23",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "SUSP VARISES ESOFAGUS\n\nHEP B"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "SUSP VARISES ESOFAGUS\n\nHEP B",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308614",
+          "mrNo": "00308614",
+          "name": "Tn. Yanto",
+          "bedLatest": "9.4",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM.",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Penkes ec Hipoglikemia HT DM Type II"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Penkes ec Hipoglikemia HT DM Type II",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
         }
       ],
       "includedPatients": [
@@ -9345,7 +9527,7 @@
           "key": "00303949",
           "mrNo": "00303949",
           "name": "Ny. Djap Lie Ha",
-          "bedLatest": "3.1",
+          "bedLatest": "8.2",
           "doctor": "dr. Yustar Mulyadi., Sp.PD",
           "admissionDate": "07/11/2026",
           "datesSeen": [
@@ -9357,20 +9539,22 @@
             "2026-11-11",
             "2026-11-12",
             "2026-11-13",
-            "2026-11-14"
+            "2026-11-14",
+            "2026-11-23"
           ],
-          "daysInWard": 9,
+          "daysInWard": 10,
           "diagnoses": [
-            "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia"
+            "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia",
+            "hcc"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 8,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia",
+          "diagnosisSpreadsheet": "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia | hcc",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10403,10 +10587,9 @@
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 12,
+          "daysInWard": 11,
           "diagnoses": [
             "anemia hematemesis",
             "MDS\nanemia hematemesis",
@@ -10416,7 +10599,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 12,
+          "losLatest": 11,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "anemia hematemesis | MDS\nanemia hematemesis | MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN",
@@ -10858,7 +11041,8 @@
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
             "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
-            "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik"
+            "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
+            "HCC Trombositopenia Transminitis Depresi pada geriatri CKD\nHBSAH REAKTIF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10867,7 +11051,7 @@
           "losLatest": 9,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik | HCC Trombositopenia Transminitis Depresi pada geriatri CKD\nHBSAH REAKTIF",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -11472,10 +11656,9 @@
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 6,
+          "daysInWard": 5,
           "diagnoses": [
             "susp edema pulmo CKD"
           ],
@@ -11483,7 +11666,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 6,
+          "losLatest": 5,
           "gender": "P",
           "age": "39 th",
           "diagnosisSpreadsheet": "susp edema pulmo CKD",
@@ -11537,7 +11720,8 @@
           ],
           "daysInWard": 5,
           "diagnoses": [
-            "obs jaundice febris h4 low intake obs vommitus hipotensi"
+            "obs jaundice febris h4 low intake obs vommitus hipotensi",
+            "Ikterik obstruktif AKI HipoNa HipoK HipoCa"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11546,7 +11730,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "obs jaundice febris h4 low intake obs vommitus hipotensi",
+          "diagnosisSpreadsheet": "obs jaundice febris h4 low intake obs vommitus hipotensi | Ikterik obstruktif AKI HipoNa HipoK HipoCa",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -11653,7 +11837,8 @@
           "daysInWard": 5,
           "diagnoses": [
             "Pansitopenia",
-            "Pansitopenia\nkardiomegali"
+            "Pansitopenia\nkardiomegali",
+            "Pansitopenia Kardiomegali Skoliosis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11662,7 +11847,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia\nkardiomegali",
+          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia\nkardiomegali | Pansitopenia Kardiomegali Skoliosis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -11684,7 +11869,8 @@
           "daysInWard": 5,
           "diagnoses": [
             "abdominal pain+febris",
-            "Abdominal pain+febris"
+            "Abdominal pain+febris",
+            "Abdominal pain Febris Kardiomegali"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11693,7 +11879,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain+febris | Abdominal pain+febris",
+          "diagnosisSpreadsheet": "abdominal pain+febris | Abdominal pain+febris | Abdominal pain Febris Kardiomegali",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -11857,7 +12043,8 @@
           "daysInWard": 4,
           "diagnoses": [
             "- susp. KAD",
-            "susp. KAD"
+            "susp. KAD",
+            "Gastropaty DM Dm tipe 2 bacterial infection"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11866,7 +12053,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD",
+          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD | Gastropaty DM Dm tipe 2 bacterial infection",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -11886,7 +12073,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI"
+            "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
+            "Pneumonia SH Hep B Hipoalbuminemia Dispepsia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11895,7 +12083,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "53 th",
-          "diagnosisSpreadsheet": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
+          "diagnosisSpreadsheet": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI | Pneumonia SH Hep B Hipoalbuminemia Dispepsia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -11915,7 +12103,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Typhoid fever? abdominal pain"
+            "Typhoid fever? abdominal pain",
+            "Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11924,7 +12113,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "32 th",
-          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain",
+          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -11944,7 +12133,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD"
+            "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
+            "Susp hepatoma DM tipe 2 Anemia AKI Hiponatremia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11953,7 +12143,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
+          "diagnosisSpreadsheet": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD | Susp hepatoma DM tipe 2 Anemia AKI Hiponatremia",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -12001,7 +12191,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "anemia susp pscba\n\nHBSAG \" REAKTIF \""
+            "anemia susp pscba\n\nHBSAG \" REAKTIF \"",
+            "Hemel ec PSCBA ec VE Anemia Hep B"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12010,7 +12201,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "anemia susp pscba\n\nHBSAG \" REAKTIF \"",
+          "diagnosisSpreadsheet": "anemia susp pscba\n\nHBSAG \" REAKTIF \" | Hemel ec PSCBA ec VE Anemia Hep B",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -12058,7 +12249,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "Hipokalemia"
+            "Hipokalemia",
+            "Hipokalemia berat"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12067,7 +12259,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Hipokalemia",
+          "diagnosisSpreadsheet": "Hipokalemia | Hipokalemia berat",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -12140,7 +12332,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)"
+            "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+            "Pansitopenia \nanemia aplastik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12149,7 +12342,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+          "diagnosisSpreadsheet": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000) | Pansitopenia \nanemia aplastik",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -12190,10 +12383,9 @@
           "doctor": "dr. Muhardani Iqbal, Sp.PD",
           "admissionDate": "22/11/2026",
           "datesSeen": [
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "febris ec tifoid fever vertigo"
           ],
@@ -12201,7 +12393,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "febris ec tifoid fever vertigo",
@@ -12217,10 +12409,9 @@
           "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
           "admissionDate": "22/11/2026",
           "datesSeen": [
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "febris h-7 ec tifoid fever leukopeni"
           ],
@@ -12228,7 +12419,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "febris h-7 ec tifoid fever leukopeni",
@@ -12249,7 +12440,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "SLE hemoptisis\nFebris , dypsnea"
+            "SLE hemoptisis\nFebris , dypsnea",
+            "SLE derajat sedang berat"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12258,7 +12450,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "SLE hemoptisis\nFebris , dypsnea",
+          "diagnosisSpreadsheet": "SLE hemoptisis\nFebris , dypsnea | SLE derajat sedang berat",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -12398,14 +12590,144 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308417",
+          "mrNo": "00308417",
+          "name": "Ny. Halijah",
+          "bedLatest": "5.1",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Abdominal Pain\nSusp Kolelithiasis dd Kolesistitis\nFebris H-2"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Abdominal Pain\nSusp Kolelithiasis dd Kolesistitis\nFebris H-2",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308463",
+          "mrNo": "00308463",
+          "name": "Ny. Irma Yunita",
+          "bedLatest": "5.3",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Stress Hiperglikeia \nec HHS DM tipe 2\nSepsis Hiponatremia Akut"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Stress Hiperglikeia \nec HHS DM tipe 2\nSepsis Hiponatremia Akut",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "00120756",
+          "mrNo": "00120756",
+          "name": "Tn. BAWON. S. 00120756",
+          "bedLatest": "7.1",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "febris h-2 obs vommitus poliatralgia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "73 th",
+          "diagnosisSpreadsheet": "febris h-2 obs vommitus poliatralgia",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308507",
+          "mrNo": "00308507",
+          "name": "Tn. M Syahdun",
+          "bedLatest": "9.2",
+          "doctor": "YUSTAR MULYADI, DR, SP.PD",
+          "admissionDate": "2026-11-23",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "SUSP VARISES ESOFAGUS\n\nHEP B"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "SUSP VARISES ESOFAGUS\n\nHEP B",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308614",
+          "mrNo": "00308614",
+          "name": "Tn. Yanto",
+          "bedLatest": "9.4",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM.",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Penkes ec Hipoglikemia HT DM Type II"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Penkes ec Hipoglikemia HT DM Type II",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
         }
       ]
     },
     "today": {
-      "totalInpatients": 35,
+      "totalInpatients": 37,
       "denominatorIncluded": 2,
-      "totalExcluded": 33,
-      "wardCoveragePct": 5.7,
+      "totalExcluded": 35,
+      "wardCoveragePct": 5.4,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -12509,7 +12831,7 @@
           "name": "Nn. Wiwin Sunarti",
           "mrNo": "00308121",
           "diagnosis": "Gangren lower abdomen DM Type 2 Anemia (Hb 8 ) Obesitas",
-          "doctor": "DECKY ANDREA, DR, SP.PD \n\nJONATHAN TALLU LEMBANG, DR, SP.B (consul)\n\nRISA AGUSTINA, DR, M.KED.KLIN, SP.MK (konsul)",
+          "doctor": "DECKY ANDREA, DR, SP.PD \n\nJONATHAN TALLU LEMBANG, DR, SP.B (Konsul)\n\nRISA AGUSTINA, DR, M.KED.KLIN, SP.MK (Konsul)\n\ndr.Martha.SP.KFR (Konsul)",
           "los": 4,
           "gender": "P",
           "age": "",
@@ -12550,7 +12872,7 @@
           "bed": "3.1",
           "name": "Ny. Lim Lili",
           "mrNo": "00228534",
-          "diagnosis": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+          "diagnosis": "Pansitopenia \nanemia aplastik",
           "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
           "los": 4,
           "gender": "P",
@@ -12578,7 +12900,7 @@
           "bed": "3.3",
           "name": "Ny. Fatmawati",
           "mrNo": "00265766",
-          "diagnosis": "susp. KAD",
+          "diagnosis": "Gastropaty DM Dm tipe 2 bacterial infection",
           "doctor": "DECKY ANDREA, DR, SP.PD",
           "los": 4,
           "gender": "P",
@@ -12592,7 +12914,7 @@
           "bed": "3.4",
           "name": "Ny. Karsem",
           "mrNo": "00308264",
-          "diagnosis": "obs jaundice febris h4 low intake obs vommitus hipotensi",
+          "diagnosis": "Ikterik obstruktif AKI HipoNa HipoK HipoCa",
           "doctor": "DECKY ANDREA, DR, SP.PD",
           "los": 5,
           "gender": "P",
@@ -12604,14 +12926,14 @@
         },
         {
           "bed": "5.1",
-          "name": "Ny. Evi Julianti",
-          "mrNo": "00308452",
-          "diagnosis": "febris ec tifoid fever vertigo",
-          "doctor": "dr. Muhardani Iqbal, Sp.PD",
-          "los": 2,
+          "name": "Ny. Halijah",
+          "mrNo": "00308417",
+          "diagnosis": "Abdominal Pain\nSusp Kolelithiasis dd Kolesistitis\nFebris H-2",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "los": 1,
           "gender": "P",
           "age": "",
-          "admissionDate": "22/11/2026",
+          "admissionDate": "23/11/2026",
           "date": "2026-11-23",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
@@ -12632,23 +12954,23 @@
         },
         {
           "bed": "5.3",
-          "name": "Nn. Chiennica",
-          "mrNo": "00291474",
-          "diagnosis": "febris h-7 ec tifoid fever leukopeni",
-          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
-          "los": 2,
+          "name": "Ny. Irma Yunita",
+          "mrNo": "00308463",
+          "diagnosis": "Stress Hiperglikeia \nec HHS DM tipe 2\nSepsis Hiponatremia Akut",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "los": 1,
           "gender": "P",
           "age": "",
-          "admissionDate": "22/11/2026",
+          "admissionDate": "23/11/2026",
           "date": "2026-11-23",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+          "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "5.4",
           "name": "Ny. Saena",
           "mrNo": "00308215",
-          "diagnosis": "Abdominal pain+febris",
+          "diagnosis": "Abdominal pain Febris Kardiomegali",
           "doctor": "dr. Harry Andhika, Sp.PD",
           "los": 5,
           "gender": "P",
@@ -12662,7 +12984,7 @@
           "bed": "6.1",
           "name": "Ny. Sri wahyuni",
           "mrNo": "287051",
-          "diagnosis": "SLE hemoptisis\nFebris , dypsnea",
+          "diagnosis": "SLE derajat sedang berat",
           "doctor": "Dr Decky andrea Sp.PD\n\nDr Temi",
           "los": 2,
           "gender": "P",
@@ -12715,10 +13037,24 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
+          "bed": "7.1",
+          "name": "Tn. BAWON. S. 00120756",
+          "mrNo": "00120756",
+          "diagnosis": "febris h-2 obs vommitus poliatralgia",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "los": 1,
+          "gender": "L",
+          "age": "73 th",
+          "admissionDate": "23/11/2026",
+          "date": "2026-11-23",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
           "bed": "7.2",
           "name": "Tn. Beni Junaidi 00201861",
           "mrNo": "00201861",
-          "diagnosis": "Typhoid fever? abdominal pain",
+          "diagnosis": "Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi",
           "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
           "los": 4,
           "gender": "L",
@@ -12732,7 +13068,7 @@
           "bed": "7.3",
           "name": "Sdr. Muhammad Rido Alfauz",
           "mrNo": "00308354",
-          "diagnosis": "Hipokalemia",
+          "diagnosis": "Hipokalemia berat",
           "doctor": "HARRY ANDHIKA, DR, SP.PD",
           "los": 4,
           "gender": "L",
@@ -12758,23 +13094,23 @@
         },
         {
           "bed": "8.2",
-          "name": "Ny. Suharti 00291032",
-          "mrNo": "00291032",
-          "diagnosis": "susp edema pulmo CKD",
-          "doctor": "DARMAWAN,DR., M.KES.,SP.PD-KGH.FINASIM\n\nCo dr.Danayu,Sp.JP",
-          "los": 6,
+          "name": "Ny. Djap Lie Ha",
+          "mrNo": "00303949",
+          "diagnosis": "hcc",
+          "doctor": "YUSTAR MULYADI, DR, SP.PD",
+          "los": 1,
           "gender": "P",
-          "age": "39 th",
-          "admissionDate": "18/11/2026",
+          "age": "",
+          "admissionDate": "23/11/2026",
           "date": "2026-11-23",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "8.3",
           "name": "Ny. Juliana",
           "mrNo": "00300607",
-          "diagnosis": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
+          "diagnosis": "Susp hepatoma DM tipe 2 Anemia AKI Hiponatremia",
           "doctor": "DECKY ANDREA, DR, SP.PD",
           "los": 5,
           "gender": "P",
@@ -12782,7 +13118,7 @@
           "admissionDate": "19/11/2026",
           "date": "2026-11-23",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "8.4",
@@ -12802,7 +13138,7 @@
           "bed": "9.1",
           "name": "Tn. Mangatur Sitorus 00253328",
           "mrNo": "00253328",
-          "diagnosis": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
+          "diagnosis": "Pneumonia SH Hep B Hipoalbuminemia Dispepsia",
           "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
           "los": 4,
           "gender": "L",
@@ -12813,10 +13149,24 @@
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
+          "bed": "9.2",
+          "name": "Tn. M Syahdun",
+          "mrNo": "00308507",
+          "diagnosis": "SUSP VARISES ESOFAGUS\n\nHEP B",
+          "doctor": "YUSTAR MULYADI, DR, SP.PD",
+          "los": 1,
+          "gender": "L",
+          "age": "",
+          "admissionDate": "2026-11-23",
+          "date": "2026-11-23",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
           "bed": "9.3",
           "name": "Tn. Pardi",
           "mrNo": "00308350",
-          "diagnosis": "anemia susp pscba\n\nHBSAG \" REAKTIF \"",
+          "diagnosis": "Hemel ec PSCBA ec VE Anemia Hep B",
           "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
           "los": 4,
           "gender": "L",
@@ -12828,17 +13178,17 @@
         },
         {
           "bed": "9.4",
-          "name": "Tn. Mustafa Fahmi",
-          "mrNo": "00144357",
-          "diagnosis": "MDS\nanemia hematemesis",
-          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM",
-          "los": 12,
+          "name": "Tn. Yanto",
+          "mrNo": "00308614",
+          "diagnosis": "Penkes ec Hipoglikemia HT DM Type II",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM.",
+          "los": 1,
           "gender": "L",
           "age": "",
-          "admissionDate": "12/11/2026",
+          "admissionDate": "23/11/2026",
           "date": "2026-11-23",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+          "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "10.1",
@@ -12872,8 +13222,8 @@
           "bed": "10.3",
           "name": "Ny. Satirah",
           "mrNo": "00307673",
-          "diagnosis": "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
-          "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Yustar,Sp.PD-KGEH\nCo dr Nurul",
+          "diagnosis": "HCC Trombositopenia Transminitis Depresi pada geriatri CKD\nHBSAH REAKTIF",
+          "doctor": "dr. Harry Andhika, Sp.PD\n\nCo dr.Yustar,Sp.PD-KGEH\n\nCo dr Nurul",
           "los": 9,
           "gender": "P",
           "age": "",
@@ -12900,7 +13250,7 @@
           "bed": "ISOLASI",
           "name": "Ny. Tan Siok Luan",
           "mrNo": "00300459",
-          "diagnosis": "Pansitopenia\nkardiomegali",
+          "diagnosis": "Pansitopenia Kardiomegali Skoliosis",
           "doctor": "dr. Harry Andhika, Sp.PD\n\nco dr. Danayu",
           "los": 5,
           "gender": "P",
@@ -12913,9 +13263,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 808,
+      "totalRecords": 810,
       "uniqueIncludedCount": 13,
-      "totalExcludedRecords": 709,
+      "totalExcludedRecords": 711,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 11,
@@ -14865,7 +15215,7 @@
           "key": "00303949",
           "mrNo": "00303949",
           "name": "Ny. Djap Lie Ha",
-          "bedLatest": "3.1",
+          "bedLatest": "8.2",
           "doctor": "dr. Yustar Mulyadi., Sp.PD",
           "admissionDate": "07/11/2026",
           "datesSeen": [
@@ -14877,20 +15227,22 @@
             "2026-11-11",
             "2026-11-12",
             "2026-11-13",
-            "2026-11-14"
+            "2026-11-14",
+            "2026-11-23"
           ],
-          "daysInWard": 9,
+          "daysInWard": 10,
           "diagnoses": [
-            "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia"
+            "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia",
+            "hcc"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 8,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia",
+          "diagnosisSpreadsheet": "HCC dgn Ascites Permagna Anemia, Hipoalbumin, Hipokalemia | hcc",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -15923,10 +16275,9 @@
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 12,
+          "daysInWard": 11,
           "diagnoses": [
             "anemia hematemesis",
             "MDS\nanemia hematemesis",
@@ -15936,7 +16287,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 12,
+          "losLatest": 11,
           "gender": "L",
           "age": "",
           "diagnosisSpreadsheet": "anemia hematemesis | MDS\nanemia hematemesis | MDS\nanemia hematemesis\n\nALERGI CIPROFLOXACIN",
@@ -16378,7 +16729,8 @@
             "CKD HCC",
             "CKD HCC Trombositopenia Transaminitis",
             "CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF",
-            "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik"
+            "Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
+            "HCC Trombositopenia Transminitis Depresi pada geriatri CKD\nHBSAH REAKTIF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -16387,7 +16739,7 @@
           "losLatest": 9,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik",
+          "diagnosisSpreadsheet": "CKD HCC | CKD HCC Trombositopenia Transaminitis | CKD HCC Trombositopenia Transminitis\nHBSAG REAKTIF | Trombositopenia Transminitis \nHBSAG REAKTIF\nCKD\nAscites\nHCC\nHRS\nDepresi berat tanpa gejala Psikotik | HCC Trombositopenia Transminitis Depresi pada geriatri CKD\nHBSAH REAKTIF",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -16992,10 +17344,9 @@
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 6,
+          "daysInWard": 5,
           "diagnoses": [
             "susp edema pulmo CKD"
           ],
@@ -17003,7 +17354,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 6,
+          "losLatest": 5,
           "gender": "P",
           "age": "39 th",
           "diagnosisSpreadsheet": "susp edema pulmo CKD",
@@ -17057,7 +17408,8 @@
           ],
           "daysInWard": 5,
           "diagnoses": [
-            "obs jaundice febris h4 low intake obs vommitus hipotensi"
+            "obs jaundice febris h4 low intake obs vommitus hipotensi",
+            "Ikterik obstruktif AKI HipoNa HipoK HipoCa"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17066,7 +17418,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "obs jaundice febris h4 low intake obs vommitus hipotensi",
+          "diagnosisSpreadsheet": "obs jaundice febris h4 low intake obs vommitus hipotensi | Ikterik obstruktif AKI HipoNa HipoK HipoCa",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -17173,7 +17525,8 @@
           "daysInWard": 5,
           "diagnoses": [
             "Pansitopenia",
-            "Pansitopenia\nkardiomegali"
+            "Pansitopenia\nkardiomegali",
+            "Pansitopenia Kardiomegali Skoliosis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17182,7 +17535,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia\nkardiomegali",
+          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia\nkardiomegali | Pansitopenia Kardiomegali Skoliosis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -17204,7 +17557,8 @@
           "daysInWard": 5,
           "diagnoses": [
             "abdominal pain+febris",
-            "Abdominal pain+febris"
+            "Abdominal pain+febris",
+            "Abdominal pain Febris Kardiomegali"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17213,7 +17567,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain+febris | Abdominal pain+febris",
+          "diagnosisSpreadsheet": "abdominal pain+febris | Abdominal pain+febris | Abdominal pain Febris Kardiomegali",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -17377,7 +17731,8 @@
           "daysInWard": 4,
           "diagnoses": [
             "- susp. KAD",
-            "susp. KAD"
+            "susp. KAD",
+            "Gastropaty DM Dm tipe 2 bacterial infection"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17386,7 +17741,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD",
+          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD | Gastropaty DM Dm tipe 2 bacterial infection",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -17406,7 +17761,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI"
+            "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
+            "Pneumonia SH Hep B Hipoalbuminemia Dispepsia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17415,7 +17771,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "53 th",
-          "diagnosisSpreadsheet": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI",
+          "diagnosisSpreadsheet": "Sirosis Hepatis Ascites Hep B Hipoalbuminemia berat Trombositopenia berat Hipoglikemia AKI | Pneumonia SH Hep B Hipoalbuminemia Dispepsia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -17435,7 +17791,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "Typhoid fever? abdominal pain"
+            "Typhoid fever? abdominal pain",
+            "Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17444,7 +17801,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "32 th",
-          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain",
+          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -17464,7 +17821,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD"
+            "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
+            "Susp hepatoma DM tipe 2 Anemia AKI Hiponatremia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17473,7 +17831,7 @@
           "losLatest": 5,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD",
+          "diagnosisSpreadsheet": "abdominal pain ec susp. cholesistitis transaminitis AKI dd/ CKD | Susp hepatoma DM tipe 2 Anemia AKI Hiponatremia",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -17521,7 +17879,8 @@
           ],
           "daysInWard": 4,
           "diagnoses": [
-            "anemia susp pscba\n\nHBSAG \" REAKTIF \""
+            "anemia susp pscba\n\nHBSAG \" REAKTIF \"",
+            "Hemel ec PSCBA ec VE Anemia Hep B"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17530,7 +17889,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "anemia susp pscba\n\nHBSAG \" REAKTIF \"",
+          "diagnosisSpreadsheet": "anemia susp pscba\n\nHBSAG \" REAKTIF \" | Hemel ec PSCBA ec VE Anemia Hep B",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -17578,7 +17937,8 @@
           ],
           "daysInWard": 3,
           "diagnoses": [
-            "Hipokalemia"
+            "Hipokalemia",
+            "Hipokalemia berat"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17587,7 +17947,7 @@
           "losLatest": 4,
           "gender": "L",
           "age": "",
-          "diagnosisSpreadsheet": "Hipokalemia",
+          "diagnosisSpreadsheet": "Hipokalemia | Hipokalemia berat",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -17660,7 +18020,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)"
+            "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+            "Pansitopenia \nanemia aplastik"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17669,7 +18030,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000)",
+          "diagnosisSpreadsheet": "anemia aplastik pansitopenia (hb 2,4, leukosit 2.71, trombosit 5.000) | Pansitopenia \nanemia aplastik",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -17710,10 +18071,9 @@
           "doctor": "dr. Muhardani Iqbal, Sp.PD",
           "admissionDate": "22/11/2026",
           "datesSeen": [
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "febris ec tifoid fever vertigo"
           ],
@@ -17721,7 +18081,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "febris ec tifoid fever vertigo",
@@ -17737,10 +18097,9 @@
           "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
           "admissionDate": "22/11/2026",
           "datesSeen": [
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "febris h-7 ec tifoid fever leukopeni"
           ],
@@ -17748,7 +18107,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 2,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "febris h-7 ec tifoid fever leukopeni",
@@ -17769,7 +18128,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "SLE hemoptisis\nFebris , dypsnea"
+            "SLE hemoptisis\nFebris , dypsnea",
+            "SLE derajat sedang berat"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17778,7 +18138,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "SLE hemoptisis\nFebris , dypsnea",
+          "diagnosisSpreadsheet": "SLE hemoptisis\nFebris , dypsnea | SLE derajat sedang berat",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -17918,6 +18278,136 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308417",
+          "mrNo": "00308417",
+          "name": "Ny. Halijah",
+          "bedLatest": "5.1",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Abdominal Pain\nSusp Kolelithiasis dd Kolesistitis\nFebris H-2"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Abdominal Pain\nSusp Kolelithiasis dd Kolesistitis\nFebris H-2",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308463",
+          "mrNo": "00308463",
+          "name": "Ny. Irma Yunita",
+          "bedLatest": "5.3",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Stress Hiperglikeia \nec HHS DM tipe 2\nSepsis Hiponatremia Akut"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Stress Hiperglikeia \nec HHS DM tipe 2\nSepsis Hiponatremia Akut",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
+        },
+        {
+          "key": "00120756",
+          "mrNo": "00120756",
+          "name": "Tn. BAWON. S. 00120756",
+          "bedLatest": "7.1",
+          "doctor": "dr. Muhardani Iqbal, Sp.PD",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "febris h-2 obs vommitus poliatralgia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "73 th",
+          "diagnosisSpreadsheet": "febris h-2 obs vommitus poliatralgia",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308507",
+          "mrNo": "00308507",
+          "name": "Tn. M Syahdun",
+          "bedLatest": "9.2",
+          "doctor": "YUSTAR MULYADI, DR, SP.PD",
+          "admissionDate": "2026-11-23",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "SUSP VARISES ESOFAGUS\n\nHEP B"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "SUSP VARISES ESOFAGUS\n\nHEP B",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308614",
+          "mrNo": "00308614",
+          "name": "Tn. Yanto",
+          "bedLatest": "9.4",
+          "doctor": "IVAN LUMBAN TORUAN, DR, SP.PD- KHOM.",
+          "admissionDate": "23/11/2026",
+          "datesSeen": [
+            "2026-11-23"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Penkes ec Hipoglikemia HT DM Type II"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Penkes ec Hipoglikemia HT DM Type II",
+          "exclusionCategory": "DM_NON_CKD",
+          "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
+          "exclusionCategoryColor": "#f59e0b"
         }
       ]
     }
@@ -38121,8 +38611,8 @@
         "Sheet 2026-11-22",
         "Sheet 2026-11-23"
       ],
-      "totalUniqueInpatients": 164,
-      "totalObservations": 808
+      "totalUniqueInpatients": 169,
+      "totalObservations": 810
     },
     "realSummary": {
       "denominator": 13,
