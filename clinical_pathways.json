@@ -32,9 +32,9 @@
         "2026-11-22",
         "2026-11-23"
       ],
-      "totalObservations": 810,
+      "totalObservations": 808,
       "observationsIncludedCount": 99,
-      "observationsExcludedCount": 711,
+      "observationsExcludedCount": 709,
       "totalUniquePatients": 164,
       "uniqueIncludedCount": 13,
       "uniqueExcludedCount": 151,
@@ -924,7 +924,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus | Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia"
+              "diagnosis": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus | Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia\nPAD\nhernia umbilicus\nlow back pain ec musculogenic myalgia"
             },
             {
               "mrNo": "00307442",
@@ -1296,8 +1296,7 @@
                 "2026-11-19",
                 "2026-11-20",
                 "2026-11-21",
-                "2026-11-22",
-                "2026-11-23"
+                "2026-11-22"
               ],
               "diagnosis": "- ca lidah - obs vomiting - konstipasi | SCC lidah"
             },
@@ -1332,8 +1331,7 @@
               "datesSeen": [
                 "2026-11-20",
                 "2026-11-21",
-                "2026-11-22",
-                "2026-11-23"
+                "2026-11-22"
               ],
               "diagnosis": "Susp Pneumonia Febris h7 dg Trombositopenia"
             },
@@ -1451,7 +1449,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "obs febris \ndyspepsia anemia"
+              "diagnosis": "obs febris \ndyspepsia anemia | Obs febris (TUBEX: 4)\nDyspepsia anemia"
             },
             {
               "mrNo": "00307864",
@@ -2255,7 +2253,7 @@
                 "2026-11-22",
                 "2026-11-23"
               ],
-              "diagnosis": "poliatralgia dm hiperglikemi tetraparestese"
+              "diagnosis": "poliatralgia dm hiperglikemi tetraparestese | DM tipe 2 neuropati AKI"
             }
           ],
           "pct": 9.9
@@ -2404,10 +2402,10 @@
         },
         {
           "date": "2026-11-23",
-          "total": 37,
+          "total": 35,
           "included": 2,
-          "excluded": 35,
-          "coveragePct": 5.4
+          "excluded": 33,
+          "coveragePct": 5.7
         }
       ],
       "uniquePatientsList": [
@@ -5235,7 +5233,8 @@
           "daysInWard": 12,
           "diagnoses": [
             "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus",
-            "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia"
+            "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
+            "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia\nPAD\nhernia umbilicus\nlow back pain ec musculogenic myalgia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5244,7 +5243,7 @@
           "losLatest": 3664,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus | Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
+          "diagnosisSpreadsheet": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus | Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia\nPAD\nhernia umbilicus\nlow back pain ec musculogenic myalgia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -6717,10 +6716,9 @@
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 5,
+          "daysInWard": 4,
           "diagnoses": [
             "- ca lidah - obs vomiting - konstipasi",
             "SCC lidah"
@@ -6729,7 +6727,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 1101,
+          "losLatest": 1100,
           "gender": "L",
           "age": "35 th",
           "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi | SCC lidah",
@@ -6949,10 +6947,9 @@
           "datesSeen": [
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "Susp Pneumonia Febris h7 dg Trombositopenia"
           ],
@@ -6960,7 +6957,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 4,
+          "losLatest": 3,
           "gender": "L",
           "age": "34 th",
           "diagnosisSpreadsheet": "Susp Pneumonia Febris h7 dg Trombositopenia",
@@ -7149,7 +7146,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "poliatralgia dm hiperglikemi tetraparestese"
+            "poliatralgia dm hiperglikemi tetraparestese",
+            "DM tipe 2 neuropati AKI"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7158,7 +7156,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "poliatralgia dm hiperglikemi tetraparestese",
+          "diagnosisSpreadsheet": "poliatralgia dm hiperglikemi tetraparestese | DM tipe 2 neuropati AKI",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -7312,7 +7310,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "obs febris \ndyspepsia anemia"
+            "obs febris \ndyspepsia anemia",
+            "Obs febris (TUBEX: 4)\nDyspepsia anemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7321,7 +7320,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "obs febris \ndyspepsia anemia",
+          "diagnosisSpreadsheet": "obs febris \ndyspepsia anemia | Obs febris (TUBEX: 4)\nDyspepsia anemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -10282,7 +10281,8 @@
           "daysInWard": 12,
           "diagnoses": [
             "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus",
-            "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia"
+            "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
+            "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia\nPAD\nhernia umbilicus\nlow back pain ec musculogenic myalgia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -10291,7 +10291,7 @@
           "losLatest": 3664,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus | Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
+          "diagnosisSpreadsheet": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus | Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia\nPAD\nhernia umbilicus\nlow back pain ec musculogenic myalgia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -11737,10 +11737,9 @@
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 5,
+          "daysInWard": 4,
           "diagnoses": [
             "- ca lidah - obs vomiting - konstipasi",
             "SCC lidah"
@@ -11749,7 +11748,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 1101,
+          "losLatest": 1100,
           "gender": "L",
           "age": "35 th",
           "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi | SCC lidah",
@@ -11969,10 +11968,9 @@
           "datesSeen": [
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "Susp Pneumonia Febris h7 dg Trombositopenia"
           ],
@@ -11980,7 +11978,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 4,
+          "losLatest": 3,
           "gender": "L",
           "age": "34 th",
           "diagnosisSpreadsheet": "Susp Pneumonia Febris h7 dg Trombositopenia",
@@ -12169,7 +12167,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "poliatralgia dm hiperglikemi tetraparestese"
+            "poliatralgia dm hiperglikemi tetraparestese",
+            "DM tipe 2 neuropati AKI"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12178,7 +12177,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "poliatralgia dm hiperglikemi tetraparestese",
+          "diagnosisSpreadsheet": "poliatralgia dm hiperglikemi tetraparestese | DM tipe 2 neuropati AKI",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -12332,7 +12331,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "obs febris \ndyspepsia anemia"
+            "obs febris \ndyspepsia anemia",
+            "Obs febris (TUBEX: 4)\nDyspepsia anemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12341,7 +12341,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "obs febris \ndyspepsia anemia",
+          "diagnosisSpreadsheet": "obs febris \ndyspepsia anemia | Obs febris (TUBEX: 4)\nDyspepsia anemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -12402,10 +12402,10 @@
       ]
     },
     "today": {
-      "totalInpatients": 37,
+      "totalInpatients": 35,
       "denominatorIncluded": 2,
-      "totalExcluded": 35,
-      "wardCoveragePct": 5.4,
+      "totalExcluded": 33,
+      "wardCoveragePct": 5.7,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -12564,7 +12564,7 @@
           "bed": "3.2",
           "name": "Ny. Sumiati",
           "mrNo": "00085744",
-          "diagnosis": "poliatralgia dm hiperglikemi tetraparestese",
+          "diagnosis": "DM tipe 2 neuropati AKI",
           "doctor": "dr.Decky Andrea",
           "los": 4,
           "gender": "P",
@@ -12704,26 +12704,12 @@
           "bed": "6.4",
           "name": "Nn.Keysha Auli Ramadhani",
           "mrNo": "308381",
-          "diagnosis": "obs febris \ndyspepsia anemia",
+          "diagnosis": "Obs febris (TUBEX: 4)\nDyspepsia anemia",
           "doctor": "dr. Decky Andrea, Sp.PD",
           "los": 2,
           "gender": "P",
           "age": "",
           "admissionDate": "22/11/2026",
-          "date": "2026-11-23",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
-        },
-        {
-          "bed": "7.1",
-          "name": "Tn. Tedi Zulkarnaen 00303383",
-          "mrNo": "00303383",
-          "diagnosis": "SCC lidah",
-          "doctor": "SULISTYO BUDIMAN, DR. SP.B(K) Onk.FINACS.",
-          "los": 1101,
-          "gender": "L",
-          "age": "35 th",
-          "admissionDate": "19/11/2023",
           "date": "2026-11-23",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
@@ -12802,8 +12788,8 @@
           "bed": "8.4",
           "name": "Ny. Suknah",
           "mrNo": "00296837",
-          "diagnosis": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
-          "doctor": "dr. Decky Andrea \n\nco' dr. Elit \n\nco' dr. Dini\n\nco' dr. Sony\n\nco' dr. Alvin",
+          "diagnosis": "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia\nPAD\nhernia umbilicus\nlow back pain ec musculogenic myalgia",
+          "doctor": "dr. Decky Andrea \n\nco' dr. Elit \n\nco' dr. Dini\n\nco' dr. Sony\n\nco' dr. Alvin \n\nco' dr.Temi,Sp.JP",
           "los": 3664,
           "gender": "P",
           "age": "",
@@ -12821,20 +12807,6 @@
           "los": 4,
           "gender": "L",
           "age": "53 th",
-          "admissionDate": "20/11/2026",
-          "date": "2026-11-23",
-          "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
-        },
-        {
-          "bed": "9.2",
-          "name": "Tn. Muhsin 00308286",
-          "mrNo": "00308286",
-          "diagnosis": "Susp Pneumonia Febris h7 dg Trombositopenia",
-          "doctor": "APRIANI, DR, M.KED (PD), SP.PD",
-          "los": 4,
-          "gender": "L",
-          "age": "34 th",
           "admissionDate": "20/11/2026",
           "date": "2026-11-23",
           "status": "EXCLUDED",
@@ -12941,9 +12913,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 810,
+      "totalRecords": 808,
       "uniqueIncludedCount": 13,
-      "totalExcludedRecords": 711,
+      "totalExcludedRecords": 709,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 11,
@@ -15829,7 +15801,8 @@
           "daysInWard": 12,
           "diagnoses": [
             "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus",
-            "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia"
+            "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
+            "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia\nPAD\nhernia umbilicus\nlow back pain ec musculogenic myalgia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -15838,7 +15811,7 @@
           "losLatest": 3664,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus | Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia",
+          "diagnosisSpreadsheet": "Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus | Sirosis hepatis \ndekompensata koagulopati \nAnemia Trombositopenia\n HT Asites \nHipoalbumin \nhernia umbilicus\nlow back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia\nPAD\nhernia umbilicus\nlow back pain ec musculogenic myalgia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -17284,10 +17257,9 @@
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 5,
+          "daysInWard": 4,
           "diagnoses": [
             "- ca lidah - obs vomiting - konstipasi",
             "SCC lidah"
@@ -17296,7 +17268,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 1101,
+          "losLatest": 1100,
           "gender": "L",
           "age": "35 th",
           "diagnosisSpreadsheet": "- ca lidah - obs vomiting - konstipasi | SCC lidah",
@@ -17516,10 +17488,9 @@
           "datesSeen": [
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22",
-            "2026-11-23"
+            "2026-11-22"
           ],
-          "daysInWard": 4,
+          "daysInWard": 3,
           "diagnoses": [
             "Susp Pneumonia Febris h7 dg Trombositopenia"
           ],
@@ -17527,7 +17498,7 @@
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 4,
+          "losLatest": 3,
           "gender": "L",
           "age": "34 th",
           "diagnosisSpreadsheet": "Susp Pneumonia Febris h7 dg Trombositopenia",
@@ -17716,7 +17687,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "poliatralgia dm hiperglikemi tetraparestese"
+            "poliatralgia dm hiperglikemi tetraparestese",
+            "DM tipe 2 neuropati AKI"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17725,7 +17697,7 @@
           "losLatest": 4,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "poliatralgia dm hiperglikemi tetraparestese",
+          "diagnosisSpreadsheet": "poliatralgia dm hiperglikemi tetraparestese | DM tipe 2 neuropati AKI",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -17879,7 +17851,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "obs febris \ndyspepsia anemia"
+            "obs febris \ndyspepsia anemia",
+            "Obs febris (TUBEX: 4)\nDyspepsia anemia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17888,7 +17861,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "obs febris \ndyspepsia anemia",
+          "diagnosisSpreadsheet": "obs febris \ndyspepsia anemia | Obs febris (TUBEX: 4)\nDyspepsia anemia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -38149,7 +38122,7 @@
         "Sheet 2026-11-23"
       ],
       "totalUniqueInpatients": 164,
-      "totalObservations": 810
+      "totalObservations": 808
     },
     "realSummary": {
       "denominator": 13,
