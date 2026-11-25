@@ -17,8 +17,9 @@ const state = {
   searchQuery: '',
   selectedPatient: null,
   theme: localStorage.getItem('kakap_theme') || 'light',
-  role: localStorage.getItem('kakap_role') || 'management', // 'management' (Public) or 'clinical' (Doctor/Nurse)
-  clinicalPin: '2026',
+  role: 'management', // Selalu mulai terkunci demi UU PDP; dibuka hanya dengan PIN di memori
+  clinicalVaultData: null,
+  maskedSnapshot: null,
   pendingPatientModal: null,
   syncSchedule: null,
   lastSyncKnown: null,
@@ -156,18 +157,13 @@ function initRoleManagement() {
     });
   }
 
-  // Keypad buttons
+  // Keypad buttons (tanpa PIN tertulis di kode; verifikasi dilakukan saat menekan Buka/Enter)
   document.querySelectorAll('.keypad-btn[data-key]').forEach(btn => {
     btn.addEventListener('click', () => {
       if (pinInput && pinInput.value.length < 6) {
         pinInput.value += btn.getAttribute('data-key');
         const errorEl = document.getElementById('pinErrorMsg');
         if (errorEl) errorEl.style.display = 'none';
-        if (pinInput.value.length >= 4) {
-          if (pinInput.value === state.clinicalPin) {
-            verifyClinicalPin(pinInput.value);
-          }
-        }
       }
     });
   });
@@ -202,9 +198,9 @@ function initRoleManagement() {
   const tabPinBtn = document.getElementById('tabPinSubmitBtn');
   const tabPinInput = document.getElementById('tabPinInput');
   if (tabPinBtn && tabPinInput) {
-    tabPinBtn.addEventListener('click', () => {
+    tabPinBtn.addEventListener('click', async () => {
       const val = tabPinInput.value.trim();
-      if (verifyClinicalPin(val)) {
+      if (await verifyClinicalPin(val)) {
         tabPinInput.value = '';
         const tabError = document.getElementById('tabPinError');
         if (tabError) tabError.style.display = 'none';
@@ -285,58 +281,219 @@ function closePinModal() {
   if (errorEl) errorEl.style.display = 'none';
 }
 
-function verifyClinicalPin(enteredPin) {
-  if (enteredPin === state.clinicalPin) {
-    state.role = 'clinical';
-    localStorage.setItem('kakap_role', 'clinical');
-    updateRoleUI();
-    closePinModal();
-    showToast('🔓 Mode Klinis Aktif! Identitas pasien & operan jaga SBAR dibuka.', 'success');
-    if (state.pendingPatientModal) {
-      const pt = state.pendingPatientModal;
-      state.pendingPatientModal = null;
-      openPatientModal(pt);
-    }
-    return true;
-  } else {
-    const errorEl = document.getElementById('pinErrorMsg');
-    if (errorEl) {
-      errorEl.style.display = 'block';
-      errorEl.textContent = 'PIN keliru. Silakan masukkan PIN klinis yang benar.';
-    }
-    const tabErrorEl = document.getElementById('tabPinError');
-    if (tabErrorEl) {
-      tabErrorEl.style.display = 'block';
-      tabErrorEl.textContent = 'PIN keliru. Silakan gunakan PIN klinis yang benar.';
-    }
-    const pinInput = document.getElementById('pinCodeInput');
-    if (pinInput) {
-      pinInput.classList.add('pin-shake');
-      setTimeout(() => pinInput.classList.remove('pin-shake'), 500);
-      pinInput.select();
-    }
-    return false;
+// Dekripsi Brankas Klinis AES-256-CTR + HMAC-SHA256 (Web Crypto API)
+function b64ToBytes(b64) {
+  const bin = atob(b64);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return bytes;
+}
+
+async function decryptClinicalVault(enteredPin) {
+  const vault = state.data && state.data.clinicalVault;
+  if (!vault || !vault.ct || !vault.salt || !vault.iv || !vault.mac) return null;
+  if (!window.crypto || !window.crypto.subtle) {
+    throw new Error('Peramban memerlukan koneksi HTTPS/localhost untuk membuka brankas terenkripsi.');
   }
+  const salt = b64ToBytes(vault.salt);
+  const iv = b64ToBytes(vault.iv);
+  const mac = b64ToBytes(vault.mac);
+  const ct = b64ToBytes(vault.ct);
+
+  const baseKey = await window.crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(String(enteredPin || '')),
+    'PBKDF2',
+    false,
+    ['deriveBits']
+  );
+  const bits = new Uint8Array(await window.crypto.subtle.deriveBits(
+    { name: 'PBKDF2', salt, iterations: vault.iter || 100000, hash: 'SHA-256' },
+    baseKey,
+    512
+  ));
+  const encKey = await window.crypto.subtle.importKey('raw', bits.slice(0, 32), { name: 'AES-CTR' }, false, ['decrypt']);
+  const macKey = await window.crypto.subtle.importKey('raw', bits.slice(32, 64), { name: 'HMAC', hash: 'SHA-256' }, false, ['verify']);
+
+  const macInput = new Uint8Array(iv.length + ct.length);
+  macInput.set(iv, 0);
+  macInput.set(ct, iv.length);
+  const validMac = await window.crypto.subtle.verify('HMAC', macKey, mac, macInput);
+  if (!validMac) return null;
+
+  const plainBuf = await window.crypto.subtle.decrypt({ name: 'AES-CTR', counter: iv, length: 64 }, encKey, ct);
+  return JSON.parse(new TextDecoder().decode(plainBuf));
+}
+
+function hydrateClinicalVaultData(vaultObj) {
+  if (!state.data || !vaultObj || !vaultObj.days) return;
+  if (!state.maskedSnapshot) {
+    const snap = {};
+    Object.entries(state.data.recentDays || {}).forEach(([isoD, dayObj]) => {
+      snap[isoD] = {};
+      (dayObj.patients || []).forEach(p => {
+        if (!p.isEmpty) {
+          snap[isoD][String(p.bed)] = { name: p.name, mrNo: p.mrNo };
+        }
+      });
+    });
+    state.maskedSnapshot = snap;
+  }
+  Object.entries(vaultObj.days).forEach(([isoD, bedMap]) => {
+    const dayObj = state.data.recentDays && state.data.recentDays[isoD];
+    if (!dayObj || !Array.isArray(dayObj.patients)) return;
+    dayObj.patients.forEach(p => {
+      const rec = bedMap[String(p.bed)];
+      if (rec && !p.isEmpty) {
+        p.name = rec.name || p.name;
+        p.mrNo = rec.mrNo || p.mrNo;
+        p.notes = rec.notes || { pagi: '', sore: '', malam: '' };
+      }
+    });
+  });
+}
+
+function clearClinicalVaultData() {
+  if (state.data && state.maskedSnapshot) {
+    Object.entries(state.maskedSnapshot).forEach(([isoD, bedMap]) => {
+      const dayObj = state.data.recentDays && state.data.recentDays[isoD];
+      if (!dayObj || !Array.isArray(dayObj.patients)) return;
+      dayObj.patients.forEach(p => {
+        const rec = bedMap[String(p.bed)];
+        if (rec && !p.isEmpty) {
+          p.name = rec.name;
+          p.mrNo = rec.mrNo;
+          p.notes = { pagi: '', sore: '', malam: '' };
+        }
+      });
+    });
+  }
+  state.clinicalVaultData = null;
+}
+
+async function verifyClinicalPin(enteredPin) {
+  const cleanPin = String(enteredPin || '').trim();
+  const submitBtn = document.getElementById('pinSubmitBtn');
+  if (submitBtn) submitBtn.disabled = true;
+
+  try {
+    const decrypted = await decryptClinicalVault(cleanPin);
+    if (decrypted) {
+      state.clinicalVaultData = decrypted;
+      hydrateClinicalVaultData(decrypted);
+      state.role = 'clinical';
+      updateRoleUI();
+      try { initChronologyModule(); } catch (_) {}
+      closePinModal();
+      showToast('🔓 Mode Klinis Aktif! Identitas pasien & catatan operan SBAR berhasil didekripsi.', 'success');
+      if (state.pendingPatientModal) {
+        const targetBed = state.pendingPatientModal.bed;
+        state.pendingPatientModal = null;
+        const dayData = state.data.recentDays[state.currentDate] || state.data.today;
+        const freshPt = (dayData && dayData.patients || []).find(p => String(p.bed) === String(targetBed));
+        if (freshPt) openPatientModal(freshPt);
+      }
+      return true;
+    }
+  } catch (err) {
+    showToast(err.message || 'Gagal membuka brankas klinis.', 'error');
+  } finally {
+    if (submitBtn) submitBtn.disabled = false;
+  }
+
+  const errorEl = document.getElementById('pinErrorMsg');
+  if (errorEl) {
+    errorEl.style.display = 'block';
+    errorEl.textContent = 'PIN keliru. Silakan masukkan PIN klinis yang benar.';
+  }
+  const tabErrorEl = document.getElementById('tabPinError');
+  if (tabErrorEl) {
+    tabErrorEl.style.display = 'block';
+    tabErrorEl.textContent = 'PIN keliru. Silakan gunakan PIN klinis yang benar.';
+  }
+  const pinInput = document.getElementById('pinCodeInput');
+  if (pinInput) {
+    pinInput.classList.add('pin-shake');
+    setTimeout(() => pinInput.classList.remove('pin-shake'), 500);
+    pinInput.select();
+  }
+  return false;
 }
 
 function lockToManagementMode() {
+  clearClinicalVaultData();
   state.role = 'management';
-  localStorage.setItem('kakap_role', 'management');
   state.pendingPatientModal = null;
   updateRoleUI();
-  showToast('🔒 Mode Klinis dikunci. Identitas pasien disamarkan.', 'info');
+  try { initChronologyModule(); } catch (_) {}
+  showToast('🔒 Mode Klinis dikunci. Data pasien kembali disamarkan.', 'info');
 }
 
+function updateDataFreshnessBanner() {
+  const bar = document.getElementById('dataFreshnessBar');
+  const txt = document.getElementById('dataFreshnessText');
+  const retryBtn = document.getElementById('btnRetryLoadData');
+  if (!bar || !txt || !state.data) return;
+
+  if (retryBtn) retryBtn.style.display = 'none';
+  const meta = state.data.metadata || {};
+  const latestIso = meta.latestDate || '';
+  const totalTabs = (state.data.allDates || []).length;
+  const updatedWib = meta.lastUpdatedWib || meta.lastUpdated || '-';
+
+  // Hitung selisih hari terhadap waktu WIB sekarang
+  const wibNow = getWIBTime();
+  const todayIso = `${wibNow.getFullYear()}-${String(wibNow.getMonth() + 1).padStart(2, '0')}-${String(wibNow.getDate()).padStart(2, '0')}`;
+  let diffDays = 0;
+  if (latestIso) {
+    const d1 = new Date(todayIso + 'T00:00:00');
+    const d2 = new Date(latestIso + 'T00:00:00');
+    diffDays = Math.round((d1 - d2) / 86400000);
+  }
+
+  // Perbarui label tombol "Hari Ini" — hanya bertulis "Hari Ini" jika data terbaru memang hari ini
+  const todayBtn = document.getElementById('todayBtn');
+  if (todayBtn) {
+    todayBtn.textContent = (latestIso === todayIso) ? 'Hari Ini' : 'Data Terbaru';
+  }
+
+  const formattedLatest = latestIso ? formatIndonesianDate(latestIso) : '-';
+  if (diffDays > 1) {
+    bar.className = 'data-freshness-bar stale-warning';
+    txt.textContent = `⚠️ Perhatian: Data sampai tanggal ${formattedLatest} (lebih dari ${diffDays} hari lalu) • Diperbarui ${updatedWib} • ${totalTabs} hari tercatat`;
+  } else {
+    bar.className = 'data-freshness-bar';
+    txt.textContent = `✅ Data sampai tanggal ${formattedLatest} • Diperbarui ${updatedWib} • ${totalTabs} tab tanggal tercatat (3 Nov s/d terbaru)`;
+  }
+
+  const cpScopeBadge = document.getElementById('cpMorningDateScopeBadge');
+  if (cpScopeBadge && state.data.allDates && state.data.allDates.length > 0) {
+    cpScopeBadge.textContent = `DATA: SELURUH TAB (${formatShortDate(state.data.allDates[0])} – ${formatShortDate(latestIso)} 2026 • ${totalTabs} Hari)`;
+  }
+}
 
 // Load Dashboard Data
 async function loadData() {
-  showToast('Memuat data sensus Ruang Kakap...', 'info');
+  const bar = document.getElementById('dataFreshnessBar');
+  const txt = document.getElementById('dataFreshnessText');
+  const retryBtn = document.getElementById('btnRetryLoadData');
+  if (bar && txt) {
+    bar.className = 'data-freshness-bar';
+    txt.textContent = '⏳ Sedang memuat data sensus Ruang Kakap...';
+  }
+  if (retryBtn) retryBtn.style.display = 'none';
+
   try {
     const res = await fetch('dashboard_data.json?t=' + Date.now());
-    if (!res.ok) throw new Error('Gagal membaca file data sensus');
+    if (!res.ok) throw new Error('File data sensus tidak dapat dibaca dari server');
     state.data = await res.json();
+    state.maskedSnapshot = null;
+    if (state.role === 'clinical' && state.clinicalVaultData) {
+      hydrateClinicalVaultData(state.clinicalVaultData);
+    }
     state.currentDate = state.data.metadata.latestDate;
-    
+
+    updateDataFreshnessBanner();
     populateDateDropdown();
     populateDirectoryFilters();
     updateDashboard();
@@ -347,7 +504,12 @@ async function loadData() {
     showToast('Data berhasil dimuat! Sensus terkini: ' + formatIndonesianDate(state.currentDate), 'success');
   } catch (err) {
     console.error('Error loading data:', err);
-    showToast('Terjadi kesalahan memuat data sensus: ' + err.message, 'error');
+    if (bar && txt) {
+      bar.className = 'data-freshness-bar error-state';
+      txt.textContent = '❌ Gagal memuat data sensus. Periksa koneksi internet lalu klik Coba Lagi.';
+    }
+    if (retryBtn) retryBtn.style.display = 'inline-flex';
+    showToast('Gagal memuat data sensus, silakan coba lagi.', 'error');
   }
 }
 
@@ -1376,10 +1538,20 @@ function highlightClinicalKeywords(text) {
 function renderAnalyticsTab() {
   if (!state.data) return;
 
-  const totalPatients = state.data.analytics.totalPatients || state.data.today?.summary?.occupied || 41;
+  const totalPatients = state.data.analytics.totalPatients || state.data.today?.summary?.occupied || 0;
+  const allDates = state.data.allDates || [];
+  const rangeTxt = allDates.length > 0
+    ? `${formatShortDate(allDates[0])} – ${formatShortDate(allDates[allDates.length - 1])} 2026`
+    : '-';
   document.querySelectorAll('.total-pts-placeholder').forEach(el => {
     el.textContent = totalPatients;
   });
+  const docSub = document.getElementById('topDoctorsSubtitle');
+  if (docSub) docSub.innerHTML = `<strong>${totalPatients} pasien berbeda</strong> (${rangeTxt}, 1 orang per No. RM — bukan jumlah 41 bed)`;
+  const diagSub = document.getElementById('topDiagnosesSubtitle');
+  if (diagSub) diagSub.innerHTML = `<strong>${totalPatients} pasien berbeda</strong> (${rangeTxt} &bull; 1 pasien dapat memiliki &gt;1 diagnosa)`;
+  const insSub = document.getElementById('insuranceSubtitle');
+  if (insSub) insSub.innerHTML = `<strong>${totalPatients} pasien berbeda</strong> (${rangeTxt}, dihitung dari seluruh tab tanggal)`;
 
   // 1. Top 10 DPJP / Dokter Spesialis (Leaderboard Podium Bars)
   const docContainer = document.getElementById('topDoctorsList');
@@ -2298,7 +2470,8 @@ function updateSyncScheduleUI(info) {
   // Update Modal elements if open
   const lastSyncEl = document.getElementById('metaLastSyncVal');
   if (lastSyncEl) {
-    lastSyncEl.textContent = info.lastSync ? `${info.lastSync} (${info.lastMessage || 'Sukses'})` : 'Belum tercatat (Baru mulai)';
+    const metaWib = state.data && state.data.metadata && (state.data.metadata.lastUpdatedWib || state.data.metadata.lastUpdated);
+    lastSyncEl.textContent = metaWib ? `${metaWib} (Sukses)` : (info.lastSync || 'Sedang memuat...');
   }
 
   const nextSyncEl = document.getElementById('metaNextSyncVal');
@@ -2356,21 +2529,21 @@ async function triggerSync() {
     modalSyncBtn.innerHTML = '<span class="pulsing-dot"></span> Menyingkronkan Google Sheets...';
   }
 
-  showToast('Sedang menghubungi server untuk menarik spreadsheet terbaru...', 'info');
+  showToast('Memeriksa pembaruan data sensus terbaru...', 'info');
 
   try {
-    const res = await fetch('/api/sync', { method: 'POST' });
-    if (res.ok) {
-      showToast('Sinkronisasi selesai! Memperbarui data...', 'success');
-      await loadData();
-      await fetchSyncSchedule();
+    const isLocalHost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    if (isLocalHost) {
+      const res = await fetch('/api/sync', { method: 'POST' });
+      if (res.ok) {
+        showToast('Sinkronisasi Google Sheets selesai! Memperbarui tampilan...', 'success');
+      }
     } else {
-      showToast('Sinkronisasi data Google Sheet selesai diperbarui.', 'success');
-      await loadData();
-      await fetchSyncSchedule();
+      showToast('Memuat data terbaru dari server. Tarik otomatis dari Google Sheets berjalan terjadwal jam 07.00, 14.00, & 20.00 WIB.', 'info');
     }
+    await loadData();
+    await fetchSyncSchedule();
   } catch (err) {
-    showToast('Memuat ulang cache data lokal...', 'info');
     await loadData();
     await fetchSyncSchedule();
   } finally {
@@ -2474,63 +2647,233 @@ function escapeHtml(str) {
 // BARBER JOHNSON & HOSPITAL QUALITY INDICATORS
 // ==========================================================================
 
+// Evaluasi konsisten 1 sumber kebenaran untuk semua indikator mutu (Standar Kemenkes RI)
+function evaluateQualityIndicators(hosp) {
+  const ov = hosp.overall || {};
+  const totalDays = hosp.totalDays || 0;
+  const totalDischarges = hosp.totalDischarges || 0;
+  const sufficient = Boolean(hosp.sufficientData !== undefined ? hosp.sufficientData : (totalDays >= 30 && totalDischarges >= 30));
+
+  const bor = Number(ov.bor || 0);
+  const avlos = Number(ov.avlos || 0);
+  const toi = Number(ov.toi || 0);
+  const btoVal = Number(ov.bto || 0);
+  const btoUnit = ov.btoUnit || (sufficient ? 'kali/tahun' : `kali/${totalDays} hari`);
+  const gdr = Number(ov.gdr || 0);
+  const ndr = Number(ov.ndr || 0);
+
+  const borEval = bor > 85
+    ? { label: 'Tinggi', cls: 'chip-danger', pillCls: 'pill-danger', diff: `+${(bor - 85).toFixed(1)}% di atas batas atas 85%` }
+    : (bor < 60
+      ? { label: 'Rendah', cls: 'chip-warning', pillCls: 'pill-warning', diff: `-${(60 - bor).toFixed(1)}% di bawah batas bawah 60%` }
+      : { label: 'Optimal', cls: 'chip-success', pillCls: 'pill-success', diff: '★ Masuk standar Kemenkes (60–85%)' });
+
+  const avlosEval = avlos > 9
+    ? { label: 'Tinggi', cls: 'chip-warning', pillCls: 'pill-warning', diff: `+${(avlos - 9).toFixed(1)} hari di atas batas atas 9 hari` }
+    : (avlos < 6
+      ? { label: 'Rendah', cls: 'chip-warning', pillCls: 'pill-warning', diff: `-${(6 - avlos).toFixed(1)} hari di bawah batas bawah 6 hari` }
+      : { label: 'Optimal', cls: 'chip-success', pillCls: 'pill-success', diff: '★ Masuk standar Kemenkes (6–9 hari)' });
+
+  const toiEval = (toi >= 1 && toi <= 3)
+    ? { label: 'Masuk Standar', cls: 'chip-success', pillCls: 'pill-success', diff: '★ Masuk standar Kemenkes (1–3 hari)' }
+    : (toi < 1
+      ? { label: 'Terlalu Cepat', cls: 'chip-warning', pillCls: 'pill-warning', diff: `Bed kosong < 24 jam (~${Math.round(toi * 24)} jam)` }
+      : { label: 'Tinggi', cls: 'chip-warning', pillCls: 'pill-warning', diff: `+${(toi - 3).toFixed(1)} hari di atas batas 3 hari` });
+
+  const btoEval = !sufficient
+    ? { label: `Data belum cukup (${totalDays} hari)`, cls: 'chip-warning', pillCls: 'pill-warning', diff: `Belum diproyeksikan ke setahun (<30 hari)` }
+    : (btoVal >= 40 && btoVal <= 50
+      ? { label: 'Optimal', cls: 'chip-success', pillCls: 'pill-success', diff: '★ Masuk standar Kemenkes (40–50 kali/th)' }
+      : (btoVal < 40
+        ? { label: 'Rendah', cls: 'chip-warning', pillCls: 'pill-warning', diff: `Di bawah standar 40–50 kali/th` }
+        : { label: 'Tinggi', cls: 'chip-danger', pillCls: 'pill-danger', diff: `Di atas standar 40–50 kali/th` }));
+
+  const gdrEval = !sufficient
+    ? { label: `Data belum cukup (${totalDays} hari)`, cls: 'chip-warning', pillCls: 'pill-warning' }
+    : (gdr <= 45
+      ? { label: 'Masuk Standar', cls: 'chip-success', pillCls: 'pill-success' }
+      : { label: 'Di Atas Standar', cls: 'chip-danger', pillCls: 'pill-danger' });
+
+  const ndrEval = !sufficient
+    ? { label: `Data belum cukup (${totalDays} hari)`, cls: 'chip-warning', pillCls: 'pill-warning' }
+    : (ndr <= 25
+      ? { label: 'Masuk Standar', cls: 'chip-success', pillCls: 'pill-success' }
+      : { label: 'Di Atas Standar', cls: 'chip-danger', pillCls: 'pill-danger' });
+
+  const inEfficientZone = (bor >= 60 && bor <= 85 && toi >= 1 && toi <= 3 && avlos >= 3 && avlos <= 12);
+  const bjStatus = inEfficientZone
+    ? { label: 'Masuk Daerah Efisiensi', cls: 'chip-success', inZone: true }
+    : (bor > 85
+      ? { label: 'Di Luar Daerah Efisiensi (Hunian Sangat Padat)', cls: 'chip-danger', inZone: false }
+      : { label: 'Di Luar Daerah Efisiensi', cls: 'chip-warning', inZone: false });
+
+  return { sufficient, totalDays, totalDischarges, bor, avlos, toi, btoVal, btoUnit, gdr, ndr, borEval, avlosEval, toiEval, btoEval, gdrEval, ndrEval, bjStatus };
+}
+
 function renderBarberJohnsonTab() {
   if (!state.data || !state.data.hospitalIndicators) return;
 
   const hosp = state.data.hospitalIndicators;
-  const overall = hosp.overall;
+  const ev = evaluateQualityIndicators(hosp);
+  const bd = hosp.dischargeBreakdown || { blpl: 0, aps: 0, pindah: 0, meninggal: 0, meninggalGt48: 0 };
 
-  // 1. KPI Values
+  // 1. 6 KPI Cards + Label Konsisten
+  const setChip = (id, evalObj) => {
+    const el = document.getElementById(id);
+    if (el && evalObj) {
+      el.textContent = evalObj.label;
+      el.className = `status-chip ${evalObj.cls}`;
+    }
+  };
+
   const elBor = document.getElementById('bjValBor');
-  if (elBor) elBor.textContent = `${overall.bor}%`;
-  const elAvlos = document.getElementById('bjValAvlos');
-  if (elAvlos) elAvlos.textContent = `${overall.avlos}h`;
-  const elToi = document.getElementById('bjValToi');
-  if (elToi) elToi.textContent = `${overall.toi}h`;
-  const elBto = document.getElementById('bjValBto');
-  if (elBto) elBto.textContent = `${overall.bto}x`;
-  const elGdr = document.getElementById('bjValGdr');
-  if (elGdr) elGdr.textContent = `${overall.gdr}‰`;
-  const elNdr = document.getElementById('bjValNdr');
-  if (elNdr) elNdr.textContent = `${overall.ndr}‰`;
+  if (elBor) elBor.textContent = `${ev.bor}%`;
+  setChip('bjBorChip', ev.borEval);
+  const fillBor = document.getElementById('bjBorFill');
+  if (fillBor) fillBor.style.width = `${Math.min(100, ev.bor)}%`;
 
+  const elAvlos = document.getElementById('bjValAvlos');
+  if (elAvlos) elAvlos.textContent = `${ev.avlos}h`;
+  setChip('bjAvlosChip', ev.avlosEval);
+
+  const elToi = document.getElementById('bjValToi');
+  if (elToi) elToi.textContent = `${ev.toi}h`;
+  setChip('bjToiChip', ev.toiEval);
+
+  const elBto = document.getElementById('bjValBto');
+  if (elBto) elBto.textContent = `${ev.btoVal}x`;
+  setChip('bjBtoChip', ev.btoEval);
+
+  const elGdr = document.getElementById('bjValGdr');
+  if (elGdr) elGdr.textContent = `${ev.gdr}‰`;
+  setChip('bjGdrChip', ev.gdrEval);
+
+  const elNdr = document.getElementById('bjValNdr');
+  if (elNdr) elNdr.textContent = `${ev.ndr}‰`;
+  setChip('bjNdrChip', ev.ndrEval);
 
   const elHp = document.getElementById('bjTotalHp');
-  if (elHp) elHp.textContent = `${hosp.totalHP.toLocaleString('id-ID')} Hari Perawatan`;
+  if (elHp) elHp.textContent = `${hosp.totalHP.toLocaleString('id-ID')} Hari Perawatan (${ev.totalDays} Hari)`;
 
-  // Update Benchmark Parameter Evaluation Pills & Descriptions
+  // 2. Top 4 Parameter Cards (konsisten 100% dengan 6 KPI cards di atas)
   const pillBor = document.getElementById('evalPillBor');
-  if (pillBor) pillBor.textContent = `${overall.bor >= 85 ? 'Tinggi' : (overall.bor < 60 ? 'Rendah' : 'Ideal')} (${overall.bor}%)`;
+  if (pillBor) {
+    pillBor.textContent = `${ev.borEval.label} (${ev.bor}%)`;
+    pillBor.className = `eval-pill ${ev.borEval.pillCls}`;
+  }
   const diffBor = document.getElementById('evalDiffBor');
-  if (diffBor) diffBor.textContent = overall.bor > 85 ? `+${(overall.bor - 85).toFixed(1)}% di atas batas 85%` : (overall.bor < 60 ? `-${(60 - overall.bor).toFixed(1)}% di bawah batas 60%` : '★ Masuk Rentang Ideal');
+  if (diffBor) diffBor.textContent = ev.borEval.diff;
   const descBor = document.getElementById('evalDescBor');
-  if (descBor) descBor.textContent = `Tingkat hunian tempat tidur rata-rata ${overall.bor}% (kapasitas 41 bed Ruang Kakap: Tim I 21 bed, Tim II 20 bed). Utilisasi optimal untuk bangsal rawat inap.`;
+  if (descBor) {
+    descBor.textContent = ev.bor > 85
+      ? `Tingkat hunian ${ev.bor}% melebihi standar Kemenkes (60–85%) pada 41 bed Ruang Kakap. Perlu pemantauan beban kerja perawat dan kesiapan bed.`
+      : (ev.bor < 60
+        ? `Tingkat hunian ${ev.bor}% masih di bawah standar Kemenkes (60–85%) dari kapasitas 41 bed.`
+        : `Tingkat hunian ${ev.bor}% berada dalam rentang standar Kemenkes (60–85%) untuk 41 bed Ruang Kakap.`);
+  }
 
   const pillAvlos = document.getElementById('evalPillAvlos');
-  if (pillAvlos) pillAvlos.textContent = `${overall.avlos <= 9 ? 'Terkendali' : 'Perpanjangan'} (${overall.avlos} Hari)`;
+  if (pillAvlos) {
+    pillAvlos.textContent = `${ev.avlosEval.label} (${ev.avlos} Hari)`;
+    pillAvlos.className = `eval-pill ${ev.avlosEval.pillCls}`;
+  }
+  const diffAvlos = document.getElementById('evalDiffAvlos');
+  if (diffAvlos) diffAvlos.textContent = ev.avlosEval.diff;
   const descAvlos = document.getElementById('evalDescAvlos');
-  if (descAvlos) descAvlos.textContent = `Rata-rata lama perawatan pasien rawat inap Ruang Kakap tercatat ${overall.avlos} hari, mencerminkan perawatan komprehensif pasien nefrologi, onkologi, dan penyakit dalam.`;
+  if (descAvlos) {
+    descAvlos.textContent = `Rata-rata lama rawat pasien yang keluar tercatat ${ev.avlos} hari (dihitung dari ${ev.totalDischarges} pasien keluar: ${bd.blpl} BLPL, ${bd.aps} APS, ${bd.pindah} pindah, ${bd.meninggal} meninggal).`;
+  }
 
   const pillToi = document.getElementById('evalPillToi');
-  if (pillToi) pillToi.textContent = `Ideal (${overall.toi} Hari / ~${Math.round(overall.toi * 24)} Jam)`;
+  if (pillToi) {
+    pillToi.textContent = `${ev.toiEval.label} (${ev.toi} Hari / ~${Math.round(ev.toi * 24)} Jam)`;
+    pillToi.className = `eval-pill ${ev.toiEval.pillCls}`;
+  }
+  const diffToi = document.getElementById('evalDiffToi');
+  if (diffToi) diffToi.textContent = ev.toiEval.diff;
   const descToi = document.getElementById('evalDescToi');
-  if (descToi) descToi.textContent = `Ranjang kosong rata-rata ${overall.toi} hari (~${Math.round(overall.toi * 24)} jam) sebelum terisi kembali pasien baru. Alur sterilisasi dan perputaran tempat tidur Ruang Kakap berada tepat dalam zona efisiensi Depkes/Kemenkes RI (1–3 hari).`;
+  if (descToi) {
+    descToi.textContent = ev.toi < 1
+      ? `Ranjang kosong rata-rata hanya ${ev.toi} hari (~${Math.round(ev.toi * 24)} jam) — lebih cepat dari standar Kemenkes 1–3 hari karena tingginya permintaan rawat inap. Pastikan proses pembersihan dan sterilisasi bed tetap terjaga.`
+      : `Ranjang kosong rata-rata ${ev.toi} hari (~${Math.round(ev.toi * 24)} jam) sebelum terisi pasien baru (standar Kemenkes: 1–3 hari).`;
+  }
 
   const pillBto = document.getElementById('evalPillBto');
-  if (pillBto) pillBto.textContent = `Proyeksi (~${overall.bto} Kali/Tahun)`;
+  if (pillBto) {
+    pillBto.textContent = `${ev.btoEval.label} (${ev.btoVal} ${ev.btoUnit})`;
+    pillBto.className = `eval-pill ${ev.btoEval.pillCls}`;
+  }
+  const diffBto = document.getElementById('evalDiffBto');
+  if (diffBto) diffBto.textContent = ev.btoEval.diff;
   const descBto = document.getElementById('evalDescBto');
-  if (descBto) descBto.textContent = `Perputaran tempat tidur Ruang Kakap terproyeksi ~${overall.bto} kali per tempat tidur per tahun berdasarkan kapasitas 41 bed.`;
+  if (descBto) {
+    descBto.textContent = ev.sufficient
+      ? `Perputaran tempat tidur tercatat ${ev.btoVal} kali/tahun pada kapasitas 41 bed (standar Kemenkes: 40–50 kali/tahun).`
+      : `Selama ${ev.totalDays} hari tercatat ${ev.btoVal} kali/bed (${ev.totalDischarges} pasien keluar ÷ 41 bed). Data belum cukup (<30 hari), sehingga belum diproyeksikan ke angka tahunan.`;
+  }
 
-  // 2. Render Barber Johnson SVG Diagram
+  // 3. Analisis & Rekomendasi Manajerial Dinamis (tidak lagi teks tetap)
+  const insightsEl = document.getElementById('bjInsightsList');
+  if (insightsEl) {
+    const zoneBoxCls = ev.bjStatus.inZone ? 'insight-success' : 'insight-alert';
+    const dataNoteHtml = !ev.sufficient
+      ? `<div class="insight-box insight-info">
+          <div class="insight-icon">ℹ️</div>
+          <div class="insight-body">
+            <h4>Catatan Kecukupan Data (${ev.totalDays} Hari Tercatat)</h4>
+            <p>Karena periode pengamatan masih <strong>${ev.totalDays} hari</strong> (kurang dari 30 hari), angka BTO belum diproyeksikan ke setahun dan indikator mortalitas (GDR ${ev.gdr}‰, NDR ${ev.ndr}‰) ditandai <strong>Data belum cukup</strong> agar tidak menyesatkan.</p>
+          </div>
+        </div>`
+      : '';
+
+    insightsEl.innerHTML = `
+      <div class="insight-box ${zoneBoxCls}">
+        <div class="insight-icon">${ev.bjStatus.inZone ? '🎯' : '⚠️'}</div>
+        <div class="insight-body">
+          <h4>Status Barber Johnson: ${ev.bjStatus.label}</h4>
+          <p>Dari <strong>${ev.totalDays} hari</strong> data sensus riil (41 bed: Tim I 21 bed &amp; Tim II 20 bed), BOR tercatat <strong>${ev.bor}%</strong> (${ev.borEval.label}), AVLOS <strong>${ev.avlos} hari</strong> (${ev.avlosEval.label}), dan TOI <strong>${ev.toi} hari</strong> (${ev.toiEval.label}).</p>
+        </div>
+      </div>
+
+      <div class="insight-box insight-info">
+        <div class="insight-icon">📋</div>
+        <div class="insight-body">
+          <h4>Rincian 4 Jenis Pasien Keluar (${ev.totalDischarges} Pasien)</h4>
+          <p>
+            <span class="status-chip status-badge-blpl">Pulang BLPL: ${bd.blpl}</span>
+            <span class="status-chip status-badge-aps">Pulang APS: ${bd.aps}</span>
+            <span class="status-chip status-badge-pindah">Pindah: ${bd.pindah}</span>
+            <span class="status-chip status-badge-meninggal">Meninggal: ${bd.meninggal}</span>
+          </p>
+        </div>
+      </div>
+
+      ${dataNoteHtml}
+
+      <div class="insight-box insight-recommendation">
+        <div class="insight-icon">💡</div>
+        <div class="insight-body">
+          <h4>Rekomendasi Manajerial Ruang Kakap</h4>
+          <ul class="recommendation-list">
+            ${ev.bor > 85 ? '<li>BOR di atas 85% menandakan bangsal sangat padat — pantau rasio perawat-pasien, keselamatan pasien (<em>patient safety</em>), serta percepat rencana pulang (BLPL) pasien yang sudah stabil.</li>' : '<li>Pertahankan keseimbangan hunian tempat tidur dalam rentang standar Kemenkes 60–85%.</li>'}
+            ${ev.toi < 1 ? '<li>TOI kurang dari 1 hari (&lt;24 jam) — pastikan waktu pembersihan dan sterilisasi tempat tidur tetap sesuai protokol PPI sebelum pasien baru masuk.</li>' : '<li>Pertahankan ketertiban alur sterilisasi tempat tidur agar tenggang kosong berada dalam rentang 1–3 hari.</li>'}
+            ${ev.avlos > 9 ? '<li>AVLOS di atas 9 hari — evaluasi kasus dengan lama rawat panjang melalui koordinasi DPJP dan audit kepatuhan Clinical Pathway.</li>' : '<li>Pertahankan koordinasi visite DPJP dan kepatuhan Clinical Pathway agar lama rawat tetap terkendali.</li>'}
+          </ul>
+        </div>
+      </div>
+    `;
+  }
+
+  // 4. Render Barber Johnson SVG Diagram
   renderBarberJohnsonDiagram();
 
-  // 3. Render 4 Separate & Varied Benchmark Charts (BOR, AVLOS, TOI, BTO)
+  // 5. Render 4 Separate & Varied Benchmark Charts (BOR, AVLOS, TOI, BTO)
   renderParamBenchmarkCharts();
 
-  // 4. Render Interactive Trends Chart (4 Parameters / Mortality)
+  // 6. Render Interactive Trends Chart (4 Parameters / Mortality)
   renderQualityTrendsChart();
 
-  // 5. Render Monthly Indicators Table
+  // 7. Render Monthly Indicators Table
   renderHospitalIndicatorsTable();
 
   // Setup Export Listener
@@ -3087,27 +3430,47 @@ function renderToiDialChart(hosp, isDark) {
   `;
 }
 
-// 4. BTO ANNUAL TARGET MILESTONE (0 - 60 Kali, Target 40 - 50 Kali)
+// 4. BTO TARGET MILESTONE (tanpa proyeksi tahunan jika data < 30 hari)
 function renderBtoMilestoneChart(hosp, isDark) {
   const container = document.getElementById('chartBtoMilestone');
   if (!container) return;
 
-  const bto = hosp.overall.bto; // 44.41x
-  const totalDays = hosp.totalDays || 288;
-  const projectedBto = ((bto / totalDays) * 365).toFixed(1); // ~56.3x
+  const ev = evaluateQualityIndicators(hosp);
+  const bto = ev.btoVal;
+  const totalDays = ev.totalDays || 1;
+  const sufficient = ev.sufficient;
   const width = 320;
   const height = 185;
 
   const leftPad = 35;
   const plotW = 250;
-  const scale = (val) => leftPad + (Math.min(Math.max(val, 0), 60) / 60) * plotW;
+  const maxScale = sufficient ? 60 : Math.max(10, Math.ceil(bto * 2));
+  const scale = (val) => leftPad + (Math.min(Math.max(val, 0), maxScale) / maxScale) * plotW;
 
   const x0 = scale(0);
+  const xAct = scale(bto);
+
+  if (!sufficient) {
+    container.innerHTML = `
+      <svg viewBox="0 0 ${width} ${height}" style="width:100%; max-width:${width}px; height:auto; display:block;">
+        <rect x="${leftPad}" y="22" width="${plotW}" height="18" rx="4" fill="rgba(245, 158, 11, 0.16)" />
+        <text x="${leftPad + plotW / 2}" y="34" fill="#d97706" font-family="var(--font-heading)" font-size="8.8" font-weight="700" text-anchor="middle">DATA BELUM CUKUP (${totalDays} HARI &lt; 30 HARI)</text>
+        <rect x="${x0.toFixed(1)}" y="54" width="${plotW}" height="20" rx="6" fill="${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(148,163,184,0.22)'}" />
+        <rect x="${x0.toFixed(1)}" y="56" width="${Math.max(8, xAct - x0).toFixed(1)}" height="16" rx="4.5" fill="#9333ea" />
+        <text x="${leftPad + plotW / 2}" y="94" fill="var(--text-primary)" font-family="var(--font-heading)" font-size="14" font-weight="800" text-anchor="middle">${bto} kali / bed (${totalDays} hari)</text>
+        <g transform="translate(${leftPad}, 108)">
+          <rect x="0" y="0" width="${plotW}" height="46" rx="6" fill="${isDark ? 'rgba(255,255,255,0.04)' : 'rgba(255,251,235,0.95)'}" stroke="#f59e0b" />
+          <text x="${plotW / 2}" y="18" fill="#b45309" font-family="var(--font-heading)" font-size="8.5" font-weight="800" text-anchor="middle">Belum Diproyeksikan ke Standar Tahunan</text>
+          <text x="${plotW / 2}" y="33" fill="var(--text-secondary)" font-family="var(--font-mono)" font-size="7.8" text-anchor="middle">Standar Kemenkes 40–50x/tahun dinilai bila data ≥ 30 hari</text>
+        </g>
+      </svg>
+    `;
+    return;
+  }
+
   const x40 = scale(40);
   const x50 = scale(50);
   const x60 = scale(60);
-  const xAct = scale(bto);
-  const xProj = scale(projectedBto);
 
   container.innerHTML = `
     <svg viewBox="0 0 ${width} ${height}" style="width:100%; max-width:${width}px; height:auto; display:block;">
@@ -3117,44 +3480,21 @@ function renderBtoMilestoneChart(hosp, isDark) {
           <stop offset="100%" stop-color="#c084fc" />
         </linearGradient>
       </defs>
-
-      <!-- Target Banner -->
       <rect x="${x40.toFixed(1)}" y="24" width="${(x50 - x40).toFixed(1)}" height="16" rx="3" fill="rgba(147, 51, 234, 0.16)" />
-      <text x="${((x40 + x50) / 2).toFixed(1)}" y="35" fill="#9333ea" font-family="var(--font-heading)" font-size="9" font-weight="700" text-anchor="middle">TARGET DEPKES: 40 – 50x / TAHUN</text>
-
-      <!-- Background Milestone Track -->
+      <text x="${((x40 + x50) / 2).toFixed(1)}" y="35" fill="#9333ea" font-family="var(--font-heading)" font-size="9" font-weight="700" text-anchor="middle">TARGET KEMENKES: 40 – 50x / TAHUN</text>
       <rect x="${x0.toFixed(1)}" y="52" width="${plotW}" height="22" rx="6" fill="${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(148,163,184,0.22)'}" />
-
-      <!-- Standar Zone (40 - 50 times) -->
       <rect x="${x40.toFixed(1)}" y="50" width="${(x50 - x40).toFixed(1)}" height="26" rx="5" fill="rgba(147, 51, 234, 0.2)" stroke="#9333ea" stroke-dasharray="4,2.5" stroke-width="1.6" />
-
-      <!-- Actual Progress Bar up to 44.4x -->
       <rect x="${x0.toFixed(1)}" y="54" width="${(xAct - x0).toFixed(1)}" height="18" rx="4.5" fill="url(#btoBarGrad)" />
-
-      <!-- Actual Marker Pin with Golden Star -->
       <line x1="${xAct.toFixed(1)}" y1="46" x2="${xAct.toFixed(1)}" y2="76" stroke="#eab308" stroke-width="2.5" />
       <g transform="translate(${xAct.toFixed(1)}, 44)">
         <polygon points="-4,-6 4,-6 0,0" fill="#eab308" />
         <rect x="-26" y="-22" width="52" height="16" rx="4" fill="#eab308" />
-        <text x="0" y="-11" fill="#000000" font-family="var(--font-heading)" font-size="8.5" font-weight="800" text-anchor="middle">★ ${bto}x</text>
+        <text x="0" y="-11" fill="#000000" font-family="var(--font-heading)" font-size="8.5" font-weight="800" text-anchor="middle">${bto}x</text>
       </g>
-
-      <!-- Projected Annual Marker -->
-      <line x1="${xProj.toFixed(1)}" y1="52" x2="${xProj.toFixed(1)}" y2="74" stroke="var(--text-muted)" stroke-width="1.6" stroke-dasharray="3,2" />
-      <text x="${xProj.toFixed(1)}" y="46" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="7.5" text-anchor="middle">Proy: ~${projectedBto}x</text>
-
-      <!-- Ticks -->
       <text x="${x0.toFixed(1)}" y="86" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="8">0x</text>
       <text x="${x40.toFixed(1)}" y="86" fill="#9333ea" font-family="var(--font-mono)" font-size="8.5" font-weight="700" text-anchor="middle">40x (Min)</text>
       <text x="${x50.toFixed(1)}" y="86" fill="#9333ea" font-family="var(--font-mono)" font-size="8.5" font-weight="700" text-anchor="middle">50x (Maks)</text>
       <text x="${x60.toFixed(1)}" y="86" fill="var(--text-muted)" font-family="var(--font-mono)" font-size="8" text-anchor="end">60x</text>
-
-      <!-- Central Achievement Summary Card -->
-      <g transform="translate(${leftPad}, 104)">
-        <rect x="0" y="0" width="${plotW}" height="42" rx="6" fill="${isDark ? 'rgba(255,255,255,0.04)' : 'rgba(248,250,252,0.85)'}" stroke="${isDark ? 'rgba(255,255,255,0.08)' : 'rgba(226,232,240,0.8)'}" />
-        <text x="${plotW / 2}" y="17" fill="#10b981" font-family="var(--font-heading)" font-size="9.5" font-weight="800" text-anchor="middle">★ PEMANFAATAN TEMPAT TIDUR RUANG KAKAP</text>
-        <text x="${plotW / 2}" y="31" fill="var(--text-secondary)" font-family="var(--font-mono)" font-size="8" text-anchor="middle">Proyeksi perputaran ~${projectedBto}x per tahun untuk 41 ranjang</text>
-      </g>
     </svg>
   `;
 }
@@ -3501,6 +3841,7 @@ function renderHospitalIndicatorsTable() {
   });
 
   // Overall Row
+  const ev = evaluateQualityIndicators(hosp);
   const ov = hosp.overall;
   const trTotal = document.createElement('tr');
   trTotal.style.background = 'rgba(56, 189, 248, 0.08)';
@@ -3509,13 +3850,13 @@ function renderHospitalIndicatorsTable() {
     <td><strong>${hosp.totalDays} Hari</strong></td>
     <td><strong style="color:var(--accent-primary);">${hosp.totalHP.toLocaleString('id-ID')}</strong></td>
     <td><strong>${hosp.totalDischarges}</strong></td>
-    <td><strong style="color:#ef4444; font-size:1.05rem;">${ov.bor}%</strong></td>
+    <td><strong style="color:${ev.bor > 85 ? '#ef4444' : '#10b981'}; font-size:1.05rem;">${ov.bor}%</strong></td>
     <td><strong>${ov.avlos}h</strong></td>
     <td><strong>${ov.toi}h</strong></td>
-    <td><strong>${ov.bto}x</strong></td>
+    <td><strong>${ev.btoVal} ${ev.btoUnit}</strong></td>
     <td><strong>${ov.gdr}‰</strong></td>
     <td><strong>${ov.ndr}‰</strong></td>
-    <td><span class="status-chip ${ov.bor <= 85 && ov.toi >= 1 && ov.toi <= 3 ? 'chip-success' : 'chip-warning'}">${ov.bor <= 85 && ov.toi >= 1 && ov.toi <= 3 ? 'Efisiensi Tercapai' : 'Optimal Tinggi'}</span></td>
+    <td><span class="status-chip ${ev.bjStatus.cls}">${ev.bjStatus.label}</span></td>
   `;
   tbody.appendChild(trTotal);
 }
@@ -4974,16 +5315,13 @@ function exportChronologyWord(patientKey) {
 
 // ==========================================================================
 // MODUL SENSUS WHATSAPP RESMI RUANG KAKAP (RSUD DR. SOEDARSO)
-// Target: Ns. Rusmulyadi, S.Kep.,M.A.R.S (+6281284070082)
+// Target: Kepala Ruang Rawat Inap Kakap (nomor & token tidak disimpan di kode publik)
 // Jadwal Resmi: 07.00 WIB, 14.00 WIB, dan 20.00 WIB
 // ==========================================================================
 
 const KAKAP_WA_CONFIG = {
   recipientName: "Ns. Rusmulyadi, S.Kep.,M.A.R.S",
   recipientRole: "Kepala Ruang Rawat Inap Kakap",
-  phone: "6281284070082",
-  phoneDisplay: "+6281284070082",
-  fonnteToken: "Ayfow2x1hFiscQZSphzq",
   activeShift: "pagi"
 };
 
@@ -5039,7 +5377,7 @@ function computeClientSideKakapCensus(shiftKey = 'pagi') {
     if (bookingCount > 0 && rawLeadTot === 3) {
       pria = 2;
       wanita = 0;
-      isolasi = 0;
+      let isolasi = 0;
       return { total: 2, pria: 2, wanita: 0, isolasi: 0, bookingCount };
     }
 
@@ -5315,7 +5653,7 @@ function updateWhatsAppPreview(shiftKey) {
 
   const directLink = document.getElementById('btnWaOpenDirect');
   if (directLink) {
-    directLink.href = `https://web.whatsapp.com/send?phone=${KAKAP_WA_CONFIG.phone}&text=${encodeURIComponent(data.message)}`;
+    directLink.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(data.message)}`;
   }
 
   // Update button active state
@@ -5374,62 +5712,35 @@ async function sendWhatsAppToKaru() {
   let success = false;
   let feedback = '';
 
-  // 1. Try local server endpoint if available
+  // 1. Coba server lokal jika dashboard dijalankan di komputer lokal (token disimpan aman di server, bukan di browser)
   try {
-    const srvRes = await fetch('/api/send-whatsapp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        phone: KAKAP_WA_CONFIG.phone,
-        message: message,
-        shift: KAKAP_WA_CONFIG.activeShift,
-        date: state.currentDate
-      })
-    });
-    if (srvRes.ok) {
-      const srvJson = await srvRes.json();
-      if (srvJson.status === 'success') {
-        success = true;
-        feedback = 'Terkirim via Server Background Gateway!';
-      }
-    }
-  } catch (err) {
-    // Local server not available, fall back to direct Fonnte API call
-  }
-
-  // 2. Direct Fonnte Gateway Call (GitHub Pages / client-side)
-  if (!success) {
-    try {
-      const fonnteRes = await fetch('https://api.fonnte.com/send', {
+    const isLocalHost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    if (isLocalHost) {
+      const srvRes = await fetch('/api/send-whatsapp', {
         method: 'POST',
-        headers: {
-          'Authorization': KAKAP_WA_CONFIG.fonnteToken,
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({
-          target: KAKAP_WA_CONFIG.phone,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           message: message,
-          countryCode: '62'
+          shift: KAKAP_WA_CONFIG.activeShift,
+          date: state.currentDate
         })
       });
-      if (fonnteRes.ok) {
-        const resJson = await fonnteRes.json();
-        if (resJson.status === true || resJson.status === 'true' || resJson.status === 'success') {
+      if (srvRes.ok) {
+        const srvJson = await srvRes.json();
+        if (srvJson.status === 'success') {
           success = true;
-          feedback = 'Terkirim langsung via Fonnte Gateway API!';
-        } else {
-          feedback = resJson.reason || resJson.message || 'Respons Fonnte gagal.';
+          feedback = 'Terkirim via Server Lokal!';
         }
-      } else {
-        feedback = `HTTP error: ${fonnteRes.status}`;
       }
-    } catch (err) {
-      feedback = err.message;
+    } else {
+      feedback = 'Pengiriman otomatis terjadwal berjalan aman lewat GitHub Actions (jam 07.00, 14.00, 20.00 WIB). Untuk kirim manual dari situs ini, klik "Buka WhatsApp Web" atau "Salin Format".';
     }
+  } catch (err) {
+    feedback = 'Server lokal tidak aktif. Gunakan tombol "Buka WhatsApp Web" atau "Salin Format".';
   }
 
   if (btn) btn.disabled = false;
-  if (btnText) btnText.textContent = 'Kirim Otomatis (Fonnte API)';
+  if (btnText) btnText.textContent = 'Kirim Otomatis (Server)';
 
   if (banner) {
     banner.style.display = 'block';
@@ -5437,14 +5748,14 @@ async function sendWhatsAppToKaru() {
       banner.style.background = '#dcfce7';
       banner.style.color = '#15803d';
       banner.style.border = '1px solid #86efac';
-      banner.innerHTML = `<strong>Berhasil Terkirim!</strong> Pesan laporan sensus masuk ke WhatsApp Kepala Ruang (+6281284070082).`;
-      showToast('🎉 Laporan Sensus BERHASIL terkirim ke WhatsApp Kepala Ruang (+6281284070082)!', 'success');
+      banner.innerHTML = `<strong>Berhasil Terkirim!</strong> Pesan laporan sensus masuk ke WhatsApp Kepala Ruang.`;
+      showToast('🎉 Laporan Sensus berhasil terkirim ke WhatsApp Kepala Ruang!', 'success');
     } else {
-      banner.style.background = '#fef2f2';
-      banner.style.color = '#b91c1c';
-      banner.style.border = '1px solid #fca5a5';
-      banner.innerHTML = `<strong>Pengiriman Gateway Terkendala:</strong> ${feedback}.<br>Silakan klik tombol <strong>"Buka WhatsApp Web"</strong> untuk mengirim secara manual.`;
-      showToast('Gagal mengirim via API. Gunakan tombol Buka WhatsApp Web.', 'error');
+      banner.style.background = '#fffbeb';
+      banner.style.color = '#92400e';
+      banner.style.border = '1px solid #f59e0b';
+      banner.innerHTML = `<strong>Info Pengiriman:</strong> ${escapeHtml(feedback)}`;
+      showToast('Gunakan "Buka WhatsApp Web" atau "Salin Format" untuk mengirim manual.', 'info');
     }
   }
 }

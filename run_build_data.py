@@ -18,8 +18,11 @@ import re
 import json
 import os
 import urllib.request
-from datetime import datetime, date, timedelta
+from datetime import datetime, date, timedelta, timezone
 from collections import defaultdict
+import crypto_vault
+
+WIB_TZ = timezone(timedelta(hours=7))
 
 TOTAL_BEDS = 41
 TIM1_BEDS = 21 # Kakap 1-5 (20 bed) + Isolasi (1 bed)
@@ -30,49 +33,103 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 XLSX_PATH = os.path.join(BASE_DIR, "kakap_data.xlsx")
 DASHBOARD_DATA_JSON = os.path.join(BASE_DIR, "dashboard_data.json")
 HOSPITAL_INDICATORS_JSON = os.path.join(BASE_DIR, "hospital_indicators.json")
+CLINICAL_PATHWAYS_JSON = os.path.join(BASE_DIR, "clinical_pathways.json")
 
-HEADER_COLORS = {'FF1F4E78', 'FF356854', 'FF38761D', 'FF6AA84F'}
-IGNORE_COLORS = {'FFFFFFFF', 'FFF8F9FA', 'FFF6F8F9', 'FFF3F3F3', 'FFEFEFEF', 'FFF2F2F2', None}
+HEADER_COLORS = {'FF1F4E78', 'FF356854', 'FF38761D', 'FF6AA84F', 'FF073763', 'FF0B5394'}
+IGNORE_COLORS = {'FFFFFFFF', 'FF000000', 'FFF8F9FA', 'FFF6F8F9', 'FFF3F3F3', 'FFEFEFEF', 'FFF2F2F2', 'FFFFFF99', None}
 
-# Doctor Name Canonical Map
+# Warna status pasien (hanya dibaca dari kolom pasien D/G/H/I/J, BUKAN kolom kamar A)
+COLOR_STATUS_MAP = {
+    'meninggal': {'FFEAD1DC', 'FFFF0000', 'FFEA9999', 'FFF4CCCC', 'FFE06666', 'FFCC0000', 'FFDD7E6B'},
+    'aps': {'FFFF9900', 'FFF6B26B', 'FFE69138', 'FFFFB347'},
+    'pindah': {'FFFFFF00', 'FFFFE599', 'FFFFF2CC', 'FFF1C232'},
+    'blpl': {'FF00FF00', 'FFD9EAD3', 'FFB6D7A8', 'FF93C47D', 'FF6AA84F', 'FF34A853'}
+}
+
+# Doctor Name Canonical Map (diperluas mencakup seluruh DPJP & konsulen Ruang Kakap)
 DOCTOR_CANONICAL = {
     "IVAN": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
     "SONY": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
     "DARMAWAN": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
     "DECKY": "dr. Decky Andrea, Sp.PD",
     "APRIANI": "dr. Apriani, M.Ked(PD), Sp.PD",
-    "HARRY ANDHIKA": "dr. Harry Andhika, Sp.PD",
-    "MUHARDANI": "dr. Muhardani Iqbal, Sp.PD",
+    "HARRY": "dr. Harry Andhika, Sp.PD",
+    "YUSTAR": "dr. Yustar Mulyadi, Sp.PD",
+    "MUHARDANI": "dr. Muhardani Iqbal, M.Ked(PD), Sp.PD",
+    "DANAR": "dr. Danar Anggrahini K.D., Sp.PD-KGH, FINASIM",
     "ZAINUL": "dr. Zainul Naim, Sp.B-KBD",
     "RETNO": "dr. Retno Mustikaningsih, M.Kes., Sp.K",
-    "DANAR": "dr. Danar Anggrahini K.D., Sp.PD-KGH",
     "DINI": "dr. Dini, Sp.N",
-    "OKTAV": "dr. Oktavianus, Sp.OT (Spine)"
+    "OKTAV": "dr. Oktavianus, Sp.OT (Spine)",
+    "GERALD": "dr. Gerald, Sp.B",
+    "YANCE": "dr. Yance, Sp.U",
+    "TEMI": "dr. Temi, Sp.JP",
+    "DANAYU": "dr. Danayu, Sp.JP"
 }
+
+def mask_patient_name_py(name):
+    if not name or any(k in name for k in ['Bed Kosong', 'Kosong', 'Rusak', 'BAU']):
+        return name
+    m = re.match(r'^(Tn\.|Ny\.|An\.|By\.|Sdr\.|Sdri\.|Nn\.)\s*(.*)', name, re.I)
+    if m:
+        title = m.group(1)
+        rest = m.group(2).strip()
+        parts = [p[0] + '***' for p in rest.split() if p]
+        return f"{title} {' '.join(parts)}".strip()
+    parts = [p[0] + '***' for p in name.split() if p]
+    return ' '.join(parts)
+
+def mask_mr_py(mr):
+    s = re.sub(r'\D', '', str(mr or ''))
+    if not s:
+        return '-'
+    if len(s) > 4:
+        return s[:4] + '****'
+    return '****'
+
+def normalize_diagnosis_text(raw):
+    if not raw or str(raw).strip() in ['-', '', 'None']:
+        return '-'
+    cleaned = re.sub(r'\s+', ' ', str(raw).replace('\n', ' ')).strip()
+    # Rapikan salah ketik umum
+    cleaned = re.sub(r'\banemi\b', 'Anemia', cleaned, flags=re.I)
+    cleaned = re.sub(r'\bdispepsia\b', 'Dyspepsia', cleaned, flags=re.I)
+    cleaned = re.sub(r'\bpempenigus\b', 'Pemfigus', cleaned, flags=re.I)
+    cleaned = re.sub(r'\bvugaris\b', 'Vulgaris', cleaned, flags=re.I)
+    cleaned = re.sub(r'\bckd\b', 'CKD', cleaned, flags=re.I)
+    cleaned = re.sub(r'\baki\b', 'AKI', cleaned, flags=re.I)
+    cleaned = re.sub(r'\bdm\b', 'DM', cleaned, flags=re.I)
+    cleaned = re.sub(r'\bchf\b', 'CHF', cleaned, flags=re.I)
+    cleaned = re.sub(r'\bht\b', 'HT', cleaned, flags=re.I)
+    return cleaned
 
 def normalize_doctor(raw):
     if not raw or str(raw).strip() in ['-', '', 'None']:
         return '-'
     cleaned = str(raw).strip()
-    u = cleaned.upper()
+    first_line = re.sub(r'\s+', ' ', cleaned.split('\n')[0]).strip()
+    if first_line.upper() in ['DOKTER', 'DOKTER (DPJP)', 'DPJP']:
+        return '-'
+    u = first_line.upper()
     for k, v in DOCTOR_CANONICAL.items():
         if k in u:
             return v
-    # Clean up line breaks
-    first_line = cleaned.split('\n')[0].strip()
     return first_line
 
 def clean_insurance(raw):
     if not raw or str(raw).strip() in ['-', '', 'None']:
         return 'BPJS Kelas 3'
-    u = str(raw).strip().upper()
-    if 'BPJS 1' in u: return 'BPJS Kelas 1'
-    if 'BPJS 2' in u: return 'BPJS Kelas 2'
-    if 'BPJS 3' in u: return 'BPJS Kelas 3'
+    u = re.sub(r'\s+', ' ', str(raw).strip()).upper()
+    if u == 'JAMINAN':
+        return '-'
+    if 'BPJS' in u and ('1' in u or 'I ' in u): return 'BPJS Kelas 1'
+    if 'BPJS' in u and ('2' in u or 'II' in u): return 'BPJS Kelas 2'
+    if 'BPJS' in u and ('3' in u or 'III' in u): return 'BPJS Kelas 3'
+    if 'BANSOS' in u or 'JAMKESDA' in u or 'SKTM' in u: return 'Bansos / Jamkesda'
     if 'UMUM' in u or 'MANDIRI' in u: return 'Umum / Mandiri'
-    if 'ASURANSI' in u: return 'Asuransi Swasta'
-    if 'BPJS' in u: return 'BPJS Kelas 3'
-    return str(raw).strip()
+    if 'ASURANSI' in u or 'SWASTA' in u or 'JASA RAHARJA' in u: return 'Asuransi Swasta'
+    if 'BPJS' in u or 'SEP' in u: return 'BPJS Kelas 3'
+    return re.sub(r'\s+', ' ', str(raw).strip())
 
 def excel_date_to_str(val):
     if not val:
@@ -400,14 +457,35 @@ def parse_patient_block(row_cells, current_room, current_iso_date, xf_to_color):
 
     dpjp_primary = normalize_doctor(dokter_raw)
     insurance = clean_insurance(jaminan_raw)
-    category = categorize_diagnosis(diag_raw) if not is_empty else "-"
-    tags = extract_tags(notes, diag_raw, is_empty, is_colored)
-    ews = calculate_ews(notes, diag_raw) if not is_empty else {"score": 0, "level": "normal", "parameters": {}}
+    diag_clean = normalize_diagnosis_text(diag_raw)
+    category = categorize_diagnosis(diag_clean) if not is_empty else "-"
+    tags = extract_tags(notes, diag_clean, is_empty, is_colored)
+    ews = calculate_ews(notes, diag_clean) if not is_empty else {"score": 0, "level": "normal", "parameters": {}}
 
-    is_discharged = any(t['label'] == 'Pulang Hari Ini' for t in tags)
+    # Deteksi 4 jenis status keluar pasien (BLPL, APS, Pindah, Meninggal) dari warna kolom status (bukan kolom kamar) & catatan klinis
+    combined_notes_u = f"{diag_clean}\n{pagi}\n{sore}\n{malam}".upper()
+    discharge_type = None
+    status_color = None
+    if not is_empty:
+        if (color_hex in COLOR_STATUS_MAP['meninggal']) or re.search(r'\b(MENINGGAL|EXPIRED|DOA|WAFAT|TUTUP USIA)\b', combined_notes_u):
+            discharge_type = 'meninggal'
+            status_color = 'red'
+            status = 'Meninggal'
+        elif (color_hex in COLOR_STATUS_MAP['aps']) or re.search(r'\b(PULANG APS|ATAS PERMINTAAN SENDIRI|PULANG PAKSA|\bAPS\b)\b', combined_notes_u):
+            discharge_type = 'aps'
+            status_color = 'orange'
+            status = 'Pulang APS'
+        elif (color_hex in COLOR_STATUS_MAP['pindah']) or re.search(r'\b(PINDAH RUANG|TRANSFER KE|PINDAH ICU|PINDAH HCU|PINDAH PJT|PINDAH KE RUANG)\b', combined_notes_u):
+            discharge_type = 'pindah'
+            status_color = 'yellow'
+            status = 'Pindah / Transfer'
+        elif (color_hex in COLOR_STATUS_MAP['blpl']) or any(t['label'] == 'Pulang Hari Ini' for t in tags):
+            discharge_type = 'blpl'
+            status_color = 'green'
+            status = 'Pulang BLPL'
+
+    is_discharged = discharge_type is not None
     if is_discharged:
-        status = "Pulang Hari Ini"
-        # Pasien tetap terhitung di bed (Terisi) sampai benar-benar keluar (baris kosong/Bed Kosong)
         if not nama_raw or nama_raw == '-' or 'BED KOSONG' in nama_raw.upper():
             is_empty = True
 
@@ -416,6 +494,8 @@ def parse_patient_block(row_cells, current_room, current_iso_date, xf_to_color):
         "room": room_name,
         "team": team,
         "status": status,
+        "dischargeType": discharge_type,
+        "statusColor": status_color,
         "isEmpty": is_empty,
         "isDischargedToday": is_discharged,
         "dischargeColor": color_hex,
@@ -426,9 +506,9 @@ def parse_patient_block(row_cells, current_room, current_iso_date, xf_to_color):
         "admissionDate": tgl_masuk_clean if not is_empty else "-",
         "los": los_days if not is_empty else 0,
         "insurance": insurance if not is_empty else "-",
-        "doctor": dokter_raw if not is_empty else "-",
+        "doctor": dpjp_primary if not is_empty else "-",
         "doctorPrimary": dpjp_primary if not is_empty else "-",
-        "diagnosis": diag_raw if not is_empty else "-",
+        "diagnosis": diag_clean if not is_empty else "-",
         "category": category,
         "notes": notes,
         "tags": tags,
@@ -510,7 +590,8 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
             t = c.attrib.get('t')
             s_id = int(c.attrib.get('s', 0))
             col_info = xf_to_color.get(s_id)
-            if col_info:
+            # Warna status hanya dibaca dari kolom data pasien (D, G, H, I, J), BUKAN kolom kamar (A/B)
+            if col_info and col_letter in ('D', 'G', 'H', 'I', 'J'):
                 row_colored = True
                 row_color_hex = col_info
             v_el = c.find(f"{ns}v")
@@ -542,6 +623,10 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
             current_kamar = str(c.get('A')).strip()
         bed_val = str(c.get('B') or '').strip()
         nama_val = str(c.get('D') or '').strip()
+        dok_val = str(c.get('F') or '').strip().upper()
+        # Lewati baris judul header tabel (misal: KAMAR | BED | TGL MASUK | NAMA | JAMINAN | DOKTER)
+        if bed_val.upper() == 'BED' or nama_val.upper() in ('NAMA', 'NAMA PASIEN') or dok_val in ('DOKTER', 'DOKTER (DPJP)'):
+            continue
         if bed_val or nama_val:
             p = parse_patient_block(c, current_kamar, iso_date, xf_to_color)
             if p: patients_parsed.append(p)
@@ -745,7 +830,7 @@ def parse_day_sheet(z, target_file, shared_strings, xf_to_color, iso_date):
     ]
     antrean_dict = {
         "pagi": [],
-        "sore": [{"sumber": "IGD", "nama": "Tn. Dwi Ariandi", "keterangan": "kerabat Munazzil (K.5.3)"}] if iso_date == "2026-11-08" else [],
+        "sore": [],
         "malam": []
     }
 
@@ -845,54 +930,168 @@ def build_data(download=False):
                 "bor": day_data["summary"]["bor"]
             })
 
-    # Jalankan Shift Census Balance Engine terpadu
-    try:
-        import shift_census_calculator
-        balanced_chain = shift_census_calculator.calculate_balanced_census_chain(all_dates, recent_days)
-        for iso_d, b_shifts in balanced_chain.items():
-            if iso_d in recent_days:
-                s = recent_days[iso_d]["sensus"]
-                for sh in ["pagi", "sore", "malam"]:
-                    m = b_shifts[sh]
-                    s["pasienAwal"][sh] = m["pasien_awal"]
-                    s["pasienBaru"][sh] = m["pasien_baru"]
-                    s["pindah"][sh] = m["pasien_pindah"]
-                    s["meninggal"][sh] = m["pasien_meninggal"]
-                    s["pulang"][sh] = m["pasien_pulang"]
-                    s["total"][sh] = m["pasien_sekarang"]
-                    s["bedKosongDetail"][sh]["total"] = m["free_bed_count"]
-                    s["bedKosongDetail"][sh]["pria"] = m["free_pria"]
-                    s["bedKosongDetail"][sh]["wanita"] = m["free_wanita"]
-                    s["bedKosongDetail"][sh]["isolasi"] = m["free_isolasi"]
-                    s["bedKosong"][sh] = m["free_bed_count"]
+    # =========================================================================
+    # PERHITUNGAN SENSUS OTOMATIS DARI DATA PASIEN SATU PER SATU (TANPA HARDCODE)
+    # 4 jenis pasien keluar dihitung terpisah: BLPL, APS, Pindah, Meninggal
+    # =========================================================================
+    def patient_identity_key(p):
+        mr = re.sub(r'\D', '', str(p.get('mrNo') or ''))
+        if len(mr) >= 5:
+            return f"MR:{mr}"
+        nm = re.sub(r'^(tn\.|ny\.|an\.|by\.|sdr\.|sdri\.|nn\.)\s*', '', str(p.get('name') or '').strip().lower())
+        nm = re.sub(r'\s+', ' ', nm).strip()
+        return f"NM:{nm}" if nm and nm != 'bed kosong' else ""
 
-                # Update summary untuk hari tersebut berdasarkan shift malam / shift aktif terakhir
-                fin_occ = s["total"]["malam"] or s["total"]["sore"] or s["total"]["pagi"]
-                recent_days[iso_d]["summary"]["occupied"] = fin_occ
-                recent_days[iso_d]["summary"]["empty"] = TOTAL_BEDS - fin_occ
-                recent_days[iso_d]["summary"]["bor"] = round((fin_occ / TOTAL_BEDS) * 100, 1)
+    prev_active_map = {}
+    discharged_records = []  # list of {date, key, type, los}
+    total_blpl = 0
+    total_aps = 0
+    total_pindah = 0
+    total_meninggal = 0
+    total_meninggal_gt48 = 0
 
-        # Refresh history
-        history = []
-        for iso_d in all_dates:
-            day_data = recent_days[iso_d]
-            history.append({
-                "date": iso_d,
-                "occTim1": day_data["summary"]["occTim1"],
-                "occTim2": day_data["summary"]["occTim2"],
-                "totalOcc": day_data["summary"]["occupied"],
-                "totalBeds": TOTAL_BEDS,
-                "bor": day_data["summary"]["bor"]
-            })
-        print(f"[INFO] Shift Census Balance Engine berhasil menyeimbangkan {len(all_dates)} tanggal sensus.")
-    except Exception as e:
-        print(f"[WARN] Error applying balanced census chain: {e}")
+    for idx_d, iso_d in enumerate(all_dates):
+        day_data = recent_days[iso_d]
+        patients = day_data["patients"]
 
-    latest_date = all_dates[-1] if all_dates else datetime.now().strftime("%Y-%m-%d")
+        # Deduplikasi pasien aktif pada hari yang sama berdasarkan No. RM
+        cur_active_map = {}
+        for p in patients:
+            if not p.get("isEmpty"):
+                pk = patient_identity_key(p)
+                if pk:
+                    cur_active_map[pk] = p
+
+        occ_total = sum(1 for p in patients if not p.get("isEmpty"))
+        occ_t1 = sum(1 for p in patients if not p.get("isEmpty") and p.get("team") == "Tim I")
+        occ_t2 = sum(1 for p in patients if not p.get("isEmpty") and p.get("team") == "Tim II")
+
+        # Hitung pasien masuk (baru) & keluar (4 jenis terpisah) dari perbandingan pasien hari ini vs hari sebelumnya
+        day_blpl = 0
+        day_aps = 0
+        day_pindah = 0
+        day_meninggal = 0
+        day_baru = 0
+        already_counted_out = set()
+
+        if idx_d > 0:
+            # Pasien baru = ada hari ini, tidak ada kemarin
+            for pk in cur_active_map:
+                if pk not in prev_active_map:
+                    day_baru += 1
+
+            # Pasien keluar = ada kemarin, sudah tidak ada hari ini
+            for pk, prev_p in prev_active_map.items():
+                if pk not in cur_active_map:
+                    dtype = prev_p.get("dischargeType") or "blpl"
+                    los_val = max(1, int(prev_p.get("los") or 1))
+                    if dtype == "meninggal":
+                        day_meninggal += 1
+                        if los_val >= 3:
+                            total_meninggal_gt48 += 1
+                    elif dtype == "aps":
+                        day_aps += 1
+                    elif dtype == "pindah":
+                        day_pindah += 1
+                    else:
+                        day_blpl += 1
+                    discharged_records.append({"date": iso_d, "key": pk, "type": dtype, "los": los_val})
+                    already_counted_out.add(pk)
+
+        # Pada hari terakhir, pasien yang sudah bertanda keluar hari ini juga dicatat pada ringkasan harian
+        if idx_d == len(all_dates) - 1:
+            for pk, cur_p in cur_active_map.items():
+                if cur_p.get("dischargeType") and pk not in already_counted_out:
+                    dtype = cur_p["dischargeType"]
+                    los_val = max(1, int(cur_p.get("los") or 1))
+                    if dtype == "meninggal":
+                        day_meninggal += 1
+                        if los_val >= 3:
+                            total_meninggal_gt48 += 1
+                    elif dtype == "aps":
+                        day_aps += 1
+                    elif dtype == "pindah":
+                        day_pindah += 1
+                    else:
+                        day_blpl += 1
+                    discharged_records.append({"date": iso_d, "key": pk, "type": dtype, "los": los_val})
+
+        total_blpl += day_blpl
+        total_aps += day_aps
+        total_pindah += day_pindah
+        total_meninggal += day_meninggal
+
+        prev_occ = len(prev_active_map) if idx_d > 0 else occ_total
+        day_keluar_total = day_blpl + day_aps + day_pindah + day_meninggal
+
+        # Hitung bed kosong langsung dari denah 41 bed
+        male_empty = sum(1 for p in patients if p.get("isEmpty") and ("♂" in p.get("room", "") or re.search(r"\bKAKAP\s+(1|5|6|7|9)\b", p.get("room", ""), re.I)))
+        female_empty = sum(1 for p in patients if p.get("isEmpty") and ("♀" in p.get("room", "") or re.search(r"\bKAKAP\s+(2|3|4|8|10)\b", p.get("room", ""), re.I)))
+        iso_patient = next((p for p in patients if "ISOLASI" in p.get("room", "").upper() or p.get("bed") == "ISOLASI"), None)
+        iso_empty = 1 if (iso_patient and iso_patient.get("isEmpty")) else 0
+        free_total = TOTAL_BEDS - occ_total
+
+        s = day_data["sensus"]
+        s["pulangBlpl"] = {"pagi": day_blpl, "sore": 0, "malam": 0, "total": day_blpl}
+        s["pulangAps"] = {"pagi": day_aps, "sore": 0, "malam": 0, "total": day_aps}
+        for sh in ["pagi", "sore", "malam"]:
+            s["pasienAwal"][sh] = prev_occ if sh == "pagi" else occ_total
+            s["pasienBaru"][sh] = day_baru if sh == "pagi" else 0
+            s["pulang"][sh] = (day_blpl + day_aps) if sh == "pagi" else 0
+            s["pindah"][sh] = day_pindah if sh == "pagi" else 0
+            s["meninggal"][sh] = day_meninggal if sh == "pagi" else 0
+            s["total"][sh] = occ_total
+            s["bedKosong"][sh] = free_total
+            s["bedKosongDetail"][sh] = {
+                "total": free_total,
+                "pria": male_empty,
+                "wanita": female_empty,
+                "isolasi": iso_empty
+            }
+
+        day_data["summary"]["occupied"] = occ_total
+        day_data["summary"]["empty"] = free_total
+        day_data["summary"]["bor"] = round((occ_total / TOTAL_BEDS) * 100, 1)
+        day_data["summary"]["occTim1"] = occ_t1
+        day_data["summary"]["occTim2"] = occ_t2
+        day_data["summary"]["occA"] = occ_t1
+        day_data["summary"]["occB"] = occ_t2
+        day_data["summary"]["emptyTim1"] = TIM1_BEDS - occ_t1
+        day_data["summary"]["emptyTim2"] = TIM2_BEDS - occ_t2
+        day_data["summary"]["emptyA"] = TIM1_BEDS - occ_t1
+        day_data["summary"]["emptyB"] = TIM2_BEDS - occ_t2
+        day_data["summary"]["borTim1"] = round((occ_t1 / TIM1_BEDS) * 100, 1)
+        day_data["summary"]["borTim2"] = round((occ_t2 / TIM2_BEDS) * 100, 1)
+        day_data["summary"]["borA"] = day_data["summary"]["borTim1"]
+        day_data["summary"]["borB"] = day_data["summary"]["borTim2"]
+        day_data["summary"]["discharges"] = {
+            "blpl": day_blpl,
+            "aps": day_aps,
+            "pindah": day_pindah,
+            "meninggal": day_meninggal,
+            "total": day_keluar_total
+        }
+
+        prev_active_map = cur_active_map
+
+    # Refresh history dari hasil hitungan pasien satu per satu
+    history = []
+    for iso_d in all_dates:
+        day_data = recent_days[iso_d]
+        history.append({
+            "date": iso_d,
+            "occTim1": day_data["summary"]["occTim1"],
+            "occTim2": day_data["summary"]["occTim2"],
+            "totalOcc": day_data["summary"]["occupied"],
+            "totalBeds": TOTAL_BEDS,
+            "bor": day_data["summary"]["bor"]
+        })
+    print(f"[INFO] Sensus otomatis selesai untuk {len(all_dates)} tanggal ({all_dates[0]} s/d {all_dates[-1]}).")
+
+    latest_date = all_dates[-1] if all_dates else datetime.now(WIB_TZ).strftime("%Y-%m-%d")
     today_data = recent_days.get(latest_date)
 
     # Doctor, Diagnosis, and Insurance Analytics aggregation from ALL TABS in spreadsheet
-    # Diukur per hari di pagi hari dari total data seluruh tab spreadsheet (3 Nov s/d tab mutakhir)
     unique_patients_map = {}
     all_observations_count = 0
 
@@ -901,10 +1100,10 @@ def build_data(download=False):
         for p in day_info.get('patients', []):
             if not p.get('isEmpty'):
                 all_observations_count += 1
-                mr = p.get('mrNo', '').strip()
+                mr = re.sub(r'\D', '', str(p.get('mrNo') or '')).strip()
                 name = p.get('name', '').strip()
-                key = mr if mr and len(mr) >= 6 else name
-                
+                key = f"MR:{mr}" if len(mr) >= 5 else f"NM:{name.lower()}"
+
                 if key not in unique_patients_map:
                     unique_patients_map[key] = {
                         "mrNo": mr,
@@ -917,7 +1116,8 @@ def build_data(download=False):
                         "datesSeen": [iso_d]
                     }
                 else:
-                    unique_patients_map[key]["datesSeen"].append(iso_d)
+                    if iso_d not in unique_patients_map[key]["datesSeen"]:
+                        unique_patients_map[key]["datesSeen"].append(iso_d)
                     unique_patients_map[key]["bedLatest"] = p.get("bed", unique_patients_map[key]["bedLatest"])
                     if p.get("doctorPrimary") and p.get("doctorPrimary") != "-":
                         unique_patients_map[key]["doctorPrimary"] = p.get("doctorPrimary")
@@ -972,41 +1172,37 @@ def build_data(download=False):
         if not matched_any and diag_full.strip() and not diag_full.startswith('ATAS NAMA'):
             diag_group_counts["Penyakit Dalam / Diagnosa Lainnya"] += 1
 
-    top_doctors = [{"name": k, "count": v, "pct": round(v / total_unique_pts * 100, 1)} for k, v in sorted(doctor_counts.items(), key=lambda x: x[1], reverse=True)[:10]]
-    top_diagnoses = [{"name": k, "count": v, "pct": round(v / total_unique_pts * 100, 1)} for k, v in sorted(diag_group_counts.items(), key=lambda x: x[1], reverse=True)[:10]]
-    category_list = [{"name": k, "count": v, "pct": round(v / total_unique_pts * 100, 1)} for k, v in sorted(cat_counts.items(), key=lambda x: x[1], reverse=True)]
-    insurance_list = [{"name": k, "count": v, "pct": round(v / total_unique_pts * 100, 1)} for k, v in sorted(ins_counts.items(), key=lambda x: x[1], reverse=True)]
+    denom_pts = max(1, total_unique_pts)
+    top_doctors = [{"name": k, "count": v, "pct": round(v / denom_pts * 100, 1)} for k, v in sorted(doctor_counts.items(), key=lambda x: x[1], reverse=True)[:10]]
+    top_diagnoses = [{"name": k, "count": v, "pct": round(v / denom_pts * 100, 1)} for k, v in sorted(diag_group_counts.items(), key=lambda x: x[1], reverse=True)[:10]]
+    category_list = [{"name": k, "count": v, "pct": round(v / denom_pts * 100, 1)} for k, v in sorted(cat_counts.items(), key=lambda x: x[1], reverse=True)]
+    insurance_list = [{"name": k, "count": v, "pct": round(v / denom_pts * 100, 1)} for k, v in sorted(ins_counts.items(), key=lambda x: x[1], reverse=True)]
 
-    # Hospital Indicators Calculation for Ruang Kakap
-    # Derived strictly from authentic spreadsheet census data
+    # =========================================================================
+    # INDIKATOR MUTU RUMAH SAKIT (RUMUS STANDAR KEMENKES RI)
+    # =========================================================================
     total_hp = sum(h["totalOcc"] for h in history)
     total_days = max(1, len(history))
-    
-    # Calculate discharges (pulang + meninggal) from sensus
-    pulang_total = sum(
-        recent_days[d]["sensus"]["pulang"]["pagi"] + 
-        recent_days[d]["sensus"]["pulang"]["sore"] + 
-        recent_days[d]["sensus"]["pulang"]["malam"]
-        for d in all_dates
-    )
-    meninggal_total = sum(
-        recent_days[d]["sensus"]["meninggal"]["pagi"] + 
-        recent_days[d]["sensus"]["meninggal"]["sore"] + 
-        recent_days[d]["sensus"]["meninggal"]["malam"]
-        for d in all_dates
-    )
-    total_discharges = pulang_total + meninggal_total
-    if total_discharges == 0:
-        total_discharges = max(1, sum(recent_days[d]["summary"].get("dischargedToday", 0) for d in all_dates))
+    total_discharges = total_blpl + total_aps + total_pindah + total_meninggal
+    sufficient_data = (total_days >= 30 and total_discharges >= 30)
 
     bor_overall = round((total_hp / (TOTAL_BEDS * total_days)) * 100, 1) if total_days > 0 else 0.0
-    avlos = round(total_hp / total_discharges, 1) if total_discharges > 0 else 0.0
-    toi = round(((TOTAL_BEDS * total_days) - total_hp) / total_discharges, 1) if total_discharges > 0 else 0.0
-    bto = round(total_discharges / TOTAL_BEDS, 2)
-    bto_annual = round((total_discharges / TOTAL_BEDS) * (365 / total_days), 1) if total_days > 0 else 0.0
-    
-    deaths_gt48 = 1  # Standard verified case
-    gdr = round((meninggal_total / total_discharges) * 1000, 1) if total_discharges > 0 else 0.0
+    total_los_discharged = sum(r["los"] for r in discharged_records)
+    if total_discharges > 0 and total_los_discharged > 0:
+        avlos = round(total_los_discharged / total_discharges, 1)
+    elif total_discharges > 0:
+        avlos = round(total_hp / total_discharges, 1)
+    else:
+        avlos = 0.0
+
+    toi = round(max(0.0, ((TOTAL_BEDS * total_days) - total_hp) / total_discharges), 1) if total_discharges > 0 else 0.0
+    bto_period = round(total_discharges / TOTAL_BEDS, 2)
+    bto_annual = round((total_discharges / TOTAL_BEDS) * (365 / total_days), 1) if sufficient_data else None
+    bto_display = bto_annual if sufficient_data else bto_period
+    bto_unit = "kali/tahun" if sufficient_data else f"kali/{total_days} hari"
+
+    deaths_gt48 = total_meninggal_gt48
+    gdr = round((total_meninggal / total_discharges) * 1000, 1) if total_discharges > 0 else 0.0
     ndr = round((deaths_gt48 / total_discharges) * 1000, 1) if total_discharges > 0 else 0.0
 
     month_key = all_dates[0][:7] if all_dates else "2026-11"
@@ -1017,12 +1213,19 @@ def build_data(download=False):
         "hpTim1": sum(h.get("occTim1", 0) for h in history),
         "hpTim2": sum(h.get("occTim2", 0) for h in history),
         "discharges": total_discharges,
-        "deaths": meninggal_total,
+        "blpl": total_blpl,
+        "aps": total_aps,
+        "pindah": total_pindah,
+        "deaths": total_meninggal,
         "deathsGt48": deaths_gt48,
+        "sufficientData": sufficient_data,
         "bor": bor_overall,
         "avlos": avlos,
         "toi": toi,
-        "bto": bto_annual,
+        "bto": bto_display,
+        "btoPeriod": bto_period,
+        "btoAnnual": bto_annual,
+        "btoUnit": bto_unit,
         "gdr": gdr,
         "ndr": ndr
     }
@@ -1037,16 +1240,31 @@ def build_data(download=False):
         "totalDays": total_days,
         "totalHP": total_hp,
         "totalDischarges": total_discharges,
+        "sufficientData": sufficient_data,
+        "dischargeBreakdown": {
+            "blpl": total_blpl,
+            "aps": total_aps,
+            "pindah": total_pindah,
+            "meninggal": total_meninggal,
+            "meninggalGt48": deaths_gt48
+        },
         "overall": {
             "bor": bor_overall,
             "avlos": avlos,
             "toi": toi,
-            "bto": bto_annual,
+            "bto": bto_display,
+            "btoPeriod": bto_period,
+            "btoAnnual": bto_annual,
+            "btoUnit": bto_unit,
             "gdr": gdr,
             "ndr": ndr
         },
         "monthly": [monthly_entry]
     }
+
+    now_wib = datetime.now(WIB_TZ)
+    months_id = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+    last_updated_wib = f"{now_wib.day} {months_id[now_wib.month - 1]} {now_wib.year} pukul {now_wib.strftime('%H:%M')} WIB"
 
     full_output = {
         "metadata": {
@@ -1054,13 +1272,17 @@ def build_data(download=False):
             "subtitle": "Sistem Informasi Sensus Pasien, Denah Bed & Operan Jaga Rawat Inap Ruang Kakap",
             "hospital": "RSUD Dr. Soedarso Pontianak",
             "roomName": "Ruang Rawat Inap Kakap",
+            "openedDate": "2026-11-02",
             "capacity": {"tim1": TIM1_BEDS, "tim2": TIM2_BEDS, "total": TOTAL_BEDS},
             "wings": ["Tim I (Kakap 1-5 & Isolasi - 21 Bed)", "Tim II (Kakap 6-10 - 20 Bed)"],
-            "lastUpdated": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
+            "lastUpdated": now_wib.strftime("%d-%m-%Y %H:%M:%S"),
+            "lastUpdatedWib": last_updated_wib,
+            "lastUpdatedIso": now_wib.isoformat(),
             "latestDate": latest_date,
             "totalDatesRecorded": len(all_dates),
             "dateRange": f"{all_dates[0]} s/d {all_dates[-1]}" if all_dates else "-",
-            "spreadsheetUrl": SPREADSHEET_URL
+            "spreadsheetUrl": SPREADSHEET_URL,
+            "privacyEncrypted": True
         },
         "allDates": all_dates,
         "history": history,
@@ -1072,7 +1294,7 @@ def build_data(download=False):
             "totalPatients": total_unique_pts,
             "totalObservations": all_observations_count,
             "measurementSchedule": "Diukur per hari di pagi hari (Pukul 07:00 WIB)",
-            "measurementScope": "Data dari seluruh tab spreadsheet (3 November 2026 s/d tab mutakhir)",
+            "measurementScope": f"Data dari seluruh tab spreadsheet ({all_dates[0]} s/d {all_dates[-1]})",
             "totalTabsCount": len(all_dates),
             "spreadsheetRange": f"{all_dates[0]} s/d {all_dates[-1]}"
         },
@@ -1089,7 +1311,7 @@ def build_data(download=False):
         "today": today_data
     }
 
-    # Integrasi Clinical Pathway MVP RSUD dr. Soedarso
+    # Integrasi Clinical Pathway MVP RSUD dr. Soedarso (sebelum data disamarkan agar analisis CP tetap akurat)
     try:
         import cp_mvp_engine
         cp_analytics = cp_mvp_engine.run_engine(recent_days=recent_days, today_data=today_data)
@@ -1098,9 +1320,77 @@ def build_data(download=False):
     except Exception as e:
         print(f"[WARN] cp_mvp_engine error: {e}")
 
+    # =========================================================================
+    # KEAMANAN DATA PASIEN (UU PDP No. 27/2022):
+    # Enkripsi identitas penuh & catatan SBAR ke clinicalVault (hanya terbuka dg PIN),
+    # lalu samarkan seluruh nama lengkap, No. RM, dan catatan klinis di JSON publik.
+    # =========================================================================
+    vault_days = {}
+    for iso_d in all_dates:
+        day_obj = recent_days[iso_d]
+        day_vault = {}
+        for p in day_obj.get("patients", []):
+            if not p.get("isEmpty"):
+                bed_key = str(p.get("bed", ""))
+                day_vault[bed_key] = {
+                    "name": p.get("name", ""),
+                    "mrNo": p.get("mrNo", ""),
+                    "notes": p.get("notes", {"pagi": "", "sore": "", "malam": ""})
+                }
+                # Samarkan data publik
+                p["name"] = mask_patient_name_py(p.get("name", ""))
+                p["mrNo"] = mask_mr_py(p.get("mrNo", ""))
+                p["notes"] = {"pagi": "", "sore": "", "malam": ""}
+        vault_days[iso_d] = day_vault
+
+    # Samarkan pula data pasien riil di clinicalPathways (sementara kasus benchmark tetap ditandai DATA CONTOH)
+    vault_cp = {}
+    def mask_cp_obj(obj):
+        if isinstance(obj, list):
+            for item in obj:
+                mask_cp_obj(item)
+        elif isinstance(obj, dict):
+            is_bench = bool(obj.get("is_benchmark") or str(obj.get("episode_id", "")).startswith("EP-BENCH"))
+            if not is_bench:
+                ep_id = obj.get("episode_id") or obj.get("mr_no") or obj.get("mrNo")
+                raw_name = obj.get("patient_name") or obj.get("name")
+                raw_mr = obj.get("mr_no") or obj.get("mrNo")
+                if ep_id and (raw_name or raw_mr):
+                    if isinstance(raw_name, str) and "***" not in raw_name and any(x in obj for x in ("patient_name", "mr_no", "mrNo")):
+                        vault_cp[str(ep_id)] = {
+                            "name": raw_name,
+                            "mrNo": str(raw_mr or "")
+                        }
+                if "patient_name" in obj and isinstance(obj["patient_name"], str):
+                    obj["patient_name"] = mask_patient_name_py(obj["patient_name"])
+                if "name" in obj and isinstance(obj["name"], str) and ("mr_no" in obj or "mrNo" in obj or "bed" in obj):
+                    obj["name"] = mask_patient_name_py(obj["name"])
+                if "mr_no" in obj and isinstance(obj["mr_no"], str):
+                    obj["mr_no"] = mask_mr_py(obj["mr_no"])
+                if "mrNo" in obj and isinstance(obj["mrNo"], str):
+                    obj["mrNo"] = mask_mr_py(obj["mrNo"])
+            for v in obj.values():
+                if isinstance(v, (dict, list)):
+                    mask_cp_obj(v)
+
+    if "clinicalPathways" in full_output:
+        mask_cp_obj(full_output["clinicalPathways"])
+        try:
+            with open(CLINICAL_PATHWAYS_JSON, "w", encoding="utf-8") as cf:
+                json.dump(full_output["clinicalPathways"], cf, indent=2, ensure_ascii=False)
+            print(f"[SUCCESS] Wrote masked {CLINICAL_PATHWAYS_JSON}")
+        except Exception as e:
+            print(f"[WARN] Could not write masked clinical_pathways.json: {e}")
+
+    clinical_pin = os.getenv("KAKAP_CLINICAL_PIN", "").strip() or "2026"
+    full_output["clinicalVault"] = crypto_vault.encrypt_clinical_vault(
+        {"days": vault_days, "cp": vault_cp},
+        clinical_pin
+    )
+
     with open(DASHBOARD_DATA_JSON, "w", encoding="utf-8") as f:
         json.dump(full_output, f, indent=2, ensure_ascii=False)
-    print(f"[SUCCESS] Wrote {DASHBOARD_DATA_JSON} ({os.path.getsize(DASHBOARD_DATA_JSON)} bytes)")
+    print(f"[SUCCESS] Wrote encrypted & masked {DASHBOARD_DATA_JSON} ({os.path.getsize(DASHBOARD_DATA_JSON)} bytes)")
 
     with open(HOSPITAL_INDICATORS_JSON, "w", encoding="utf-8") as f:
         json.dump(hospital_indicators, f, indent=2, ensure_ascii=False)

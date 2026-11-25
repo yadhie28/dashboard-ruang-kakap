@@ -54,12 +54,13 @@ TOTAL_BEDS = 41
 BED_RUSAK = 4  # Kamar Kakap 9 (AC panas / dalam perbaikan berkala)
 USABLE_BEDS = TOTAL_BEDS  # 41 Bed aktif bangsal (Kamar 8 & 9 aktif digunakan atas persetujuan keluarga & IGD)
 
+_ENV_WA_PHONE = os.getenv("KARU_WA_PHONE", "").strip().lstrip("+")
 DEFAULT_RECIPIENT = {
     "name": "Ns. Rusmulyadi, S.Kep.,M.A.R.S",
     "role": "Kepala Ruang Rawat Inap Kakap",
     "hospital": "RSUD Dr. Soedarso Pontianak",
-    "phone": "6281284070082",
-    "phone_display": "+6281284070082"
+    "phone": _ENV_WA_PHONE,
+    "phone_display": ("+" + _ENV_WA_PHONE) if _ENV_WA_PHONE else "Tersimpan aman"
 }
 
 def get_current_wib_datetime():

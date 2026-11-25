@@ -234,7 +234,7 @@ class DashboardRequestHandler(http.server.SimpleHTTPRequestHandler):
             dt = body.get("date", None)
             custom_msg = body.get("message", None)
             token = body.get("token", None)
-            phone = body.get("phone", "6281284070082")
+            phone = body.get("phone") or os.getenv("KARU_WA_PHONE", "")
 
             try:
                 import send_whatsapp

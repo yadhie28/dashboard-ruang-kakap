@@ -12,3 +12,9 @@ Thumbs.db
 .vscode/
 .idea/
 scratch/
+
+# Keamanan Data Pasien & Kunci Rahasia (jangan pernah di-commit ke repositori publik)
+kakap_data.xlsx
+*.xlsx
+wa_gateway_config.json
+.env

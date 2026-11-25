@@ -4,7 +4,7 @@ Sistem Pengirim Laporan Sensus WhatsApp Messenger
 Ruang Rawat Inap Kakap (Penyakit Dalam) - RSUD Dr. Soedarso Pontianak
 
 Tujuan : Kepala Ruang Kakap (Ns. Rusmulyadi, S.Kep.,M.A.R.S)
-Nomor  : +6281284070082
+Nomor  : Diambil aman dari variabel lingkungan KARU_WA_PHONE (GitHub Secrets)
 Jadwal : 07.00 WIB, 14.00 WIB, dan 20.00 WIB
 Gateway: Fonnte API (otomatis di background) & fallback WhatsApp Web / wa.me
 """
@@ -20,13 +20,14 @@ import argparse
 import time
 from datetime import datetime, timezone, timedelta
 
-# Konfigurasi Penerima Resmi Kepala Ruang Kakap
+# Konfigurasi Penerima Resmi Kepala Ruang Kakap (nomor diambil dari env KARU_WA_PHONE)
+_ENV_PHONE = os.getenv("KARU_WA_PHONE", "").strip()
 DEFAULT_RECIPIENT = {
     "name": "Ns. Rusmulyadi, S.Kep.,M.A.R.S",
     "role": "Kepala Ruang Rawat Inap Kakap",
     "hospital": "RSUD Dr. Soedarso Pontianak",
-    "phone_raw": "+6281284070082",
-    "phone": "6281284070082"
+    "phone_raw": ("+" + _ENV_PHONE.lstrip("+")) if _ENV_PHONE else "",
+    "phone": _ENV_PHONE.lstrip("+")
 }
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -36,8 +37,8 @@ SENT_LOG_PATH = os.path.join(BASE_DIR, "shift_sent_wa.json")
 # Master switch pengiriman WhatsApp Ruang Kakap (Aktif)
 WHATSAPP_ENABLED = True
 
-# Fallback default token Fonnte
-DEFAULT_FONNTE_TOKEN = "Ayfow2x1hFiscQZSphzq"
+# Token tidak pernah ditulis langsung di kode — wajib dari env FONNTE_TOKEN atau wa_gateway_config.json lokal
+DEFAULT_FONNTE_TOKEN = ""
 
 def get_current_wib_datetime():
     """Mengembalikan datetime dalam zona waktu WIB (UTC+7) secara akurat."""
@@ -262,7 +263,7 @@ def main():
     parser.add_argument("--sensus", action="store_true", default=True, help="Gunakan template resmi laporan sensus WhatsApp Ruang Kakap")
     parser.add_argument("--shift", choices=["pagi", "sore", "malam", "auto"], default="auto", help="Pilih shift laporan (default: auto)")
     parser.add_argument("--date", default=None, help="Pilih tanggal laporan YYYY-MM-DD")
-    parser.add_argument("-p", "--phone", default=DEFAULT_RECIPIENT["phone"], help="Nomor tujuan (default: 6281284070082)")
+    parser.add_argument("-p", "--phone", default=DEFAULT_RECIPIENT["phone"], help="Nomor tujuan (default dari KARU_WA_PHONE)")
     parser.add_argument("--mode", choices=["web", "app", "universal"], default="web", help="Mode peluncuran lokal: web, app, universal")
     parser.add_argument("--gateway", choices=["fonnte", "wablas"], default="fonnte", help="Kirim melalui Gateway API di background (default: fonnte)")
     parser.add_argument("--token", default=None, help="API Token Fonnte")
