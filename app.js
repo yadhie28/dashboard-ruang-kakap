@@ -33,6 +33,7 @@ const state = {
   chronologyPatient: null,
   chronologySort: 'asc'
 };
+window.state = state;
 
 // Patient Identity Masking for Role Separation (UU PDP No. 27/2022)
 function maskPatientName(name) {
@@ -255,6 +256,9 @@ function updateRoleUI() {
         renderHandoverBoard(dayData);
       }
     }
+  }
+  if (window.KakapELogbook && typeof window.KakapELogbook.onClinicalRoleChanged === 'function') {
+    window.KakapELogbook.onClinicalRoleChanged();
   }
 }
 
@@ -565,6 +569,11 @@ function setupEventListeners() {
       if (targetId === 'tabClinicalPathway') {
         renderClinicalPathwayTab();
       }
+      if (targetId === 'tabELogbook3S' && window.KakapELogbook) {
+        window.KakapELogbook.populateNurseDropdown();
+        window.KakapELogbook.populateActivePatientMrnPicker();
+        window.KakapELogbook.renderAll();
+      }
     });
   });
 
@@ -848,6 +857,12 @@ function updateDashboard() {
 
   // Render Directory
   renderDirectoryTable(dayData);
+
+  // Refresh E-Logbook 3S active patients & nurse list
+  if (window.KakapELogbook) {
+    window.KakapELogbook.populateNurseDropdown();
+    window.KakapELogbook.populateActivePatientMrnPicker();
+  }
 }
 
 // Helper functions for accessing patients

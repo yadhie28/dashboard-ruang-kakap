@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=20261125a">
+  <link rel="stylesheet" href="index.css?v=20261125c">
 </head>
 <body>
   <!-- Header / Navigation -->
@@ -133,6 +133,11 @@
         <button class="tab-btn" data-tab="tabClinicalPathway" id="btnTabClinicalPathway">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/><circle cx="12" cy="12" r="2"/></svg>
           <span>Pengukur Kepatuhan CP</span>
+        </button>
+        <button class="tab-btn" data-tab="tabELogbook3S" id="btnTabELogbook3S">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h6"/><path d="M9 11h6"/><path d="M9 15h4"/></svg>
+          <span>E-Logbook Asuhan 3S</span>
+          <span class="lb-tab-badge" id="lbTabCountBadge">0</span>
         </button>
       </div>
 
@@ -1211,7 +1216,7 @@
               <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
                 <div class="btn-group" id="cpScreeningModeToggle" style="display:flex;background:var(--bg-surface);border:1px solid var(--border-color);border-radius:6px;padding:2px;">
                   <button type="button" class="btn btn-xs btn-primary" id="btnCpModeAllTabs" onclick="switchCpScreeningMode('allTabs')" style="padding:4px 10px;font-weight:700;">Seluruh Tab (41 Pasien)</button>
-                  <button type="button" class="btn btn-xs btn-outline-secondary" id="btnCpModeToday" onclick="switchCpScreeningMode('today')" style="padding:4px 10px;font-weight:700;">Sensus Hari Ini (25 Pasien)</button>
+                  <button type="button" class="btn btn-xs btn-outline-secondary" id="btnCpModeToday" onclick="switchCpScreeningMode('today')" style="padding:4px 10px;font-weight:700;">Sensus Hari Ini</button>
                 </div>
                 <button type="button" class="btn btn-sm btn-outline-secondary" id="btnToggleCpLedger" onclick="toggleCpLedgerView()">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;margin-right:4px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
@@ -1491,6 +1496,313 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- TAB 8: E-LOGBOOK ASUHAN KEPERAWATAN 3S (SDKI, SIKI, SLKI) -->
+    <section id="tabELogbook3S" class="tab-content">
+      <!-- Header & Ringkasan Bulanan -->
+      <div class="analytics-card lb-header-card">
+        <div class="lb-header-top">
+          <div>
+            <div class="lb-badge-row">
+              <span class="badge badge-primary">STANDAR PPNI 3S (SDKI &bull; SIKI &bull; SLKI)</span>
+              <span class="badge badge-outline">Ruang Kakap &bull; Penyakit Dalam (41 Bed)</span>
+            </div>
+            <h2 class="lb-page-title">E-Logbook Asuhan Keperawatan 3S</h2>
+            <p class="chart-subtitle">Dokumentasi harian asuhan keperawatan Ruang Kakap berbasis 149 diagnosis SDKI dengan rekomendasi otomatis SIKI &amp; SLKI. Privasi terjaga: hanya mencatat No. RM &amp; Bed tanpa nama pasien.</p>
+          </div>
+          <div class="lb-header-actions">
+            <div class="lb-month-wrap">
+              <label for="lbMonthSelect" class="lb-mini-label">Bulan Rekap:</label>
+              <select id="lbMonthSelect" class="lb-select" onchange="KakapELogbook.onMonthChange()" aria-label="Pilih Bulan Rekap Logbook"></select>
+            </div>
+            <button type="button" class="btn btn-primary lb-touch-btn" id="btnLbToggleForm" onclick="KakapELogbook.toggleForm()">
+              + Catat Asuhan 3S Baru
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Kartu Ringkasan Bulanan -->
+        <div class="kpi-grid lb-kpi-grid">
+          <div class="kpi-card card-glow-primary">
+            <div class="kpi-header">
+              <span class="kpi-label">TOTAL PROSEDUR BULAN INI</span>
+              <span class="lb-kpi-icon">📋</span>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value lb-kpi-val" id="lbMetricTotal">0 Tindakan</span>
+            </div>
+            <div class="kpi-footer">
+              <span class="caption-text">Asuhan tercatat pada bulan terpilih</span>
+            </div>
+          </div>
+
+          <div class="kpi-card card-glow-emerald">
+            <div class="kpi-header">
+              <span class="kpi-label">TINDAKAN MANDIRI</span>
+              <span class="lb-kpi-icon">🩺</span>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value lb-kpi-val" id="lbMetricMandiri">0 Tindakan</span>
+            </div>
+            <div class="kpi-footer">
+              <span class="caption-text">Intervensi keperawatan mandiri</span>
+            </div>
+          </div>
+
+          <div class="kpi-card card-glow-purple">
+            <div class="kpi-header">
+              <span class="kpi-label">TINDAKAN KOLABORATIF</span>
+              <span class="lb-kpi-icon">🤝</span>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value lb-kpi-val" id="lbMetricKolaboratif">0 Tindakan</span>
+            </div>
+            <div class="kpi-footer">
+              <span class="caption-text">Kolaborasi tim medis &amp; PPA lain</span>
+            </div>
+          </div>
+
+          <div class="kpi-card card-glow-orange">
+            <div class="kpi-header">
+              <span class="kpi-label">KEPATUHAN KEPALA RUANG</span>
+              <span class="lb-kpi-icon">🛡️</span>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value lb-kpi-val" id="lbMetricKaru">Belum ada entri</span>
+            </div>
+            <div class="kpi-footer">
+              <span class="caption-text">Verifikasi oleh Ns. Rusmulyadi, S.Kep., M.A.R.S</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulir Entri Logbook Klinis Baru (Berbasis SDKI, SIKI, SLKI) -->
+      <div class="analytics-card lb-form-card" id="lbFormCard" style="display:none;">
+        <div class="lb-form-header">
+          <div>
+            <h3>Formulir Entri Logbook Klinis Baru (Berbasis SDKI, SIKI, SLKI)</h3>
+            <p class="chart-subtitle">Pilih diagnosis SDKI — sistem otomatis menyarankan Intervensi SIKI &amp; Luaran SLKI sesuai standar PPNI.</p>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="KakapELogbook.toggleForm(false)">Tutup Form</button>
+        </div>
+
+        <div id="lbFormError" class="lb-error-banner" style="display:none;" role="alert"></div>
+
+        <form id="lbEntryForm" novalidate>
+          <!-- Baris 1: Tanggal, Shift, Unit Kerja -->
+          <div class="lb-form-grid lb-grid-3">
+            <div class="lb-field">
+              <label for="lbDateInput">Tanggal Pelaksanaan <span class="lb-req">*</span></label>
+              <input type="date" id="lbDateInput" class="lb-input" required>
+            </div>
+            <div class="lb-field">
+              <label for="lbShiftSelect">Shift Dinas Ruang Kakap <span class="lb-req">*</span></label>
+              <select id="lbShiftSelect" class="lb-select" required>
+                <option value="Pagi">Pagi (07.00–14.00)</option>
+                <option value="Sore">Sore (14.00–20.00)</option>
+                <option value="Malam">Malam (20.00–07.00)</option>
+              </select>
+            </div>
+            <div class="lb-field">
+              <label for="lbUnitInput">Unit Kerja</label>
+              <input type="text" id="lbUnitInput" class="lb-input lb-readonly" value="Ruang Kakap (Penyakit Dalam • 41 Bed)" readonly>
+            </div>
+          </div>
+
+          <!-- Baris 2: Perawat Pelaksana & Pasien (No. RM + Bed saja) -->
+          <div class="lb-form-grid lb-grid-2">
+            <div class="lb-field">
+              <label for="lbNurseSelect">Nama Perawat Pelaksana <span class="lb-req">*</span></label>
+              <select id="lbNurseSelect" class="lb-select" onchange="KakapELogbook.onNurseSelectChange()" required>
+                <option value="">-- Pilih Nama Perawat Ruang Kakap --</option>
+              </select>
+              <input type="text" id="lbNurseCustomInput" class="lb-input" style="display:none;margin-top:8px;" placeholder="Ketik nama lengkap perawat pelaksana...">
+            </div>
+
+            <div class="lb-field">
+              <label for="lbPatientPicker">Pilih Pasien Dirawat (No. RM &amp; Bed — Tanpa Nama)</label>
+              <select id="lbPatientPicker" class="lb-select" onchange="KakapELogbook.onPatientPickerChange()">
+                <option value="">-- Pilih pasien dirawat (No. RM &amp; Bed saja) atau ketik manual --</option>
+              </select>
+              <div class="lb-mrn-row">
+                <div style="flex:2;">
+                  <label for="lbMrnInput" class="lb-mini-label">No. Rekam Medis <span class="lb-req">*</span></label>
+                  <input type="text" id="lbMrnInput" class="lb-input" placeholder="Contoh: 00-12-34-56" required>
+                </div>
+                <div style="flex:1;">
+                  <label for="lbBedInput" class="lb-mini-label">Nomor Bed</label>
+                  <input type="text" id="lbBedInput" class="lb-input" placeholder="Bed 01">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Baris 3: 8 Diagnosis Cepat SDKI -->
+          <div class="lb-field lb-quick-section">
+            <div class="lb-label-with-action">
+              <label>Pilihan Cepat Diagnosis SDKI Terbanyak:</label>
+              <button type="button" class="btn btn-secondary btn-sm lb-touch-btn" onclick="KakapELogbook.openSdkiCatalog()">
+                🔍 Cari di Katalog Lengkap (149 SDKI)
+              </button>
+            </div>
+            <div class="lb-quick-chips">
+              <button type="button" class="lb-quick-sdki-btn" data-code="D.0077" onclick="KakapELogbook.selectQuickDiagnosis('D.0077')">D.0077 Nyeri Akut</button>
+              <button type="button" class="lb-quick-sdki-btn" data-code="D.0001" onclick="KakapELogbook.selectQuickDiagnosis('D.0001')">D.0001 Bersihan Jalan Napas</button>
+              <button type="button" class="lb-quick-sdki-btn" data-code="D.0142" onclick="KakapELogbook.selectQuickDiagnosis('D.0142')">D.0142 Risiko Infeksi</button>
+              <button type="button" class="lb-quick-sdki-btn" data-code="D.0019" onclick="KakapELogbook.selectQuickDiagnosis('D.0019')">D.0019 Defisit Nutrisi</button>
+              <button type="button" class="lb-quick-sdki-btn" data-code="D.0054" onclick="KakapELogbook.selectQuickDiagnosis('D.0054')">D.0054 Gangguan Mobilitas</button>
+              <button type="button" class="lb-quick-sdki-btn" data-code="D.0143" onclick="KakapELogbook.selectQuickDiagnosis('D.0143')">D.0143 Risiko Jatuh</button>
+              <button type="button" class="lb-quick-sdki-btn" data-code="D.0130" onclick="KakapELogbook.selectQuickDiagnosis('D.0130')">D.0130 Hipertermia</button>
+              <button type="button" class="lb-quick-sdki-btn" data-code="D.0080" onclick="KakapELogbook.selectQuickDiagnosis('D.0080')">D.0080 Ansietas</button>
+            </div>
+          </div>
+
+          <!-- Baris 4: Diagnosis SDKI, Etiologi, Kategori Tindakan -->
+          <div class="lb-form-grid lb-grid-3">
+            <div class="lb-field">
+              <label for="lbSdkiSelect">Diagnosis Keperawatan (SDKI) <span class="lb-req">*</span></label>
+              <select id="lbSdkiSelect" class="lb-select" onchange="KakapELogbook.applySdkiSelection(this.value)" required>
+                <option value="">-- Pilih Diagnosis SDKI (D.0001 s.d. D.0149) --</option>
+              </select>
+            </div>
+            <div class="lb-field">
+              <label for="lbEtiologySelect">Etiologi / Faktor Berhubungan (b.d)</label>
+              <select id="lbEtiologySelect" class="lb-select" onchange="KakapELogbook.onEtiologyChange()">
+                <option value="">-- Pilih SDKI terlebih dahulu --</option>
+              </select>
+            </div>
+            <div class="lb-field">
+              <label for="lbCategorySelect">Kategori Tindakan <span class="lb-req">*</span></label>
+              <select id="lbCategorySelect" class="lb-select" required>
+                <option value="Mandiri">Mandiri (Intervensi Keperawatan)</option>
+                <option value="Kolaboratif">Kolaboratif (Tim Medis / PPA)</option>
+                <option value="Edukasi">Edukasi Pasien &amp; Keluarga</option>
+                <option value="Observasi">Observasi &amp; Pemantauan Klinis</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Pratinjau Rumusan Diagnosis -->
+          <div class="lb-sdki-preview-bar">
+            <span class="lb-code-pill" id="lbPreviewSdkiCode">SDKI</span>
+            <span class="lb-preview-text" id="lbPreviewSdkiText">Belum ada diagnosis SDKI dipilih</span>
+            <span class="lb-cat-pill" id="lbPreviewSdkiCat">-</span>
+          </div>
+
+          <!-- Baris 5: Intervensi SIKI & Luaran SLKI (Otomatis Disarankan) -->
+          <div class="lb-form-grid lb-grid-2">
+            <div class="lb-field">
+              <label for="lbSikiSelect">Intervensi Keperawatan (SIKI — Rekomendasi Otomatis) <span class="lb-req">*</span></label>
+              <select id="lbSikiSelect" class="lb-select" onchange="KakapELogbook.onSikiChange()" required>
+                <option value="">-- Pilih SDKI untuk rekomendasi otomatis SIKI --</option>
+              </select>
+              <div id="lbPreviewSiki" class="lb-detail-preview-box">
+                <span class="lb-muted">Rincian tindakan Observasi, Terapeutik, Edukasi, dan Kolaborasi akan muncul otomatis setelah SIKI dipilih.</span>
+              </div>
+            </div>
+
+            <div class="lb-field">
+              <label for="lbSlkiSelect">Luaran Keperawatan (SLKI — Rekomendasi Otomatis) <span class="lb-req">*</span></label>
+              <select id="lbSlkiSelect" class="lb-select" onchange="KakapELogbook.onSlkiChange()" required>
+                <option value="">-- Pilih SDKI untuk rekomendasi otomatis SLKI --</option>
+              </select>
+              <div id="lbPreviewSlki" class="lb-detail-preview-box">
+                <span class="lb-muted">Kriteria hasil terukur SLKI akan muncul otomatis setelah SLKI dipilih.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Baris 6: Catatan Evaluasi / SOAP -->
+          <div class="lb-field">
+            <label for="lbNotesInput">Catatan Evaluasi / SOAP</label>
+            <textarea id="lbNotesInput" class="lb-textarea" rows="3" placeholder="Contoh: S: Pasien mengatakan nyeri berkurang dari skala 6 menjadi 3. O: TD 120/80 mmHg, N 82x/mnt. A: Masalah teratasi sebagian. P: Lanjutkan intervensi manajemen nyeri."></textarea>
+          </div>
+
+          <!-- Tombol Aksi Formulir -->
+          <div class="lb-form-actions">
+            <button type="button" class="btn btn-secondary lb-touch-btn" onclick="KakapELogbook.resetForm()">Batal / Kosongkan</button>
+            <button type="submit" class="btn btn-primary lb-touch-btn">💾 Simpan ke Logbook Ruang Kakap</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Riwayat Asuhan Keperawatan 3S -->
+      <div class="analytics-card lb-history-card">
+        <div class="lb-history-head">
+          <div>
+            <h3>Riwayat Asuhan Keperawatan 3S Ruang Kakap</h3>
+            <p class="chart-subtitle">Daftar asuhan tersimpan mengikuti perlindungan Mode Klinis (PIN). Verifikasi pengesahan dilakukan oleh Kepala Ruang.</p>
+          </div>
+        </div>
+
+        <!-- Tampilan Terkunci (Saat Mode Klinis Belum Dibuka) -->
+        <div id="lbHistoryLockedState" class="lb-locked-state">
+          <div class="lb-lock-icon">🔒</div>
+          <h4>Riwayat Asuhan Dilindungi Mode Klinis</h4>
+          <p>Untuk menjaga kerahasiaan data pasien (No. RM &amp; catatan klinis), daftar riwayat logbook disembunyikan saat Mode Klinis terkunci. Perawat tetap dapat mengisi formulir entri baru di atas.</p>
+          <button type="button" class="btn btn-primary lb-touch-btn" onclick="openPinModal()">🔓 Buka Mode Klinis dengan PIN</button>
+        </div>
+
+        <!-- Tampilan Terbuka (Setelah Mode Klinis Dibuka dengan PIN) -->
+        <div id="lbHistoryUnlockedState" style="display:none;">
+          <!-- Toolbar Aksi -->
+          <div class="lb-toolbar">
+            <div class="lb-filters">
+              <input type="text" id="lbSearchInput" class="lb-input lb-search-input" placeholder="Cari No. RM, perawat, SDKI, SIKI..." oninput="KakapELogbook.renderHistorySection()">
+              <select id="lbFilterShift" class="lb-select" onchange="KakapELogbook.renderHistorySection()" aria-label="Filter Shift">
+                <option value="all">Semua Shift</option>
+                <option value="Pagi">Pagi (07.00–14.00)</option>
+                <option value="Sore">Sore (14.00–20.00)</option>
+                <option value="Malam">Malam (20.00–07.00)</option>
+              </select>
+              <select id="lbFilterCategory" class="lb-select" onchange="KakapELogbook.renderHistorySection()" aria-label="Filter Kategori">
+                <option value="all">Semua Kategori</option>
+                <option value="Mandiri">Mandiri</option>
+                <option value="Kolaboratif">Kolaboratif</option>
+                <option value="Edukasi">Edukasi</option>
+                <option value="Observasi">Observasi</option>
+              </select>
+              <select id="lbFilterStatus" class="lb-select" onchange="KakapELogbook.renderHistorySection()" aria-label="Filter Status">
+                <option value="all">Semua Status</option>
+                <option value="verified">Disetujui Kepala Ruang</option>
+                <option value="pending">Menunggu Review</option>
+              </select>
+            </div>
+            <div class="lb-action-buttons">
+              <button type="button" class="btn btn-primary btn-sm lb-touch-btn" onclick="KakapELogbook.verifyBatch()">✓ Verifikasi Batch Kepala Ruang</button>
+              <button type="button" class="btn btn-secondary btn-sm lb-touch-btn" onclick="KakapELogbook.openPrintModal()">🖨️ Cetak Laporan A4</button>
+              <button type="button" class="btn btn-secondary btn-sm lb-touch-btn" onclick="KakapELogbook.exportCsv()">⬇️ Unduh CSV</button>
+              <button type="button" class="btn btn-secondary btn-sm lb-touch-btn" onclick="KakapELogbook.triggerImportCsv()">⬆️ Pulihkan dari CSV</button>
+              <button type="button" class="btn btn-secondary btn-sm lb-touch-btn" onclick="KakapELogbook.configureCloudSync()" title="Hubungkan ke Google Spreadsheet Logbook_Kakap agar data tersimpan bersama antar perangkat">☁️ Spreadsheet Bersama</button>
+              <input type="file" id="lbImportCsvInput" accept=".csv,text/csv" style="display:none;">
+            </div>
+          </div>
+
+          <!-- Tabel Riwayat -->
+          <div class="table-responsive">
+            <table class="data-table lb-table">
+              <thead>
+                <tr>
+                  <th>Tanggal &amp; Shift</th>
+                  <th>No. RM &amp; Bed</th>
+                  <th>Perawat</th>
+                  <th>Diagnosis SDKI &amp; Intervensi SIKI</th>
+                  <th>Luaran SLKI</th>
+                  <th>Kategori &amp; Status</th>
+                  <th style="text-align:right;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="lbTableBody">
+                <tr>
+                  <td colspan="7" style="text-align:center;padding:28px 16px;color:var(--text-muted);">Belum ada entri logbook pada bulan ini.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2135,6 +2447,62 @@
     </div>
   </div>
 
+  <!-- MODAL: KATALOG LENGKAP 149 DIAGNOSIS SDKI (PPNI) -->
+  <div class="modal-overlay" id="lbSdkiCatalogModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="lbCatalogTitle">
+    <div class="modal-dialog lb-catalog-dialog">
+      <div class="modal-header" style="background:#0f172a;color:#fff;border-bottom:1px solid #334155;padding:14px 18px;">
+        <div>
+          <h3 id="lbCatalogTitle" style="margin:0;font-size:1.05rem;font-weight:700;color:#fff;">Katalog Lengkap 149 Diagnosis SDKI (PPNI)</h3>
+          <span style="font-size:0.76rem;color:#94a3b8;">Cari berdasarkan kode (D.0001–D.0149), nama diagnosis, atau gejala klinis</span>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="KakapELogbook.closeLocalModal('lbSdkiCatalogModal')" style="color:#fff;" aria-label="Tutup">&times;</button>
+      </div>
+      <div class="modal-body lb-catalog-body">
+        <div class="lb-catalog-search-bar">
+          <input type="text" id="lbCatalogSearchInput" class="lb-input" placeholder="Ketik kata kunci, misal: nyeri, sesak, demam, D.0077..." oninput="KakapELogbook.onCatalogSearch(this.value)">
+          <span id="lbCatalogCount" class="lb-catalog-count">149 diagnosis</span>
+        </div>
+        <div id="lbCatalogCategoryPills" class="lb-catalog-pills"></div>
+        <div class="lb-catalog-split">
+          <div id="lbCatalogList" class="lb-catalog-list"></div>
+          <div id="lbCatalogDetail" class="lb-catalog-detail"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: DETAIL ENTRI LOGBOOK 3S -->
+  <div class="modal-overlay" id="lbDetailModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="lbDetailTitle">
+    <div class="modal-dialog" style="max-width:720px;width:95%;">
+      <div class="modal-header" style="background:#0f172a;color:#fff;border-bottom:1px solid #334155;padding:14px 18px;">
+        <h3 id="lbDetailTitle" style="margin:0;font-size:1.02rem;font-weight:700;color:#fff;">Detail Entri E-Logbook Asuhan 3S</h3>
+        <button type="button" class="modal-close-btn" onclick="KakapELogbook.closeLocalModal('lbDetailModal')" style="color:#fff;" aria-label="Tutup">&times;</button>
+      </div>
+      <div class="modal-body" id="lbDetailModalBody" style="padding:18px;max-height:76vh;overflow-y:auto;background:var(--bg-card);"></div>
+      <div class="modal-footer" style="padding:10px 18px;border-top:1px solid var(--border-color);background:var(--bg-muted);display:flex;justify-content:flex-end;">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="KakapELogbook.closeLocalModal('lbDetailModal')">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PRATINJAU CETAK LAPORAN A4 E-LOGBOOK 3S -->
+  <div class="modal-overlay" id="lbPrintModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="lbPrintTitle">
+    <div class="modal-dialog" style="max-width:960px;width:96%;max-height:92vh;display:flex;flex-direction:column;">
+      <div class="modal-header" style="background:#0f172a;color:#fff;border-bottom:1px solid #334155;padding:12px 18px;">
+        <div>
+          <h3 id="lbPrintTitle" style="margin:0;font-size:1.05rem;font-weight:700;color:#fff;">Pratinjau Cetak Laporan E-Logbook Asuhan 3S (A4)</h3>
+          <span style="font-size:0.75rem;color:#94a3b8;">RSUD dr. Soedarso Pontianak &bull; Ruang Kakap</span>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="KakapELogbook.closeLocalModal('lbPrintModal')" style="color:#fff;" aria-label="Tutup">&times;</button>
+      </div>
+      <div class="modal-body" id="lbPrintModalBody" style="padding:20px;overflow-y:auto;flex:1;background:#f8fafc;"></div>
+      <div class="modal-footer" style="padding:10px 18px;border-top:1px solid var(--border-color);background:var(--bg-card);display:flex;justify-content:space-between;align-items:center;">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="KakapELogbook.closeLocalModal('lbPrintModal')">Tutup</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="KakapELogbook.printA4()">🖨️ Cetak / Simpan PDF (A4)</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast Notification -->
   <div class="toast-container" id="toastContainer"></div>
 
@@ -2142,6 +2510,8 @@
   <div id="printContainer" class="print-only"></div>
 
   <script src="logo_asset.js"></script>
-  <script src="app.js?v=20261125b"></script>
+  <script src="app.js?v=20261125c"></script>
+  <script src="sdki_siki_slki_data.js?v=20261125c"></script>
+  <script src="elogbook_kakap.js?v=20261125c"></script>
 </body>
 </html>
