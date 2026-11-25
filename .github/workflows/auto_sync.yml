@@ -5,7 +5,6 @@ on:
   # - Shift Pagi  : Target 07.00 WIB (00:00 UTC) -> Cadangan cron: 23:45, 00:00, 00:15, 00:30 UTC
   # - Shift Sore  : Target 14.00 WIB (07:00 UTC) -> Cadangan cron: 06:45, 07:00, 07:15, 07:30 UTC
   # - Shift Malam : Target 20.00 WIB (13:00 UTC) -> Cadangan cron: 12:45, 13:00, 13:15, 13:30 UTC
-  # Multi-slot cron mencegah keterlambatan antrean GitHub Actions pada jam bulat.
   schedule:
     - cron: '45 23,6,12 * * *'
     - cron: '0,15,30 0,7,13 * * *'
@@ -15,12 +14,11 @@ on:
         description: 'Paksa kirim WhatsApp mengabaikan jam jadwal (Uji Coba)'
         required: false
         type: boolean
-        default: true
+        default: false
   push:
     branches:
       - main
 
-# Izin untuk menulis ke GitHub Pages dan commit pembaruan data
 permissions:
   contents: write
   pages: write
@@ -45,28 +43,39 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Download Spreadsheet Kakap & Build Data
+      - name: Download Spreadsheet Kakap & Build Encrypted Data
+        env:
+          KAKAP_CLINICAL_PIN: ${{ secrets.KAKAP_CLINICAL_PIN }}
         run: |
           python run_build_data.py --download
 
       - name: Kirim Laporan Sensus WhatsApp ke Kepala Ruang Kakap
         env:
-          FONNTE_TOKEN: ${{ secrets.FONNTE_TOKEN || 'Ayfow2x1hFiscQZSphzq' }}
-          IS_TEST_TRIGGER: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[test-wa]') }}
+          FONNTE_TOKEN: ${{ secrets.FONNTE_TOKEN }}
+          KARU_WA_PHONE: ${{ secrets.KARU_WA_PHONE }}
+          IS_TEST_TRIGGER: ${{ github.event_name == 'workflow_dispatch' && inputs.force_send == true }}
         run: |
+          if [ -z "$FONNTE_TOKEN" ] || [ -z "$KARU_WA_PHONE" ]; then
+            echo "[INFO] FONNTE_TOKEN atau KARU_WA_PHONE belum diatur di GitHub Secrets. Pengiriman WA dilewati."
+            exit 0
+          fi
           if [ "$IS_TEST_TRIGGER" = "true" ]; then
             echo "[TEST MODE] Uji coba pengiriman Cloud GitHub Actions dengan flag --force..."
-            python send_whatsapp.py --sensus --force --gateway fonnte
+            python send_whatsapp.py --sensus --force --gateway fonnte || echo "WhatsApp dispatch finished with warning"
           else
             echo "[SCHEDULED MODE] Pengiriman sensus terjadwal resmi (dengan filter jadwal shift & dedup guard)..."
             python send_whatsapp.py --sensus --scheduled-only --gateway fonnte || echo "WhatsApp dispatch finished with warning"
           fi
 
+      - name: Hapus File Excel Mentah Sebelum Commit & Publikasi
+        run: |
+          rm -f kakap_data.xlsx
+
       - name: Commit Updated Data to Repository
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Auto-Sync"
-          git add dashboard_data.json hospital_indicators.json kakap_data.xlsx shift_sent_wa.json clinical_pathways.json cp_master_templates.json
+          git add dashboard_data.json hospital_indicators.json shift_sent_wa.json clinical_pathways.json cp_master_templates.json
           git commit -m "chore(auto-sync): update daily census & WA dispatch Ruang Kakap [skip ci]" || echo "No changes to commit"
           git push || echo "Push skipped"
 

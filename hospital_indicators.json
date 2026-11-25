@@ -5,33 +5,51 @@
     "total": 41
   },
   "availableBeds": 41,
-  "totalDays": 14,
-  "totalHP": 537,
-  "totalDischarges": 52,
+  "totalDays": 23,
+  "totalHP": 882,
+  "totalDischarges": 147,
+  "sufficientData": false,
+  "dischargeBreakdown": {
+    "blpl": 100,
+    "aps": 19,
+    "pindah": 1,
+    "meninggal": 27,
+    "meninggalGt48": 23
+  },
   "overall": {
-    "bor": 93.6,
-    "avlos": 10.3,
-    "toi": 0.7,
-    "bto": 33.1,
-    "gdr": 76.9,
-    "ndr": 19.2
+    "bor": 93.5,
+    "avlos": 13.5,
+    "toi": 0.4,
+    "bto": 3.59,
+    "btoPeriod": 3.59,
+    "btoAnnual": null,
+    "btoUnit": "kali/23 hari",
+    "gdr": 183.7,
+    "ndr": 156.5
   },
   "monthly": [
     {
       "month": "2026-11",
-      "days": 14,
-      "hp": 537,
-      "hpTim1": 288,
-      "hpTim2": 259,
-      "discharges": 52,
-      "deaths": 4,
-      "deathsGt48": 1,
-      "bor": 93.6,
-      "avlos": 10.3,
-      "toi": 0.7,
-      "bto": 33.1,
-      "gdr": 76.9,
-      "ndr": 19.2
+      "days": 23,
+      "hp": 882,
+      "hpTim1": 446,
+      "hpTim2": 436,
+      "discharges": 147,
+      "blpl": 100,
+      "aps": 19,
+      "pindah": 1,
+      "deaths": 27,
+      "deathsGt48": 23,
+      "sufficientData": false,
+      "bor": 93.5,
+      "avlos": 13.5,
+      "toi": 0.4,
+      "bto": 3.59,
+      "btoPeriod": 3.59,
+      "btoAnnual": null,
+      "btoUnit": "kali/23 hari",
+      "gdr": 183.7,
+      "ndr": 156.5
     }
   ]
 }
