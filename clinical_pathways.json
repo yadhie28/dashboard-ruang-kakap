@@ -34,13 +34,13 @@
         "2026-11-24",
         "2026-11-25"
       ],
-      "totalObservations": 882,
+      "totalObservations": 883,
       "observationsIncludedCount": 102,
-      "observationsExcludedCount": 780,
-      "totalUniquePatients": 176,
+      "observationsExcludedCount": 781,
+      "totalUniquePatients": 178,
       "uniqueIncludedCount": 14,
-      "uniqueExcludedCount": 162,
-      "uniqueCoveragePct": 8.0,
+      "uniqueExcludedCount": 164,
+      "uniqueCoveragePct": 7.9,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -1352,7 +1352,7 @@
                 "2026-11-24",
                 "2026-11-25"
               ],
-              "diagnosis": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi | Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi"
+              "diagnosis": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi | Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi | Demam tifoid (TUBEX: 4) Appendicitis"
             },
             {
               "mrNo": "0030****",
@@ -1565,8 +1565,7 @@
               "name": "A*** a*** C***",
               "bed": "3.2",
               "datesSeen": [
-                "2026-11-24",
-                "2026-11-25"
+                "2026-11-24"
               ],
               "diagnosis": "-"
             },
@@ -1601,13 +1600,13 @@
               "diagnosis": "obs. febris abses pada tungkai kanan +"
             }
           ],
-          "pct": 60.5
+          "pct": 59.8
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
           "label": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "color": "#ef4444",
-          "count": 46,
+          "count": 48,
           "patients": [
             {
               "mrNo": "0030****",
@@ -2188,9 +2187,27 @@
                 "2026-11-25"
               ],
               "diagnosis": "CKD on HD Anemia renal"
+            },
+            {
+              "mrNo": "0028****",
+              "name": "Ny. J***",
+              "bed": "3.2",
+              "datesSeen": [
+                "2026-11-25"
+              ],
+              "diagnosis": "CKD on HD"
+            },
+            {
+              "mrNo": "0030****",
+              "name": "Ny. J*** 0***",
+              "bed": "5.4",
+              "datesSeen": [
+                "2026-11-25"
+              ],
+              "diagnosis": "Bisitopenia e.c Susp. MDS dd Anemia Aplastik ADHF AKI dd CKD HT Stg 2 Non Hodgkin Lymphoma Hipoglikemia Sindroma Geriatri Oral candidiasis susp pneumothorax sinistra ec TB Paru Aktif"
             }
           ],
-          "pct": 28.4
+          "pct": 29.3
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -2429,7 +2446,7 @@
               "diagnosis": "Penkes ec Hipoglikemia HT DM Type II"
             }
           ],
-          "pct": 10.5
+          "pct": 10.4
         }
       },
       "dailyBreakdown": [
@@ -2589,10 +2606,10 @@
         },
         {
           "date": "2026-11-25",
-          "total": 35,
+          "total": 36,
           "included": 2,
-          "excluded": 33,
-          "coveragePct": 5.7
+          "excluded": 34,
+          "coveragePct": 5.6
         }
       ],
       "uniquePatientsList": [
@@ -7122,7 +7139,8 @@
           "diagnoses": [
             "Typhoid fever? abdominal pain",
             "Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi",
-            "Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi"
+            "Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi",
+            "Demam tifoid (TUBEX: 4) Appendicitis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -7131,7 +7149,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "32 th",
-          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi | Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi",
+          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi | Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi | Demam tifoid (TUBEX: 4) Appendicitis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7838,10 +7856,9 @@
           "doctor": "-",
           "admissionDate": "2026-11-24",
           "datesSeen": [
-            "2026-11-24",
-            "2026-11-25"
+            "2026-11-24"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "-"
           ],
@@ -7985,6 +8002,58 @@
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "CKD on HD Anemia renal",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "00286802",
+          "mrNo": "-",
+          "name": "Ny. J***",
+          "bedLatest": "3.2",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "admissionDate": "25/11/2026",
+          "datesSeen": [
+            "2026-11-25"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "CKD on HD"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "CKD on HD",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "00304215",
+          "mrNo": "-",
+          "name": "Ny. J*** 0***",
+          "bedLatest": "5.4",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "25/11/2026",
+          "datesSeen": [
+            "2026-11-25"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Bisitopenia e.c Susp. MDS dd Anemia Aplastik ADHF AKI dd CKD HT Stg 2 Non Hodgkin Lymphoma Hipoglikemia Sindroma Geriatri Oral candidiasis susp pneumothorax sinistra ec TB Paru Aktif"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Bisitopenia e.c Susp. MDS dd Anemia Aplastik ADHF AKI dd CKD HT Stg 2 Non Hodgkin Lymphoma Hipoglikemia Sindroma Geriatri Oral candidiasis susp pneumothorax sinistra ec TB Paru Aktif",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -12570,7 +12639,8 @@
           "diagnoses": [
             "Typhoid fever? abdominal pain",
             "Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi",
-            "Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi"
+            "Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi",
+            "Demam tifoid (TUBEX: 4) Appendicitis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12579,7 +12649,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "32 th",
-          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi | Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi",
+          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi | Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi | Demam tifoid (TUBEX: 4) Appendicitis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -13259,10 +13329,9 @@
           "doctor": "-",
           "admissionDate": "2026-11-24",
           "datesSeen": [
-            "2026-11-24",
-            "2026-11-25"
+            "2026-11-24"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "-"
           ],
@@ -13385,14 +13454,66 @@
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "00286802",
+          "mrNo": "-",
+          "name": "Ny. J***",
+          "bedLatest": "3.2",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "admissionDate": "25/11/2026",
+          "datesSeen": [
+            "2026-11-25"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "CKD on HD"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "CKD on HD",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "00304215",
+          "mrNo": "-",
+          "name": "Ny. J*** 0***",
+          "bedLatest": "5.4",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "25/11/2026",
+          "datesSeen": [
+            "2026-11-25"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Bisitopenia e.c Susp. MDS dd Anemia Aplastik ADHF AKI dd CKD HT Stg 2 Non Hodgkin Lymphoma Hipoglikemia Sindroma Geriatri Oral candidiasis susp pneumothorax sinistra ec TB Paru Aktif"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Bisitopenia e.c Susp. MDS dd Anemia Aplastik ADHF AKI dd CKD HT Stg 2 Non Hodgkin Lymphoma Hipoglikemia Sindroma Geriatri Oral candidiasis susp pneumothorax sinistra ec TB Paru Aktif",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     },
     "today": {
-      "totalInpatients": 35,
+      "totalInpatients": 36,
       "denominatorIncluded": 2,
-      "totalExcluded": 33,
-      "wardCoveragePct": 5.7,
+      "totalExcluded": 34,
+      "wardCoveragePct": 5.6,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 1,
@@ -13563,17 +13684,17 @@
         },
         {
           "bed": "3.2",
-          "name": "A*** a*** C***",
-          "mrNo": "****",
-          "diagnosis": "-",
-          "doctor": "-",
+          "name": "Ny. J***",
+          "mrNo": "0028****",
+          "diagnosis": "CKD on HD",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
           "los": 1,
           "gender": "P",
           "age": "",
-          "admissionDate": "2026-11-25",
+          "admissionDate": "25/11/2026",
           "date": "2026-11-25",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "3.3",
@@ -13644,6 +13765,20 @@
           "date": "2026-11-25",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
+          "bed": "5.4",
+          "name": "Ny. J*** 0***",
+          "mrNo": "0030****",
+          "diagnosis": "Bisitopenia e.c Susp. MDS dd Anemia Aplastik ADHF AKI dd CKD HT Stg 2 Non Hodgkin Lymphoma Hipoglikemia Sindroma Geriatri Oral candidiasis susp pneumothorax sinistra ec TB Paru Aktif",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "25/11/2026",
+          "date": "2026-11-25",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "6.1",
@@ -13719,7 +13854,7 @@
           "bed": "7.2",
           "name": "Tn. B*** J*** 0***",
           "mrNo": "0020****",
-          "diagnosis": "Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi",
+          "diagnosis": "Demam tifoid (TUBEX: 4) Appendicitis",
           "doctor": "dr. Apriani, M.Ked(PD), Sp.PD",
           "los": 6,
           "gender": "L",
@@ -13900,9 +14035,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 882,
+      "totalRecords": 883,
       "uniqueIncludedCount": 14,
-      "totalExcludedRecords": 780,
+      "totalExcludedRecords": 781,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 11,
@@ -18490,7 +18625,8 @@
           "diagnoses": [
             "Typhoid fever? abdominal pain",
             "Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi",
-            "Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi"
+            "Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi",
+            "Demam tifoid (TUBEX: 4) Appendicitis"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -18499,7 +18635,7 @@
           "losLatest": 6,
           "gender": "L",
           "age": "32 th",
-          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi | Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi",
+          "diagnosisSpreadsheet": "Typhoid fever? abdominal pain | Demam tifoid (TUBEX: 4) Abd pain ec susp app konstipasi | Demam tifoid (TUBEX: 4) Abd pain ec susp app Konstipasi | Demam tifoid (TUBEX: 4) Appendicitis",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -19179,10 +19315,9 @@
           "doctor": "-",
           "admissionDate": "2026-11-24",
           "datesSeen": [
-            "2026-11-24",
-            "2026-11-25"
+            "2026-11-24"
           ],
-          "daysInWard": 2,
+          "daysInWard": 1,
           "diagnoses": [
             "-"
           ],
@@ -19302,6 +19437,58 @@
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "CKD on HD Anemia renal",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "00286802",
+          "mrNo": "-",
+          "name": "Ny. J***",
+          "bedLatest": "3.2",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "admissionDate": "25/11/2026",
+          "datesSeen": [
+            "2026-11-25"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "CKD on HD"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "CKD on HD",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
+          "key": "00304215",
+          "mrNo": "-",
+          "name": "Ny. J*** 0***",
+          "bedLatest": "5.4",
+          "doctor": "dr. Ivan Lumban Toruan, Sp.PD-KHOM",
+          "admissionDate": "25/11/2026",
+          "datesSeen": [
+            "2026-11-25"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "Bisitopenia e.c Susp. MDS dd Anemia Aplastik ADHF AKI dd CKD HT Stg 2 Non Hodgkin Lymphoma Hipoglikemia Sindroma Geriatri Oral candidiasis susp pneumothorax sinistra ec TB Paru Aktif"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "Bisitopenia e.c Susp. MDS dd Anemia Aplastik ADHF AKI dd CKD HT Stg 2 Non Hodgkin Lymphoma Hipoglikemia Sindroma Geriatri Oral candidiasis susp pneumothorax sinistra ec TB Paru Aktif",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -39766,8 +39953,8 @@
         "Sheet 2026-11-24",
         "Sheet 2026-11-25"
       ],
-      "totalUniqueInpatients": 176,
-      "totalObservations": 882
+      "totalUniqueInpatients": 178,
+      "totalObservations": 883
     },
     "realSummary": {
       "denominator": 14,
