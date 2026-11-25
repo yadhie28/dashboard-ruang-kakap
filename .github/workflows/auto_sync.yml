@@ -71,14 +71,6 @@ jobs:
         run: |
           rm -f kakap_data.xlsx
 
-      - name: Commit Updated Data to Repository
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action Auto-Sync"
-          git add dashboard_data.json hospital_indicators.json shift_sent_wa.json clinical_pathways.json cp_master_templates.json
-          git commit -m "chore(auto-sync): update daily census & WA dispatch Ruang Kakap [skip ci]" || echo "No changes to commit"
-          git push || echo "Push skipped"
-
       - name: Siapkan Folder Publikasi GitHub Pages (_site)
         run: |
           mkdir -p _site
@@ -95,3 +87,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Commit Updated Data to Repository
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Auto-Sync"
+          git add dashboard_data.json hospital_indicators.json shift_sent_wa.json clinical_pathways.json cp_master_templates.json
+          git commit -m "chore(auto-sync): update daily census & WA dispatch Ruang Kakap [skip ci]" || echo "No changes to commit"
+          git push || echo "Push skipped"
