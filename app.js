@@ -2398,8 +2398,8 @@ function initSyncSchedule() {
   const closeBtn = document.getElementById('closeSyncModalBtn');
   if (closeBtn) closeBtn.addEventListener('click', closeSyncModal);
 
-  const modalCloseBtn = document.getElementById('modalCloseBtn');
-  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeSyncModal);
+  const syncModalCloseFooterBtn = document.getElementById('syncModalCloseFooterBtn');
+  if (syncModalCloseFooterBtn) syncModalCloseFooterBtn.addEventListener('click', closeSyncModal);
 
   const modalSyncNowBtn = document.getElementById('modalSyncNowBtn');
   if (modalSyncNowBtn) modalSyncNowBtn.addEventListener('click', () => {
@@ -5377,11 +5377,11 @@ function computeClientSideKakapCensus(shiftKey = 'pagi') {
     if (bookingCount > 0 && rawLeadTot === 3) {
       pria = 2;
       wanita = 0;
-      let isolasi = 0;
+      isolasi = 0;
       return { total: 2, pria: 2, wanita: 0, isolasi: 0, bookingCount };
     }
 
-    let isolasi = 0;
+    isolasi = 0;
     if (patients && patients.length > 0) {
       const isoP = patients.find(p => p.room?.toUpperCase().includes('ISOLASI') || p.bed === 'ISOLASI');
       isolasi = (isoP && isoP.isEmpty) ? 1 : 0;

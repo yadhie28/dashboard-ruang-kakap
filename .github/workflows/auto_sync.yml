@@ -79,13 +79,18 @@ jobs:
           git commit -m "chore(auto-sync): update daily census & WA dispatch Ruang Kakap [skip ci]" || echo "No changes to commit"
           git push || echo "Push skipped"
 
+      - name: Siapkan Folder Publikasi GitHub Pages (_site)
+        run: |
+          mkdir -p _site
+          cp -f index.html index.css app.js logo_asset.js logo_kakap.png logo_kakap.svg logo_kakap_alt.png logo_kalbar.png logo_kalbar.svg dashboard_data.json hospital_indicators.json clinical_pathways.json cp_master_templates.json _site/ 2>/dev/null || true
+
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
