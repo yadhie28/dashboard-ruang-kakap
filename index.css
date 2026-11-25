@@ -6183,3 +6183,176 @@ html, body {
   color: var(--primary, #0284c7);
   flex-shrink: 0;
 }
+
+/* =====================================================================
+   CPPT GENERATOR & PANDUAN TOMBOL PINTAR SIMRS
+   ===================================================================== */
+.cppt-card {
+  margin-bottom: 1.25rem;
+}
+
+.cppt-disclaimer {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.cppt-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cppt-section-head h3 {
+  margin: 0;
+  font-size: 1.06rem;
+  color: var(--text-main);
+}
+
+.cppt-patient-banner {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+}
+
+.cppt-field-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.cppt-field-head label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.cppt-vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.cppt-soapier-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cppt-full-span {
+  grid-column: 1 / -1;
+}
+
+.cppt-textarea {
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.cppt-btn-copy-all {
+  font-size: 0.94rem;
+  padding: 10px 18px;
+  font-weight: 700;
+}
+
+.cppt-copy-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
+.cppt-manager-box {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--bg-muted, #f8fafc);
+  border: 1px solid var(--border-color);
+}
+
+.cppt-mgr-add-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.cppt-mgr-add-row .lb-input { flex: 1; min-width: 220px; }
+
+.cppt-mgr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.cppt-mgr-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  font-size: 0.84rem;
+}
+
+.cppt-bookmarklet-stage {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px dashed var(--primary, #0284c7);
+  margin-bottom: 14px;
+}
+
+.cppt-bookmarklet-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff !important;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: grab;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+}
+
+.cppt-guide-steps {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-main);
+}
+
+.cppt-guide-steps li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 900px) {
+  .cppt-vitals-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cppt-soapier-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .cppt-vitals-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cppt-btn-copy-all { width: 100%; }
+}

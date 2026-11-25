@@ -260,6 +260,9 @@ function updateRoleUI() {
   if (window.KakapELogbook && typeof window.KakapELogbook.onClinicalRoleChanged === 'function') {
     window.KakapELogbook.onClinicalRoleChanged();
   }
+  if (window.KakapCPPT && typeof window.KakapCPPT.renderPatientDropdown === 'function') {
+    window.KakapCPPT.renderPatientDropdown();
+  }
 }
 
 function openPinModal() {
@@ -574,6 +577,11 @@ function setupEventListeners() {
         window.KakapELogbook.populateActivePatientMrnPicker();
         window.KakapELogbook.renderAll();
       }
+      if (targetId === 'tabCpptGenerator' && window.KakapCPPT) {
+        window.KakapCPPT.renderPatientDropdown();
+        window.KakapCPPT.renderExaminerDropdown();
+        window.KakapCPPT.renderTemplateDropdown();
+      }
     });
   });
 
@@ -862,6 +870,10 @@ function updateDashboard() {
   if (window.KakapELogbook) {
     window.KakapELogbook.populateNurseDropdown();
     window.KakapELogbook.populateActivePatientMrnPicker();
+  }
+  if (window.KakapCPPT) {
+    window.KakapCPPT.renderPatientDropdown();
+    window.KakapCPPT.renderExaminerDropdown();
   }
 }
 

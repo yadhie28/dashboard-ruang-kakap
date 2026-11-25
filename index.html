@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css?v=20261125d">
+  <link rel="stylesheet" href="index.css?v=20261125e">
 </head>
 <body>
   <!-- Header / Navigation -->
@@ -138,6 +138,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h6"/><path d="M9 11h6"/><path d="M9 15h4"/></svg>
           <span>E-Logbook Asuhan 3S</span>
           <span class="lb-tab-badge" id="lbTabCountBadge">0</span>
+        </button>
+        <button class="tab-btn" data-tab="tabCpptGenerator" id="btnTabCpptGenerator">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          <span>CPPT Generator</span>
         </button>
       </div>
 
@@ -1806,6 +1810,270 @@
       </div>
     </section>
 
+    <!-- TAB 9: CPPT GENERATOR (SOAPIER + JEMBATAN SIMRS) -->
+    <section id="tabCpptGenerator" class="tab-content">
+      <!-- Header & Pengingat Klinis -->
+      <div class="analytics-card cppt-card">
+        <div class="lb-header-top">
+          <div>
+            <div class="lb-badge-row">
+              <span class="badge badge-primary">FORMAT SOAPIER &bull; SIMRS RSUD DR. SOEDARSO</span>
+              <span class="badge badge-outline">100% Lokal di Browser &bull; Tanpa AI Online</span>
+            </div>
+            <h2 class="lb-page-title">CPPT Generator Ruang Kakap</h2>
+            <p class="chart-subtitle">Susun draf CPPT SOAPIER otomatis dari data pasien Ruang Kakap dan template keperawatan, lalu salin sekali klik untuk diisikan ke form CPPT SIMRS lewat Tombol Pintar.</p>
+          </div>
+          <div class="lb-header-actions">
+            <a href="#cpptPanduanBox" class="btn btn-secondary lb-touch-btn">📌 Cara Memasang Tombol Pintar</a>
+          </div>
+        </div>
+
+        <div class="cppt-disclaimer" role="note">
+          ⚠️ <strong>Perhatian Klinis:</strong> Hasil generator adalah <strong>draf</strong>. Wajib diperiksa dan dilengkapi (terutama bagian bertanda <code>[ISI]</code>) oleh perawat sebelum disimpan di SIMRS. Data hanya diproses di browser Anda.
+        </div>
+      </div>
+
+      <!-- Langkah 1: Pasien, Shift, Tanggal/Jam, dan Pemeriksa -->
+      <div class="analytics-card cppt-card">
+        <div class="cppt-section-head">
+          <h3>1. Pilih Pasien, Shift &amp; Pemeriksa</h3>
+          <button type="button" class="btn btn-secondary btn-sm lb-touch-btn" id="btnCpptDuplicatePrev" onclick="KakapCPPT.duplicateFromPrevious()" disabled>
+            📄 Gandakan dari CPPT Sebelumnya
+          </button>
+        </div>
+
+        <div class="lb-form-grid lb-grid-2">
+          <div class="lb-field">
+            <label for="cpptPatientSearch">Cari Pasien Cepat (Nomor Bed / Nama / Diagnosa)</label>
+            <input type="text" id="cpptPatientSearch" class="lb-input" placeholder="Ketik misal: 1.1, 2.3, CKD, DM..." oninput="KakapCPPT.renderPatientDropdown()">
+          </div>
+          <div class="lb-field">
+            <label for="cpptPatientSelect">Pilih Pasien dari Data Ruang Kakap</label>
+            <select id="cpptPatientSelect" class="lb-select" onchange="KakapCPPT.onPatientChange()">
+              <option value="">-- Memuat daftar pasien Ruang Kakap --</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="cpptSelectedPatientInfo" class="cppt-patient-banner" style="display:none;"></div>
+
+        <div class="lb-form-grid lb-grid-3">
+          <div class="lb-field">
+            <label for="cpptShiftSelect">Shift Dinas</label>
+            <select id="cpptShiftSelect" class="lb-select" onchange="KakapCPPT.onShiftChange()">
+              <option value="Pagi">Shift Pagi (07.00–14.00)</option>
+              <option value="Sore">Shift Sore (14.00–20.00)</option>
+              <option value="Malam">Shift Malam (20.00–07.00)</option>
+            </select>
+          </div>
+          <div class="lb-field">
+            <label for="cpptDateTimeInput">Tanggal &amp; Jam CPPT (Format SIMRS: dd/mm/yyyy HH:mm)</label>
+            <input type="text" id="cpptDateTimeInput" class="lb-input" placeholder="25/11/2026 08:00">
+          </div>
+          <div class="lb-field">
+            <div class="cppt-field-head">
+              <label for="cpptExaminerSelect">Nama Pemeriksa (Perawat)</label>
+              <button type="button" class="lb-btn-mini" onclick="KakapCPPT.toggleSection('cpptExaminerManager')">⚙️ Kelola Nama</button>
+            </div>
+            <select id="cpptExaminerSelect" class="lb-select" onchange="KakapCPPT.onExaminerChange()">
+              <option value="">-- Pilih Nama Pemeriksa --</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Pengelola Daftar Nama Pemeriksa -->
+        <div id="cpptExaminerManager" class="cppt-manager-box" style="display:none;">
+          <div class="cppt-mgr-add-row">
+            <input type="text" id="cpptNewExaminerInput" class="lb-input" placeholder="Tambah nama perawat pemeriksa baru (samakan dengan nama di SIMRS)...">
+            <button type="button" class="btn btn-primary lb-touch-btn" onclick="KakapCPPT.addExaminer()">+ Tambah Nama</button>
+          </div>
+          <div id="cpptExaminerManagerList" class="cppt-mgr-list"></div>
+        </div>
+      </div>
+
+      <!-- Langkah 2: Input Cepat Tanda Vital & Perpustakaan Template -->
+      <div class="analytics-card cppt-card">
+        <div class="cppt-section-head">
+          <h3>2. Tanda Vital Cepat (Otomatis Merangkai OBJEK) &amp; Template Diagnosa</h3>
+          <button type="button" class="btn btn-secondary btn-sm lb-touch-btn" onclick="KakapCPPT.toggleSection('cpptTemplateManager')">📚 Kelola Template Saya</button>
+        </div>
+
+        <p class="chart-subtitle" style="margin-bottom:10px;">Isi angka tanda vital pasien (boleh dikosongkan sebagian — bagian kosong akan ditandai <code>[ISI]</code>, sistem tidak mengarang angka).</p>
+
+        <div class="cppt-vitals-grid">
+          <div class="lb-field">
+            <label for="cpptVitalTd">Tekanan Darah (mmHg)</label>
+            <input type="text" id="cpptVitalTd" class="lb-input" placeholder="120/80" oninput="KakapCPPT.updateObjekFromVitals()">
+          </div>
+          <div class="lb-field">
+            <label for="cpptVitalHr">Nadi (x/mnt)</label>
+            <input type="number" id="cpptVitalHr" class="lb-input" placeholder="82" oninput="KakapCPPT.updateObjekFromVitals()">
+          </div>
+          <div class="lb-field">
+            <label for="cpptVitalRr">Napas / RR (x/mnt)</label>
+            <input type="number" id="cpptVitalRr" class="lb-input" placeholder="20" oninput="KakapCPPT.updateObjekFromVitals()">
+          </div>
+          <div class="lb-field">
+            <label for="cpptVitalTemp">Suhu (°C)</label>
+            <input type="text" id="cpptVitalTemp" class="lb-input" placeholder="36.8" oninput="KakapCPPT.updateObjekFromVitals()">
+          </div>
+          <div class="lb-field">
+            <label for="cpptVitalSpo2">SpO2 (%)</label>
+            <input type="number" id="cpptVitalSpo2" class="lb-input" placeholder="98" oninput="KakapCPPT.updateObjekFromVitals()">
+          </div>
+          <div class="lb-field">
+            <label for="cpptVitalGcs">Kesadaran / GCS</label>
+            <input type="text" id="cpptVitalGcs" class="lb-input" placeholder="CM / E4V5M6" oninput="KakapCPPT.updateObjekFromVitals()">
+          </div>
+        </div>
+
+        <div class="lb-form-grid lb-grid-2" style="margin-top:14px;">
+          <div class="lb-field">
+            <label for="cpptTemplateSelect">Pilih Template Diagnosa Keperawatan (SOAPIER)</label>
+            <select id="cpptTemplateSelect" class="lb-select" onchange="KakapCPPT.applySelectedTemplate()">
+              <option value="">-- Pilih Template Diagnosa --</option>
+            </select>
+          </div>
+          <div class="lb-field" style="justify-content:flex-end;">
+            <button type="button" class="btn btn-primary lb-touch-btn" onclick="KakapCPPT.openTemplateEditor('')">+ Buat Template Baru Sendiri</button>
+          </div>
+        </div>
+
+        <!-- Pengelola Template Pribadi -->
+        <div id="cpptTemplateManager" class="cppt-manager-box" style="display:none;">
+          <div style="font-size:0.82rem;font-weight:700;margin-bottom:8px;">Perpustakaan Template Anda (tersimpan di browser ini):</div>
+          <div id="cpptTemplateManagerList" class="cppt-mgr-list"></div>
+        </div>
+      </div>
+
+      <!-- Langkah 3: 7 Kotak SOAPIER + Tombol Salin -->
+      <div class="analytics-card cppt-card">
+        <div class="cppt-section-head">
+          <div>
+            <h3>3. Draf Isian CPPT (Format SOAPIER)</h3>
+            <p class="chart-subtitle">Semua kotak bisa diedit langsung. Tekan <strong>Salin Semua</strong> untuk dipakai di Tombol Pintar SIMRS, atau tekan <strong>Salin</strong> di tiap kotak bila ingin tempel satu per satu.</p>
+          </div>
+          <button type="button" class="btn btn-primary lb-touch-btn cppt-btn-copy-all" onclick="KakapCPPT.copyAllPackage()">
+            📋 Salin Semua (Paket untuk SIMRS)
+          </button>
+        </div>
+
+        <div class="cppt-soapier-grid">
+          <div class="lb-field">
+            <div class="cppt-field-head">
+              <label for="cpptFieldSubjek">1. SUBJEK (S)</label>
+              <button type="button" class="lb-btn-mini" onclick="KakapCPPT.copySingleField('cpptFieldSubjek','SUBJEK')">📋 Salin</button>
+            </div>
+            <textarea id="cpptFieldSubjek" class="lb-textarea cppt-textarea" rows="3" placeholder="Keluhan utama dan informasi subjektif dari pasien/keluarga..."></textarea>
+          </div>
+
+          <div class="lb-field">
+            <div class="cppt-field-head">
+              <label for="cpptFieldObjek">2. OBJEK (O)</label>
+              <button type="button" class="lb-btn-mini" onclick="KakapCPPT.copySingleField('cpptFieldObjek','OBJEK')">📋 Salin</button>
+            </div>
+            <textarea id="cpptFieldObjek" class="lb-textarea cppt-textarea" rows="4" placeholder="Keadaan umum, tanda vital, pemeriksaan fisik, dan data objektif..."></textarea>
+          </div>
+
+          <div class="lb-field">
+            <div class="cppt-field-head">
+              <label for="cpptFieldAsesmen">3. ASESMEN (A)</label>
+              <button type="button" class="lb-btn-mini" onclick="KakapCPPT.copySingleField('cpptFieldAsesmen','ASESMEN')">📋 Salin</button>
+            </div>
+            <textarea id="cpptFieldAsesmen" class="lb-textarea cppt-textarea" rows="2" placeholder="Diagnosis keperawatan (SDKI) atau masalah klinis..."></textarea>
+          </div>
+
+          <div class="lb-field">
+            <div class="cppt-field-head">
+              <label for="cpptFieldPlanning">4. PLANNING (P)</label>
+              <button type="button" class="lb-btn-mini" onclick="KakapCPPT.copySingleField('cpptFieldPlanning','PLANNING')">📋 Salin</button>
+            </div>
+            <textarea id="cpptFieldPlanning" class="lb-textarea cppt-textarea" rows="3" placeholder="Tujuan & kriteria hasil (SLKI) serta rencana asuhan..."></textarea>
+          </div>
+
+          <div class="lb-field">
+            <div class="cppt-field-head">
+              <label for="cpptFieldImplementation">5. IMPLEMENTATION (I)</label>
+              <button type="button" class="lb-btn-mini" onclick="KakapCPPT.copySingleField('cpptFieldImplementation','IMPLEMENTATION')">📋 Salin</button>
+            </div>
+            <textarea id="cpptFieldImplementation" class="lb-textarea cppt-textarea" rows="4" placeholder="Tindakan keperawatan (SIKI) yang telah dilaksanakan..."></textarea>
+          </div>
+
+          <div class="lb-field">
+            <div class="cppt-field-head">
+              <label for="cpptFieldEvaluation">6. EVALUATION (E)</label>
+              <button type="button" class="lb-btn-mini" onclick="KakapCPPT.copySingleField('cpptFieldEvaluation','EVALUATION')">📋 Salin</button>
+            </div>
+            <textarea id="cpptFieldEvaluation" class="lb-textarea cppt-textarea" rows="4" placeholder="Evaluasi respons pasien setelah tindakan (SOAP evaluasi)..."></textarea>
+          </div>
+
+          <div class="lb-field cppt-full-span">
+            <div class="cppt-field-head">
+              <label for="cpptFieldRevised">7. REVISED (R)</label>
+              <button type="button" class="lb-btn-mini" onclick="KakapCPPT.copySingleField('cpptFieldRevised','REVISED')">📋 Salin</button>
+            </div>
+            <textarea id="cpptFieldRevised" class="lb-textarea cppt-textarea" rows="2" placeholder="Rencana revisi / tindak lanjut untuk shift berikutnya..."></textarea>
+          </div>
+        </div>
+
+        <div class="cppt-copy-footer">
+          <button type="button" class="btn btn-primary lb-touch-btn cppt-btn-copy-all" onclick="KakapCPPT.copyAllPackage()">
+            📋 Salin Semua (Paket untuk SIMRS)
+          </button>
+          <textarea id="cpptPackageOutput" class="lb-textarea" rows="2" readonly placeholder="Paket teks hasil 'Salin Semua' akan muncul di sini sebagai cadangan bila perlu disalin manual..." style="font-size:0.76rem;min-height:54px;"></textarea>
+        </div>
+      </div>
+
+      <!-- Langkah 4: Panduan Cara Memasang Tombol Pintar (Bookmarklet & Cadangan Tampermonkey) -->
+      <div class="analytics-card cppt-card" id="cpptPanduanBox">
+        <div class="cppt-section-head">
+          <div>
+            <h3>4. Cara Memasang Tombol Pintar (Pengisi Otomatis Form SIMRS)</h3>
+            <p class="chart-subtitle">Cukup dipasang <strong>1 kali saja</strong> di Chrome komputer ruangan. Setelah terpasang, tinggal klik saat berada di form CPPT SIMRS.</p>
+          </div>
+        </div>
+
+        <div class="cppt-bookmarklet-stage">
+          <div style="font-size:0.86rem;font-weight:700;margin-bottom:8px;">Seret tombol biru di bawah ini ke Bilah Bookmark (Bookmark Bar) Chrome Anda:</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+            <a id="cpptBookmarkletLink" href="#" class="cppt-bookmarklet-pill" onclick="event.preventDefault(); KakapCPPT.copyBookmarkletCode();" title="Seret tombol ini ke Bookmark Bar Chrome Anda">
+              ⚡ Isi CPPT Kakap
+            </a>
+            <button type="button" class="btn btn-secondary lb-touch-btn" onclick="KakapCPPT.copyBookmarkletCode()">
+              📋 Salin Kode Tombol Pintar (Cara Manual)
+            </button>
+          </div>
+        </div>
+
+        <ol class="cppt-guide-steps">
+          <li><strong>Tampilkan Bilah Bookmark Chrome:</strong> tekan tombol <code>Ctrl + Shift + B</code> di keyboard (di Mac: <code>Cmd + Shift + B</code>) sampai muncul baris bookmark di bawah alamat situs.</li>
+          <li><strong>Seret Tombol Biru:</strong> klik tahan tombol biru <strong>"⚡ Isi CPPT Kakap"</strong> di atas, lalu seret dan lepaskan ke baris bookmark Chrome. <em>(Jika tidak bisa diseret, klik "Salin Kode Tombol Pintar", lalu klik kanan baris bookmark → Tambahkan halaman → beri nama "Isi CPPT Kakap" → tempel di kolom URL → Simpan.)</em></li>
+          <li><strong>Buka Form CPPT di SIMRS RS:</strong> login SIMRS seperti biasa dan buka halaman <em>Tambah CPPT</em> pasien yang bersangkutan.</li>
+          <li><strong>Klik "⚡ Isi CPPT Kakap" di Bookmark Bar:</strong> akan muncul kotak kecil di pojok kanan atas SIMRS. Tempel (<code>Ctrl + V</code>) paket hasil <strong>Salin Semua</strong>, lalu klik <strong>Isi Form SIMRS</strong>. <em>(Ada juga tombol <strong>Periksa Form</strong> untuk melihat kolom apa saja yang terdeteksi di SIMRS.)</em></li>
+          <li><strong>Periksa lalu Klik Simpan Sendiri:</strong> Tombol Pintar <strong>tidak pernah mengklik Simpan otomatis</strong>. Periksa semua isian dan ringkasan ("Berhasil mengisi X dari 9 isian"), lalu tekan tombol <strong>Simpan</strong> hijau di SIMRS.</li>
+        </ol>
+
+        <!-- Opsi Cadangan: Tampermonkey -->
+        <div style="margin-top:14px;">
+          <button type="button" class="btn btn-secondary btn-sm lb-touch-btn" onclick="KakapCPPT.toggleSection('cpptTampermonkeySection')">
+            🛠️ Cara Cadangan (Ekstensi Tampermonkey) — klik jika Bookmark Bar diblokir
+          </button>
+          <div id="cpptTampermonkeySection" class="cppt-manager-box" style="display:none;margin-top:10px;">
+            <p style="font-size:0.83rem;margin:0 0 8px 0;">
+              <strong>Kapan dipakai?</strong> Gunakan cara cadangan ini <em>hanya jika</em> kebijakan komputer RS melarang bookmark menjalankan skrip. Dengan Tampermonkey, tombol <strong>"⚡ Isi CPPT Kakap"</strong> muncul otomatis di pojok kanan bawah setiap kali Anda membuka halaman CPPT SIMRS.
+            </p>
+            <ol class="cppt-guide-steps" style="margin-bottom:10px;">
+              <li>Pasang ekstensi <strong>Tampermonkey</strong> gratis dari Chrome Web Store.</li>
+              <li>Klik ikon Tampermonkey → <strong>Create a new script</strong> → hapus semua teks bawaan.</li>
+              <li>Klik tombol <strong>Salin Skrip Tampermonkey</strong> di bawah, tempelkan ke editor, lalu tekan <code>Ctrl + S</code>.</li>
+            </ol>
+            <button type="button" class="btn btn-primary btn-sm lb-touch-btn" onclick="KakapCPPT.copyTampermonkeyCode()" style="margin-bottom:8px;">📋 Salin Skrip Tampermonkey</button>
+            <textarea id="cpptTampermonkeyBox" class="lb-textarea" rows="5" readonly style="font-size:0.74rem;font-family:monospace;"></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- PATIENT DETAIL & SBAR MODAL -->
@@ -2503,6 +2771,39 @@
     </div>
   </div>
 
+  <!-- MODAL: TAMBAH / EDIT TEMPLATE SOAPIER CPPT -->
+  <div class="modal-overlay" id="cpptTemplateModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="cpptTplModalTitle">
+    <div class="modal-dialog" style="max-width:760px;width:95%;max-height:90vh;display:flex;flex-direction:column;">
+      <div class="modal-header" style="background:#0f172a;color:#fff;border-bottom:1px solid #334155;padding:14px 18px;">
+        <h3 id="cpptTplModalTitle" style="margin:0;font-size:1.02rem;font-weight:700;color:#fff;">Tambah / Ubah Template CPPT (SOAPIER)</h3>
+        <button type="button" class="modal-close-btn" onclick="KakapCPPT.closeTemplateEditor()" style="color:#fff;" aria-label="Tutup">&times;</button>
+      </div>
+      <div class="modal-body" style="padding:16px;overflow-y:auto;flex:1;background:var(--bg-card);">
+        <input type="hidden" id="cpptTplEditId">
+        <div class="lb-form-grid lb-grid-2">
+          <div class="lb-field">
+            <label for="cpptTplTitle">Nama Template Diagnosa <span class="lb-req">*</span></label>
+            <input type="text" id="cpptTplTitle" class="lb-input" placeholder="Misal: Gangguan Mobilitas Fisik (D.0054)">
+          </div>
+          <div class="lb-field">
+            <label for="cpptTplSdki">Kode SDKI (Opsional, untuk pencocokan otomatis)</label>
+            <input type="text" id="cpptTplSdki" class="lb-input" placeholder="Misal: D.0054">
+          </div>
+        </div>
+        <div class="lb-field" style="margin-bottom:10px;"><label for="cpptTplSubjek">Kerangka SUBJEK (S)</label><textarea id="cpptTplSubjek" class="lb-textarea" rows="2"></textarea></div>
+        <div class="lb-field" style="margin-bottom:10px;"><label for="cpptTplAsesmen">Kerangka ASESMEN (A)</label><textarea id="cpptTplAsesmen" class="lb-textarea" rows="2"></textarea></div>
+        <div class="lb-field" style="margin-bottom:10px;"><label for="cpptTplPlanning">Kerangka PLANNING (P)</label><textarea id="cpptTplPlanning" class="lb-textarea" rows="2"></textarea></div>
+        <div class="lb-field" style="margin-bottom:10px;"><label for="cpptTplImpl">Kerangka IMPLEMENTATION (I)</label><textarea id="cpptTplImpl" class="lb-textarea" rows="3"></textarea></div>
+        <div class="lb-field" style="margin-bottom:10px;"><label for="cpptTplEval">Kerangka EVALUATION (E)</label><textarea id="cpptTplEval" class="lb-textarea" rows="3"></textarea></div>
+        <div class="lb-field"><label for="cpptTplRev">Kerangka REVISED (R)</label><textarea id="cpptTplRev" class="lb-textarea" rows="2"></textarea></div>
+      </div>
+      <div class="modal-footer" style="padding:10px 18px;border-top:1px solid var(--border-color);background:var(--bg-muted);display:flex;justify-content:space-between;">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="KakapCPPT.closeTemplateEditor()">Batal</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="KakapCPPT.saveTemplateFromModal()">💾 Simpan Template</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast Notification -->
   <div class="toast-container" id="toastContainer"></div>
 
@@ -2510,8 +2811,9 @@
   <div id="printContainer" class="print-only"></div>
 
   <script src="logo_asset.js"></script>
-  <script src="sdki_siki_slki_data.js?v=20261125d"></script>
-  <script src="elogbook_kakap.js?v=20261125d"></script>
-  <script src="app.js?v=20261125d"></script>
+  <script src="sdki_siki_slki_data.js?v=20261125e"></script>
+  <script src="elogbook_kakap.js?v=20261125e"></script>
+  <script src="cppt_generator.js?v=20261125e"></script>
+  <script src="app.js?v=20261125e"></script>
 </body>
 </html>

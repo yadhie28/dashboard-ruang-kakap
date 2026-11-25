@@ -74,7 +74,7 @@ jobs:
       - name: Siapkan Folder Publikasi GitHub Pages (_site)
         run: |
           mkdir -p _site
-          cp -f index.html index.css app.js sdki_siki_slki_data.js elogbook_kakap.js logo_asset.js logo_kakap.png logo_kakap.svg logo_kakap_alt.png logo_kalbar.png logo_kalbar.svg dashboard_data.json hospital_indicators.json clinical_pathways.json cp_master_templates.json _site/ 2>/dev/null || true
+          cp -f index.html index.css app.js sdki_siki_slki_data.js elogbook_kakap.js cppt_generator.js logo_asset.js logo_kakap.png logo_kakap.svg logo_kakap_alt.png logo_kalbar.png logo_kalbar.svg dashboard_data.json hospital_indicators.json clinical_pathways.json cp_master_templates.json _site/ 2>/dev/null || true
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
