@@ -6119,3 +6119,67 @@ html, body {
   .lb-form-actions .lb-touch-btn { width: 100%; }
   .lb-mrn-row { flex-direction: column; }
 }
+
+/* =====================================================================
+   SARAN DIAGNOSA KEPERAWATAN SDKI PADA KARTU BED
+   ===================================================================== */
+.bed-sdki-box {
+  margin-top: 8px;
+  padding: 7px 9px;
+  border-radius: 9px;
+  background: rgba(2, 132, 199, 0.06);
+  border: 1px dashed rgba(2, 132, 199, 0.3);
+}
+
+.bed-sdki-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--primary, #0284c7);
+  margin-bottom: 5px;
+  letter-spacing: 0.01em;
+}
+
+.bed-sdki-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.bed-sdki-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 7px;
+  border: 1px solid rgba(2, 132, 199, 0.28);
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-size: 0.71rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bed-sdki-chip:hover {
+  background: var(--primary, #0284c7);
+  border-color: var(--primary, #0284c7);
+  color: #ffffff;
+}
+
+.bed-sdki-chip:hover .bed-sdki-code {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+.bed-sdki-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.67rem;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: rgba(2, 132, 199, 0.14);
+  color: var(--primary, #0284c7);
+  flex-shrink: 0;
+}

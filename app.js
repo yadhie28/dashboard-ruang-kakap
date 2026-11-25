@@ -1371,6 +1371,19 @@ function createBedCard(pt, roomDef) {
   const displayMr = maskMrNo(pt.mrNo);
   const isMasked = state.role === 'management';
 
+  // Saran Diagnosis Keperawatan SDKI (berdasarkan data spreadsheet)
+  const sdkiSuggestions = (window.KakapELogbook && typeof window.KakapELogbook.suggestSdkiForPatient === 'function')
+    ? window.KakapELogbook.suggestSdkiForPatient(pt, 3)
+    : [];
+  const sdkiHtml = sdkiSuggestions.length > 0
+    ? `<div class="bed-sdki-box" onclick="event.stopPropagation()">
+        <div class="bed-sdki-label">🩺 Saran Diagnosa Keperawatan (SDKI):</div>
+        <div class="bed-sdki-chips">
+          ${sdkiSuggestions.map(s => `<button type="button" class="bed-sdki-chip" title="Ketuk untuk langsung isi E-Logbook 3S dengan ${escapeHtml(s.code)} - ${escapeHtml(s.name)}" onclick="event.stopPropagation(); KakapELogbook.openFormFromBedCard('${escapeHtml(displayMr)}', '${escapeHtml(pt.bed)}', '${escapeHtml(s.code)}')"><span class="bed-sdki-code">${escapeHtml(s.code)}</span> ${escapeHtml(s.name)}</button>`).join('')}
+        </div>
+      </div>`
+    : '';
+
   card.innerHTML = `
     <div class="bed-card-header">
       <div style="display:flex; align-items:center; gap:0.35rem; flex-wrap:wrap;">
@@ -1399,6 +1412,7 @@ function createBedCard(pt, roomDef) {
 
       <p class="patient-diagnosis" title="${escapeHtml(pt.diagnosis)}">${escapeHtml(pt.diagnosis)}</p>
 
+      ${sdkiHtml}
       ${hasMalam ? '<div class="night-note-badge" title="Instruksi Operan Shift Malam tersedia">🌙 Catatan Malam Terisi</div>' : ''}
       ${tagsHtml ? `<div class="bed-card-tags">${tagsHtml}</div>` : ''}
     </div>

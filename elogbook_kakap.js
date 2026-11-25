@@ -1256,6 +1256,105 @@
     }
   }
 
+  // =========================================================================
+  // MESIN SARAN DIAGNOSIS KEPERAWATAN SDKI BERDASARKAN DATA SPREADSHEET
+  // =========================================================================
+  const SDKI_SUGGESTION_RULES = [
+    { code: 'D.0039', priority: 10, rx: /\b(syok|shock|hipovolemik|sepsis)\b/i },
+    { code: 'D.0003', priority: 9,  rx: /\b(edema pulmo|gagal napas|hipoksia|desaturasi|spo2)\b/i },
+    { code: 'D.0005', priority: 9,  rx: /\b(sesak|dispnea|dyspnea|efusi pleura|edema pulmo|pneumothorax|pleuritis|ppok|asma)\b/i },
+    { code: 'D.0001', priority: 8,  rx: /\b(pneumonia|cap|tb paru|tbc|bronkitis|batuk|sputum|dahak|asma|ppok)\b/i },
+    { code: 'D.0008', priority: 8,  rx: /\b(chf|adhf|gagal jantung|kardiomegali|old anterior mi|cad|af nvr|aritmia)\b/i },
+    { code: 'D.0022', priority: 9,  rx: /\b(ckd|gagal ginjal|aki|hemodialisa|on hd|pro hd|ascites|asites|sirosis|edema|chf|adhf|efusi pleura)\b/i, tagRx: /hemodialisa/i },
+    { code: 'D.0027', priority: 9,  rx: /\b(dm|diabetes|hiperglikemia|hipoglikemia|jhipoglikemia|kad|hhs|ketoasidosis)\b/i, tagRx: /monitoring dm/i },
+    { code: 'D.0037', priority: 8,  rx: /\b(hiponatremi\w*|hipokalemi\w*|hiperkalemi\w*|hipokalsemi\w*|hipona|hipok|hipoca|electrolyte|elektrolit)\b/i },
+    { code: 'D.0012', priority: 8,  rx: /\b(trombositopenia|melena|hematemesis|perdarahan|hemoroid|hemorrhoid|varises|varisses|leukimia|leukemia|aml|pansitopenia|bisitopenia)\b/i },
+    { code: 'D.0009', priority: 8,  rx: /\b(anemia|adb|pansitopenia|bisitopenia|hb\s*[0-9])\b/i, tagRx: /transfusi/i },
+    { code: 'D.0130', priority: 8,  rx: /\b(febris|demam|hipertermi\w*|thypoid|typhoid|tifoid|dhf|dbd)\b/i },
+    { code: 'D.0129', priority: 8,  rx: /\b(gangren|ulkus|dekubitus|debridemen|selulitis|abses|luka)\b/i },
+    { code: 'D.0020', priority: 8,  rx: /\b(gea|diare|diarrhea)\b/i },
+    { code: 'D.0023', priority: 7,  rx: /\b(gea|diare|dehidrasi|hipovolemi\w*|perdarahan|hematemesis|melena)\b/i },
+    { code: 'D.0076', priority: 7,  rx: /\b(vomiting|vomitus|muntah|mual|nausea|heg|hiperemesis|gastropat\w*|dispepsia|gerd|gastritis)\b/i },
+    { code: 'D.0036', priority: 7,  rx: /\b(vomiting|vomitus|ileus|heg|aki|ckd)\b/i },
+    { code: 'D.0017', priority: 8,  rx: /\b(stroke|snh|sh\b|penurunan kesadaran|ensefalopati|hipertensi|ht\s*gr|ht\s*stg)\b/i },
+    { code: 'D.0077', priority: 8,  rx: /\b(nyeri|pain|kolik|kolelithiasis|kolesistitis|bsk|lbp|post op|post debridemen|post nefrektomi|fraktur|closed femur)\b/i },
+    { code: 'D.0142', priority: 7,  rx: /\b(infeksi|infection|sepsis|leukositosis|crbsi|gangren|ulkus|dekubitus|abses|selulitis|post op|post debridemen|hiv|tb|pneumonia|isk|candidiasis|sle|bacterial)\b/i, tagRx: /bedah|operasi/i },
+    { code: 'D.0019', priority: 7,  rx: /\b(hipoalbumin|disfagia|malnutrisi|anoreksia|ca lidah|ca caput|sirosis|hepatis|ikterik)\b/i },
+    { code: 'D.0078', priority: 7,  rx: /\b(ca\s+\w+|kanker|karsinoma|tumor|massa|lymphoma|hcc|radiasi|kemo)\b/i, tagRx: /onkologi/i },
+    { code: 'D.0054', priority: 6,  rx: /\b(fraktur|closed femur|hemiparesis|stroke|snh|geriatri|dekubitus|lbp)\b/i },
+    { code: 'D.0143', priority: 6,  rx: /\b(vertigo|geriatri|penurunan kesadaran|ensefalopati|hipoglikemia|anemia gravis)\b/i },
+    { code: 'D.0147', priority: 6,  rx: /\b(post op|post debridemen|post nefrektomi)\b/i, tagRx: /bedah|operasi/i },
+    { code: 'D.0056', priority: 5,  rx: /\b(anemia|chf|adhf|lemas|kelemahan|fatigue|geriatri|sle|ckd)\b/i }
+  ];
+
+  function suggestSdkiForPatient(pt, maxCount = 3) {
+    if (!pt || pt.isEmpty) return [];
+    const dx = String(pt.diagnosis || '').trim();
+    const tagsStr = Array.isArray(pt.tags) ? pt.tags.map(t => t.label || '').join(' ') : '';
+    const notesObj = pt.notes || {};
+    const notesStr = [notesObj.pagi || '', notesObj.sore || '', notesObj.malam || ''].join(' ');
+    const combined = `${dx} ${notesStr}`.trim();
+
+    if ((!dx || dx === '-') && !tagsStr.trim()) return [];
+
+    const { SDKI_CATALOG } = getRefData();
+    const byCode = {};
+    SDKI_CATALOG.forEach(item => { byCode[item.code] = item; });
+
+    const matches = [];
+    const seen = new Set();
+
+    SDKI_SUGGESTION_RULES.forEach(rule => {
+      if (seen.has(rule.code)) return;
+      const hitText = rule.rx && rule.rx.test(combined);
+      const hitTag = rule.tagRx && rule.tagRx.test(tagsStr);
+      if (hitText || hitTag) {
+        const catItem = byCode[rule.code];
+        if (catItem) {
+          seen.add(rule.code);
+          matches.push({
+            code: catItem.code,
+            name: catItem.name,
+            category: catItem.category,
+            priority: rule.priority + (hitText && hitTag ? 1 : 0)
+          });
+        }
+      }
+    });
+
+    // Fallback wajar bila diagnosa terisi tetapi belum cocok kata kunci spesifik
+    if (matches.length === 0 && dx && dx !== '-') {
+      ['D.0056', 'D.0080'].forEach(c => {
+        if (byCode[c]) {
+          matches.push({ code: byCode[c].code, name: byCode[c].name, category: byCode[c].category, priority: 1 });
+        }
+      });
+    }
+
+    matches.sort((a, b) => b.priority - a.priority);
+    return matches.slice(0, maxCount);
+  }
+
+  function openFormFromBedCard(mrNo, bed, sdkiCode) {
+    const tabBtn = document.getElementById('btnTabELogbook3S');
+    if (tabBtn) tabBtn.click();
+
+    setTimeout(() => {
+      toggleForm(true);
+      initFormDefaults();
+      const mrnEl = document.getElementById('lbMrnInput');
+      const bedEl = document.getElementById('lbBedInput');
+      if (mrnEl && mrNo) mrnEl.value = mrNo;
+      if (bedEl && bed) bedEl.value = `Bed ${bed}`;
+      if (sdkiCode) {
+        applySdkiSelection(sdkiCode);
+      }
+      const formCard = document.getElementById('lbFormCard');
+      if (formCard) formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      toast(`Formulir E-Logbook 3S siap untuk Bed ${bed} (${sdkiCode}). SIKI & SLKI otomatis disarankan.`, 'info');
+    }, 100);
+  }
+
   window.KakapELogbook = {
     init,
     toggleForm,
@@ -1292,7 +1391,9 @@
     configureCloudSync,
     openLocalModal,
     closeLocalModal,
-    onClinicalRoleChanged
+    onClinicalRoleChanged,
+    suggestSdkiForPatient,
+    openFormFromBedCard
   };
 
   if (document.readyState === 'loading') {
