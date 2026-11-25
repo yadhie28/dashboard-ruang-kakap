@@ -300,16 +300,6 @@
               ],
               "diagnosis": "anemia TB kelenjar on OAT B20",
               "reason": "Inklusi: Diagnosa sesuai Clinical Pathway HIV/AIDS (ICD-10 B20)"
-            },
-            {
-              "mrNo": "00261525",
-              "name": "Tn. Muh Jamil",
-              "bed": "9.1",
-              "datesSeen": [
-                "2026-11-24"
-              ],
-              "diagnosis": "anemia TB kelenjar on OAT\n\n\n B20",
-              "reason": "Inklusi: Diagnosa sesuai Clinical Pathway HIV/AIDS (ICD-10 B20)"
             }
           ]
         },
