@@ -1315,7 +1315,7 @@
                 "2026-11-25",
                 "2026-11-26"
               ],
-              "diagnosis": "Pansitopenia | Pansitopenia kardiomegali | Pansitopenia Kardiomegali Skoliosis | Pansitopenia Kardiomegali Skoliosis Bronkitis | Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale"
+              "diagnosis": "Pansitopenia | Pansitopenia kardiomegali | Pansitopenia Kardiomegali Skoliosis | Pansitopenia Kardiomegali Skoliosis Bronkitis | Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale | Pansitopenia Kardiomegali Skoliosis Bronkitis leukopenia"
             },
             {
               "mrNo": "0030****",
@@ -6943,7 +6943,8 @@
             "Pansitopenia kardiomegali",
             "Pansitopenia Kardiomegali Skoliosis",
             "Pansitopenia Kardiomegali Skoliosis Bronkitis",
-            "Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale"
+            "Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale",
+            "Pansitopenia Kardiomegali Skoliosis Bronkitis leukopenia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -6952,7 +6953,7 @@
           "losLatest": 8,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia kardiomegali | Pansitopenia Kardiomegali Skoliosis | Pansitopenia Kardiomegali Skoliosis Bronkitis | Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale",
+          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia kardiomegali | Pansitopenia Kardiomegali Skoliosis | Pansitopenia Kardiomegali Skoliosis Bronkitis | Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale | Pansitopenia Kardiomegali Skoliosis Bronkitis leukopenia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -12594,7 +12595,8 @@
             "Pansitopenia kardiomegali",
             "Pansitopenia Kardiomegali Skoliosis",
             "Pansitopenia Kardiomegali Skoliosis Bronkitis",
-            "Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale"
+            "Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale",
+            "Pansitopenia Kardiomegali Skoliosis Bronkitis leukopenia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -12603,7 +12605,7 @@
           "losLatest": 8,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia kardiomegali | Pansitopenia Kardiomegali Skoliosis | Pansitopenia Kardiomegali Skoliosis Bronkitis | Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale",
+          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia kardiomegali | Pansitopenia Kardiomegali Skoliosis | Pansitopenia Kardiomegali Skoliosis Bronkitis | Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale | Pansitopenia Kardiomegali Skoliosis Bronkitis leukopenia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -14349,7 +14351,7 @@
           "bed": "ISOLASI",
           "name": "Ny. T*** S*** L***",
           "mrNo": "0030****",
-          "diagnosis": "Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale",
+          "diagnosis": "Pansitopenia Kardiomegali Skoliosis Bronkitis leukopenia",
           "doctor": "dr. Harry Andhika, Sp.PD",
           "los": 8,
           "gender": "P",
@@ -18686,7 +18688,8 @@
             "Pansitopenia kardiomegali",
             "Pansitopenia Kardiomegali Skoliosis",
             "Pansitopenia Kardiomegali Skoliosis Bronkitis",
-            "Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale"
+            "Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale",
+            "Pansitopenia Kardiomegali Skoliosis Bronkitis leukopenia"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -18695,7 +18698,7 @@
           "losLatest": 8,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia kardiomegali | Pansitopenia Kardiomegali Skoliosis | Pansitopenia Kardiomegali Skoliosis Bronkitis | Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale",
+          "diagnosisSpreadsheet": "Pansitopenia | Pansitopenia kardiomegali | Pansitopenia Kardiomegali Skoliosis | Pansitopenia Kardiomegali Skoliosis Bronkitis | Pansitopenia Kardiomegali Skoliosis HAP Asma bronkiale | Pansitopenia Kardiomegali Skoliosis Bronkitis leukopenia",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
