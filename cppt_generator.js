@@ -675,6 +675,12 @@
       previewBox.value = encoded;
     }
 
+    // Kirim sinyal ke skrip Tampermonkey v2.0 (jika terpasang) agar langsung sinkron lintas tab tanpa Cmd+V
+    try {
+      localStorage.setItem('kakap_cppt_last_package_v1', encoded);
+      window.dispatchEvent(new CustomEvent('kakap-cppt-package-ready', { detail: encoded }));
+    } catch (_) {}
+
     const filledCount = ['tanggal', 'pemeriksa', 'subjek', 'objek', 'asesmen', 'planning', 'implementation', 'evaluation', 'revised']
       .filter(k => Boolean(payload[k])).length;
 
@@ -964,8 +970,8 @@ box.innerHTML='<div style="display:flex;justify-content:space-between;align-item
 +'<div style="font-size:12px;color:#cbd5e1;margin-bottom:6px;">Tempel (Ctrl+V) paket hasil <b>Salin Semua</b> dari CPPT Generator di kotak bawah:</div>'
 +'<textarea id="kInput" rows="4" placeholder="Tempel paket KAKAP_CPPT_V1::... di sini" style="width:100%;box-sizing:border-box;padding:8px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-size:12px;"></textarea>'
 +'<div style="display:flex;gap:6px;margin-top:8px;">'
-+'<button id="kFill" style="flex:1;background:#0284c7;color:#fff;border:none;border-radius:8px;padding:9px;font-weight:bold;cursor:pointer;">Isi Form SIMRS</button>'
-+'<button id="kPrompt" style="background:#0f766e;color:#fff;border:none;border-radius:8px;padding:9px 10px;font-weight:bold;cursor:pointer;" title="Tempel lewat dialog browser jika Ctrl+V terblokir modal SIMRS">Tempel</button>'
++'<button id="kAutoBtn" style="flex:1;background:#0f766e;color:#fff;border:none;border-radius:8px;padding:9px;font-weight:bold;cursor:pointer;" title="Ambil paket otomatis & langsung isi form SIMRS">⚡ Tempel &amp; Isi Otomatis</button>'
++'<button id="kFill" style="background:#0284c7;color:#fff;border:none;border-radius:8px;padding:9px 10px;font-weight:bold;cursor:pointer;">Isi Form</button>'
 +'<button id="kInspect" style="background:#334155;color:#e2e8f0;border:1px solid #475569;border-radius:8px;padding:9px 10px;font-weight:bold;cursor:pointer;">Periksa</button></div>'
 +'<div id="kStatus" style="margin-top:8px;font-size:12px;line-height:1.45;max-height:180px;overflow:auto;white-space:pre-wrap;color:#e2e8f0;"></div>'
 +'<div style="margin-top:6px;font-size:11px;color:#fbbf24;">⚠️ Tombol Simpan SIMRS tidak diklik otomatis. Periksa semua isian lalu klik Simpan sendiri.</div>';
@@ -978,57 +984,71 @@ var kIn=document.getElementById('kInput');
 var kSt=document.getElementById('kStatus');
 function runFillNow(val){
   var res=fillAll(val);
-  if(res.error){kSt.style.color='#fca5a5';kSt.textContent=res.error;return;}
+  if(res.error){kSt.style.color='#fca5a5';kSt.textContent=res.error;return false;}
   kSt.style.color=res.failList.length?'#fde68a':'#86efac';
   kSt.textContent='Berhasil mengisi '+res.okCount+' dari '+res.total+' isian.\\n'
     +(res.okList.length?'✓ Terisi: '+res.okList.join(', ')+'\\n':'')
     +(res.failList.length?'✕ Gagal / perlu diisi manual:\\n- '+res.failList.join('\\n- '):'Semua 9 isian berhasil terisi! Silakan periksa lalu klik Simpan.');
+  return true;
+}
+function tryAutoReadAndFill(isSilentInit){
+  if(typeof window.__kakapGetSavedPkg==='function'){
+    try{
+      var gmPkg=window.__kakapGetSavedPkg();
+      if(gmPkg&&String(gmPkg).trim()){
+        kIn.value=String(gmPkg);
+        if(runFillNow(kIn.value))return;
+      }
+    }catch(e){}
+  }
+  if(navigator.clipboard&&typeof navigator.clipboard.readText==='function'){
+    navigator.clipboard.readText().then(function(txt){
+      if(txt&&txt.trim()&&parsePacket(txt).data){
+        kIn.value=txt;
+        runFillNow(kIn.value);
+      }else if(!isSilentInit){
+        kSt.style.color='#fde68a';
+        kSt.textContent='Clipboard tidak berisi paket CPPT. Klik "Salin Semua" di CPPT Generator terlebih dahulu, lalu klik "Tempel & Isi Otomatis" lagi.';
+      }
+    }).catch(function(){
+      if(!isSilentInit){
+        kIn.focus();
+        kSt.style.color='#fde68a';
+        kSt.textContent='Chrome memblokir baca clipboard otomatis di alamat HTTP (192.168.234.100).\\nPilihan cepat:\\n1) Tekan Cmd+V / Ctrl+V di kotak atas (langsung mengisi otomatis!), ATAU\\n2) Aktifkan 1-klik permanen tanpa Cmd+V lewat Tampermonkey v2.0 / chrome://flags (lihat panduan di CPPT Generator).';
+      }
+    });
+    return;
+  }
+  if(!isSilentInit){
+    kIn.focus();
+    var pasted=false;
+    try{pasted=document.execCommand('paste');}catch(e){}
+    if(pasted&&kIn.value&&kIn.value.trim()){
+      runFillNow(kIn.value);
+      return;
+    }
+    kSt.style.color='#fde68a';
+    kSt.textContent='Chrome memblokir baca clipboard otomatis pada alamat HTTP (http://192.168.234.100).\\n• Untuk langsung mengisi sekarang: tekan Cmd+V / Ctrl+V di kotak atas (otomatis mengisi form!).\\n• Untuk 1-klik tombol permanen tanpa Cmd+V: pasang Tampermonkey v2.0 atau tambahkan http://192.168.234.100 di chrome://flags/#unsafely-treat-insecure-origin-as-secure.';
+  }
 }
 document.getElementById('kClose').onclick=function(){box.remove();};
 kIn.addEventListener('paste',function(){
   setTimeout(function(){
     var p=parsePacket(kIn.value);
     if(p.data){
-      kSt.style.color='#86efac';
-      kSt.textContent='✓ Paket CPPT valid terdeteksi! Klik "Isi Form SIMRS" untuk mengisi formulir.';
+      runFillNow(kIn.value);
     }else if(p.error){
       kSt.style.color='#fca5a5';
       kSt.textContent=p.error;
     }
   },30);
 });
-document.getElementById('kPrompt').onclick=function(){
-  if(navigator.clipboard&&navigator.clipboard.readText){
-    navigator.clipboard.readText().then(function(txt){
-      if(txt&&txt.trim()){kIn.value=txt;runFillNow(kIn.value);return;}
-      var pr=window.prompt('Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
-      if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
-    }).catch(function(){
-      var pr=window.prompt('Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
-      if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
-    });
-  }else{
-    var pr=window.prompt('Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
-    if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
-  }
+document.getElementById('kAutoBtn').onclick=function(){
+  tryAutoReadAndFill(false);
 };
 document.getElementById('kFill').onclick=function(){
   if(!String(kIn.value||'').trim()){
-    if(navigator.clipboard&&navigator.clipboard.readText){
-      navigator.clipboard.readText().then(function(txt){
-        if(txt&&txt.trim()){kIn.value=txt;runFillNow(kIn.value);}
-        else{
-          var pr=window.prompt('Kotak masih kosong. Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
-          if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
-        }
-      }).catch(function(){
-        var pr=window.prompt('Kotak masih kosong. Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
-        if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
-      });
-      return;
-    }
-    var pr=window.prompt('Kotak masih kosong. Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
-    if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
+    tryAutoReadAndFill(false);
     return;
   }
   runFillNow(kIn.value);
@@ -1037,7 +1057,10 @@ document.getElementById('kInspect').onclick=function(){
   kSt.style.color='#93c5fd';
   kSt.textContent='Daftar isian terdeteksi di halaman ini:\\n'+inspectForm();
 };
-setTimeout(function(){try{kIn.focus();}catch(e){}},50);
+setTimeout(function(){
+  try{kIn.focus();}catch(e){}
+  tryAutoReadAndFill(true);
+},60);
 })();`;
   }
 
@@ -1050,18 +1073,37 @@ setTimeout(function(){try{kIn.focus();}catch(e){}},50);
     return `// ==UserScript==
 // @name         Tombol Pintar CPPT Ruang Kakap (SIMRS Soedarso)
 // @namespace    https://yadhie28.github.io/dashboard-ruang-kakap/
-// @version      1.2
-// @description  Menampilkan tombol pengisi otomatis CPPT SOAPIER di halaman form CPPT SIMRS RSUD dr. Soedarso (tidak mengklik Simpan otomatis).
+// @version      2.0
+// @description  1-klik isi otomatis CPPT SOAPIER di SIMRS RSUD dr. Soedarso TANPA Cmd+V / Ctrl+V (tidak mengklik Simpan otomatis).
+// @match        https://yadhie28.github.io/dashboard-ruang-kakap/*
 // @match        http://192.168.234.100/rawatinap/Cppt/*
-// @grant        none
+// @grant        GM_setValue
+// @grant        GM_getValue
 // ==/UserScript==
 
 (function() {
   'use strict';
+  const KEY = 'kakap_cppt_last_pkg_v2';
+
+  // Di tab Dashboard Ruang Kakap: tangkap otomatis paket saat perawat klik "Salin Semua"
+  if (location.hostname.indexOf('github.io') !== -1) {
+    window.addEventListener('kakap-cppt-package-ready', function(ev) {
+      if (ev && ev.detail) {
+        GM_setValue(KEY, String(ev.detail));
+      }
+    });
+    return;
+  }
+
+  // Di tab SIMRS: sediakan jembatan 1-klik tanpa Cmd+V / Ctrl+V
+  window.__kakapGetSavedPkg = function() {
+    return GM_getValue(KEY, '');
+  };
+
   const btn = document.createElement('button');
-  btn.textContent = '⚡ Isi CPPT Kakap';
+  btn.textContent = '⚡ Isi CPPT Kakap (1-Klik)';
   btn.type = 'button';
-  btn.style.cssText = 'position:fixed;bottom:18px;right:18px;z-index:999998;background:#0284c7;color:#fff;border:none;border-radius:999px;padding:10px 16px;font-weight:bold;font-size:13px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.3);';
+  btn.style.cssText = 'position:fixed;bottom:18px;right:18px;z-index:999998;background:#0f766e;color:#fff;border:none;border-radius:999px;padding:11px 18px;font-weight:bold;font-size:13px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.35);';
   btn.onclick = function() {
     ${getBookmarkletSource()}
   };

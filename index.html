@@ -2056,7 +2056,7 @@
           <li><strong>Tampilkan Bilah Bookmark Chrome:</strong> tekan tombol <code>Ctrl + Shift + B</code> di keyboard (di Mac: <code>Cmd + Shift + B</code>) sampai muncul baris bookmark di bawah alamat situs.</li>
           <li><strong>Seret Tombol Biru:</strong> klik tahan tombol biru <strong>"⚡ Isi CPPT Kakap"</strong> di atas, lalu seret dan lepaskan ke baris bookmark Chrome. <em>(Jika tidak bisa diseret, klik "Salin Kode Tombol Pintar", lalu klik kanan baris bookmark → Tambahkan halaman → beri nama "Isi CPPT Kakap" → tempel di kolom URL → Simpan.)</em></li>
           <li><strong>Buka Form CPPT di SIMRS RS:</strong> login SIMRS seperti biasa dan buka halaman <em>Tambah CPPT</em> pasien yang bersangkutan.</li>
-          <li><strong>Klik "⚡ Isi CPPT Kakap" di Bookmark Bar:</strong> akan muncul kotak kecil di pojok kanan atas SIMRS. Tempel (<code>Ctrl + V</code>) paket hasil <strong>Salin Semua</strong>, lalu klik <strong>Isi Form SIMRS</strong>. <em>(Ada juga tombol <strong>Periksa Form</strong> untuk melihat kolom apa saja yang terdeteksi di SIMRS.)</em></li>
+          <li><strong>Klik "⚡ Isi CPPT Kakap" di Bookmark Bar:</strong> paket akan langsung dibaca &amp; diisi otomatis bila izin clipboard aktif. <em>(Catatan: karena SIMRS memakai <code>http://192.168.234.100</code>, agar cukup <strong>1 klik tombol tanpa Cmd+V / Ctrl+V</strong>, aktifkan 1 kali saja: buka tab baru Chrome ke <code>chrome://flags/#unsafely-treat-insecure-origin-as-secure</code> → isi <code>http://192.168.234.100</code> → pilih <strong>Enabled</strong> → <strong>Relaunch</strong>; atau gunakan opsi <strong>Tampermonkey v2.0</strong> di bawah.)</em></li>
           <li><strong>Periksa lalu Klik Simpan Sendiri:</strong> Tombol Pintar <strong>tidak pernah mengklik Simpan otomatis</strong>. Periksa semua isian dan ringkasan ("Berhasil mengisi X dari 9 isian"), lalu tekan tombol <strong>Simpan</strong> hijau di SIMRS.</li>
         </ol>
 
@@ -2820,7 +2820,7 @@
   <script src="logo_asset.js"></script>
   <script src="sdki_siki_slki_data.js?v=20261125e"></script>
   <script src="elogbook_kakap.js?v=20261125e"></script>
-  <script src="cppt_generator.js?v=20261126b"></script>
+  <script src="cppt_generator.js?v=20261126c"></script>
   <script src="app.js?v=20261125e"></script>
 </body>
 </html>
