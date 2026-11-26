@@ -35,12 +35,12 @@
         "2026-11-25",
         "2026-11-26"
       ],
-      "totalObservations": 915,
+      "totalObservations": 917,
       "observationsIncludedCount": 103,
-      "observationsExcludedCount": 812,
-      "totalUniquePatients": 182,
+      "observationsExcludedCount": 814,
+      "totalUniquePatients": 184,
       "uniqueIncludedCount": 15,
-      "uniqueExcludedCount": 167,
+      "uniqueExcludedCount": 169,
       "uniqueCoveragePct": 8.2,
       "perCpSummary": {
         "CP-MAMMAE-001": {
@@ -58,7 +58,7 @@
           "kodeIcd10": "E11.22",
           "uniqueCount": 12,
           "pctOfIncluded": 80.0,
-          "pctOfTotal": 6.6,
+          "pctOfTotal": 6.5,
           "patients": [
             {
               "mrNo": "0030****",
@@ -348,7 +348,7 @@
           "category": "NON_CP_DIAGNOSA_LAIN",
           "label": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "color": "#dc2626",
-          "count": 103,
+          "count": 105,
           "patients": [
             {
               "mrNo": "0026****",
@@ -437,7 +437,7 @@
             {
               "mrNo": "0027****",
               "name": "Ny. A***",
-              "bed": "4.2",
+              "bed": "4.1",
               "datesSeen": [
                 "2026-11-03",
                 "2026-11-04",
@@ -447,9 +447,10 @@
                 "2026-11-08",
                 "2026-11-09",
                 "2026-11-10",
-                "2026-11-11"
+                "2026-11-11",
+                "2026-11-26"
               ],
-              "diagnosis": "Oedema Anasarka HT"
+              "diagnosis": "Oedema Anasarka HT | obs dyspnea susp edema pulmo AKI dd CKD hipoalbumin"
             },
             {
               "mrNo": "0011****",
@@ -1653,7 +1654,7 @@
                 "2026-11-25",
                 "2026-11-26"
               ],
-              "diagnosis": "Hipokalsemia Post Op Tiroidektomi HT"
+              "diagnosis": "Hipokalsemia Post Op Tiroidektomi HT | Hipokalemia Post Op Tiroidektomi HT"
             },
             {
               "mrNo": "0030****",
@@ -1666,13 +1667,22 @@
               "diagnosis": "NHL Ca Related Anemia"
             },
             {
-              "mrNo": "****",
-              "name": "B*** P*** D*** A***",
+              "mrNo": "0030****",
+              "name": "Tn. A*** G*** H*** R***",
               "bed": "1.2",
               "datesSeen": [
                 "2026-11-26"
               ],
-              "diagnosis": "-"
+              "diagnosis": "Ascites Hepatoma"
+            },
+            {
+              "mrNo": "0015****",
+              "name": "Ny. P*** S***",
+              "bed": "3.3",
+              "datesSeen": [
+                "2026-11-26"
+              ],
+              "diagnosis": "OBS Dssypneu ec susp tb CHF"
             },
             {
               "mrNo": "0030****",
@@ -1682,9 +1692,18 @@
                 "2026-11-26"
               ],
               "diagnosis": "prolonged fever"
+            },
+            {
+              "mrNo": "0024****",
+              "name": "Ny. M*** I***",
+              "bed": "10.2",
+              "datesSeen": [
+                "2026-11-26"
+              ],
+              "diagnosis": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH"
             }
           ],
-          "pct": 61.7
+          "pct": 62.1
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
@@ -2270,7 +2289,7 @@
               "diagnosis": "CKD on HD | CKD on HD Edema Paru"
             }
           ],
-          "pct": 27.5
+          "pct": 27.2
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -2472,10 +2491,9 @@
                 "2026-11-22",
                 "2026-11-23",
                 "2026-11-24",
-                "2026-11-25",
-                "2026-11-26"
+                "2026-11-25"
               ],
-              "diagnosis": "- susp. KAD | susp. KAD | Gastropaty DM DM tipe 2 bacterial infection | Gastropaty DM DM tipe 2 Bacterial infection"
+              "diagnosis": "- susp. KAD | susp. KAD | Gastropaty DM DM tipe 2 bacterial infection"
             },
             {
               "mrNo": "0008****",
@@ -2512,7 +2530,7 @@
               "diagnosis": "Penkes ec Hipoglikemia HT DM Type II | DM TIPE II Episode Hipoglikemia Krisis HT Leukositosis ?"
             }
           ],
-          "pct": 10.2
+          "pct": 10.1
         }
       },
       "dailyBreakdown": [
@@ -2679,10 +2697,10 @@
         },
         {
           "date": "2026-11-26",
-          "total": 33,
+          "total": 35,
           "included": 2,
-          "excluded": 31,
-          "coveragePct": 6.1
+          "excluded": 33,
+          "coveragePct": 5.7
         }
       ],
       "uniquePatientsList": [
@@ -3093,7 +3111,7 @@
           "key": "00278294",
           "mrNo": "-",
           "name": "Ny. A***",
-          "bedLatest": "4.2",
+          "bedLatest": "4.1",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
           "admissionDate": "2026-11-03",
           "datesSeen": [
@@ -3105,20 +3123,22 @@
             "2026-11-08",
             "2026-11-09",
             "2026-11-10",
-            "2026-11-11"
+            "2026-11-11",
+            "2026-11-26"
           ],
-          "daysInWard": 9,
+          "daysInWard": 10,
           "diagnoses": [
-            "Oedema Anasarka HT"
+            "Oedema Anasarka HT",
+            "obs dyspnea susp edema pulmo AKI dd CKD hipoalbumin"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 10,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Oedema Anasarka HT",
+          "diagnosisSpreadsheet": "Oedema Anasarka HT | obs dyspnea susp edema pulmo AKI dd CKD hipoalbumin",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -7152,24 +7172,22 @@
             "2026-11-22",
             "2026-11-23",
             "2026-11-24",
-            "2026-11-25",
-            "2026-11-26"
+            "2026-11-25"
           ],
-          "daysInWard": 7,
+          "daysInWard": 6,
           "diagnoses": [
             "- susp. KAD",
             "susp. KAD",
-            "Gastropaty DM DM tipe 2 bacterial infection",
-            "Gastropaty DM DM tipe 2 Bacterial infection"
+            "Gastropaty DM DM tipe 2 bacterial infection"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD | Gastropaty DM DM tipe 2 bacterial infection | Gastropaty DM DM tipe 2 Bacterial infection",
+          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD | Gastropaty DM DM tipe 2 bacterial infection",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -8159,7 +8177,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Hipokalsemia Post Op Tiroidektomi HT"
+            "Hipokalsemia Post Op Tiroidektomi HT",
+            "Hipokalemia Post Op Tiroidektomi HT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8168,7 +8187,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Hipokalsemia Post Op Tiroidektomi HT",
+          "diagnosisSpreadsheet": "Hipokalsemia Post Op Tiroidektomi HT | Hipokalemia Post Op Tiroidektomi HT",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -8229,18 +8248,44 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN POLI DR.HARRY ANDIKA",
+          "key": "00308738",
           "mrNo": "-",
-          "name": "B*** P*** D*** A***",
+          "name": "Tn. A*** G*** H*** R***",
           "bedLatest": "1.2",
-          "doctor": "-",
-          "admissionDate": "2026-11-26",
+          "doctor": "dr. Harry Andhika, Sp.PD",
+          "admissionDate": "26/11/2026",
           "datesSeen": [
             "2026-11-26"
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "-"
+            "Ascites Hepatoma"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Ascites Hepatoma",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00150615",
+          "mrNo": "-",
+          "name": "Ny. P*** S***",
+          "bedLatest": "3.3",
+          "doctor": "dr. Yustar Mulyadi, Sp.PD",
+          "admissionDate": "26/11/2026",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "OBS Dssypneu ec susp tb CHF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8249,7 +8294,7 @@
           "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "-",
+          "diagnosisSpreadsheet": "OBS Dssypneu ec susp tb CHF",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -8276,6 +8321,32 @@
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "prolonged fever",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00242504",
+          "mrNo": "-",
+          "name": "Ny. M*** I***",
+          "bedLatest": "10.2",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "admissionDate": "26/11/2026",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -9061,7 +9132,7 @@
           "key": "00278294",
           "mrNo": "-",
           "name": "Ny. A***",
-          "bedLatest": "4.2",
+          "bedLatest": "4.1",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
           "admissionDate": "2026-11-03",
           "datesSeen": [
@@ -9073,20 +9144,22 @@
             "2026-11-08",
             "2026-11-09",
             "2026-11-10",
-            "2026-11-11"
+            "2026-11-11",
+            "2026-11-26"
           ],
-          "daysInWard": 9,
+          "daysInWard": 10,
           "diagnoses": [
-            "Oedema Anasarka HT"
+            "Oedema Anasarka HT",
+            "obs dyspnea susp edema pulmo AKI dd CKD hipoalbumin"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 10,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Oedema Anasarka HT",
+          "diagnosisSpreadsheet": "Oedema Anasarka HT | obs dyspnea susp edema pulmo AKI dd CKD hipoalbumin",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -12804,24 +12877,22 @@
             "2026-11-22",
             "2026-11-23",
             "2026-11-24",
-            "2026-11-25",
-            "2026-11-26"
+            "2026-11-25"
           ],
-          "daysInWard": 7,
+          "daysInWard": 6,
           "diagnoses": [
             "- susp. KAD",
             "susp. KAD",
-            "Gastropaty DM DM tipe 2 bacterial infection",
-            "Gastropaty DM DM tipe 2 Bacterial infection"
+            "Gastropaty DM DM tipe 2 bacterial infection"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD | Gastropaty DM DM tipe 2 bacterial infection | Gastropaty DM DM tipe 2 Bacterial infection",
+          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD | Gastropaty DM DM tipe 2 bacterial infection",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -13757,7 +13828,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Hipokalsemia Post Op Tiroidektomi HT"
+            "Hipokalsemia Post Op Tiroidektomi HT",
+            "Hipokalemia Post Op Tiroidektomi HT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -13766,7 +13838,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Hipokalsemia Post Op Tiroidektomi HT",
+          "diagnosisSpreadsheet": "Hipokalsemia Post Op Tiroidektomi HT | Hipokalemia Post Op Tiroidektomi HT",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -13827,18 +13899,44 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN POLI DR.HARRY ANDIKA",
+          "key": "00308738",
           "mrNo": "-",
-          "name": "B*** P*** D*** A***",
+          "name": "Tn. A*** G*** H*** R***",
           "bedLatest": "1.2",
-          "doctor": "-",
-          "admissionDate": "2026-11-26",
+          "doctor": "dr. Harry Andhika, Sp.PD",
+          "admissionDate": "26/11/2026",
           "datesSeen": [
             "2026-11-26"
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "-"
+            "Ascites Hepatoma"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Ascites Hepatoma",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00150615",
+          "mrNo": "-",
+          "name": "Ny. P*** S***",
+          "bedLatest": "3.3",
+          "doctor": "dr. Yustar Mulyadi, Sp.PD",
+          "admissionDate": "26/11/2026",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "OBS Dssypneu ec susp tb CHF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -13847,7 +13945,7 @@
           "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "-",
+          "diagnosisSpreadsheet": "OBS Dssypneu ec susp tb CHF",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -13877,14 +13975,40 @@
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00242504",
+          "mrNo": "-",
+          "name": "Ny. M*** I***",
+          "bedLatest": "10.2",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "admissionDate": "26/11/2026",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
         }
       ]
     },
     "today": {
-      "totalInpatients": 33,
+      "totalInpatients": 35,
       "denominatorIncluded": 2,
-      "totalExcluded": 31,
-      "wardCoveragePct": 6.1,
+      "totalExcluded": 33,
+      "wardCoveragePct": 5.7,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -13943,14 +14067,14 @@
         },
         {
           "bed": "1.2",
-          "name": "B*** P*** D*** A***",
-          "mrNo": "****",
-          "diagnosis": "-",
-          "doctor": "-",
+          "name": "Tn. A*** G*** H*** R***",
+          "mrNo": "0030****",
+          "diagnosis": "Ascites Hepatoma",
+          "doctor": "dr. Harry Andhika, Sp.PD",
           "los": 1,
-          "gender": "P",
+          "gender": "L",
           "age": "",
-          "admissionDate": "2026-11-26",
+          "admissionDate": "26/11/2026",
           "date": "2026-11-26",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
@@ -14043,7 +14167,7 @@
           "bed": "3.1",
           "name": "Ny. Z***",
           "mrNo": "0020****",
-          "diagnosis": "Hipokalsemia Post Op Tiroidektomi HT",
+          "diagnosis": "Hipokalemia Post Op Tiroidektomi HT",
           "doctor": "dr. Harry Andhika, Sp.PD",
           "los": 2,
           "gender": "P",
@@ -14069,17 +14193,17 @@
         },
         {
           "bed": "3.3",
-          "name": "Ny. F***",
-          "mrNo": "0026****",
-          "diagnosis": "Gastropaty DM DM tipe 2 Bacterial infection",
-          "doctor": "dr. Decky Andrea, Sp.PD",
-          "los": 7,
+          "name": "Ny. P*** S***",
+          "mrNo": "0015****",
+          "diagnosis": "OBS Dssypneu ec susp tb CHF",
+          "doctor": "dr. Yustar Mulyadi, Sp.PD",
+          "los": 1,
           "gender": "P",
           "age": "",
-          "admissionDate": "20/11/2026",
+          "admissionDate": "26/11/2026",
           "date": "2026-11-26",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "3.4",
@@ -14094,6 +14218,20 @@
           "date": "2026-11-26",
           "status": "EXCLUDED",
           "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
+          "bed": "4.1",
+          "name": "Ny. A***",
+          "mrNo": "0027****",
+          "diagnosis": "obs dyspnea susp edema pulmo AKI dd CKD hipoalbumin",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "26/11/2026",
+          "date": "2026-11-26",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "5.1",
@@ -14320,6 +14458,20 @@
           "exclusionReason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
+          "bed": "10.2",
+          "name": "Ny. M*** I***",
+          "mrNo": "0024****",
+          "diagnosis": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "26/11/2026",
+          "date": "2026-11-26",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
           "bed": "10.3",
           "name": "Ny. S***",
           "mrNo": "0030****",
@@ -14364,9 +14516,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 915,
+      "totalRecords": 917,
       "uniqueIncludedCount": 15,
-      "totalExcludedRecords": 812,
+      "totalExcludedRecords": 814,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 12,
@@ -15154,7 +15306,7 @@
           "key": "00278294",
           "mrNo": "-",
           "name": "Ny. A***",
-          "bedLatest": "4.2",
+          "bedLatest": "4.1",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
           "admissionDate": "2026-11-03",
           "datesSeen": [
@@ -15166,20 +15318,22 @@
             "2026-11-08",
             "2026-11-09",
             "2026-11-10",
-            "2026-11-11"
+            "2026-11-11",
+            "2026-11-26"
           ],
-          "daysInWard": 9,
+          "daysInWard": 10,
           "diagnoses": [
-            "Oedema Anasarka HT"
+            "Oedema Anasarka HT",
+            "obs dyspnea susp edema pulmo AKI dd CKD hipoalbumin"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
-          "losLatest": 10,
+          "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Oedema Anasarka HT",
+          "diagnosisSpreadsheet": "Oedema Anasarka HT | obs dyspnea susp edema pulmo AKI dd CKD hipoalbumin",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -18897,24 +19051,22 @@
             "2026-11-22",
             "2026-11-23",
             "2026-11-24",
-            "2026-11-25",
-            "2026-11-26"
+            "2026-11-25"
           ],
-          "daysInWard": 7,
+          "daysInWard": 6,
           "diagnoses": [
             "- susp. KAD",
             "susp. KAD",
-            "Gastropaty DM DM tipe 2 bacterial infection",
-            "Gastropaty DM DM tipe 2 Bacterial infection"
+            "Gastropaty DM DM tipe 2 bacterial infection"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
           "reason": "Eksklusi: DM Tipe II tanpa komplikasi CKD/DKD (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
-          "losLatest": 7,
+          "losLatest": 6,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD | Gastropaty DM DM tipe 2 bacterial infection | Gastropaty DM DM tipe 2 Bacterial infection",
+          "diagnosisSpreadsheet": "- susp. KAD | susp. KAD | Gastropaty DM DM tipe 2 bacterial infection",
           "exclusionCategory": "DM_NON_CKD",
           "exclusionCategoryLabel": "DM Tipe II tanpa Komplikasi CKD/DKD",
           "exclusionCategoryColor": "#f59e0b"
@@ -19850,7 +20002,8 @@
           ],
           "daysInWard": 2,
           "diagnoses": [
-            "Hipokalsemia Post Op Tiroidektomi HT"
+            "Hipokalsemia Post Op Tiroidektomi HT",
+            "Hipokalemia Post Op Tiroidektomi HT"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -19859,7 +20012,7 @@
           "losLatest": 2,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Hipokalsemia Post Op Tiroidektomi HT",
+          "diagnosisSpreadsheet": "Hipokalsemia Post Op Tiroidektomi HT | Hipokalemia Post Op Tiroidektomi HT",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -19920,18 +20073,44 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
-          "key": "BOOKINGAN POLI DR.HARRY ANDIKA",
+          "key": "00308738",
           "mrNo": "-",
-          "name": "B*** P*** D*** A***",
+          "name": "Tn. A*** G*** H*** R***",
           "bedLatest": "1.2",
-          "doctor": "-",
-          "admissionDate": "2026-11-26",
+          "doctor": "dr. Harry Andhika, Sp.PD",
+          "admissionDate": "26/11/2026",
           "datesSeen": [
             "2026-11-26"
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "-"
+            "Ascites Hepatoma"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "L",
+          "age": "",
+          "diagnosisSpreadsheet": "Ascites Hepatoma",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00150615",
+          "mrNo": "-",
+          "name": "Ny. P*** S***",
+          "bedLatest": "3.3",
+          "doctor": "dr. Yustar Mulyadi, Sp.PD",
+          "admissionDate": "26/11/2026",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "OBS Dssypneu ec susp tb CHF"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -19940,7 +20119,7 @@
           "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "-",
+          "diagnosisSpreadsheet": "OBS Dssypneu ec susp tb CHF",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -19967,6 +20146,32 @@
           "gender": "P",
           "age": "",
           "diagnosisSpreadsheet": "prolonged fever",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00242504",
+          "mrNo": "-",
+          "name": "Ny. M*** I***",
+          "bedLatest": "10.2",
+          "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
+          "admissionDate": "26/11/2026",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -40682,8 +40887,8 @@
         "Sheet 2026-11-25",
         "Sheet 2026-11-26"
       ],
-      "totalUniqueInpatients": 182,
-      "totalObservations": 915
+      "totalUniqueInpatients": 184,
+      "totalObservations": 917
     },
     "realSummary": {
       "denominator": 15,
