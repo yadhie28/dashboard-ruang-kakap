@@ -582,22 +582,22 @@
     };
   }
 
-  async function copyTextToClipboard(text) {
-    const str = String(text || '');
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(str);
-        return true;
-      }
-    } catch (_) {}
+  function copySyncFallback(str) {
     try {
       const ta = document.createElement('textarea');
       ta.value = str;
       ta.setAttribute('readonly', '');
       ta.style.position = 'fixed';
       ta.style.top = '0';
-      ta.style.left = '-9999px';
-      ta.style.opacity = '0';
+      ta.style.left = '0';
+      ta.style.width = '2em';
+      ta.style.height = '2em';
+      ta.style.padding = '0';
+      ta.style.border = 'none';
+      ta.style.outline = 'none';
+      ta.style.boxShadow = 'none';
+      ta.style.background = 'transparent';
+      ta.style.opacity = '0.01';
       document.body.appendChild(ta);
       ta.focus();
       ta.select();
@@ -610,6 +610,46 @@
     } catch (_) {
       return false;
     }
+  }
+
+  async function copyTextToClipboard(text) {
+    const str = String(text || '');
+    // Jalankan salin sinkron DULU saat user-gesture masih aktif (agar tidak gagal di Safari/Chrome/HTTP)
+    const syncOk = copySyncFallback(str);
+    try {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        await navigator.clipboard.writeText(str);
+        return true;
+      }
+    } catch (_) {}
+    return syncOk;
+  }
+
+  function showCopyStatusBanner(msg, isSuccess) {
+    ['cpptCopyStatusTop', 'cpptCopyStatusBottom'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.display = 'block';
+      el.style.background = isSuccess ? '#ecfdf5' : '#fffbeb';
+      el.style.borderColor = isSuccess ? '#86efac' : '#fde68a';
+      el.style.color = isSuccess ? '#065f46' : '#92400e';
+      el.textContent = msg;
+    });
+  }
+
+  function selectPackageOutput() {
+    const previewBox = document.getElementById('cpptPackageOutput');
+    if (!previewBox) return;
+    if (!previewBox.value) {
+      const payload = collectFormPayload();
+      previewBox.value = PACKAGE_PREFIX + JSON.stringify(payload);
+    }
+    previewBox.focus();
+    previewBox.select();
+    if (typeof previewBox.setSelectionRange === 'function') {
+      previewBox.setSelectionRange(0, previewBox.value.length);
+    }
+    toast('Teks paket sudah diblok. Tekan Ctrl+C (Mac: Cmd+C) untuk menyalin.', 'info');
   }
 
   async function copySingleField(fieldId, label) {
@@ -640,13 +680,17 @@
 
     const ok = await copyTextToClipboard(encoded);
     if (ok) {
-      toast(`Paket CPPT (${filledCount}/9 isian) berhasil disalin! Buka form CPPT SIMRS lalu klik Tombol Pintar & tekan Ctrl+V.`, 'success');
+      const msg = `✅ Paket CPPT (${filledCount}/9 isian, ${encoded.length} karakter) berhasil disalin! Buka form CPPT SIMRS → klik "⚡ Isi CPPT Kakap" → tempel (Ctrl+V / Cmd+V) → klik "Isi Form SIMRS".`;
+      showCopyStatusBanner(msg, true);
+      toast(`Paket CPPT (${filledCount}/9 isian) berhasil disalin!`, 'success');
     } else {
       if (previewBox) {
         previewBox.focus();
         previewBox.select();
       }
-      toast('Salin otomatis diblokir browser. Teks paket di kotak bawah sudah diblok — tekan Ctrl+C (Mac: Cmd+C).', 'warning');
+      const msg = `⚠️ Salin otomatis diblokir browser. Paket (${encoded.length} karakter) sudah muncul di kotak bawah — klik "Blok Teks Paket" lalu tekan Ctrl+C / Cmd+C.`;
+      showCopyStatusBanner(msg, false);
+      toast('Silakan salin manual dari kotak paket di bawah (Ctrl+C / Cmd+C).', 'warning');
     }
     return encoded;
   }
@@ -748,11 +792,24 @@ function fireEvents(el){
   });
   try{if(window.jQuery){window.jQuery(el).trigger('change').trigger('input');}}catch(e){}
 }
+function getAllDocs(){
+  var docs=[document];
+  try{
+    var ifs=document.querySelectorAll('iframe');
+    for(var i=0;i<ifs.length;i++){
+      try{if(ifs[i].contentDocument)docs.push(ifs[i].contentDocument);}catch(e){}
+    }
+  }catch(e){}
+  return docs;
+}
 function findField(tagSel,keywords){
-  var els=Array.from(document.querySelectorAll(tagSel)).filter(function(el){
-    if(el.closest('#kakapSimrsBox'))return false;
-    if(el.type==='hidden'&&!(el.classList&&el.classList.contains('select2-hidden-accessible')))return false;
-    return true;
+  var els=[];
+  getAllDocs().forEach(function(d){
+    Array.from(d.querySelectorAll(tagSel)).forEach(function(el){
+      if(el.closest&&el.closest('#kakapSimrsBox'))return;
+      if(el.type==='hidden'&&!(el.classList&&el.classList.contains('select2-hidden-accessible')))return;
+      els.push(el);
+    });
   });
   for(var k=0;k<keywords.length;k++){
     var kw=keywords[k];
@@ -908,11 +965,15 @@ box.innerHTML='<div style="display:flex;justify-content:space-between;align-item
 +'<textarea id="kInput" rows="4" placeholder="Tempel paket KAKAP_CPPT_V1::... di sini" style="width:100%;box-sizing:border-box;padding:8px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-size:12px;"></textarea>'
 +'<div style="display:flex;gap:6px;margin-top:8px;">'
 +'<button id="kFill" style="flex:1;background:#0284c7;color:#fff;border:none;border-radius:8px;padding:9px;font-weight:bold;cursor:pointer;">Isi Form SIMRS</button>'
-+'<button id="kPaste" style="background:#0f766e;color:#fff;border:none;border-radius:8px;padding:9px 10px;font-weight:bold;cursor:pointer;" title="Ambil langsung dari Clipboard">Tempel</button>'
++'<button id="kPrompt" style="background:#0f766e;color:#fff;border:none;border-radius:8px;padding:9px 10px;font-weight:bold;cursor:pointer;" title="Tempel lewat dialog browser jika Ctrl+V terblokir modal SIMRS">Tempel</button>'
 +'<button id="kInspect" style="background:#334155;color:#e2e8f0;border:1px solid #475569;border-radius:8px;padding:9px 10px;font-weight:bold;cursor:pointer;">Periksa</button></div>'
 +'<div id="kStatus" style="margin-top:8px;font-size:12px;line-height:1.45;max-height:180px;overflow:auto;white-space:pre-wrap;color:#e2e8f0;"></div>'
 +'<div style="margin-top:6px;font-size:11px;color:#fbbf24;">⚠️ Tombol Simpan SIMRS tidak diklik otomatis. Periksa semua isian lalu klik Simpan sendiri.</div>';
-document.body.appendChild(box);
+var hostModal=document.querySelector('.modal.show,.modal.in,.modal[style*="display: block"]');
+(hostModal||document.body).appendChild(box);
+['focusin','mousedown','click','keydown','keyup','keypress','paste'].forEach(function(ev){
+  box.addEventListener(ev,function(e){e.stopPropagation();},false);
+});
 var kIn=document.getElementById('kInput');
 var kSt=document.getElementById('kStatus');
 function runFillNow(val){
@@ -936,28 +997,38 @@ kIn.addEventListener('paste',function(){
     }
   },30);
 });
-document.getElementById('kPaste').onclick=function(){
+document.getElementById('kPrompt').onclick=function(){
   if(navigator.clipboard&&navigator.clipboard.readText){
     navigator.clipboard.readText().then(function(txt){
-      kIn.value=txt||'';
-      runFillNow(kIn.value);
+      if(txt&&txt.trim()){kIn.value=txt;runFillNow(kIn.value);return;}
+      var pr=window.prompt('Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
+      if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
     }).catch(function(){
-      kIn.focus();
-      kSt.style.color='#fde68a';
-      kSt.textContent='Browser membatasi baca clipboard otomatis. Klik di kotak di atas lalu tekan Ctrl+V (Mac: Cmd+V), kemudian klik Isi Form SIMRS.';
+      var pr=window.prompt('Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
+      if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
     });
   }else{
-    kIn.focus();
-    kSt.style.color='#fde68a';
-    kSt.textContent='Silakan tekan Ctrl+V (Mac: Cmd+V) di dalam kotak di atas, lalu klik Isi Form SIMRS.';
+    var pr=window.prompt('Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
+    if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
   }
 };
 document.getElementById('kFill').onclick=function(){
-  if(!String(kIn.value||'').trim()&&navigator.clipboard&&navigator.clipboard.readText){
-    navigator.clipboard.readText().then(function(txt){
-      if(txt&&txt.trim()){kIn.value=txt;}
-      runFillNow(kIn.value);
-    }).catch(function(){runFillNow(kIn.value);});
+  if(!String(kIn.value||'').trim()){
+    if(navigator.clipboard&&navigator.clipboard.readText){
+      navigator.clipboard.readText().then(function(txt){
+        if(txt&&txt.trim()){kIn.value=txt;runFillNow(kIn.value);}
+        else{
+          var pr=window.prompt('Kotak masih kosong. Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
+          if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
+        }
+      }).catch(function(){
+        var pr=window.prompt('Kotak masih kosong. Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
+        if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
+      });
+      return;
+    }
+    var pr=window.prompt('Kotak masih kosong. Tempel (Ctrl+V / Cmd+V) paket hasil Salin Semua di sini lalu klik OK:','');
+    if(pr!=null){kIn.value=pr;runFillNow(kIn.value);}
     return;
   }
   runFillNow(kIn.value);
@@ -966,7 +1037,7 @@ document.getElementById('kInspect').onclick=function(){
   kSt.style.color='#93c5fd';
   kSt.textContent='Daftar isian terdeteksi di halaman ini:\\n'+inspectForm();
 };
-kIn.focus();
+setTimeout(function(){try{kIn.focus();}catch(e){}},50);
 })();`;
   }
 
@@ -979,7 +1050,7 @@ kIn.focus();
     return `// ==UserScript==
 // @name         Tombol Pintar CPPT Ruang Kakap (SIMRS Soedarso)
 // @namespace    https://yadhie28.github.io/dashboard-ruang-kakap/
-// @version      1.1
+// @version      1.2
 // @description  Menampilkan tombol pengisi otomatis CPPT SOAPIER di halaman form CPPT SIMRS RSUD dr. Soedarso (tidak mengklik Simpan otomatis).
 // @match        http://192.168.234.100/rawatinap/Cppt/*
 // @grant        none
@@ -1054,6 +1125,7 @@ kIn.focus();
     duplicateFromPrevious,
     copySingleField,
     copyAllPackage,
+    selectPackageOutput,
     openTemplateEditor,
     closeTemplateEditor,
     saveTemplateFromModal,
