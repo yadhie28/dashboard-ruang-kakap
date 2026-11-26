@@ -558,8 +558,16 @@
     toast('Draf CPPT sebelumnya berhasil digandakan. Silakan perbarui bagian yang berubah.', 'success');
   }
 
+  function sanitizeFieldText(v) {
+    return String(v == null ? '' : v)
+      .replace(/\r\n/g, '\n')
+      .replace(/\r/g, '\n')
+      .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFEFF]/g, '')
+      .trim();
+  }
+
   function collectFormPayload() {
-    const getVal = (id) => (document.getElementById(id)?.value || '').trim();
+    const getVal = (id) => sanitizeFieldText(document.getElementById(id)?.value || '');
     return {
       v: 1,
       tanggal: getVal('cpptDateTimeInput'),
@@ -575,22 +583,30 @@
   }
 
   async function copyTextToClipboard(text) {
+    const str = String(text || '');
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(text);
+        await navigator.clipboard.writeText(str);
         return true;
       }
     } catch (_) {}
     try {
       const ta = document.createElement('textarea');
-      ta.value = text;
+      ta.value = str;
+      ta.setAttribute('readonly', '');
       ta.style.position = 'fixed';
+      ta.style.top = '0';
       ta.style.left = '-9999px';
+      ta.style.opacity = '0';
       document.body.appendChild(ta);
+      ta.focus();
       ta.select();
+      if (typeof ta.setSelectionRange === 'function') {
+        ta.setSelectionRange(0, str.length);
+      }
       const ok = document.execCommand('copy');
       document.body.removeChild(ta);
-      return ok;
+      return Boolean(ok);
     } catch (_) {
       return false;
     }
@@ -612,15 +628,25 @@
       if (dupBtn) dupBtn.disabled = false;
     }
 
-    const encoded = PACKAGE_PREFIX + JSON.stringify(payload);
+    const jsonStr = JSON.stringify(payload);
+    const encoded = PACKAGE_PREFIX + jsonStr;
     const previewBox = document.getElementById('cpptPackageOutput');
-    if (previewBox) previewBox.value = encoded;
+    if (previewBox) {
+      previewBox.value = encoded;
+    }
+
+    const filledCount = ['tanggal', 'pemeriksa', 'subjek', 'objek', 'asesmen', 'planning', 'implementation', 'evaluation', 'revised']
+      .filter(k => Boolean(payload[k])).length;
 
     const ok = await copyTextToClipboard(encoded);
     if (ok) {
-      toast('Paket CPPT berhasil disalin! Sekarang buka form CPPT SIMRS lalu klik Tombol Pintar.', 'success');
+      toast(`Paket CPPT (${filledCount}/9 isian) berhasil disalin! Buka form CPPT SIMRS lalu klik Tombol Pintar & tekan Ctrl+V.`, 'success');
     } else {
-      toast('Paket CPPT sudah disiapkan di kotak bawah. Silakan blok & salin manual (Ctrl+C).', 'warning');
+      if (previewBox) {
+        previewBox.focus();
+        previewBox.select();
+      }
+      toast('Salin otomatis diblokir browser. Teks paket di kotak bawah sudah diblok — tekan Ctrl+C (Mac: Cmd+C).', 'warning');
     }
     return encoded;
   }
@@ -763,11 +789,72 @@ function setSelectByName(sel,targetName){
   try{if(window.jQuery&&window.jQuery(sel).data('select2')){window.jQuery(sel).val(best.value).trigger('change');}}catch(e){}
   return {ok:true,matched:best.text};
 }
+function parsePacket(rawText){
+  var raw=String(rawText||'').replace(/[\\uFEFF\\u200B-\\u200D]/g,'').trim();
+  if(!raw){
+    return {error:'Kotak masih kosong. Klik di dalam kotak lalu tekan Ctrl+V (Mac: Cmd+V) untuk menempel paket hasil "Salin Semua".'};
+  }
+  if(raw.indexOf('javascript:')===0||raw.indexOf('==UserScript==')!==-1){
+    return {error:'Yang ditempel adalah kode Tombol Pintar, bukan paket CPPT. Kembali ke tab CPPT Generator, klik "Salin Semua (Paket untuk SIMRS)", lalu tempel (Ctrl+V) lagi di sini.'};
+  }
+  var s=raw;
+  var idxV2=s.indexOf('KAKAP_CPPT_V2::');
+  if(idxV2!==-1){
+    try{
+      var b64=s.slice(idxV2+15).replace(/\\s+/g,'');
+      var bin=atob(b64);
+      var bytes=new Uint8Array(bin.length);
+      for(var bi=0;bi<bin.length;bi++)bytes[bi]=bin.charCodeAt(bi);
+      var decoded=typeof TextDecoder!=='undefined'?new TextDecoder('utf-8').decode(bytes):decodeURIComponent(escape(bin));
+      var d2=JSON.parse(decoded);
+      if(d2&&typeof d2==='object')return {data:d2};
+    }catch(e){}
+  }
+  var idxV1=s.indexOf('KAKAP_CPPT_V1::');
+  if(idxV1!==-1)s=s.slice(idxV1+15).trim();
+  function tryJson(str){
+    try{var o=JSON.parse(str);return (o&&typeof o==='object')?o:null;}catch(e){return null;}
+  }
+  var data=tryJson(s);
+  if(!data){
+    var sClean=s.replace(/[\\u201C\\u201D]/g,'"').replace(/[\\u2018\\u2019]/g,"'");
+    data=tryJson(sClean);
+    if(!data){
+      var fb=sClean.indexOf('{'),lb=sClean.lastIndexOf('}');
+      if(fb!==-1&&lb>fb){
+        var sub=sClean.slice(fb,lb+1);
+        data=tryJson(sub)||tryJson(sub.replace(/\\r?\\n/g,'\\\\n'));
+      }
+    }
+  }
+  if(!data){
+    var soap={};
+    var hasSoap=false;
+    var reMap=[
+      ['subjek',/(?:^|\\n)\\s*(?:1\\.?\\s*)?(?:SUBJEK|S)\\s*[:\\-]\\s*([\\s\\S]*?)(?=\\n\\s*(?:2\\.?\\s*)?(?:OBJEK|O|ASESMEN|A|PLANNING|P|IMPLEMENTATION|IMPLEMENTASI|I|EVALUATION|EVALUASI|E|REVISED|REVISI|R)\\s*[:\\-]|$)/i],
+      ['objek',/(?:^|\\n)\\s*(?:2\\.?\\s*)?(?:OBJEK|O)\\s*[:\\-]\\s*([\\s\\S]*?)(?=\\n\\s*(?:3\\.?\\s*)?(?:ASESMEN|A|PLANNING|P|IMPLEMENTATION|IMPLEMENTASI|I|EVALUATION|EVALUASI|E|REVISED|REVISI|R)\\s*[:\\-]|$)/i],
+      ['asesmen',/(?:^|\\n)\\s*(?:3\\.?\\s*)?(?:ASESMEN|ASSESMEN|A)\\s*[:\\-]\\s*([\\s\\S]*?)(?=\\n\\s*(?:4\\.?\\s*)?(?:PLANNING|P|IMPLEMENTATION|IMPLEMENTASI|I|EVALUATION|EVALUASI|E|REVISED|REVISI|R)\\s*[:\\-]|$)/i],
+      ['planning',/(?:^|\\n)\\s*(?:4\\.?\\s*)?(?:PLANNING|P)\\s*[:\\-]\\s*([\\s\\S]*?)(?=\\n\\s*(?:5\\.?\\s*)?(?:IMPLEMENTATION|IMPLEMENTASI|I|EVALUATION|EVALUASI|E|REVISED|REVISI|R)\\s*[:\\-]|$)/i],
+      ['implementation',/(?:^|\\n)\\s*(?:5\\.?\\s*)?(?:IMPLEMENTATION|IMPLEMENTASI|I)\\s*[:\\-]\\s*([\\s\\S]*?)(?=\\n\\s*(?:6\\.?\\s*)?(?:EVALUATION|EVALUASI|E|REVISED|REVISI|R)\\s*[:\\-]|$)/i],
+      ['evaluation',/(?:^|\\n)\\s*(?:6\\.?\\s*)?(?:EVALUATION|EVALUASI|E)\\s*[:\\-]\\s*([\\s\\S]*?)(?=\\n\\s*(?:7\\.?\\s*)?(?:REVISED|REVISI|R)\\s*[:\\-]|$)/i],
+      ['revised',/(?:^|\\n)\\s*(?:7\\.?\\s*)?(?:REVISED|REVISI|R)\\s*[:\\-]\\s*([\\s\\S]*?)$/i]
+    ];
+    reMap.forEach(function(rm){
+      var m=raw.match(rm[1]);
+      if(m&&m[1]&&m[1].trim()){soap[rm[0]]=m[1].trim();hasSoap=true;}
+    });
+    if(hasSoap)data=soap;
+  }
+  if(!data){
+    var preview=raw.slice(0,45).replace(/\\s+/g,' ');
+    return {error:'Format paket tidak valid (terbaca: "'+preview+(raw.length>45?'...':'')+'"). Pastikan Anda menekan tombol "Salin Semua (Paket untuk SIMRS)" di CPPT Generator lalu tempel (Ctrl+V) di kotak ini.'};
+  }
+  return {data:data};
+}
 function fillAll(rawText){
-  var s=String(rawText||'').trim();
-  if(s.indexOf('KAKAP_CPPT_V1::')===0)s=s.slice('KAKAP_CPPT_V1::'.length);
-  var data;
-  try{data=JSON.parse(s);}catch(e){return {error:'Format paket tidak valid. Pastikan Anda menekan "Salin Semua" di CPPT Generator lalu tempel di sini.'};}
+  var parsed=parsePacket(rawText);
+  if(parsed.error)return {error:parsed.error};
+  var data=parsed.data;
   var okList=[],failList=[];
   var elTgl=findField('input',['tanggal cppt','tgl cppt','tanggal','datetime']);
   if(elTgl&&data.tanggal){
@@ -819,28 +906,67 @@ box.innerHTML='<div style="display:flex;justify-content:space-between;align-item
 +'<button id="kClose" style="background:#334155;color:#fff;border:none;border-radius:6px;padding:3px 9px;cursor:pointer;font-weight:bold;">✕</button></div>'
 +'<div style="font-size:12px;color:#cbd5e1;margin-bottom:6px;">Tempel (Ctrl+V) paket hasil <b>Salin Semua</b> dari CPPT Generator di kotak bawah:</div>'
 +'<textarea id="kInput" rows="4" placeholder="Tempel paket KAKAP_CPPT_V1::... di sini" style="width:100%;box-sizing:border-box;padding:8px;border-radius:8px;border:1px solid #475569;background:#1e293b;color:#fff;font-size:12px;"></textarea>'
-+'<div style="display:flex;gap:8px;margin-top:8px;">'
++'<div style="display:flex;gap:6px;margin-top:8px;">'
 +'<button id="kFill" style="flex:1;background:#0284c7;color:#fff;border:none;border-radius:8px;padding:9px;font-weight:bold;cursor:pointer;">Isi Form SIMRS</button>'
-+'<button id="kInspect" style="background:#334155;color:#e2e8f0;border:1px solid #475569;border-radius:8px;padding:9px 10px;font-weight:bold;cursor:pointer;">Periksa Form</button></div>'
++'<button id="kPaste" style="background:#0f766e;color:#fff;border:none;border-radius:8px;padding:9px 10px;font-weight:bold;cursor:pointer;" title="Ambil langsung dari Clipboard">Tempel</button>'
++'<button id="kInspect" style="background:#334155;color:#e2e8f0;border:1px solid #475569;border-radius:8px;padding:9px 10px;font-weight:bold;cursor:pointer;">Periksa</button></div>'
 +'<div id="kStatus" style="margin-top:8px;font-size:12px;line-height:1.45;max-height:180px;overflow:auto;white-space:pre-wrap;color:#e2e8f0;"></div>'
 +'<div style="margin-top:6px;font-size:11px;color:#fbbf24;">⚠️ Tombol Simpan SIMRS tidak diklik otomatis. Periksa semua isian lalu klik Simpan sendiri.</div>';
 document.body.appendChild(box);
-document.getElementById('kClose').onclick=function(){box.remove();};
-document.getElementById('kFill').onclick=function(){
-  var res=fillAll(document.getElementById('kInput').value);
-  var st=document.getElementById('kStatus');
-  if(res.error){st.style.color='#fca5a5';st.textContent=res.error;return;}
-  st.style.color=res.failList.length?'#fde68a':'#86efac';
-  st.textContent='Berhasil mengisi '+res.okCount+' dari '+res.total+' isian.\\n'
+var kIn=document.getElementById('kInput');
+var kSt=document.getElementById('kStatus');
+function runFillNow(val){
+  var res=fillAll(val);
+  if(res.error){kSt.style.color='#fca5a5';kSt.textContent=res.error;return;}
+  kSt.style.color=res.failList.length?'#fde68a':'#86efac';
+  kSt.textContent='Berhasil mengisi '+res.okCount+' dari '+res.total+' isian.\\n'
     +(res.okList.length?'✓ Terisi: '+res.okList.join(', ')+'\\n':'')
     +(res.failList.length?'✕ Gagal / perlu diisi manual:\\n- '+res.failList.join('\\n- '):'Semua 9 isian berhasil terisi! Silakan periksa lalu klik Simpan.');
+}
+document.getElementById('kClose').onclick=function(){box.remove();};
+kIn.addEventListener('paste',function(){
+  setTimeout(function(){
+    var p=parsePacket(kIn.value);
+    if(p.data){
+      kSt.style.color='#86efac';
+      kSt.textContent='✓ Paket CPPT valid terdeteksi! Klik "Isi Form SIMRS" untuk mengisi formulir.';
+    }else if(p.error){
+      kSt.style.color='#fca5a5';
+      kSt.textContent=p.error;
+    }
+  },30);
+});
+document.getElementById('kPaste').onclick=function(){
+  if(navigator.clipboard&&navigator.clipboard.readText){
+    navigator.clipboard.readText().then(function(txt){
+      kIn.value=txt||'';
+      runFillNow(kIn.value);
+    }).catch(function(){
+      kIn.focus();
+      kSt.style.color='#fde68a';
+      kSt.textContent='Browser membatasi baca clipboard otomatis. Klik di kotak di atas lalu tekan Ctrl+V (Mac: Cmd+V), kemudian klik Isi Form SIMRS.';
+    });
+  }else{
+    kIn.focus();
+    kSt.style.color='#fde68a';
+    kSt.textContent='Silakan tekan Ctrl+V (Mac: Cmd+V) di dalam kotak di atas, lalu klik Isi Form SIMRS.';
+  }
+};
+document.getElementById('kFill').onclick=function(){
+  if(!String(kIn.value||'').trim()&&navigator.clipboard&&navigator.clipboard.readText){
+    navigator.clipboard.readText().then(function(txt){
+      if(txt&&txt.trim()){kIn.value=txt;}
+      runFillNow(kIn.value);
+    }).catch(function(){runFillNow(kIn.value);});
+    return;
+  }
+  runFillNow(kIn.value);
 };
 document.getElementById('kInspect').onclick=function(){
-  var st=document.getElementById('kStatus');
-  st.style.color='#93c5fd';
-  st.textContent='Daftar isian terdeteksi di halaman ini:\\n'+inspectForm();
+  kSt.style.color='#93c5fd';
+  kSt.textContent='Daftar isian terdeteksi di halaman ini:\\n'+inspectForm();
 };
-document.getElementById('kInput').focus();
+kIn.focus();
 })();`;
   }
 
@@ -853,7 +979,7 @@ document.getElementById('kInput').focus();
     return `// ==UserScript==
 // @name         Tombol Pintar CPPT Ruang Kakap (SIMRS Soedarso)
 // @namespace    https://yadhie28.github.io/dashboard-ruang-kakap/
-// @version      1.0
+// @version      1.1
 // @description  Menampilkan tombol pengisi otomatis CPPT SOAPIER di halaman form CPPT SIMRS RSUD dr. Soedarso (tidak mengklik Simpan otomatis).
 // @match        http://192.168.234.100/rawatinap/Cppt/*
 // @grant        none
