@@ -35,13 +35,13 @@
         "2026-11-25",
         "2026-11-26"
       ],
-      "totalObservations": 917,
+      "totalObservations": 919,
       "observationsIncludedCount": 103,
-      "observationsExcludedCount": 814,
-      "totalUniquePatients": 184,
+      "observationsExcludedCount": 816,
+      "totalUniquePatients": 186,
       "uniqueIncludedCount": 15,
-      "uniqueExcludedCount": 169,
-      "uniqueCoveragePct": 8.2,
+      "uniqueExcludedCount": 171,
+      "uniqueCoveragePct": 8.1,
       "perCpSummary": {
         "CP-MAMMAE-001": {
           "templateId": "CP-MAMMAE-001",
@@ -1694,22 +1694,22 @@
               "diagnosis": "prolonged fever"
             },
             {
-              "mrNo": "0024****",
-              "name": "Ny. M*** I***",
-              "bed": "10.2",
+              "mrNo": "****",
+              "name": "a*** p*** d*** d*** n*** g***",
+              "bed": "4.2",
               "datesSeen": [
                 "2026-11-26"
               ],
-              "diagnosis": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH"
+              "diagnosis": "-"
             }
           ],
-          "pct": 62.1
+          "pct": 61.4
         },
         "CKD_NON_DM": {
           "category": "CKD_NON_DM",
           "label": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "color": "#ef4444",
-          "count": 46,
+          "count": 48,
           "patients": [
             {
               "mrNo": "0030****",
@@ -2287,9 +2287,27 @@
                 "2026-11-26"
               ],
               "diagnosis": "CKD on HD | CKD on HD Edema Paru"
+            },
+            {
+              "mrNo": "0030****",
+              "name": "Ny. S***",
+              "bed": "4.3",
+              "datesSeen": [
+                "2026-11-26"
+              ],
+              "diagnosis": "CKD st V Anemia AF Susp. Pneumonia"
+            },
+            {
+              "mrNo": "0024****",
+              "name": "Ny. M*** I***",
+              "bed": "10.2",
+              "datesSeen": [
+                "2026-11-26"
+              ],
+              "diagnosis": "CKD St V Ascites"
             }
           ],
-          "pct": 27.2
+          "pct": 28.1
         },
         "STROKE_SEQUELE_LAMA": {
           "category": "STROKE_SEQUELE_LAMA",
@@ -2530,7 +2548,7 @@
               "diagnosis": "Penkes ec Hipoglikemia HT DM Type II | DM TIPE II Episode Hipoglikemia Krisis HT Leukositosis ?"
             }
           ],
-          "pct": 10.1
+          "pct": 9.9
         }
       },
       "dailyBreakdown": [
@@ -2697,10 +2715,10 @@
         },
         {
           "date": "2026-11-26",
-          "total": 35,
+          "total": 37,
           "included": 2,
-          "excluded": 33,
-          "coveragePct": 5.7
+          "excluded": 35,
+          "coveragePct": 5.4
         }
       ],
       "uniquePatientsList": [
@@ -8326,6 +8344,58 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "ANTRIAN PX DR. DARMAWAN NY. GEKHI",
+          "mrNo": "-",
+          "name": "a*** p*** d*** d*** n*** g***",
+          "bedLatest": "4.2",
+          "doctor": "-",
+          "admissionDate": "2026-11-26",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "-"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308987",
+          "mrNo": "-",
+          "name": "Ny. S***",
+          "bedLatest": "4.3",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "26/11/2026",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "CKD st V Anemia AF Susp. Pneumonia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "CKD st V Anemia AF Susp. Pneumonia",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
           "key": "00242504",
           "mrNo": "-",
           "name": "Ny. M*** I***",
@@ -8337,19 +8407,19 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH"
+            "CKD St V Ascites"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
           "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
+          "diagnosisSpreadsheet": "CKD St V Ascites",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ],
       "includedPatients": [
@@ -13977,6 +14047,58 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "ANTRIAN PX DR. DARMAWAN NY. GEKHI",
+          "mrNo": "-",
+          "name": "a*** p*** d*** d*** n*** g***",
+          "bedLatest": "4.2",
+          "doctor": "-",
+          "admissionDate": "2026-11-26",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "-"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308987",
+          "mrNo": "-",
+          "name": "Ny. S***",
+          "bedLatest": "4.3",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "26/11/2026",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "CKD st V Anemia AF Susp. Pneumonia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "CKD st V Anemia AF Susp. Pneumonia",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
           "key": "00242504",
           "mrNo": "-",
           "name": "Ny. M*** I***",
@@ -13988,27 +14110,27 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH"
+            "CKD St V Ascites"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
           "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
+          "diagnosisSpreadsheet": "CKD St V Ascites",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     },
     "today": {
-      "totalInpatients": 35,
+      "totalInpatients": 37,
       "denominatorIncluded": 2,
-      "totalExcluded": 33,
-      "wardCoveragePct": 5.7,
+      "totalExcluded": 35,
+      "wardCoveragePct": 5.4,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 2,
@@ -14224,6 +14346,34 @@
           "name": "Ny. A***",
           "mrNo": "0027****",
           "diagnosis": "obs dyspnea susp edema pulmo AKI dd CKD hipoalbumin",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "26/11/2026",
+          "date": "2026-11-26",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+        },
+        {
+          "bed": "4.2",
+          "name": "a*** p*** d*** d*** n*** g***",
+          "mrNo": "****",
+          "diagnosis": "-",
+          "doctor": "-",
+          "los": 1,
+          "gender": "P",
+          "age": "",
+          "admissionDate": "2026-11-26",
+          "date": "2026-11-26",
+          "status": "EXCLUDED",
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+        },
+        {
+          "bed": "4.3",
+          "name": "Ny. S***",
+          "mrNo": "0030****",
+          "diagnosis": "CKD st V Anemia AF Susp. Pneumonia",
           "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
           "los": 1,
           "gender": "P",
@@ -14461,7 +14611,7 @@
           "bed": "10.2",
           "name": "Ny. M*** I***",
           "mrNo": "0024****",
-          "diagnosis": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH",
+          "diagnosis": "CKD St V Ascites",
           "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
           "los": 1,
           "gender": "P",
@@ -14469,7 +14619,7 @@
           "admissionDate": "26/11/2026",
           "date": "2026-11-26",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
+          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
         },
         {
           "bed": "10.3",
@@ -14516,9 +14666,9 @@
       ]
     },
     "historical": {
-      "totalRecords": 917,
+      "totalRecords": 919,
       "uniqueIncludedCount": 15,
-      "totalExcludedRecords": 814,
+      "totalExcludedRecords": 816,
       "perCpDenominator": {
         "CP-MAMMAE-001": 0,
         "CP-DMCKD-002": 12,
@@ -20151,6 +20301,58 @@
           "exclusionCategoryColor": "#dc2626"
         },
         {
+          "key": "ANTRIAN PX DR. DARMAWAN NY. GEKHI",
+          "mrNo": "-",
+          "name": "a*** p*** d*** d*** n*** g***",
+          "bedLatest": "4.2",
+          "doctor": "-",
+          "admissionDate": "2026-11-26",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "-"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "-",
+          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
+          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
+          "exclusionCategoryColor": "#dc2626"
+        },
+        {
+          "key": "00308987",
+          "mrNo": "-",
+          "name": "Ny. S***",
+          "bedLatest": "4.3",
+          "doctor": "dr. Darmawan, M.Kes., Sp.PD-KGH, FINASIM",
+          "admissionDate": "26/11/2026",
+          "datesSeen": [
+            "2026-11-26"
+          ],
+          "daysInWard": 1,
+          "diagnoses": [
+            "CKD st V Anemia AF Susp. Pneumonia"
+          ],
+          "status": "EXCLUDED",
+          "cpId": null,
+          "cpNama": null,
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
+          "losLatest": 1,
+          "gender": "P",
+          "age": "",
+          "diagnosisSpreadsheet": "CKD st V Anemia AF Susp. Pneumonia",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
+        },
+        {
           "key": "00242504",
           "mrNo": "-",
           "name": "Ny. M*** I***",
@@ -20162,19 +20364,19 @@
           ],
           "daysInWard": 1,
           "diagnoses": [
-            "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH"
+            "CKD St V Ascites"
           ],
           "status": "EXCLUDED",
           "cpId": null,
           "cpNama": null,
-          "reason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso",
+          "reason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)",
           "losLatest": 1,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "R. SONY YUSUF WIBISONO, DR, SP.PD.,KGH",
-          "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
-          "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
-          "exclusionCategoryColor": "#dc2626"
+          "diagnosisSpreadsheet": "CKD St V Ascites",
+          "exclusionCategory": "CKD_NON_DM",
+          "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
+          "exclusionCategoryColor": "#ef4444"
         }
       ]
     }
@@ -40887,8 +41089,8 @@
         "Sheet 2026-11-25",
         "Sheet 2026-11-26"
       ],
-      "totalUniqueInpatients": 184,
-      "totalObservations": 917
+      "totalUniqueInpatients": 186,
+      "totalObservations": 919
     },
     "realSummary": {
       "denominator": 15,
