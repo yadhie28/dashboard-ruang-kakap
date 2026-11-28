@@ -7,12 +7,12 @@
   "availableBeds": 41,
   "totalDays": 25,
   "totalHP": 954,
-  "totalDischarges": 167,
+  "totalDischarges": 169,
   "sufficientData": false,
   "dischargeBreakdown": {
-    "blpl": 115,
-    "aps": 20,
-    "pindah": 2,
+    "blpl": 114,
+    "aps": 24,
+    "pindah": 1,
     "meninggal": 30,
     "meninggalGt48": 26
   },
@@ -20,12 +20,12 @@
     "bor": 93.1,
     "avlos": 12.5,
     "toi": 0.4,
-    "bto": 4.07,
-    "btoPeriod": 4.07,
+    "bto": 4.12,
+    "btoPeriod": 4.12,
     "btoAnnual": null,
     "btoUnit": "kali/25 hari",
-    "gdr": 179.6,
-    "ndr": 155.7
+    "gdr": 177.5,
+    "ndr": 153.8
   },
   "monthly": [
     {
@@ -34,22 +34,22 @@
       "hp": 954,
       "hpTim1": 487,
       "hpTim2": 467,
-      "discharges": 167,
-      "blpl": 115,
-      "aps": 20,
-      "pindah": 2,
+      "discharges": 169,
+      "blpl": 114,
+      "aps": 24,
+      "pindah": 1,
       "deaths": 30,
       "deathsGt48": 26,
       "sufficientData": false,
       "bor": 93.1,
       "avlos": 12.5,
       "toi": 0.4,
-      "bto": 4.07,
-      "btoPeriod": 4.07,
+      "bto": 4.12,
+      "btoPeriod": 4.12,
       "btoAnnual": null,
       "btoUnit": "kali/25 hari",
-      "gdr": 179.6,
-      "ndr": 155.7
+      "gdr": 177.5,
+      "ndr": 153.8
     }
   ]
 }

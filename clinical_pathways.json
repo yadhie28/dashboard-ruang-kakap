@@ -975,7 +975,7 @@
                 "2026-11-26",
                 "2026-11-28"
               ],
-              "diagnosis": "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus | Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia"
+              "diagnosis": "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus | Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | 2.15"
             },
             {
               "mrNo": "0030****",
@@ -2341,7 +2341,7 @@
                 "2026-11-26",
                 "2026-11-28"
               ],
-              "diagnosis": "CKD St V Ascites | CKD St V Ascites Efusi Pleura Edena Pulmonum"
+              "diagnosis": "CKD St V Ascites | CKD St V Ascites Efusi Pleura Edena Pulmonum HCV Reaktif"
             },
             {
               "mrNo": "0030****",
@@ -5647,7 +5647,8 @@
             "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia",
             "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia",
             "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia",
-            "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia"
+            "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia",
+            "2.15"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -5656,7 +5657,7 @@
           "losLatest": 3669,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus | Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia",
+          "diagnosisSpreadsheet": "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus | Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | 2.15",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -8524,7 +8525,7 @@
           "daysInWard": 2,
           "diagnoses": [
             "CKD St V Ascites",
-            "CKD St V Ascites Efusi Pleura Edena Pulmonum"
+            "CKD St V Ascites Efusi Pleura Edena Pulmonum HCV Reaktif"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -8533,7 +8534,7 @@
           "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD St V Ascites | CKD St V Ascites Efusi Pleura Edena Pulmonum",
+          "diagnosisSpreadsheet": "CKD St V Ascites | CKD St V Ascites Efusi Pleura Edena Pulmonum HCV Reaktif",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -11597,7 +11598,8 @@
             "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia",
             "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia",
             "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia",
-            "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia"
+            "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia",
+            "2.15"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -11606,7 +11608,7 @@
           "losLatest": 3669,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus | Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia",
+          "diagnosisSpreadsheet": "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus | Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | 2.15",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -14391,7 +14393,7 @@
           "daysInWard": 2,
           "diagnoses": [
             "CKD St V Ascites",
-            "CKD St V Ascites Efusi Pleura Edena Pulmonum"
+            "CKD St V Ascites Efusi Pleura Edena Pulmonum HCV Reaktif"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -14400,7 +14402,7 @@
           "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD St V Ascites | CKD St V Ascites Efusi Pleura Edena Pulmonum",
+          "diagnosisSpreadsheet": "CKD St V Ascites | CKD St V Ascites Efusi Pleura Edena Pulmonum HCV Reaktif",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
@@ -14938,7 +14940,7 @@
           "bed": "8.4",
           "name": "Ny. S***",
           "mrNo": "0029****",
-          "diagnosis": "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia",
+          "diagnosis": "2.15",
           "doctor": "dr. Decky Andrea, Sp.PD",
           "los": 3669,
           "gender": "P",
@@ -14946,7 +14948,7 @@
           "admissionDate": "12/11/2016",
           "date": "2026-11-28",
           "status": "EXCLUDED",
-          "exclusionReason": "Eksklusi: CKD tanpa Diabetes Mellitus (Dokumen CP khusus DM Tipe II dengan komplikasi CKD)"
+          "exclusionReason": "Eksklusi: Diagnosa medis tidak tercakup dalam 5 Clinical Pathway resmi RSUD dr. Soedarso"
         },
         {
           "bed": "9.1",
@@ -14994,7 +14996,7 @@
           "bed": "10.2",
           "name": "Ny. M*** I***",
           "mrNo": "0024****",
-          "diagnosis": "CKD St V Ascites Efusi Pleura Edena Pulmonum",
+          "diagnosis": "CKD St V Ascites Efusi Pleura Edena Pulmonum HCV Reaktif",
           "doctor": "dr. R. Sony Yusuf Wibisono, Sp.PD-KGH",
           "los": 3,
           "gender": "P",
@@ -17987,7 +17989,8 @@
             "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia",
             "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia",
             "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia",
-            "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia"
+            "Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia",
+            "2.15"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -17996,7 +17999,7 @@
           "losLatest": 3669,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus | Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia",
+          "diagnosisSpreadsheet": "Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus | Sirosis hepatis dekompensata koagulopati Anemia Trombositopenia HT Asites Hipoalbumin hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | Sirosis hepatis dekompensata Hipoalbumin Susp HRS tipe 1 Hiponatremia candidiasis intertriginosa CKD5-HD PAD hernia umbilicus low back pain ec musculogenic myalgia | 2.15",
           "exclusionCategory": "NON_CP_DIAGNOSA_LAIN",
           "exclusionCategoryLabel": "Diagnosa Medis Lain (Belum Ada Dokumen CP Resmi)",
           "exclusionCategoryColor": "#dc2626"
@@ -20781,7 +20784,7 @@
           "daysInWard": 2,
           "diagnoses": [
             "CKD St V Ascites",
-            "CKD St V Ascites Efusi Pleura Edena Pulmonum"
+            "CKD St V Ascites Efusi Pleura Edena Pulmonum HCV Reaktif"
           ],
           "status": "EXCLUDED",
           "cpId": null,
@@ -20790,7 +20793,7 @@
           "losLatest": 3,
           "gender": "P",
           "age": "",
-          "diagnosisSpreadsheet": "CKD St V Ascites | CKD St V Ascites Efusi Pleura Edena Pulmonum",
+          "diagnosisSpreadsheet": "CKD St V Ascites | CKD St V Ascites Efusi Pleura Edena Pulmonum HCV Reaktif",
           "exclusionCategory": "CKD_NON_DM",
           "exclusionCategoryLabel": "CKD / Gagal Ginjal tanpa Diabetes Mellitus",
           "exclusionCategoryColor": "#ef4444"
